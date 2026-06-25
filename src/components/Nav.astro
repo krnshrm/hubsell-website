@@ -1,0 +1,40 @@
+---
+// Faithful nav structure & links from the current site.
+// TODO(phase-1): replace markup/classes with the Webflow export, and point the
+// logo at its R2 URL once assets are migrated.
+const customerStories = [
+  { href: '/customerstories/safran', label: 'Safran Software — CAC down 30%' },
+  { href: '/customerstories/staffbase', label: 'Staffbase — 15 new markets' },
+  { href: '/customerstories/verhaert', label: 'Verhaert — 3× opportunities' },
+  { href: '/customerstories/elium', label: 'Elium — leads up 25%' },
+  { href: '/customerstories/workspace365', label: 'Workspace 365 — 100+ opportunities' },
+  { href: '/customerstories/sensolus', label: 'Sensolus — 22% reply rate' },
+];
+---
+<header>
+  <nav>
+    <a href="/" aria-label="hubsell home">
+      <!-- TODO: <img src="https://assets.hubsell.com/<hash>_hubsell-logo.avif" alt="hubsell" /> -->
+      hubsell
+    </a>
+
+    <ul>
+      <li>
+        <button type="button" aria-haspopup="true" aria-expanded="false">Customers</button>
+        <ul>
+          {customerStories.map((s) => (
+            <li><a href={s.href}>{s.label}</a></li>
+          ))}
+        </ul>
+      </li>
+      <li><a href="/insights">Insights</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#join-waitlist">Join the waitlist</a></li>
+    </ul>
+
+    <div>
+      <a href="https://app.hubsell.com/">Login</a>
+      <a href="/book-a-call">Get started</a>
+    </div>
+  </nav>
+</header>

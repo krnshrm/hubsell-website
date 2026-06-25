@@ -1,0 +1,78 @@
+---
+// Reusable waitlist form. Posts JSON to the /api/subscribe Pages Function,
+// which talks to Plunk server-side. Copy matches the current site.
+export interface Props {
+  form?: 'waitlist' | 'publish-track';
+  buttonLabel?: string;
+  placeholder?: string;
+}
+const {
+  form = 'waitlist',
+  buttonLabel = 'Join the waitlist',
+  placeholder = 'Work Email',
+} = Astro.props;
+---
+<div class="hs-form" data-form={form}>
+  <form novalidate>
+    <input
+      type="email"
+      name="email"
+      required
+      autocomplete="email"
+      placeholder={placeholder}
+      aria-label={placeholder}
+    />
+    <button type="submit">{buttonLabel}</button>
+  </form>
+  <p class="hs-form-success" hidden>You're on the waitlist. We'll be in touch soon.</p>
+  <p class="hs-form-error" hidden>Error: Please check your email and try again.</p>
+</div>
+
+<script>
+  function initWaitlistForms() {
+    document.querySelectorAll('.hs-form').forEach((root) => {
+      if (root.dataset.bound) return;
+      root.dataset.bound = 'true';
+
+      const form = root.querySelector('form');
+      const input = root.querySelector('input[name="email"]');
+      const button = root.querySelector('button[type="submit"]');
+      const success = root.querySelector('.hs-form-success');
+      const error = root.querySelector('.hs-form-error');
+      const label = button.textContent;
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        success.hidden = true;
+        error.hidden = true;
+
+        const email = (input.value || '').trim();
+        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+          error.hidden = false;
+          return;
+        }
+
+        button.disabled = true;
+        button.textContent = 'Submitting…';
+        try {
+          const res = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, form: root.dataset.form }),
+          });
+          if (!res.ok) throw new Error('Request failed');
+          form.hidden = true;
+          success.hidden = false;
+        } catch {
+          error.hidden = false;
+        } finally {
+          button.disabled = false;
+          button.textContent = label;
+        }
+      });
+    });
+  }
+
+  initWaitlistForms();
+  document.addEventListener('astro:page-load', initWaitlistForms);
+</script>

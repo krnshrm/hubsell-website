@@ -1,0 +1,7 @@
+# Path-level redirects (Cloudflare Pages).
+# Format:  /old-path   /new-path   301
+# Port any redirects currently configured in Webflow here at cutover.
+#
+# NOTE: apex -> www is NOT handled here. Pages _redirects matches on path,
+# not hostname, so the apex redirect is a Redirect Rule in the Cloudflare
+# dashboard instead — see README ("Deploy to Cloudflare Pages").

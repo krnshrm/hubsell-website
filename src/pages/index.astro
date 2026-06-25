@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WaitlistForm from '../components/WaitlistForm.astro';
+
+// PHASE 1 — Home page skeleton.
+// Sections are listed in the exact order of the current site. Nav/footer links
+// and form copy above are faithful; the MARKUP + CSS for each section get wired
+// from the Webflow code export (README → "What I need from you next").
+// Section styles will come from src/styles/webflow.css.
+---
+<BaseLayout>
+  {/* 1. Hero — "Replace your outbound stack with one platform." */}
+  <section id="hero">
+    {/* TODO: hero markup from export */}
+  </section>
+
+  {/* 2. Pipeline ribbon — Source → Qualify → Verify → Reach out → Log to CRM → Iterate */}
+  {/* 3. Customer logo marquee (interactive: auto-scroll) */}
+  {/* 4. Fragmented vs unified stack */}
+  {/* 5. Zero-day sourcing comparison */}
+  {/* 6. Ratings strip (G2 / Capterra / GetApp / OMR / TrustRadius) */}
+  {/* 7. Three-step pipeline motion */}
+
+  {/* 8. Pricing (interactive: EUR / USD / GBP toggle) */}
+  <section id="pricing">
+    {/* TODO: pricing markup + currency-toggle island */}
+  </section>
+
+  {/* 9. Testimonials (interactive: carousel) */}
+  {/* 10. Publish & Track beta */}
+
+  {/* 11. Waitlist CTA */}
+  <section id="join-waitlist">
+    <WaitlistForm form="waitlist" buttonLabel="Join the waitlist" placeholder="Work Email" />
+  </section>
+
+  {/* 12. FAQ (interactive: accordion) */}
+  {/* 13. Insights list */}
+</BaseLayout>
