@@ -100,7 +100,18 @@ function readFileHeader() {
 
 function keyFor(url) {
   const u = new URL(url);
-  return decodeURIComponent(basename(u.pathname));
+  const raw = decodeURIComponent(basename(u.pathname));
+  // Webflow filenames are hash-prefixed (already unique), so the human-readable
+  // tail can be made URL-safe without risk of collision. This keeps every R2 key
+  // free of spaces/encoded chars, so the public URL == the object key verbatim.
+  const ext = extname(raw).toLowerCase();
+  const stem = raw.slice(0, raw.length - extname(raw).length);
+  const safeStem = stem
+    .normalize('NFKD').replace(/[\u0300-\u036f]/g, '') // strip accents
+    .replace(/[^A-Za-z0-9._-]+/g, '-')                 // unsafe runs -> hyphen
+    .replace(/-{2,}/g, '-')                             // collapse repeats
+    .replace(/^[-.]+|[-.]+$/g, '');                     // trim ends
+  return (safeStem || 'asset') + ext;
 }
 function extOf(name) {
   return extname(name).slice(1).toLowerCase();
