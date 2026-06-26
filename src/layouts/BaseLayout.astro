@@ -1,10 +1,7 @@
 ---
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
-
-// Import the Webflow stylesheet here once it has been added to src/styles/.
-// This is the Phase-1 parity baseline; we refactor to clean CSS later.
-// import '../styles/webflow.css';
+import '../styles/global.css';
 
 export interface Props {
   title?: string;
@@ -42,7 +39,25 @@ const {
     <meta name="twitter:description" content={description} />
     {ogImage && <meta name="twitter:image" content={ogImage} />}
 
-    <!-- TODO(phase-1): add the exact fonts + favicon from the Webflow export. -->
+    <meta name="theme-color" content="#EADBC2" />
+
+    <!-- Brand fonts. Lexend (display) + Instrument Sans (body) for the whole site.
+         Newsreader is loaded only on blog/long-form templates (Phase 3). -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Lexend:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Pre-paint guard: only opt into scroll-reveal hiding when motion is allowed,
+         so reduced-motion users (and the no-JS case) never see hidden content. -->
+    <script is:inline>
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('has-anim');
+      }
+    </script>
+
     <slot name="head" />
   </head>
   <body>
@@ -51,5 +66,9 @@ const {
       <slot />
     </main>
     <Footer />
+
+    <script>
+      import '../scripts/motion.ts';
+    </script>
   </body>
 </html>

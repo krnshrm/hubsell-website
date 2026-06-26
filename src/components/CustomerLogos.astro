@@ -1,0 +1,16 @@
+---
+// Section 2 — Customer logos (Paper). Auto-scrolling marquee.
+// Wordmarks shown as text until real logo assets land via asset sync.
+const customers = ['Safran Software', 'Staffbase', 'Verhaert', 'Elium', 'Workspace 365', 'Sensolus'];
+const loop = [...customers, ...customers]; // duplicated for seamless marquee
+---
+<section class="sec sec--paper" aria-label="Customers">
+  <div class="wrap">
+    <p class="eyebrow reveal" style="text-align:center;margin-bottom:26px">Trusted by B2B revenue teams across Europe</p>
+    <div class="marquee reveal">
+      <div class="marquee__track">
+        {loop.map((name) => <span class="marquee__item">{name}</span>)}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,39 +1,35 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import WaitlistForm from '../components/WaitlistForm.astro';
+import Hero from '../components/Hero.astro';
+import CustomerLogos from '../components/CustomerLogos.astro';
+import FragmentedStack from '../components/FragmentedStack.astro';
+import ZeroDaySourcing from '../components/ZeroDaySourcing.astro';
+import RatingsStrip from '../components/RatingsStrip.astro';
+import PipelineSteps from '../components/PipelineSteps.astro';
+import Pricing from '../components/Pricing.astro';
+import UseCases from '../components/UseCases.astro';
+import Features from '../components/Features.astro';
+import Testimonials from '../components/Testimonials.astro';
+import PublishTrackBeta from '../components/PublishTrackBeta.astro';
+import Faq from '../components/Faq.astro';
+import Insights from '../components/Insights.astro';
 
-// PHASE 1 — Home page skeleton.
-// Sections are listed in the exact order of the current site. Nav/footer links
-// and form copy above are faithful; the MARKUP + CSS for each section get wired
-// from the Webflow code export (README → "What I need from you next").
-// Section styles will come from src/styles/webflow.css.
+// Home page — full section rhythm. Colors alternate so a dark lands early and
+// navy/espresso never repeat back to back. Sign-up (free trial) is the CTA
+// throughout; the old waitlist section has been removed.
 ---
 <BaseLayout>
-  {/* 1. Hero — "Replace your outbound stack with one platform." */}
-  <section id="hero">
-    {/* TODO: hero markup from export */}
-  </section>
-
-  {/* 2. Pipeline ribbon — Source → Qualify → Verify → Reach out → Log to CRM → Iterate */}
-  {/* 3. Customer logo marquee (interactive: auto-scroll) */}
-  {/* 4. Fragmented vs unified stack */}
-  {/* 5. Zero-day sourcing comparison */}
-  {/* 6. Ratings strip (G2 / Capterra / GetApp / OMR / TrustRadius) */}
-  {/* 7. Three-step pipeline motion */}
-
-  {/* 8. Pricing (interactive: EUR / USD / GBP toggle) */}
-  <section id="pricing">
-    {/* TODO: pricing markup + currency-toggle island */}
-  </section>
-
-  {/* 9. Testimonials (interactive: carousel) */}
-  {/* 10. Publish & Track beta */}
-
-  {/* 11. Waitlist CTA */}
-  <section id="join-waitlist">
-    <WaitlistForm form="waitlist" buttonLabel="Join the waitlist" placeholder="Work Email" />
-  </section>
-
-  {/* 12. FAQ (interactive: accordion) */}
-  {/* 13. Insights list */}
+  {/*  1 */}<Hero />
+  {/*  2 */}<CustomerLogos />
+  {/*  3 */}<FragmentedStack />
+  {/*  4 */}<ZeroDaySourcing />
+  {/*  5 */}<RatingsStrip />
+  {/*  6 */}<PipelineSteps />
+  {/*  7 */}<Pricing />
+  {/*  8 */}<UseCases />
+  {/*  9 */}<Features />
+  {/* 10 */}<Testimonials />
+  {/* 11 */}<PublishTrackBeta />
+  {/* 12 */}<Faq />
+  {/* 13 */}<Insights />
 </BaseLayout>

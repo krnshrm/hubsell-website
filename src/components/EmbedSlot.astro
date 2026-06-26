@@ -1,0 +1,40 @@
+---
+// EmbedSlot — a correctly-proportioned placeholder for a Webflow embed widget.
+// Drop the recolored embed in by replacing <EmbedSlot name="…" /> with the
+// real embed component. Adapts to the section's theme tokens.
+interface Props {
+  name: string;        // embed filename, e.g. "02-fragmented-stack"
+  note?: string;       // optional hint
+  minHeight?: string;  // reserve vertical space to match the original layout
+  recolor?: string;    // e.g. "navy" / "espresso" — shown as a reminder tag
+}
+const { name, note, minHeight = '420px', recolor } = Astro.props;
+---
+<div class="embed-slot" data-embed={name} style={`min-height:${minHeight}`}>
+  <div class="embed-slot__inner">
+    <span class="embed-slot__tag">{name}</span>
+    {recolor && <span class="embed-slot__recolor">recolor → {recolor}</span>}
+    {note && <span class="embed-slot__note">{note}</span>}
+  </div>
+</div>
+
+<style>
+  .embed-slot{
+    position:relative;width:100%;
+    border:1.5px dashed color-mix(in srgb,var(--sec-tx) 26%,transparent);
+    border-radius:var(--radius-lg);
+    background:color-mix(in srgb,var(--sec-tx) 4%,transparent);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .embed-slot__inner{display:flex;flex-direction:column;gap:8px;align-items:center;text-align:center;padding:28px}
+  .embed-slot__tag{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;font-weight:600;
+    color:var(--sec-tx);background:var(--sec-card);border:1px solid var(--sec-bd);
+    border-radius:999px;padding:7px 15px;
+  }
+  .embed-slot__recolor{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;
+    color:var(--accent-on);opacity:.9;
+  }
+  .embed-slot__note{font-size:12.5px;color:var(--sec-tx);opacity:.6;max-width:34ch;line-height:1.5}
+</style>

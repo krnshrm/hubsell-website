@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRM Sync Tracker Web Widget</title>
+  
+  <!-- Load Instrument Sans & Lexend Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Lexend:wght@500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: transparent;
+    }
+
+    .hubsell-sync-embed {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Instrument Sans', system-ui, sans-serif;
+      padding: 60px 20px;
+      width: 100%;
+      background-color: transparent;
+      box-sizing: border-box;
+      overflow: visible;
+    }
+
+    .hubsell-sync-embed * {
+      box-sizing: border-box;
+    }
+
+    /* --- Responsive Flex Layout --- */
+    .cs-wrapper {
+      display: flex;
+      align-items: center; 
+      gap: 0;
+      width: max-content;
+    }
+
+    /* --- Left Card (Detailed Profile) --- */
+    .cs-card {
+      width: 280px;
+      background: #FFFFFF;
+      border: 1px solid #E5E7EB;
+      border-radius: 12px;
+      padding: 16px 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+      cursor: pointer;
+      z-index: 5;
+      
+      /* Hidden state for GSAP */
+      opacity: 0;
+      transform: translateY(15px);
+      
+      /* Interactive Hover State */
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .cs-card:hover {
+      transform: translateY(-4px) !important;
+      box-shadow: 0 16px 32px rgba(124, 58, 237, 0.08);
+      border-color: #7C3AED;
+      z-index: 10;
+    }
+
+    .cs-card-role {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #374151;
+    }
+    
+    .cs-card-role svg {
+      color: #7C3AED;
+    }
+
+    .cs-card-profile {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px;
+      border: 1px solid #E5E7EB;
+      border-radius: 8px;
+      background: #F9FAFB;
+    }
+
+    /* CSS Avatar */
+    .cs-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 14px;
+      color: #FFFFFF;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, #7C3AED, #4F46E5);
+    }
+
+    .cs-profile-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .cs-name {
+      font-family: 'Lexend', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: #111827;
+      line-height: 1.1;
+    }
+
+    .cs-job {
+      font-size: 12px;
+      color: #6B7280;
+    }
+
+    .cs-social-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 4px;
+      color: #9CA3AF;
+    }
+
+    .cs-details-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: #4B5563;
+    }
+
+    .cs-pill {
+      padding: 4px 8px;
+      border: 1px solid #E5E7EB;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: #FFFFFF;
+      white-space: nowrap;
+      transition: all 0.25s ease;
+    }
+
+    .cs-pill svg {
+      color: currentColor;
+    }
+
+    /* --- Connector Track --- */
+    .cs-connector {
+      position: relative;
+      width: 90px;
+      height: 20px;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      overflow: visible;
+    }
+
+    .cs-connector svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    /* Electricity glow effect - White Core with Purple Brand Glow Aura */
+    .cs-zap-line {
+      stroke: #FFFFFF !important;
+      -webkit-filter: drop-shadow(0px 0px 4px rgba(124, 58, 237, 1)) drop-shadow(0px 0px 8px rgba(168, 85, 247, 0.8));
+      filter: drop-shadow(0px 0px 4px rgba(124, 58, 237, 1)) drop-shadow(0px 0px 8px rgba(168, 85, 247, 0.8));
+      will-change: stroke-dashoffset, opacity;
+    }
+
+    /* --- Right CRM Syncing Card --- */
+    .cs-crm-card {
+      width: 340px;
+      height: 480px; 
+      background: #FFFFFF;
+      border: 1px solid #E5E7EB;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      z-index: 5;
+      
+      /* Hidden state for GSAP */
+      opacity: 0;
+      transform: translateY(15px);
+      
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .cs-crm-card:hover {
+      transform: translateY(-4px) !important;
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+      border-color: #7C3AED;
+      z-index: 10;
+    }
+
+    .cs-crm-title {
+      font-family: 'Lexend', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: #111827;
+      margin: 0 0 6px 0;
+    }
+
+    .cs-crm-subtitle {
+      font-size: 13px;
+      color: #6B7280;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #E5E7EB;
+      margin: 0 0 28px 0; /* Clear spacing from activity area */
+    }
+
+    /* --- Scrollable Activity Window --- */
+    .cs-activity-window {
+      flex: 1;
+      overflow-y: auto; 
+      padding-right: 4px; 
+      padding-top: 4px; /* Decreased padding-top down from 16px to align cleanly with layout line */
+    }
+
+    /* Custom Sleek Scrollbar */
+    .cs-activity-window::-webkit-scrollbar { width: 4px; }
+    .cs-activity-window::-webkit-scrollbar-track { background: transparent; }
+    .cs-activity-window::-webkit-scrollbar-thumb { background: #E5E7EB; border-radius: 4px; }
+    .cs-activity-window::-webkit-scrollbar-thumb:hover { background: #CBD5E1; }
+
+    .cs-activity-track {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cs-act-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      overflow: hidden;
+      /* Anim-ready initial states */
+      height: 0;
+      opacity: 0;
+      margin-bottom: 0;
+      transform: translateY(-10px);
+    }
+
+    .cs-act-icon {
+      color: #9CA3AF;
+      flex-shrink: 0;
+    }
+
+    .cs-act-row-1 {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: #6B7280;
+      white-space: nowrap;
+    }
+
+    .cs-act-pill {
+      padding: 4px 8px;
+      border: 1px solid #E5E7EB;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #374151;
+      font-weight: 500;
+      background: #FFFFFF;
+    }
+
+    .cs-act-pill svg {
+      color: #6B7280;
+    }
+
+    /* Initial hidden states for synchronised loop to eradicate watermark ghosts */
+    .cs-sync-tag {
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.8);
+    }
+
+    /* --- Portrait Mobile Breakpoint (< 720px) --- */
+    @media (max-width: 720px) {
+      .hubsell-sync-embed {
+        padding: 40px 15px;
+      }
+      .cs-wrapper {
+        flex-direction: column;
+        width: 100%;
+        max-width: 340px;
+        gap: 24px;
+      }
+      .cs-card {
+        width: 100%;
+      }
+      .cs-connector {
+        display: none !important; /* Hides dotted timeline track and electricity on mobile */
+      }
+      .cs-crm-card {
+        width: 100%;
+        height: auto;
+        min-height: 480px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hubsell-sync-embed">
+    <div class="cs-wrapper">
+      
+      <!-- Profile Card -->
+      <div class="cs-card">
+        <div class="cs-card-role">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+          Targeted contact
+        </div>
+        
+        <div class="cs-card-profile">
+          <div class="cs-avatar">AC</div>
+          <div class="cs-profile-info">
+            <span class="cs-name">Alex Chen</span>
+            <span class="cs-job">Sec Architect</span>
+            <div class="cs-social-row">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Interactive profile sync targets -->
+        <div class="cs-details-grid" style="margin-top: 6px;">
+          <span class="cs-pill cs-sync-tag cs-tag-10"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg> Connected</span>
+          <span class="cs-pill cs-sync-tag cs-tag-8"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Opened</span>
+        </div>
+        <div class="cs-details-grid">
+          <span class="cs-pill cs-sync-tag cs-tag-7"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> Clicked</span>
+          <span class="cs-pill cs-sync-tag cs-tag-6"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Spent 5 mins</span>
+        </div>
+        <div class="cs-details-grid">
+          <span class="cs-pill cs-sync-tag cs-tag-2"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg> Replied</span>
+          <span class="cs-pill cs-sync-tag cs-tag-1"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Booked</span>
+        </div>
+      </div>
+
+      <!-- Connector Track -->
+      <div class="cs-connector">
+        <svg viewBox="0 0 90 20" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="soft-glow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="1.8" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+          </defs>
+          <path class="cs-base-track" d="M 0 10 H 90" fill="none" stroke="#7C3AED" stroke-width="2" stroke-opacity="0" />
+          <path class="cs-zap-line" d="M 0 10 H 90" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="25 100" stroke-dashoffset="120" opacity="0" filter="url(#soft-glow)" />
+        </svg>
+      </div>
+
+      <!-- CRM Synchronization Window -->
+      <div class="cs-crm-card">
+        <div>
+          <h3 class="cs-crm-title">Syncing Contact</h3>
+          <p class="cs-crm-subtitle">Recent activity: Alex Chen</p>
+        </div>
+
+        <div class="cs-activity-window">
+          <div class="cs-activity-track">
+            
+            <div class="cs-act-item cs-log-1">
+              <svg class="cs-act-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <div class="cs-act-row-1">
+                <span class="cs-act-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Meeting booked</span> 1 hour ago
+              </div>
+            </div>
+
+            <div class="cs-act-item cs-log-2">
+              <svg class="cs-act-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+              <div class="cs-act-row-1">
+                <span class="cs-act-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg> Replied</span> 2 hours ago
+              </div>
+            </div>
+
+            <div class="cs-act-item cs-log-3">
+              <svg class="cs-act-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <div class="cs-act-row-1">
+                <span class="cs-act-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> Clicked</span> 5 hours ago
+              </div>
+            </div>
+
+            <div class="cs-act-item cs-log-4">
+              <svg class="cs-act-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <div class="cs-act-row-1">
+                <span class="cs-act-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Opened email</span> 8 hours ago
+              </div>
+            </div>
+
+            <div class="cs-act-item cs-log-5">
+              <svg class="cs-act-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"></path><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              <div class="cs-act-row-1">
+                <span class="cs-act-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"></path><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> Sent email</span> 14 hours ago
+              </div>
+            </div>
+
+            <div class="cs-act-item cs-log-6">
+              <svg class="cs-act-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <div class="cs-act-row-1">
+                <span class="cs-act-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Spent 5 mins</span> 1 day ago
+              </div>
+            </div>
+
+            <div class="cs-act-item cs-log-7">
+              <svg class="cs-act-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <div class="cs-act-row-1">
+                <span class="cs-act-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> Clicked</span> 1 day ago
+              </div>
+            </div>
+
+            <div class="cs-act-item cs-log-8">
+              <svg class="cs-act-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <div class="cs-act-row-1">
+                <span class="cs-act-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Opened email</span> 1 day ago
+              </div>
+            </div>
+
+            <div class="cs-act-item cs-log-9">
+              <svg class="cs-act-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"></path><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              <div class="cs-act-row-1">
+                <span class="cs-act-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"></path><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> Sent email</span> 2 days ago
+              </div>
+            </div>
+
+            <div class="cs-act-item cs-log-10">
+              <svg class="cs-act-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              <div class="cs-act-row-1">
+                <span class="cs-act-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg> Connected</span> 3 days ago
+              </div>
+            </div>
+
+            <div class="cs-act-item cs-log-11">
+              <svg class="cs-act-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              <div class="cs-act-row-1">
+                <span class="cs-act-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg> Profile visited</span> 4 days ago
+              </div>
+            </div>
+
+            <div class="cs-act-item cs-log-12">
+              <svg class="cs-act-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+              <div class="cs-act-row-1">
+                <span class="cs-act-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg> Request sent</span> 5 days ago
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Load GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <script>
+    window.addEventListener('load', function() {
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+      
+      const wrap = document.querySelector('.hubsell-sync-embed');
+      if (!wrap) return;
+
+      const leftCard = wrap.querySelector('.cs-card');
+      const crmCard = wrap.querySelector('.cs-crm-card');
+      const zapLine = wrap.querySelector('.cs-zap-line');
+      const baseTrack = wrap.querySelector('.cs-base-track');
+
+      const tags = wrap.querySelectorAll('.cs-sync-tag');
+      const logItems = wrap.querySelectorAll('.cs-act-item');
+
+      // Decoupled timelines for logical execution
+      const syncTl = gsap.timeline({ repeat: 0 }); // Plays once, then rests forever!
+      const zapTl = gsap.timeline({ repeat: -1, paused: true });  // Infinite slow-pulsing lightning!
+
+      // Helper: Reset elements to a clean slate
+      function applyResetStates() {
+        gsap.set([leftCard, crmCard], { opacity: 0, y: 15 });
+        if (baseTrack) gsap.set(baseTrack, { strokeOpacity: 0 });
+        gsap.set(tags, { 
+          opacity: 0, 
+          scale: 0.8,
+          visibility: 'hidden',
+          backgroundColor: "#FFFFFF", 
+          borderColor: "#E5E7EB", 
+          color: "#6B7280" 
+        });
+        gsap.set(logItems, { 
+          height: 0, 
+          opacity: 0, 
+          y: -10, 
+          overflow: 'hidden', 
+          marginBottom: 0, 
+          marginTop: 0, 
+          padding: 0, 
+          display: 'none' 
+        });
+        if (zapLine) gsap.set(zapLine, { strokeDashoffset: 120, opacity: 0 });
+      }
+
+      // Helper: Slide new activity row into CRM card feed
+      function revealLog(selector) {
+        return gsap.to(selector, {
+          display: 'flex',
+          height: 'auto',
+          opacity: 1,
+          y: 0,
+          marginBottom: 12,
+          duration: 0.4,
+          ease: 'power2.out',
+          onComplete: function() {
+            gsap.set(selector, { overflow: 'visible' }); 
+          }
+        });
+      }
+
+      // Helper: Highlight profile tag cleanly on the left card
+      function highlightTag(selector) {
+        const isBooked = selector.includes('cs-tag-1');
+        const bg = isBooked ? '#ECFDF5' : '#F5F3FF';
+        const border = isBooked ? '#34D399' : '#A78BFA';
+        const text = isBooked ? '#059669' : '#7C3AED';
+        
+        return gsap.to(selector, {
+          visibility: 'visible',
+          opacity: 1,
+          scale: 1,
+          backgroundColor: bg,
+          borderColor: border,
+          color: text,
+          duration: 0.4,
+          ease: 'back.out(1.5)'
+        });
+      }
+
+      // Helper: Coordinates tag appearance on the left directly followed by log entrance on the right
+      function addSyncStep(tagSelector, logSelector, delay = "+=0.6") {
+        if (tagSelector) {
+          syncTl.add(highlightTag(tagSelector), delay);
+          syncTl.add(revealLog(logSelector), "+=0.25");
+        } else {
+          syncTl.add(revealLog(logSelector), delay);
+        }
+      }
+
+      // Infinite slow-pulsing lightning (if visible)
+      if (zapLine) {
+        zapTl.fromTo(zapLine,
+          { strokeDashoffset: 120, opacity: 0 },
+          { 
+            keyframes: [
+              { strokeDashoffset: 120, opacity: 1.0, duration: 0 },
+              { strokeDashoffset: -120, opacity: 1.0, duration: 8.0 },
+              { opacity: 0, duration: 0.1 }
+            ],
+            ease: 'none'
+          }
+        );
+      }
+
+      // Chronological setup
+      syncTl.add(applyResetStates);
+      syncTl.to(leftCard, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, "+=0.2");
+      syncTl.to(crmCard, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, "+=0.15");
+      
+      if (baseTrack) {
+        syncTl.to(baseTrack, { strokeOpacity: 1.0, duration: 0.4, ease: 'power1.inOut' }, "+=0.1");
+      }
+
+      syncTl.add(() => {
+        zapTl.play(0);
+      });
+
+      // Sequential Live Syncing Animations (12 to 1)
+      addSyncStep(null, '.cs-log-12', "+=0.5");
+      addSyncStep(null, '.cs-log-11');
+      addSyncStep('.cs-tag-10', '.cs-log-10');
+      addSyncStep(null, '.cs-log-9');
+      addSyncStep('.cs-tag-8', '.cs-log-8');
+      addSyncStep('.cs-tag-7', '.cs-log-7');
+      addSyncStep('.cs-tag-6', '.cs-log-6');
+      addSyncStep(null, '.cs-log-5');
+      addSyncStep(null, '.cs-log-4');
+      addSyncStep('.cs-tag-7', '.cs-log-3');
+      addSyncStep('.cs-tag-2', '.cs-log-2');
+      addSyncStep('.cs-tag-1', '.cs-log-1');
+
+      // ScrollTrigger setup
+      ScrollTrigger.create({
+        trigger: wrap,
+        start: 'top 75%',
+        toggleActions: 'play none none none' // Play once and hold state to prevent flickering on mobile vertical/landscape viewport scrolls
+      });
+
+    });
+  </script>
+</body>
+</html>

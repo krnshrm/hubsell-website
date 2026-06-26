@@ -1,0 +1,25 @@
+---
+// Section 9 — Live data, email and LinkedIn orchestrated in one solution (Sand).
+import { features } from '../data/home-content';
+---
+<section id="features" class="sec sec--sand" aria-labelledby="features-title">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow is-accent">The platform</p>
+      <h2 id="features-title" class="heading_primary" style="margin-top:8px">Live data, email and LinkedIn orchestrated <span class="accent">in one solution</span></h2>
+    </div>
+
+    <div class="grid grid-4 reveal-stagger" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr))">
+      {features.map((f) => (
+        <div class="card" style="display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+            <h3 class="heading_small">{f.title}</h3>
+            {f.beta && <span class="badge">Beta</span>}
+          </div>
+          <p class="paragraph_small" style="opacity:.8">{f.body}</p>
+          {f.beta && <span class="paragraph_small" style="opacity:.6;margin-top:auto">Coming soon</span>}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

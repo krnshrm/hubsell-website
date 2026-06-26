@@ -1,0 +1,22 @@
+---
+// Section 8 — One platform for GTM (Navy). The six personas double as use-cases.
+import { roles } from '../data/home-content';
+---
+<section id="use-cases" class="sec sec--navy" aria-labelledby="roles-title">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Use-cases</p>
+      <h2 id="roles-title" class="heading_primary" style="margin-top:8px"><span class="accent">One platform</span> for GTM</h2>
+      <p class="subheading">Whatever your seat at the revenue table, hubsell replaces the tool sprawl with one coordinated motion.</p>
+    </div>
+
+    <div class="grid grid-3 reveal-stagger">
+      {roles.map((r) => (
+        <div class="card" style="display:flex;flex-direction:column;gap:8px">
+          <h3 class="heading_tertiary">{r.title}</h3>
+          <p class="paragraph_small" style="opacity:.78">{r.line}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

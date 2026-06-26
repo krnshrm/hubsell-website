@@ -1,0 +1,391 @@
+---
+// Pricing table — the verbatim Webflow `08-pricing-table` embed (currency
+// toggle + Platform/Data tabs + cards + credits popup), rebranded:
+//   • the embed's --accent-primary / --neutral-primary / --neutral-inverse are
+//     remapped to our theme tokens, so terracotta replaces purple and the whole
+//     widget follows light/dark mode.
+//   • hardcoded #7c3aed / #2d50ef and the purple tints/shadows are removed.
+//   • CTAs point at the relative /book-a-call path.
+//   • script re-inits on astro:page-load and guards against double-binding.
+---
+<div class="pricing-wrap" data-pricing>
+
+  <div class="pricing-controls">
+    <div class="pricing-currency">
+      <button class="pricing-currency-btn is-active" data-currency="eur">EUR</button>
+      <button class="pricing-currency-btn" data-currency="usd">USD</button>
+      <button class="pricing-currency-btn" data-currency="gbp">GBP</button>
+    </div>
+    <div class="pricing-tabs">
+      <button class="pricing-tab is-active" data-tab="platform">
+        <div class="pricing-tab-title">Platform</div>
+        <div class="pricing-tab-sub">GTM orchestration</div>
+      </button>
+      <button class="pricing-tab" data-tab="data">
+        <div class="pricing-tab-title">Data add-on <span class="pricing-tab-dot"></span></div>
+        <div class="pricing-tab-sub">Sales intelligence</div>
+      </button>
+    </div>
+  </div>
+
+  <div class="pricing-panel is-active" data-panel="platform">
+    <div class="pricing-grid-3">
+
+      <div class="pricing-card">
+        <div class="pricing-card-name">Start</div>
+        <div class="pricing-card-price-prefix">Starting at</div>
+        <div class="pricing-card-price"><span class="price-currency">€</span><span class="price-value" data-eur="120" data-usd="140" data-gbp="100">120</span><span class="pricing-card-price-period">/seat/month</span></div>
+        <div class="pricing-card-desc">For solopreneurs and early-stage teams starting their with their GTM motion.</div>
+        <div class="pricing-card-emph-line">Includes 1 seat.</div>
+        <div class="pricing-card-divider"></div>
+        <div class="pricing-card-features-label">Start features:</div>
+        <ul class="pricing-card-features">
+          <li>
+            <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg></div>
+            <span>Essential Node Types</span>
+          </li>
+          <li>
+            <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></div>
+            <span>Multi-channel Outreach (Email, LinkedIn &amp; Tasks)</span>
+          </li>
+          <li>
+            <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21v-5h5"/></svg></div>
+            <span>CRM Sync Contacts &amp; Accounts</span>
+          </li>
+          <li>
+            <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg></div>
+            <span>Human Chat Based Support</span>
+          </li>
+          <li>
+            <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></div>
+            <span>Add on: <span class="pricing-card-link" data-go-to-tab="data">Data</span></span>
+          </li>
+        </ul>
+        <a href="/book-a-call" class="pricing-card-cta">Let's Start</a>
+      </div>
+
+      <div class="pricing-card is-popular">
+        <div class="pricing-card-badge">Most popular</div>
+        <div class="pricing-card-name">Grow</div>
+        <div class="pricing-card-price-prefix">Starting at</div>
+        <div class="pricing-card-price"><span class="price-currency">€</span><span class="price-value" data-eur="4320" data-usd="5000" data-gbp="3700">4,320</span><span class="pricing-card-price-period">/year</span></div>
+        <div class="pricing-card-desc">For teams that want more powerful features to scale their pipeline across every channel.</div>
+        <div class="pricing-card-emph-line">Includes 3 seats.</div>
+        <div class="pricing-card-divider"></div>
+        <div class="pricing-card-features-label">Everything in Start, plus:</div>
+        <ul class="pricing-card-features">
+          <li>
+            <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></div>
+            <span>AI Node Types</span>
+          </li>
+          <li>
+            <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></div>
+            <span>Data Node Types</span>
+          </li>
+          <li>
+            <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></div>
+            <span>Publish to LinkedIn (Coming soon)</span>
+          </li>
+          <li>
+            <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg></div>
+            <span>Unified Inbox (Coming soon)</span>
+          </li>
+          <li>
+            <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><path d="m9 16 2 2 4-4"/></svg></div>
+            <span>CRM Sync Tasks &amp; Activities</span>
+          </li>
+          <li>
+            <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+            <span>Full Onboarding</span>
+          </li>
+          <li>
+            <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <span>Additional seats at <span class="pricing-card-emph">€1440 per year</span>.</span>
+          </li>
+          <li>
+            <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></div>
+            <span>Add on: <span class="pricing-card-link" data-go-to-tab="data">Data</span></span>
+          </li>
+        </ul>
+        <a href="/book-a-call" class="pricing-card-cta">Let's Grow</a>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-card-name">Scale</div>
+        <div class="pricing-card-price-prefix">Starting at</div>
+        <div class="pricing-card-price"><span class="price-currency">€</span><span class="price-value" data-eur="12000" data-usd="13800" data-gbp="10300">12,000</span><span class="pricing-card-price-period">/year</span></div>
+        <div class="pricing-card-desc">For large teams that require custom solutions and in-depth technical onboarding.</div>
+        <div class="pricing-card-emph-line">Includes 10 seats.</div>
+        <div class="pricing-card-divider"></div>
+        <div class="pricing-card-features-label">Everything in Grow, plus:</div>
+        <ul class="pricing-card-features">
+          <li>
+            <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><path d="M3 14h7v7H3z"/></svg></div>
+            <span>Custom Node Types</span>
+          </li>
+          <li>
+            <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/><line x1="6" x2="6" y1="9" y2="21"/></svg></div>
+            <span>Custom CRM Sync</span>
+          </li>
+          <li>
+            <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg></div>
+            <span>Customer Success Manager</span>
+          </li>
+          <li>
+            <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <span>Additional seats at <span class="pricing-card-emph">€1200 per year</span>.</span>
+          </li>
+          <li>
+            <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></div>
+            <span>Add on: <span class="pricing-card-link" data-go-to-tab="data">Data</span></span>
+          </li>
+        </ul>
+        <a href="/book-a-call" class="pricing-card-cta">Let's Scale</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="pricing-panel" data-panel="data">
+    <div class="pricing-grid-2">
+
+      <div class="pricing-card">
+        <div class="pricing-card-name">Sales Intelligence | Pay as you go</div>
+        <div class="pricing-card-price-prefix">Starting at</div>
+        <div class="pricing-card-price"><span class="price-currency">€</span><span class="price-value" data-eur="1.25" data-usd="1.45" data-gbp="1.10">1.25</span><span class="pricing-card-price-period">/credit</span></div>
+
+        <div class="pricing-card-desc">Only pay for what you use. Cost per credit is <span class="pricing-card-emph">25% more</span> than with a Sales Intelligence Subscription.</div>
+        <div class="pricing-card-divider"></div>
+        <div class="pricing-card-features-label">Start features:</div>
+        <ul class="pricing-card-features">
+          <li>
+            <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <span>Social Prospecting</span>
+          </li>
+          <li>
+            <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+            <span>Realtime Data Sourcing</span>
+          </li>
+          <li>
+            <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h8"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/><path d="m16 19 2 2 4-4"/></svg></div>
+            <span>Email Validation (incl. on Catch-All domains)</span>
+          </li>
+        </ul>
+        <a href="/book-a-call" class="pricing-card-cta">Get your data</a>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-card-name">Sales Intelligence | Subscription</div>
+        <div class="pricing-card-price-prefix">Starting at</div>
+        <div class="pricing-card-price"><span class="price-currency">€</span><span class="price-value" data-eur="5000" data-usd="5800" data-gbp="4300">5,000</span><span class="pricing-card-price-period">/year</span></div>
+        <div class="pricing-card-desc">For teams that need a larger amount of data and more advanced sourcing techniques.</div>
+        <div class="pricing-card-emph-line">Includes 5000 credits - enriches 10K-50K contacts.</div>
+        <div class="pricing-card-divider"></div>
+        <div class="pricing-card-features-label">Everything in Pay as you go, plus:</div>
+        <ul class="pricing-card-features">
+          <li>
+            <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+            <span>Account Based Targeting</span>
+          </li>
+          <li>
+            <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></div>
+            <span>Named Account Enrichment</span>
+          </li>
+          <li>
+            <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></div>
+            <span>Custom Data Sourcing</span>
+          </li>
+          <li>
+            <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <span>Phone Number Sourcing</span>
+          </li>
+          <li>
+            <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21v-5h5"/></svg></div>
+            <span>CRM Enrichment</span>
+          </li>
+        </ul>
+        <a href="/book-a-call" class="pricing-card-cta">Build your database</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="pricing-popup-bg" data-popup-bg>
+    <div class="pricing-popup">
+      <button class="pricing-popup-close" data-popup-close>×</button>
+      <div class="pricing-popup-title">How credits work</div>
+      <div class="pricing-popup-body">
+        Credits are consumed at different rates depending on the action. Enrichment, validation, and intent signals each draw a different number of credits per record.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<style>
+.pricing-wrap {
+  /* Map the embed's Webflow tokens onto our theme tokens (terracotta + theme-aware) */
+  --accent-primary: var(--accent-on);
+  --neutral-primary: var(--sec-card, #FFFFFF);
+  --neutral-inverse: var(--sec-tx, #192341);
+  --pt-hair: color-mix(in srgb, var(--sec-tx) 8%, transparent);
+  --pt-hair-soft: color-mix(in srgb, var(--sec-tx) 5%, transparent);
+  --pt-hair-strong: color-mix(in srgb, var(--sec-tx) 12%, transparent);
+  font-family: 'Instrument Sans', system-ui, sans-serif; color: var(--neutral-inverse); width: 100%; max-width: 1180px; margin: 0 auto; padding: 8px 0;
+}
+.pricing-controls { display: flex; flex-direction: column; align-items: center; gap: 24px; margin-bottom: 40px; }
+.pricing-currency { display: inline-flex; background: color-mix(in srgb, var(--sec-tx) 5%, transparent); border-radius: 999px; padding: 4px; gap: 2px; }
+.pricing-currency-btn { background: transparent; border: none; padding: 9px 20px; border-radius: 999px; font: inherit; font-size: 14px; font-weight: 500; color: var(--neutral-inverse); opacity: 0.55; cursor: pointer; transition: all 0.25s ease; min-width: 56px; }
+.pricing-currency-btn:hover { opacity: 0.85; }
+.pricing-currency-btn.is-active { background: var(--neutral-inverse); color: var(--neutral-primary); opacity: 1; }
+.pricing-tabs { display: flex; border-bottom: 1px solid var(--pt-hair); width: 100%; max-width: 720px; }
+.pricing-tab { flex: 1; background: transparent; border: none; padding: 18px 12px 16px; font: inherit; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; text-align: center; transition: all 0.25s ease; }
+.pricing-tab-title { font-family: 'Lexend', system-ui, sans-serif; font-size: 17px; font-weight: 500; color: var(--neutral-inverse); opacity: 0.55; margin-bottom: 4px; display: inline-flex; align-items: center; gap: 6px; }
+.pricing-tab-sub { font-size: 12px; opacity: 0.4; }
+.pricing-tab:hover .pricing-tab-title, .pricing-tab:hover .pricing-tab-sub { opacity: 0.85; }
+.pricing-tab.is-active { border-bottom-color: var(--accent-primary); }
+.pricing-tab.is-active .pricing-tab-title { opacity: 1; color: var(--accent-primary); }
+.pricing-tab.is-active .pricing-tab-sub { opacity: 0.7; }
+.pricing-tab-dot { display: inline-block; width: 7px; height: 7px; background: var(--accent-primary); transform: rotate(45deg); animation: pricingDotPulse 1.8s ease-in-out infinite; }
+.pricing-tab.is-active .pricing-tab-dot { display: none; }
+@keyframes pricingDotPulse { 0%, 100% { opacity: 0.35; transform: rotate(45deg) scale(1); } 50% { opacity: 1; transform: rotate(45deg) scale(1.3); } }
+.pricing-panel { display: none; }
+.pricing-panel.is-active { display: block; animation: pricingFadeIn 0.35s ease; }
+@keyframes pricingFadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.pricing-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+.pricing-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 880px; margin: 0 auto; }
+.pricing-grid-1 { max-width: 600px; margin: 0 auto; }
+.pricing-card { background: var(--neutral-primary); border: 1px solid var(--pt-hair); border-radius: 24px; padding: 36px 32px; display: flex; flex-direction: column; position: relative; box-shadow: 0 8px 32px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.04); }
+.pricing-card.is-popular { border-color: color-mix(in srgb, var(--accent-primary) 45%, var(--pt-hair)); box-shadow: 0 12px 48px color-mix(in srgb, var(--accent-primary) 16%, transparent), 0 2px 8px rgba(0,0,0,0.04); }
+.pricing-card-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent-primary); color: #fff; font-size: 11px; font-weight: 600; letter-spacing: 0.04em; padding: 5px 14px; border-radius: 999px; text-transform: uppercase; }
+.pricing-card-name { font-family: 'Lexend', system-ui, sans-serif; font-size: 24px; font-weight: 500; margin-bottom: 16px; }
+.pricing-card-price-prefix { font-size: 13px; opacity: 0.55; margin-bottom: 6px; }
+.pricing-card-price { font-family: 'Lexend', system-ui, sans-serif; font-size: 32px; font-weight: 500; line-height: 1.1; margin-bottom: 4px; }
+.pricing-card-price-period { font-size: 16px; font-weight: 400; opacity: 0.6; }
+.pricing-card-link { display: inline-block; color: var(--accent-primary); font-size: 13px; font-weight: 500; text-decoration: none; margin-top: 4px; cursor: pointer; }
+.pricing-card-link:hover { text-decoration: underline; }
+.pricing-card-desc { font-size: 14px; line-height: 1.55; margin-top: 18px; opacity: 0.85; }
+.pricing-card-emph-line { font-size: 14px; color: var(--accent-primary); font-weight: 500; margin-top: 4px; }
+.pricing-card-emph { color: var(--accent-primary); font-weight: 500; }
+.pricing-card-divider { border-top: 1px solid var(--pt-hair); margin: 22px 0; }
+.pricing-card-features-label { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.55; margin-bottom: 14px; }
+
+.pricing-card-features { list-style: none; padding: 0; margin: 0 0 24px 0; flex: 1; display: flex; flex-direction: column; gap: 12px; }
+.pricing-card-features li { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.5; }
+.feat-icon-box { width: 22px; height: 22px; border-radius: 6px; background: color-mix(in srgb, var(--accent-primary) 10%, transparent); color: var(--accent-primary); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.feat-icon-box svg { width: 12px; height: 12px; }
+
+.pricing-card-cta {
+  display: block;
+  text-align: center;
+  background-color: var(--accent-primary);
+  color: #ffffff !important;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), filter 0.25s ease;
+  margin-top: auto;
+}
+.pricing-card-cta:hover {
+  background-color: var(--brand-hover, #BE3F22);
+  color: #ffffff !important;
+}
+
+.pricing-expand { display: block; width: 100%; margin-top: 32px; background: transparent; border: 1px solid var(--pt-hair-strong); border-radius: 12px; padding: 16px 20px; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer; color: var(--neutral-inverse); transition: all 0.2s ease; text-align: center; }
+.pricing-expand:hover { border-color: var(--accent-primary); color: var(--accent-primary); }
+.pricing-expand-arrow { display: inline-block; transition: transform 0.3s ease; margin-left: 8px; }
+.pricing-expand.is-open .pricing-expand-arrow { transform: rotate(180deg); }
+.pricing-features { height: 0; overflow: hidden; opacity: 0; }
+.pricing-features-inner { padding-top: 32px; }
+.pricing-features-table { width: 100%; border-collapse: collapse; }
+.pricing-features-thead td { padding: 14px 12px; font-weight: 600; font-size: 14px; text-align: center; }
+.pricing-features-thead td:first-child { text-align: left; }
+.pricing-features-category td { padding: 32px 0 14px 0; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.6; border-top: 1px solid var(--pt-hair-strong); }
+.pricing-features-row { border-top: 1px solid var(--pt-hair-soft); }
+.pricing-features-row td { padding: 14px 12px; font-size: 14px; vertical-align: middle; }
+.pricing-features-name { width: 40%; opacity: 0.85; }
+.pricing-features-value { width: 20%; text-align: center; opacity: 0.7; }
+.pricing-features-x { opacity: 0.25; }
+.pricing-popup-bg { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.5); display: none; align-items: center; justify-content: center; z-index: 9999; }
+.pricing-popup-bg.is-open { display: flex; }
+.pricing-popup { background: var(--neutral-primary); border-radius: 20px; padding: 40px; max-width: 520px; width: 90%; max-height: 80vh; overflow-y: auto; position: relative; }
+.pricing-popup-close { position: absolute; top: 16px; right: 16px; background: transparent; border: none; font-size: 28px; cursor: pointer; opacity: 0.5; padding: 4px 8px; line-height: 1; color: var(--neutral-inverse); }
+.pricing-popup-close:hover { opacity: 1; }
+.pricing-popup-title { font-family: 'Lexend', system-ui, sans-serif; font-size: 22px; font-weight: 500; margin-bottom: 16px; }
+.pricing-popup-body { font-size: 14px; line-height: 1.6; }
+@media (max-width: 900px) {
+  .pricing-grid-3, .pricing-grid-2 { grid-template-columns: 1fr; max-width: 600px; margin: 0 auto; }
+  .pricing-tabs { flex-direction: column; border-bottom: none; gap: 8px; max-width: 100%; }
+  .pricing-tab { border: 1px solid var(--pt-hair); border-radius: 12px; padding: 14px 16px; text-align: left; margin-bottom: 0; }
+  .pricing-tab.is-active { border-color: var(--accent-primary); background: color-mix(in srgb, var(--accent-primary) 6%, transparent); border-bottom-color: var(--accent-primary); }
+}
+</style>
+
+<script>
+  // Currency conversion + Platform/Data tabs + credits popup.
+  function initPricingTable() {
+    const wrap = document.querySelector('[data-pricing]');
+    if (!wrap || wrap.dataset.pricingBound) return;
+    wrap.dataset.pricingBound = '1';
+
+    const symbols = { eur: '€', usd: '$', gbp: '£' };
+    const currencyBtns = wrap.querySelectorAll('.pricing-currency-btn');
+    const priceValues = wrap.querySelectorAll('.price-value');
+    const priceCurrencies = wrap.querySelectorAll('.price-currency');
+
+    function formatPrice(n) {
+      if (n >= 1000) return n.toLocaleString('en-US');
+      if (n % 1 !== 0) return n.toFixed(2);
+      return n.toString();
+    }
+    function setCurrency(cur) {
+      currencyBtns.forEach((b) => b.classList.toggle('is-active', b.dataset.currency === cur));
+      priceCurrencies.forEach((c) => (c.textContent = symbols[cur]));
+      priceValues.forEach((v) => (v.textContent = formatPrice(parseFloat(v.dataset[cur]))));
+    }
+    currencyBtns.forEach((b) => b.addEventListener('click', () => setCurrency(b.dataset.currency)));
+    setCurrency('eur');
+
+    const tabs = wrap.querySelectorAll('.pricing-tab');
+    const panels = wrap.querySelectorAll('.pricing-panel');
+    tabs.forEach((t) =>
+      t.addEventListener('click', () => {
+        const which = t.dataset.tab;
+        tabs.forEach((b) => b.classList.toggle('is-active', b === t));
+        panels.forEach((p) => p.classList.toggle('is-active', p.dataset.panel === which));
+      })
+    );
+
+    wrap.querySelectorAll('[data-go-to-tab]').forEach((btn) =>
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const target = btn.dataset.goToTab;
+        const tabBtn = wrap.querySelector('.pricing-tab[data-tab="' + target + '"]');
+        if (tabBtn) {
+          tabBtn.click();
+          wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      })
+    );
+
+    const popupBg = wrap.querySelector('[data-popup-bg]');
+    const popupClose = wrap.querySelector('[data-popup-close]');
+    wrap.querySelectorAll('[data-popup]').forEach((t) =>
+      t.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (popupBg) popupBg.classList.add('is-open');
+      })
+    );
+    if (popupClose) popupClose.addEventListener('click', () => popupBg.classList.remove('is-open'));
+    if (popupBg) popupBg.addEventListener('click', (e) => { if (e.target === popupBg) popupBg.classList.remove('is-open'); });
+  }
+
+  initPricingTable();
+  document.addEventListener('astro:page-load', initPricingTable);
+</script>

@@ -1,0 +1,31 @@
+---
+// Section 5 — Ratings strip (Sand). Five review-platform cards.
+// Logo wordmarks are text until real logo assets land via asset sync.
+const ratings = [
+  { platform: 'GetApp', score: '4.8', out: '/5.0' },
+  { platform: 'G2', score: '4.5', out: '/5.0' },
+  { platform: 'Capterra', score: '4.8', out: '/5.0' },
+  { platform: 'OMR', score: '5.0', out: '/5.0' },
+  { platform: 'TrustRadius', score: '10', out: '/10' },
+];
+---
+<section class="sec sec--sand" aria-label="Ratings">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2 class="heading_primary">Rated <span class="accent">4.8+</span> across G2, Capterra, and GetApp</h2>
+    </div>
+    <div class="grid reveal-stagger" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px">
+      {ratings.map((r) => (
+        <div class="card" style="text-align:center;padding:24px 18px">
+          <div class="heading_small" style="opacity:.8;margin-bottom:10px">{r.platform}</div>
+          <div aria-hidden="true" style="display:flex;justify-content:center;gap:3px;margin-bottom:8px">
+            {[0,1,2,3,4].map(() => (
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="var(--amber)"><path d="M12 2.6l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L3.3 8.9l6.1-.7L12 2.6z"/></svg>
+            ))}
+          </div>
+          <div><span class="metric" style="font-size:1.5rem;color:var(--sec-tx)">{r.score}</span><span class="paragraph_small" style="opacity:.55">{r.out}</span></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

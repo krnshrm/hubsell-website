@@ -1,0 +1,448 @@
+<div class="ut-wrap">
+  <style>
+    /* Import Hubsell Brand Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Lexend:wght@500;600&display=swap');
+
+    .ut-wrap { 
+      font-family: 'Instrument Sans', system-ui, sans-serif; 
+      width: 100%; 
+      padding: 40px 20px; 
+      box-sizing: border-box;
+      background: transparent;
+    }
+
+    .ut-wrap * {
+      box-sizing: border-box;
+    }
+
+    .ut-grid { 
+      display: grid; 
+      grid-template-columns: 1fr 24px 1fr 24px 1fr; 
+      grid-template-rows: 1fr 24px 1fr; 
+      gap: 16px 8px; 
+      align-items: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* --- 3D Flip Card Architecture --- */
+    .ut-card-wrapper {
+      position: relative;
+      z-index: 5; /* Forces cards to always render above the dashed lines */
+      width: 100%;
+      height: 170px; 
+      perspective: 1000px; 
+      cursor: pointer;
+      
+      /* Hidden state for GSAP */
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .ut-card-wrapper:hover {
+      z-index: 10; /* Boosts card to the very top when flipping */
+    }
+
+    .ut-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+
+    .ut-card-wrapper:hover .ut-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    /* Shared Front & Back Styles */
+    .ut-card-front, .ut-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 12px;
+    }
+
+    /* FRONT: Clean, Neutral, Title-Only */
+    .ut-card-front {
+      background: #FFFFFF;
+      border: 1px solid #E5E7EB;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    /* BACK: Primary Purple Theme (Reveals the Solution) */
+    .ut-card-back {
+      background: #F5F3FF; 
+      border: 1px solid #7C3AED; 
+      box-shadow: 0 16px 32px rgba(124, 58, 237, 0.15); 
+      transform: rotateY(180deg); 
+    }
+
+    /* --- Content Styling --- */
+    .ut-icon-box { 
+      width: 44px; 
+      height: 44px; 
+      border-radius: 10px;
+      background: rgba(124, 58, 237, 0.12); 
+      color: #7C3AED; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .ut-icon-box svg { 
+      width: 22px; 
+      height: 22px; 
+    }
+
+    .ut-title { 
+      font-family: 'Lexend', sans-serif;
+      font-size: 16px; 
+      font-weight: 600; 
+      color: #111827;
+      line-height: 1.2; 
+      margin: 0; 
+    }
+
+    .ut-desc { 
+      font-size: 14px; 
+      color: #7C3AED; 
+      font-weight: 500;
+      line-height: 1.4; 
+      margin: 0;
+    }
+
+    /* Interconnecting Lines */
+    .ut-line-h, .ut-line-v { 
+      position: relative;
+      z-index: 1; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      color: #7C3AED; 
+      
+      /* Hidden state for GSAP */
+      opacity: 0;
+      transform: scale(0.8);
+    }
+
+    /* Hardcoded pixel widths to perfectly bridge the grid gaps + 1px overlap to prevent retina gaps */
+    .ut-line-h { 
+      justify-self: center;
+      width: 42px; /* 24px track + 8px gap * 2 + 2px overlap */
+      height: 24px;
+      margin: 0 -9px; 
+    }
+    .ut-line-h svg { width: 100%; height: 6px; overflow: visible; }
+    
+    .ut-line-v { 
+      align-self: center;
+      justify-self: center;
+      width: 24px;
+      height: 58px; /* 24px track + 16px gap * 2 + 2px overlap */
+      margin: -17px 0; 
+    }
+    .ut-line-v svg { width: 6px; height: 100%; overflow: visible; }
+
+    /* Electricity Sparks */
+    .ut-zap {
+      position: absolute;
+      background: #ffffff;
+      box-shadow: 0 0 12px 4px rgba(168, 85, 247, 0.9), 0 0 24px 8px rgba(124, 58, 237, 0.6);
+      border-radius: 4px;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .ut-zap-h { height: 2px; width: 40px; top: 50%; margin-top: -1px; }
+    .ut-zap-v { width: 2px; height: 40px; left: 50%; margin-left: -1px; }
+
+    /* Mobile Fallback */
+    @media (max-width: 768px) { 
+      .ut-grid { 
+        grid-template-columns: 1fr; 
+        grid-template-rows: none; 
+        gap: 16px; 
+      } 
+      .ut-line-h, .ut-line-v, .ut-empty { 
+        display: none; 
+      } 
+      .ut-card-wrapper {
+        height: 150px;
+      }
+    }
+  </style>
+
+  <div class="ut-grid">
+    
+    <!-- Row 1 -->
+    <div class="ut-card-wrapper">
+      <div class="ut-card-inner">
+        <div class="ut-card-front">
+          <div class="ut-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+          <div class="ut-title">ICP Targeting</div>
+        </div>
+        <div class="ut-card-back">
+          <div class="ut-desc">Filter by persona, role,<br>seniority, and company.</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="ut-line-h">
+      <div class="ut-zap ut-zap-h"></div>
+      <svg viewBox="0 0 100 6" preserveAspectRatio="none">
+        <line class="dash-line" x1="0" y1="3" x2="100" y2="3" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 4" vector-effect="non-scaling-stroke"/>
+        <line class="solid-line" x1="0" y1="3" x2="100" y2="3" stroke="currentColor" stroke-width="3" opacity="0" vector-effect="non-scaling-stroke"/>
+      </svg>
+    </div>
+    
+    <div class="ut-card-wrapper">
+      <div class="ut-card-inner">
+        <div class="ut-card-front">
+          <div class="ut-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>
+          </div>
+          <div class="ut-title">Account Targeting</div>
+        </div>
+        <div class="ut-card-back">
+          <div class="ut-desc">Reach every stakeholder<br>from one campaign.</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="ut-line-h">
+      <div class="ut-zap ut-zap-h"></div>
+      <svg viewBox="0 0 100 6" preserveAspectRatio="none">
+        <line class="dash-line" x1="0" y1="3" x2="100" y2="3" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 4" vector-effect="non-scaling-stroke"/>
+        <line class="solid-line" x1="0" y1="3" x2="100" y2="3" stroke="currentColor" stroke-width="3" opacity="0" vector-effect="non-scaling-stroke"/>
+      </svg>
+    </div>
+    
+    <div class="ut-card-wrapper">
+      <div class="ut-card-inner">
+        <div class="ut-card-front">
+          <div class="ut-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </div>
+          <div class="ut-title">Multichannel Orchestration</div>
+        </div>
+        <div class="ut-card-back">
+          <div class="ut-desc">Email and LinkedIn in<br>one coordinated flow.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Connectors Down -->
+    <div class="ut-line-v">
+      <div class="ut-zap ut-zap-v"></div>
+      <svg viewBox="0 0 6 100" preserveAspectRatio="none">
+        <line class="dash-line" x1="3" y1="0" x2="3" y2="100" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 4" vector-effect="non-scaling-stroke"/>
+        <line class="solid-line" x1="3" y1="0" x2="3" y2="100" stroke="currentColor" stroke-width="3" opacity="0" vector-effect="non-scaling-stroke"/>
+      </svg>
+    </div>
+    <div class="ut-empty"></div>
+    <div class="ut-line-v">
+      <div class="ut-zap ut-zap-v"></div>
+      <svg viewBox="0 0 6 100" preserveAspectRatio="none">
+        <line class="dash-line" x1="3" y1="0" x2="3" y2="100" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 4" vector-effect="non-scaling-stroke"/>
+        <line class="solid-line" x1="3" y1="0" x2="3" y2="100" stroke="currentColor" stroke-width="3" opacity="0" vector-effect="non-scaling-stroke"/>
+      </svg>
+    </div>
+    <div class="ut-empty"></div>
+    <div class="ut-line-v">
+      <div class="ut-zap ut-zap-v"></div>
+      <svg viewBox="0 0 6 100" preserveAspectRatio="none">
+        <line class="dash-line" x1="3" y1="0" x2="3" y2="100" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 4" vector-effect="non-scaling-stroke"/>
+        <line class="solid-line" x1="3" y1="0" x2="3" y2="100" stroke="currentColor" stroke-width="3" opacity="0" vector-effect="non-scaling-stroke"/>
+      </svg>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="ut-card-wrapper">
+      <div class="ut-card-inner">
+        <div class="ut-card-front">
+          <div class="ut-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </div>
+          <div class="ut-title">Multi-Step Enrichment</div>
+        </div>
+        <div class="ut-card-back">
+          <div class="ut-desc">AI-cleaned, human-verified<br>data at point of use.</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="ut-line-h">
+      <div class="ut-zap ut-zap-h"></div>
+      <svg viewBox="0 0 100 6" preserveAspectRatio="none">
+        <line class="dash-line" x1="0" y1="3" x2="100" y2="3" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 4" vector-effect="non-scaling-stroke"/>
+        <line class="solid-line" x1="0" y1="3" x2="100" y2="3" stroke="currentColor" stroke-width="3" opacity="0" vector-effect="non-scaling-stroke"/>
+      </svg>
+    </div>
+    
+    <div class="ut-card-wrapper">
+      <div class="ut-card-inner">
+        <div class="ut-card-front">
+          <div class="ut-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="ut-title">Signal Layering</div>
+        </div>
+        <div class="ut-card-back">
+          <div class="ut-desc">In-market buyers from<br>job changes & events.</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="ut-line-h">
+      <div class="ut-zap ut-zap-h"></div>
+      <svg viewBox="0 0 100 6" preserveAspectRatio="none">
+        <line class="dash-line" x1="0" y1="3" x2="100" y2="3" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 4" vector-effect="non-scaling-stroke"/>
+        <line class="solid-line" x1="0" y1="3" x2="100" y2="3" stroke="currentColor" stroke-width="3" opacity="0" vector-effect="non-scaling-stroke"/>
+      </svg>
+    </div>
+    
+    <div class="ut-card-wrapper">
+      <div class="ut-card-inner">
+        <div class="ut-card-front">
+          <div class="ut-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+          </div>
+          <div class="ut-title">Synced CRM</div>
+        </div>
+        <div class="ut-card-back">
+          <div class="ut-desc">Auto-logged to Salesforce,<br>HubSpot, and Pipedrive.</div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<script>
+  window.addEventListener('load', function() {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+    
+    const wrap = document.querySelector('.ut-wrap');
+    if (!wrap) return;
+
+    const cards = wrap.querySelectorAll('.ut-card-wrapper');
+    const cardInners = wrap.querySelectorAll('.ut-card-inner');
+    const lines = wrap.querySelectorAll('.ut-line-h, .ut-line-v');
+    const dashLines = wrap.querySelectorAll('.dash-line');
+    const solidLines = wrap.querySelectorAll('.solid-line');
+    
+    const zapsH = wrap.querySelectorAll('.ut-zap-h');
+    const zapsV = wrap.querySelectorAll('.ut-zap-v');
+
+    // Continuous Zap Animation - separated from main timeline so it can loop forever
+    const zapTl = gsap.timeline({ paused: true, repeat: -1, repeatDelay: 2 });
+
+    // Shoot the horizontal electricity across
+    zapTl.fromTo(zapsH, 
+      { left: "-40px", opacity: 0 },
+      { 
+        keyframes: [
+          { left: "20%", opacity: 1, duration: 0.15 },
+          { left: "80%", opacity: 1, duration: 0.15 },
+          { left: "calc(100% + 40px)", opacity: 0, duration: 0.15 }
+        ],
+        ease: "none", stagger: 0.1 
+      }, 0
+    );
+
+    // Shoot the vertical electricity down
+    zapTl.fromTo(zapsV, 
+      { top: "-40px", opacity: 0 },
+      { 
+        keyframes: [
+          { top: "20%", opacity: 1, duration: 0.15 },
+          { top: "80%", opacity: 1, duration: 0.15 },
+          { top: "calc(100% + 40px)", opacity: 0, duration: 0.15 }
+        ],
+        ease: "none", stagger: 0.1 
+      }, 0
+    );
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: wrap,
+        start: 'top 75%',
+        toggleActions: 'play reset play reset', // Rewinds gracefully when out of view
+        onLeave: () => zapTl.pause(0),
+        onLeaveBack: () => zapTl.pause(0)
+      }
+    });
+
+    // PHASE 1: Build the Grid (Total: ~1.0s)
+    tl.fromTo(cards, 
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', stagger: 0.1 }
+    );
+    
+    tl.fromTo(lines, 
+      { opacity: 0, scale: 0.5 },
+      { opacity: 0.6, scale: 1, duration: 0.4, ease: 'back.out(2)', stagger: 0.05 },
+      "-=0.5"
+    );
+
+    // PHASE 2: The Unification Pulse & Electrical Surge
+    tl.addLabel("unify", "+=0.3");
+    
+    // Trigger the continuous looping zaps exactly when the lines unify
+    tl.add(() => {
+      zapTl.play(0);
+    }, "unify");
+
+    // Crackle effect on the solid lines (like a neon tube turning on)
+    tl.to(solidLines, { 
+      keyframes: [
+        { opacity: 0.6, duration: 0.05 },
+        { opacity: 0.1, duration: 0.05 },
+        { opacity: 0.8, duration: 0.05 },
+        { opacity: 0.3, duration: 0.05 },
+        { opacity: 1, duration: 0.1 }
+      ],
+      stagger: 0.05 
+    }, "unify");
+
+    tl.to(dashLines, { opacity: 0, duration: 0.2, stagger: 0.05 }, "unify");
+    tl.to(lines, { opacity: 1, filter: 'drop-shadow(0px 0px 8px rgba(168, 85, 247, 0.9))', duration: 0.3, stagger: 0.05 }, "unify");
+
+    // PHASE 3: The Synchronization Wave (Cards flip to reveal solutions)
+    tl.addLabel("wave", "+=0.1");
+    
+    tl.to(cardInners, {
+      rotationY: 180,
+      duration: 0.7,
+      ease: 'back.out(1.5)',
+      stagger: 0.1
+    }, "wave");
+
+    // Hold the flipped state, then gracefully flip back
+    tl.to(cardInners, {
+      rotationY: 0,
+      duration: 0.6,
+      ease: 'back.out(1.5)',
+      stagger: 0.1,
+      clearProps: "transform" // CRITICAL: Removes inline GSAP styles so CSS Hover works again!
+    }, "+=1.5");
+
+    // WE DO NOT RESET THE LINES HERE.
+    // They will stay glowing/solid, exactly like Image 2, and the zapTl will keep looping.
+    // GSAP's scrollTrigger toggleActions 'reset' will take care of reverting them
+    // to dashed when the user scrolls away from the section.
+  });
+</script>

@@ -1,7 +1,8 @@
 ---
-// Faithful nav structure & links from the current site.
-// TODO(phase-1): replace markup/classes with the Webflow export, and point the
-// logo at its R2 URL once assets are migrated.
+// Site navigation. Logo wordmark uses currentColor on the letter paths (so it
+// inverts by theme) with fixed brand fills on the three dots. Links and the
+// real customer-story menu carried from the live site.
+import { SIGNUP_URL } from '../data/site';
 const customerStories = [
   { href: '/customerstories/safran', label: 'Safran Software — CAC down 30%' },
   { href: '/customerstories/staffbase', label: 'Staffbase — 15 new markets' },
@@ -11,30 +12,107 @@ const customerStories = [
   { href: '/customerstories/sensolus', label: 'Sensolus — 22% reply rate' },
 ];
 ---
-<header>
-  <nav>
-    <a href="/" aria-label="hubsell home">
-      <!-- TODO: <img src="https://assets.hubsell.com/<hash>_hubsell-logo.avif" alt="hubsell" /> -->
-      hubsell
+<header class="nav">
+  <div class="nav__inner">
+    <a href="/" class="nav__mark" aria-label="hubsell home">
+      <svg viewBox="0 0 1048 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="hubsell">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 7.84852C0 2.70605 2.70605 0 7.84852 0H21.3807C26.5212 0 29.2292 2.70605 29.2292 7.84852V60.0801C33.0177 51.962 42.2183 46.2783 56.5632 46.2783H70.9063C105.276 46.2783 118.269 60.8929 118.269 97.9707V190.26C118.269 195.396 115.561 198.106 110.418 198.106H96.8863C91.7458 198.106 89.0397 195.396 89.0397 190.26V99.3227C89.0397 77.9439 84.1669 70.6366 64.6814 70.6366H53.5856C34.0982 70.6366 29.2292 77.4008 29.2292 99.3227V190.26C29.2292 195.396 26.5212 198.106 21.3807 198.106H7.84852C2.70605 198.106 0 195.396 0 190.26V7.84852Z" fill="currentColor"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M240.323 185.925C236.265 194.586 227.062 200 212.447 200H198.104C163.733 200 150.744 185.387 150.744 148.31V56.0226C150.744 50.8802 153.45 48.1741 158.59 48.1741H172.122C177.265 48.1741 179.973 50.8802 179.973 56.0226V146.956C179.973 168.338 184.842 175.642 204.329 175.642H215.425C234.911 175.642 239.781 168.338 239.781 146.956V56.0226C239.781 50.8802 242.487 48.1741 247.63 48.1741H261.162C266.305 48.1741 269.011 50.8802 269.011 56.0226V190.258C269.011 195.397 266.305 198.105 261.162 198.105H251.149C246.276 198.105 244.111 196.208 242.759 192.691L240.323 185.925Z" fill="currentColor"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M303.027 7.84852C303.027 2.70605 305.733 0 310.875 0H324.406C329.548 0 332.256 2.70605 332.256 7.84852V59.5409C336.314 51.962 345.517 46.2783 360.131 46.2783H374.746C409.387 46.2783 422.376 60.8929 422.376 97.9707V148.309C422.376 185.383 409.387 199.999 374.746 199.999H359.59C345.245 199.999 335.773 194.585 331.713 185.924L329.278 192.692C327.924 196.211 325.76 198.106 320.889 198.106H310.875C305.733 198.106 303.027 195.396 303.027 190.26V7.84852ZM393.149 99.3227C393.149 77.9439 388.276 70.6366 368.791 70.6366H356.612C337.127 70.6366 332.256 77.9439 332.256 99.3227V146.955C332.256 168.334 337.127 175.643 356.612 175.643H368.791C388.276 175.643 393.149 168.334 393.149 146.955V99.3227Z" fill="currentColor"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M743.352 85.7907C743.352 74.6949 738.481 69.5525 721.704 69.5525H714.666C697.888 69.5525 693.017 74.6949 693.017 85.7907V90.6616C693.017 100.947 696.263 103.653 713.042 107.982L743.082 115.561C768.793 122.058 774.748 128.009 774.748 152.367V159.946C774.748 184.844 765.815 200 726.844 200H714.666C675.695 200 666.766 184.844 666.766 159.946V156.967C666.766 151.826 669.47 149.118 674.611 149.118H687.33C692.472 149.118 695.178 151.826 695.178 156.967V160.487C695.178 171.585 700.053 176.726 716.831 176.726H724.677C741.459 176.726 746.33 171.585 746.33 160.487V153.18C746.33 142.895 743.082 140.189 726.305 135.859L696.263 128.281C670.554 121.784 664.599 115.831 664.599 91.4744V86.3319C664.599 61.4343 673.528 46.2785 712.501 46.2785H723.868C762.839 46.2785 771.768 61.4343 771.768 86.3319V89.3095C771.768 94.452 769.064 97.1561 763.922 97.1561H751.2C746.06 97.1561 743.352 94.452 743.352 89.3095V85.7907Z" fill="currentColor"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M830.833 130.717V146.956C830.833 168.334 835.704 175.642 855.192 175.642H867.37C883.065 175.642 889.831 171.038 891.185 157.51C891.726 152.368 894.161 149.662 899.303 149.662H912.833C917.978 149.662 920.684 152.368 920.684 157.51C920.684 163.465 918.789 171.584 916.624 176.994C909.318 194.858 891.455 200 869.263 200H853.296C815.136 200 801.606 185.114 801.606 148.038V98.5105C801.606 61.4347 815.136 46.2789 853.296 46.2789H869.263C907.423 46.2789 920.955 61.4347 920.955 98.5105V122.869C920.955 128.009 918.247 130.717 913.107 130.717H830.833ZM891.726 99.3233C891.726 77.9426 886.853 70.6353 867.37 70.6353H855.192C835.704 70.6353 830.833 77.9426 830.833 99.3233V109.606H891.726V99.3233Z" fill="currentColor"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M952.324 7.84852C952.324 2.70605 955.032 0 960.173 0H973.703C978.845 0 981.553 2.70605 981.553 7.84852V190.26C981.553 195.396 978.845 198.106 973.703 198.106H960.173C955.032 198.106 952.324 195.396 952.324 190.26V7.84852Z" fill="currentColor"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M1018.27 7.84852C1018.27 2.70605 1020.98 0 1026.12 0H1039.65C1044.8 0 1047.5 2.70605 1047.5 7.84852V190.26C1047.5 195.396 1044.8 198.106 1039.65 198.106H1026.12C1020.98 198.106 1018.27 195.396 1018.27 190.26V7.84852Z" fill="currentColor"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M504.693 139.706H584.272L604.507 106.417H484.379L504.693 139.706Z" fill="#FF9300"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M536.79 192.305C544.566 205.045 552.316 192.289 552.316 192.289L569.101 164.674H519.931L536.79 192.305Z" fill="#E86250"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M624.794 48.1584H463.948C448.831 48.1584 456.603 60.8991 456.603 60.8991L469.142 81.4496H619.68L632.161 60.9127C639.911 48.1584 624.794 48.1584 624.794 48.1584Z" fill="#FEC65D"/>
+      </svg>
     </a>
 
-    <ul>
-      <li>
-        <button type="button" aria-haspopup="true" aria-expanded="false">Customers</button>
-        <ul>
+    <nav class="nav__links" aria-label="Primary">
+      <div class="nav__group">
+        <button type="button" class="nav__link nav__trigger" aria-haspopup="true" aria-expanded="false">Customers</button>
+        <ul class="nav__menu">
           {customerStories.map((s) => (
             <li><a href={s.href}>{s.label}</a></li>
           ))}
         </ul>
-      </li>
-      <li><a href="/insights">Insights</a></li>
-      <li><a href="/#pricing">Pricing</a></li>
-      <li><a href="/#join-waitlist">Join the waitlist</a></li>
-    </ul>
+      </div>
+      <a class="nav__link" href="/insights">Insights</a>
+      <a class="nav__link" href="/#pricing">Pricing</a>
+    </nav>
 
-    <div>
-      <a href="https://app.hubsell.com/">Login</a>
-      <a href="/book-a-call">Get started</a>
+    <div class="nav__actions">
+      <a class="nav__login" href="https://app.hubsell.com/">Login</a>
+      <a class="button is-small" href={SIGNUP_URL}>Start free trial</a>
     </div>
-  </nav>
+  </div>
 </header>
+
+<style>
+  .nav{
+    position:sticky; top:0; z-index:40;
+    background:color-mix(in srgb, var(--chrome-bg) 90%, transparent);
+    backdrop-filter:saturate(140%) blur(10px);
+    border-bottom:1px solid var(--chrome-bd);
+  }
+  .nav__inner{
+    max-width:var(--maxw); margin:0 auto; padding:12px clamp(20px,5vw,56px);
+    display:flex; align-items:center; gap:18px;
+  }
+  .nav__mark{color:var(--chrome-tx); display:flex; align-items:center; margin-right:auto}
+  .nav__mark svg{width:108px; height:auto}
+
+  .nav__links{display:flex; align-items:center; gap:4px}
+  .nav__group{position:relative}
+  .nav__link{
+    font-family:var(--font-body); font-size:14px; font-weight:500; color:var(--chrome-tx-dim);
+    text-decoration:none; background:transparent; border:0; cursor:pointer;
+    padding:8px 12px; border-radius:8px; transition:color .15s, background .15s;
+  }
+  .nav__link:hover, .nav__trigger[aria-expanded="true"]{
+    color:var(--chrome-tx); background:var(--chrome-hover);
+  }
+  .nav__menu{
+    position:absolute; top:calc(100% + 6px); left:0; min-width:300px; margin:0; padding:8px;
+    list-style:none; background:var(--chrome-card); border:1px solid var(--chrome-bd);
+    border-radius:var(--radius-lg); box-shadow:0 16px 40px rgba(0,0,0,.32);
+    opacity:0; visibility:hidden; transform:translateY(-6px);
+    transition:opacity .16s, transform .16s, visibility .16s;
+  }
+  .nav__group:hover .nav__menu, .nav__group:focus-within .nav__menu{opacity:1; visibility:visible; transform:none}
+  .nav__menu li a{
+    display:block; padding:9px 12px; border-radius:8px; text-decoration:none;
+    font-size:13.5px; color:var(--chrome-tx-dim); transition:color .12s, background .12s;
+  }
+  .nav__menu li a:hover{color:var(--chrome-tx); background:color-mix(in srgb, var(--accent-on) 18%, transparent)}
+
+  .nav__actions{display:flex; align-items:center; gap:10px}
+  .nav__login{font-family:var(--font-body); font-size:14px; font-weight:500; color:var(--chrome-tx-dim); text-decoration:none; padding:8px 10px; border-radius:8px}
+  .nav__login:hover{color:var(--chrome-tx)}
+
+  @media (max-width:860px){
+    .nav__links{display:none}
+    .nav__login{display:none}
+  }
+</style>
+
+<script>
+  // Keyboard/click affordance for the Customers menu (hover handles the rest).
+  function initNav() {
+    document.querySelectorAll<HTMLButtonElement>('.nav__trigger').forEach((btn) => {
+      if (btn.dataset.bound) return;
+      btn.dataset.bound = 'true';
+      const group = btn.closest('.nav__group')!;
+      btn.addEventListener('click', () => {
+        const open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+      });
+      document.addEventListener('click', (e) => {
+        if (!group.contains(e.target as Node)) btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+  initNav();
+  document.addEventListener('astro:page-load', initNav);
+</script>

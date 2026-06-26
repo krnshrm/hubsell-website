@@ -1,0 +1,308 @@
+---
+// Hero pipeline flow — the signature visual.
+// REWRITTEN: the connecting line + return loop are now pure CSS, positioned
+// relative to the real cards (top/bottom: half a card-height), so they always
+// align to the first and last card centres regardless of stack height. This is
+// immune to the global `img,svg{max-width:100%}` reset that was scaling the old
+// fixed-coordinate SVG layer and compressing the loop. The travelling light is a
+// CSS pulse that rides the same closed circuit (down the spine, around the loop).
+//   • spine + loop + pulse glow → terracotta accent (var(--accent-on), theme-aware)
+//   • per-step icon hues → brand palette (terracotta/amber/coral/navy/green)
+// Motion is gated behind the .has-anim class (reduced-motion / no-JS show the
+// cards and the static connector at rest).
+---
+<div class="hubsell-flow-embed">
+  <div class="hw-track-container">
+
+    <!-- Connector layer (behind the cards). Pure CSS — self-aligning. -->
+    <!-- Spine: first card centre -> last card centre, down the middle.
+         Masked by the opaque cards, so it only shows in the gaps. -->
+    <div class="hw-spine" aria-hidden="true"></div>
+    <!-- Return loop: last card's left edge, around the left, to the first
+         card's left edge. The "[" bracket auto-spans the full stack height. -->
+    <div class="hw-loop" aria-hidden="true"></div>
+    <!-- Travelling light that flows the closed circuit. -->
+    <div class="hw-pulse" aria-hidden="true"></div>
+
+    <!-- Step 1: Source fresh contacts -->
+    <div class="hw-card step-1" style="--color: #E0533A; --lit-delay: -0.5s;">
+      <div class="hw-icon-box">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="8.5" cy="7" r="4"></circle>
+          <line x1="20" y1="8" x2="20" y2="14"></line>
+          <line x1="23" y1="11" x2="17" y2="11"></line>
+        </svg>
+      </div>
+      <div class="hw-text-group">
+        <p class="hw-title">Source fresh contacts</p>
+        <p class="hw-subtitle">Find targeted B2B prospects</p>
+      </div>
+    </div>
+
+    <!-- Step 2: Qualify with AI -->
+    <div class="hw-card step-2" style="--color: #F4A93C; --lit-delay: 0.5s;">
+      <div class="hw-icon-box">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+        </svg>
+      </div>
+      <div class="hw-text-group">
+        <p class="hw-title">Qualify with AI</p>
+        <p class="hw-subtitle">Score and filter leads instantly</p>
+      </div>
+    </div>
+
+    <!-- Step 3: Get accurate data -->
+    <div class="hw-card step-3" style="--color: #E86250; --lit-delay: 1.5s;">
+      <div class="hw-icon-box">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+          <path d="M3 3v5h5"></path>
+          <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"></path>
+          <path d="M16 21v-5h5"></path>
+        </svg>
+      </div>
+      <div class="hw-text-group">
+        <p class="hw-title">Get accurate data</p>
+        <p class="hw-subtitle">Verify emails &amp; phone numbers</p>
+      </div>
+    </div>
+
+    <!-- Step 4: Reach out -->
+    <div class="hw-card step-4" style="--color: #192341; --lit-delay: 2.5s;">
+      <div class="hw-icon-box">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+          <path d="m22 7-10 5-10-5"></path>
+        </svg>
+      </div>
+      <div class="hw-text-group">
+        <p class="hw-title">Reach out</p>
+        <p class="hw-subtitle">Via email + LinkedIn</p>
+      </div>
+    </div>
+
+    <!-- Step 5: Log activity to CRM -->
+    <div class="hw-card step-5" style="--color: #2FA06E; --lit-delay: 3.5s;">
+      <div class="hw-icon-box">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+      <div class="hw-text-group">
+        <p class="hw-title">Log activity to CRM</p>
+        <p class="hw-subtitle">HubSpot, Salesforce, &amp; Pipedrive</p>
+      </div>
+    </div>
+
+    <!-- Step 6: Iterate and improve -->
+    <div class="hw-card step-6" style="--color: #E0533A; --lit-delay: 4.5s;">
+      <div class="hw-icon-box">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="23 4 23 10 17 10"></polyline>
+          <polyline points="1 20 1 14 7 14"></polyline>
+          <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+        </svg>
+      </div>
+      <div class="hw-text-group">
+        <p class="hw-title">Iterate and improve</p>
+        <p class="hw-subtitle">Continuous optimization</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .hubsell-flow-embed{
+    display:flex; justify-content:center;
+    font-family:'Instrument Sans',system-ui,sans-serif;
+    /* left padding holds the return loop without clipping */
+    padding:40px 20px 40px 80px;
+    width:100%; box-sizing:border-box; background:transparent;
+  }
+  .hubsell-flow-embed *{box-sizing:border-box}
+
+  .hw-track-container{
+    /* --card-h drives BOTH the card height and the connector anchor points,
+       so they can never drift apart. */
+    --card-h:64px;
+    --half:calc(var(--card-h) / 2);
+    --loop-w:56px;             /* how far the return loop reaches left of the cards */
+    display:flex; flex-direction:column; align-items:center;
+    gap:36px; position:relative; width:266px; flex-shrink:0;
+  }
+
+  /* ---------- Connector: spine (centre) ---------- */
+  /* top/bottom = half a card, so the line spans card-1 centre -> card-6 centre
+     no matter how tall the stack is. z-index below the cards => masked behind
+     them, visible only in the gaps. */
+  .hw-spine{
+    position:absolute; z-index:1;
+    top:var(--half); bottom:var(--half);
+    left:50%; transform:translateX(-50%);
+    width:2px; background:var(--accent-on);
+    border-radius:2px;
+    opacity:1; transition:opacity .7s cubic-bezier(.16,1,.3,1);
+  }
+
+  /* ---------- Connector: return loop (left bracket) ---------- */
+  /* A "[" — left + top + bottom dashed borders, open on the right. Its top edge
+     sits at card-1 centre, its bottom edge at card-6 centre; the open right side
+     meets the cards' left edge (tucked 2px under, so there's no seam). */
+  .hw-loop{
+    position:absolute; z-index:1;
+    top:var(--half); bottom:var(--half);
+    left:calc(-1 * var(--loop-w)); width:calc(var(--loop-w) + 2px);
+    border:2px dashed var(--accent-on);
+    border-right:0;
+    border-radius:14px 0 0 14px;
+    opacity:1; transition:opacity .7s cubic-bezier(.16,1,.3,1);
+  }
+
+  /* ---------- Travelling light ---------- */
+  /* Rides the closed circuit: down the spine (masked except in the gaps), under
+     the last card to the loop, up the loop's left side, back under the first
+     card. Positions are container-relative, so it tracks the cards exactly. */
+  .hw-pulse{
+    position:absolute; z-index:1; pointer-events:none;
+    width:9px; height:9px; border-radius:50%;
+    background:#FFFFFF;
+    box-shadow:0 0 4px 1px rgba(224,83,58,1), 0 0 9px 3px rgba(232,98,80,.85);
+    left:133px; top:var(--half);             /* start: card-1 centre on the spine */
+    transform:translate(-50%,-50%);
+    opacity:0;                                /* appears only once flowing (JS) */
+    will-change:left,top;
+  }
+
+  /* 133px = centre of the 266px stack; the loop x tracks --loop-w (the +1px lands
+     on the 2px border's centreline) so the light stays on the loop at every width. */
+  @keyframes hw-pulse-flow{
+    0%   { left:133px;  top:var(--half); }                                  /* spine top  (card 1) */
+    42%  { left:133px;  top:calc(100% - var(--half)); }                     /* spine base (card 6) */
+    50%  { left:calc(-1 * var(--loop-w) + 1px); top:calc(100% - var(--half)); }  /* across to loop foot */
+    92%  { left:calc(-1 * var(--loop-w) + 1px); top:var(--half); }               /* up the loop         */
+    100% { left:133px;  top:var(--half); }                                  /* across back to spine  */
+  }
+
+  /* Card glow as the pulse passes behind it — same look as :hover. The lit
+     pulse sits in the first ~12% of the cycle; each card's --lit-delay shifts
+     it to match the light's vertical position on the spine. */
+  @keyframes hw-card-lit{
+    0%, 12%, 100%{
+      transform:translateY(0);
+      box-shadow:0 4px 12px rgba(0,0,0,.04);
+      border-color:var(--border);
+    }
+    4%{
+      transform:translateY(-3px);
+      box-shadow:0 8px 24px rgba(0,0,0,.08);
+      border-color:var(--color);
+    }
+  }
+  @keyframes hw-icon-lit{
+    0%, 12%, 100%{
+      border-color:var(--border);
+      background-color:#FBF7F1;
+    }
+    4%{
+      border-color:var(--color);
+      background-color:color-mix(in srgb, var(--color) 8%, transparent);
+    }
+  }
+
+  /* Pre-animation state when motion is enabled (BaseLayout adds .has-anim). */
+  html.has-anim .hw-spine,
+  html.has-anim .hw-loop{opacity:0}
+  html.has-anim .hw-card{opacity:0}
+
+  /* Flowing state (added by JS after the cards reveal). Must come AFTER the
+     .has-anim rules so it wins at equal specificity. */
+  .is-flowing .hw-spine,
+  .is-flowing .hw-loop{opacity:1}
+  .is-flowing .hw-pulse{opacity:1; animation:hw-pulse-flow 12s linear infinite}
+  /* Period matches the pulse (12s) so the cascade stays locked to the light. */
+  .is-flowing .hw-card{
+    animation-name:hw-card-lit; animation-duration:12s;
+    animation-timing-function:linear; animation-iteration-count:infinite;
+    animation-delay:var(--lit-delay,0s);
+  }
+  .is-flowing .hw-icon-box{
+    animation-name:hw-icon-lit; animation-duration:12s;
+    animation-timing-function:linear; animation-iteration-count:infinite;
+    animation-delay:var(--lit-delay,0s);
+  }
+
+  /* ---------- Cards ---------- */
+  .hw-card{
+    width:266px; height:var(--card-h); background:#FFFFFF;  /* opaque => masks the spine behind it */
+    border:1px solid var(--border); border-radius:8px;
+    display:flex; align-items:center; padding:0 16px; gap:14px;
+    box-shadow:0 4px 12px rgba(0,0,0,.04);
+    position:relative; z-index:3; cursor:default;
+    transition:transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s ease, border-color .3s ease;
+  }
+  .hw-card:hover{
+    transform:translateY(-3px)!important;
+    box-shadow:0 8px 24px rgba(0,0,0,.08)!important;
+    border-color:var(--color)!important; z-index:10;
+  }
+
+  .hw-icon-box{
+    width:39px; height:39px; border:1px solid var(--border); border-radius:6px;
+    display:flex; justify-content:center; align-items:center;
+    color:var(--color); background:#FBF7F1;
+    transition:background-color .25s ease, border-color .25s ease; flex-shrink:0;
+  }
+  .hw-card:hover .hw-icon-box{
+    border-color:var(--color)!important;
+    background-color:color-mix(in srgb, var(--color) 8%, transparent)!important;
+  }
+
+  .hw-text-group{display:flex; flex-direction:column; gap:2px}
+  .hw-title{font-family:'Lexend',sans-serif; font-weight:600; font-size:14px; color:#192341; margin:0}
+  .hw-subtitle{font-size:11px; color:#54596B; margin:0; line-height:1.2}
+
+  @media (prefers-reduced-motion: reduce){
+    .hw-pulse{display:none}
+    .is-flowing .hw-card, .is-flowing .hw-icon-box{animation:none}
+  }
+  @media (max-width:440px){
+    .hubsell-flow-embed{padding:24px 8px 24px 64px}
+    .hw-track-container{--loop-w:44px}
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  function initPipeline() {
+    const wrap = document.querySelector('.hubsell-flow-embed') as HTMLElement | null;
+    if (!wrap || wrap.dataset.ready) return;
+    // Only animate when motion is allowed — BaseLayout adds .has-anim pre-paint.
+    // Without it (reduced motion / no JS) the CSS shows cards + connector at rest.
+    if (!document.documentElement.classList.contains('has-anim')) return;
+    wrap.dataset.ready = '1';
+
+    const cards = wrap.querySelectorAll('.hw-card');
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const tl = gsap.timeline({
+      scrollTrigger: { trigger: wrap, start: 'top 75%', toggleActions: 'play none none none' },
+    });
+
+    // 1. Cards stagger in
+    tl.fromTo(cards,
+      { opacity: 0, y: 15 },
+      { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', stagger: 0.15, clearProps: 'transform' }
+    );
+    // 2. Reveal the connector and start the travelling light (CSS handles the rest)
+    tl.add(() => wrap.classList.add('is-flowing'), '-=0.2');
+  }
+
+  initPipeline();
+  document.addEventListener('astro:page-load', initPipeline);
+</script>

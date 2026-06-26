@@ -1,0 +1,47 @@
+---
+// Section 6 — From sign-up to meeting set, in three steps (Espresso).
+// Three alternating full-width bands: text on one side, embed widget on the other.
+import { pipelineSteps } from '../data/home-content';
+import EmbedSlot from './EmbedSlot.astro';
+import { SIGNUP_URL } from '../data/site';
+---
+<section class="sec sec--esp" aria-labelledby="steps-title">
+  <div class="wrap">
+    <div class="sec-head is-center reveal">
+      <p class="eyebrow">The three-step pipeline motion</p>
+      <h2 id="steps-title" class="heading_primary" style="margin-top:8px">From <span class="accent">sign-up to meeting</span> set in three steps.</h2>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:clamp(40px,6vw,80px)">
+      {pipelineSteps.map((step) => (
+        <div class={`step-row${step.flip ? ' is-flip' : ''} reveal`}>
+          <div class="step-row__text">
+            <span class="step-num" style="margin-bottom:14px">{step.n}</span>
+            <p class="eyebrow" style="margin-bottom:10px">{step.label}</p>
+            <h3 class="heading_secondary" style="margin-bottom:16px">{step.title}<span class="accent">{step.titleAccent}</span>{step.tail}</h3>
+            {step.points.map((p) => <p class="paragraph" style="opacity:.86;margin-bottom:10px">{p}</p>)}
+            <a href={SIGNUP_URL} class="button is-secondary" style="margin-top:10px;align-self:flex-start">{step.cta}</a>
+          </div>
+          <div class="step-row__media">
+            <EmbedSlot name={step.embed} recolor={step.recolor} minHeight="380px" note={`The ${step.label.split('·')[1].trim()} widget drops in here.`} />
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .step-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(28px,4vw,56px);align-items:center}
+  .step-row__text{display:flex;flex-direction:column}
+  /* alternate sides on wide screens; embed sits second in DOM, so flip swaps order */
+  .step-row.is-flip .step-row__text{order:2}
+  .step-row.is-flip .step-row__media{order:1}
+  @media (max-width:780px){
+    .step-row{grid-template-columns:1fr}
+    .step-row.is-flip .step-row__text,
+    .step-row.is-flip .step-row__media{order:initial}
+    .step-row__media{order:2}
+    .step-row__text{order:1}
+  }
+</style>

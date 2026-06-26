@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multichannel Flow Web Widget</title>
+  
+  <!-- Load Instrument Sans & Lexend Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Lexend:wght@500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    /* STREAMING_CHUNK: Setting up desktop layouts and connector styles... */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: transparent;
+    }
+
+    .hubsell-tree-embed {
+      display: flex;
+      justify-content: center;
+      font-family: 'Instrument Sans', system-ui, sans-serif;
+      padding: 10px 20px; 
+      width: 100%;
+      background-color: transparent;
+      box-sizing: border-box;
+      overflow: visible;
+    }
+    
+    .hubsell-tree-embed * {
+      box-sizing: border-box;
+    }
+
+    /* --- The Master Absolute Canvas (Desktop & Tablet) --- */
+    .ht-canvas {
+      position: relative;
+      width: 740px; 
+      height: 520px;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    /* --- SVG Connector Lines --- */
+    .ht-svg-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0; /* Hidden state for GSAP */
+      overflow: visible; /* Prevents glow effects from clipping */
+    }
+
+    /* Base Tracks: Solid brand purple matching the Unified Stack & Social Prospecting styling */
+    .ht-svg-layer path.ht-base-track {
+      stroke: #7C3AED;
+      stroke-width: 2;
+      stroke-opacity: 0.6; /* Starts subtle */
+      transition: stroke-opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Charge up the base tracks when the system is flowing */
+    .is-flowing .ht-svg-layer path.ht-base-track {
+      stroke-opacity: 1.0;
+    }
+
+    /* --- Glowing Zap Lines (Electricity Effect) --- */
+    .ht-zap-line {
+      fill: none;
+      stroke: #FFFFFF; /* Bright core */
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      
+      /* Creates a 40px "streak" of lightning, followed by a massive gap */
+      stroke-dasharray: 40 1000;
+      stroke-dashoffset: 40; /* Start hidden */
+      opacity: 0;
+      
+      /* Dual drop-shadow for electricity glow matching brand purple/indigo */
+      -webkit-filter: drop-shadow(0px 0px 4px rgba(124, 58, 237, 1)) drop-shadow(0px 0px 8px rgba(168, 85, 247, 0.8));
+      filter: drop-shadow(0px 0px 4px rgba(124, 58, 237, 1)) drop-shadow(0px 0px 8px rgba(168, 85, 247, 0.8));
+      will-change: stroke-dashoffset, opacity;
+    }
+
+    /* SPEED CALCULATION & PATH MAPPING */
+    .is-flowing .zap-l { animation: ht-zap-long 3.5s linear infinite 0s; }
+    .is-flowing .zap-m { animation: ht-zap-short 2.2s linear infinite 1.2s; }
+    .is-flowing .zap-r { animation: ht-zap-long 3.5s linear infinite 1.8s; }
+
+    @keyframes ht-zap-long {
+      0% { stroke-dashoffset: 40; opacity: 0; }
+      5% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { stroke-dashoffset: -630; opacity: 0; }
+    }
+    
+    @keyframes ht-zap-short {
+      0% { stroke-dashoffset: 40; opacity: 0; }
+      8% { opacity: 1; }
+      92% { opacity: 1; }
+      100% { stroke-dashoffset: -390; opacity: 0; }
+    }
+
+    /* --- Standard Opaque Card --- */
+    .ht-card {
+      position: absolute;
+      width: 210px;
+      background: #FFFFFF;
+      border: 1px solid #E5E7EB;
+      border-radius: 10px;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      z-index: 3;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      
+      /* Hidden state for GSAP */
+      opacity: 0;
+      transform: translateY(15px);
+    }
+
+    .ht-card:hover {
+      transform: translateY(-3px) !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      border-color: #3B82F6;
+      cursor: default;
+      z-index: 10;
+    }
+
+    /* --- Central Condition Hybrid Card --- */
+    .ht-condition {
+      position: absolute;
+      width: 200px;
+      background: #FFFFFF;
+      border: 1px solid #E5E7EB;
+      border-radius: 24px;
+      padding: 8px 16px; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      z-index: 3;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+
+      /* Hidden state for GSAP */
+      opacity: 0;
+      transform: translateY(15px);
+    }
+
+    .ht-condition:hover {
+      transform: translateY(-3px) !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      border-color: #9333EA;
+      cursor: default;
+      z-index: 10;
+    }
+
+    /* --- Pill Badges (Branch Names) --- */
+    .ht-pill {
+      position: absolute;
+      height: 26px;
+      background: #FFFFFF;
+      border: 1px solid #D1D5DB;
+      border-radius: 13px;
+      padding: 0 14px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #111827;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+      z-index: 3;
+      white-space: nowrap;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+      /* Hidden state for GSAP */
+      opacity: 0;
+      transform: translateY(15px);
+    }
+
+    .ht-pill:hover {
+      transform: scale(1.05) !important;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+      cursor: default;
+      z-index: 10;
+    }
+
+    /* --- Card Internals --- */
+    .ht-header { display: flex; align-items: center; gap: 10px; }
+    .ht-icon-box { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .ht-text-content { display: flex; flex-direction: column; gap: 1px; }
+    .ht-title { font-family: 'Lexend', sans-serif; font-size: 12px; font-weight: 600; color: #111827; margin: 0; line-height: 1.2; }
+    .ht-subtitle { font-size: 10px; color: #6B7280; margin: 0; line-height: 1.3; }
+
+    /* --- Exact Positioning Map --- */
+    .pos-c1 { top: 40px; left: 265px; }
+    .pos-c2 { top: 120px; left: 265px; }
+    .pos-cond { top: 210px; left: 270px; }
+
+    .pos-b-l { top: 300px; left: 75px; width: 90px; }
+    .pos-c-l1 { top: 350px; left: 15px; }
+    .pos-c-l2 { top: 430px; left: 15px; }
+
+    .pos-b-m { top: 300px; left: 300px; width: 140px; }
+    .pos-c-m1 { top: 350px; left: 265px; }
+    .pos-c-m2 { top: 430px; left: 265px; }
+
+    .pos-b-r { top: 300px; left: 565px; width: 110px; }
+    .pos-c-r1 { top: 350px; left: 515px; }
+    .pos-c-r2 { top: 430px; left: 515px; }
+
+    /* STREAMING_CHUNK: Refining mobile portrait layout structures... */
+    /* --- Mobile Portrait Pipeline Feed Stack (< 640px) --- */
+    .ht-mobile-container {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      max-width: 340px;
+      gap: 20px;
+      padding: 20px 0;
+    }
+
+    /* Mobile Nodes */
+    .ht-mobile-container .ht-card-mob {
+      width: 100%;
+      background: #FFFFFF;
+      border: 1px solid #E5E7EB;
+      border-radius: 12px;
+      padding: 14px 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      display: flex;
+      align-items: center;
+      z-index: 3;
+      opacity: 0;
+      transform: translateY(15px);
+    }
+
+    .ht-mobile-container .ht-condition-mob {
+      width: 100%;
+      background: #FFFFFF;
+      border: 1px solid #E5E7EB;
+      border-radius: 24px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      z-index: 3;
+      opacity: 0;
+      transform: translateY(15px);
+    }
+
+    .ht-mobile-container .ht-pill-mob {
+      height: 26px;
+      background: #FFFFFF;
+      border: 1px solid #D1D5DB;
+      border-radius: 13px;
+      padding: 0 14px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #111827;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+      margin-top: 8px;
+      opacity: 0;
+      transform: scale(0.9);
+    }
+
+    /* Dynamic viewport layout switch */
+    @media (max-width: 640px) {
+      .ht-canvas { display: none; }
+      .ht-mobile-container { display: flex; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STREAMING_CHUNK: Delivering semantic HTML markup... -->
+  <div class="hubsell-tree-embed">
+
+    <!-- DESKTOP CANVAS -->
+    <div class="ht-canvas">
+
+      <svg class="ht-svg-layer" width="740" height="520" xmlns="http://www.w3.org/2000/svg">
+        <!-- Base Solid Purple Tracks starting precisely inside first card (Y = 72) and curving gracefully -->
+        <path class="ht-base-track" d="M 370 72 v 198 q 0 10 -10 10 H 130 q -10 0 -10 10 v 160" fill="none" />
+        <path class="ht-base-track" d="M 370 72 v 378" fill="none" />
+        <path class="ht-base-track" d="M 370 72 v 198 q 0 10 10 10 H 610 q 10 0 10 10 v 160" fill="none" />
+
+        <!-- Glowing Zap Layers (Triggers via CSS offset animation) -->
+        <path class="ht-zap-line zap-l" d="M 370 72 v 198 q 0 10 -10 10 H 130 q -10 0 -10 10 v 160" />
+        <path class="ht-zap-line zap-m" d="M 370 72 v 378" />
+        <path class="ht-zap-line zap-r" d="M 370 72 v 198 q 0 10 10 10 H 610 q 10 0 10 10 v 160" />
+      </svg>
+
+      <div class="ht-node ht-card pos-c1">
+        <div class="ht-header">
+          <div class="ht-icon-box" style="background: #D1FAE5; color: #10B981;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle></svg>
+          </div>
+          <div class="ht-text-content">
+            <p class="ht-title">Contact added</p>
+            <p class="ht-subtitle">Trigger when added to list</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ht-node ht-card pos-c2">
+        <div class="ht-header">
+          <div class="ht-icon-box" style="background: #DBEAFE; color: #3B82F6;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+          </div>
+          <div class="ht-text-content">
+            <p class="ht-title">Connection request</p>
+            <p class="ht-subtitle">LinkedIn connection request</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ht-node ht-condition pos-cond">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div class="ht-icon-box" style="background: #F3E8FF; color: #9333EA; width: 28px; height: 28px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"></path><path d="M4 20L21 3"></path><path d="M21 16v5h-5"></path><path d="M15 15l6 6"></path><path d="M4 4l5 5"></path></svg>
+          </div>
+          <div style="text-align: left;">
+            <p class="ht-title">Did they accept?</p>
+            <p class="ht-subtitle" style="font-size: 10px;">Follow-up Conditions</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ht-node ht-pill pos-b-l" style="color: #3B82F6; border-color: #BFDBFE;">Accepted</div>
+
+      <div class="ht-node ht-card pos-c-l1">
+        <div class="ht-header">
+          <div class="ht-icon-box" style="background: #DBEAFE; color: #3B82F6;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          </div>
+          <div class="ht-text-content">
+            <p class="ht-title">Intro Message</p>
+            <p class="ht-subtitle">LinkedIn Direct Message</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ht-node ht-card pos-c-l2">
+        <div class="ht-header">
+          <div class="ht-icon-box" style="background: #DBEAFE; color: #3B82F6;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          </div>
+          <div class="ht-text-content">
+            <p class="ht-title">Follow-up Message</p>
+            <p class="ht-subtitle">LinkedIn Direct Message</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ht-node ht-pill pos-b-m" style="color: #4B5563;">Existing Connection</div>
+
+      <div class="ht-node ht-card pos-c-m1">
+        <div class="ht-header">
+          <div class="ht-icon-box" style="background: #DBEAFE; color: #3B82F6;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          </div>
+          <div class="ht-text-content">
+            <p class="ht-title">Reconnect message</p>
+            <p class="ht-subtitle">LinkedIn Direct Message</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ht-node ht-card pos-c-m2">
+        <div class="ht-header">
+          <div class="ht-icon-box" style="background: #DBEAFE; color: #3B82F6;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          </div>
+          <div class="ht-text-content">
+            <p class="ht-title">Follow-up Message</p>
+            <p class="ht-subtitle">LinkedIn Direct Message</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ht-node ht-pill pos-b-r" style="color: #6B7280;">Not Accepted</div>
+
+      <div class="ht-node ht-card pos-c-r1">
+        <div class="ht-header">
+          <div class="ht-icon-box" style="background: #E0E7FF; color: #60A5FA;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="18" y1="8" x2="23" y2="13"></line><line x1="23" y1="8" x2="18" y2="13"></line></svg>
+          </div>
+          <div class="ht-text-content">
+            <p class="ht-title">Withdraw Request</p>
+            <p class="ht-subtitle">LinkedIn request withdrawal</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ht-node ht-card pos-c-r2">
+        <div class="ht-header">
+          <div class="ht-icon-box" style="background: #FEE2E2; color: #EF4444;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect><path d="M2 4l10 8 10-8"></path></svg>
+          </div>
+          <div class="ht-text-content">
+            <p class="ht-title">Intro email</p>
+            <p class="ht-subtitle">Send Email</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- MOBILE STACK -->
+    <div class="ht-mobile-container">
+
+      <!-- Contact added -->
+      <div class="ht-node-mob ht-card-mob">
+        <div class="ht-header">
+          <div class="ht-icon-box" style="background: #D1FAE5; color: #10B981; width:36px; height:36px; border-radius:8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle></svg>
+          </div>
+          <div class="ht-text-content">
+            <p class="ht-title" style="font-size:14px;">Contact added</p>
+            <p class="ht-subtitle" style="font-size:11px;">Trigger when added to list</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Connection request -->
+      <div class="ht-node-mob ht-card-mob">
+        <div class="ht-header">
+          <div class="ht-icon-box" style="background: #DBEAFE; color: #3B82F6; width:36px; height:36px; border-radius:8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+          </div>
+          <div class="ht-text-content">
+            <p class="ht-title" style="font-size:14px;">Connection request</p>
+            <p class="ht-subtitle" style="font-size:11px;">LinkedIn connection request</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Condition Node -->
+      <div class="ht-node-mob ht-condition-mob">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div class="ht-icon-box" style="background: #F3E8FF; color: #9333EA; width: 28px; height: 28px; border-radius:6px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"></path><path d="M4 20L21 3"></path><path d="M21 16v5h-5"></path><path d="M15 15l6 6"></path><path d="M4 4l5 5"></path></svg>
+          </div>
+          <div style="text-align: left;">
+            <p class="ht-title" style="font-size:14px;">Did they accept?</p>
+            <p class="ht-subtitle" style="font-size: 10px;">Follow-up Conditions</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Branch Accepted -->
+      <div class="ht-node-mob ht-pill-mob" style="color: #3B82F6; border-color: #BFDBFE;">Accepted</div>
+
+      <!-- Intro Message -->
+      <div class="ht-node-mob ht-card-mob">
+        <div class="ht-header">
+          <div class="ht-icon-box" style="background: #DBEAFE; color: #3B82F6; width:36px; height:36px; border-radius:8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          </div>
+          <div class="ht-text-content">
+            <p class="ht-title" style="font-size:14px;">Intro Message</p>
+            <p class="ht-subtitle" style="font-size:11px;">LinkedIn Direct Message</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Branch Existing -->
+      <div class="ht-node-mob ht-pill-mob" style="color: #4B5563;">Existing Connection</div>
+
+      <!-- Reconnect message -->
+      <div class="ht-node-mob ht-card-mob">
+        <div class="ht-header">
+          <div class="ht-icon-box" style="background: #DBEAFE; color: #3B82F6; width:36px; height:36px; border-radius:8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          </div>
+          <div class="ht-text-content">
+            <p class="ht-title" style="font-size:14px;">Reconnect message</p>
+            <p class="ht-subtitle" style="font-size:11px;">LinkedIn Direct Message</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Branch Not Accepted -->
+      <div class="ht-node-mob ht-pill-mob" style="color: #6B7280;">Not Accepted</div>
+
+      <!-- Withdraw Request -->
+      <div class="ht-node-mob ht-card-mob">
+        <div class="ht-header">
+          <div class="ht-icon-box" style="background: #E0E7FF; color: #60A5FA; width:36px; height:36px; border-radius:8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="18" y1="8" x2="23" y2="13"></line><line x1="23" y1="8" x2="18" y2="13"></line></svg>
+          </div>
+          <div class="ht-text-content">
+            <p class="ht-title" style="font-size:14px;">Withdraw Request</p>
+            <p class="ht-subtitle" style="font-size:11px;">LinkedIn request withdrawal</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Intro email -->
+      <div class="ht-node-mob ht-card-mob">
+        <div class="ht-header">
+          <div class="ht-icon-box" style="background: #FEE2E2; color: #EF4444; width:36px; height:36px; border-radius:8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect><path d="M2 4l10 8 10-8"></path></svg>
+          </div>
+          <div class="ht-text-content">
+            <p class="ht-title" style="font-size:14px;">Intro email</p>
+            <p class="ht-subtitle" style="font-size:11px;">Send Email</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Load GSAP & ScrollTrigger inside the Widget so the Preview compiles cleanly -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <script>
+    /* STREAMING_CHUNK: Initializing GSAP ScrollTriggers... */
+    window.addEventListener('load', function() {
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+      
+      const wrap = document.querySelector('.hubsell-tree-embed');
+      if (!wrap) return;
+
+      const svgLayer = wrap.querySelector('.ht-svg-layer');
+      
+      // Grab all nodes (cards, conditions, pills) and sort them physically top-to-bottom
+      const dNodes = Array.from(wrap.querySelectorAll('.ht-canvas .ht-node'));
+      const mNodes = Array.from(wrap.querySelectorAll('.ht-mobile-container .ht-node-mob'));
+      
+      dNodes.sort((a, b) => a.offsetTop - b.offsetTop);
+      mNodes.sort((a, b) => a.offsetTop - b.offsetTop);
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: wrap,
+          start: 'top 80%',
+          toggleActions: 'play none none none', // Play once on all viewports, locks active state on landscape
+          onLeave: () => wrap.classList.remove('is-flowing'),
+          onLeaveBack: () => wrap.classList.remove('is-flowing')
+        }
+      });
+
+      // 1. Fade in the SVG Connection Lines (Desktop Only)
+      if (svgLayer) {
+        tl.fromTo(svgLayer,
+          { opacity: 0 },
+          { opacity: 1, duration: 0.6 }
+        );
+      }
+
+      // 2. Cascade all elements sequentially from top to bottom
+      tl.fromTo([dNodes, mNodes], 
+        { opacity: 0, y: 15 },
+        { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', stagger: 0.08, clearProps: 'transform' },
+        "-=0.4"
+      );
+
+      // 3. Activate the CSS Lightning Zaps once the structure is built
+      tl.add(() => {
+        wrap.classList.add('is-flowing');
+      }, "-=0.2");
+
+    });
+  </script>
+</body>
+</html>

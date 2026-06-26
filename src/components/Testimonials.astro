@@ -1,0 +1,82 @@
+---
+// Section 10 — What B2B teams say about hubsell (Espresso). Carousel.
+import { testimonials } from '../data/home-content';
+---
+<section class="sec sec--esp" aria-labelledby="tst-title">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Customer stories</p>
+      <h2 id="tst-title" class="heading_primary" style="margin-top:8px">What <span class="accent">B2B teams</span> say about hubsell</h2>
+    </div>
+
+    <div class="carousel reveal" data-carousel>
+      <div class="carousel__viewport">
+        <div class="carousel__track" data-track>
+          {testimonials.map((t) => (
+            <div class="carousel__slide">
+              <div class="card" style="display:grid;grid-template-columns:1fr;gap:22px">
+                <p class="quote">“{t.quote}”</p>
+                <div style="display:flex;align-items:center;gap:14px">
+                  <img src={t.image} alt={`${t.name}, ${t.title} at ${t.company}`} width="52" height="52" loading="lazy"
+                       style="width:52px;height:52px;border-radius:50%;object-fit:cover;background:color-mix(in srgb,var(--sec-tx) 10%,transparent)" />
+                  <div>
+                    <p style="margin:0;font-weight:600;font-family:var(--font-head)">{t.name}</p>
+                    <p class="paragraph_small" style="margin:0;opacity:.7">{t.title}, {t.company}</p>
+                  </div>
+                </div>
+                <div class="grid grid-3" style="gap:14px;border-top:1px solid var(--sec-bd);padding-top:18px">
+                  {t.results.map((r) => (
+                    <div>
+                      <div class="metric">{r.metric}</div>
+                      <div class="metric-label">{r.label}</div>
+                    </div>
+                  ))}
+                </div>
+                <a href={`/customerstories/${t.slug}`} class="link" style="font-size:14px">Read the {t.company} story →</a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="carousel__nav">
+        <button class="carousel__btn" data-prev aria-label="Previous testimonial">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="carousel__btn" data-next aria-label="Next testimonial">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <div class="carousel__dots" data-dots></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function initCarousels() {
+    document.querySelectorAll<HTMLElement>('[data-carousel]').forEach((root) => {
+      if (root.dataset.ready) return;
+      root.dataset.ready = '1';
+      const track = root.querySelector<HTMLElement>('[data-track]')!;
+      const slides = Array.from(track.children) as HTMLElement[];
+      const dotsWrap = root.querySelector<HTMLElement>('[data-dots]')!;
+      let i = 0;
+      slides.forEach((_, idx) => {
+        const d = document.createElement('button');
+        d.className = 'carousel__dot' + (idx === 0 ? ' is-active' : '');
+        d.setAttribute('aria-label', `Go to testimonial ${idx + 1}`);
+        d.addEventListener('click', () => go(idx));
+        dotsWrap.appendChild(d);
+      });
+      const dots = Array.from(dotsWrap.children) as HTMLElement[];
+      function go(n: number) {
+        i = (n + slides.length) % slides.length;
+        track.style.transform = `translateX(-${i * 100}%)`;
+        dots.forEach((d, idx) => d.classList.toggle('is-active', idx === i));
+      }
+      root.querySelector('[data-prev]')!.addEventListener('click', () => go(i - 1));
+      root.querySelector('[data-next]')!.addEventListener('click', () => go(i + 1));
+    });
+  }
+  initCarousels();
+  document.addEventListener('astro:page-load', initCarousels);
+</script>

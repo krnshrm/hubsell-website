@@ -1,70 +1,136 @@
 ---
-// Reusable waitlist form. Posts JSON to the /api/subscribe Pages Function,
-// which talks to Plunk server-side. Copy matches the current site.
+// Reusable waitlist form. Posts JSON to the /api/subscribe Pages Function, which
+// talks to Plunk server-side. Carries the corporate-email rule from the live
+// site: free providers and competitor domains are blocked. The client check is
+// instant UX only (curated common list); functions/api/subscribe.ts enforces the
+// full block server-side so it can't be bypassed.
 export interface Props {
-  form?: 'waitlist' | 'publish-track';
+  form?: 'waitlist' | 'publish-track' | 'newsletter';
   buttonLabel?: string;
   placeholder?: string;
+  help?: string;
 }
 const {
   form = 'waitlist',
   buttonLabel = 'Join the waitlist',
-  placeholder = 'Work Email',
+  placeholder = 'email@yourcompany.com',
+  help = 'Use your corporate email — free providers and competitor domains are blocked.',
 } = Astro.props;
 ---
 <div class="hs-form" data-form={form}>
   <form novalidate>
-    <input
-      type="email"
-      name="email"
-      required
-      autocomplete="email"
-      placeholder={placeholder}
-      aria-label={placeholder}
-    />
-    <button type="submit">{buttonLabel}</button>
+    <div class="inline-form">
+      <input
+        class="input"
+        id="business-email"
+        type="email"
+        name="email"
+        required
+        autocomplete="email"
+        placeholder={placeholder}
+        aria-label="Work email"
+        aria-describedby="business-email-help"
+      />
+      <button class="button" type="submit">{buttonLabel}</button>
+    </div>
+    <p class="help" id="business-email-help">{help}</p>
   </form>
   <p class="hs-form-success" hidden>You're on the waitlist. We'll be in touch soon.</p>
-  <p class="hs-form-error" hidden>Error: Please check your email and try again.</p>
 </div>
 
+<style>
+  .hs-form{width:100%}
+  .inline-form{display:flex; gap:10px; flex-wrap:wrap}
+  .input{
+    font-family:var(--font-body); font-size:1rem; flex:1; min-width:220px;
+    padding:13px 16px; color:var(--sec-tx); background:var(--sec-card);
+    border:1px solid var(--sec-bd); border-radius:var(--radius);
+    transition:border-color .15s, box-shadow .15s;
+  }
+  .input::placeholder{color:var(--sec-tx); opacity:.45}
+  .input:focus{outline:none; border-color:var(--accent-on);
+    box-shadow:0 0 0 3px color-mix(in srgb, var(--accent-on) 22%, transparent)}
+  .input.is-error{border-color:var(--error);
+    box-shadow:0 0 0 3px color-mix(in srgb, var(--error) 20%, transparent)}
+  .help{font-size:13px; color:var(--sec-tx); opacity:.6; margin:8px 0 0; transition:color .15s}
+  .help.is-error{color:var(--error); opacity:1}
+  .hs-form-success{
+    font-size:15px; margin:10px 0 0; color:var(--positive-ink); font-weight:500;
+    display:flex; align-items:center; gap:8px;
+  }
+  [data-theme="dark"] .hs-form-success{color:var(--positive)}
+  .hs-form-success::before{
+    content:""; width:8px; height:8px; border-radius:50%; background:var(--positive);
+    box-shadow:0 0 0 3px color-mix(in srgb, var(--positive) 22%, transparent);
+  }
+  @media (max-width:480px){ .button{width:100%} }
+</style>
+
 <script>
+  import { classifyEmailLight, EMAIL_DOMAIN_MESSAGES } from '../data/free-email-domains.ts';
+
+  const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
   function initWaitlistForms() {
-    document.querySelectorAll('.hs-form').forEach((root) => {
+    document.querySelectorAll<HTMLElement>('.hs-form').forEach((root) => {
       if (root.dataset.bound) return;
       root.dataset.bound = 'true';
 
-      const form = root.querySelector('form');
-      const input = root.querySelector('input[name="email"]');
-      const button = root.querySelector('button[type="submit"]');
-      const success = root.querySelector('.hs-form-success');
-      const error = root.querySelector('.hs-form-error');
-      const label = button.textContent;
+      const form = root.querySelector('form')!;
+      const input = root.querySelector<HTMLInputElement>('input[name="email"]')!;
+      const button = root.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+      const help = root.querySelector<HTMLElement>('.help')!;
+      const success = root.querySelector<HTMLElement>('.hs-form-success')!;
+      const defaultHelp = help.textContent || '';
+      const label = button.textContent || '';
+
+      function setError(message: string | null) {
+        if (message) {
+          input.classList.add('is-error');
+          help.classList.add('is-error');
+          help.textContent = message;
+        } else {
+          input.classList.remove('is-error');
+          help.classList.remove('is-error');
+          help.textContent = defaultHelp;
+        }
+      }
+
+      // Clear the error as soon as the visitor edits the field again.
+      input.addEventListener('input', () => { if (input.classList.contains('is-error')) setError(null); });
 
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        success.hidden = true;
-        error.hidden = true;
-
         const email = (input.value || '').trim();
-        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
-          error.hidden = false;
+
+        if (!EMAIL_RE.test(email)) {
+          setError('Please enter a valid email address.');
+          input.focus();
           return;
         }
+        const verdict = classifyEmailLight(email);
+        if (verdict === 'blocked') { setError(EMAIL_DOMAIN_MESSAGES.blocked); input.focus(); return; }
+        if (verdict === 'free') { setError(EMAIL_DOMAIN_MESSAGES.free); input.focus(); return; }
 
+        setError(null);
         button.disabled = true;
-        button.textContent = 'Submitting…';
+        button.textContent = 'Joining…';
         try {
           const res = await fetch('/api/subscribe', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, form: root.dataset.form }),
           });
-          if (!res.ok) throw new Error('Request failed');
+          const payload = await res.json().catch(() => ({}));
+          if (!res.ok || payload?.ok === false) {
+            // Surface the server's domain rule if it rejected where the client passed.
+            setError(payload?.error || 'Something went wrong. Please try again.');
+            return;
+          }
           form.hidden = true;
           success.hidden = false;
         } catch {
-          error.hidden = false;
+          setError('Could not reach the server. Please try again.');
         } finally {
           button.disabled = false;
           button.textContent = label;

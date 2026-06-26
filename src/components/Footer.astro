@@ -1,12 +1,44 @@
 ---
+// Footer — section 15, Espresso. Real legal links + company details.
 const year = new Date().getFullYear();
+const legal = [
+  { href: '/legal-notice', label: 'Legal Notice' },
+  { href: '/privacy', label: 'Privacy Policy' },
+  { href: '/data-processing-agreement', label: 'DPA' },
+  { href: '/terms', label: 'Terms & Conditions' },
+];
 ---
-<footer>
-  <nav aria-label="Legal">
-    <a href="/legal-notice">Legal Notice</a>
-    <a href="/privacy">Privacy Policy</a>
-    <a href="/data-processing-agreement">DPA</a>
-    <a href="/terms">Terms &amp; Conditions</a>
-  </nav>
-  <p>© 2016–{year} hubsell UG · Friedrichstrasse 155, 10117 Berlin, Germany · HRB 175309B · DE305258320</p>
+<footer class="sec site-footer">
+  <div class="wrap">
+    <div class="site-footer__row">
+      <a href="/" class="site-footer__brand">hubsell</a>
+      <nav class="site-footer__legal" aria-label="Legal">
+        {legal.map((l) => <a href={l.href}>{l.label}</a>)}
+      </nav>
+    </div>
+    <p class="site-footer__meta">© 2016–{year} hubsell UG · Friedrichstrasse 155, 10117 Berlin, Germany · HRB 175309B · DE305258320</p>
+  </div>
 </footer>
+
+<style>
+  .site-footer{
+    /* same fixed navy as the nav, in both themes */
+    --sec-bg:var(--chrome-bg); --sec-tx:var(--chrome-tx);
+    --sec-bd:var(--chrome-bd); --sec-card:var(--chrome-card);
+    padding:clamp(40px,5vw,64px) 0;
+  }
+  .site-footer__row{
+    display:flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:space-between;
+    padding-bottom:20px; border-bottom:1px solid var(--sec-bd);
+  }
+  .site-footer__brand{
+    font-family:var(--font-head); font-weight:600; font-size:1.25rem; color:var(--sec-tx);
+    text-decoration:none; letter-spacing:-.01em;
+  }
+  .site-footer__legal{display:flex; flex-wrap:wrap; gap:6px 18px}
+  .site-footer__legal a{
+    font-size:14px; color:var(--sec-tx); opacity:.78; text-decoration:none; transition:opacity .15s;
+  }
+  .site-footer__legal a:hover{opacity:1}
+  .site-footer__meta{font-size:13px; color:var(--sec-tx); opacity:.55; margin:18px 0 0}
+</style>

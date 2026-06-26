@@ -1,0 +1,16 @@
+---
+// Section 7 — Pricing (Paper). Section header + the real Webflow pricing embed
+// (currency conversion, Platform/Data tabs, cards), rebranded in PricingTable.astro.
+import PricingTable from './PricingTable.astro';
+---
+<section id="pricing" class="sec sec--paper" aria-labelledby="pricing-title">
+  <div class="wrap">
+    <div class="sec-head is-center reveal">
+      <p class="eyebrow is-accent">Pricing</p>
+      <h2 id="pricing-title" class="heading_primary" style="margin-top:8px">Plans for <span class="accent">Solopreneurs &amp; GTM Teams</span></h2>
+    </div>
+    <div class="reveal">
+      <PricingTable />
+    </div>
+  </div>
+</section>

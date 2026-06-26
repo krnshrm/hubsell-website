@@ -1,5 +1,7 @@
 /// <reference types="@cloudflare/workers-types" />
 
+import { classifyEmail, EMAIL_DOMAIN_MESSAGES } from '../../src/data/free-email-domains';
+
 interface Env {
   PLUNK_SECRET_KEY: string;
   PLUNK_API_BASE?: string;
@@ -12,6 +14,7 @@ interface Env {
 const EVENT_BY_FORM: Record<string, string> = {
   waitlist: 'waitlist-signup',
   'publish-track': 'publish-track-waitlist',
+  newsletter: 'newsletter-signup',
 };
 
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
@@ -40,6 +43,16 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 
   if (!EMAIL_RE.test(email)) {
     return json({ ok: false, error: 'Please provide a valid email address.' }, 422);
+  }
+
+  // Authoritative corporate-email gate (the client check is UX only and can be
+  // bypassed). Blocks competitor domains and free providers using the full list.
+  const verdict = classifyEmail(email);
+  if (verdict === 'blocked') {
+    return json({ ok: false, error: EMAIL_DOMAIN_MESSAGES.blocked }, 422);
+  }
+  if (verdict === 'free') {
+    return json({ ok: false, error: EMAIL_DOMAIN_MESSAGES.free }, 422);
   }
 
   const event = EVENT_BY_FORM[form] ?? EVENT_BY_FORM.waitlist;

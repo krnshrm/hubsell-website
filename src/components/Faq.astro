@@ -1,0 +1,51 @@
+---
+// Section 13 — FAQ (Sand). Accordion, homepage FAQs only.
+import { faqs } from '../data/home-content';
+---
+<section class="sec sec--navy" aria-labelledby="faq-title">
+  <div class="wrap" style="max-width:820px">
+    <div class="sec-head reveal">
+      <p class="eyebrow">FAQ</p>
+      <h2 id="faq-title" class="heading_primary" style="margin-top:8px"><span class="accent">Honest answers</span>, because outbound is already hard enough.</h2>
+    </div>
+
+    <div class="acc reveal" data-accordion>
+      {faqs.map((f, idx) => (
+        <div class={`acc__item${idx === 0 ? ' is-open' : ''}`}>
+          <h3 style="margin:0">
+            <button class="acc__btn" type="button" aria-expanded={idx === 0 ? 'true' : 'false'}>
+              {f.q}
+            </button>
+          </h3>
+          <div class="acc__panel" style={idx === 0 ? 'max-height:400px' : ''}>
+            <p>{f.a}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <p class="reveal" style="margin-top:28px">
+      <a href="/faqs" class="link">See all questions →</a>
+    </p>
+  </div>
+</section>
+
+<script>
+  function initAccordions() {
+    document.querySelectorAll<HTMLElement>('[data-accordion]').forEach((acc) => {
+      if (acc.dataset.ready) return;
+      acc.dataset.ready = '1';
+      acc.querySelectorAll<HTMLElement>('.acc__item').forEach((item) => {
+        const btn = item.querySelector<HTMLButtonElement>('.acc__btn')!;
+        const panel = item.querySelector<HTMLElement>('.acc__panel')!;
+        btn.addEventListener('click', () => {
+          const open = item.classList.toggle('is-open');
+          btn.setAttribute('aria-expanded', String(open));
+          panel.style.maxHeight = open ? panel.scrollHeight + 'px' : '';
+        });
+      });
+    });
+  }
+  initAccordions();
+  document.addEventListener('astro:page-load', initAccordions);
+</script>
