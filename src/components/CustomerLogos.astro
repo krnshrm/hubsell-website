@@ -1,16 +1,129 @@
 ---
-// Section 2 — Customer logos (Paper). Auto-scrolling marquee.
-// Wordmarks shown as text until real logo assets land via asset sync.
-const customers = ['Safran Software', 'Staffbase', 'Verhaert', 'Elium', 'Workspace 365', 'Sensolus'];
-const loop = [...customers, ...customers]; // duplicated for seamless marquee
+// Section 2 — Customer logos (Paper). Auto-scrolling marquee of real customer
+// logos served from Cloudflare R2 (assets.hubsell.com/logos/).
+// Server order is alphabetical (no-JS fallback); a client script reshuffles it
+// on every page load. No reveal animation here — the marquee already moves.
+const logos = [
+  { name: "Accelex", src: "https://assets.hubsell.com/logos/6998a59f00fc5b4e86d04d31_Accelex.svg" },
+  { name: "Adoptech", src: "https://assets.hubsell.com/logos/6998a59f48e8453cb0865a0b_Adoptech.svg" },
+  { name: "altKom", src: "https://assets.hubsell.com/logos/6998a59f16b4c8646bc79f71_altKom.svg" },
+  { name: "Anonos", src: "https://assets.hubsell.com/logos/6998a59f5fe87c04870fd7c4_Anonos.svg" },
+  { name: "ArtNight", src: "https://assets.hubsell.com/logos/6998a59f8be537706b8c178f_ArtNight.svg" },
+  { name: "Aspire Software", src: "https://assets.hubsell.com/logos/6998a59f3452f8b4695b5a80_Aspire-Software.svg" },
+  { name: "Atheneum Partners", src: "https://assets.hubsell.com/logos/6998a59fc62d8b4132029a73_Atheneum-Partners.svg" },
+  { name: "Blacklane", src: "https://assets.hubsell.com/logos/6998a59f09ed57f18df4c3d0_Blacklane.svg" },
+  { name: "Book a Tiger", src: "https://assets.hubsell.com/logos/6998a59f52797ae5b0f153ef_Book-a-Tiger.svg" },
+  { name: "CartonCloud", src: "https://assets.hubsell.com/logos/6998a59f196f5ed85eac6497_CartonCloud.svg" },
+  { name: "Cegeka", src: "https://assets.hubsell.com/logos/6998a59f09ed57f18df4c3e4_Cegeka.svg" },
+  { name: "celus", src: "https://assets.hubsell.com/logos/6998a59ffa9dfcd298ae725e_celus.svg" },
+  { name: "Combell", src: "https://assets.hubsell.com/logos/6998a5a161c19162215c7cec_Combell.svg" },
+  { name: "CrossEngage", src: "https://assets.hubsell.com/logos/6998a59f09ed57f18df4c3f8_CrossEngage.svg" },
+  { name: "Docolution", src: "https://assets.hubsell.com/logos/6998a59f0b8cbce05a34c7d2_Docolution.svg" },
+  { name: "Eng", src: "https://assets.hubsell.com/logos/6998a59f2ce680dd8ae4e76a_Eng.svg" },
+  { name: "Etvas", src: "https://assets.hubsell.com/logos/6998a5a00f68b675a07e2b56_Etvas.svg" },
+  { name: "FABs", src: "https://assets.hubsell.com/logos/6998a5a06aeabbbea89c3080_FABs.svg" },
+  { name: "Flexigrant", src: "https://assets.hubsell.com/logos/6998a5a0ba89e51e3589f319_Flexigrant.svg" },
+  { name: "GeminiSense", src: "https://assets.hubsell.com/logos/6998a5a0a5050a683fb9639a_GeminiSense.svg" },
+  { name: "GLS Sprachenzentrum", src: "https://assets.hubsell.com/logos/6998a5a0115d997ba479a747_GLS-Sprachenzentrum.svg" },
+  { name: "GreatContent", src: "https://assets.hubsell.com/logos/6998a59fe2b14d201e771388_GreatContent.svg" },
+  { name: "Idhammar", src: "https://assets.hubsell.com/logos/6998a5a011721d6ad4f6461a_Idhammar.svg" },
+  { name: "Inatech", src: "https://assets.hubsell.com/logos/6998a5a0dafd0dc31b00666c_Inatech.svg" },
+  { name: "Insurance Quantified", src: "https://assets.hubsell.com/logos/699988ea4a9a3fe7ea1f720e_Insurance-Quantified.svg" },
+  { name: "intertours", src: "https://assets.hubsell.com/logos/6998a5a0e0070a601efbb16e_intertours.svg" },
+  { name: "ipushpull", src: "https://assets.hubsell.com/logos/6998a5a1c67db980e6458cd0_ipushpull.svg" },
+  { name: "Kapturall", src: "https://assets.hubsell.com/logos/6998a5a1a86ab14f562fc7c2_Kapturall.svg" },
+  { name: "Kiin", src: "https://assets.hubsell.com/logos/6998a5a1fc186a89e1bdc781_Kiin.svg" },
+  { name: "Kurve", src: "https://assets.hubsell.com/logos/6998a5a1aec80a522eff748e_Kurve.svg" },
+  { name: "Matterway", src: "https://assets.hubsell.com/logos/6998a5a28483a97e76ce1c69_Matterway.svg" },
+  { name: "meetyoo", src: "https://assets.hubsell.com/logos/6998a5a10a2e10c6da4874c7_meetyoo.svg" },
+  { name: "Monotype", src: "https://assets.hubsell.com/logos/6998f31e8d66e1f222d84ab6_Monotype.avif" },
+  { name: "Nebenan", src: "https://assets.hubsell.com/logos/6998a5a161f68e90be7c8e47_Nebenan.svg" },
+  { name: "Osiris", src: "https://assets.hubsell.com/logos/6998a5a23452f8b4695b5b8c_Osiris.svg" },
+  { name: "PAQT", src: "https://assets.hubsell.com/logos/6998a5a2365824be1cf1507e_PAQT.svg" },
+  { name: "Personio", src: "https://assets.hubsell.com/logos/6998a5a29edafe8deeceb5a2_Personio.svg" },
+  { name: "Pixxio", src: "https://assets.hubsell.com/logos/6998a5a39edafe8deeceb5c2_Pixxio.svg" },
+  { name: "PrintSafari", src: "https://assets.hubsell.com/logos/6998a5a2a1022d98f5200381_PrintSafari.svg" },
+  { name: "QiO", src: "https://assets.hubsell.com/logos/6998a5a2fd327ecdb744dc06_QiO.svg" },
+  { name: "Recognyte", src: "https://assets.hubsell.com/logos/6998a5a3a12892b5d3462e12_Recognyte.svg" },
+  { name: "Safran Software", src: "https://assets.hubsell.com/logos/6998a5a3d1e6f3a4831a8f45_Safran-Software.svg" },
+  { name: "Sensolus", src: "https://assets.hubsell.com/logos/6998a5a3d68828bdce8239a2_Sensolus.svg" },
+  { name: "Sharpist", src: "https://assets.hubsell.com/logos/6998a5a3aad280cb4d7b7f62_Sharpist.svg" },
+  { name: "Signavio", src: "https://assets.hubsell.com/logos/6998a5a311721d6ad4f6467d_Signavio.svg" },
+  { name: "Spryker", src: "https://assets.hubsell.com/logos/6998a5a38b6f73e660ec0a3f_Spryker-logo-1.svg" },
+  { name: "Staffbase", src: "https://assets.hubsell.com/logos/6998a5a331fa506eb2472cc2_Staffbase.svg" },
+  { name: "Sysmax", src: "https://assets.hubsell.com/logos/6998a5a3baa84e10f1f62e6a_Sysmax.svg" },
+  { name: "Telenor", src: "https://assets.hubsell.com/logos/6998a5a35fe87c04870fd859_Telenor.svg" },
+  { name: "Triggre", src: "https://assets.hubsell.com/logos/6998a5a42ce680dd8ae4e7e1_Triggre.svg" },
+  { name: "urbanfuture", src: "https://assets.hubsell.com/logos/6998a5a403ff7338768ac18d_urbanfuture.svg" },
+  { name: "Userlane", src: "https://assets.hubsell.com/logos/6998a5a4a2a500c8f20cc571_Userlane.svg" },
+  { name: "Valantic", src: "https://assets.hubsell.com/logos/6998a5a4bbab803ac89fdd5d_Valantic.svg" },
+  { name: "Valsight", src: "https://assets.hubsell.com/logos/6998a5a481763c9973b7c0da_Valsight.svg" },
+  { name: "Variti", src: "https://assets.hubsell.com/logos/6998a5a46abdaa91ff96fb03_Variti.svg" },
+  { name: "Venditan", src: "https://assets.hubsell.com/logos/6998a5a4b61f94085bb53249_Venditan.svg" },
+  { name: "Verhaert", src: "https://assets.hubsell.com/logos/6998a5a50b8cbce05a34c8f6_Verhaert.svg" },
+  { name: "Versino", src: "https://assets.hubsell.com/logos/6998a5a554b0f5773246f023_Versino.svg" },
+  { name: "verso", src: "https://assets.hubsell.com/logos/6998a5a581763c9973b7c10d_verso.svg" },
+  { name: "vjsual", src: "https://assets.hubsell.com/logos/6998a5a416b4c8646bc7a38e_vjsual.svg" },
+  { name: "Voycer", src: "https://assets.hubsell.com/logos/6998a5a5b9ee489ca56c9c68_Voycer.svg" },
+  { name: "WithIntelligence", src: "https://assets.hubsell.com/logos/6998a5a57359377a0ac685d6_WithIntelligence.svg" },
+  { name: "Wizrom", src: "https://assets.hubsell.com/logos/6998a5a5ae391a02699e62b6_Wizrom.svg" },
+  { name: "Workspace 365", src: "https://assets.hubsell.com/logos/6998a5a52084daa6c519f180_Workspace-365.svg" },
+  { name: "Wunderpen", src: "https://assets.hubsell.com/logos/6998a5a5774baab89c697180_Wunderpen.svg" },
+  { name: "Yarado", src: "https://assets.hubsell.com/logos/6998a5a5214933648ccc4d2a_Yarado.svg" },
+];
 ---
 <section class="sec sec--paper" aria-label="Customers">
   <div class="wrap">
-    <p class="eyebrow reveal" style="text-align:center;margin-bottom:26px">Trusted by B2B revenue teams across Europe</p>
-    <div class="marquee reveal">
+    <p class="eyebrow" style="text-align:center;margin-bottom:26px">Trusted by B2B revenue teams across Europe</p>
+    <div
+      class="marquee"
+      role="img"
+      aria-label="Logos of companies that use hubsell, including Safran, Staffbase, Verhaert, Personio, Telenor and many more"
+    >
       <div class="marquee__track">
-        {loop.map((name) => <span class="marquee__item">{name}</span>)}
+        {logos.map((logo) => (
+          <img class="marquee__logo" src={logo.src} alt={logo.name} loading="lazy" decoding="async" draggable={false} />
+        ))}
+        {logos.map((logo) => (
+          <img class="marquee__logo" src={logo.src} alt="" aria-hidden="true" loading="lazy" decoding="async" draggable={false} />
+        ))}
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  /* logos are colourful SVGs built for light backgrounds: mute to a uniform
+     wall on paper, restore full colour on hover. On dark sections render them
+     as white silhouettes so they stay visible. */
+  .marquee__logo{height:30px;width:auto;flex:none;display:block;opacity:.62;filter:grayscale(1);transition:opacity .2s,filter .2s}
+  .marquee__logo:hover{opacity:1;filter:grayscale(0)}
+  :global([data-theme="dark"]) .marquee__logo{filter:brightness(0) invert(1);opacity:.72}
+  :global([data-theme="dark"]) .marquee__logo:hover{opacity:1}
+  /* ~66 logos: slow, calm drift. Higher specificity than the global 32s rule.
+     This single number is the speed dial — larger = slower. */
+  :global(html.has-anim) .marquee__track{animation-duration:180s}
+</style>
+
+<script>
+  // Randomise logo order on every page load. The track holds two identical
+  // halves (for the seamless loop), so we apply ONE shuffle order to both
+  // halves — keeping them in sync so the looping offset stays seamless.
+  function shuffleMarquee(track) {
+    const items = Array.from(track.children);
+    const half = items.length / 2;
+    if (!Number.isInteger(half) || half < 2) return;
+    const first = items.slice(0, half);
+    const second = items.slice(half);
+    const order = Array.from({ length: half }, (_, i) => i);
+    for (let i = half - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+    const frag = document.createDocumentFragment();
+    for (const i of order) frag.appendChild(first[i]);
+    for (const i of order) frag.appendChild(second[i]);
+    track.appendChild(frag);
+  }
+  document.querySelectorAll('.marquee__track').forEach(shuffleMarquee);
+</script>

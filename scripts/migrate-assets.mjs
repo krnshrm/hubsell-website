@@ -35,7 +35,11 @@
  *
  * Env (only needed for upload; the website never reads these):
  *   R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, R2_BUCKET,
- *   R2_PUBLIC_BASE   (default https://assets.hubsell.com)
+ *   R2_PUBLIC_BASE    (default https://assets.hubsell.com)
+ *   R2_JURISDICTION   (optional; set to "eu" for EU-jurisdiction buckets,
+ *                      "fedramp" for FedRAMP — leave unset for the default.
+ *                      Adds the <jur> segment to the S3 API endpoint:
+ *                      https://<account>.<jur>.r2.cloudflarestorage.com)
  */
 
 import { readFile, writeFile, readdir, stat } from 'node:fs/promises';
@@ -83,6 +87,7 @@ const R2 = {
   accessKeyId: process.env.R2_ACCESS_KEY_ID,
   secretAccessKey: process.env.R2_SECRET_ACCESS_KEY,
   bucket: process.env.R2_BUCKET,
+  jurisdiction: (process.env.R2_JURISDICTION || '').trim().toLowerCase(),
   publicBase: (process.env.R2_PUBLIC_BASE || 'https://assets.hubsell.com').replace(/\/+$/, ''),
 };
 
@@ -238,9 +243,10 @@ function makeClient() {
       `Set them (see .env.example) or run with --dry-run to preview.\n`);
     process.exit(1);
   }
+  const jur = R2.jurisdiction ? `.${R2.jurisdiction}` : '';
   return new S3Client({
     region: 'auto',
-    endpoint: `https://${R2.accountId}.r2.cloudflarestorage.com`,
+    endpoint: `https://${R2.accountId}${jur}.r2.cloudflarestorage.com`,
     credentials: { accessKeyId: R2.accessKeyId, secretAccessKey: R2.secretAccessKey },
   });
 }

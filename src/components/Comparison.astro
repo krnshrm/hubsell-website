@@ -1,0 +1,155 @@
+---
+// Homepage — "Why hubsell" comparison. Sets the competitive narrative early and
+// tactfully: hubsell as the whole motion (live data + multichannel outreach +
+// CRM sync) versus the categories of point tools you'd otherwise stitch together.
+// Column headers + the footer links deep-link to the /vs comparison pages
+// (Comparisons CMS collection: apollo, zoominfo, cognism, lusha, seamless).
+// Competitor copy stays factual — positioning, never a put-down.
+const HUB_LOGO = 'https://assets.hubsell.com/logo/hubsell-wordmark-light.svg';
+
+const cols = ['hub', 'aio', 'data', 'lookup'] as const;
+const heads: Record<string, { label: string; href?: string }> = {
+  hub:    { label: 'hubsell' },
+  aio:    { label: 'All-in-one platforms', href: '/vs/apollo' },
+  data:   { label: 'Enterprise data',      href: '/vs/zoominfo' },
+  lookup: { label: 'Lookup tools',         href: '/vs/lusha' },
+};
+
+// mark: 'yes' | 'part' | 'no'
+const rows: { label: string; cells: Record<string, [string, string]> }[] = [
+  { label: 'Live, validated data', cells: {
+    hub:['yes','Sourced live, verified at point of use'], aio:['part','Pre-built database of ~275M'],
+    data:['part','Large static database'], lookup:['part','One-off contact lookups'] } },
+  { label: 'Email + LinkedIn, one flow', cells: {
+    hub:['yes','One sequence across both channels'], aio:['part','Email automated, LinkedIn manual'],
+    data:['no','Outreach sold separately'], lookup:['no','No outreach layer'] } },
+  { label: 'Automatic CRM sync', cells: {
+    hub:['yes','Salesforce, HubSpot & Pipedrive'], aio:['part','Salesforce & HubSpot native'],
+    data:['part','Native to major CRMs'], lookup:['part','Basic, often via Zapier'] } },
+  { label: 'You pay for what’s correct', cells: {
+    hub:['yes','Per contact sourced & validated'], aio:['no','Per seat, plus credits'],
+    data:['no','Five-figure annual contracts'], lookup:['part','Credits spent on bad hits too'] } },
+  { label: 'One platform, not a stack', cells: {
+    hub:['yes','Data, outreach & sync together'], aio:['part','Two of the pieces'],
+    data:['no','Data only'], lookup:['no','A single piece'] } },
+];
+
+const allComparisons = [
+  { name: 'Apollo', href: '/vs/apollo' }, { name: 'ZoomInfo', href: '/vs/zoominfo' },
+  { name: 'Cognism', href: '/vs/cognism' }, { name: 'Lusha', href: '/vs/lusha' },
+  { name: 'Seamless', href: '/vs/seamless' },
+];
+const last = rows.length - 1;
+---
+<section class="sec sec--sand cmp" aria-labelledby="cmp-title">
+  <div class="wrap">
+    <p class="eyebrow cmp__eyebrow reveal">Why hubsell</p>
+    <h2 id="cmp-title" class="heading_primary cmp__title reveal">Most tools hand you a list. hubsell runs the whole motion.</h2>
+    <p class="subheading cmp__sub reveal">Live-sourced data, email and LinkedIn outreach, and automatic CRM sync — in one platform. The tools you’d otherwise stitch together each cover a slice; hubsell covers the play end to end, from a fresh contact to a reply in your inbox.</p>
+
+    <div class="cmp__matrixwrap reveal">
+      <div class="cmp__matrix">
+        <div class="cmp__corner"></div>
+        {cols.map((c) => (
+          heads[c].href
+            ? <a class="cmp__head cmp__col-link" href={heads[c].href}>{heads[c].label} <span aria-hidden="true">→</span></a>
+            : <div class="cmp__head cmp__head--hub"><img class="cmp__hublogo" src={HUB_LOGO} alt="hubsell" /></div>
+        ))}
+
+        {rows.map((r, i) => (
+          <>
+            <div class:list={["cmp__rowlabel", i === last && "is-lastrow"]}>{r.label}</div>
+            {cols.map((c) => {
+              const [mark, text] = r.cells[c];
+              const isHub = c === 'hub';
+              return (
+                <div class:list={["cmp__cell", isHub && "cmp__cell--hub", i === last && "is-lastrow"]}>
+                  <span class={`mk mk--${mark}`}>
+                    <span class="sr-only">{mark === 'yes' ? 'Yes — ' : mark === 'part' ? 'Partial — ' : 'No — '}</span>
+                    {mark === 'yes'
+                      ? <svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2l2.2 2.3 4.8-5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      : <span aria-hidden="true">{mark === 'part' ? '~' : '–'}</span>}
+                  </span>
+                  <p>{text}</p>
+                </div>
+              );
+            })}
+          </>
+        ))}
+      </div>
+    </div>
+
+    <p class="cmp__moat reveal">The combination is the point: live data, multichannel outreach, and CRM sync in one place is something no single tool on the right does together.</p>
+
+    <div class="cmp__links reveal">
+      <span class="cmp__links-label">Comparing hubsell to a specific tool?</span>
+      {allComparisons.map((c) => <a href={c.href}>{c.name}</a>)}
+    </div>
+  </div>
+</section>
+
+<style>
+  .cmp{ --hub-bg:#192341; --hub-tx:#FBF4EA; }
+  .cmp__eyebrow{ text-align:center; margin:0 0 14px }
+  .cmp__title{ text-align:center; max-width:20ch; margin:0 auto 16px }
+  .cmp__sub{ text-align:center; max-width:62ch; margin:0 auto }
+
+  .cmp__matrixwrap{ margin-top:44px; overflow-x:auto; -webkit-overflow-scrolling:touch }
+  .cmp__matrix{
+    min-width:780px;
+    display:grid;
+    grid-template-columns:1.3fr 1.2fr repeat(3, 1fr);
+    align-items:stretch;
+  }
+  .cmp__matrix > *{ padding:15px 14px }
+
+  .cmp__corner{ border-bottom:1px solid var(--sec-bd) }
+  .cmp__head{
+    text-align:center; font-family:var(--font-body); font-weight:600; font-size:12.5px;
+    letter-spacing:.05em; text-transform:uppercase; color:var(--sec-tx);
+    display:flex; align-items:center; justify-content:center; gap:6px;
+  }
+  .cmp__head:not(.cmp__head--hub){ opacity:.58; border-bottom:1px solid var(--sec-bd); text-decoration:none; transition:opacity .15s, color .15s }
+  .cmp__col-link:hover{ opacity:1; color:var(--accent-on) }
+  .cmp__col-link span{ transition:transform .15s }
+  .cmp__col-link:hover span{ transform:translateX(3px) }
+  .cmp__hublogo{ height:18px; width:auto; display:block; margin:0 auto }
+
+  .cmp__rowlabel{
+    display:flex; align-items:center; font-family:var(--font-head); font-weight:600;
+    font-size:14.5px; line-height:1.25; color:var(--sec-tx); border-bottom:1px solid var(--sec-bd);
+  }
+  .cmp__cell{ display:flex; flex-direction:column; align-items:center; gap:9px; text-align:center }
+  .cmp__cell:not(.cmp__cell--hub){ border-bottom:1px solid var(--sec-bd) }
+  .cmp__cell p{ margin:0; font-size:12px; line-height:1.4; color:var(--sec-tx); opacity:.66; max-width:19ch }
+
+  /* hubsell centerpiece — contiguous dark column */
+  .cmp__head--hub, .cmp__cell--hub{ background:var(--hub-bg); color:var(--hub-tx) }
+  .cmp__cell--hub p{ color:var(--hub-tx); opacity:.84 }
+  .cmp__head--hub{ border-radius:16px 16px 0 0 }
+  .cmp__cell--hub.is-lastrow{ border-radius:0 0 16px 16px }
+
+  .is-lastrow{ border-bottom:0 !important }
+
+  .mk{
+    width:24px; height:24px; border-radius:50%; flex:none;
+    display:inline-flex; align-items:center; justify-content:center;
+    font-size:13px; font-weight:700; line-height:1;
+  }
+  .mk--yes{ background:var(--accent-on); color:#FBF4EA }
+  .mk--part{ background:var(--amber-soft); color:var(--amber-ink) }
+  .mk--no{ background:color-mix(in srgb, var(--sec-tx) 10%, transparent); color:var(--sec-tx); opacity:.55 }
+
+  .cmp__moat{ text-align:center; max-width:64ch; margin:34px auto 0; font-size:15px; line-height:1.55; color:var(--sec-tx); opacity:.72; font-style:italic }
+  .cmp__links{ display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:9px 14px; margin-top:24px }
+  .cmp__links-label{ font-size:13.5px; color:var(--sec-tx); opacity:.6 }
+  .cmp__links a{ font-size:13.5px; font-weight:500; color:var(--accent-on); text-decoration:none; border-bottom:1px solid transparent; transition:border-color .15s }
+  .cmp__links a:hover{ border-bottom-color:var(--accent-on) }
+
+  @media (max-width:680px){
+    .cmp__matrixwrap{
+      margin-left:calc(-1 * clamp(20px,5vw,56px)); margin-right:calc(-1 * clamp(20px,5vw,56px));
+      padding:0 clamp(20px,5vw,56px);
+    }
+  }
+</style>

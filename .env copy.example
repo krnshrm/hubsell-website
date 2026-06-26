@@ -6,8 +6,8 @@ PLUNK_API_BASE=https://api.useplunk.com
 
 # ---- R2 asset migration — used ONLY by scripts/migrate-assets.mjs (run locally) ----
 # These are NOT needed by the website at runtime. Do not add them to Pages.
-R2_ACCOUNT_ID=43122013bead1f0904920597820eef23
-R2_ACCESS_KEY_ID=25ea56f49fba50d78a395ac91f697ca0
-R2_SECRET_ACCESS_KEY=6249fa8c75f724aa188e1743319874d3e478f961c4bfab4fa8ad5973cb171422
+R2_ACCOUNT_ID=your_cloudflare_account_id
+R2_ACCESS_KEY_ID=your_r2_access_key_id
+R2_SECRET_ACCESS_KEY=your_r2_secret_access_key
 R2_BUCKET=assets
 R2_PUBLIC_BASE=https://assets.hubsell.com
