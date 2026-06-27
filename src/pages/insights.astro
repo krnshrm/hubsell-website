@@ -1,0 +1,76 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// All non-draft posts, featured first, then by date (date is used only for order,
+// it is not shown — the original publish dates were lost in a Webflow re-import).
+const posts = (await getCollection('insights', (p) => !p.data.draft)).sort((a, b) => {
+  const f = (b.data.featured ? 1 : 0) - (a.data.featured ? 1 : 0);
+  if (f) return f;
+  return (b.data.publishedAt ? +b.data.publishedAt : 0) - (a.data.publishedAt ? +a.data.publishedAt : 0);
+});
+
+const [lead, ...rest] = posts;
+const cardImage = (p) => p.data.coverImage || p.data.thumbnail;
+---
+<BaseLayout
+  title="Insights | hubsell"
+  description="B2B outbound sales playbooks, deliverability guides, and prospecting tactics from the hubsell team."
+>
+  <section class="sec sec--paper" aria-labelledby="insights-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow is-accent">Insights</p>
+        <h1 id="insights-title" class="heading_primary" style="margin-top:8px">B2B outbound sales playbooks and insights</h1>
+        <p class="subheading">Field notes on prospecting, deliverability, and building pipeline that converts.</p>
+      </div>
+
+      {lead && (
+        <a class="post post--lead reveal" href={`/insights/${lead.slug}`}>
+          {cardImage(lead) && (
+            <img class="post__img" src={cardImage(lead)} alt={lead.data.title} loading="lazy" width="800" height="450" />
+          )}
+          <div class="post__body">
+            <p class="eyebrow is-accent" style="font-size:.72rem">B2B sales</p>
+            <h2 class="post__title post__title--lead">{lead.data.title}</h2>
+            {lead.data.description && <p class="post__excerpt">{lead.data.description}</p>}
+            {lead.data.readTime && <p class="post__meta">{lead.data.readTime}</p>}
+          </div>
+        </a>
+      )}
+
+      <div class="grid grid-3 reveal-stagger" style="margin-top:24px">
+        {rest.map((post) => (
+          <a class="post" href={`/insights/${post.slug}`}>
+            {cardImage(post) && (
+              <img class="post__img" src={cardImage(post)} alt={post.data.title} loading="lazy" width="400" height="225" />
+            )}
+            <div class="post__body">
+              <p class="eyebrow is-accent" style="font-size:.72rem">B2B sales</p>
+              <h3 class="post__title">{post.data.title}</h3>
+              {post.data.description && <p class="post__excerpt">{post.data.description}</p>}
+              {post.data.readTime && <p class="post__meta">{post.data.readTime}</p>}
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .post__meta { font-family:var(--font-body); font-size:12.5px; color:var(--sec-tx); opacity:.55; margin:10px 0 0; }
+  /* text-only cards (no image): a touch more top padding so they do not look empty */
+  .post:not(:has(.post__img)) .post__body { padding-top:24px; }
+
+  /* lead / featured card: image and text side by side on wider screens */
+  .post--lead { margin-bottom:8px; }
+  .post__title--lead { font-size:1.5rem; line-height:1.2; }
+  @media (min-width:760px){
+    .post--lead { flex-direction:row; align-items:stretch; }
+    .post--lead .post__img { width:54%; aspect-ratio:16/9; height:auto; }
+    .post--lead .post__body { flex:1; padding:32px 34px; display:flex; flex-direction:column; justify-content:center; }
+    .post__title--lead { font-size:1.7rem; }
+    .post--lead .post__excerpt { font-size:15px; margin-top:4px; }
+  }
+</style>

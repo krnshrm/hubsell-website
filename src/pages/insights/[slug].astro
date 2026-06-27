@@ -1,0 +1,111 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('insights', (p) => !p.data.draft);
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { title, description, coverImage, thumbnail, sources, readTime, summary } = post.data;
+
+// post.body is the raw Webflow HTML (already image- and link-rewritten by the
+// converter). If a post had an empty body in the export, fall back to its summary
+// so the page is not blank.
+const bodyHtml = post.body && post.body.trim() ? post.body : summary ? `<p>${summary}</p>` : '';
+const heroImage = coverImage || thumbnail;
+---
+<BaseLayout title={`${title} | hubsell`} description={description} ogImage={coverImage}>
+  <link
+    slot="head"
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap"
+  />
+
+  <article class="sec sec--paper post-page">
+    <div class="wrap">
+      <a class="post-page__back link" href="/insights">&larr; All insights</a>
+
+      <header class="post-page__head">
+        <p class="eyebrow is-accent">B2B sales</p>
+        <h1 class="post-page__title">{title}</h1>
+        {readTime && <p class="post-page__meta">{readTime}</p>}
+      </header>
+
+      {heroImage && (
+        <img class="post-page__cover" src={heroImage} alt={title} width="1200" height="675" />
+      )}
+
+      <div class="prose" set:html={bodyHtml} />
+
+      {sources && (
+        <aside class="post-sources">
+          <p class="eyebrow">Sources</p>
+          <div class="post-sources__body" set:html={sources} />
+        </aside>
+      )}
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .post-page__back { display:inline-block; font-size:14px; margin-bottom:28px; }
+  .post-page__head { max-width:760px; margin:0 auto 28px; }
+  .post-page__title {
+    font-family:var(--font-head); font-weight:600;
+    font-size:clamp(1.9rem,4vw,2.75rem); line-height:1.12; letter-spacing:-.02em;
+    color:var(--sec-tx); margin:10px 0 0;
+  }
+  .post-page__meta { font-family:var(--font-body); font-size:14px; color:var(--sec-tx); opacity:.6; margin:12px 0 0; }
+  .post-page__cover {
+    display:block; width:100%; max-width:960px; margin:0 auto 8px;
+    aspect-ratio:16/9; object-fit:cover; border-radius:var(--radius-lg);
+    border:1px solid var(--sec-bd); background:color-mix(in srgb,var(--sec-tx) 6%,transparent);
+  }
+
+  /* Reading column: serif body (Newsreader), brand headings (Lexend). */
+  .prose {
+    max-width:68ch; margin:32px auto 0;
+    font-family:'Newsreader', Georgia, 'Times New Roman', serif;
+    font-size:1.1875rem; line-height:1.75; color:var(--sec-tx);
+  }
+  .prose > :first-child { margin-top:0; }
+  .prose :is(h2,h3,h4,h5,h6) {
+    font-family:var(--font-head); font-weight:600; color:var(--sec-tx);
+    line-height:1.2; letter-spacing:-.01em;
+  }
+  .prose h2 { font-size:1.6rem; margin:1.7em 0 .5em; }
+  .prose h3 { font-size:1.3rem; margin:1.5em 0 .45em; }
+  .prose h4 { font-size:1.1rem; margin:1.4em 0 .4em; }
+  .prose h5, .prose h6 { font-size:1rem; margin:1.3em 0 .35em; }
+  .prose p { margin:0 0 1.1em; }
+  .prose a { color:var(--accent-on); text-decoration:none; border-bottom:1px solid transparent; transition:border-color .15s; overflow-wrap:anywhere; }
+  .prose a:hover { border-bottom-color:var(--accent-on); }
+  .prose strong { font-weight:600; }
+  .prose em { font-style:italic; }
+  .prose ul, .prose ol { margin:0 0 1.1em; padding-left:1.3em; }
+  .prose li { margin:0 0 .5em; }
+  .prose li::marker { color:var(--accent-on); }
+  .prose blockquote {
+    margin:1.5em 0; padding:.2em 0 .2em 1.1em;
+    border-left:3px solid var(--accent-on); font-weight:500; color:var(--sec-tx);
+  }
+  .prose img { max-width:100%; height:auto; border-radius:var(--radius); margin:1.4em 0; display:block; }
+  .prose figure { margin:1.6em 0; }
+  .prose figure img { margin:0 auto; }
+  .prose figcaption { font-family:var(--font-body); font-size:13px; color:var(--sec-tx); opacity:.6; text-align:center; margin-top:8px; }
+  .prose iframe { width:100%; aspect-ratio:16/9; height:auto; border:0; border-radius:var(--radius-lg); margin:1.6em 0; }
+  .prose hr { border:0; border-top:1px solid var(--sec-bd); margin:2em 0; }
+  .prose code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.9em; background:color-mix(in srgb,var(--sec-tx) 8%,transparent); padding:.1em .35em; border-radius:5px; }
+  .prose pre { background:color-mix(in srgb,var(--sec-tx) 8%,transparent); padding:16px 18px; border-radius:var(--radius); overflow:auto; margin:1.4em 0; }
+  .prose pre code { background:none; padding:0; }
+
+  .post-sources { max-width:68ch; margin:40px auto 0; padding-top:20px; border-top:1px solid var(--sec-bd); }
+  .post-sources__body { font-family:var(--font-body); font-size:13.5px; line-height:1.6; color:var(--sec-tx); opacity:.7; }
+  .post-sources__body p { margin:0 0 .5em; }
+  .post-sources__body a { color:var(--accent-on); text-decoration:none; overflow-wrap:anywhere; }
+  .post-sources__body a:hover { text-decoration:underline; }
+
+  @media (max-width:600px){ .prose { font-size:1.0625rem; } }
+</style>
