@@ -1,0 +1,198 @@
+---
+// Pipeline step 1 — social prospecting. Six live behavioural signals (people
+// following a company, engaging with a post, changing jobs, etc.) converge on
+// "Your true ICP". White cards pop on the espresso section; the connecting
+// electricity is hubsell green. Adapted from the supplied widget: bundled GSAP,
+// reduced-motion safe (cards rest visible when motion is off), purple recoloured
+// to green, font import dropped.
+---
+<div class="sp-wrap">
+  <!-- DESKTOP CANVAS -->
+  <div class="sp-canvas">
+    <svg class="sp-svg-layer" width="630" height="500" xmlns="http://www.w3.org/2000/svg">
+      <path class="sp-base-track" d="M 210 75 h 10 q 10 0 10 10 v 155 q 0 10 10 10 h 10" fill="none" />
+      <path class="sp-base-track" d="M 210 250 h 40" fill="none" />
+      <path class="sp-base-track" d="M 210 425 h 10 q 10 0 10 -10 v -155 q 0 -10 10 -10 h 10" fill="none" />
+      <path class="sp-base-track" d="M 420 75 h -10 q -10 0 -10 10 v 155 q 0 10 -10 10 h -10" fill="none" />
+      <path class="sp-base-track" d="M 420 250 h -40" fill="none" />
+      <path class="sp-base-track" d="M 420 425 h -10 q -10 0 -10 -10 v -155 q 0 -10 -10 -10 h -10" fill="none" />
+      <path class="sp-zap-line zap-tl" d="M 210 75 h 10 q 10 0 10 10 v 155 q 0 10 10 10 h 10" />
+      <path class="sp-zap-line zap-ml" d="M 210 250 h 40" />
+      <path class="sp-zap-line zap-bl" d="M 210 425 h 10 q 10 0 10 -10 v -155 q 0 -10 10 -10 h 10" />
+      <path class="sp-zap-line zap-tr" d="M 420 75 h -10 q -10 0 -10 10 v 155 q 0 10 -10 10 h -10" />
+      <path class="sp-zap-line zap-mr" d="M 420 250 h -40" />
+      <path class="sp-zap-line zap-br" d="M 420 425 h -10 q -10 0 -10 -10 v -155 q 0 -10 -10 -10 h -10" />
+    </svg>
+
+    <div class="sp-card sp-card-tl">
+      <div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle></svg></div><p class="sp-title">Prospects following company</p></div>
+      <div class="sp-contact-list">
+        <div class="sp-contact-item"><div class="sp-avatar-mini bg-bl">MT</div><span class="sp-contact-name">Max Truman</span></div>
+        <div class="sp-contact-item"><div class="sp-avatar-mini bg-gr">SJ</div><span class="sp-contact-name">Sarah Jenkins</span></div>
+        <div class="sp-contact-item"><div class="sp-avatar-mini bg-or">DL</div><span class="sp-contact-name">David Lee</span></div>
+      </div>
+      <div class="sp-others">+148 others</div>
+    </div>
+
+    <div class="sp-card sp-card-ml">
+      <div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div><p class="sp-title">Prospects engaged with post</p></div>
+      <div class="sp-contact-list">
+        <div class="sp-contact-item"><div class="sp-avatar-mini bg-pr">AH</div><span class="sp-contact-name">Ali Hassan</span></div>
+        <div class="sp-contact-item"><div class="sp-avatar-mini bg-pk">ND</div><span class="sp-contact-name">Nina Dobrev</span></div>
+        <div class="sp-contact-item"><div class="sp-avatar-mini bg-bl">MC</div><span class="sp-contact-name">Marcus Cole</span></div>
+      </div>
+      <div class="sp-others">+231 others</div>
+    </div>
+
+    <div class="sp-card sp-card-bl">
+      <div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></div><p class="sp-title">Prospects following leader</p></div>
+      <div class="sp-contact-list">
+        <div class="sp-contact-item"><div class="sp-avatar-mini bg-tl">MT</div><span class="sp-contact-name">Mia Torres</span></div>
+        <div class="sp-contact-item"><div class="sp-avatar-mini bg-or">EW</div><span class="sp-contact-name">Evan Wright</span></div>
+        <div class="sp-contact-item"><div class="sp-avatar-mini bg-gr">CP</div><span class="sp-contact-name">Chloe Price</span></div>
+      </div>
+      <div class="sp-others">+342 others</div>
+    </div>
+
+    <div class="sp-center-node">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+      Your true ICP
+    </div>
+
+    <div class="sp-card sp-card-tr">
+      <div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.2 7.8 13.4 13.4 7.8 16.2 10.6 10.6 16.2 7.8"></polygon></svg></div><p class="sp-title">Prospects changed jobs</p></div>
+      <div class="sp-contact-list">
+        <div class="sp-contact-item"><div class="sp-avatar-mini bg-pk">MN</div><span class="sp-contact-name">May Nguyen</span></div>
+        <div class="sp-contact-item"><div class="sp-avatar-mini bg-rd">LK</div><span class="sp-contact-name">Lucas King</span></div>
+        <div class="sp-contact-item"><div class="sp-avatar-mini bg-bl">ZS</div><span class="sp-contact-name">Zoe Smith</span></div>
+      </div>
+      <div class="sp-others">+112 others</div>
+    </div>
+
+    <div class="sp-card sp-card-mr">
+      <div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div><p class="sp-title">Prospects attended event</p></div>
+      <div class="sp-contact-list">
+        <div class="sp-contact-item"><div class="sp-avatar-mini bg-or">TP</div><span class="sp-contact-name">Tae Parker</span></div>
+        <div class="sp-contact-item"><div class="sp-avatar-mini bg-pr">OL</div><span class="sp-contact-name">Omar Little</span></div>
+        <div class="sp-contact-item"><div class="sp-avatar-mini bg-tl">FG</div><span class="sp-contact-name">Fiona Gallagher</span></div>
+      </div>
+      <div class="sp-others">+456 others</div>
+    </div>
+
+    <div class="sp-card sp-card-br">
+      <div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div><p class="sp-title">Prospects hiring active roles</p></div>
+      <div class="sp-contact-list">
+        <div class="sp-contact-item"><div class="sp-avatar-mini bg-gr">LS</div><span class="sp-contact-name">Lia Soares</span></div>
+        <div class="sp-contact-item"><div class="sp-avatar-mini bg-bl">NF</div><span class="sp-contact-name">Noah Fence</span></div>
+        <div class="sp-contact-item"><div class="sp-avatar-mini bg-rd">ES</div><span class="sp-contact-name">Emma Stone</span></div>
+      </div>
+      <div class="sp-others">+189 others</div>
+    </div>
+  </div>
+
+  <!-- MOBILE STACK -->
+  <div class="sp-mobile-container">
+    <div class="sp-mobile-track"><div class="sp-mobile-spark"></div></div>
+    <div class="sp-center-node-mob">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+      Your true ICP
+    </div>
+    <div class="sp-card-mob"><div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle></svg></div><p class="sp-title">Prospects following company</p></div><div class="sp-contact-list"><div class="sp-contact-item"><div class="sp-avatar-mini bg-bl">MT</div><span class="sp-contact-name">Max Truman</span></div><div class="sp-contact-item"><div class="sp-avatar-mini bg-gr">SJ</div><span class="sp-contact-name">Sarah Jenkins</span></div></div></div>
+    <div class="sp-card-mob"><div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div><p class="sp-title">Prospects engaged with post</p></div><div class="sp-contact-list"><div class="sp-contact-item"><div class="sp-avatar-mini bg-pr">AH</div><span class="sp-contact-name">Ali Hassan</span></div><div class="sp-contact-item"><div class="sp-avatar-mini bg-pk">ND</div><span class="sp-contact-name">Nina Dobrev</span></div></div></div>
+    <div class="sp-card-mob"><div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></div><p class="sp-title">Prospects following leader</p></div><div class="sp-contact-list"><div class="sp-contact-item"><div class="sp-avatar-mini bg-tl">MT</div><span class="sp-contact-name">Mia Torres</span></div><div class="sp-contact-item"><div class="sp-avatar-mini bg-or">EW</div><span class="sp-contact-name">Evan Wright</span></div></div></div>
+    <div class="sp-card-mob"><div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.2 7.8 13.4 13.4 7.8 16.2 10.6 10.6 16.2 7.8"></polygon></svg></div><p class="sp-title">Prospects changed jobs</p></div><div class="sp-contact-list"><div class="sp-contact-item"><div class="sp-avatar-mini bg-pk">MN</div><span class="sp-contact-name">May Nguyen</span></div><div class="sp-contact-item"><div class="sp-avatar-mini bg-rd">LK</div><span class="sp-contact-name">Lucas King</span></div></div></div>
+    <div class="sp-card-mob"><div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div><p class="sp-title">Prospects attended event</p></div><div class="sp-contact-list"><div class="sp-contact-item"><div class="sp-avatar-mini bg-or">TP</div><span class="sp-contact-name">Tae Parker</span></div><div class="sp-contact-item"><div class="sp-avatar-mini bg-pr">OL</div><span class="sp-contact-name">Omar Little</span></div></div></div>
+    <div class="sp-card-mob"><div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div><p class="sp-title">Prospects hiring active roles</p></div><div class="sp-contact-list"><div class="sp-contact-item"><div class="sp-avatar-mini bg-gr">LS</div><span class="sp-contact-name">Lia Soares</span></div><div class="sp-contact-item"><div class="sp-avatar-mini bg-bl">NF</div><span class="sp-contact-name">Noah Fence</span></div></div></div>
+  </div>
+</div>
+
+<style>
+  .sp-wrap{ display:flex; justify-content:center; align-items:center; font-family:'Instrument Sans', system-ui, sans-serif; color:#192341; padding:8px 0; width:100%; background:transparent; box-sizing:border-box; overflow:visible }
+  .sp-wrap *{ box-sizing:border-box }
+
+  .sp-canvas{ position:relative; width:630px; height:500px; flex-shrink:0; display:block }
+  .sp-svg-layer{ position:absolute; top:0; left:0; width:100%; height:100%; z-index:1; overflow:visible }
+  .sp-svg-layer path.sp-base-track{ stroke:#2FA06E; stroke-width:2; stroke-opacity:.6; transition:stroke-opacity .8s cubic-bezier(0.16,1,0.3,1) }
+  .is-flowing .sp-svg-layer path.sp-base-track{ stroke-opacity:1 }
+
+  .sp-zap-line{ fill:none; stroke:#FFFFFF; stroke-width:2.5; stroke-linecap:round; stroke-dasharray:40 1000; stroke-dashoffset:40; opacity:0;
+    -webkit-filter:drop-shadow(0 0 4px rgba(47,160,110,1)) drop-shadow(0 0 8px rgba(47,160,110,.8)); filter:drop-shadow(0 0 4px rgba(47,160,110,1)) drop-shadow(0 0 8px rgba(47,160,110,.8)); will-change:stroke-dashoffset, opacity }
+
+  .is-flowing .zap-tl{ animation:sp-zap-long 3.5s linear infinite 0.2s }
+  .is-flowing .zap-ml{ animation:sp-zap-short 2.2s linear infinite 1.8s }
+  .is-flowing .zap-bl{ animation:sp-zap-long 3.5s linear infinite 2.1s }
+  .is-flowing .zap-tr{ animation:sp-zap-long 3.5s linear infinite 1.4s }
+  .is-flowing .zap-mr{ animation:sp-zap-short 2.2s linear infinite 0.5s }
+  .is-flowing .zap-br{ animation:sp-zap-long 3.5s linear infinite 2.8s }
+  @keyframes sp-zap-long{ 0%{ stroke-dashoffset:40; opacity:0 } 5%{ opacity:1 } 90%{ opacity:1 } 100%{ stroke-dashoffset:-210; opacity:0 } }
+  @keyframes sp-zap-short{ 0%{ stroke-dashoffset:40; opacity:0 } 15%{ opacity:1 } 85%{ opacity:1 } 100%{ stroke-dashoffset:-40; opacity:0 } }
+
+  .sp-card{ position:absolute; width:210px; height:150px; background:#FFFFFF; border:1px solid #E5E7EB; border-radius:12px; padding:12px 14px; display:flex; flex-direction:column; gap:6px; box-shadow:0 6px 18px rgba(0,0,0,.18); z-index:3; cursor:default; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease }
+  .sp-card:hover{ transform:translateY(-2px) !important; box-shadow:0 14px 28px rgba(0,0,0,.24); border-color:#2FA06E; z-index:10 }
+  .sp-card-tl{ top:0; left:0 } .sp-card-ml{ top:175px; left:0 } .sp-card-bl{ top:350px; left:0 }
+  .sp-card-tr{ top:0; right:0 } .sp-card-mr{ top:175px; right:0 } .sp-card-br{ top:350px; right:0 }
+
+  .sp-header{ display:flex; align-items:center; gap:10px; margin-bottom:4px }
+  .sp-icon-wrapper{ width:24px; height:24px; background:#F3F4F6; color:#3B82F6; border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0 }
+  .sp-title{ font-family:'Lexend', sans-serif; font-size:12px; font-weight:600; color:#111827; margin:0; line-height:1.2 }
+
+  .sp-contact-list{ display:flex; flex-direction:column; gap:6px }
+  .sp-contact-item{ display:flex; align-items:center; gap:8px }
+  .sp-avatar-mini{ width:18px; height:18px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:8px; font-weight:600; color:#FFFFFF; flex-shrink:0 }
+  .bg-bl{ background:#3B82F6 } .bg-gr{ background:#10B981 } .bg-or{ background:#F59E0B } .bg-pr{ background:#8B5CF6 } .bg-pk{ background:#EC4899 } .bg-tl{ background:#14B8A6 } .bg-rd{ background:#EF4444 }
+  .sp-contact-name{ font-size:11px; color:#374151; font-family:'Instrument Sans', sans-serif; white-space:nowrap; overflow:hidden; text-overflow:ellipsis }
+  .sp-others{ font-size:10px; color:#6B7280; margin-top:2px; font-weight:500; padding-left:26px }
+
+  .sp-center-node{ position:absolute; top:230px; left:250px; width:130px; height:40px; background:#FFFFFF; border:2px solid #2FA06E; border-radius:20px; display:flex; align-items:center; justify-content:center; gap:6px; font-family:'Lexend', sans-serif; font-size:12px; font-weight:600; color:#155C3F; box-shadow:0 6px 16px rgba(47,160,110,.18); z-index:10 }
+
+  .sp-mobile-container{ display:none; flex-direction:column; align-items:center; position:relative; width:100%; max-width:340px; gap:20px; padding:20px 0 }
+  .sp-mobile-track{ position:absolute; top:140px; bottom:20px; left:36px; width:2px; border-left:2px dashed rgba(47,160,110,.4); z-index:1 }
+  .sp-mobile-spark{ position:absolute; top:0; left:-2px; width:8px; height:8px; background:#2FA06E; border-radius:50%; box-shadow:0 0 8px 3px rgba(47,160,110,.8); z-index:2; opacity:0 }
+  .is-flowing .sp-mobile-spark{ animation:sp-mobile-spark-drop 4.5s infinite linear }
+  @keyframes sp-mobile-spark-drop{ 0%{ top:0; opacity:0 } 10%{ opacity:1 } 90%{ opacity:1 } 100%{ top:100%; opacity:0 } }
+
+  .sp-mobile-container .sp-center-node-mob{ width:100%; height:48px; background:#FFFFFF; border:2px solid #2FA06E; border-radius:24px; display:flex; align-items:center; justify-content:center; gap:8px; font-family:'Lexend', sans-serif; font-size:14px; font-weight:600; color:#155C3F; box-shadow:0 6px 16px rgba(47,160,110,.14); z-index:5 }
+  .sp-mobile-container .sp-card-mob{ width:100%; background:#FFFFFF; border:1px solid #E5E7EB; border-radius:12px; padding:14px 16px; box-shadow:0 6px 18px rgba(0,0,0,.18); display:flex; flex-direction:column; gap:8px; z-index:3 }
+
+  @media (max-width:860px){ .sp-canvas{ display:none } .sp-mobile-container{ display:flex } }
+
+  /* Motion-on starting states only — reduced motion shows everything at rest */
+  :global(html.has-anim) .sp-card,
+  :global(html.has-anim) .sp-mobile-container .sp-card-mob{ opacity:0; transform:translateY(20px) }
+  :global(html.has-anim) .sp-svg-layer,
+  :global(html.has-anim) .sp-mobile-track{ opacity:0 }
+  :global(html.has-anim) .sp-center-node{ opacity:0; transform:scale(0.8) }
+  :global(html.has-anim) .sp-mobile-container .sp-center-node-mob{ opacity:0; transform:scale(0.9) }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  function initSocialProspecting() {
+    const wrap = document.querySelector('.sp-wrap') as HTMLElement | null;
+    if (!wrap || wrap.dataset.init) return;
+    if (!document.documentElement.classList.contains('has-anim')) return;
+    wrap.dataset.init = '1';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const dCards = wrap.querySelectorAll('.sp-canvas .sp-card');
+    const dSvgLayer = wrap.querySelector('.sp-svg-layer');
+    const dCenterNode = wrap.querySelector('.sp-center-node');
+    const mCards = wrap.querySelectorAll('.sp-mobile-container .sp-card-mob');
+    const mTrack = wrap.querySelector('.sp-mobile-track');
+    const mCenterNode = wrap.querySelector('.sp-center-node-mob');
+
+    const tl = gsap.timeline({
+      scrollTrigger: { trigger: wrap, start: 'top 85%', toggleActions: 'play none none none' },
+    });
+    tl.fromTo([dCards, mCards], { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', stagger: 0.08, clearProps: 'transform' });
+    tl.fromTo([dSvgLayer, mTrack], { opacity: 0 }, { opacity: 1, duration: 0.5 }, '-=0.2');
+    tl.fromTo([dCenterNode, mCenterNode], { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(1.5)' }, '-=0.2');
+    tl.add(() => { wrap.classList.add('is-flowing'); }, '-=0.1');
+  }
+
+  initSocialProspecting();
+  document.addEventListener('astro:page-load', initSocialProspecting);
+</script>

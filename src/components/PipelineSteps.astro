@@ -1,9 +1,19 @@
 ---
-// Section 6 — From sign-up to meeting set, in three steps (Espresso).
-// Three alternating full-width bands: text on one side, embed widget on the other.
+// Section 7 — From sign-up to meeting set, in three steps (Espresso).
+// Each step is a centered text block followed by its full-width product embed.
+// The embeds (sourcing, multichannel flow, CRM sync) are the real hubsell UI:
+// white cards popping on the dark section, green connective motion.
 import { pipelineSteps } from '../data/home-content';
-import EmbedSlot from './EmbedSlot.astro';
 import { SIGNUP_URL } from '../data/site';
+import SocialProspecting from './SocialProspecting.astro';
+import MultichannelFlow from './MultichannelFlow.astro';
+import CrmSyncTracker from './CrmSyncTracker.astro';
+
+const EMBEDS: Record<string, any> = {
+  '05-sp-widget': SocialProspecting,
+  '06-multichannel-flow': MultichannelFlow,
+  '07-crm-sync-tracker': CrmSyncTracker,
+};
 ---
 <section class="sec sec--esp" aria-labelledby="steps-title">
   <div class="wrap">
@@ -12,36 +22,34 @@ import { SIGNUP_URL } from '../data/site';
       <h2 id="steps-title" class="heading_primary" style="margin-top:8px">From <span class="accent">sign-up to meeting</span> set in three steps.</h2>
     </div>
 
-    <div style="display:flex;flex-direction:column;gap:clamp(40px,6vw,80px)">
-      {pipelineSteps.map((step) => (
-        <div class={`step-row${step.flip ? ' is-flip' : ''} reveal`}>
-          <div class="step-row__text">
-            <span class="step-num" style="margin-bottom:14px">{step.n}</span>
-            <p class="eyebrow" style="margin-bottom:10px">{step.label}</p>
-            <h3 class="heading_secondary" style="margin-bottom:16px">{step.title}<span class="accent">{step.titleAccent}</span>{step.tail}</h3>
-            {step.points.map((p) => <p class="paragraph" style="opacity:.86;margin-bottom:10px">{p}</p>)}
-            <a href={SIGNUP_URL} class="button is-secondary" style="margin-top:10px;align-self:flex-start">{step.cta}</a>
+    <div class="steps">
+      {pipelineSteps.map((step) => {
+        const Embed = EMBEDS[step.embed];
+        return (
+          <div class="step reveal">
+            <div class="step__head">
+              <p class="step__eyebrow">{step.label}</p>
+              <h3 class="heading_secondary" style="margin-top:10px">{step.title}<span class="accent">{step.titleAccent}</span>{step.tail}</h3>
+              <div class="step__points">
+                {step.points.map((p) => <p class="paragraph" style="opacity:.84;margin:0">{p}</p>)}
+              </div>
+            </div>
+            <div class="step__media">
+              {Embed && <Embed />}
+            </div>
+            <a href={SIGNUP_URL} class="button is-secondary">{step.cta}</a>
           </div>
-          <div class="step-row__media">
-            <EmbedSlot name={step.embed} recolor={step.recolor} minHeight="380px" note={`The ${step.label.split('·')[1].trim()} widget drops in here.`} />
-          </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   </div>
 </section>
 
 <style>
-  .step-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(28px,4vw,56px);align-items:center}
-  .step-row__text{display:flex;flex-direction:column}
-  /* alternate sides on wide screens; embed sits second in DOM, so flip swaps order */
-  .step-row.is-flip .step-row__text{order:2}
-  .step-row.is-flip .step-row__media{order:1}
-  @media (max-width:780px){
-    .step-row{grid-template-columns:1fr}
-    .step-row.is-flip .step-row__text,
-    .step-row.is-flip .step-row__media{order:initial}
-    .step-row__media{order:2}
-    .step-row__text{order:1}
-  }
+  .steps{ display:flex; flex-direction:column; gap:clamp(64px,9vw,112px); margin-top:clamp(36px,5vw,60px) }
+  .step{ display:flex; flex-direction:column; align-items:center; text-align:center }
+  .step__head{ max-width:60ch }
+  .step__eyebrow{ font-family:var(--font-body); font-weight:600; font-size:13px; letter-spacing:.04em; text-transform:uppercase; color:var(--accent-on) }
+  .step__points{ display:flex; flex-direction:column; gap:10px; margin-top:16px; max-width:62ch; margin-left:auto; margin-right:auto }
+  .step__media{ width:100%; display:flex; justify-content:center; margin:clamp(28px,4vw,44px) 0 clamp(24px,3vw,32px) }
 </style>
