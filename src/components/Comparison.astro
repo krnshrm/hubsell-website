@@ -44,8 +44,8 @@ const last = rows.length - 1;
 <section class="sec sec--sand cmp" aria-labelledby="cmp-title">
   <div class="wrap">
     <p class="eyebrow cmp__eyebrow reveal">Why hubsell</p>
-    <h2 id="cmp-title" class="heading_primary cmp__title reveal">Most tools hand you a list. hubsell runs the whole motion.</h2>
-    <p class="subheading cmp__sub reveal">Live-sourced data, email and LinkedIn outreach, and automatic CRM sync — in one platform. The tools you’d otherwise stitch together each cover a slice; hubsell covers the play end to end, from a fresh contact to a reply in your inbox.</p>
+    <h2 id="cmp-title" class="heading_primary cmp__title reveal">Most tools stop at the data. hubsell keeps going.</h2>
+    <p class="subheading cmp__sub reveal">hubsell sources contacts live, runs email and LinkedIn in one flow, and syncs to your CRM automatically. The tools you’d otherwise buy each cover one piece of that. hubsell covers all of it.</p>
 
     <div class="cmp__matrixwrap reveal">
       <div class="cmp__matrix">
@@ -65,7 +65,7 @@ const last = rows.length - 1;
               return (
                 <div class:list={["cmp__cell", isHub && "cmp__cell--hub", i === last && "is-lastrow"]}>
                   <span class={`mk mk--${mark}`}>
-                    <span class="sr-only">{mark === 'yes' ? 'Yes — ' : mark === 'part' ? 'Partial — ' : 'No — '}</span>
+                    <span class="sr-only">{mark === 'yes' ? 'Yes: ' : mark === 'part' ? 'Partial: ' : 'No: '}</span>
                     {mark === 'yes'
                       ? <svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2l2.2 2.3 4.8-5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
                       : <span aria-hidden="true">{mark === 'part' ? '~' : '–'}</span>}
@@ -79,7 +79,7 @@ const last = rows.length - 1;
       </div>
     </div>
 
-    <p class="cmp__moat reveal">The combination is the point: live data, multichannel outreach, and CRM sync in one place is something no single tool on the right does together.</p>
+    <p class="cmp__moat reveal">Plenty of tools do one or two of these. None do all three in one place.</p>
 
     <div class="cmp__links reveal">
       <span class="cmp__links-label">Comparing hubsell to a specific tool?</span>
