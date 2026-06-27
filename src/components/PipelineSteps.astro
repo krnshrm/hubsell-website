@@ -1,8 +1,10 @@
 ---
 // Section 7 — From sign-up to meeting set, in three steps (Espresso).
-// Each step is a centered text block followed by its full-width product embed.
-// The embeds (sourcing, multichannel flow, CRM sync) are the real hubsell UI:
-// white cards popping on the dark section, green connective motion.
+// Two-column rows: the text card beside its full product embed (~36% / ~64%),
+// sides alternating per step. Each embed has a fixed-width canvas, so the visual
+// column scales it to fit exactly (aspect-ratio box + transform). Below 1120px
+// the row stacks (text above visual); below 860px each embed uses its own
+// vertical mobile layout.
 import { pipelineSteps } from '../data/home-content';
 import { SIGNUP_URL } from '../data/site';
 import SocialProspecting from './SocialProspecting.astro';
@@ -14,8 +16,14 @@ const EMBEDS: Record<string, any> = {
   '06-multichannel-flow': MultichannelFlow,
   '07-crm-sync-tracker': CrmSyncTracker,
 };
+// Native canvas size of each embed, used to scale it into the visual column.
+const DIMS: Record<string, { w: number; h: number }> = {
+  '05-sp-widget': { w: 630, h: 500 },
+  '06-multichannel-flow': { w: 740, h: 520 },
+  '07-crm-sync-tracker': { w: 710, h: 480 },
+};
 ---
-<section class="sec sec--esp" aria-labelledby="steps-title">
+<section class="sec sec--esp" aria-labelledby="steps-title" style="--maxw:1200px;--vw:640">
   <div class="wrap">
     <div class="sec-head is-center reveal">
       <p class="eyebrow">The three-step pipeline motion</p>
@@ -25,19 +33,22 @@ const EMBEDS: Record<string, any> = {
     <div class="steps">
       {pipelineSteps.map((step) => {
         const Embed = EMBEDS[step.embed];
+        const d = DIMS[step.embed] ?? { w: 700, h: 500 };
         return (
-          <div class="step reveal">
+          <div class={`step reveal${step.flip ? ' is-flip' : ''}`}>
             <div class="step__head">
               <p class="step__eyebrow">{step.label}</p>
               <h3 class="heading_secondary" style="margin-top:10px">{step.title}<span class="accent">{step.titleAccent}</span>{step.tail}</h3>
               <div class="step__points">
                 {step.points.map((p) => <p class="paragraph" style="opacity:.84;margin:0">{p}</p>)}
               </div>
+              <a href={SIGNUP_URL} class="button is-secondary step__cta">{step.cta}</a>
             </div>
             <div class="step__media">
-              {Embed && <Embed />}
+              <div class="viz" style={`--w:${d.w};--h:${d.h}`}>
+                <div class="viz__inner">{Embed && <Embed />}</div>
+              </div>
             </div>
-            <a href={SIGNUP_URL} class="button is-secondary">{step.cta}</a>
           </div>
         );
       })}
@@ -46,10 +57,24 @@ const EMBEDS: Record<string, any> = {
 </section>
 
 <style>
-  .steps{ display:flex; flex-direction:column; gap:clamp(64px,9vw,112px); margin-top:clamp(36px,5vw,60px) }
-  .step{ display:flex; flex-direction:column; align-items:center; text-align:center }
-  .step__head{ max-width:60ch }
+  .steps{ display:flex; flex-direction:column; gap:clamp(56px,8vw,96px); margin-top:clamp(36px,5vw,60px) }
+  .step{ display:flex; flex-direction:column; gap:24px }
+  .step__head{ display:flex; flex-direction:column }
   .step__eyebrow{ font-family:var(--font-body); font-weight:600; font-size:13px; letter-spacing:.04em; text-transform:uppercase; color:var(--accent-on) }
-  .step__points{ display:flex; flex-direction:column; gap:10px; margin-top:16px; max-width:62ch; margin-left:auto; margin-right:auto }
-  .step__media{ width:100%; display:flex; justify-content:center; margin:clamp(28px,4vw,44px) 0 clamp(24px,3vw,32px) }
+  .step__points{ display:flex; flex-direction:column; gap:10px; margin-top:16px }
+  .step__cta{ align-self:flex-start; margin-top:22px }
+  .viz{ width:100% }
+
+  @media (min-width:1120px){
+    .step{ flex-direction:row; align-items:center; gap:clamp(40px,4vw,72px) }
+    .step.is-flip{ flex-direction:row-reverse }
+    .step__head{ flex:1 1 0; min-width:0 }
+    .step__media{ flex:0 0 calc(var(--vw) * 1px); display:flex; justify-content:center }
+    .viz{ position:relative; width:calc(var(--vw) * 1px); aspect-ratio:var(--w) / var(--h) }
+    .viz__inner{ position:absolute; top:0; left:0; width:calc(var(--w) * 1px); height:calc(var(--h) * 1px); transform-origin:top left; transform:scale(calc(var(--vw) / var(--w))) }
+    /* embeds carry their own 8px wrap padding; drop it so the scaled box fits exactly */
+    .viz__inner > :global(.sp-wrap),
+    .viz__inner > :global(.hubsell-tree-embed),
+    .viz__inner > :global(.hubsell-sync-embed){ padding:0 }
+  }
 </style>
