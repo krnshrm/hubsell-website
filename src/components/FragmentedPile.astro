@@ -1,0 +1,164 @@
+---
+// Problem embed — the fragmented "stack": six point tools that drop into a loose
+// pile, each flipping on hover to reveal its gap. Coral signals the pain.
+// Adapted from the supplied widget: self-hosted GSAP (no global), reduced-motion
+// safe (cards only start hidden when motion is allowed), font @import dropped
+// (Lexend / Instrument Sans load globally), sized for the navy problem section.
+---
+<div class="ft-wrap">
+  <div class="ft-grid">
+
+    <div class="ft-card-wrapper" data-rot="-4" data-x="-5">
+      <div class="ft-card-inner">
+        <div class="ft-card-front">
+          <div class="ft-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>
+          </div>
+          <div class="ft-title">Lead Databases</div>
+        </div>
+        <div class="ft-card-back">
+          <div class="ft-desc">Data decays 30% a year.<br>Coverage gaps in your ICP.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ft-card-wrapper" data-rot="3" data-x="5">
+      <div class="ft-card-inner">
+        <div class="ft-card-front">
+          <div class="ft-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+          </div>
+          <div class="ft-title">Cold Email Tools</div>
+        </div>
+        <div class="ft-card-back">
+          <div class="ft-desc">Email runs on its own.<br>LinkedIn is a separate tool.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ft-card-wrapper" data-rot="-6" data-x="-8">
+      <div class="ft-card-inner">
+        <div class="ft-card-front">
+          <div class="ft-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <div class="ft-title">LinkedIn Outreach</div>
+        </div>
+        <div class="ft-card-back">
+          <div class="ft-desc">Point solution only.<br>No link to email sequences.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ft-card-wrapper" data-rot="5" data-x="10">
+      <div class="ft-card-inner">
+        <div class="ft-card-front">
+          <div class="ft-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          </div>
+          <div class="ft-title">Email Finders</div>
+        </div>
+        <div class="ft-card-back">
+          <div class="ft-desc">Multiple providers to manage.<br>Manual stacking, no flow.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ft-card-wrapper" data-rot="-3" data-x="-10">
+      <div class="ft-card-inner">
+        <div class="ft-card-front">
+          <div class="ft-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="ft-title">Buyer Intent Tools</div>
+        </div>
+        <div class="ft-card-back">
+          <div class="ft-desc">No native action layer.<br>Signals don’t trigger outreach.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ft-card-wrapper" data-rot="6" data-x="8">
+      <div class="ft-card-inner">
+        <div class="ft-card-front">
+          <div class="ft-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div class="ft-title">CRM Admin</div>
+        </div>
+        <div class="ft-card-back">
+          <div class="ft-desc">Reps log by hand, or not at all.<br>CRM always out of date.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .ft-wrap{ font-family:'Instrument Sans', system-ui, sans-serif; width:100%; padding:8px 4px 34px; box-sizing:border-box; background:transparent; overflow:visible }
+  .ft-wrap *{ box-sizing:border-box }
+  .ft-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:32px 24px; align-items:start; max-width:1000px; margin:0 auto }
+
+  .ft-card-wrapper{ width:100%; height:170px; perspective:1000px; cursor:pointer; z-index:1; transition:z-index 0s 0.6s }
+  :global(html.has-anim) .ft-card-wrapper{ opacity:0 }
+  .ft-card-wrapper:hover{ z-index:100; transition:z-index 0s 0s }
+
+  .ft-card-inner{ position:relative; width:100%; height:100%; transition:transform 0.6s cubic-bezier(0.34,1.56,0.64,1); transform-style:preserve-3d }
+  .ft-card-wrapper:hover .ft-card-inner{ transform:scale(1.08) rotateY(180deg) }
+
+  .ft-card-front, .ft-card-back{
+    position:absolute; width:100%; height:100%;
+    -webkit-backface-visibility:hidden; backface-visibility:hidden;
+    border-radius:12px; padding:20px; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; text-align:center; gap:12px;
+  }
+  .ft-card-front{ background:#FFFFFF; border:1px solid #ECE1D4; box-shadow:0 6px 18px rgba(0,0,0,.16) }
+  .ft-card-back{ background:#FFF4F2; border:1px solid #E86250; box-shadow:0 16px 32px rgba(232,98,80,.22); transform:rotateY(180deg) }
+
+  .ft-icon-box{ width:44px; height:44px; border-radius:10px; background:rgba(232,98,80,.12); color:#E86250; display:flex; align-items:center; justify-content:center; flex-shrink:0 }
+  .ft-icon-box svg{ width:22px; height:22px }
+  .ft-title{ font-family:'Lexend', sans-serif; font-size:16px; font-weight:600; color:#192341; line-height:1.2; margin:0 }
+  .ft-desc{ font-size:14px; color:#C0392B; font-weight:500; line-height:1.4; margin:0 }
+
+  @media (max-width:768px){ .ft-grid{ grid-template-columns:1fr; gap:16px } }
+  @media (prefers-reduced-motion:reduce){ .ft-card-inner{ transition:none } }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initFragPile() {
+    // Reduced motion: BaseLayout never adds .has-anim, so cards stay visible & static.
+    if (!document.documentElement.classList.contains('has-anim')) return;
+    const wrap = document.querySelector('.ft-wrap');
+    if (!wrap || wrap.dataset.init) return;
+    wrap.dataset.init = '1';
+
+    const cards = wrap.querySelectorAll('.ft-card-wrapper');
+    const tl = gsap.timeline({
+      scrollTrigger: { trigger: wrap, start: 'top 75%', toggleActions: 'play reset play reset' },
+    });
+
+    // Build the clean grid.
+    cards.forEach((card, i) => {
+      tl.fromTo(card,
+        { opacity: 0, y: -40, x: 0, rotation: 0, scale: 1 },
+        { opacity: 1, y: 0, duration: 1.0, ease: 'power2.out' },
+        i * 0.25);
+    });
+
+    // Hold, then let them slump into a loose pile (tilt + drift pulled from data-attrs).
+    tl.addLabel('drop', '+=1');
+    cards.forEach((card, i) => {
+      const rot = parseFloat(card.getAttribute('data-rot') || '0');
+      const x = parseFloat(card.getAttribute('data-x') || '0');
+      tl.to(card, { y: 30, x, rotation: rot, duration: 1.0, ease: 'bounce.out' }, `drop+=${i * 0.05}`);
+    });
+  }
+
+  initFragPile();
+  document.addEventListener('astro:page-load', initFragPile);
+</script>

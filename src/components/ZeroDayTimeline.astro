@@ -1,0 +1,336 @@
+---
+// Zero-day sourcing embed — a side-by-side timeline. Left: the slow database
+// model, where data is captured once then decays (coral, a red dot creeps down
+// over ~24s). Right: hubsell's zero-day sourcing, live and instant (green, a
+// lightning bolt zaps down in ~2.5s). Hover any node for detail.
+// Adapted from the supplied widget: self-hosted GSAP (no global), reduced-motion
+// safe (hidden states only apply when motion is on), purple recoloured to
+// hubsell green, font @import dropped. Sits on the light (Paper) section.
+---
+<div class="d0-wrap">
+  <div class="d0-headers">
+    <div class="gsap-hide d0-head-l">
+      <div class="d0-eyebrow d0-eyebrow-left">Every other platform</div>
+      <div class="d0-col-heading">The database model</div>
+    </div>
+    <div></div>
+    <div class="gsap-hide d0-head-r">
+      <div class="d0-eyebrow d0-eyebrow-right">hubsell</div>
+      <div class="d0-col-heading">Zero-day sourcing</div>
+    </div>
+  </div>
+
+  <div class="d0-timeline-container">
+    <div class="d0-divider"></div>
+    <div class="d0-vs gsap-hide">vs</div>
+
+    <div class="d0-grid">
+
+      <!-- LEFT: the database model -->
+      <div class="d0-side-left">
+        <div class="d0-items-container">
+
+          <div class="d0-track-svg-wrap left-track-wrap gsap-hide">
+            <svg width="32" height="100%" style="overflow: visible;">
+              <line class="left-track-base" x1="1" y1="0" x2="1" y2="100" stroke="rgba(232, 98, 80, 0.25)" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <div class="left-traveler-dot"></div>
+          </div>
+
+          <div class="d0-item gsap-item-l">
+            <div class="d0-rail"><div class="d0-dot left-dot"></div></div>
+            <div class="d0-content">
+              <div class="d0-text-wrap">
+                <div class="d0-node-title">Data captured</div>
+                <div class="d0-node-sub">Fresh at this moment only</div>
+                <div class="d0-tooltip">Brokers scrape the web. The moment it hits their database, it begins decaying at ~30% per year.</div>
+              </div>
+              <div class="d0-gap">3 to 6 months pass</div>
+            </div>
+          </div>
+
+          <div class="d0-item gsap-item-l">
+            <div class="d0-rail"><div class="d0-dot left-dot"></div></div>
+            <div class="d0-content">
+              <div class="d0-text-wrap">
+                <div class="d0-node-title">Added to the database</div>
+                <div class="d0-node-sub">Cleaned, formatted, and sold</div>
+                <div class="d0-tooltip">Months pass while lists are cleaned and bundled. You buy a static list that is already outdated.</div>
+              </div>
+              <div class="d0-gap">You purchase the list</div>
+            </div>
+          </div>
+
+          <div class="d0-item gsap-item-l">
+            <div class="d0-rail"><div class="d0-dot left-dot"></div></div>
+            <div class="d0-content">
+              <div class="d0-text-wrap">
+                <div class="d0-node-title">Manual verification</div>
+                <div class="d0-node-sub">Hours wasted cross-checking profiles</div>
+                <div class="d0-tooltip">Reps don’t trust the data. They spend 20%+ of their day verifying profiles on LinkedIn instead of selling.</div>
+              </div>
+              <div class="d0-gap">Weeks of delay</div>
+            </div>
+          </div>
+
+          <div class="d0-item gsap-item-l">
+            <div class="d0-rail"><div class="d0-dot left-dot"></div></div>
+            <div class="d0-content">
+              <div class="d0-text-wrap">
+                <div class="d0-node-title">Your rep sends outreach</div>
+                <div class="d0-node-sub">Titles wrong. Emails dead.</div>
+                <div class="d0-tooltip">Prospects have moved on. Messages hit spam traps or bounce entirely, destroying your sender reputation.</div>
+              </div>
+              <div class="d0-gap">Campaign results</div>
+            </div>
+          </div>
+
+          <div class="d0-item d0-last gsap-item-l">
+            <div class="d0-rail"><div class="d0-dot left-dot"></div></div>
+            <div class="d0-content">
+              <div class="d0-text-wrap">
+                <div class="d0-node-title d0-final-left">Domain damaged, quota missed</div>
+                <div class="d0-node-sub">High bounce rates, blacklisted domains.</div>
+                <div class="d0-tooltip">Your emails start going straight to spam folders. Your outbound pipeline dries up completely.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT: zero-day sourcing -->
+      <div class="d0-side-right">
+        <div class="d0-items-container">
+
+          <div class="d0-track-svg-wrap right-track-wrap gsap-hide">
+            <svg width="32" height="100%" style="overflow: visible;">
+              <line class="right-track-base" x1="1" y1="0" x2="1" y2="100" stroke="rgba(47, 160, 110, 0.25)" stroke-width="2" stroke-linecap="round" />
+              <line class="right-zap-line d0-zap-line right-zap" x1="1" y1="0" x2="1" y2="100" />
+            </svg>
+          </div>
+
+          <div class="d0-item gsap-item-r">
+            <div class="d0-rail"><div class="d0-dot right-dot"></div></div>
+            <div class="d0-content">
+              <div class="d0-text-wrap">
+                <div class="d0-node-title">You define your ICP</div>
+                <div class="d0-node-sub">Title, company type, signals</div>
+                <div class="d0-tooltip">Set precise parameters and buying signals to target exactly who you need right now.</div>
+              </div>
+              <div class="d0-gap gap-right">Immediate</div>
+            </div>
+          </div>
+
+          <div class="d0-item gsap-item-r">
+            <div class="d0-rail"><div class="d0-dot right-dot"></div></div>
+            <div class="d0-content">
+              <div class="d0-text-wrap">
+                <div class="d0-node-title">Sourced live from LinkedIn</div>
+                <div class="d0-node-sub">Matched at this exact moment</div>
+                <div class="d0-tooltip">hubsell pulls live, accurate profile data directly from the source. No stale databases.</div>
+              </div>
+              <div class="d0-gap gap-right">Immediate</div>
+            </div>
+          </div>
+
+          <div class="d0-item gsap-item-r">
+            <div class="d0-rail"><div class="d0-dot right-dot"></div></div>
+            <div class="d0-content">
+              <div class="d0-text-wrap">
+                <div class="d0-node-title">Validated and enriched</div>
+                <div class="d0-node-sub">Emails confirmed, signals layered</div>
+                <div class="d0-tooltip">Emails are verified on the fly (even catch-alls), and intent signals are mapped to each prospect.</div>
+              </div>
+              <div class="d0-gap gap-right">Immediate</div>
+            </div>
+          </div>
+
+          <div class="d0-item gsap-item-r">
+            <div class="d0-rail"><div class="d0-dot right-dot"></div></div>
+            <div class="d0-content">
+              <div class="d0-text-wrap">
+                <div class="d0-node-title">Your rep sends outreach</div>
+                <div class="d0-node-sub">Right person, right time</div>
+                <div class="d0-tooltip">Automated, highly relevant messaging reaches verified inboxes with a high deliverability rate.</div>
+              </div>
+              <div class="d0-gap gap-right">Results</div>
+            </div>
+          </div>
+
+          <div class="d0-item d0-last gsap-item-r">
+            <div class="d0-rail"><div class="d0-dot right-dot"></div></div>
+            <div class="d0-content">
+              <div class="d0-text-wrap">
+                <div class="d0-node-title d0-final-right">Pipeline built</div>
+                <div class="d0-node-sub">Meetings booked automatically</div>
+                <div class="d0-tooltip">Your reps focus entirely on closing deals while hubsell handles the precise sourcing and delivery.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .d0-wrap{ font-family:'Instrument Sans', system-ui, sans-serif; color:#192341; padding:8px 0 16px; width:100%; max-width:100%; margin:0; box-sizing:border-box }
+  .d0-wrap *{ box-sizing:border-box }
+
+  .d0-headers{ display:grid; grid-template-columns:1fr 32px 1fr; align-items:start; margin-bottom:32px }
+  .d0-eyebrow{ font-size:12px; letter-spacing:.08em; text-transform:uppercase; margin-bottom:6px; font-weight:500 }
+  .d0-eyebrow-left{ color:#192341; opacity:.55 }
+  .d0-eyebrow-right{ color:#2FA06E }
+  .d0-col-heading{ font-family:'Lexend', system-ui, sans-serif; font-size:22px; font-weight:500; line-height:1.3 }
+
+  .d0-timeline-container{ position:relative }
+  .d0-divider{ position:absolute; left:50%; top:0; bottom:0; width:1px; background:rgba(25,35,65,.1); transform:translateX(-50%) }
+  .d0-vs{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); background:#FFFFFF; border:1px solid rgba(25,35,65,.12); border-radius:24px; padding:4px 12px; font-size:12px; font-weight:600; color:#192341; z-index:10; transition:opacity .3s ease }
+
+  .d0-grid{ display:grid; grid-template-columns:1fr 1fr }
+  .d0-side-left, .d0-side-right{ padding:0 32px; position:relative; z-index:1 }
+  .d0-side-left:hover, .d0-side-right:hover{ z-index:20 }
+  .d0-items-container{ position:relative; width:100% }
+
+  .d0-track-svg-wrap{ position:absolute; top:12px; left:15px; width:32px; z-index:0; transform-origin:top; overflow:visible; pointer-events:none }
+
+  .d0-zap-line{ fill:none; stroke:#FFFFFF !important; stroke-width:2.5; stroke-linecap:round; opacity:0; will-change:stroke-dashoffset, opacity }
+  .right-zap{ -webkit-filter:drop-shadow(0px 0px 4px rgba(47,160,110,1)) drop-shadow(0px 0px 8px rgba(47,160,110,.8)); filter:drop-shadow(0px 0px 4px rgba(47,160,110,1)) drop-shadow(0px 0px 8px rgba(47,160,110,.8)) }
+
+  .left-traveler-dot{ position:absolute; width:10px; height:10px; background:#E86250; border-radius:50%; box-shadow:0 0 8px 3px rgba(232,98,80,.4); left:-4px; top:0; opacity:0; pointer-events:none; z-index:5; will-change:transform, opacity }
+
+  .d0-item{ display:flex; align-items:stretch; position:relative; z-index:5 }
+  .d0-item:hover{ z-index:1000 !important }
+  .d0-rail{ position:relative; width:32px; flex-shrink:0; z-index:1 }
+  .d0-dot{ position:absolute; top:6px; left:10px; width:12px; height:12px; border-radius:50%; z-index:2 }
+  .left-dot{ background:#E86250 }
+  .right-dot{ background:#2FA06E }
+
+  .d0-content{ flex-grow:1; padding-bottom:24px; position:relative; z-index:10 }
+  .d0-last .d0-content{ padding-bottom:0 }
+  .d0-text-wrap{ position:relative; z-index:20; transition:transform .25s cubic-bezier(0.16,1,0.3,1) }
+  .d0-item:hover .d0-text-wrap{ transform:translateX(6px) }
+
+  .d0-node-title{ font-size:15px; font-weight:500; line-height:1.4; margin-bottom:3px }
+  .d0-node-sub{ font-size:13px; opacity:.65; line-height:1.5; margin:0 }
+
+  .d0-tooltip{ position:absolute; top:calc(100% + 6px); left:0; width:calc(100% + 24px); background:#FFFFFF; border:1px solid #ECE1D4; border-radius:8px; padding:12px 16px; box-shadow:0 12px 24px -4px rgba(25,35,65,.14); font-size:13px; color:#54596B; line-height:1.45; opacity:0; visibility:hidden; transform:translateY(-6px); transition:all .2s ease; pointer-events:none; z-index:100 }
+  .d0-item:hover .d0-tooltip{ opacity:1; visibility:visible; transform:translateY(0) }
+
+  .d0-gap{ margin-top:14px; font-size:12px; font-style:italic; opacity:.55 }
+  .gap-right{ color:#2FA06E; font-style:normal; font-weight:600; opacity:1 }
+  .d0-final-left{ color:#E86250; font-weight:600 }
+  .d0-final-right{ color:#2FA06E; font-weight:600 }
+
+  :global(html.has-anim) .gsap-hide{ opacity:0 }
+
+  @media (max-width:768px){
+    .d0-headers{ grid-template-columns:1fr; gap:28px }
+    .d0-headers > div:nth-child(2){ display:none }
+    .d0-grid{ grid-template-columns:1fr; gap:48px }
+    .d0-divider, .d0-vs{ display:none }
+    .d0-side-left, .d0-side-right{ padding:0 16px }
+  }
+  @media (prefers-reduced-motion:reduce){ .d0-text-wrap, .d0-tooltip{ transition:none } }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initZeroDay() {
+    // Reduced motion: no .has-anim, so the timeline renders visible & static.
+    if (!document.documentElement.classList.contains('has-anim')) return;
+    const wrap = document.querySelector('.d0-wrap');
+    if (!wrap || wrap.dataset.init) return;
+    wrap.dataset.init = '1';
+
+    const headLeft = wrap.querySelector('.d0-head-l');
+    const headRight = wrap.querySelector('.d0-head-r');
+    const vsBadge = wrap.querySelector('.d0-vs');
+    const divider = wrap.querySelector('.d0-divider');
+    const itemsLeft = wrap.querySelectorAll('.gsap-item-l');
+    const itemsRight = wrap.querySelectorAll('.gsap-item-r');
+
+    let distL = 0, distR = 0;
+    let travLTweenY, travLTweenOp, travRTweenY;
+
+    function measureDistances() {
+      if (itemsLeft.length > 1) {
+        distL = itemsLeft[itemsLeft.length - 1].offsetTop - itemsLeft[0].offsetTop;
+        gsap.set('.left-track-wrap', { height: distL });
+        const leftBase = wrap.querySelector('.left-track-base');
+        if (leftBase) leftBase.setAttribute('y2', distL);
+      }
+      if (itemsRight.length > 1) {
+        distR = itemsRight[itemsRight.length - 1].offsetTop - itemsRight[0].offsetTop;
+        gsap.set('.right-track-wrap', { height: distR });
+        const rightBase = wrap.querySelector('.right-track-base');
+        const rightZap = wrap.querySelector('.right-zap-line');
+        if (rightBase) rightBase.setAttribute('y2', distR);
+        if (rightZap) rightZap.setAttribute('y2', distR);
+      }
+    }
+
+    measureDistances();
+    setTimeout(measureDistances, 500); // failsafe for late font load
+
+    if (typeof ResizeObserver !== 'undefined') {
+      const ro = new ResizeObserver(() => {
+        measureDistances();
+        if (wrap.classList.contains('is-flowing')) startTravelers();
+      });
+      ro.observe(wrap.querySelector('.d0-items-container'));
+    }
+
+    function killTravelers() {
+      wrap.classList.remove('is-flowing');
+      [travLTweenY, travLTweenOp, travRTweenY].forEach((t) => t && t.kill());
+      gsap.set('.d0-zap-line', { opacity: 0 });
+      gsap.set('.left-traveler-dot', { opacity: 0 });
+    }
+
+    function startTravelers() {
+      killTravelers();
+      wrap.classList.add('is-flowing');
+      const boltLength = 60;
+
+      if (distL > 0) {
+        gsap.set('.left-traveler-dot', { y: 0, opacity: 0 });
+        travLTweenY = gsap.fromTo('.left-traveler-dot', { y: 0 }, { y: distL, duration: 24, ease: 'none', repeat: -1 });
+        travLTweenOp = gsap.fromTo('.left-traveler-dot', { opacity: 0 }, {
+          keyframes: { '0%': { opacity: 0 }, '2%': { opacity: 1 }, '98%': { opacity: 1 }, '100%': { opacity: 0 } },
+          duration: 24, ease: 'none', repeat: -1,
+        });
+      }
+      if (distR > 0) {
+        gsap.set('.right-zap-line', { strokeDasharray: `${boltLength} ${distR + boltLength}`, strokeDashoffset: boltLength, opacity: 0.85 });
+        travRTweenY = gsap.fromTo('.right-zap-line', { strokeDashoffset: boltLength }, { strokeDashoffset: -distR, duration: 2.5, ease: 'none', repeat: -1 });
+      }
+    }
+
+    const tl = gsap.timeline({
+      scrollTrigger: { trigger: wrap, start: 'top 75%', toggleActions: 'play reset play reset', onLeave: killTravelers, onLeaveBack: killTravelers },
+    });
+
+    tl.fromTo([headLeft, headRight], { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', stagger: 0.2 });
+    tl.fromTo(divider, { scaleY: 0 }, { scaleY: 1, duration: 0.8, ease: 'power2.inOut', transformOrigin: 'top' }, '-=0.4');
+    tl.fromTo(vsBadge, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(2)' }, '-=0.4');
+
+    tl.addLabel('startTimelines', '+=0.1');
+
+    tl.fromTo('.left-track-wrap', { scaleY: 0, opacity: 1 }, { scaleY: 1, opacity: 1, duration: 2.4, ease: 'none', transformOrigin: 'top' }, 'startTimelines');
+    tl.fromTo(itemsLeft, { opacity: 0, x: -15 }, { opacity: 1, x: 0, duration: 0.4, ease: 'power2.out', stagger: 2.4 / 5, clearProps: 'transform' }, 'startTimelines');
+
+    tl.fromTo('.right-track-wrap', { scaleY: 0, opacity: 1 }, { scaleY: 1, opacity: 1, duration: 1.0, ease: 'none', transformOrigin: 'top' }, 'startTimelines');
+    tl.fromTo(itemsRight, { opacity: 0, x: -15 }, { opacity: 1, x: 0, duration: 0.4, ease: 'power2.out', stagger: 1.0 / 5, clearProps: 'transform' }, 'startTimelines');
+
+    tl.add(() => { startTravelers(); });
+  }
+
+  initZeroDay();
+  document.addEventListener('astro:page-load', initZeroDay);
+</script>

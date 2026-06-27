@@ -1,12 +1,12 @@
 ---
-// Section 5 — Ratings strip (Sand). Five review-platform cards.
-// Logo wordmarks are text until real logo assets land via asset sync.
+// Section 6 — Ratings strip (Sand). Five review-platform cards, each linking out
+// to hubsell's review page on that platform.
 const ratings = [
-  { platform: 'GetApp', score: '4.8', out: '/5.0' },
-  { platform: 'G2', score: '4.5', out: '/5.0' },
-  { platform: 'Capterra', score: '4.8', out: '/5.0' },
-  { platform: 'OMR', score: '5.0', out: '/5.0' },
-  { platform: 'TrustRadius', score: '10', out: '/10' },
+  { platform: 'GetApp', score: '4.8', out: '/5.0', url: 'https://www.getapp.com/sales-software/a/hubsell/' },
+  { platform: 'G2', score: '4.5', out: '/5.0', url: 'https://www.g2.com/products/hubsell/reviews' },
+  { platform: 'Capterra', score: '4.8', out: '/5.0', url: 'https://www.capterra.com/p/172232/hubsell/reviews/' },
+  { platform: 'OMR', score: '5.0', out: '/5.0', url: 'https://omr.com/en/reviews/product/hubsell' },
+  { platform: 'TrustRadius', score: '10', out: '/10', url: 'https://www.trustradius.com/products/hubsell/reviews' },
 ];
 ---
 <section class="sec sec--sand" aria-label="Ratings">
@@ -16,7 +16,14 @@ const ratings = [
     </div>
     <div class="grid reveal-stagger" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px">
       {ratings.map((r) => (
-        <div class="card" style="text-align:center;padding:24px 18px">
+        <a
+          class="card rating-card"
+          href={r.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Read hubsell reviews on ${r.platform} (rated ${r.score}${r.out})`}
+          style="text-align:center;padding:24px 18px"
+        >
           <div class="heading_small" style="opacity:.8;margin-bottom:10px">{r.platform}</div>
           <div aria-hidden="true" style="display:flex;justify-content:center;gap:3px;margin-bottom:8px">
             {[0,1,2,3,4].map(() => (
@@ -24,8 +31,27 @@ const ratings = [
             ))}
           </div>
           <div><span class="metric" style="font-size:1.5rem;color:var(--sec-tx)">{r.score}</span><span class="paragraph_small" style="opacity:.55">{r.out}</span></div>
-        </div>
+          <span class="rating-card__cue" aria-hidden="true">Read reviews →</span>
+        </a>
       ))}
     </div>
   </div>
 </section>
+
+<style>
+  .rating-card{
+    display:block; text-decoration:none; color:inherit;
+    transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+  }
+  .rating-card:hover{
+    transform:translateY(-3px);
+    border-color:color-mix(in srgb, var(--accent-on) 55%, var(--sec-bd));
+    box-shadow:0 12px 26px -14px rgba(25,35,65,.30);
+  }
+  .rating-card__cue{
+    display:block; margin-top:12px; font-family:var(--font-body); font-weight:500;
+    font-size:12.5px; color:var(--accent-on); opacity:0;
+    transition:opacity .15s ease;
+  }
+  .rating-card:hover .rating-card__cue, .rating-card:focus-visible .rating-card__cue{ opacity:1 }
+</style>

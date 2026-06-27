@@ -1,24 +1,29 @@
 ---
-// Section 4 — Zero-day sourcing (Paper). Embed 04 left, text card right.
-import EmbedSlot from './EmbedSlot.astro';
+// Section 5 — Zero-day sourcing (Paper). Full-width timeline embed contrasting the
+// slow database model with hubsell's live, same-day sourcing.
+import ZeroDayTimeline from './ZeroDayTimeline.astro';
 ---
 <section class="sec sec--paper" aria-labelledby="zds-title">
   <div class="wrap">
     <div class="sec-head reveal">
       <p class="eyebrow is-accent">Zero-day sourcing</p>
       <h2 id="zds-title" class="heading_primary" style="margin-top:8px">Data sourced <span class="accent">the moment you need it</span>. Not the moment someone else captured it.</h2>
+      <p class="subheading" style="margin-top:14px;max-width:64ch;opacity:.85">hubsell doesn’t sell out of a stale database. The moment you define your ICP, we source live from LinkedIn, matched to your criteria and validated at the point of use.</p>
     </div>
 
-    <div class="grid grid-2 reveal-stagger" style="align-items:stretch;gap:32px">
-      <EmbedSlot name="04-zero-day-sourcing" minHeight="440px" note="The zero-day sourcing widget drops in here." />
+    <div class="zds-embed reveal">
+      <ZeroDayTimeline />
+    </div>
 
-      <div class="card" style="display:flex;flex-direction:column;gap:14px;justify-content:center">
-        <h3 class="heading_secondary">hubsell data is <span class="accent">sourced on the day</span> you ask for it</h3>
-        <p class="paragraph">hubsell doesn’t sell out of a stale database.</p>
-        <p class="paragraph">The moment you define your ICP, we source data live right from LinkedIn, matched to your criteria and validated at the point of use.</p>
-        <p class="paragraph">You pay for a contact that’s correct today, not for access to 300 million contacts that were right two years ago.</p>
-        <a href="#features" class="button is-secondary" style="align-self:flex-start;margin-top:6px">See how we do it</a>
-      </div>
+    <div class="zds-closer reveal">
+      <p class="paragraph zds-closer__line">You pay for a contact that’s correct today, not for access to 300 million contacts that were right two years ago.</p>
+      <a href="#features" class="button is-secondary">See how we do it</a>
     </div>
   </div>
 </section>
+
+<style>
+  .zds-embed{ margin-top:40px }
+  .zds-closer{ display:flex; flex-direction:column; align-items:center; gap:18px; margin-top:36px; text-align:center }
+  .zds-closer__line{ max-width:58ch; opacity:.9 }
+</style>
