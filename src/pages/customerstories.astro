@@ -1,0 +1,72 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Curated order to match the Customers nav dropdown; anything unlisted falls to the end.
+const ORDER = ['safran', 'staffbase', 'verhaert', 'elium', 'workspace365', 'sensolus'];
+const stories = (await getCollection('customerstories', (s) => !s.data.draft))
+  .sort((a, b) => {
+    const ia = ORDER.indexOf(a.slug); const ib = ORDER.indexOf(b.slug);
+    return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
+  });
+---
+<BaseLayout
+  title="Customer stories | hubsell"
+  description="How B2B teams use hubsell to lower acquisition cost, enter new markets, and generate more pipeline. Real results from real customers."
+>
+  <section class="sec sec--paper" aria-labelledby="cs-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow is-accent">Customers</p>
+        <h1 id="cs-title" class="heading_primary" style="margin-top:8px">Real teams, real pipeline</h1>
+        <p class="subheading">How sales and marketing teams use hubsell to lower acquisition cost, reach new markets, and generate more opportunities.</p>
+      </div>
+
+      <div class="grid grid-3 reveal-stagger" style="margin-top:28px">
+        {stories.map((s) => (
+          <a class="cs-card" href={`/customerstories/${s.slug}`}>
+            <div class="cs-card__top">
+              {s.data.championImage && (
+                <img class="cs-card__img" src={s.data.championImage} alt={s.data.champion} loading="lazy" width="40" height="40" />
+              )}
+              <span class="cs-card__co">{s.data.company}</span>
+            </div>
+            <h2 class="cs-card__title">{s.data.title}</h2>
+            {s.data.results && s.data.results.length > 0 && (
+              <ul class="cs-card__metrics">
+                {s.data.results.map((r) => (
+                  <li><b>{r.metric}</b> <span>{r.label}</span></li>
+                ))}
+              </ul>
+            )}
+            <span class="cs-card__more">Read the story &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .cs-card {
+    display:flex; flex-direction:column;
+    background:var(--sec-card); border:1px solid var(--sec-bd); border-radius:var(--radius-lg);
+    padding:24px 24px 22px; color:var(--sec-tx); text-decoration:none;
+    transition:border-color .15s, transform .05s;
+  }
+  .cs-card:hover { border-color:color-mix(in srgb,var(--accent-on) 55%,var(--sec-bd)); }
+  .cs-card:active { transform:translateY(1px); }
+
+  .cs-card__top { display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+  .cs-card__img { width:40px; height:40px; border-radius:50%; object-fit:cover; border:1px solid var(--sec-bd); background:color-mix(in srgb,var(--sec-tx) 6%,transparent); }
+  .cs-card__co { font-family:var(--font-body); font-weight:500; font-size:13px; letter-spacing:.04em; text-transform:uppercase; color:var(--sec-tx); opacity:.7; }
+
+  .cs-card__title { font-family:var(--font-head); font-weight:600; font-size:1.2rem; line-height:1.25; letter-spacing:-.01em; color:var(--sec-tx); margin:0 0 16px; }
+
+  .cs-card__metrics { list-style:none; margin:0 0 18px; padding:0; display:flex; flex-direction:column; gap:9px; }
+  .cs-card__metrics li { display:flex; align-items:baseline; gap:8px; font-family:var(--font-body); font-size:13.5px; line-height:1.35; color:var(--sec-tx); }
+  .cs-card__metrics b { font-family:var(--font-head); font-weight:600; font-size:1.05rem; color:var(--accent-on); min-width:64px; }
+  .cs-card__metrics span { opacity:.72; }
+
+  .cs-card__more { margin-top:auto; font-family:var(--font-body); font-weight:500; font-size:14px; color:var(--accent-on); }
+</style>

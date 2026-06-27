@@ -1,0 +1,138 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const stories = await getCollection('customerstories', (s) => !s.data.draft);
+  return stories.map((story) => ({ params: { slug: story.slug }, props: { story } }));
+}
+
+const { story } = Astro.props;
+const { title, description, company, champion, championTitle, championImage, testimonial, results } = story.data;
+
+// story.body is the raw Webflow HTML, already link-rewritten by the converter.
+const bodyHtml = story.body && story.body.trim() ? story.body : '';
+// the export wraps the testimonial in straight quotes; the pull-quote supplies its own.
+const quote = (testimonial || '').replace(/^[\s"“”]+|[\s"“”]+$/g, '');
+const role = [championTitle, company].filter(Boolean).join(', ');
+---
+<BaseLayout title={`${title} | hubsell`} description={description}>
+  <link
+    slot="head"
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap"
+  />
+
+  <article class="sec sec--paper cs-page">
+    <div class="wrap">
+      <a class="cs-back link" href="/customerstories">&larr; All customer stories</a>
+
+      <header class="cs-head">
+        <p class="eyebrow is-accent">Customer story</p>
+        <h1 class="cs-title">{title}</h1>
+
+        {champion && (
+          <div class="cs-byline">
+            {championImage && (
+              <img class="cs-byline__img" src={championImage} alt={champion} width="48" height="48" loading="lazy" />
+            )}
+            <div>
+              <p class="cs-byline__name">{champion}</p>
+              {role && <p class="cs-byline__role">{role}</p>}
+            </div>
+          </div>
+        )}
+      </header>
+
+      {results && results.length > 0 && (
+        <div class="cs-results">
+          {results.map((r) => (
+            <div class="cs-result">
+              <p class="cs-result__metric">{r.metric}</p>
+              <p class="cs-result__label">{r.label}</p>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {quote && (
+        <blockquote class="cs-quote">
+          <p>{quote}</p>
+          {champion && <footer>{champion}{role ? `, ${role}` : ''}</footer>}
+        </blockquote>
+      )}
+
+      <div class="story" set:html={bodyHtml} />
+
+      <aside class="cs-cta">
+        <p class="cs-cta__line">Want results like {company || 'these'}?</p>
+        <a class="button" href="/">Join the waitlist</a>
+      </aside>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .cs-back { display:inline-block; font-size:14px; margin-bottom:28px; }
+  .cs-head { max-width:760px; margin:0 auto; }
+  .cs-title {
+    font-family:var(--font-head); font-weight:600;
+    font-size:clamp(1.9rem,4vw,2.75rem); line-height:1.12; letter-spacing:-.02em;
+    color:var(--sec-tx); margin:10px 0 0;
+  }
+  .cs-byline { display:flex; align-items:center; gap:12px; margin-top:22px; }
+  .cs-byline__img { width:48px; height:48px; border-radius:50%; object-fit:cover; border:1px solid var(--sec-bd); background:color-mix(in srgb,var(--sec-tx) 6%,transparent); }
+  .cs-byline__name { font-family:var(--font-head); font-weight:600; font-size:1rem; color:var(--sec-tx); margin:0; }
+  .cs-byline__role { font-family:var(--font-body); font-size:14px; color:var(--sec-tx); opacity:.62; margin:2px 0 0; }
+
+  /* results band */
+  .cs-results {
+    max-width:760px; margin:36px auto 0; padding:24px 0;
+    border-top:1px solid var(--sec-bd); border-bottom:1px solid var(--sec-bd);
+    display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+  }
+  .cs-result__metric { font-family:var(--font-head); font-weight:600; font-size:clamp(1.8rem,3.2vw,2.4rem); line-height:1; letter-spacing:-.02em; color:var(--accent-on); margin:0; }
+  .cs-result__label { font-family:var(--font-body); font-size:13.5px; line-height:1.45; color:var(--sec-tx); opacity:.7; margin:8px 0 0; }
+  @media (max-width:600px){ .cs-results { grid-template-columns:1fr; gap:18px; } }
+
+  /* pull quote */
+  .cs-quote {
+    max-width:760px; margin:34px auto 0; padding:0 0 0 22px;
+    border-left:3px solid var(--accent-on);
+    font-family:'Newsreader', Georgia, serif; font-weight:500;
+    font-size:clamp(1.3rem,2.4vw,1.65rem); line-height:1.45; color:var(--sec-tx);
+  }
+  .cs-quote p { margin:0; }
+  .cs-quote footer { font-family:var(--font-body); font-weight:500; font-size:14px; opacity:.62; margin-top:14px; }
+
+  /* reading column: serif body (Newsreader), brand headings (Lexend) — matches the blog */
+  .story {
+    max-width:68ch; margin:34px auto 0;
+    font-family:'Newsreader', Georgia, 'Times New Roman', serif;
+    font-size:1.1875rem; line-height:1.75; color:var(--sec-tx);
+  }
+  .story > :first-child { margin-top:0; }
+  .story :is(h2,h3,h4) { font-family:var(--font-head); font-weight:600; color:var(--sec-tx); line-height:1.2; letter-spacing:-.01em; }
+  .story h2 { font-size:1.6rem; margin:1.7em 0 .5em; }
+  .story h3 { font-size:1.25rem; margin:1.5em 0 .4em; }
+  .story h4 { font-size:1.08rem; margin:1.4em 0 .4em; }
+  .story p { margin:0 0 1.1em; }
+  .story a { color:var(--accent-on); text-decoration:none; border-bottom:1px solid transparent; transition:border-color .15s; overflow-wrap:anywhere; }
+  .story a:hover { border-bottom-color:var(--accent-on); }
+  .story strong { font-weight:600; }
+  .story em { font-style:italic; }
+  .story ul, .story ol { margin:0 0 1.1em; padding-left:1.3em; }
+  .story li { margin:0 0 .5em; }
+  .story li::marker { color:var(--accent-on); }
+  .story hr { border:0; border-top:1px solid var(--sec-bd); margin:2em 0; }
+
+  /* closing CTA */
+  .cs-cta {
+    max-width:760px; margin:44px auto 0; padding-top:30px;
+    border-top:1px solid var(--sec-bd);
+    display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .cs-cta__line { font-family:var(--font-head); font-weight:500; font-size:1.25rem; color:var(--sec-tx); margin:0; }
+
+  @media (max-width:600px){ .story { font-size:1.0625rem; } }
+</style>
