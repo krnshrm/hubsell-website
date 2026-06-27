@@ -97,7 +97,7 @@ export const testimonials: Testimonial[] = [
   {
     quote: 'hubsell’s automation gives a maximum return for minimum effort on data gathering and cold outreach. Their outreach functionality is excellent.',
     name: 'Richard Wood', title: 'CEO', company: 'Safran Software', slug: 'safran',
-    image: 'https://cdn.prod.website-files.com/699dd2e0e18d79ea05f93b36/69d41c6e91f14fc0781daab5_richard-wood.png',
+    image: 'https://assets.hubsell.com/avatars/699dcee15832f934d9f15cc7_Richard-W.webp',
     results: [
       { metric: '30%', label: 'decrease in customer acquisition cost' },
       { metric: '1000+', label: 'accounts with increased awareness' },
@@ -107,7 +107,7 @@ export const testimonials: Testimonial[] = [
   {
     quote: 'Thanks to hubsell we can reach more people in less time whilst still communicating in a very personalized way as we would do manually.',
     name: 'Laurent Schauvliege', title: 'Business Manager', company: 'Verhaert', slug: 'verhaert',
-    image: 'https://cdn.prod.website-files.com/699dd2e0e18d79ea05f93b36/69d41c91f5b255eaa6dad669_laurent-schauvliege.png',
+    image: 'https://assets.hubsell.com/avatars/699dcee15832f934d9f15cb5_Laurent-S.avif',
     results: [
       { metric: '3x', label: 'increase in opportunity generation' },
       { metric: '60%', label: 'and higher open rate' },
@@ -127,7 +127,7 @@ export const testimonials: Testimonial[] = [
   {
     quote: 'I’d recommend hubsell as a partner if you’re looking to generate real results from outbound sales & marketing with a limited team.',
     name: 'Rachel Chan', title: 'Digital Marketing Team Lead', company: 'Elium', slug: 'elium',
-    image: 'https://cdn.prod.website-files.com/699dd2e0e18d79ea05f93b36/69d41ca5f6b5c283c71f051b_rachel-chan.png',
+    image: 'https://assets.hubsell.com/avatars/699dcee15832f934d9f15cc8_Rachel-C.avif',
     results: [
       { metric: '25%', label: 'increase in lead generation' },
       { metric: '53%', label: 'and higher open rate' },
@@ -137,7 +137,7 @@ export const testimonials: Testimonial[] = [
   {
     quote: 'I haven’t discovered a tool that comes near hubsell in its segmentation, reply detection and social networks and CRM integrations.',
     name: 'Mark Grasmayer', title: 'Product Evangelist', company: 'Workspace 365', slug: 'workspace365',
-    image: 'https://cdn.prod.website-files.com/699dd2e0e18d79ea05f93b36/69d41cb3a47f11a4f5f0dc9e_mark-grasmayer.png',
+    image: 'https://assets.hubsell.com/avatars/699dcee15832f934d9f15cd4_Mark-G.avif',
     results: [
       { metric: '100+', label: 'new business opportunities generated' },
       { metric: '71%', label: 'and higher open rate' },
@@ -185,18 +185,18 @@ export const insights: Insight[] = [
     title: 'The sale starts with a no, a lesson on objection handling',
     excerpt: 'Why “the sale starts with a no,” the real reasons prospects reject you, and three strategies to convert rejection into closed deals.',
     slug: 'the-sale-starts-with-a-no-objection-handling',
-    image: 'https://cdn.prod.website-files.com/699dd2e0e18d79ea05f93b36/69e9eca8af016789641b1d18_Thumbnail%20-%20The%20sale%20starts%20with%20a%20no%2C%20a%20lesson%20on%20objection%20handling.png',
+    image: 'https://assets.hubsell.com/insights/69e9eca8af016789641b1d18_Thumbnail-The-sale-starts-with-a-no-a-lesson-on-objection-handling.png',
   },
   {
     title: 'Seven methods to increase the productivity of your salespeople',
     excerpt: 'The biggest factors making a sales team inefficient, plus seven proven ways to scale output without burning the team out.',
     slug: 'methods-increase-productivity-salespeople',
-    image: 'https://cdn.prod.website-files.com/699dd2e0e18d79ea05f93b36/69e9eb2fa14f17a0ca9cd88c_Thumbnail%20-%20Seven%20methods%20to%20increase%20the%20productivity%20of%20your%20salespeople.png',
+    image: 'https://assets.hubsell.com/insights/69e9eb2fa14f17a0ca9cd88c_Thumbnail-Seven-methods-to-increase-the-productivity-of-your-salespeople.png',
   },
   {
     title: 'Why lead generation needs to be a qualitative process',
     excerpt: 'Moving from quantity to quality in automated outbound: the dangers of spam, why accurate data matters, and email copy that builds trust.',
     slug: 'why-automated-lead-generation-needs-to-be-a-qualitative-process',
-    image: 'https://cdn.prod.website-files.com/699dd2e0e18d79ea05f93b36/69e9ef6291a191221bc032dc_Thumbnail%20-%20Why%20lead%20generation%20needs%20to%20be%20a%20qualitative%20process.png',
+    image: 'https://assets.hubsell.com/insights/69e9ef6291a191221bc032dc_Thumbnail-Why-lead-generation-needs-to-be-a-qualitative-process.png',
   },
 ];
