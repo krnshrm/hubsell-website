@@ -32,13 +32,13 @@ const { title, description, lastUpdated } = frontmatter;
 </BaseLayout>
 
 <style is:global>
-  /* Legal document body: serif, small, dense, high-contrast. Theme-aware tokens
-     so dark mode stays readable. */
+  /* Legal document body: serif, small, dense, high-contrast. Left-aligned and
+     flush with the headings (no auto-centering). Theme-aware so dark mode reads. */
   .legal{
     --legal-ink:#0B0F1E;     /* headings / strong — near-black navy */
     --legal-body:#171C2E;    /* body — darker than the muted default */
     --legal-rule:#D6C6AC;    /* hairline between sections */
-    max-width:620px; margin:0 auto;
+    max-width:620px; margin:0;
     font-family:'Newsreader', Georgia, 'Times New Roman', serif;
     color:var(--legal-body);
     font-size:14px; line-height:1.58;
