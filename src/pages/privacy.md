@@ -345,5 +345,5 @@ To exercise these rights, please contact us. Please refer to the contact details
 Any questions about this Privacy Policy or Cookies please contact us:
 
 hubsell UG  
-Friedrichstraße 114A, Berlin, Berlin 10117, Germany  
+Friedrichstraße 155, Berlin, Berlin 10117, Germany  
 legal@hubsell.com
