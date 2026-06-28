@@ -67,7 +67,7 @@ const LOGIN_URL = 'https://app.hubsell.com/';
     list-style:none; background:var(--bg); border:1px solid var(--border);
     border-radius:var(--radius); box-shadow:0 12px 30px rgba(0,0,0,.16);
     opacity:0; visibility:hidden; transform:translateY(-5px);
-    transition:opacity .15s, transform .15s, visibility .15s; z-index:5;
+    transition:opacity .15s, transform .15s, visibility .15s; z-index:60;
   }
   .topbar__lang:hover .topbar__menu, .topbar__lang:focus-within .topbar__menu{ opacity:1; visibility:visible; transform:none; }
   .topbar__menu button, .topbar__menu span{
@@ -110,7 +110,7 @@ const LOGIN_URL = 'https://app.hubsell.com/';
       root.setAttribute('data-theme', mode);
       try { localStorage.setItem('theme', mode); } catch (e) {}
       syncButtons(mode);
-      window.dispatchEvent(new Event('resize')); // re-tint the colour-aware nav
+      window.dispatchEvent(new CustomEvent('hubsell:themechange')); // re-tint the colour-aware nav
     }
 
     document.querySelectorAll<HTMLButtonElement>('.js-theme-toggle').forEach((b) => {

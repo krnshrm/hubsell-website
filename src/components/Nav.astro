@@ -115,7 +115,7 @@ const companySoon = ['About us', 'Careers', 'Partner program', 'Newsroom'];
     position:absolute; top:calc(100% + 6px); left:0;
     display:grid; grid-template-columns:1fr 1fr; gap:6px 30px;
     min-width:520px; padding:18px 20px;
-    background:var(--nav-card); border:1px solid var(--nav-card-bd);
+    background:var(--nav-bg); border:1px solid var(--nav-bd);
     border-radius:var(--radius-lg); box-shadow:0 16px 40px rgba(0,0,0,.22);
     opacity:0; visibility:hidden; transform:translateY(-6px);
     transition:opacity .16s, transform .16s, visibility .16s; z-index:10;
@@ -249,6 +249,14 @@ const companySoon = ['About us', 'Careers', 'Partner program', 'Newsroom'];
     const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', () => { navH = nav.offsetHeight || navH; update(); });
+
+    // On a light/dark switch the section backgrounds transition over ~0.25s, so
+    // re-sample every frame for a short window and let the bar settle on the new tone.
+    window.addEventListener('hubsell:themechange', () => {
+      const start = performance.now();
+      const tick = () => { update(); if (performance.now() - start < 360) requestAnimationFrame(tick); };
+      requestAnimationFrame(tick);
+    });
     update();
   }
 
