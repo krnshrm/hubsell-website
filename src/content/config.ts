@@ -17,6 +17,7 @@ const insights = defineCollection({
     sources: z.string().optional(),            // Sources / image credits HTML block
     featured: z.boolean().default(false),      // Webflow: Featured?
     readTime: z.string().optional(),           // computed, e.g. "8 min read"
+    cta: z.string().optional(),                // optional custom trial-CTA line (overrides the default)
     draft: z.boolean().default(false),
   }),
 });
@@ -39,6 +40,7 @@ const customerstories = defineCollection({
       metric: z.string(),
       label: z.string(),
     })).optional(),
+    cta: z.string().optional(),                 // optional custom trial-CTA line (overrides the default)
     draft: z.boolean().default(false),
   }),
 });

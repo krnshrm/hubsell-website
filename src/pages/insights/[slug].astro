@@ -9,7 +9,7 @@ export async function getStaticPaths() {
 }
 
 const { post, posts } = Astro.props;
-const { title, description, coverImage, thumbnail, sources, readTime, summary } = post.data;
+const { title, description, coverImage, thumbnail, sources, readTime, summary, cta } = post.data;
 
 // post.body is the raw Webflow HTML (already image- and link-rewritten by the
 // converter). If a post had an empty body in the export, fall back to its summary
@@ -26,6 +26,10 @@ const off = pool.length ? [...post.slug].reduce((a, c) => a + c.charCodeAt(0), 0
 const related = pool.length
   ? [...new Map([pool[off], pool[(off + 1) % pool.length]].filter(Boolean).map((p) => [p.slug, p])).values()]
   : [];
+
+// Trial CTA copy: a per-post override (frontmatter `cta`) if set, otherwise a
+// default that references this post by title so it never reads as generic.
+const ctaText = cta || `You just read "${title}". hubsell gives you the verified contact data, multichannel outreach, and CRM sync to act on it. Start a free trial and run it on your own pipeline.`;
 ---
 <BaseLayout title={`${title} | hubsell`} description={description} ogImage={coverImage}>
   <link
@@ -96,8 +100,8 @@ const related = pool.length
 
       <aside class="post-cta sec--navy">
         <h2 class="post-cta__title">Put this into practice</h2>
-        <p class="post-cta__text">hubsell sources verified prospect data and runs your outreach, so your team can act on what they just read instead of fighting their tools. Start a trial and see it on your own pipeline.</p>
-        <a class="button is-large" href="https://app.hubsell.com/signup">Start your trial</a>
+        <p class="post-cta__text">{ctaText}</p>
+        <a class="button is-large" href="https://app.hubsell.com/signup">Start free trial</a>
       </aside>
     </div>
   </article>
