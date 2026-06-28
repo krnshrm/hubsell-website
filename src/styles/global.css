@@ -191,7 +191,7 @@ html.has-anim .marquee__track{animation:marquee 32s linear infinite}
 /* article card */
 .post{display:flex;flex-direction:column;background:var(--sec-card);border:1px solid var(--sec-bd);border-radius:var(--radius-lg);overflow:hidden;text-decoration:none;color:var(--sec-tx);transition:transform .15s,border-color .15s}
 .post:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--accent-on) 50%,var(--sec-bd))}
-.post__img{aspect-ratio:16/9;width:100%;object-fit:cover;background:color-mix(in srgb,var(--sec-tx) 6%,transparent);display:block}
+.post__img{aspect-ratio:16/9;width:100%;object-fit:contain;background:color-mix(in srgb,var(--sec-tx) 6%,transparent);display:block}
 .post__body{padding:20px 22px 24px}
 .post__title{font-family:var(--font-head);font-weight:600;font-size:1.15rem;line-height:1.3;margin:8px 0 8px}
 .post__excerpt{font-size:14px;line-height:1.6;color:var(--sec-tx);opacity:.72;margin:0}
