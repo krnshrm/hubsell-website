@@ -67,7 +67,7 @@ const LOGIN_URL = 'https://app.hubsell.com/';
     list-style:none; background:var(--bg); border:1px solid var(--border);
     border-radius:var(--radius); box-shadow:0 12px 30px rgba(0,0,0,.16);
     opacity:0; visibility:hidden; transform:translateY(-5px);
-    transition:opacity .15s, transform .15s, visibility .15s; z-index:60;
+    transition:opacity .15s, transform .15s, visibility .15s; z-index:210;
   }
   .topbar__lang:hover .topbar__menu, .topbar__lang:focus-within .topbar__menu{ opacity:1; visibility:visible; transform:none; }
   .topbar__menu button, .topbar__menu span{
@@ -89,6 +89,12 @@ const LOGIN_URL = 'https://app.hubsell.com/';
   }
 </style>
 
+<style is:global>
+  /* During a light/dark switch, suppress every transition so the change is instant
+     and the colour-aware nav re-tints with no visible lag. */
+  html.theme-switching, html.theme-switching *, html.theme-switching *::before, html.theme-switching *::after { transition: none !important; }
+</style>
+
 <script>
   // Light/dark toggle. The chosen mode is stored and re-applied before paint by
   // the inline script in BaseLayout, so there is no flash on load. Toggling also
@@ -106,11 +112,13 @@ const LOGIN_URL = 'https://app.hubsell.com/';
       });
     }
 
-    function apply(mode: string) {
+    function apply(mode: string, persist = true) {
+      root.classList.add('theme-switching');            // suppress transitions for an instant switch
       root.setAttribute('data-theme', mode);
-      try { localStorage.setItem('theme', mode); } catch (e) {}
+      if (persist) { try { localStorage.setItem('theme', mode); } catch (e) {} }
       syncButtons(mode);
-      window.dispatchEvent(new CustomEvent('hubsell:themechange')); // re-tint the colour-aware nav
+      window.dispatchEvent(new CustomEvent('hubsell:themechange')); // re-tint the colour-aware nav now
+      requestAnimationFrame(() => requestAnimationFrame(() => root.classList.remove('theme-switching')));
     }
 
     document.querySelectorAll<HTMLButtonElement>('.js-theme-toggle').forEach((b) => {
@@ -121,6 +129,16 @@ const LOGIN_URL = 'https://app.hubsell.com/';
         apply(cur === 'dark' ? 'light' : 'dark');
       });
     });
+
+    // Follow the OS light/dark setting until the visitor picks one explicitly.
+    try {
+      if (!(window as any).__hubsellSystemThemeBound) {
+        (window as any).__hubsellSystemThemeBound = true;
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+          if (!localStorage.getItem('theme')) apply(e.matches ? 'dark' : 'light', false);
+        });
+      }
+    } catch (e) {}
 
     syncButtons(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
   }

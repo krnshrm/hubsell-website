@@ -56,10 +56,14 @@ const {
     <!-- Pre-paint guard: only opt into scroll-reveal hiding when motion is allowed,
          so reduced-motion users (and the no-JS case) never see hidden content. -->
     <script is:inline>
-      // Restore the saved light/dark choice before paint so there is no flash.
+      // Use the saved choice if there is one, otherwise follow the OS setting. Set
+      // before paint so there is no flash.
       try {
         var t = localStorage.getItem('theme');
-        if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+        if (t !== 'dark' && t !== 'light') {
+          t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
       } catch (e) {}
       if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         document.documentElement.classList.add('has-anim');
