@@ -9,12 +9,14 @@ export interface Props {
   buttonLabel?: string;
   placeholder?: string;
   help?: string;
+  success?: string;
 }
 const {
   form = 'waitlist',
   buttonLabel = 'Join the waitlist',
   placeholder = 'email@yourcompany.com',
   help = 'Use your corporate email. Free providers and competitor domains are blocked.',
+  success = "You're on the waitlist. We'll be in touch soon.",
 } = Astro.props;
 ---
 <div class="hs-form" data-form={form}>
@@ -35,7 +37,7 @@ const {
     </div>
     <p class="help" id="business-email-help">{help}</p>
   </form>
-  <p class="hs-form-success" hidden>You're on the waitlist. We'll be in touch soon.</p>
+  <p class="hs-form-success" hidden>{success}</p>
 </div>
 
 <style>

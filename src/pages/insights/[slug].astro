@@ -1,13 +1,14 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import WaitlistForm from '../../components/WaitlistForm.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('insights', (p) => !p.data.draft);
-  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post, posts } }));
 }
 
-const { post } = Astro.props;
+const { post, posts } = Astro.props;
 const { title, description, coverImage, thumbnail, sources, readTime, summary } = post.data;
 
 // post.body is the raw Webflow HTML (already image- and link-rewritten by the
@@ -15,6 +16,16 @@ const { title, description, coverImage, thumbnail, sources, readTime, summary } 
 // so the page is not blank.
 const bodyHtml = post.body && post.body.trim() ? post.body : summary ? `<p>${summary}</p>` : '';
 const heroImage = coverImage || thumbnail;
+
+// Two related posts to keep reading: prefer ones with an image, and rotate the
+// starting point by the current slug so different posts surface different picks.
+const cardImg = (p) => p.data.thumbnail || p.data.coverImage;
+const withImg = posts.filter((p) => p.slug !== post.slug && cardImg(p));
+const pool = withImg.length >= 2 ? withImg : posts.filter((p) => p.slug !== post.slug);
+const off = pool.length ? [...post.slug].reduce((a, c) => a + c.charCodeAt(0), 0) % pool.length : 0;
+const related = pool.length
+  ? [...new Map([pool[off], pool[(off + 1) % pool.length]].filter(Boolean).map((p) => [p.slug, p])).values()]
+  : [];
 ---
 <BaseLayout title={`${title} | hubsell`} description={description} ogImage={coverImage}>
   <link
@@ -45,6 +56,43 @@ const heroImage = coverImage || thumbnail;
           <div class="post-sources__body" set:html={sources} />
         </aside>
       )}
+
+      {related.length > 0 && (
+        <aside class="post-related">
+          <p class="eyebrow is-accent">Keep reading</p>
+          <div class="post-related__grid">
+            {related.map((p) => (
+              <a class="post" href={`/insights/${p.slug}`}>
+                {cardImg(p) && (
+                  <img class="post__img" src={cardImg(p)} alt={p.data.title} loading="lazy" width="400" height="225" />
+                )}
+                <div class="post__body">
+                  <p class="eyebrow is-accent" style="font-size:.72rem">B2B sales</p>
+                  <h3 class="post__title">{p.data.title}</h3>
+                  {p.data.readTime && <p class="post__meta">{p.data.readTime}</p>}
+                </div>
+              </a>
+            ))}
+          </div>
+        </aside>
+      )}
+
+      <aside class="post-cta sec--navy">
+        <h2 class="post-cta__title">Put this into practice</h2>
+        <p class="post-cta__text">hubsell sources verified prospect data and runs your outreach, so your team can act on what they just read instead of fighting their tools. Start a trial and see it on your own pipeline.</p>
+        <a class="button is-large" href="https://app.hubsell.com/signup">Start your trial</a>
+      </aside>
+
+      <aside class="post-subscribe">
+        <h2 class="post-subscribe__title">Get the next one in your inbox</h2>
+        <p class="post-subscribe__text">New guides and posts on outbound, deliverability, and B2B data. No noise, unsubscribe anytime.</p>
+        <WaitlistForm
+          form="newsletter"
+          buttonLabel="Subscribe"
+          help="Use your corporate email."
+          success="You're subscribed. Watch your inbox for the next one."
+        />
+      </aside>
     </div>
   </article>
 </BaseLayout>
@@ -107,5 +155,22 @@ const heroImage = coverImage || thumbnail;
   .post-sources__body a { color:var(--accent-on); text-decoration:none; overflow-wrap:anywhere; }
   .post-sources__body a:hover { text-decoration:underline; }
 
-  @media (max-width:600px){ .prose { font-size:1.0625rem; } }
+  /* Footer blocks: related posts, trial CTA, trailing subscribe. */
+  .post-related { max-width:960px; margin:56px auto 0; }
+  .post-related__grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-top:16px; }
+  .post-related .post__meta { font-family:var(--font-body); font-size:12.5px; color:var(--sec-tx); opacity:.55; margin:10px 0 0; }
+
+  .post-cta {
+    max-width:760px; margin:48px auto 0; padding:clamp(28px,4vw,44px);
+    border-radius:var(--radius-lg); text-align:center;
+    background:var(--sec-bg); color:var(--sec-tx); border:1px solid var(--sec-bd);
+  }
+  .post-cta__title { font-family:var(--font-head); font-weight:600; font-size:clamp(1.5rem,3vw,2rem); letter-spacing:-.02em; color:var(--sec-tx); margin:0; }
+  .post-cta__text { font-family:var(--font-body); font-size:1.0625rem; line-height:1.6; color:var(--sec-tx); opacity:.82; max-width:52ch; margin:12px auto 22px; }
+
+  .post-subscribe { max-width:640px; margin:48px auto 0; padding-top:36px; border-top:1px solid var(--sec-bd); text-align:center; }
+  .post-subscribe__title { font-family:var(--font-head); font-weight:600; font-size:1.4rem; letter-spacing:-.01em; color:var(--sec-tx); margin:0; }
+  .post-subscribe__text { font-family:var(--font-body); font-size:15px; line-height:1.6; color:var(--sec-tx); opacity:.7; margin:10px auto 18px; max-width:46ch; }
+
+  @media (max-width:600px){ .prose { font-size:1.0625rem; } .post-related__grid { grid-template-columns:1fr; } }
 </style>
