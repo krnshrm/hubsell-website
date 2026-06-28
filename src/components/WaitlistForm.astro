@@ -9,14 +9,12 @@ export interface Props {
   buttonLabel?: string;
   placeholder?: string;
   help?: string;
-  success?: string;
 }
 const {
   form = 'waitlist',
   buttonLabel = 'Join the waitlist',
   placeholder = 'email@yourcompany.com',
   help = 'Use your corporate email. Free providers and competitor domains are blocked.',
-  success = "You're on the waitlist. We'll be in touch soon.",
 } = Astro.props;
 ---
 <div class="hs-form" data-form={form}>
@@ -37,7 +35,6 @@ const {
     </div>
     <p class="help" id="business-email-help">{help}</p>
   </form>
-  <p class="hs-form-success" hidden>{success}</p>
 </div>
 
 <style>
@@ -55,16 +52,8 @@ const {
   .input.is-error{border-color:var(--error);
     box-shadow:0 0 0 3px color-mix(in srgb, var(--error) 20%, transparent)}
   .help{font-size:13px; color:var(--sec-tx); opacity:.6; margin:8px 0 0; transition:color .15s}
+  .help:empty{margin:0}
   .help.is-error{color:var(--error); opacity:1}
-  .hs-form-success{
-    font-size:15px; margin:10px 0 0; color:var(--positive-ink); font-weight:500;
-    display:flex; align-items:center; gap:8px;
-  }
-  [data-theme="dark"] .hs-form-success{color:var(--positive)}
-  .hs-form-success::before{
-    content:""; width:8px; height:8px; border-radius:50%; background:var(--positive);
-    box-shadow:0 0 0 3px color-mix(in srgb, var(--positive) 22%, transparent);
-  }
   @media (max-width:480px){ .button{width:100%} }
 </style>
 
@@ -82,7 +71,6 @@ const {
       const input = root.querySelector<HTMLInputElement>('input[name="email"]')!;
       const button = root.querySelector<HTMLButtonElement>('button[type="submit"]')!;
       const help = root.querySelector<HTMLElement>('.help')!;
-      const success = root.querySelector<HTMLElement>('.hs-form-success')!;
       const defaultHelp = help.textContent || '';
       const label = button.textContent || '';
 
@@ -116,7 +104,7 @@ const {
 
         setError(null);
         button.disabled = true;
-        button.textContent = 'Joining…';
+        button.textContent = 'Subscribing…';
         try {
           const res = await fetch('/api/subscribe', {
             method: 'POST',
@@ -127,13 +115,15 @@ const {
           if (!res.ok || payload?.ok === false) {
             // Surface the server's domain rule if it rejected where the client passed.
             setError(payload?.error || 'Something went wrong. Please try again.');
+            button.disabled = false;
+            button.textContent = label;
             return;
           }
-          form.hidden = true;
-          success.hidden = false;
+          // Confirm on the button itself — no trailing message.
+          button.textContent = 'Subscribed';
+          input.disabled = true;
         } catch {
           setError('Could not reach the server. Please try again.');
-        } finally {
           button.disabled = false;
           button.textContent = label;
         }
