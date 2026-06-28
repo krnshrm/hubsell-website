@@ -8,7 +8,7 @@ import { SIGNUP_URL, LOGIN_URL } from './site';
 export interface NavLink {
   label: string;
   href?: string;      // omit while `soon` is true
-  soon?: boolean;     // not built yet: greyed in the nav, hidden from the footer
+  soon?: boolean;     // not built yet: hidden from nav and footer until the flag is removed
   external?: boolean; // opens the app (app.hubsell.com)
 }
 export interface NavGroup {
@@ -16,8 +16,9 @@ export interface NavGroup {
   links: NavLink[];
 }
 
-// The Resources mega-menu columns. Rendered in the nav (live + greyed "Soon") and,
-// expanded with live links only, in the footer.
+// The Resources mega-menu columns. Live links render in the nav and the footer; the
+// footer also expands the small collections (customer stories, comparisons) into their
+// individual items. `soon` items stay hidden until their flag is removed.
 export const menuGroups: NavGroup[] = [
   {
     heading: 'Learn',

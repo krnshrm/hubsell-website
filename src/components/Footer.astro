@@ -1,20 +1,48 @@
 ---
-// Footer — fixed navy chrome. The link columns are the expanded navigation, pulled
-// from src/data/navigation.ts and filtered to live links only, so the footer stays in
-// sync with the nav and a page appears here automatically once its `soon` flag is
-// dropped. Account links (trial + login) and the legal links round it out.
+// Footer — fixed navy chrome. The columns are the expanded navigation: the small
+// collections (customer stories, comparisons) are listed in full and pulled from the
+// content collections, so new entries appear here automatically. The remaining live
+// nav links, the account links, and the legal links come from src/data/navigation.ts.
+import { getCollection } from 'astro:content';
 import { menuGroups, topLinks, accountLinks, legalLinks, liveLinks } from '../data/navigation';
 
 const year = new Date().getFullYear();
 const [trial, login] = accountLinks;
 
-// Mega groups (live links only; the Learn column reads cleaner as "Resources" here),
-// then a Product column for the top-level links. Empty columns drop out until they ship.
-const linkCols = [
-  ...menuGroups
-    .map((g) => ({ heading: g.heading === 'Learn' ? 'Resources' : g.heading, links: liveLinks(g.links) }))
-    .filter((c) => c.links.length),
-  { heading: 'Product', links: liveLinks(topLinks) },
+// Collections, expanded, in the same order as their overview pages.
+const CS_ORDER = ['safran', 'staffbase', 'verhaert', 'elium', 'workspace365', 'sensolus'];
+const CMP_ORDER = ['apollo', 'zoominfo', 'cognism', 'lusha', 'seamless'];
+const byOrder = (order) => (a, b) => {
+  const i = order.indexOf(a.slug), j = order.indexOf(b.slug);
+  return (i < 0 ? 99 : i) - (j < 0 ? 99 : j);
+};
+const stories = (await getCollection('customerstories', (s) => !s.data.draft)).sort(byOrder(CS_ORDER));
+const comparisons = (await getCollection('comparisons')).sort(byOrder(CMP_ORDER));
+
+// The remaining live nav links (everything except the two collections we expand below).
+const expanded = new Set(['/customerstories', '/comparisons']);
+const resourceLinks = [
+  ...menuGroups.flatMap((g) => liveLinks(g.links)),
+  ...liveLinks(topLinks),
+].filter((l) => !expanded.has(l.href));
+
+const columns = [
+  { heading: 'Resources', links: resourceLinks },
+  {
+    heading: 'Customer stories',
+    links: [
+      ...stories.map((s) => ({ label: s.data.company || s.data.title, href: `/customerstories/${s.slug}` })),
+      { label: 'All customer stories', href: '/customerstories', all: true },
+    ],
+  },
+  {
+    heading: 'Comparisons',
+    links: [
+      ...comparisons.map((c) => ({ label: c.data.title, href: `/vs/${c.slug}` })),
+      { label: 'All comparisons', href: '/comparisons', all: true },
+    ],
+  },
+  { heading: 'Legal', links: legalLinks },
 ].filter((c) => c.links.length);
 ---
 <footer class="sec site-footer">
@@ -30,20 +58,14 @@ const linkCols = [
       </div>
 
       <nav class="site-footer__cols" aria-label="Footer">
-        {linkCols.map((c) => (
+        {columns.map((c) => (
           <div class="site-footer__col">
             <p class="site-footer__colhead">{c.heading}</p>
             <ul>
-              {c.links.map((l) => (<li><a href={l.href}>{l.label}</a></li>))}
+              {c.links.map((l) => (<li><a href={l.href} class={l.all ? 'is-all' : undefined}>{l.label}</a></li>))}
             </ul>
           </div>
         ))}
-        <div class="site-footer__col">
-          <p class="site-footer__colhead">Legal</p>
-          <ul>
-            {legalLinks.map((l) => (<li><a href={l.href}>{l.label}</a></li>))}
-          </ul>
-        </div>
       </nav>
     </div>
 
@@ -59,7 +81,7 @@ const linkCols = [
     padding:clamp(48px,6vw,72px) 0 clamp(28px,4vw,40px);
   }
   .site-footer__top{
-    display:grid; grid-template-columns:1.4fr 2.6fr; gap:40px clamp(24px,4vw,56px);
+    display:grid; grid-template-columns:minmax(220px,1.1fr) 3fr; gap:40px clamp(24px,4vw,56px);
     padding-bottom:32px; border-bottom:1px solid var(--sec-bd);
   }
   @media (max-width:820px){ .site-footer__top{ grid-template-columns:1fr; gap:34px; } }
@@ -76,7 +98,7 @@ const linkCols = [
   .site-footer__login{ font-family:var(--font-body); font-size:14px; font-weight:500; color:var(--sec-tx); opacity:.8; text-decoration:none; transition:opacity .15s; }
   .site-footer__login:hover{ opacity:1; }
 
-  .site-footer__cols{ display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:30px 24px; }
+  .site-footer__cols{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:30px 24px; }
   .site-footer__col ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px; }
   .site-footer__colhead{
     font:600 11px/1 var(--font-body); letter-spacing:.08em; text-transform:uppercase;
@@ -87,6 +109,8 @@ const linkCols = [
     text-decoration:none; transition:opacity .15s, color .15s;
   }
   .site-footer__col a:hover{ opacity:1; color:var(--accent-on); }
+  .site-footer__col a.is-all{ color:var(--accent-on); opacity:.92; font-weight:500; }
+  .site-footer__col a.is-all:hover{ opacity:1; }
 
   .site-footer__meta{ font-size:13px; color:var(--sec-tx); opacity:.5; margin:24px 0 0; }
 </style>

@@ -6,7 +6,7 @@
 // Login + language + theme live in the TopBar above this; this bar carries the
 // primary nav (Resources, Pricing) and the trial CTA.
 import { SIGNUP_URL } from '../data/site';
-import { menuGroups, topLinks } from '../data/navigation';
+import { menuGroups, topLinks, liveLinks } from '../data/navigation';
 
 const LOGO_DARK = 'https://assets.hubsell.com/logo/hubsell-wordmark-dark.svg';   // for light sections
 const LOGO_LIGHT = 'https://assets.hubsell.com/logo/hubsell-wordmark-light.svg'; // for dark sections
@@ -26,13 +26,11 @@ const LOGO_LIGHT = 'https://assets.hubsell.com/logo/hubsell-wordmark-light.svg';
       <div class="nav__group nav__group--mega">
         <button type="button" class="nav__link nav__trigger" aria-haspopup="true" aria-expanded="false">Resources</button>
         <div class="nav__mega">
-          {menuGroups.map((group) => (
+          {menuGroups.filter((group) => liveLinks(group.links).length).map((group) => (
             <div class="nav__megacol">
               <p class="nav__megahead">{group.heading}</p>
               <ul>
-                {group.links.map((l) => (
-                  <li>{l.soon ? <span class="nav__soon">{l.label}</span> : <a href={l.href}>{l.label}</a>}</li>
-                ))}
+                {liveLinks(group.links).map((l) => (<li><a href={l.href}>{l.label}</a></li>))}
               </ul>
             </div>
           ))}
@@ -51,8 +49,8 @@ const LOGO_LIGHT = 'https://assets.hubsell.com/logo/hubsell-wordmark-light.svg';
 
   <div class="nav__mobile" hidden>
     <p class="nav__mobhead">Resources</p>
-    {menuGroups.flatMap((g) => g.links).map((l) => (
-      l.soon ? <span class="nav__moblink nav__soon">{l.label}</span> : <a class="nav__moblink" href={l.href}>{l.label}</a>
+    {menuGroups.flatMap((g) => liveLinks(g.links)).map((l) => (
+      <a class="nav__moblink" href={l.href}>{l.label}</a>
     ))}
     <hr class="nav__mobrule" />
     {topLinks.map((l) => (<a class="nav__moblink" href={l.href}>{l.label}</a>))}
@@ -117,14 +115,15 @@ const LOGO_LIGHT = 'https://assets.hubsell.com/logo/hubsell-wordmark-light.svg';
   /* Resources mega-menu */
   .nav__mega{
     position:absolute; top:calc(100% + 6px); left:0;
-    display:grid; grid-template-columns:1fr 1fr; gap:6px 30px;
-    min-width:520px; padding:18px 20px;
+    display:flex; gap:30px;
+    min-width:220px; padding:18px 22px;
     background:var(--nav-bg); border:1px solid var(--nav-bd);
     border-radius:var(--radius-lg); box-shadow:0 16px 40px rgba(0,0,0,.22);
     opacity:0; visibility:hidden; transform:translateY(-6px);
     transition:opacity .16s, transform .16s, visibility .16s; z-index:10;
   }
   .nav__group--mega:hover .nav__mega, .nav__group--mega:focus-within .nav__mega{ opacity:1; visibility:visible; transform:none; }
+  .nav__megacol{ min-width:150px; }
   .nav__megacol ul{ list-style:none; margin:0; padding:0; }
   .nav__megahead{ font:600 11px/1 var(--font-body); letter-spacing:.08em; text-transform:uppercase; color:var(--nav-tx-dim); opacity:.7; margin:0 0 8px; padding:0 10px; }
   .nav__megacol li a, .nav__megacol li .nav__soon{
