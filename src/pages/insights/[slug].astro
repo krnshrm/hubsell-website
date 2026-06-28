@@ -38,24 +38,41 @@ const related = pool.length
     <div class="wrap">
       <a class="post-page__back link" href="/insights">&larr; All insights</a>
 
-      <header class="post-page__head">
-        <p class="eyebrow is-accent">B2B sales</p>
-        <h1 class="post-page__title">{title}</h1>
-        {readTime && <p class="post-page__meta">{readTime}</p>}
-      </header>
+      <div class="post-page__grid">
+        <div class="post-page__main">
+          <header class="post-page__head">
+            <p class="eyebrow is-accent">B2B sales</p>
+            <h1 class="post-page__title">{title}</h1>
+            {readTime && <p class="post-page__meta">{readTime}</p>}
+          </header>
 
-      {heroImage && (
-        <img class="post-page__cover" src={heroImage} alt={title} width="1200" height="675" />
-      )}
+          {heroImage && (
+            <img class="post-page__cover" src={heroImage} alt={title} width="1200" height="675" />
+          )}
 
-      <div class="prose" set:html={bodyHtml} />
+          <div class="prose" set:html={bodyHtml} />
 
-      {sources && (
-        <aside class="post-sources">
-          <p class="eyebrow">Sources</p>
-          <div class="post-sources__body" set:html={sources} />
+          {sources && (
+            <aside class="post-sources">
+              <p class="eyebrow">Sources</p>
+              <div class="post-sources__body" set:html={sources} />
+            </aside>
+          )}
+        </div>
+
+        <aside class="post-page__aside">
+          <div class="post-aside-card">
+            <p class="post-aside-card__title">Get the next one in your inbox</p>
+            <p class="post-aside-card__text">New posts on outbound, deliverability, and B2B data. No noise, unsubscribe anytime.</p>
+            <WaitlistForm
+              form="newsletter"
+              buttonLabel="Subscribe"
+              help="Use your corporate email."
+              success="You're subscribed. Watch your inbox for the next one."
+            />
+          </div>
         </aside>
-      )}
+      </div>
 
       {related.length > 0 && (
         <aside class="post-related">
@@ -82,24 +99,18 @@ const related = pool.length
         <p class="post-cta__text">hubsell sources verified prospect data and runs your outreach, so your team can act on what they just read instead of fighting their tools. Start a trial and see it on your own pipeline.</p>
         <a class="button is-large" href="https://app.hubsell.com/signup">Start your trial</a>
       </aside>
-
-      <aside class="post-subscribe">
-        <h2 class="post-subscribe__title">Get the next one in your inbox</h2>
-        <p class="post-subscribe__text">New guides and posts on outbound, deliverability, and B2B data. No noise, unsubscribe anytime.</p>
-        <WaitlistForm
-          form="newsletter"
-          buttonLabel="Subscribe"
-          help="Use your corporate email."
-          success="You're subscribed. Watch your inbox for the next one."
-        />
-      </aside>
     </div>
   </article>
 </BaseLayout>
 
 <style>
   .post-page__back { display:inline-block; font-size:14px; margin-bottom:28px; }
-  .post-page__head { max-width:760px; margin:0 auto 28px; }
+
+  /* Article sits left; the freed right-hand space holds a sticky subscribe card. */
+  .post-page__grid { display:grid; grid-template-columns: minmax(0, 680px) 1fr; gap:56px; align-items:start; }
+  .post-page__main { min-width:0; }
+
+  .post-page__head { margin:0 0 28px; }
   .post-page__title {
     font-family:var(--font-head); font-weight:600;
     font-size:clamp(1.9rem,4vw,2.75rem); line-height:1.12; letter-spacing:-.02em;
@@ -107,14 +118,23 @@ const related = pool.length
   }
   .post-page__meta { font-family:var(--font-body); font-size:14px; color:var(--sec-tx); opacity:.6; margin:12px 0 0; }
   .post-page__cover {
-    display:block; width:100%; max-width:960px; margin:0 auto 8px;
+    display:block; width:100%; max-width:100%; margin:0 0 8px;
     height:auto; border-radius:var(--radius-lg);
     border:1px solid var(--sec-bd); background:color-mix(in srgb,var(--sec-tx) 6%,transparent);
   }
 
+  /* Sticky subscribe card in the right column. */
+  .post-aside-card {
+    position:sticky; top:92px;
+    background:var(--sec-card); border:1px solid var(--sec-bd); border-radius:var(--radius-lg); padding:24px;
+  }
+  .post-aside-card__title { font-family:var(--font-head); font-weight:600; font-size:1.15rem; line-height:1.3; color:var(--sec-tx); margin:0 0 8px; }
+  .post-aside-card__text { font-family:var(--font-body); font-size:14px; line-height:1.55; color:var(--sec-tx); opacity:.72; margin:0 0 16px; }
+  .post-aside-card .button { width:100%; justify-content:center; }
+
   /* Reading column: serif body (Newsreader), brand headings (Lexend). */
   .prose {
-    max-width:68ch; margin:32px auto 0;
+    max-width:none; margin:32px 0 0;
     font-family:'Newsreader', Georgia, 'Times New Roman', serif;
     font-size:1.1875rem; line-height:1.75; color:var(--sec-tx);
   }
@@ -149,28 +169,31 @@ const related = pool.length
   .prose pre { background:color-mix(in srgb,var(--sec-tx) 8%,transparent); padding:16px 18px; border-radius:var(--radius); overflow:auto; margin:1.4em 0; }
   .prose pre code { background:none; padding:0; }
 
-  .post-sources { max-width:68ch; margin:40px auto 0; padding-top:20px; border-top:1px solid var(--sec-bd); }
+  .post-sources { max-width:none; margin:40px 0 0; padding-top:20px; border-top:1px solid var(--sec-bd); }
   .post-sources__body { font-family:var(--font-body); font-size:13.5px; line-height:1.6; color:var(--sec-tx); opacity:.7; }
   .post-sources__body p { margin:0 0 .5em; }
   .post-sources__body a { color:var(--accent-on); text-decoration:none; overflow-wrap:anywhere; }
   .post-sources__body a:hover { text-decoration:underline; }
 
-  /* Footer blocks: related posts, trial CTA, trailing subscribe. */
-  .post-related { max-width:960px; margin:56px auto 0; }
+  /* Full-width blocks below the article. */
+  .post-related { margin:56px 0 0; }
   .post-related__grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-top:16px; }
   .post-related .post__meta { font-family:var(--font-body); font-size:12.5px; color:var(--sec-tx); opacity:.55; margin:10px 0 0; }
 
   .post-cta {
-    max-width:760px; margin:48px auto 0; padding:clamp(28px,4vw,44px);
+    margin:48px 0 0; padding:clamp(28px,4vw,44px);
     border-radius:var(--radius-lg); text-align:center;
     background:var(--sec-bg); color:var(--sec-tx); border:1px solid var(--sec-bd);
   }
   .post-cta__title { font-family:var(--font-head); font-weight:600; font-size:clamp(1.5rem,3vw,2rem); letter-spacing:-.02em; color:var(--sec-tx); margin:0; }
   .post-cta__text { font-family:var(--font-body); font-size:1.0625rem; line-height:1.6; color:var(--sec-tx); opacity:.82; max-width:52ch; margin:12px auto 22px; }
 
-  .post-subscribe { max-width:640px; margin:48px auto 0; padding-top:36px; border-top:1px solid var(--sec-bd); text-align:center; }
-  .post-subscribe__title { font-family:var(--font-head); font-weight:600; font-size:1.4rem; letter-spacing:-.01em; color:var(--sec-tx); margin:0; }
-  .post-subscribe__text { font-family:var(--font-body); font-size:15px; line-height:1.6; color:var(--sec-tx); opacity:.7; margin:10px auto 18px; max-width:46ch; }
-
-  @media (max-width:600px){ .prose { font-size:1.0625rem; } .post-related__grid { grid-template-columns:1fr; } }
+  @media (max-width: 980px){
+    .post-page__grid { grid-template-columns:1fr; gap:40px; }
+    .post-aside-card { position:static; }
+  }
+  @media (max-width: 600px){
+    .prose { font-size:1.0625rem; }
+    .post-related__grid { grid-template-columns:1fr; }
+  }
 </style>

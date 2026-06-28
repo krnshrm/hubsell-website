@@ -69,8 +69,35 @@ const {
     </main>
     <Footer />
 
+    <div class="scroll-progress" aria-hidden="true"><span class="scroll-progress__fill"></span></div>
+
     <script>
       import '../scripts/motion.ts';
+
+      // Scroll progress bar pinned to the bottom edge. Listeners are bound once on
+      // the window; the updater is re-cached on each client navigation so it always
+      // points at the current bar element.
+      function setupScrollProgress() {
+        const w = window as any;
+        const bar = document.querySelector('.scroll-progress__fill') as HTMLElement | null;
+        if (!bar) return;
+        const update = () => {
+          const h = document.documentElement;
+          const max = h.scrollHeight - h.clientHeight;
+          const p = max > 0 ? (window.scrollY || h.scrollTop || 0) / max : 0;
+          bar.style.transform = 'scaleX(' + Math.min(1, Math.max(0, p)) + ')';
+        };
+        w.__scrollProgressUpdate = update;
+        update();
+        if (!w.__scrollProgressBound) {
+          w.__scrollProgressBound = true;
+          const handler = () => w.__scrollProgressUpdate && w.__scrollProgressUpdate();
+          window.addEventListener('scroll', handler, { passive: true });
+          window.addEventListener('resize', handler, { passive: true });
+        }
+      }
+      setupScrollProgress();
+      document.addEventListener('astro:page-load', setupScrollProgress);
     </script>
   </body>
 </html>
