@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Same order as the homepage comparison section; unlisted falls to the end.
+const ORDER = ['apollo', 'zoominfo', 'cognism', 'lusha', 'seamless'];
+const oi = (s) => { const i = ORDER.indexOf(s); return i === -1 ? 99 : i; };
+const items = (await getCollection('comparisons')).sort((a, b) => oi(a.slug) - oi(b.slug));
+---
+<BaseLayout
+  title="hubsell vs the alternatives | hubsell"
+  description="Honest, fact-checked comparisons of hubsell against Apollo, ZoomInfo, Cognism, Lusha, and Seamless. Where each tool fits, and where hubsell is the better choice."
+>
+  <section class="sec sec--paper" aria-labelledby="vs-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow is-accent">Comparisons</p>
+        <h1 id="vs-title" class="heading_primary" style="margin-top:8px">hubsell vs the alternatives</h1>
+        <p class="subheading">Most outbound stacks bolt a database to a sequencer to a sync tool. hubsell sources contacts live, runs email and LinkedIn as one flow, and syncs every touch to your CRM. Here is how it compares, including where the other tools are the better fit.</p>
+      </div>
+
+      <div class="grid grid-3 reveal-stagger" style="margin-top:28px">
+        {items.map((i) => (
+          <a class="vs-card" href={`/vs/${i.slug}`}>
+            {i.data.category && <span class="vs-card__cat">{i.data.category}</span>}
+            <h2 class="vs-card__title">{i.data.title} vs hubsell</h2>
+            {i.data.metaDescription && <p class="vs-card__desc">{i.data.metaDescription}</p>}
+            <span class="vs-card__more">Compare &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .vs-card {
+    display:flex; flex-direction:column; gap:10px;
+    background:var(--sec-card); border:1px solid var(--sec-bd); border-radius:var(--radius-lg);
+    padding:24px 24px 22px; color:var(--sec-tx); text-decoration:none;
+    transition:border-color .15s, transform .05s;
+  }
+  .vs-card:hover { border-color:color-mix(in srgb,var(--accent-on) 55%,var(--sec-bd)); }
+  .vs-card:active { transform:translateY(1px); }
+  .vs-card__cat { font-family:var(--font-body); font-weight:500; font-size:11.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--sec-tx); opacity:.6; }
+  .vs-card__title { font-family:var(--font-head); font-weight:600; font-size:1.25rem; line-height:1.22; letter-spacing:-.01em; color:var(--sec-tx); margin:0; }
+  .vs-card__desc { font-family:var(--font-body); font-size:14px; line-height:1.5; color:var(--sec-tx); opacity:.72; margin:0; }
+  .vs-card__more { margin-top:auto; font-family:var(--font-body); font-weight:500; font-size:14px; color:var(--accent-on); padding-top:4px; }
+</style>

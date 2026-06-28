@@ -1,0 +1,254 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Build every comparison. Unlike insights/stories we do NOT filter on `draft`:
+// the rows are drafted in Webflow but are the launch pages (see content config).
+export async function getStaticPaths() {
+  const items = await getCollection('comparisons');
+  return items.map((item) => ({ params: { slug: item.slug }, props: { item, items } }));
+}
+
+const { item, items } = Astro.props;
+const d = item.data;
+
+const competitor = d.title;
+const seoTitle = d.metaTitle || `${competitor} vs hubsell`;
+const seoDesc = d.metaDescription || d.heroSubhead || '';
+const ctaHeading = d.ctaHeading || 'See hubsell on your own ICP';
+const ctaButton = d.ctaButtonText || 'Book a demo';
+const ctaLink = d.ctaLink || '/book-a-call';
+const SIGNUP = 'https://app.hubsell.com/signup';
+
+// Other comparisons, in the same order the homepage uses.
+const ORDER = ['apollo', 'zoominfo', 'cognism', 'lusha', 'seamless'];
+const oi = (s) => { const i = ORDER.indexOf(s); return i === -1 ? 99 : i; };
+const related = items.filter((i) => i.slug !== item.slug).sort((a, b) => oi(a.slug) - oi(b.slug));
+---
+<BaseLayout title={`${seoTitle} | hubsell`} description={seoDesc}>
+  <article class="sec sec--paper vs-page">
+    <div class="wrap">
+      <a class="vs-back" href="/vs">&larr; All comparisons</a>
+
+      <header class="vs-head">
+        <p class="eyebrow is-accent">Comparison{d.category ? ` \u00b7 ${d.category}` : ''}</p>
+        <h1 class="vs-title">{competitor} <span class="vs-vs">vs</span> hubsell</h1>
+        {d.heroSubhead && <p class="vs-sub">{d.heroSubhead}</p>}
+        <div class="vs-actions">
+          <a class="button is-large" href={SIGNUP}>Start free trial</a>
+          <a class="button is-large is-secondary" href={ctaLink}>{ctaButton}</a>
+        </div>
+      </header>
+
+      {d.tldr && (
+        <section class="vs-tldr">
+          <p class="vs-kicker">TL;DR</p>
+          <div class="vs-prose" set:html={d.tldr} />
+        </section>
+      )}
+
+      {d.coreDifference && (
+        <section class="vs-section">
+          <h2 class="vs-h2">The core difference</h2>
+          <div class="vs-prose" set:html={d.coreDifference} />
+        </section>
+      )}
+
+      {d.featureTable && (
+        <section class="vs-section">
+          <h2 class="vs-h2">Feature by feature</h2>
+          <div class="vs-table" set:html={d.featureTable} />
+        </section>
+      )}
+
+      {d.dataQuality && (
+        <section class="vs-section">
+          <h2 class="vs-h2">Data quality</h2>
+          <div class="vs-prose" set:html={d.dataQuality} />
+        </section>
+      )}
+
+      {d.pricing && (
+        <section class="vs-section">
+          <h2 class="vs-h2">Pricing</h2>
+          <div class="vs-prose" set:html={d.pricing} />
+        </section>
+      )}
+
+      {(d.chooseCompetitor || d.chooseHubsell) && (
+        <section class="vs-section">
+          <h2 class="vs-h2">Which should you choose?</h2>
+          <div class="vs-choose">
+            {d.chooseCompetitor && (
+              <div class="vs-choose__col">
+                <h3 class="vs-choose__t">Choose {competitor} if</h3>
+                <div class="vs-prose" set:html={d.chooseCompetitor} />
+              </div>
+            )}
+            {d.chooseHubsell && (
+              <div class="vs-choose__col is-hub">
+                <h3 class="vs-choose__t">Choose hubsell if</h3>
+                <div class="vs-prose" set:html={d.chooseHubsell} />
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      <aside class="vs-cta sec--navy">
+        <h2 class="vs-cta__title">{ctaHeading}</h2>
+        <p class="vs-cta__text">Put hubsell on your own ICP and see the data and the outreach flow on real accounts, no commitment.</p>
+        <div class="vs-actions is-center">
+          <a class="button is-large" href={SIGNUP}>Start free trial</a>
+          <a class="button is-large is-secondary" href={ctaLink}>{ctaButton}</a>
+        </div>
+      </aside>
+
+      {(d.lastFactChecked || d.sources) && (
+        <section class="vs-sources">
+          {d.lastFactChecked && <p class="vs-checked">Last fact-checked {d.lastFactChecked}. Competitor details change; tell us if anything here is out of date.</p>}
+          {d.sources && (
+            <details class="vs-srcbox">
+              <summary>Sources</summary>
+              <div class="vs-prose vs-prose--sm" set:html={d.sources} />
+            </details>
+          )}
+        </section>
+      )}
+
+      {related.length > 0 && (
+        <aside class="vs-related">
+          <p class="eyebrow is-accent">More comparisons</p>
+          <div class="vs-related__grid">
+            {related.map((i) => (
+              <a class="vs-card" href={`/vs/${i.slug}`}>
+                {i.data.category && <span class="vs-card__cat">{i.data.category}</span>}
+                <h3 class="vs-card__title">{i.data.title} vs hubsell</h3>
+                <span class="vs-card__more">Compare &rarr;</span>
+              </a>
+            ))}
+          </div>
+        </aside>
+      )}
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .vs-page { padding-top:clamp(28px,5vw,52px); }
+  .vs-back { display:inline-block; font-family:var(--font-body); font-size:14px; color:var(--accent-on); text-decoration:none; margin-bottom:26px; }
+  .vs-back:hover { text-decoration:underline; }
+
+  /* hero */
+  .vs-head { max-width:780px; }
+  .vs-title {
+    font-family:var(--font-head); font-weight:600;
+    font-size:clamp(2rem,5vw,3.1rem); line-height:1.08; letter-spacing:-.025em;
+    color:var(--sec-tx); margin:10px 0 0;
+  }
+  .vs-vs { color:var(--accent-on); font-weight:500; }
+  .vs-sub {
+    font-family:var(--font-body); font-size:clamp(1.05rem,1.6vw,1.2rem); line-height:1.6;
+    color:var(--sec-tx); opacity:.82; max-width:62ch; margin:18px 0 0;
+  }
+  .vs-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:26px; }
+  .vs-actions.is-center { justify-content:center; }
+
+  /* generic section rhythm */
+  .vs-section { max-width:780px; margin:clamp(34px,5vw,52px) 0 0; }
+  .vs-h2 {
+    font-family:var(--font-head); font-weight:600; font-size:clamp(1.4rem,2.6vw,1.85rem);
+    line-height:1.18; letter-spacing:-.02em; color:var(--sec-tx); margin:0 0 14px;
+  }
+
+  /* injected-HTML prose (set:html). Page-local: the wrapper carries the scope id,
+     :global() lets the rules reach the un-scoped nodes inside it. */
+  .vs-prose { font-family:var(--font-body); font-size:1.0625rem; line-height:1.7; color:var(--sec-tx); }
+  .vs-prose :global(p) { margin:0 0 1em; }
+  .vs-prose :global(p:last-child) { margin-bottom:0; }
+  .vs-prose :global(a) { color:var(--accent-on); text-decoration:none; border-bottom:1px solid transparent; }
+  .vs-prose :global(a:hover) { border-bottom-color:var(--accent-on); }
+  .vs-prose :global(strong) { font-weight:600; }
+  .vs-prose :global(ul), .vs-prose :global(ol) { margin:0 0 1em; padding-left:1.25em; }
+  .vs-prose :global(li) { margin:0 0 .45em; }
+  .vs-prose :global(li::marker) { color:var(--accent-on); }
+  .vs-prose--sm { font-size:.95rem; line-height:1.6; opacity:.9; }
+
+  /* TL;DR card */
+  .vs-tldr {
+    max-width:780px; margin:clamp(28px,4vw,40px) 0 0; padding:24px 26px;
+    background:var(--sec-card); border:1px solid var(--sec-bd);
+    border-left:3px solid var(--accent-on); border-radius:var(--radius-lg);
+  }
+  .vs-kicker {
+    font-family:var(--font-head); font-weight:600; font-size:12px; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--accent-on); margin:0 0 10px;
+  }
+
+  /* feature table (.hs-cmp ... injected HTML) */
+  .vs-table { margin-top:2px; }
+  .vs-table :global(.hs-cmp) { border:1px solid var(--sec-bd); border-radius:var(--radius-lg); overflow:hidden; }
+  .vs-table :global(.hs-cmp-scroll) { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .vs-table :global(table) { width:100%; min-width:600px; border-collapse:collapse; font-family:var(--font-body); }
+  .vs-table :global(th), .vs-table :global(td) {
+    text-align:left; vertical-align:top; padding:13px 16px;
+    border-bottom:1px solid var(--sec-bd); font-size:.95rem; line-height:1.45; color:var(--sec-tx);
+  }
+  .vs-table :global(tbody tr:last-child th), .vs-table :global(tbody tr:last-child td) { border-bottom:0; }
+  .vs-table :global(thead th) { background:color-mix(in srgb,var(--sec-tx) 4%,transparent); border-bottom:2px solid var(--sec-bd); }
+  .vs-table :global(th.hs-feat) { font-weight:500; color:var(--sec-tx); }      /* capability / row label */
+  .vs-table :global(.hs-eyebrow) { font-size:11px; letter-spacing:.1em; text-transform:uppercase; opacity:.6; font-weight:600; }
+  .vs-table :global(.hs-brand) { font-family:var(--font-head); font-weight:600; font-size:1rem; }
+  .vs-table :global(.hs-hub) { background:color-mix(in srgb,var(--accent-on) 7%,transparent); }
+  .vs-table :global(thead .hs-hub .hs-brand) { color:var(--accent-on); }       /* "hubsell" header in terracotta */
+  /* cell markers */
+  .vs-table :global(.hs-y) { font-weight:600; color:var(--positive); }
+  .vs-table :global(.hs-n) { font-weight:600; color:color-mix(in srgb,var(--sec-tx) 50%,transparent); }
+  .vs-table :global(.hs-beta) { font-weight:600; color:var(--accent-on); }
+  .vs-table :global(.hs-note) { display:block; margin-top:2px; font-size:.85em; color:color-mix(in srgb,var(--sec-tx) 58%,transparent); }
+
+  /* which should you choose — two columns */
+  .vs-choose { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .vs-choose__col {
+    background:var(--sec-card); border:1px solid var(--sec-bd); border-radius:var(--radius-lg);
+    padding:22px 24px;
+  }
+  .vs-choose__col.is-hub { border-color:color-mix(in srgb,var(--accent-on) 45%,var(--sec-bd)); background:color-mix(in srgb,var(--accent-on) 5%,var(--sec-card)); }
+  .vs-choose__t { font-family:var(--font-head); font-weight:600; font-size:1.1rem; letter-spacing:-.01em; color:var(--sec-tx); margin:0 0 12px; }
+  .vs-choose__col.is-hub .vs-choose__t { color:var(--accent-on); }
+  @media (max-width:640px){ .vs-choose { grid-template-columns:1fr; } }
+
+  /* closing CTA (navy) */
+  .vs-cta {
+    max-width:780px; margin:clamp(36px,5vw,56px) 0 0; padding:clamp(28px,4vw,44px);
+    border-radius:var(--radius-lg); text-align:center;
+    background:var(--sec-bg); color:var(--sec-tx); border:1px solid var(--sec-bd);
+  }
+  .vs-cta__title { font-family:var(--font-head); font-weight:600; font-size:clamp(1.5rem,3vw,2rem); letter-spacing:-.02em; color:var(--sec-tx); margin:0; }
+  .vs-cta__text { font-family:var(--font-body); font-size:1.0625rem; line-height:1.6; color:var(--sec-tx); opacity:.82; max-width:52ch; margin:12px auto 22px; }
+
+  /* sources / fact-check */
+  .vs-sources { max-width:780px; margin:34px 0 0; }
+  .vs-checked { font-family:var(--font-body); font-size:13.5px; color:var(--sec-tx); opacity:.6; margin:0 0 10px; }
+  .vs-srcbox { border-top:1px solid var(--sec-bd); padding-top:14px; }
+  .vs-srcbox summary { font-family:var(--font-head); font-weight:600; font-size:14px; color:var(--sec-tx); cursor:pointer; list-style:none; }
+  .vs-srcbox summary::-webkit-details-marker { display:none; }
+  .vs-srcbox summary::before { content:'+ '; color:var(--accent-on); }
+  .vs-srcbox[open] summary::before { content:'\2212 '; }
+  .vs-srcbox .vs-prose { margin-top:12px; }
+
+  /* more comparisons */
+  .vs-related { max-width:780px; margin:54px 0 0; }
+  .vs-related__grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:16px; }
+  .vs-card {
+    display:flex; flex-direction:column; gap:10px;
+    background:var(--sec-card); border:1px solid var(--sec-bd); border-radius:var(--radius-lg);
+    padding:20px 22px; color:var(--sec-tx); text-decoration:none; transition:border-color .15s, transform .05s;
+  }
+  .vs-card:hover { border-color:color-mix(in srgb,var(--accent-on) 55%,var(--sec-bd)); }
+  .vs-card:active { transform:translateY(1px); }
+  .vs-card__cat { font-family:var(--font-body); font-weight:500; font-size:11.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--sec-tx); opacity:.6; }
+  .vs-card__title { font-family:var(--font-head); font-weight:600; font-size:1.15rem; line-height:1.25; letter-spacing:-.01em; color:var(--sec-tx); margin:0; }
+  .vs-card__more { margin-top:auto; font-family:var(--font-body); font-weight:500; font-size:14px; color:var(--accent-on); }
+  @media (max-width:600px){ .vs-related__grid { grid-template-columns:1fr; } }
+</style>
