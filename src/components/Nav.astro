@@ -93,7 +93,7 @@ const companySoon = ['About us', 'Careers', 'Partner program', 'Newsroom'];
   /* Before the colour script runs the bar still reads data-tone="light"; in dark
      mode that would flash a light bar for a frame. Paint the dark treatment for
      that initial state straight away (the script then takes over via inline style). */
-  [data-theme="dark"] .nav[data-tone="light"]{
+  :global([data-theme="dark"]) .nav[data-tone="light"]{
     --nav-tx:#FBF4EA; --nav-tx-dim:rgba(251,244,234,.72);
     --nav-bd:rgba(255,255,255,.12); --nav-hover:rgba(251,244,234,.10);
     --nav-card:#222E4C; --nav-card-bd:rgba(255,255,255,.12);
@@ -109,8 +109,8 @@ const companySoon = ['About us', 'Careers', 'Partner program', 'Newsroom'];
   .nav__logo{width:108px; height:auto; display:block}
   .nav[data-tone="light"] .nav__logo--light{display:none}
   .nav[data-tone="dark"]  .nav__logo--dark{display:none}
-  [data-theme="dark"] .nav[data-tone="light"] .nav__logo--dark{display:none}
-  [data-theme="dark"] .nav[data-tone="light"] .nav__logo--light{display:block}
+  :global([data-theme="dark"]) .nav[data-tone="light"] .nav__logo--dark{display:none}
+  :global([data-theme="dark"]) .nav[data-tone="light"] .nav__logo--light{display:block}
 
   .nav__links{display:flex; align-items:center; gap:4px}
   .nav__group{position:relative}
