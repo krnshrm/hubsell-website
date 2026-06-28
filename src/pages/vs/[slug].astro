@@ -79,16 +79,16 @@ const related = items.filter((i) => i.slug !== item.slug).sort((a, b) => oi(a.sl
         <section class="vs-section">
           <h2 class="vs-h2">Which should you choose?</h2>
           <div class="vs-choose">
-            {d.chooseCompetitor && (
-              <div class="vs-choose__col">
-                <h3 class="vs-choose__t">Choose {competitor} if</h3>
-                <div class="vs-prose" set:html={d.chooseCompetitor} />
-              </div>
-            )}
             {d.chooseHubsell && (
               <div class="vs-choose__col is-hub">
                 <h3 class="vs-choose__t">Choose hubsell if</h3>
                 <div class="vs-prose" set:html={d.chooseHubsell} />
+              </div>
+            )}
+            {d.chooseCompetitor && (
+              <div class="vs-choose__col">
+                <h3 class="vs-choose__t">Choose {competitor} if</h3>
+                <div class="vs-prose" set:html={d.chooseCompetitor} />
               </div>
             )}
           </div>
