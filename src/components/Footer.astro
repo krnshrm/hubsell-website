@@ -1,44 +1,92 @@
 ---
-// Footer — section 15, Espresso. Real legal links + company details.
+// Footer — fixed navy chrome. The link columns are the expanded navigation, pulled
+// from src/data/navigation.ts and filtered to live links only, so the footer stays in
+// sync with the nav and a page appears here automatically once its `soon` flag is
+// dropped. Account links (trial + login) and the legal links round it out.
+import { menuGroups, topLinks, accountLinks, legalLinks, liveLinks } from '../data/navigation';
+
 const year = new Date().getFullYear();
-const legal = [
-  { href: '/legal-notice', label: 'Legal Notice' },
-  { href: '/privacy', label: 'Privacy Policy' },
-  { href: '/data-processing-agreement', label: 'DPA' },
-  { href: '/terms', label: 'Terms & Conditions' },
-];
+const [trial, login] = accountLinks;
+
+// Mega groups (live links only; the Learn column reads cleaner as "Resources" here),
+// then a Product column for the top-level links. Empty columns drop out until they ship.
+const linkCols = [
+  ...menuGroups
+    .map((g) => ({ heading: g.heading === 'Learn' ? 'Resources' : g.heading, links: liveLinks(g.links) }))
+    .filter((c) => c.links.length),
+  { heading: 'Product', links: liveLinks(topLinks) },
+].filter((c) => c.links.length);
 ---
 <footer class="sec site-footer">
   <div class="wrap">
-    <div class="site-footer__row">
-      <a href="/" class="site-footer__brand">hubsell</a>
-      <nav class="site-footer__legal" aria-label="Legal">
-        {legal.map((l) => <a href={l.href}>{l.label}</a>)}
+    <div class="site-footer__top">
+      <div class="site-footer__brand-block">
+        <a href="/" class="site-footer__brand">hubsell</a>
+        <p class="site-footer__tag">Replace your outbound stack. Live-sourced data, email and LinkedIn outreach, and CRM sync in one platform.</p>
+        <div class="site-footer__cta">
+          <a class="button is-small" href={trial.href}>{trial.label}</a>
+          <a class="site-footer__login" href={login.href}>{login.label}</a>
+        </div>
+      </div>
+
+      <nav class="site-footer__cols" aria-label="Footer">
+        {linkCols.map((c) => (
+          <div class="site-footer__col">
+            <p class="site-footer__colhead">{c.heading}</p>
+            <ul>
+              {c.links.map((l) => (<li><a href={l.href}>{l.label}</a></li>))}
+            </ul>
+          </div>
+        ))}
+        <div class="site-footer__col">
+          <p class="site-footer__colhead">Legal</p>
+          <ul>
+            {legalLinks.map((l) => (<li><a href={l.href}>{l.label}</a></li>))}
+          </ul>
+        </div>
       </nav>
     </div>
+
     <p class="site-footer__meta">© 2016–{year} hubsell UG · Friedrichstrasse 155, 10117 Berlin, Germany · HRB 175309B · DE305258320</p>
   </div>
 </footer>
 
 <style>
   .site-footer{
-    /* same fixed navy as the nav, in both themes */
+    /* fixed navy chrome, in both themes */
     --sec-bg:var(--chrome-bg); --sec-tx:var(--chrome-tx);
     --sec-bd:var(--chrome-bd); --sec-card:var(--chrome-card);
-    padding:clamp(40px,5vw,64px) 0;
+    padding:clamp(48px,6vw,72px) 0 clamp(28px,4vw,40px);
   }
-  .site-footer__row{
-    display:flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:space-between;
-    padding-bottom:20px; border-bottom:1px solid var(--sec-bd);
+  .site-footer__top{
+    display:grid; grid-template-columns:1.4fr 2.6fr; gap:40px clamp(24px,4vw,56px);
+    padding-bottom:32px; border-bottom:1px solid var(--sec-bd);
   }
+  @media (max-width:820px){ .site-footer__top{ grid-template-columns:1fr; gap:34px; } }
+
   .site-footer__brand{
-    font-family:var(--font-head); font-weight:600; font-size:1.25rem; color:var(--sec-tx);
-    text-decoration:none; letter-spacing:-.01em;
+    font-family:var(--font-head); font-weight:600; font-size:1.35rem; letter-spacing:-.01em;
+    color:var(--sec-tx); text-decoration:none; display:inline-block;
   }
-  .site-footer__legal{display:flex; flex-wrap:wrap; gap:6px 18px}
-  .site-footer__legal a{
-    font-size:14px; color:var(--sec-tx); opacity:.78; text-decoration:none; transition:opacity .15s;
+  .site-footer__tag{
+    font-family:var(--font-body); font-size:14px; line-height:1.55; color:var(--sec-tx);
+    opacity:.62; max-width:34ch; margin:12px 0 18px;
   }
-  .site-footer__legal a:hover{opacity:1}
-  .site-footer__meta{font-size:13px; color:var(--sec-tx); opacity:.55; margin:18px 0 0}
+  .site-footer__cta{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  .site-footer__login{ font-family:var(--font-body); font-size:14px; font-weight:500; color:var(--sec-tx); opacity:.8; text-decoration:none; transition:opacity .15s; }
+  .site-footer__login:hover{ opacity:1; }
+
+  .site-footer__cols{ display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:30px 24px; }
+  .site-footer__col ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px; }
+  .site-footer__colhead{
+    font:600 11px/1 var(--font-body); letter-spacing:.08em; text-transform:uppercase;
+    color:var(--sec-tx); opacity:.5; margin:0 0 14px;
+  }
+  .site-footer__col a{
+    font-family:var(--font-body); font-size:14px; color:var(--sec-tx); opacity:.72;
+    text-decoration:none; transition:opacity .15s, color .15s;
+  }
+  .site-footer__col a:hover{ opacity:1; color:var(--accent-on); }
+
+  .site-footer__meta{ font-size:13px; color:var(--sec-tx); opacity:.5; margin:24px 0 0; }
 </style>

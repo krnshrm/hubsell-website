@@ -6,18 +6,14 @@
 // Login + language + theme live in the TopBar above this; this bar carries the
 // primary nav (Resources, Pricing) and the trial CTA.
 import { SIGNUP_URL } from '../data/site';
+import { menuGroups, topLinks } from '../data/navigation';
 
 const LOGO_DARK = 'https://assets.hubsell.com/logo/hubsell-wordmark-dark.svg';   // for light sections
 const LOGO_LIGHT = 'https://assets.hubsell.com/logo/hubsell-wordmark-light.svg'; // for dark sections
 
-// Resources mega-menu. Live links plus greyed "coming soon" items for pages not
-// built yet (Products / Solutions / Our Data / GTM Developers come in a later pass).
-const learn = [
-  { href: '/insights', label: 'Insights' },
-  { href: '/customerstories', label: 'Case studies' },
-];
-const learnSoon = ['Resource center', 'Events', 'AI sales coach', 'Free tools', 'GTM plays', 'Help center'];
-const companySoon = ['About us', 'Careers', 'Partner program', 'Newsroom'];
+// The Resources mega-menu and top-level links live in src/data/navigation.ts so the
+// nav and footer stay in sync. Products / Solutions / Our Data / GTM Developers come
+// in a later pass.
 ---
 <header class="nav" data-tone="light">
   <div class="nav__inner">
@@ -30,22 +26,19 @@ const companySoon = ['About us', 'Careers', 'Partner program', 'Newsroom'];
       <div class="nav__group nav__group--mega">
         <button type="button" class="nav__link nav__trigger" aria-haspopup="true" aria-expanded="false">Resources</button>
         <div class="nav__mega">
-          <div class="nav__megacol">
-            <p class="nav__megahead">Learn</p>
-            <ul>
-              {learn.map((i) => (<li><a href={i.href}>{i.label}</a></li>))}
-              {learnSoon.map((l) => (<li><span class="nav__soon">{l}</span></li>))}
-            </ul>
-          </div>
-          <div class="nav__megacol">
-            <p class="nav__megahead">Company</p>
-            <ul>
-              {companySoon.map((l) => (<li><span class="nav__soon">{l}</span></li>))}
-            </ul>
-          </div>
+          {menuGroups.map((group) => (
+            <div class="nav__megacol">
+              <p class="nav__megahead">{group.heading}</p>
+              <ul>
+                {group.links.map((l) => (
+                  <li>{l.soon ? <span class="nav__soon">{l.label}</span> : <a href={l.href}>{l.label}</a>}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
-      <a class="nav__link" href="/#pricing">Pricing</a>
+      {topLinks.map((l) => (<a class="nav__link" href={l.href}>{l.label}</a>))}
     </nav>
 
     <div class="nav__actions">
@@ -58,11 +51,11 @@ const companySoon = ['About us', 'Careers', 'Partner program', 'Newsroom'];
 
   <div class="nav__mobile" hidden>
     <p class="nav__mobhead">Resources</p>
-    {learn.map((i) => (<a class="nav__moblink" href={i.href}>{i.label}</a>))}
-    {learnSoon.map((l) => (<span class="nav__moblink nav__soon">{l}</span>))}
-    {companySoon.map((l) => (<span class="nav__moblink nav__soon">{l}</span>))}
+    {menuGroups.flatMap((g) => g.links).map((l) => (
+      l.soon ? <span class="nav__moblink nav__soon">{l.label}</span> : <a class="nav__moblink" href={l.href}>{l.label}</a>
+    ))}
     <hr class="nav__mobrule" />
-    <a class="nav__moblink" href="/#pricing">Pricing</a>
+    {topLinks.map((l) => (<a class="nav__moblink" href={l.href}>{l.label}</a>))}
     <a class="button nav__mobcta" href={SIGNUP_URL}>Start free trial</a>
   </div>
 </header>

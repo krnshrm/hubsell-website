@@ -3,4 +3,5 @@
 // free-trial sign-up almost certainly lives on the app too. Adjust the path
 // (e.g. /signup vs /register) if it differs.
 export const SIGNUP_URL = 'https://app.hubsell.com/signup';
+export const LOGIN_URL = 'https://app.hubsell.com/';
 export const DEMO_URL = '/book-a-call';
