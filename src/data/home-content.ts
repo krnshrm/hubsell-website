@@ -117,7 +117,7 @@ export const testimonials: Testimonial[] = [
   {
     quote: 'hubsell is a company that is more than just a vendor, they could really partner with you and help you with your whole approach.',
     name: 'Peter Mallozzi', title: 'Outbound Sales', company: 'Staffbase', slug: 'staffbase',
-    image: 'https://cdn.prod.website-files.com/699dd2e0e18d79ea05f93b36/69bbdc0f42e1ac55b26c3f40_671a1ab711962b4159489497_pm-staffbase.png',
+    image: 'https://assets.hubsell.com/avatars/69bbdc0f42e1ac55b26c3f40_671a1ab711962b4159489497_pm-staffbase.png',
     results: [
       { metric: '15.6%', label: 'replies across different markets' },
       { metric: '3.5%', label: 'engagement rate resulting in a call' },
@@ -147,7 +147,7 @@ export const testimonials: Testimonial[] = [
   {
     quote: 'hubsell helps us generate interactions with prospects from various industries, which is crucial to our expansion efforts.',
     name: 'Eylül Eygi', title: 'Head of Marketing', company: 'Sensolus', slug: 'sensolus',
-    image: 'https://cdn.prod.website-files.com/699dd2e0e18d79ea05f93b36/69bbdc0e2945d53ecbca3a4e_671b76cdf4cf5920219b55a7_ee-sensolus.png',
+    image: 'https://assets.hubsell.com/avatars/69bbdc0e2945d53ecbca3a4e_671b76cdf4cf5920219b55a7_ee-sensolus.png',
     results: [
       { metric: '30%', label: 'reduction in CAC' },
       { metric: '22%', label: 'response rate' },

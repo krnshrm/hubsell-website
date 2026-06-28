@@ -83,7 +83,8 @@ const AVATAR = {
   'laurent-schauvliege': 'https://assets.hubsell.com/avatars/699dcee15832f934d9f15cb5_Laurent-S.avif',
   'rachel-chan': 'https://assets.hubsell.com/avatars/699dcee15832f934d9f15cc8_Rachel-C.avif',
   'mark-grasmayer': 'https://assets.hubsell.com/avatars/699dcee15832f934d9f15cd4_Mark-G.avif',
-  // ee-sensolus, pm-staffbase: not on R2 yet — source URL kept until those are uploaded.
+  'ee-sensolus': 'https://assets.hubsell.com/avatars/69bbdc0e2945d53ecbca3a4e_671b76cdf4cf5920219b55a7_ee-sensolus.png',
+  'pm-staffbase': 'https://assets.hubsell.com/avatars/69bbdc0f42e1ac55b26c3f40_671a1ab711962b4159489497_pm-staffbase.png',
 };
 function mapAvatar(url) {
   const u = cleanText(url);

@@ -4,7 +4,7 @@ description: "Sensolus achieves a 30% reduction in customer acquisition costs wh
 company: "Sensolus"
 champion: "Eylül Eygi"
 championTitle: "Head of Marketing"
-championImage: "https://cdn.prod.website-files.com/699dd2e0e18d79ea05f93b36/69bbdc0e2945d53ecbca3a4e_671b76cdf4cf5920219b55a7_ee-sensolus.png"
+championImage: "https://assets.hubsell.com/avatars/69bbdc0e2945d53ecbca3a4e_671b76cdf4cf5920219b55a7_ee-sensolus.png"
 testimonial: "\"hubsell helps us generate interactions with prospects from various industries, which is crucial to our expansion efforts.\""
 results:
   - metric: "30%"

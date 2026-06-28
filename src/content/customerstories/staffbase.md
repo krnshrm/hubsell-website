@@ -4,7 +4,7 @@ description: "Staffbase achieved a reply rate of 15.6% and an engagement rate of
 company: "Staffbase Inc"
 champion: "Peter Mallozzi"
 championTitle: "Outbound Sales"
-championImage: "https://cdn.prod.website-files.com/699dd2e0e18d79ea05f93b36/69bbdc0f42e1ac55b26c3f40_671a1ab711962b4159489497_pm-staffbase.png"
+championImage: "https://assets.hubsell.com/avatars/69bbdc0f42e1ac55b26c3f40_671a1ab711962b4159489497_pm-staffbase.png"
 testimonial: "\"hubsell is a company that is more than just a vendor, they could really partner with you and help you with your whole approach.\""
 results:
   - metric: "3.5%"
