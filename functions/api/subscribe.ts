@@ -3,7 +3,8 @@
 import { classifyEmail, EMAIL_DOMAIN_MESSAGES } from '../../src/data/free-email-domains';
 
 interface Env {
-  PLUNK_SECRET_KEY: string;
+  PLUNK_PUBLIC_KEY?: string; // pk_ — records form events via /v1/track
+  PLUNK_SECRET_KEY?: string; // sk_ — reserved for sending email via /v1/send (team alerts)
   PLUNK_API_BASE?: string;
 }
 
@@ -44,7 +45,11 @@ function sanitizeFields(input: unknown): Record<string, string> {
 }
 
 export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
-  if (!env.PLUNK_SECRET_KEY) {
+  // /v1/track authenticates with the PUBLIC key (pk_); the secret key only works on
+  // other endpoints. Prefer the public key, and fall back to PLUNK_SECRET_KEY only so
+  // an older setup that put the right value in the wrong var keeps working.
+  const trackKey = env.PLUNK_PUBLIC_KEY || env.PLUNK_SECRET_KEY;
+  if (!trackKey) {
     return json({ ok: false, error: 'Server is not configured.' }, 500);
   }
 
@@ -106,7 +111,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     const res = await fetch(`${base}/v1/track`, {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${env.PLUNK_SECRET_KEY}`,
+        Authorization: `Bearer ${trackKey}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
