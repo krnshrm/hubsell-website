@@ -28,6 +28,21 @@ const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 // Keep free-text fields short so a form can't push large payloads into Plunk.
 const clip = (v: unknown, max: number) => String(v ?? '').trim().slice(0, max);
 
+// Sanitize an arbitrary { key: value } map of extra form fields (book-a-call etc.):
+// cap the number of keys, clip each value, and drop empties.
+function sanitizeFields(input: unknown): Record<string, string> {
+  const out: Record<string, string> = {};
+  if (input && typeof input === 'object') {
+    let n = 0;
+    for (const [k, v] of Object.entries(input as Record<string, unknown>)) {
+      if (n++ >= 40) break;
+      const val = clip(v, 2000);
+      if (val) out[String(k).slice(0, 60)] = val;
+    }
+  }
+  return out;
+}
+
 export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   if (!env.PLUNK_SECRET_KEY) {
     return json({ ok: false, error: 'Server is not configured.' }, 500);
@@ -38,6 +53,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   let name = '';
   let company = '';
   let message = '';
+  let extraFields: Record<string, string> = {};
   try {
     const ct = request.headers.get('content-type') || '';
     if (ct.includes('application/json')) {
@@ -47,6 +63,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
       name = clip(body.name, 120);
       company = clip(body.company, 160);
       message = clip(body.message, 2000);
+      extraFields = sanitizeFields(body.fields);
     } else {
       const data = await request.formData();
       email = clip(data.get('email'), 200);
@@ -80,7 +97,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   const base = (env.PLUNK_API_BASE || 'https://api.useplunk.com').replace(/\/+$/, '');
 
   // Only send fields that were filled, so empty values don't clutter Plunk.
-  const data: Record<string, string> = { source: form };
+  const data: Record<string, string> = { source: form, ...extraFields };
   if (name) data.name = name;
   if (company) data.company = company;
   if (message) data.message = message;
