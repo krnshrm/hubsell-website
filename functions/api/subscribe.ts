@@ -26,6 +26,11 @@ const EVENT_BY_FORM: Record<string, string> = {
 // contact form lets anyone reach us; the sales/waitlist forms stay corporate-only.
 const UNGATED_FORMS = new Set<string>(['contact']);
 
+// Forms that use double opt-in: the contact is created UNSUBSCRIBED and only becomes
+// subscribed after they click the confirm link in the Plunk opt-in email. A Plunk
+// action on the form's event ('newsletter-signup') sends that email.
+const DOUBLE_OPTIN_FORMS = new Set<string>(['newsletter']);
+
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
 // Keep free-text fields short so a form can't push large payloads into Plunk.
@@ -102,6 +107,8 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env, waitUnti
 
   const event = EVENT_BY_FORM[form] ?? EVENT_BY_FORM.waitlist;
   const base = (env.PLUNK_API_BASE || 'https://api.useplunk.com').replace(/\/+$/, '');
+  // Double opt-in forms start unsubscribed; everything else subscribes immediately.
+  const subscribed = !DOUBLE_OPTIN_FORMS.has(form);
 
   // Only send fields that were filled, so empty values don't clutter Plunk.
   const data: Record<string, string> = { source: form, ...extraFields };
@@ -119,7 +126,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env, waitUnti
       body: JSON.stringify({
         event,
         email,
-        subscribed: true,
+        subscribed,
         data,
       }),
     });
