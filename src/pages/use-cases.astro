@@ -1,0 +1,53 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SIGNUP_URL, DEMO_URL } from '../data/site';
+
+const items = (await getCollection('usecases', (u) => !u.data.draft))
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+---
+<BaseLayout
+  title="Use cases | hubsell"
+  description="One platform for outbound: lead generation, multichannel email and LinkedIn outreach, and account-based outreach. See how each one works in hubsell."
+>
+  <section class="sec sec--paper" aria-labelledby="uc-ov-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow is-accent">Use cases</p>
+        <h1 id="uc-ov-title" class="heading_primary" style="margin-top:8px">One platform, every outbound motion</h1>
+        <p class="subheading">From sourcing leads to working whole buying committees, here is how teams put hubsell to work. Each one runs on the same live data, the same email and LinkedIn sequencing, and the same automatic CRM sync.</p>
+      </div>
+
+      <div class="grid grid-3 reveal-stagger" style="margin-top:28px">
+        {items.map((u) => (
+          <a class="uc-ov-card" href={`/use-cases/${u.slug}`}>
+            <h2 class="uc-ov-card__title">{u.data.label || u.data.title}</h2>
+            {u.data.description && <p class="uc-ov-card__desc">{u.data.description}</p>}
+            {u.data.roles?.length > 0 && (
+              <ul class="uc-ov-card__roles">{u.data.roles.map((r) => (<li>{r}</li>))}</ul>
+            )}
+            <span class="uc-ov-card__more">Explore &rarr;</span>
+          </a>
+        ))}
+      </div>
+
+      <div class="uc-ov-cta">
+        <a class="button is-large" href={SIGNUP_URL}>Start free trial</a>
+        <a class="button is-large is-secondary" href={DEMO_URL}>Book a demo</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .uc-ov-card { display:flex; flex-direction:column; background:var(--sec-card); border:1px solid var(--sec-bd); border-radius:var(--radius-lg); padding:26px 24px 22px; color:var(--sec-tx); text-decoration:none; transition:border-color .15s, transform .05s; }
+  .uc-ov-card:hover { border-color:color-mix(in srgb,var(--accent-on) 55%,var(--sec-bd)); }
+  .uc-ov-card:active { transform:translateY(1px); }
+  .uc-ov-card__title { font-family:var(--font-head); font-weight:600; font-size:1.25rem; line-height:1.25; letter-spacing:-.01em; color:var(--sec-tx); margin:0 0 12px; }
+  .uc-ov-card__desc { font-family:var(--font-body); font-size:14.5px; line-height:1.55; color:var(--sec-tx); opacity:.74; margin:0 0 16px; }
+  .uc-ov-card__roles { list-style:none; margin:0 0 18px; padding:0; display:flex; flex-wrap:wrap; gap:6px; }
+  .uc-ov-card__roles li { font-family:var(--font-body); font-size:11.5px; line-height:1; color:var(--sec-tx); opacity:.72; border:1px solid var(--sec-bd); border-radius:999px; padding:5px 10px; }
+  .uc-ov-card__more { margin-top:auto; font-family:var(--font-body); font-weight:500; font-size:14px; color:var(--accent-on); }
+
+  .uc-ov-cta { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:36px; }
+</style>

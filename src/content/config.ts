@@ -77,4 +77,28 @@ const comparisons = defineCollection({
   }),
 });
 
-export const collections = { insights, customerstories, comparisons };
+// Use-cases — authored in Astro (no Webflow source). One .md per use-case at
+// src/content/usecases/<slug>.md: frontmatter for the hero, the featured proof
+// story, the key features and roles, plus the page body as Markdown. Rendered the
+// normal way (render() + <Content />), not set:html, so the body is real Markdown.
+const usecases = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),                        // H1
+    label: z.string().optional(),             // short name for cards / nav
+    eyebrow: z.string().optional(),           // category label above the H1
+    metaTitle: z.string().optional(),         // SEO <title> (falls back to title)
+    description: z.string().optional(),       // SEO meta + card excerpt
+    subhead: z.string().optional(),           // hero intro
+    proofStory: z.string().optional(),        // customer-story slug to feature as proof
+    features: z.array(z.string()).optional(), // key feature labels
+    roles: z.array(z.string()).optional(),    // who it's for (labels)
+    related: z.array(z.string()).optional(),  // related use-case slugs
+    ctaHeading: z.string().optional(),        // optional CTA heading override
+    ctaText: z.string().optional(),           // optional CTA body override
+    order: z.number().default(99),            // overview sort order
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { insights, customerstories, comparisons, usecases };

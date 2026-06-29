@@ -1,0 +1,168 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SIGNUP_URL, DEMO_URL } from '../../data/site';
+
+export async function getStaticPaths() {
+  const items = await getCollection('usecases', (u) => !u.data.draft);
+  return items.map((entry) => ({ params: { slug: entry.slug }, props: { entry, items } }));
+}
+
+const { entry, items } = Astro.props;
+const d = entry.data;
+const { Content } = await entry.render();
+
+// Proof = the referenced customer story (if present and live).
+let proof = null;
+if (d.proofStory) {
+  const stories = await getCollection('customerstories', (s) => !s.data.draft);
+  proof = stories.find((s) => s.slug === d.proofStory) || null;
+}
+const proofQuote = proof?.data.testimonial ? proof.data.testimonial.replace(/^[\s"“”]+|[\s"“”]+$/g, '') : '';
+const proofRole = proof ? [proof.data.championTitle, proof.data.company].filter(Boolean).join(', ') : '';
+
+// Related: the explicit list, else the other use-cases in order.
+const others = items
+  .filter((u) => u.slug !== entry.slug)
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+const related = (d.related && d.related.length
+  ? d.related.map((slug) => items.find((u) => u.slug === slug)).filter(Boolean)
+  : others
+).slice(0, 2);
+
+const metaTitle = d.metaTitle ? `${d.metaTitle} | hubsell` : `${d.title} | hubsell`;
+const ctaHeading = d.ctaHeading || 'See it run on your own pipeline';
+const ctaText = d.ctaText || 'Start a free trial and put hubsell to work on your outbound: live-sourced data, email and LinkedIn sequences, and automatic CRM sync.';
+---
+<BaseLayout title={metaTitle} description={d.description}>
+  <article class="sec sec--paper uc">
+    <div class="wrap">
+      <a class="uc-back link" href="/use-cases">&larr; All use cases</a>
+
+      <header class="uc-head">
+        <p class="eyebrow is-accent">{d.eyebrow || 'Use case'}</p>
+        <h1 class="uc-title">{d.title}</h1>
+        {d.subhead && <p class="uc-sub subheading">{d.subhead}</p>}
+        <div class="uc-cta-row">
+          <a class="button" href={SIGNUP_URL}>Start free trial</a>
+          <a class="button is-secondary" href={DEMO_URL}>Book a demo</a>
+        </div>
+      </header>
+
+      {(d.features?.length || d.roles?.length) && (
+        <div class="uc-meta">
+          {d.features?.length && (
+            <div class="uc-meta__col">
+              <p class="uc-meta__head">What powers it</p>
+              <ul class="uc-taglist">{d.features.map((f) => (<li>{f}</li>))}</ul>
+            </div>
+          )}
+          {d.roles?.length && (
+            <div class="uc-meta__col">
+              <p class="uc-meta__head">Who it is for</p>
+              <ul class="uc-taglist">{d.roles.map((r) => (<li>{r}</li>))}</ul>
+            </div>
+          )}
+        </div>
+      )}
+
+      <div class="uc-body">
+        <Content />
+      </div>
+
+      {proof && (
+        <aside class="uc-proof">
+          <p class="eyebrow is-accent">Proof</p>
+          {proofQuote && <blockquote class="uc-proof__quote">{proofQuote}</blockquote>}
+          {proof.data.results?.length > 0 && (
+            <div class="uc-proof__metrics">
+              {proof.data.results.map((r) => (
+                <div class="uc-proof__metric">
+                  <p class="uc-proof__num">{r.metric}</p>
+                  <p class="uc-proof__lab">{r.label}</p>
+                </div>
+              ))}
+            </div>
+          )}
+          <p class="uc-proof__by">
+            {proof.data.champion}{proofRole ? `, ${proofRole}` : ''}
+            {' · '}
+            <a class="link" href={`/customerstories/${proof.slug}`}>Read the {proof.data.company} story &rarr;</a>
+          </p>
+        </aside>
+      )}
+
+      <section class="uc-cta sec--navy">
+        <h2 class="heading_secondary">{ctaHeading}</h2>
+        <p class="uc-cta__text">{ctaText}</p>
+        <div class="uc-cta-row uc-cta-row--center">
+          <a class="button is-large" href={SIGNUP_URL}>Start free trial</a>
+          <a class="button is-large is-secondary" href={DEMO_URL}>Book a demo</a>
+        </div>
+      </section>
+
+      {related.length > 0 && (
+        <aside class="uc-related">
+          <p class="eyebrow is-accent">More use cases</p>
+          <div class="uc-related__grid">
+            {related.map((u) => (
+              <a class="uc-card" href={`/use-cases/${u.slug}`}>
+                <h3 class="uc-card__title">{u.data.label || u.data.title}</h3>
+                {u.data.description && <p class="uc-card__desc">{u.data.description}</p>}
+                <span class="uc-card__more">Explore &rarr;</span>
+              </a>
+            ))}
+          </div>
+        </aside>
+      )}
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .uc-back { display:inline-block; margin-bottom:18px; font-size:14px; }
+  .uc-head { max-width:760px; }
+  .uc-title { font-family:var(--font-head); font-weight:600; font-size:clamp(2rem,4.2vw,2.6rem); line-height:1.12; letter-spacing:-.02em; color:var(--sec-tx); margin:8px 0 0; }
+  .uc-sub { margin-top:16px; }
+  .uc-cta-row { display:flex; gap:12px; flex-wrap:wrap; margin-top:24px; }
+  .uc-cta-row--center { justify-content:center; }
+
+  .uc-meta { display:flex; gap:48px; flex-wrap:wrap; margin:34px 0 4px; padding:22px 0; border-top:1px solid var(--sec-bd); border-bottom:1px solid var(--sec-bd); }
+  .uc-meta__head { font-family:var(--font-body); font-weight:500; font-size:12px; text-transform:uppercase; letter-spacing:.08em; color:var(--sec-tx); opacity:.55; margin:0 0 11px; }
+  .uc-taglist { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+  .uc-taglist li { position:relative; padding-left:20px; font-family:var(--font-body); font-size:15px; line-height:1.4; color:var(--sec-tx); }
+  .uc-taglist li::before { content:""; position:absolute; left:0; top:.5em; width:7px; height:7px; border-radius:50%; background:var(--accent-on); }
+
+  .uc-body { max-width:720px; margin-top:32px; }
+  .uc-body :global(h2) { font-family:var(--font-head); font-weight:600; font-size:1.5rem; line-height:1.2; letter-spacing:-.01em; color:var(--sec-tx); margin:36px 0 12px; }
+  .uc-body :global(h2:first-child) { margin-top:0; }
+  .uc-body :global(h3) { font-family:var(--font-head); font-weight:600; font-size:1.2rem; line-height:1.25; color:var(--sec-tx); margin:26px 0 10px; }
+  .uc-body :global(p) { font-family:var(--font-body); font-size:1.0625rem; line-height:1.7; color:var(--sec-tx); margin:0 0 1.1em; }
+  .uc-body :global(strong) { font-weight:600; color:var(--sec-tx); }
+  .uc-body :global(ul) { margin:0 0 1.2em; padding-left:0; list-style:none; }
+  .uc-body :global(li) { position:relative; padding-left:22px; margin:0 0 .6em; font-family:var(--font-body); font-size:1.0625rem; line-height:1.6; color:var(--sec-tx); }
+  .uc-body :global(li)::before { content:""; position:absolute; left:2px; top:.62em; width:7px; height:7px; border-radius:50%; background:var(--accent-on); }
+  .uc-body :global(a) { color:var(--accent-on); font-weight:500; text-decoration:none; border-bottom:1px solid transparent; transition:border-color .15s; }
+  .uc-body :global(a):hover { border-bottom-color:var(--accent-on); }
+
+  .uc-proof { max-width:760px; margin:38px 0; padding:26px 28px; background:var(--sec-card); border:1px solid var(--sec-bd); border-left:3px solid var(--accent-on); border-radius:var(--radius-lg); }
+  .uc-proof__quote { font-family:var(--font-body); font-weight:500; font-size:1.2rem; line-height:1.5; color:var(--sec-tx); margin:10px 0 18px; }
+  .uc-proof__metrics { display:flex; gap:30px; flex-wrap:wrap; margin-bottom:16px; }
+  .uc-proof__num { font-family:var(--font-head); font-weight:600; font-size:1.5rem; color:var(--accent-on); margin:0; }
+  .uc-proof__lab { font-family:var(--font-body); font-size:13px; line-height:1.35; color:var(--sec-tx); opacity:.72; margin:4px 0 0; max-width:18ch; }
+  .uc-proof__by { font-family:var(--font-body); font-size:14px; color:var(--sec-tx); opacity:.85; margin:0; }
+
+  .uc-cta { max-width:820px; margin:46px auto 6px; padding:clamp(28px,4vw,44px); text-align:center; background:var(--sec-bg); color:var(--sec-tx); border:1px solid var(--sec-bd); border-radius:var(--radius-lg); }
+  .uc-cta .heading_secondary { color:var(--sec-tx); }
+  .uc-cta__text { font-family:var(--font-body); font-size:1.0625rem; line-height:1.6; color:var(--sec-tx); opacity:.82; max-width:54ch; margin:12px auto 0; }
+  .uc-cta .uc-cta-row { margin-top:26px; }
+
+  .uc-related { margin-top:42px; }
+  .uc-related__grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; margin-top:16px; }
+  .uc-card { display:flex; flex-direction:column; background:var(--sec-card); border:1px solid var(--sec-bd); border-radius:var(--radius-lg); padding:24px; color:var(--sec-tx); text-decoration:none; transition:border-color .15s, transform .05s; }
+  .uc-card:hover { border-color:color-mix(in srgb,var(--accent-on) 55%,var(--sec-bd)); }
+  .uc-card:active { transform:translateY(1px); }
+  .uc-card__title { font-family:var(--font-head); font-weight:600; font-size:1.15rem; line-height:1.25; color:var(--sec-tx); margin:0 0 10px; }
+  .uc-card__desc { font-family:var(--font-body); font-size:14px; line-height:1.55; color:var(--sec-tx); opacity:.74; margin:0 0 16px; }
+  .uc-card__more { margin-top:auto; font-family:var(--font-body); font-weight:500; font-size:14px; color:var(--accent-on); }
+</style>
