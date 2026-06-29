@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import RatingsStrip from '../components/RatingsStrip.astro';
+import TestimonialStrip from '../components/TestimonialStrip.astro';
+import { TESTIMONIALS } from '../data/testimonials';
+import { SIGNUP_URL, DEMO_URL } from '../data/site';
+
+const description =
+  'Read verified reviews of hubsell from teams like Matterway, Spryker, and Workspace 365 who replaced their outbound stack with live-sourced data, multichannel outreach, and CRM sync.';
+---
+<BaseLayout title="Reviews" description={description}>
+  <!-- Hero · Paper -->
+  <section class="sec sec--paper">
+    <div class="wrap rv-hero">
+      <p class="eyebrow is-accent">Reviews</p>
+      <h1 class="heading_primary">What teams say about hubsell</h1>
+      <p class="subheading rv-sub">Verified reviews from sales and marketing teams who replaced static lists and a stack of disconnected tools with one platform. Read what they tell us, and see the score on each review platform.</p>
+    </div>
+  </section>
+
+  <!-- Ratings · Sand (shared component, links out to each platform) -->
+  <RatingsStrip />
+
+  <!-- Reviews wall · Paper -->
+  <section class="sec sec--paper">
+    <div class="wrap">
+      <h2 class="heading_secondary rv-wallhead">In their words</h2>
+      <TestimonialStrip quotes={TESTIMONIALS} heading="" />
+    </div>
+  </section>
+
+  <!-- CTA · Navy -->
+  <section class="sec sec--navy">
+    <div class="wrap rv-cta">
+      <h2 class="heading_primary">See why teams switch to hubsell</h2>
+      <p class="subheading rv-sub">Start a free trial, or book a call and we will walk you through it.</p>
+      <div class="rv-actions">
+        <a class="button is-large" href={SIGNUP_URL}>Start free trial</a>
+        <a class="button is-large is-secondary" href={DEMO_URL}>Book a call</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .rv-hero { max-width:70ch; }
+  .rv-sub { margin-top:14px; }
+  .rv-wallhead { margin-bottom:22px; }
+  .rv-cta { text-align:center; max-width:62ch; margin-inline:auto; }
+  .rv-cta .rv-sub { margin-inline:auto; }
+  .rv-actions { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:26px; }
+</style>

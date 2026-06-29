@@ -79,7 +79,7 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     slug: 'alon-even',
-    name: 'Alon Even', title: 'Fractional CMO', company: 'Alon Even',
+    name: 'Alon Even', title: 'Fractional CMO',
     quote: 'Excellent 1:1 prospecting at scale across email, LinkedIn & phone. Excellent data that does not age. Really smart concept.',
     photo: `${AV}/alon-even.avif`,
   },
