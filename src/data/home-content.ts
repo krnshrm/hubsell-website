@@ -156,28 +156,6 @@ export const testimonials: Testimonial[] = [
   },
 ];
 
-export interface Faq { q: string; a: string; }
-
-// Homepage FAQs (CMS items flagged show-on-home-page-2 = true).
-export const faqs: Faq[] = [
-  {
-    q: 'How does hubsell compare to Outreach or Salesloft?',
-    a: 'Outreach and Salesloft are email sequence tools. They don’t source data and they don’t do LinkedIn natively. You still need a separate data provider and a manual LinkedIn process. hubsell covers all three layers: live prospect data, coordinated email + LinkedIn sequences, and automatic CRM sync. One platform, one subscription.',
-  },
-  {
-    q: 'Can hubsell replace my existing outbound stack?',
-    a: 'For most teams, yes. hubsell replaces your sales intelligence tool, your sales engagement platform, and your manual LinkedIn outreach process in one platform. Most teams that switch eliminate two or three tool subscriptions within 30 days. The one thing hubsell doesn’t replace is your CRM. It syncs to it.',
-  },
-  {
-    q: 'How do we generate leads when our target accounts aren’t actively searching for our software?',
-    a: 'Most buyers are locked in contracts or out-of-cycle. If you pitch them, they ignore you. Instead, use an “Always-On” connection strategy to share valuable content, industry insights, and event invites. By establishing peer-to-peer value now, you ensure your team is the first one they call when their buying window actually opens.',
-  },
-  {
-    q: 'What is the most effective way to build a B2B audience that doesn’t decay over time?',
-    a: 'Email addresses belong to the employer, meaning lists decay by roughly 30% annually as people switch jobs. LinkedIn profiles are tied to the human identity. By building “Network Equity” on LinkedIn, your connections travel with the buyer, granting you automatic entry into a new target account when they change companies.',
-  },
-];
-
 export interface Insight { title: string; excerpt: string; slug: string; image: string; }
 
 export const insights: Insight[] = [
