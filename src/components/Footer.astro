@@ -4,7 +4,8 @@
 // content collections, so new entries appear here automatically. The remaining live
 // nav links, the account links, and the legal links come from src/data/navigation.ts.
 import { getCollection } from 'astro:content';
-import { menuGroups, topLinks, accountLinks, legalLinks, liveLinks } from '../data/navigation';
+import { menuGroups, topLinks, footerLinks, accountLinks, legalLinks, liveLinks } from '../data/navigation';
+import AskAiWidget from './AskAiWidget.astro';
 
 const year = new Date().getFullYear();
 const [trial, login] = accountLinks;
@@ -19,12 +20,11 @@ const byOrder = (order) => (a, b) => {
 const stories = (await getCollection('customerstories', (s) => !s.data.draft)).sort(byOrder(CS_ORDER));
 const comparisons = (await getCollection('comparisons')).sort(byOrder(CMP_ORDER));
 
-// The remaining live nav links (everything except the two collections we expand below).
+// Resources column: the live nav links that aren't expanded into their own column,
+// plus the footer-only links, plus the top-level links. Insights, FAQ, Pricing.
 const expanded = new Set(['/customerstories', '/comparisons']);
-const resourceLinks = [
-  ...menuGroups.flatMap((g) => liveLinks(g.links)),
-  ...liveLinks(topLinks),
-].filter((l) => !expanded.has(l.href));
+const navResourceLinks = menuGroups.flatMap((g) => liveLinks(g.links)).filter((l) => !expanded.has(l.href));
+const resourceLinks = [...navResourceLinks, ...footerLinks, ...liveLinks(topLinks)];
 
 const columns = [
   { heading: 'Resources', links: resourceLinks },
@@ -69,7 +69,10 @@ const columns = [
       </nav>
     </div>
 
-    <p class="site-footer__meta">© 2016–{year} hubsell UG · Friedrichstrasse 155, 10117 Berlin, Germany · HRB 175309B · DE305258320</p>
+    <div class="site-footer__bottom">
+      <p class="site-footer__meta">© 2016–{year} hubsell UG · Friedrichstrasse 155, 10117 Berlin, Germany · HRB 175309B · DE305258320</p>
+      <AskAiWidget />
+    </div>
   </div>
 </footer>
 
@@ -112,5 +115,9 @@ const columns = [
   .site-footer__col a.is-all{ color:var(--accent-on); opacity:.92; font-weight:500; }
   .site-footer__col a.is-all:hover{ opacity:1; }
 
-  .site-footer__meta{ font-size:13px; color:var(--sec-tx); opacity:.5; margin:24px 0 0; }
+  .site-footer__bottom{
+    display:flex; flex-wrap:wrap; gap:16px 28px; align-items:center; justify-content:space-between;
+    margin:24px 0 0;
+  }
+  .site-footer__meta{ font-size:13px; color:var(--sec-tx); opacity:.5; margin:0; }
 </style>

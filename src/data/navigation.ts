@@ -50,6 +50,11 @@ export const topLinks: NavLink[] = [
   { label: 'Pricing', href: '/#pricing' },
 ];
 
+// Footer-only links (kept out of the top nav to keep it lean).
+export const footerLinks: NavLink[] = [
+  { label: 'FAQ', href: '/faqs' },
+];
+
 // Account / conversion links (the TopBar's Log in + the trial CTA, reused in the footer).
 export const accountLinks: NavLink[] = [
   { label: 'Start free trial', href: SIGNUP_URL, external: true },
