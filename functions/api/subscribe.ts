@@ -4,8 +4,10 @@ import { classifyEmail, EMAIL_DOMAIN_MESSAGES } from '../../src/data/free-email-
 
 interface Env {
   PLUNK_PUBLIC_KEY?: string; // pk_ — records form events via /v1/track
-  PLUNK_SECRET_KEY?: string; // sk_ — reserved for sending email via /v1/send (team alerts)
+  PLUNK_SECRET_KEY?: string; // sk_ — sends the internal alert email via /v1/send
   PLUNK_API_BASE?: string;
+  NOTIFY_EMAIL?: string;     // inbox that gets a new-submission alert (alerts stay off if unset)
+  PLUNK_FROM?: string;       // sender address on your verified Plunk domain (optional)
 }
 
 // Map the form identifier sent by the browser to a server-side Plunk event name.
@@ -44,7 +46,7 @@ function sanitizeFields(input: unknown): Record<string, string> {
   return out;
 }
 
-export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
+export const onRequestPost: PagesFunction<Env> = async ({ request, env, waitUntil }) => {
   // /v1/track authenticates with the PUBLIC key (pk_); the secret key only works on
   // other endpoints. Prefer the public key, and fall back to PLUNK_SECRET_KEY only so
   // an older setup that put the right value in the wrong var keeps working.
@@ -132,6 +134,14 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
       return json({ ok: false, error: 'Subscription was rejected.' }, 502);
     }
 
+    // Alert the team about the new submission. Best effort: it runs after the
+    // response is sent and a failure never changes what the visitor sees.
+    if (typeof waitUntil === 'function') {
+      waitUntil(notifyTeam(env, base, form, email, data));
+    } else {
+      await notifyTeam(env, base, form, email, data);
+    }
+
     return json({ ok: true });
   } catch {
     return json({ ok: false, error: 'Could not reach subscription service.' }, 502);
@@ -143,4 +153,74 @@ function json(body: unknown, status = 200): Response {
     status,
     headers: { 'Content-Type': 'application/json' },
   });
+}
+
+// HTML-escape a value so a field's contents can't break the email markup.
+function esc(v: unknown): string {
+  return String(v ?? '').replace(
+    /[&<>"']/g,
+    (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c] as string,
+  );
+}
+
+// Friendly labels for the alert subject/heading, keyed by the form id.
+const FORM_LABELS: Record<string, string> = {
+  'book-a-call': 'Book a call request',
+  contact: 'Contact form message',
+  waitlist: 'Waitlist signup',
+  newsletter: 'Newsletter signup',
+  'publish-track': 'Publish & track waitlist',
+};
+
+// Best-effort internal alert: emails NOTIFY_EMAIL a summary of a new submission via
+// Plunk's transactional send. Needs PLUNK_SECRET_KEY (sk_) and a verified sending
+// domain in Plunk. Any failure (no key set, no verified sender, network) is logged
+// and swallowed, so the visitor's submission still succeeds.
+async function notifyTeam(
+  env: Env,
+  base: string,
+  form: string,
+  email: string,
+  data: Record<string, string>,
+): Promise<void> {
+  if (!env.PLUNK_SECRET_KEY || !env.NOTIFY_EMAIL) return;
+
+  const label = FORM_LABELS[form] || form;
+  const rows = Object.entries(data)
+    .filter(([k]) => k !== 'source')
+    .map(
+      ([k, v]) =>
+        `<tr><td style="padding:3px 14px 3px 0;color:#54596B;vertical-align:top">${esc(k)}</td><td style="padding:3px 0;color:#192341"><strong>${esc(v)}</strong></td></tr>`,
+    )
+    .join('');
+  const subject = `New ${label}${data.company ? ` — ${data.company}` : ''}`;
+  const body = `<div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#192341">
+  <h2 style="margin:0 0 2px;font-size:18px">New ${esc(label)}</h2>
+  <p style="margin:0 0 16px;color:#978E84;font-size:13px">via hubsell.com</p>
+  <p style="margin:0 0 14px;font-size:15px">${esc(email)}</p>
+  <table style="border-collapse:collapse;font-size:14px;line-height:1.5">${rows}</table>
+</div>`;
+
+  try {
+    const res = await fetch(`${base}/v1/send`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${env.PLUNK_SECRET_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        to: env.NOTIFY_EMAIL,
+        subject,
+        body,
+        subscribed: false,
+        reply: email, // reply goes straight to the person who submitted
+        ...(env.PLUNK_FROM ? { from: env.PLUNK_FROM } : {}),
+      }),
+    });
+    if (!res.ok) {
+      console.error('Plunk notify failed', res.status, await res.text().catch(() => ''));
+    }
+  } catch (err) {
+    console.error('Plunk notify error', err);
+  }
 }
