@@ -1,0 +1,57 @@
+---
+// Generic content page (sans-serif prose) for simple standalone pages like the
+// AI information page. Markdown pages set `layout: ../layouts/PageLayout.astro`
+// and provide `title`, `description`, and optionally `heading` (visible H1, falls
+// back to title), `eyebrow`, `lastUpdated`, `noindex`, and `ogImage`.
+import BaseLayout from './BaseLayout.astro';
+
+const { frontmatter } = Astro.props;
+const { title, description, heading, eyebrow, lastUpdated, noindex, ogImage } = frontmatter;
+---
+<BaseLayout title={`${title} | hubsell`} description={description} noindex={noindex} ogImage={ogImage}>
+  <section class="sec sec--sand pg-head">
+    <div class="wrap">
+      {eyebrow && <p class="eyebrow is-accent">{eyebrow}</p>}
+      <h1 class="heading_primary pg-title">{heading || title}</h1>
+      {lastUpdated && <p class="pg-meta">Last updated: {lastUpdated}</p>}
+    </div>
+  </section>
+
+  <section class="sec sec--paper pg-bodywrap">
+    <div class="wrap">
+      <article class="page-prose"><slot /></article>
+    </div>
+  </section>
+</BaseLayout>
+
+<style is:global>
+  .pg-head { padding-bottom:clamp(22px,3.5vw,34px); }
+  .pg-title { margin-top:8px; }
+  .pg-meta { font-family:var(--font-body); font-size:13px; color:var(--sec-tx); opacity:.7; margin:10px 0 0; }
+
+  /* Content body: sans-serif, comfortable reading measure, theme-aware via the
+     enclosing .sec--paper tokens. Scoped under .page-prose so it stays local. */
+  .page-prose { max-width:760px; font-family:var(--font-body); color:var(--sec-tx); }
+  .page-prose > :first-child { margin-top:0; }
+  .page-prose h2 {
+    font-family:var(--font-head); font-weight:600; font-size:1.4rem; line-height:1.25;
+    letter-spacing:-.01em; color:var(--sec-tx); margin:2em 0 .5em; padding-top:1em;
+    border-top:1px solid var(--sec-bd);
+  }
+  .page-prose h2:first-of-type { margin-top:.2em; padding-top:0; border-top:0; }
+  .page-prose h3 { font-family:var(--font-head); font-weight:600; font-size:1.15rem; line-height:1.3; color:var(--sec-tx); margin:1.6em 0 .4em; }
+  .page-prose h4 { font-family:var(--font-head); font-weight:600; font-size:1rem; line-height:1.35; color:var(--sec-tx); margin:1.3em 0 .3em; }
+  .page-prose p { font-size:1.0625rem; line-height:1.7; color:var(--sec-tx); margin:0 0 1.05em; }
+  .page-prose strong { font-weight:600; color:var(--sec-tx); }
+  .page-prose a { color:var(--accent-on); font-weight:500; text-decoration:none; border-bottom:1px solid transparent; transition:border-color .15s; overflow-wrap:anywhere; }
+  .page-prose a:hover { border-bottom-color:var(--accent-on); }
+  .page-prose ul, .page-prose ol { margin:0 0 1.1em; padding-left:0; list-style:none; }
+  .page-prose ol { counter-reset:pg; }
+  .page-prose li { position:relative; padding-left:24px; margin:0 0 .55em; font-size:1.0625rem; line-height:1.6; color:var(--sec-tx); }
+  .page-prose ul li::before { content:""; position:absolute; left:2px; top:.62em; width:7px; height:7px; border-radius:50%; background:var(--accent-on); }
+  .page-prose ol li { counter-increment:pg; }
+  .page-prose ol li::before { content:counter(pg) "."; position:absolute; left:0; top:0; font-weight:600; color:var(--accent-on); }
+  .page-prose blockquote { margin:1.2em 0; padding:2px 0 2px 18px; border-left:3px solid var(--accent-on); color:var(--sec-tx); }
+  .page-prose hr { border:0; border-top:1px solid var(--sec-bd); margin:1.6em 0; }
+  .page-prose code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.9em; background:color-mix(in srgb,var(--sec-tx) 8%,transparent); padding:1px 5px; border-radius:5px; }
+</style>

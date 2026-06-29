@@ -1,0 +1,173 @@
+---
+// Multi-field form (name, work email, company, message) that posts JSON to the
+// /api/subscribe Pages Function, which forwards to Plunk server-side. Used by the
+// book-a-call and contact pages. `gate` keeps the corporate-email rule for sales
+// forms; the contact page passes gate={false} so anyone can reach us. The server
+// enforces the real rule either way (functions/api/subscribe.ts).
+export interface Props {
+  form: string;
+  gate?: boolean;
+  buttonLabel?: string;
+  emailPlaceholder?: string;
+  emailHelp?: string;
+  messageLabel?: string;
+  messagePlaceholder?: string;
+  successTitle?: string;
+  successText?: string;
+}
+const {
+  form,
+  gate = true,
+  buttonLabel = 'Send',
+  emailPlaceholder = 'you@yourcompany.com',
+  emailHelp = gate
+    ? 'Use your work email. Free providers and competitor domains are blocked.'
+    : '',
+  messageLabel = 'What would you like to talk about?',
+  messagePlaceholder = 'A line or two on what you are looking for.',
+  successTitle = 'Thanks, we got it.',
+  successText = 'We will be in touch shortly at the email you gave us.',
+} = Astro.props;
+---
+<div class="hs-request" data-form={form} data-gate={gate ? 'true' : 'false'}>
+  <form class="hs-request__form" novalidate>
+    <div class="hs-field">
+      <label class="hs-label" for={`rf-name-${form}`}>Name</label>
+      <input class="input" id={`rf-name-${form}`} name="name" type="text" required autocomplete="name" placeholder="Your name" />
+    </div>
+    <div class="hs-field">
+      <label class="hs-label" for={`rf-email-${form}`}>Work email</label>
+      <input class="input" id={`rf-email-${form}`} name="email" type="email" required autocomplete="email" placeholder={emailPlaceholder} />
+    </div>
+    <div class="hs-field">
+      <label class="hs-label" for={`rf-company-${form}`}>Company <span class="hs-opt">(optional)</span></label>
+      <input class="input" id={`rf-company-${form}`} name="company" type="text" autocomplete="organization" placeholder="Company name" />
+    </div>
+    <div class="hs-field">
+      <label class="hs-label" for={`rf-message-${form}`}>{messageLabel} <span class="hs-opt">(optional)</span></label>
+      <textarea class="input hs-textarea" id={`rf-message-${form}`} name="message" rows="4" placeholder={messagePlaceholder}></textarea>
+    </div>
+    <button class="button is-large hs-submit" type="submit">{buttonLabel}</button>
+    <p class="hs-error" role="alert" aria-live="polite">{emailHelp}</p>
+  </form>
+  <div class="hs-request__done" hidden>
+    <p class="hs-done__title">{successTitle}</p>
+    <p class="hs-done__text">{successText}</p>
+  </div>
+</div>
+
+<style>
+  .hs-request { width:100%; max-width:520px; }
+  .hs-field { margin-bottom:16px; }
+  .hs-label { display:block; font-family:var(--font-body); font-weight:500; font-size:14px; color:var(--sec-tx); margin:0 0 7px; }
+  .hs-opt { font-weight:400; opacity:.55; }
+  .input {
+    font-family:var(--font-body); font-size:1rem; width:100%;
+    padding:13px 16px; color:var(--sec-tx); background:var(--sec-card);
+    border:1px solid var(--sec-bd); border-radius:var(--radius);
+    transition:border-color .15s, box-shadow .15s;
+  }
+  .hs-textarea { resize:vertical; min-height:104px; line-height:1.5; }
+  .input::placeholder { color:var(--sec-tx); opacity:.45; }
+  .input:focus { outline:none; border-color:var(--accent-on);
+    box-shadow:0 0 0 3px color-mix(in srgb, var(--accent-on) 22%, transparent); }
+  .input.is-error { border-color:var(--error);
+    box-shadow:0 0 0 3px color-mix(in srgb, var(--error) 20%, transparent); }
+  .hs-submit { margin-top:4px; }
+  .hs-error { font-family:var(--font-body); font-size:13px; color:var(--sec-tx); opacity:.6; margin:12px 0 0; transition:color .15s; }
+  .hs-error:empty { margin:0; }
+  .hs-error.is-error { color:var(--error); opacity:1; }
+  .hs-request__done { background:var(--sec-card); border:1px solid var(--sec-bd); border-left:3px solid var(--positive); border-radius:var(--radius-lg); padding:24px 26px; }
+  .hs-done__title { font-family:var(--font-head); font-weight:600; font-size:1.2rem; color:var(--sec-tx); margin:0 0 6px; }
+  .hs-done__text { font-family:var(--font-body); font-size:15px; line-height:1.55; color:var(--sec-tx); opacity:.8; margin:0; }
+  @media (max-width:480px){ .hs-submit{ width:100%; } }
+</style>
+
+<script>
+  import { classifyEmailLight, EMAIL_DOMAIN_MESSAGES } from '../data/free-email-domains.ts';
+
+  const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
+  function initRequestForms() {
+    document.querySelectorAll<HTMLElement>('.hs-request').forEach((root) => {
+      if (root.dataset.bound) return;
+      root.dataset.bound = 'true';
+
+      const form = root.querySelector<HTMLFormElement>('form')!;
+      const done = root.querySelector<HTMLElement>('.hs-request__done')!;
+      const nameEl = root.querySelector<HTMLInputElement>('input[name="name"]')!;
+      const emailEl = root.querySelector<HTMLInputElement>('input[name="email"]')!;
+      const companyEl = root.querySelector<HTMLInputElement>('input[name="company"]')!;
+      const messageEl = root.querySelector<HTMLTextAreaElement>('textarea[name="message"]')!;
+      const button = root.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+      const err = root.querySelector<HTMLElement>('.hs-error')!;
+      const defaultHelp = err.textContent || '';
+      const label = button.textContent || '';
+      const gate = root.dataset.gate === 'true';
+
+      function setError(field: HTMLElement | null, message: string | null) {
+        emailEl.classList.remove('is-error');
+        nameEl.classList.remove('is-error');
+        if (message) {
+          field?.classList.add('is-error');
+          err.classList.add('is-error');
+          err.textContent = message;
+        } else {
+          err.classList.remove('is-error');
+          err.textContent = defaultHelp;
+        }
+      }
+
+      [nameEl, emailEl].forEach((el) =>
+        el.addEventListener('input', () => { if (el.classList.contains('is-error')) setError(null, null); })
+      );
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const name = (nameEl.value || '').trim();
+        const email = (emailEl.value || '').trim();
+
+        if (!name) { setError(nameEl, 'Please enter your name.'); nameEl.focus(); return; }
+        if (!EMAIL_RE.test(email)) { setError(emailEl, 'Please enter a valid email address.'); emailEl.focus(); return; }
+        if (gate) {
+          const verdict = classifyEmailLight(email);
+          if (verdict === 'blocked') { setError(emailEl, EMAIL_DOMAIN_MESSAGES.blocked); emailEl.focus(); return; }
+          if (verdict === 'free') { setError(emailEl, EMAIL_DOMAIN_MESSAGES.free); emailEl.focus(); return; }
+        }
+
+        setError(null, null);
+        button.disabled = true;
+        button.textContent = 'Sending…';
+        try {
+          const res = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              form: root.dataset.form,
+              name,
+              email,
+              company: (companyEl.value || '').trim(),
+              message: (messageEl.value || '').trim(),
+            }),
+          });
+          const payload = await res.json().catch(() => ({}));
+          if (!res.ok || payload?.ok === false) {
+            setError(emailEl, payload?.error || 'Something went wrong. Please try again.');
+            button.disabled = false;
+            button.textContent = label;
+            return;
+          }
+          form.hidden = true;
+          done.hidden = false;
+        } catch {
+          setError(emailEl, 'Could not reach the server. Please try again.');
+          button.disabled = false;
+          button.textContent = label;
+        }
+      });
+    });
+  }
+
+  initRequestForms();
+  document.addEventListener('astro:page-load', initRequestForms);
+</script>

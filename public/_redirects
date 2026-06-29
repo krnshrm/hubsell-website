@@ -5,3 +5,12 @@
 # NOTE: apex -> www is NOT handled here. Pages _redirects matches on path,
 # not hostname, so the apex redirect is a Redirect Rule in the Cloudflare
 # dashboard instead — see README ("Deploy to Cloudflare Pages").
+# Legacy Webflow pages (old copy, superseded by the new homepage + use-cases).
+/products                 /                                    301
+/products/                /                                    301
+/product                  /                                    301
+/account-based-sales      /use-cases/account-based-outreach    301
+/account-based-sales/     /use-cases/account-based-outreach    301
+
+# Old customer-story slug -> current slug.
+/customerstories/workspace   /customerstories/workspace365     301

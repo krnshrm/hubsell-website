@@ -15,9 +15,18 @@ const EVENT_BY_FORM: Record<string, string> = {
   waitlist: 'waitlist-signup',
   'publish-track': 'publish-track-waitlist',
   newsletter: 'newsletter-signup',
+  'book-a-call': 'book-a-call-request',
+  contact: 'contact-form',
 };
 
+// Forms that accept any email address (no corporate-only rule). The general
+// contact form lets anyone reach us; the sales/waitlist forms stay corporate-only.
+const UNGATED_FORMS = new Set<string>(['contact']);
+
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
+// Keep free-text fields short so a form can't push large payloads into Plunk.
+const clip = (v: unknown, max: number) => String(v ?? '').trim().slice(0, max);
 
 export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   if (!env.PLUNK_SECRET_KEY) {
@@ -26,16 +35,25 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 
   let email = '';
   let form = 'waitlist';
+  let name = '';
+  let company = '';
+  let message = '';
   try {
     const ct = request.headers.get('content-type') || '';
     if (ct.includes('application/json')) {
-      const body = (await request.json()) as { email?: string; form?: string };
-      email = (body.email || '').trim();
-      form = (body.form || 'waitlist').trim();
+      const body = (await request.json()) as Record<string, unknown>;
+      email = clip(body.email, 200);
+      form = clip(body.form, 60) || 'waitlist';
+      name = clip(body.name, 120);
+      company = clip(body.company, 160);
+      message = clip(body.message, 2000);
     } else {
       const data = await request.formData();
-      email = String(data.get('email') || '').trim();
-      form = String(data.get('form') || 'waitlist').trim();
+      email = clip(data.get('email'), 200);
+      form = clip(data.get('form'), 60) || 'waitlist';
+      name = clip(data.get('name'), 120);
+      company = clip(data.get('company'), 160);
+      message = clip(data.get('message'), 2000);
     }
   } catch {
     return json({ ok: false, error: 'Invalid request body.' }, 400);
@@ -47,16 +65,25 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 
   // Authoritative corporate-email gate (the client check is UX only and can be
   // bypassed). Blocks competitor domains and free providers using the full list.
-  const verdict = classifyEmail(email);
-  if (verdict === 'blocked') {
-    return json({ ok: false, error: EMAIL_DOMAIN_MESSAGES.blocked }, 422);
-  }
-  if (verdict === 'free') {
-    return json({ ok: false, error: EMAIL_DOMAIN_MESSAGES.free }, 422);
+  // Skipped for ungated forms like the general contact form.
+  if (!UNGATED_FORMS.has(form)) {
+    const verdict = classifyEmail(email);
+    if (verdict === 'blocked') {
+      return json({ ok: false, error: EMAIL_DOMAIN_MESSAGES.blocked }, 422);
+    }
+    if (verdict === 'free') {
+      return json({ ok: false, error: EMAIL_DOMAIN_MESSAGES.free }, 422);
+    }
   }
 
   const event = EVENT_BY_FORM[form] ?? EVENT_BY_FORM.waitlist;
   const base = (env.PLUNK_API_BASE || 'https://api.useplunk.com').replace(/\/+$/, '');
+
+  // Only send fields that were filled, so empty values don't clutter Plunk.
+  const data: Record<string, string> = { source: form };
+  if (name) data.name = name;
+  if (company) data.company = company;
+  if (message) data.message = message;
 
   try {
     const res = await fetch(`${base}/v1/track`, {
@@ -69,7 +96,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
         event,
         email,
         subscribed: true,
-        data: { source: form },
+        data,
       }),
     });
 

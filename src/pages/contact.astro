@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import RequestForm from '../components/RequestForm.astro';
+---
+<BaseLayout
+  title="Contact | hubsell"
+  description="Get in touch with hubsell. Questions about the platform, your account, partnerships, or press. Send a note and the right person will get back to you."
+>
+  <section class="sec sec--paper ct-hero">
+    <div class="wrap">
+      <p class="eyebrow is-accent">Contact</p>
+      <h1 class="ct-title">Get in touch</h1>
+      <p class="ct-sub subheading">Questions about hubsell, your account, partnerships, or press. Send a note and the right person will get back to you.</p>
+    </div>
+  </section>
+
+  <section class="sec sec--sand ct-body">
+    <div class="wrap">
+      <div class="ct-grid">
+        <div class="ct-details">
+          <div class="ct-block">
+            <p class="ct-label">General and support</p>
+            <a class="ct-link link" href="mailto:support@hubsell.com">support@hubsell.com</a>
+          </div>
+          <div class="ct-block">
+            <p class="ct-label">Legal and privacy</p>
+            <a class="ct-link link" href="mailto:legal@hubsell.com">legal@hubsell.com</a>
+          </div>
+          <div class="ct-block">
+            <p class="ct-label">Office</p>
+            <address class="ct-address">
+              hubsell UG (haftungsbeschränkt)<br />
+              Friedrichstraße 155<br />
+              D-10117 Berlin, Germany
+            </address>
+          </div>
+          <div class="ct-block">
+            <p class="ct-label">Prefer to talk it through?</p>
+            <a class="ct-link link" href="/book-a-call">Book a call &rarr;</a>
+          </div>
+        </div>
+        <div class="ct-formcard">
+          <RequestForm
+            form="contact"
+            gate={false}
+            buttonLabel="Send message"
+            emailPlaceholder="you@example.com"
+            messageLabel="Your message"
+            messagePlaceholder="How can we help?"
+            successTitle="Message sent."
+            successText="Thanks for reaching out. We will reply by email soon."
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .ct-hero { padding-bottom: clamp(24px,3vw,36px); }
+  .ct-title { font-family:var(--font-head); font-weight:600; font-size:clamp(2rem,4.4vw,2.75rem); line-height:1.1; letter-spacing:-.02em; color:var(--sec-tx); margin:8px 0 0; }
+  .ct-sub { margin-top:14px; max-width:58ch; }
+
+  .ct-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,5vw,56px); align-items:start; }
+  @media (max-width:760px){ .ct-grid{ grid-template-columns:1fr; } }
+
+  .ct-block { margin-bottom:22px; }
+  .ct-label { font-family:var(--font-body); font-weight:500; font-size:12px; text-transform:uppercase; letter-spacing:.08em; color:var(--sec-tx); opacity:.55; margin:0 0 6px; }
+  .ct-link { font-family:var(--font-body); font-size:1.0625rem; }
+  .ct-address { font-style:normal; font-family:var(--font-body); font-size:1.0625rem; line-height:1.6; color:var(--sec-tx); }
+
+  .ct-formcard { background:var(--sec-card); border:1px solid var(--sec-bd); border-radius:var(--radius-lg); padding:clamp(22px,3vw,30px); }
+</style>
