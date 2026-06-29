@@ -37,6 +37,7 @@ export const menuGroups: NavGroup[] = [
   {
     heading: 'Company',
     links: [
+      { label: 'Contact', href: '/contact' },
       { label: 'About us', soon: true },
       { label: 'Careers', soon: true },
       { label: 'Partner program', soon: true },
@@ -68,6 +69,7 @@ export const legalLinks: NavLink[] = [
   { label: 'Privacy Policy', href: '/privacy' },
   { label: 'DPA', href: '/data-processing-agreement' },
   { label: 'Terms & Conditions', href: '/terms' },
+  { label: 'Affiliate Terms', href: '/affiliate-terms-and-conditions' },
 ];
 
 // Live (built) links only — used by the footer so unbuilt pages never show there.

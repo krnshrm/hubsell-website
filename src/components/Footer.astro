@@ -20,11 +20,15 @@ const byOrder = (order) => (a, b) => {
 const stories = (await getCollection('customerstories', (s) => !s.data.draft)).sort(byOrder(CS_ORDER));
 const comparisons = (await getCollection('comparisons')).sort(byOrder(CMP_ORDER));
 
-// Resources column: the live nav links that aren't expanded into their own column,
-// plus the footer-only links, plus the top-level links. Insights, FAQ, Pricing.
+// Resources column: the Learn nav links that aren't expanded into their own column,
+// plus the footer-only links, plus the top-level links. Company links get their own
+// column so Contact (and future About/Careers) don't land under Resources.
 const expanded = new Set(['/customerstories', '/comparisons']);
-const navResourceLinks = menuGroups.flatMap((g) => liveLinks(g.links)).filter((l) => !expanded.has(l.href));
-const resourceLinks = [...navResourceLinks, ...footerLinks, ...liveLinks(topLinks)];
+const learn = menuGroups.find((g) => g.heading === 'Learn');
+const company = menuGroups.find((g) => g.heading === 'Company');
+const learnLinks = learn ? liveLinks(learn.links).filter((l) => !expanded.has(l.href)) : [];
+const companyLinks = company ? liveLinks(company.links) : [];
+const resourceLinks = [...learnLinks, ...footerLinks, ...liveLinks(topLinks)];
 
 const columns = [
   { heading: 'Resources', links: resourceLinks },
@@ -42,6 +46,7 @@ const columns = [
       { label: 'All comparisons', href: '/comparisons', all: true },
     ],
   },
+  { heading: 'Company', links: companyLinks },
   { heading: 'Legal', links: legalLinks },
 ].filter((c) => c.links.length);
 ---
@@ -53,6 +58,7 @@ const columns = [
         <p class="site-footer__tag">Replace your outbound stack. Live-sourced data, email and LinkedIn outreach, and CRM sync in one platform.</p>
         <div class="site-footer__cta">
           <a class="button is-small" href={trial.href}>{trial.label}</a>
+          <a class="site-footer__login" href="/book-a-call">Book a call</a>
           <a class="site-footer__login" href={login.href}>{login.label}</a>
         </div>
       </div>
