@@ -8,7 +8,11 @@ subhead: "B2B deals are decided by a committee, not one contact. hubsell lets yo
 widget: "SocialProspecting"
 widgetBg: "sec--esp"
 widgetCaption: "Reach every stakeholder in the account, not just one lead."
-proofStory: "sensolus"
+proofStory: "staffbase"
+quotes:
+  - "spryker"
+  - "sensolus"
+  - "cibt"
 features:
   - "Buying committee coverage"
   - "Intent and signal targeting"

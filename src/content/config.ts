@@ -97,6 +97,7 @@ const usecases = defineCollection({
     features: z.array(z.string()).optional(), // key feature labels
     roles: z.array(z.string()).optional(),    // who it's for (labels)
     related: z.array(z.string()).optional(),  // related use-case slugs
+    quotes: z.array(z.string()).optional(),   // testimonial slugs for the proof strip
     ctaHeading: z.string().optional(),        // optional CTA heading override
     ctaText: z.string().optional(),           // optional CTA body override
     order: z.number().default(99),            // overview sort order

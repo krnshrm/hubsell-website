@@ -9,6 +9,10 @@ widget: "ZeroDayTimeline"
 widgetBg: "sec--sand"
 widgetCaption: "A bought database decays from day one. Live sourcing does not."
 proofStory: "elium"
+quotes:
+  - "aspire"
+  - "matterway"
+  - "meetyoo"
 features:
   - "Live-sourced prospect data"
   - "Intent-driven targeting"

@@ -1,0 +1,37 @@
+---
+import Avatar from './Avatar.astro';
+import type { Testimonial } from '../data/testimonials';
+
+interface Props { quotes: Testimonial[]; heading?: string; }
+const { quotes, heading = 'What teams say' } = Astro.props;
+---
+{quotes && quotes.length > 0 && (
+  <div class="tstrip">
+    {heading && <p class="eyebrow is-accent tstrip__head">{heading}</p>}
+    <div class="tstrip__grid">
+      {quotes.map((t) => (
+        <figure class="tstrip__card">
+          <blockquote class="tstrip__quote">{t.quote}</blockquote>
+          <figcaption class="tstrip__by">
+            <Avatar src={t.photo} name={t.name} size={40} />
+            <span class="tstrip__meta">
+              <span class="tstrip__name">{t.name}</span>
+              <span class="tstrip__role">{[t.title, t.company].filter(Boolean).join(', ')}</span>
+            </span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+)}
+
+<style>
+  .tstrip__head { margin-bottom:16px; }
+  .tstrip__grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
+  .tstrip__card { margin:0; display:flex; flex-direction:column; background:var(--sec-card); border:1px solid var(--sec-bd); border-radius:var(--radius-lg); padding:22px; }
+  .tstrip__quote { font-family:var(--font-body); font-size:15px; line-height:1.55; color:var(--sec-tx); margin:0 0 18px; }
+  .tstrip__by { display:flex; align-items:center; gap:11px; margin-top:auto; }
+  .tstrip__meta { display:flex; flex-direction:column; line-height:1.3; }
+  .tstrip__name { font-family:var(--font-body); font-weight:600; font-size:13.5px; color:var(--sec-tx); }
+  .tstrip__role { font-family:var(--font-body); font-size:12px; color:var(--sec-tx); opacity:.66; }
+</style>

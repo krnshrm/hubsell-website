@@ -1,6 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TestimonialStrip from '../../components/TestimonialStrip.astro';
+import { pickTestimonials } from '../../data/testimonials';
 
 // Build every comparison. Unlike insights/stories we do NOT filter on `draft`:
 // the rows are drafted in Webflow but are the launch pages (see content config).
@@ -24,6 +26,9 @@ const SIGNUP = 'https://app.hubsell.com/signup';
 const ORDER = ['apollo', 'zoominfo', 'cognism', 'lusha', 'seamless'];
 const oi = (s) => { const i = ORDER.indexOf(s); return i === -1 ? 99 : i; };
 const related = items.filter((i) => i.slug !== item.slug).sort((a, b) => oi(a.slug) - oi(b.slug));
+
+// Social proof: a default trio that reads as "teams chose hubsell over the alternatives".
+const vsQuotes = pickTestimonials(['matterway', 'spryker', 'cibt']);
 ---
 <BaseLayout title={`${seoTitle} | hubsell`} description={seoDesc}>
   <article class="sec sec--paper vs-page">
@@ -92,6 +97,12 @@ const related = items.filter((i) => i.slug !== item.slug).sort((a, b) => oi(a.sl
               </div>
             )}
           </div>
+        </section>
+      )}
+
+      {vsQuotes.length > 0 && (
+        <section class="vs-section vs-voices">
+          <TestimonialStrip quotes={vsQuotes} heading="Why teams switch to hubsell" />
         </section>
       )}
 

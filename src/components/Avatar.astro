@@ -1,0 +1,27 @@
+---
+// Avatar — a round photo that falls back to initials if the image fails to load,
+// so a missing R2 file never shows a broken-image icon.
+interface Props { src?: string; name: string; size?: number; }
+const { src, name, size = 44 } = Astro.props;
+const initials = name.split(/\s+/).map((w) => w[0]).filter(Boolean).slice(0, 2).join('').toUpperCase();
+---
+<span class="avatar" style={`--sz:${size}px`}>
+  {src && (
+    <img
+      class="avatar__img"
+      src={src}
+      alt={name}
+      width={size}
+      height={size}
+      loading="lazy"
+      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+    />
+  )}
+  <span class="avatar__fallback" style={src ? 'display:none' : 'display:flex'}>{initials}</span>
+</span>
+
+<style>
+  .avatar { display:inline-block; width:var(--sz); height:var(--sz); flex:0 0 auto; }
+  .avatar__img { width:var(--sz); height:var(--sz); border-radius:50%; object-fit:cover; display:block; border:1px solid var(--sec-bd); background:color-mix(in srgb,var(--sec-tx) 6%,transparent); }
+  .avatar__fallback { width:var(--sz); height:var(--sz); border-radius:50%; align-items:center; justify-content:center; font-family:var(--font-head); font-weight:600; font-size:calc(var(--sz) * .36); color:var(--accent-on); background:color-mix(in srgb,var(--accent-on) 14%,transparent); border:1px solid var(--sec-bd); }
+</style>

@@ -9,6 +9,10 @@ widget: "MultichannelFlow"
 widgetBg: "sec--esp"
 widgetCaption: "Email and LinkedIn in one branching sequence."
 proofStory: "verhaert"
+quotes:
+  - "alon-even"
+  - "meetyoo"
+  - "cibt"
 features:
   - "Email and LinkedIn in one flow"
   - "Branching on prospect behavior"

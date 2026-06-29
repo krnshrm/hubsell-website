@@ -6,6 +6,9 @@ import UnifiedGrid from '../../components/UnifiedGrid.astro';
 import ZeroDayTimeline from '../../components/ZeroDayTimeline.astro';
 import MultichannelFlow from '../../components/MultichannelFlow.astro';
 import SocialProspecting from '../../components/SocialProspecting.astro';
+import Avatar from '../../components/Avatar.astro';
+import TestimonialStrip from '../../components/TestimonialStrip.astro';
+import { TESTIMONIALS, pickTestimonials } from '../../data/testimonials';
 
 export async function getStaticPaths() {
   const items = await getCollection('usecases', (u) => !u.data.draft);
@@ -29,6 +32,10 @@ if (d.proofStory) {
 }
 const proofQuote = proof?.data.testimonial ? proof.data.testimonial.replace(/^[\s"“”]+|[\s"“”]+$/g, '') : '';
 const proofRole = proof ? [proof.data.championTitle, proof.data.company].filter(Boolean).join(', ') : '';
+// Champion face: pull the photo from the shared pool by matching the story slug.
+const championPhoto = proof ? TESTIMONIALS.find((t) => t.storySlug === proof.slug)?.photo : undefined;
+// Strip = curated testimonials for this use case, never repeating the proof champion.
+const stripQuotes = pickTestimonials(d.quotes).filter((t) => t.storySlug !== proof?.slug);
 
 // Related: the explicit list, else the other use-cases in order.
 const others = items
@@ -91,29 +98,38 @@ const ctaText = d.ctaText || 'Start a free trial and put hubsell to work on your
     </div>
   </section>
 
-  {/* PROOF */}
-  {proof && (
+  {/* PROOF + WHAT TEAMS SAY */}
+  {(proof || stripQuotes.length > 0) && (
     <section class="sec sec--sand uc-proofwrap">
       <div class="wrap">
-        <aside class="uc-proof">
-          <p class="eyebrow is-accent">Proof</p>
-          {proofQuote && <blockquote class="uc-proof__quote">{proofQuote}</blockquote>}
-          {proof.data.results?.length > 0 && (
-            <div class="uc-proof__metrics">
-              {proof.data.results.map((r) => (
-                <div class="uc-proof__metric">
-                  <p class="uc-proof__num">{r.metric}</p>
-                  <p class="uc-proof__lab">{r.label}</p>
-                </div>
-              ))}
+        {proof && (
+          <aside class="uc-proof">
+            <p class="eyebrow is-accent">Proof</p>
+            {proofQuote && <blockquote class="uc-proof__quote">{proofQuote}</blockquote>}
+            {proof.data.results?.length > 0 && (
+              <div class="uc-proof__metrics">
+                {proof.data.results.map((r) => (
+                  <div class="uc-proof__metric">
+                    <p class="uc-proof__num">{r.metric}</p>
+                    <p class="uc-proof__lab">{r.label}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+            <div class="uc-proof__by">
+              <Avatar src={championPhoto} name={proof.data.champion} size={46} />
+              <span class="uc-proof__bymeta">
+                <span class="uc-proof__byname">{proof.data.champion}{proofRole ? `, ${proofRole}` : ''}</span>
+                <a class="link" href={`/customerstories/${proof.slug}`}>Read the {proof.data.company} story &rarr;</a>
+              </span>
             </div>
-          )}
-          <p class="uc-proof__by">
-            {proof.data.champion}{proofRole ? `, ${proofRole}` : ''}
-            {' · '}
-            <a class="link" href={`/customerstories/${proof.slug}`}>Read the {proof.data.company} story &rarr;</a>
-          </p>
-        </aside>
+          </aside>
+        )}
+        {stripQuotes.length > 0 && (
+          <div class="uc-strip">
+            <TestimonialStrip quotes={stripQuotes} heading="More teams using hubsell" />
+          </div>
+        )}
       </div>
     </section>
   )}
@@ -193,7 +209,11 @@ const ctaText = d.ctaText || 'Start a free trial and put hubsell to work on your
   .uc-proof__metrics { display:flex; gap:30px; flex-wrap:wrap; margin-bottom:16px; }
   .uc-proof__num { font-family:var(--font-head); font-weight:600; font-size:1.5rem; color:var(--accent-on); margin:0; }
   .uc-proof__lab { font-family:var(--font-body); font-size:13px; line-height:1.35; color:var(--sec-tx); opacity:.72; margin:4px 0 0; max-width:18ch; }
-  .uc-proof__by { font-family:var(--font-body); font-size:14px; color:var(--sec-tx); opacity:.85; margin:0; }
+  .uc-proof__by { display:flex; align-items:center; gap:12px; margin:0; }
+  .uc-proof__bymeta { display:flex; flex-direction:column; gap:2px; }
+  .uc-proof__byname { font-family:var(--font-body); font-weight:600; font-size:14px; color:var(--sec-tx); }
+  .uc-proof__by .link { font-size:13.5px; }
+  .uc-strip { margin-top: clamp(28px,4vw,44px); }
 
   /* CTA (centered on the navy band) */
   .uc-cta { max-width:760px; margin:0 auto; text-align:center; }

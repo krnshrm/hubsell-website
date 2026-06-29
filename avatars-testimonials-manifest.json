@@ -1,0 +1,38 @@
+[
+  {
+    "sourceUrl": "https://cdn.prod.website-files.com/69958f2709be924c893e6da3/699dcee15832f934d9f15cb8_Anthony%20H.avif",
+    "key": "avatars/anthony-hsiao.avif",
+    "contentType": "image/avif",
+    "prefix": "avatars/"
+  },
+  {
+    "sourceUrl": "https://cdn.prod.website-files.com/69958f2709be924c893e6da3/699dcee15832f934d9f15cbb_Greg%20G.avif",
+    "key": "avatars/greg-greenberger.avif",
+    "contentType": "image/avif",
+    "prefix": "avatars/"
+  },
+  {
+    "sourceUrl": "https://cdn.prod.website-files.com/69958f2709be924c893e6da3/699dcee15832f934d9f15cc3_Lee%20S.avif",
+    "key": "avatars/lee-smith.avif",
+    "contentType": "image/avif",
+    "prefix": "avatars/"
+  },
+  {
+    "sourceUrl": "https://cdn.prod.website-files.com/69958f2709be924c893e6da3/699dcee15832f934d9f15cc5_Alon%20E.avif",
+    "key": "avatars/alon-even.avif",
+    "contentType": "image/avif",
+    "prefix": "avatars/"
+  },
+  {
+    "sourceUrl": "https://cdn.prod.website-files.com/69958f2709be924c893e6da3/699dcee15832f934d9f15ccb_Florian%20T.avif",
+    "key": "avatars/florian-teufel.avif",
+    "contentType": "image/avif",
+    "prefix": "avatars/"
+  },
+  {
+    "sourceUrl": "https://cdn.prod.website-files.com/69958f2709be924c893e6da3/699dcee15832f934d9f15cc2_Cassie%20C.webp",
+    "key": "avatars/cassie-craven.webp",
+    "contentType": "image/webp",
+    "prefix": "avatars/"
+  }
+]

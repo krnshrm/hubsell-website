@@ -9,6 +9,10 @@ widget: "UnifiedGrid"
 widgetBg: "sec--navy"
 widgetCaption: "Six tools become one platform. One login, one flow, one invoice."
 proofStory: "safran"
+quotes:
+  - "matterway"
+  - "spryker"
+  - "cibt"
 features:
   - "Live-sourced prospect data"
   - "Email and LinkedIn in one sequence"
