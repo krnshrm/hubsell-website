@@ -90,6 +90,9 @@ const usecases = defineCollection({
     metaTitle: z.string().optional(),         // SEO <title> (falls back to title)
     description: z.string().optional(),       // SEO meta + card excerpt
     subhead: z.string().optional(),           // hero intro
+    widget: z.string().optional(),            // product widget component to render as the page visual
+    widgetBg: z.string().optional(),          // section class for the widget band (e.g. "sec--navy")
+    widgetCaption: z.string().optional(),     // short line above the widget
     proofStory: z.string().optional(),        // customer-story slug to feature as proof
     features: z.array(z.string()).optional(), // key feature labels
     roles: z.array(z.string()).optional(),    // who it's for (labels)
