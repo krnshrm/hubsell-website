@@ -1,0 +1,76 @@
+---
+// Contact page body. Single source rendered by both /contact (English) and
+// /de/contact (German); it self-localizes from Astro.currentLocale, so the markup
+// lives in one place. Email addresses stay as-is; the office country line and the
+// Book-a-call link localize, and the form receives locale-appropriate labels.
+import RequestForm from './RequestForm.astro';
+import { asLocale, localizeUrl } from '../i18n/utils';
+import { getContact } from '../i18n/pages';
+
+const L = asLocale(Astro.currentLocale);
+const c = getContact(L);
+---
+<section class="sec sec--paper ct-hero">
+  <div class="wrap">
+    <p class="eyebrow is-accent">{c.eyebrow}</p>
+    <h1 class="ct-title">{c.title}</h1>
+    <p class="ct-sub subheading">{c.sub}</p>
+  </div>
+</section>
+
+<section class="sec sec--sand ct-body">
+  <div class="wrap">
+    <div class="ct-grid">
+      <div class="ct-details">
+        <div class="ct-block">
+          <p class="ct-label">{c.labelSupport}</p>
+          <a class="ct-link link" href="mailto:support@hubsell.com">support@hubsell.com</a>
+        </div>
+        <div class="ct-block">
+          <p class="ct-label">{c.labelLegal}</p>
+          <a class="ct-link link" href="mailto:legal@hubsell.com">legal@hubsell.com</a>
+        </div>
+        <div class="ct-block">
+          <p class="ct-label">{c.labelOffice}</p>
+          <address class="ct-address">
+            hubsell UG (haftungsbeschränkt)<br />
+            Friedrichstraße 155<br />
+            {c.country}
+          </address>
+        </div>
+        <div class="ct-block">
+          <p class="ct-label">{c.labelTalk}</p>
+          <a class="ct-link link" href={localizeUrl(L, '/book-a-call')}>{c.bookCall} &rarr;</a>
+        </div>
+      </div>
+      <div class="ct-formcard">
+        <RequestForm
+          form="contact"
+          gate={false}
+          buttonLabel={c.form.buttonLabel}
+          emailPlaceholder={c.form.emailPlaceholder}
+          messageLabel={c.form.messageLabel}
+          messagePlaceholder={c.form.messagePlaceholder}
+          successTitle={c.form.successTitle}
+          successText={c.form.successText}
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ct-hero { padding-bottom: clamp(24px,3vw,36px); }
+  .ct-title { font-family:var(--font-head); font-weight:600; font-size:clamp(2rem,4.4vw,2.75rem); line-height:1.1; letter-spacing:-.02em; color:var(--sec-tx); margin:8px 0 0; }
+  .ct-sub { margin-top:14px; max-width:58ch; }
+
+  .ct-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,5vw,56px); align-items:start; }
+  @media (max-width:760px){ .ct-grid{ grid-template-columns:1fr; } }
+
+  .ct-block { margin-bottom:22px; }
+  .ct-label { font-family:var(--font-body); font-weight:500; font-size:12px; text-transform:uppercase; letter-spacing:.08em; color:var(--sec-tx); opacity:.55; margin:0 0 6px; }
+  .ct-link { font-family:var(--font-body); font-size:1.0625rem; }
+  .ct-address { font-style:normal; font-family:var(--font-body); font-size:1.0625rem; line-height:1.6; color:var(--sec-tx); }
+
+  .ct-formcard { background:var(--sec-card); border:1px solid var(--sec-bd); border-radius:var(--radius-lg); padding:clamp(22px,3vw,30px); }
+</style>

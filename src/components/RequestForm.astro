@@ -28,23 +28,59 @@ const {
   successTitle = 'Thanks, we got it.',
   successText = 'We will be in touch shortly at the email you gave us.',
 } = Astro.props;
+
+import { asLocale } from '../i18n/utils';
+const L = asLocale(Astro.currentLocale);
+// Field labels and client-side messages, English and German. English values are
+// identical to the originals, so the English render is unchanged. The German
+// message blob is attached to the root only on /de/ pages and read by the script.
+const RF = {
+  en: {
+    name: 'Name', workEmail: 'Work email', company: 'Company', optional: '(optional)',
+    namePh: 'Your name', companyPh: 'Company name',
+    js: {
+      enterName: 'Please enter your name.',
+      validEmail: 'Please enter a valid email address.',
+      sending: 'Sending…',
+      generic: 'Something went wrong. Please try again.',
+      network: 'Could not reach the server. Please try again.',
+      blocked: 'This domain is restricted.',
+      free: 'Please use your corporate work email.',
+    },
+  },
+  de: {
+    name: 'Name', workEmail: 'Geschäftliche E-Mail', company: 'Unternehmen', optional: '(optional)',
+    namePh: 'Ihr Name', companyPh: 'Firmenname',
+    js: {
+      enterName: 'Bitte geben Sie Ihren Namen ein.',
+      validEmail: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
+      sending: 'Senden …',
+      generic: 'Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.',
+      network: 'Server nicht erreichbar. Bitte versuchen Sie es erneut.',
+      blocked: 'Diese Domain ist gesperrt.',
+      free: 'Bitte verwenden Sie Ihre geschäftliche E-Mail-Adresse.',
+    },
+  },
+} as const;
+const t = ((RF as Record<string, typeof RF.en>)[L]) ?? RF.en;
+const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(t.js) };
 ---
-<div class="hs-request" data-form={form} data-gate={gate ? 'true' : 'false'}>
+<div class="hs-request" data-form={form} data-gate={gate ? 'true' : 'false'} {...i18nAttr}>
   <form class="hs-request__form" novalidate>
     <div class="hs-field">
-      <label class="hs-label" for={`rf-name-${form}`}>Name</label>
-      <input class="input" id={`rf-name-${form}`} name="name" type="text" required autocomplete="name" placeholder="Your name" />
+      <label class="hs-label" for={`rf-name-${form}`}>{t.name}</label>
+      <input class="input" id={`rf-name-${form}`} name="name" type="text" required autocomplete="name" placeholder={t.namePh} />
     </div>
     <div class="hs-field">
-      <label class="hs-label" for={`rf-email-${form}`}>Work email</label>
+      <label class="hs-label" for={`rf-email-${form}`}>{t.workEmail}</label>
       <input class="input" id={`rf-email-${form}`} name="email" type="email" required autocomplete="email" placeholder={emailPlaceholder} />
     </div>
     <div class="hs-field">
-      <label class="hs-label" for={`rf-company-${form}`}>Company <span class="hs-opt">(optional)</span></label>
-      <input class="input" id={`rf-company-${form}`} name="company" type="text" autocomplete="organization" placeholder="Company name" />
+      <label class="hs-label" for={`rf-company-${form}`}>{t.company} <span class="hs-opt">{t.optional}</span></label>
+      <input class="input" id={`rf-company-${form}`} name="company" type="text" autocomplete="organization" placeholder={t.companyPh} />
     </div>
     <div class="hs-field">
-      <label class="hs-label" for={`rf-message-${form}`}>{messageLabel} <span class="hs-opt">(optional)</span></label>
+      <label class="hs-label" for={`rf-message-${form}`}>{messageLabel} <span class="hs-opt">{t.optional}</span></label>
       <textarea class="input hs-textarea" id={`rf-message-${form}`} name="message" rows="4" placeholder={messagePlaceholder}></textarea>
     </div>
     <button class="button is-large hs-submit" type="submit">{buttonLabel}</button>
@@ -105,6 +141,18 @@ const {
       const label = button.textContent || '';
       const gate = root.dataset.gate === 'true';
 
+      let i18n: Record<string, string> | null = null;
+      try { i18n = root.dataset.i18n ? JSON.parse(root.dataset.i18n) : null; } catch { i18n = null; }
+      const MSG = {
+        enterName: i18n?.enterName ?? 'Please enter your name.',
+        validEmail: i18n?.validEmail ?? 'Please enter a valid email address.',
+        sending: i18n?.sending ?? 'Sending…',
+        generic: i18n?.generic ?? 'Something went wrong. Please try again.',
+        network: i18n?.network ?? 'Could not reach the server. Please try again.',
+        blocked: i18n?.blocked ?? EMAIL_DOMAIN_MESSAGES.blocked,
+        free: i18n?.free ?? EMAIL_DOMAIN_MESSAGES.free,
+      };
+
       function setError(field: HTMLElement | null, message: string | null) {
         emailEl.classList.remove('is-error');
         nameEl.classList.remove('is-error');
@@ -127,17 +175,17 @@ const {
         const name = (nameEl.value || '').trim();
         const email = (emailEl.value || '').trim();
 
-        if (!name) { setError(nameEl, 'Please enter your name.'); nameEl.focus(); return; }
-        if (!EMAIL_RE.test(email)) { setError(emailEl, 'Please enter a valid email address.'); emailEl.focus(); return; }
+        if (!name) { setError(nameEl, MSG.enterName); nameEl.focus(); return; }
+        if (!EMAIL_RE.test(email)) { setError(emailEl, MSG.validEmail); emailEl.focus(); return; }
         if (gate) {
           const verdict = classifyEmailLight(email);
-          if (verdict === 'blocked') { setError(emailEl, EMAIL_DOMAIN_MESSAGES.blocked); emailEl.focus(); return; }
-          if (verdict === 'free') { setError(emailEl, EMAIL_DOMAIN_MESSAGES.free); emailEl.focus(); return; }
+          if (verdict === 'blocked') { setError(emailEl, MSG.blocked); emailEl.focus(); return; }
+          if (verdict === 'free') { setError(emailEl, MSG.free); emailEl.focus(); return; }
         }
 
         setError(null, null);
         button.disabled = true;
-        button.textContent = 'Sending…';
+        button.textContent = MSG.sending;
         try {
           const res = await fetch('/api/subscribe', {
             method: 'POST',
@@ -152,7 +200,7 @@ const {
           });
           const payload = await res.json().catch(() => ({}));
           if (!res.ok || payload?.ok === false) {
-            setError(emailEl, payload?.error || 'Something went wrong. Please try again.');
+            setError(emailEl, payload?.error || MSG.generic);
             button.disabled = false;
             button.textContent = label;
             return;
@@ -160,7 +208,7 @@ const {
           form.hidden = true;
           done.hidden = false;
         } catch {
-          setError(emailEl, 'Could not reach the server. Please try again.');
+          setError(emailEl, MSG.network);
           button.disabled = false;
           button.textContent = label;
         }

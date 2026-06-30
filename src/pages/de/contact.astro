@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContactBody from '../../components/ContactBody.astro';
+import { getContact } from '../../i18n/pages';
+const c = getContact('de');
+---
+<BaseLayout title={c.metaTitle} description={c.metaDescription}>
+  <ContactBody />
+</BaseLayout>
