@@ -24,7 +24,7 @@ export const localeNames: Record<Locale, string> = {
 // for those. English always exists, so it is implicit. Empty for now; the German
 // homepage is the first entry (added in the next PR).
 export const translatedRoutes: Partial<Record<Locale, string[]>> = {
-  de: [],
+  de: ['/'],
   // nl: [], fr: [], es: [], pt: [],
 };
 

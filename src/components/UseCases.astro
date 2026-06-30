@@ -1,13 +1,15 @@
 ---
 // Section 8 — One platform for GTM (Navy). The six personas double as use-cases.
-import { roles } from '../data/home-content';
+import { getHome } from '../data/home-i18n';
+import { asLocale } from '../i18n/utils';
+const { roles, s } = getHome(asLocale(Astro.currentLocale));
 ---
 <section id="use-cases" class="sec sec--navy" aria-labelledby="roles-title">
   <div class="wrap">
     <div class="sec-head reveal">
-      <p class="eyebrow">Use-cases</p>
-      <h2 id="roles-title" class="heading_primary" style="margin-top:8px"><span class="accent">One platform</span> for GTM</h2>
-      <p class="subheading">Whatever your seat at the revenue table, hubsell replaces the tool sprawl with one coordinated motion.</p>
+      <p class="eyebrow">{s.usecases.eyebrow}</p>
+      <h2 id="roles-title" class="heading_primary" style="margin-top:8px">{s.usecases.titlePre}<span class="accent">{s.usecases.titleAccent}</span>{s.usecases.titlePost}</h2>
+      <p class="subheading">{s.usecases.sub}</p>
     </div>
 
     <div class="grid grid-3 reveal-stagger">

@@ -8,11 +8,14 @@ const ratings = [
   { platform: 'OMR', score: '5.0', out: '/5.0', url: 'https://omr.com/en/reviews/product/hubsell' },
   { platform: 'TrustRadius', score: '10', out: '/10', url: 'https://www.trustradius.com/products/hubsell/reviews' },
 ];
+import { getHome } from '../data/home-i18n';
+import { asLocale } from '../i18n/utils';
+const { s } = getHome(asLocale(Astro.currentLocale));
 ---
 <section class="sec sec--sand" aria-label="Ratings">
   <div class="wrap">
     <div class="sec-head reveal">
-      <h2 class="heading_primary">Rated <span class="accent">4.8+</span> across G2, Capterra, and GetApp</h2>
+      <h2 class="heading_primary">{s.ratings.titlePre}<span class="accent">{s.ratings.titleAccent}</span>{s.ratings.titlePost}</h2>
     </div>
     <div class="grid reveal-stagger" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px">
       {ratings.map((r) => (
@@ -21,7 +24,7 @@ const ratings = [
           href={r.url}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`Read hubsell reviews on ${r.platform} (rated ${r.score}${r.out})`}
+          aria-label={s.ratings.aria(r.platform, r.score, r.out)}
           style="text-align:center;padding:24px 18px"
         >
           <div class="heading_small" style="opacity:.8;margin-bottom:10px">{r.platform}</div>
@@ -31,7 +34,7 @@ const ratings = [
             ))}
           </div>
           <div><span class="metric" style="font-size:1.5rem;color:var(--sec-tx)">{r.score}</span><span class="paragraph_small" style="opacity:.55">{r.out}</span></div>
-          <span class="rating-card__cue" aria-hidden="true">Read reviews →</span>
+          <span class="rating-card__cue" aria-hidden="true">{s.ratings.cue}</span>
         </a>
       ))}
     </div>

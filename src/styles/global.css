@@ -200,3 +200,9 @@ html.has-anim .marquee__track{animation:marquee 32s linear infinite}
    right as the page scrolls. Shown on every page (lives in BaseLayout). */
 .scroll-progress{position:fixed;left:0;right:0;bottom:0;height:3px;z-index:60;pointer-events:none;background:transparent}
 .scroll-progress__fill{display:block;height:100%;width:100%;transform:scaleX(0);transform-origin:left center;background:var(--accent-on)}
+
+/* i18n: localized text for the "Soon" badges (Nav mega-menu items + the locale
+   switcher). The badges are CSS ::after content, so the label is driven by a
+   variable that follows the page language instead of a hardcoded string. */
+:root { --badge-soon: "Soon"; }
+html[lang="de"] { --badge-soon: "Bald"; }

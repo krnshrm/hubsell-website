@@ -1,13 +1,15 @@
 ---
 // Section 13 — FAQ. Accordion of the homepage-flagged FAQs from the shared FAQ
 // source (src/data/faqs.ts); the full list lives at /faqs.
-import { homeFaqs as faqs } from '../data/faqs';
+import { getHome } from '../data/home-i18n';
+import { asLocale } from '../i18n/utils';
+const { faqs, s } = getHome(asLocale(Astro.currentLocale));
 ---
 <section class="sec sec--navy" aria-labelledby="faq-title">
   <div class="wrap" style="max-width:820px">
     <div class="sec-head reveal">
-      <p class="eyebrow">FAQ</p>
-      <h2 id="faq-title" class="heading_primary" style="margin-top:8px"><span class="accent">Honest answers</span>, because outbound is already hard enough.</h2>
+      <p class="eyebrow">{s.faqSec.eyebrow}</p>
+      <h2 id="faq-title" class="heading_primary" style="margin-top:8px">{s.faqSec.titlePre}<span class="accent">{s.faqSec.titleAccent}</span>{s.faqSec.titlePost}</h2>
     </div>
 
     <div class="acc reveal" data-accordion>
@@ -24,7 +26,7 @@ import { homeFaqs as faqs } from '../data/faqs';
     </div>
 
     <p class="reveal" style="margin-top:28px">
-      <a href="/faqs" class="link">See all questions →</a>
+      <a href="/faqs" class="link">{s.faqSec.seeAll}</a>
     </p>
   </div>
 </section>

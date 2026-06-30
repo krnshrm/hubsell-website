@@ -137,7 +137,7 @@ const t = useTranslations(locale);
   .nav__megacol li a:hover{ color:var(--nav-tx); background:color-mix(in srgb, var(--accent-on) 16%, transparent); }
   .nav__soon{ color:var(--nav-tx-dim); opacity:.5; cursor:default; }
   .nav__soon::after{
-    content:"Soon"; margin-left:auto; font-size:9px; font-weight:600; letter-spacing:.05em; text-transform:uppercase;
+    content:var(--badge-soon,"Soon"); margin-left:auto; font-size:9px; font-weight:600; letter-spacing:.05em; text-transform:uppercase;
     padding:2px 6px; border-radius:999px; background:color-mix(in srgb, var(--nav-tx) 12%, transparent);
   }
 
@@ -163,7 +163,7 @@ const t = useTranslations(locale);
   .nav__moblink{ display:flex; align-items:center; padding:11px 8px; border-radius:8px; font-size:15px; font-weight:500; color:var(--nav-tx); text-decoration:none; }
   .nav__moblink:hover{ background:var(--nav-hover); }
   .nav__moblink.nav__soon{ color:var(--nav-tx-dim); opacity:.5; }
-  .nav__moblink.nav__soon::after{ content:"Soon"; margin-left:auto; font-size:9px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; padding:2px 6px; border-radius:999px; background:color-mix(in srgb, var(--nav-tx) 12%, transparent); }
+  .nav__moblink.nav__soon::after{ content:var(--badge-soon,"Soon"); margin-left:auto; font-size:9px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; padding:2px 6px; border-radius:999px; background:color-mix(in srgb, var(--nav-tx) 12%, transparent); }
   .nav__mobrule{ border:0; border-top:1px solid var(--nav-bd); margin:8px 8px; }
   .nav__mobcta{ margin-top:10px; justify-content:center; }
 

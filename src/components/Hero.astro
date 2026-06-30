@@ -5,21 +5,24 @@
 import HeroPipelineFlow from './HeroPipelineFlow.astro';
 import AskAiWidget from './AskAiWidget.astro';
 import { SIGNUP_URL, DEMO_URL } from '../data/site';
+import { getHome } from '../data/home-i18n';
+import { asLocale } from '../i18n/utils';
+const { s } = getHome(asLocale(Astro.currentLocale));
 ---
 <section id="hero" class="sec sec--sand hero">
   <div class="wrap">
     <div class="hero__grid">
       <div class="hero__copy reveal-stagger">
-        <p class="eyebrow">For VPs of Sales tired of paying for 6+ tools</p>
-        <h1 class="heading_hero">Replace your <span class="accent">outbound</span> stack with one platform.</h1>
-        <p class="subheading hero__sub">Your team should spend time selling, not switching tabs. hubsell brings your data, outreach, and CRM sync into one place so they can.</p>
+        <p class="eyebrow">{s.hero.eyebrow}</p>
+        <h1 class="heading_hero">{s.hero.titlePre}<span class="accent">{s.hero.titleAccent}</span>{s.hero.titlePost}</h1>
+        <p class="subheading hero__sub">{s.hero.sub}</p>
 
         <div class="hero__cta">
-          <a class="button is-large" href={SIGNUP_URL}>Start free trial</a>
-          <a class="button is-secondary is-large" href={DEMO_URL}>See it in action</a>
+          <a class="button is-large" href={SIGNUP_URL}>{s.hero.ctaPrimary}</a>
+          <a class="button is-secondary is-large" href={DEMO_URL}>{s.hero.ctaSecondary}</a>
         </div>
 
-        <p class="hero__ratings">Rated <strong>4.8/5.0</strong> across Capterra, GetApp, and SoftwareAdvice.</p>
+        <p class="hero__ratings">{s.hero.ratingsPre}<strong>{s.hero.ratingsScore}</strong>{s.hero.ratingsPost}</p>
 
         <div class="hero__askai"><AskAiWidget /></div>
       </div>

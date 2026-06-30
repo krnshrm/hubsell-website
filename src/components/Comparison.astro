@@ -5,34 +5,16 @@
 // Column headers + the footer links deep-link to the /vs comparison pages
 // (Comparisons CMS collection: apollo, zoominfo, cognism, lusha, seamless).
 // Competitor copy stays factual — positioning, never a put-down.
+import { getHome } from '../data/home-i18n';
+import { asLocale } from '../i18n/utils';
+const { comparison, s } = getHome(asLocale(Astro.currentLocale));
 const HUB_LOGO = 'https://assets.hubsell.com/logo/hubsell-wordmark-light.svg';
 
 const cols = ['hub', 'aio', 'data', 'lookup'] as const;
-const heads: Record<string, { label: string; href?: string }> = {
-  hub:    { label: 'hubsell' },
-  aio:    { label: 'All-in-one platforms', href: '/vs/apollo' },
-  data:   { label: 'Enterprise data',      href: '/vs/zoominfo' },
-  lookup: { label: 'Lookup tools',         href: '/vs/lusha' },
-};
+const heads = comparison.heads;
 
 // mark: 'yes' | 'part' | 'no'
-const rows: { label: string; cells: Record<string, [string, string]> }[] = [
-  { label: 'Live, validated data', cells: {
-    hub:['yes','Sourced live, verified at point of use'], aio:['part','Pre-built database of ~275M'],
-    data:['part','Large static database'], lookup:['part','One-off contact lookups'] } },
-  { label: 'Email + LinkedIn, one flow', cells: {
-    hub:['yes','One sequence across both channels'], aio:['part','Email automated, LinkedIn manual'],
-    data:['no','Outreach sold separately'], lookup:['no','No outreach layer'] } },
-  { label: 'Automatic CRM sync', cells: {
-    hub:['yes','Salesforce, HubSpot & Pipedrive'], aio:['part','Salesforce & HubSpot native'],
-    data:['part','Native to major CRMs'], lookup:['part','Basic, often via Zapier'] } },
-  { label: 'You pay for what’s correct', cells: {
-    hub:['yes','Per contact sourced & validated'], aio:['no','Per seat, plus credits'],
-    data:['no','Five-figure annual contracts'], lookup:['part','Credits spent on bad hits too'] } },
-  { label: 'One platform, not a stack', cells: {
-    hub:['yes','Data, outreach & sync together'], aio:['part','Two of the pieces'],
-    data:['no','Data only'], lookup:['no','A single piece'] } },
-];
+const rows = comparison.rows;
 
 const allComparisons = [
   { name: 'Apollo', href: '/vs/apollo' }, { name: 'ZoomInfo', href: '/vs/zoominfo' },
@@ -43,9 +25,9 @@ const last = rows.length - 1;
 ---
 <section class="sec sec--sand cmp" aria-labelledby="cmp-title">
   <div class="wrap">
-    <p class="eyebrow cmp__eyebrow reveal">Why hubsell</p>
-    <h2 id="cmp-title" class="heading_primary cmp__title reveal">Most tools stop at the data. hubsell keeps going.</h2>
-    <p class="subheading cmp__sub reveal">hubsell sources contacts live, runs email and LinkedIn in one flow, and syncs to your CRM automatically. The tools you’d otherwise buy each cover one piece of that. hubsell covers all of it.</p>
+    <p class="eyebrow cmp__eyebrow reveal">{s.cmp.eyebrow}</p>
+    <h2 id="cmp-title" class="heading_primary cmp__title reveal">{s.cmp.title}</h2>
+    <p class="subheading cmp__sub reveal">{s.cmp.sub}</p>
 
     <div class="cmp__matrixwrap reveal">
       <div class="cmp__matrix">
@@ -65,7 +47,7 @@ const last = rows.length - 1;
               return (
                 <div class:list={["cmp__cell", isHub && "cmp__cell--hub", i === last && "is-lastrow"]}>
                   <span class={`mk mk--${mark}`}>
-                    <span class="sr-only">{mark === 'yes' ? 'Yes: ' : mark === 'part' ? 'Partial: ' : 'No: '}</span>
+                    <span class="sr-only">{mark === 'yes' ? s.cmp.srYes : mark === 'part' ? s.cmp.srPart : s.cmp.srNo}</span>
                     {mark === 'yes'
                       ? <svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2l2.2 2.3 4.8-5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
                       : <span aria-hidden="true">{mark === 'part' ? '~' : '–'}</span>}
@@ -79,10 +61,10 @@ const last = rows.length - 1;
       </div>
     </div>
 
-    <p class="cmp__moat reveal">Plenty of tools do one or two of these. None do all three in one place.</p>
+    <p class="cmp__moat reveal">{s.cmp.moat}</p>
 
     <div class="cmp__links reveal">
-      <span class="cmp__links-label">Comparing hubsell to a specific tool?</span>
+      <span class="cmp__links-label">{s.cmp.linksLabel}</span>
       {allComparisons.map((c) => <a href={c.href}>{c.name}</a>)}
     </div>
   </div>

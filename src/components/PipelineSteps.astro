@@ -5,12 +5,14 @@
 // column scales it to fit exactly (aspect-ratio box + transform). Below 1120px
 // the row stacks (text above visual); below 860px each embed uses its own
 // vertical mobile layout.
-import { pipelineSteps } from '../data/home-content';
+import { getHome } from '../data/home-i18n';
+import { asLocale } from '../i18n/utils';
 import { SIGNUP_URL } from '../data/site';
 import SocialProspecting from './SocialProspecting.astro';
 import MultichannelFlow from './MultichannelFlow.astro';
 import CrmSyncTracker from './CrmSyncTracker.astro';
 
+const { steps: pipelineSteps, s } = getHome(asLocale(Astro.currentLocale));
 const EMBEDS: Record<string, any> = {
   '05-sp-widget': SocialProspecting,
   '06-multichannel-flow': MultichannelFlow,
@@ -26,8 +28,8 @@ const DIMS: Record<string, { w: number; h: number }> = {
 <section class="sec sec--esp" aria-labelledby="steps-title" style="--maxw:1200px;--vw:640">
   <div class="wrap">
     <div class="sec-head is-center reveal">
-      <p class="eyebrow">The three-step pipeline motion</p>
-      <h2 id="steps-title" class="heading_primary" style="margin-top:8px">From <span class="accent">sign-up to meeting</span> set in three steps.</h2>
+      <p class="eyebrow">{s.pipeline.eyebrow}</p>
+      <h2 id="steps-title" class="heading_primary" style="margin-top:8px">{s.pipeline.titlePre}<span class="accent">{s.pipeline.titleAccent}</span>{s.pipeline.titlePost}</h2>
     </div>
 
     <div class="steps">

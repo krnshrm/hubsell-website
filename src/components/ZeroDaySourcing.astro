@@ -2,13 +2,16 @@
 // Section 5 — Zero-day sourcing (Paper). Full-width timeline embed contrasting the
 // slow database model with hubsell's live, same-day sourcing.
 import ZeroDayTimeline from './ZeroDayTimeline.astro';
+import { getHome } from '../data/home-i18n';
+import { asLocale } from '../i18n/utils';
+const { s } = getHome(asLocale(Astro.currentLocale));
 ---
 <section class="sec sec--paper" aria-labelledby="zds-title">
   <div class="wrap">
     <div class="sec-head reveal">
-      <p class="eyebrow is-accent">Zero-day sourcing</p>
-      <h2 id="zds-title" class="heading_primary" style="margin-top:8px">Data sourced <span class="accent">the moment you need it</span>. Not the moment someone else captured it.</h2>
-      <p class="subheading" style="margin-top:14px;max-width:64ch;opacity:.85">hubsell doesn’t sell out of a stale database. The moment you define your ICP, we source live from LinkedIn, matched to your criteria and validated at the point of use.</p>
+      <p class="eyebrow is-accent">{s.zds.eyebrow}</p>
+      <h2 id="zds-title" class="heading_primary" style="margin-top:8px">{s.zds.titlePre}<span class="accent">{s.zds.titleAccent}</span>{s.zds.titlePost}</h2>
+      <p class="subheading" style="margin-top:14px;max-width:64ch;opacity:.85">{s.zds.sub}</p>
     </div>
 
     <div class="zds-embed reveal">
@@ -16,8 +19,8 @@ import ZeroDayTimeline from './ZeroDayTimeline.astro';
     </div>
 
     <div class="zds-closer reveal">
-      <p class="paragraph zds-closer__line">You pay for a contact that’s correct today, not for access to 300 million contacts that were right two years ago.</p>
-      <a href="#features" class="button is-secondary">See how we do it</a>
+      <p class="paragraph zds-closer__line">{s.zds.closer}</p>
+      <a href="#features" class="button is-secondary">{s.zds.cta}</a>
     </div>
   </div>
 </section>

@@ -101,7 +101,7 @@ const langItems = locales.map((l) => ({
   .topbar__menu button:hover, .topbar__menu a:hover{ background:color-mix(in srgb, var(--accent-on) 14%, transparent); color:var(--text); }
   .topbar__menu .is-soon{ color:var(--text-3); cursor:default; }
   .topbar__menu .is-soon::after{
-    content:"Soon"; margin-left:auto; font-size:9px; font-weight:600; letter-spacing:.05em; text-transform:uppercase;
+    content:var(--badge-soon,"Soon"); margin-left:auto; font-size:9px; font-weight:600; letter-spacing:.05em; text-transform:uppercase;
     padding:2px 6px; border-radius:999px; background:color-mix(in srgb, var(--text) 12%, transparent); color:var(--text-3);
   }
 

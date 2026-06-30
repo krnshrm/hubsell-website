@@ -71,14 +71,17 @@ const logos = [
   { name: "Wunderpen", src: "https://assets.hubsell.com/logos/6998a5a5774baab89c697180_Wunderpen.svg" },
   { name: "Yarado", src: "https://assets.hubsell.com/logos/6998a5a5214933648ccc4d2a_Yarado.svg" },
 ];
+import { getHome } from '../data/home-i18n';
+import { asLocale } from '../i18n/utils';
+const { s } = getHome(asLocale(Astro.currentLocale));
 ---
 <section class="sec sec--paper" aria-label="Customers">
   <div class="wrap">
-    <p class="eyebrow" style="text-align:center;margin-bottom:26px">Trusted by B2B revenue teams across Europe</p>
+    <p class="eyebrow" style="text-align:center;margin-bottom:26px">{s.logos.eyebrow}</p>
     <div
       class="marquee"
       role="img"
-      aria-label="Logos of companies that use hubsell, including Safran, Staffbase, Verhaert, Personio, Telenor and many more"
+      aria-label={s.logos.aria}
     >
       <div class="marquee__track">
         {logos.map((logo) => (

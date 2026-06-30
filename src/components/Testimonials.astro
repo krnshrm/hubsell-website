@@ -1,12 +1,14 @@
 ---
 // Section 10 — What B2B teams say about hubsell (Espresso). Carousel.
-import { testimonials } from '../data/home-content';
+import { getHome } from '../data/home-i18n';
+import { asLocale } from '../i18n/utils';
+const { testimonials, s } = getHome(asLocale(Astro.currentLocale));
 ---
 <section class="sec sec--esp" aria-labelledby="tst-title">
   <div class="wrap">
     <div class="sec-head reveal">
-      <p class="eyebrow">Customer stories</p>
-      <h2 id="tst-title" class="heading_primary" style="margin-top:8px">What <span class="accent">B2B teams</span> say about hubsell</h2>
+      <p class="eyebrow">{s.testimonialsSec.eyebrow}</p>
+      <h2 id="tst-title" class="heading_primary" style="margin-top:8px">{s.testimonialsSec.titlePre}<span class="accent">{s.testimonialsSec.titleAccent}</span>{s.testimonialsSec.titlePost}</h2>
     </div>
 
     <div class="carousel reveal" data-carousel>
@@ -32,7 +34,7 @@ import { testimonials } from '../data/home-content';
                     </div>
                   ))}
                 </div>
-                <a href={`/customerstories/${t.slug}`} class="link" style="font-size:14px">Read the {t.company} story →</a>
+                <a href={`/customerstories/${t.slug}`} class="link" style="font-size:14px">{s.testimonialsSec.readPre}{t.company}{s.testimonialsSec.readPost}</a>
               </div>
             </div>
           ))}

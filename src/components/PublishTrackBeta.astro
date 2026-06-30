@@ -1,25 +1,28 @@
 ---
 // Section 11 — Your LinkedIn content is already generating demand (Paper).
 import { SIGNUP_URL } from '../data/site';
-const now = ['Import everyone who likes, comments, or reposts', 'Enrol post engagers into a sequence today'];
-const beta = ['Publish directly from hubsell', 'Track every engagement as it happens', 'Auto-enrol each person into a warm sequence', 'No exporting lists, no switching tabs'];
+import { getHome } from '../data/home-i18n';
+import { asLocale } from '../i18n/utils';
+const { s } = getHome(asLocale(Astro.currentLocale));
+const now = s.loop.now;
+const beta = s.loop.beta;
 ---
 <section class="sec sec--paper" aria-labelledby="loop-title">
   <div class="wrap">
     <div class="grid grid-2 reveal-stagger" style="align-items:center;gap:40px">
       <div>
-        <p class="eyebrow is-accent">Publish &amp; track · Beta</p>
-        <h2 id="loop-title" class="heading_primary" style="margin:8px 0 14px">Your LinkedIn content is already generating demand. Now <span class="accent">close the loop</span>.</h2>
-        <p class="paragraph">Most outbound starts cold. But everyone who likes, comments, or reposts your LinkedIn content has already raised their hand. You can already import post engagers into hubsell and enrol them in a sequence today. What is coming in beta is the closed loop: publish directly from hubsell, track every engagement as it happens, and automatically enrol each person into a warm sequence, without ever exporting a list or switching tabs.</p>
-        <a href={SIGNUP_URL} class="button" style="margin-top:22px">Start free trial</a>
+        <p class="eyebrow is-accent">{s.loop.eyebrow}</p>
+        <h2 id="loop-title" class="heading_primary" style="margin:8px 0 14px">{s.loop.titlePre}<span class="accent">{s.loop.titleAccent}</span>{s.loop.titlePost}</h2>
+        <p class="paragraph">{s.loop.body}</p>
+        <a href={SIGNUP_URL} class="button" style="margin-top:22px">{s.loop.cta}</a>
       </div>
 
       <div class="card">
-        <p class="eyebrow" style="margin-bottom:12px">Available today</p>
+        <p class="eyebrow" style="margin-bottom:12px">{s.loop.nowLabel}</p>
         <ul class="ticks" style="margin-top:0">
           {now.map((n) => <li>{n}</li>)}
         </ul>
-        <p class="eyebrow" style="margin:20px 0 12px">Coming in beta</p>
+        <p class="eyebrow" style="margin:20px 0 12px">{s.loop.betaLabel}</p>
         <ul class="ticks" style="margin-top:0">
           {beta.map((b) => <li>{b}</li>)}
         </ul>

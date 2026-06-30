@@ -5,38 +5,41 @@
 import FragmentedPile from './FragmentedPile.astro';
 import UnifiedGrid from './UnifiedGrid.astro';
 import { SIGNUP_URL } from '../data/site';
+import { getHome } from '../data/home-i18n';
+import { asLocale } from '../i18n/utils';
+const { s } = getHome(asLocale(Astro.currentLocale));
 ---
 <section class="sec sec--navy frag" aria-labelledby="frag-title">
   <div class="wrap">
     <div class="sec-head reveal" style="text-align:center">
-      <p class="eyebrow">The fragmented stack problem</p>
-      <h2 id="frag-title" class="heading_primary" style="margin-top:8px">Six tools in your stack. Six invoices. <span class="accent">None of them talking to each other.</span></h2>
+      <p class="eyebrow">{s.frag.eyebrow}</p>
+      <h2 id="frag-title" class="heading_primary" style="margin-top:8px">{s.frag.titlePre}<span class="accent">{s.frag.titleAccent}</span>{s.frag.titlePost}</h2>
     </div>
 
     <div class="frag-block">
       <div class="frag-block__head reveal">
-        <span class="frag-tag frag-tag--bad">Disconnected</span>
-        <p class="frag-line">The average revenue team runs six tools to do one job. Each one siloed, none of them talking. Hover any tool to see where it leaves you exposed.</p>
+        <span class="frag-tag frag-tag--bad">{s.frag.badTag}</span>
+        <p class="frag-line">{s.frag.badLine}</p>
       </div>
       <FragmentedPile />
     </div>
 
     <div class="frag-join reveal" aria-hidden="true">
       <span class="frag-join__line"></span>
-      <span class="frag-join__label">hubsell unifies all six</span>
+      <span class="frag-join__label">{s.frag.join}</span>
       <span class="frag-join__line"></span>
     </div>
 
     <div class="frag-block">
       <div class="frag-block__head reveal">
-        <span class="frag-tag frag-tag--good">Connected</span>
-        <p class="frag-line">One platform. One login. One flow. One invoice. The same six jobs wired together, so a signal becomes outreach and outreach lands in your CRM. Hover any capability to see what it does.</p>
+        <span class="frag-tag frag-tag--good">{s.frag.goodTag}</span>
+        <p class="frag-line">{s.frag.goodLine}</p>
       </div>
       <UnifiedGrid />
     </div>
 
     <div class="reveal" style="display:flex;justify-content:center;margin-top:36px">
-      <a href={SIGNUP_URL} class="button is-large">Unify your stack today</a>
+      <a href={SIGNUP_URL} class="button is-large">{s.frag.cta}</a>
     </div>
   </div>
 </section>

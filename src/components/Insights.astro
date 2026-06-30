@@ -1,23 +1,25 @@
 ---
 // Section 14 — Insights (Paper): newsletter signup + latest blog posts.
-import { insights } from '../data/home-content';
+import { getHome } from '../data/home-i18n';
+import { asLocale } from '../i18n/utils';
 import WaitlistForm from './WaitlistForm.astro';
+const { insights, s } = getHome(asLocale(Astro.currentLocale));
 ---
 <section id="insights" class="sec sec--paper" aria-labelledby="insights-title">
   <div class="wrap">
     <div class="card reveal" style="display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;margin-bottom:48px">
       <div style="max-width:46ch">
-        <h2 class="heading_secondary">Stay ahead in B2B sales and marketing</h2>
-        <p class="paragraph_small" style="opacity:.75;margin-top:8px">Playbooks, deliverability, and outbound strategy, straight to your inbox.</p>
+        <h2 class="heading_secondary">{s.insightsSec.newsTitle}</h2>
+        <p class="paragraph_small" style="opacity:.75;margin-top:8px">{s.insightsSec.newsSub}</p>
       </div>
       <div style="flex:1;min-width:280px;max-width:420px">
-        <WaitlistForm form="newsletter" buttonLabel="Subscribe" placeholder="Your email" help="" />
+        <WaitlistForm form="newsletter" buttonLabel={s.insightsSec.subscribeLabel} placeholder={s.insightsSec.emailPlaceholder} help="" />
       </div>
     </div>
 
     <div class="sec-head reveal">
-      <p class="eyebrow is-accent">Insights</p>
-      <h2 id="insights-title" class="heading_primary" style="margin-top:8px">B2B outbound sales playbooks and insights</h2>
+      <p class="eyebrow is-accent">{s.insightsSec.eyebrow}</p>
+      <h2 id="insights-title" class="heading_primary" style="margin-top:8px">{s.insightsSec.title}</h2>
     </div>
 
     <div class="grid grid-3 reveal-stagger">
@@ -25,7 +27,7 @@ import WaitlistForm from './WaitlistForm.astro';
         <a class="post" href={`/insights/${post.slug}`}>
           <img class="post__img" src={post.image} alt={post.title} loading="lazy" width="400" height="225" />
           <div class="post__body">
-            <p class="eyebrow is-accent" style="font-size:.72rem">B2B sales</p>
+            <p class="eyebrow is-accent" style="font-size:.72rem">{s.insightsSec.cardTag}</p>
             <h3 class="post__title">{post.title}</h3>
             <p class="post__excerpt">{post.excerpt}</p>
           </div>
@@ -34,7 +36,7 @@ import WaitlistForm from './WaitlistForm.astro';
     </div>
 
     <p class="reveal" style="margin-top:30px">
-      <a href="/insights" class="link">Read more insights →</a>
+      <a href="/insights" class="link">{s.insightsSec.readMore}</a>
     </p>
   </div>
 </section>
