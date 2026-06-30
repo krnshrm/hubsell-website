@@ -3,104 +3,188 @@
 // to /api/subscribe, which forwards to Plunk server-side under the
 // 'book-a-call-request' event. Business email is corporate-only (the server
 // enforces the real rule). All fields except phone are required.
-const teamSizes = ['1-2 employees', '3-5 employees', '6-10 employees', '10+ employees'];
-const crms = ['Salesforce', 'HubSpot', 'Pipedrive', 'Other'];
-const acvs = ['Less than $25K', '$25-50K', '$50-100K', '$100K+'];
-const challenges = ['Low reply rates', 'Bad data quality', 'Deliverability issues', 'Scaling bottleneck', 'Other'];
-const roles = ['Revenue leader', 'Marketing leader', 'Sales operations', 'Founder', 'Sales Person', 'Other'];
-const heardAbout = ['LinkedIn', 'Referral', 'Search Engine', 'AI Chat', 'Other'];
+import { asLocale } from '../i18n/utils';
+const L = asLocale(Astro.currentLocale);
+
+// Submitted option VALUES stay English so Plunk reporting is consistent across
+// locales; only the visible LABELS are translated. English labels equal the
+// values, so the English render is unchanged.
+const VALUES = {
+  team: ['1-2 employees', '3-5 employees', '6-10 employees', '10+ employees'],
+  crm: ['Salesforce', 'HubSpot', 'Pipedrive', 'Other'],
+  acv: ['Less than $25K', '$25-50K', '$50-100K', '$100K+'],
+  challenge: ['Low reply rates', 'Bad data quality', 'Deliverability issues', 'Scaling bottleneck', 'Other'],
+  role: ['Revenue leader', 'Marketing leader', 'Sales operations', 'Founder', 'Sales Person', 'Other'],
+  heard: ['LinkedIn', 'Referral', 'Search Engine', 'AI Chat', 'Other'],
+};
+
+const BCF = {
+  en: {
+    firstName: 'First name', lastName: 'Last name', company: 'Company name',
+    email: 'Business email', phone: 'Phone number',
+    teamSize: 'Sales team size', crm: 'Primary CRM', acv: 'Average contract value',
+    challenge: 'Current biggest challenge', describe: 'Which option best describes you?',
+    heard: 'How did you hear about us?',
+    phFirst: 'Your first name', phLast: 'Your last name', phCompany: 'Your company name',
+    phEmail: 'email@yourcompany.com', phPhone: '+1 (555) 000-0000',
+    selTeam: 'Select team size', selCrm: 'Select CRM', selAcv: 'Select ACV',
+    selChallenge: 'Select biggest challenge', selOne: 'Select one...',
+    consentPre: 'By requesting a meeting with hubsell you are agreeing to our ',
+    consentLink: 'Privacy Policy', consentPost: '.',
+    submit: 'Submit',
+    doneTitle: 'Thank you. We will be in touch soon.',
+    doneText: 'We will email you at the address you gave us to set up a time.',
+    opt: VALUES,
+    js: {
+      required: 'Please fill in all required fields.',
+      validEmail: 'Please enter a valid email address.',
+      blocked: 'This domain is restricted.',
+      free: 'Please use your corporate work email.',
+      dropdowns: 'Please complete every dropdown.',
+      role: 'Please choose the option that best describes you.',
+      sending: 'Sending…',
+      failed: 'Submission failed. Please review your details.',
+      network: 'Could not reach the server. Please try again.',
+    },
+  },
+  de: {
+    firstName: 'Vorname', lastName: 'Nachname', company: 'Firmenname',
+    email: 'Geschäftliche E-Mail', phone: 'Telefonnummer',
+    teamSize: 'Größe des Vertriebsteams', crm: 'Primäres CRM', acv: 'Durchschnittlicher Auftragswert',
+    challenge: 'Größte aktuelle Herausforderung', describe: 'Was beschreibt Sie am besten?',
+    heard: 'Wie haben Sie von uns erfahren?',
+    phFirst: 'Ihr Vorname', phLast: 'Ihr Nachname', phCompany: 'Ihr Firmenname',
+    phEmail: 'name@firma.de', phPhone: '+49 151 0000 0000',
+    selTeam: 'Teamgröße wählen', selCrm: 'CRM wählen', selAcv: 'ACV wählen',
+    selChallenge: 'Größte Herausforderung wählen', selOne: 'Bitte wählen ...',
+    consentPre: 'Mit der Anfrage eines Termins bei hubsell stimmen Sie unserer ',
+    consentLink: 'Datenschutzerklärung', consentPost: ' zu.',
+    submit: 'Absenden',
+    doneTitle: 'Vielen Dank. Wir melden uns bald.',
+    doneText: 'Wir schreiben Ihnen an die angegebene Adresse, um einen Termin zu vereinbaren.',
+    opt: {
+      team: ['1-2 Mitarbeiter', '3-5 Mitarbeiter', '6-10 Mitarbeiter', '10+ Mitarbeiter'],
+      crm: ['Salesforce', 'HubSpot', 'Pipedrive', 'Andere'],
+      acv: ['Weniger als $25K', '$25-50K', '$50-100K', '$100K+'],
+      challenge: ['Niedrige Antwortraten', 'Schlechte Datenqualität', 'Zustellbarkeitsprobleme', 'Skalierungsengpass', 'Andere'],
+      role: ['Umsatzverantwortliche/r', 'Marketingleitung', 'Sales Operations', 'Gründer/in', 'Vertriebsmitarbeiter/in', 'Andere'],
+      heard: ['LinkedIn', 'Empfehlung', 'Suchmaschine', 'KI-Chat', 'Andere'],
+    },
+    js: {
+      required: 'Bitte füllen Sie alle Pflichtfelder aus.',
+      validEmail: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
+      blocked: 'Diese Domain ist gesperrt.',
+      free: 'Bitte verwenden Sie Ihre geschäftliche E-Mail-Adresse.',
+      dropdowns: 'Bitte füllen Sie jedes Auswahlfeld aus.',
+      role: 'Bitte wählen Sie die Option, die Sie am besten beschreibt.',
+      sending: 'Senden …',
+      failed: 'Übermittlung fehlgeschlagen. Bitte prüfen Sie Ihre Angaben.',
+      network: 'Server nicht erreichbar. Bitte versuchen Sie es erneut.',
+    },
+  },
+} as const;
+
+const t = ((BCF as Record<string, typeof BCF.en>)[L]) ?? BCF.en;
+const opt = (key: keyof typeof VALUES) => VALUES[key].map((value, i) => ({ value, label: t.opt[key][i] }));
+const teamSizes = opt('team');
+const crms = opt('crm');
+const acvs = opt('acv');
+const challenges = opt('challenge');
+const roles = opt('role');
+const heardAbout = opt('heard');
+const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(t.js) };
 ---
-<div class="bcf">
+<div class="bcf" {...i18nAttr}>
   <form class="bcf-form" novalidate>
     <div class="bcf-row">
       <div class="bcf-field">
-        <label class="bcf-label" for="bcf-first">First name<span class="bcf-req">*</span></label>
-        <input class="input" id="bcf-first" name="firstName" type="text" required autocomplete="given-name" placeholder="Your first name" />
+        <label class="bcf-label" for="bcf-first">{t.firstName}<span class="bcf-req">*</span></label>
+        <input class="input" id="bcf-first" name="firstName" type="text" required autocomplete="given-name" placeholder={t.phFirst} />
       </div>
       <div class="bcf-field">
-        <label class="bcf-label" for="bcf-last">Last name<span class="bcf-req">*</span></label>
-        <input class="input" id="bcf-last" name="lastName" type="text" required autocomplete="family-name" placeholder="Your last name" />
+        <label class="bcf-label" for="bcf-last">{t.lastName}<span class="bcf-req">*</span></label>
+        <input class="input" id="bcf-last" name="lastName" type="text" required autocomplete="family-name" placeholder={t.phLast} />
       </div>
     </div>
 
     <div class="bcf-field">
-      <label class="bcf-label" for="bcf-company">Company name<span class="bcf-req">*</span></label>
-      <input class="input" id="bcf-company" name="company" type="text" required autocomplete="organization" placeholder="Your company name" />
+      <label class="bcf-label" for="bcf-company">{t.company}<span class="bcf-req">*</span></label>
+      <input class="input" id="bcf-company" name="company" type="text" required autocomplete="organization" placeholder={t.phCompany} />
     </div>
 
     <div class="bcf-row">
       <div class="bcf-field">
-        <label class="bcf-label" for="bcf-email">Business email<span class="bcf-req">*</span></label>
-        <input class="input" id="bcf-email" name="email" type="email" required autocomplete="email" placeholder="email@yourcompany.com" />
+        <label class="bcf-label" for="bcf-email">{t.email}<span class="bcf-req">*</span></label>
+        <input class="input" id="bcf-email" name="email" type="email" required autocomplete="email" placeholder={t.phEmail} />
       </div>
       <div class="bcf-field">
-        <label class="bcf-label" for="bcf-phone">Phone number</label>
-        <input class="input" id="bcf-phone" name="phone" type="tel" autocomplete="tel" placeholder="+1 (555) 000-0000" />
+        <label class="bcf-label" for="bcf-phone">{t.phone}</label>
+        <input class="input" id="bcf-phone" name="phone" type="tel" autocomplete="tel" placeholder={t.phPhone} />
       </div>
     </div>
 
     <div class="bcf-row">
       <div class="bcf-field">
-        <label class="bcf-label" for="bcf-team">Sales team size<span class="bcf-req">*</span></label>
+        <label class="bcf-label" for="bcf-team">{t.teamSize}<span class="bcf-req">*</span></label>
         <select class="input bcf-select" id="bcf-team" name="teamSize" required>
-          <option value="" disabled selected>Select team size</option>
-          {teamSizes.map((o) => (<option value={o}>{o}</option>))}
+          <option value="" disabled selected>{t.selTeam}</option>
+          {teamSizes.map((o) => (<option value={o.value}>{o.label}</option>))}
         </select>
       </div>
       <div class="bcf-field">
-        <label class="bcf-label" for="bcf-crm">Primary CRM<span class="bcf-req">*</span></label>
+        <label class="bcf-label" for="bcf-crm">{t.crm}<span class="bcf-req">*</span></label>
         <select class="input bcf-select" id="bcf-crm" name="crm" required>
-          <option value="" disabled selected>Select CRM</option>
-          {crms.map((o) => (<option value={o}>{o}</option>))}
+          <option value="" disabled selected>{t.selCrm}</option>
+          {crms.map((o) => (<option value={o.value}>{o.label}</option>))}
         </select>
       </div>
     </div>
 
     <div class="bcf-row">
       <div class="bcf-field">
-        <label class="bcf-label" for="bcf-acv">Average contract value<span class="bcf-req">*</span></label>
+        <label class="bcf-label" for="bcf-acv">{t.acv}<span class="bcf-req">*</span></label>
         <select class="input bcf-select" id="bcf-acv" name="acv" required>
-          <option value="" disabled selected>Select ACV</option>
-          {acvs.map((o) => (<option value={o}>{o}</option>))}
+          <option value="" disabled selected>{t.selAcv}</option>
+          {acvs.map((o) => (<option value={o.value}>{o.label}</option>))}
         </select>
       </div>
       <div class="bcf-field">
-        <label class="bcf-label" for="bcf-challenge">Current biggest challenge<span class="bcf-req">*</span></label>
+        <label class="bcf-label" for="bcf-challenge">{t.challenge}<span class="bcf-req">*</span></label>
         <select class="input bcf-select" id="bcf-challenge" name="challenge" required>
-          <option value="" disabled selected>Select biggest challenge</option>
-          {challenges.map((o) => (<option value={o}>{o}</option>))}
+          <option value="" disabled selected>{t.selChallenge}</option>
+          {challenges.map((o) => (<option value={o.value}>{o.label}</option>))}
         </select>
       </div>
     </div>
 
     <fieldset class="bcf-fieldset">
-      <legend class="bcf-label">Which option best describes you?<span class="bcf-req">*</span></legend>
+      <legend class="bcf-label">{t.describe}<span class="bcf-req">*</span></legend>
       <div class="bcf-radios">
         {roles.map((o, i) => (
           <label class="bcf-radio">
-            <input type="radio" name="role" value={o} required={i === 0} />
-            <span>{o}</span>
+            <input type="radio" name="role" value={o.value} required={i === 0} />
+            <span>{o.label}</span>
           </label>
         ))}
       </div>
     </fieldset>
 
     <div class="bcf-field">
-      <label class="bcf-label" for="bcf-heard">How did you hear about us?<span class="bcf-req">*</span></label>
+      <label class="bcf-label" for="bcf-heard">{t.heard}<span class="bcf-req">*</span></label>
       <select class="input bcf-select" id="bcf-heard" name="heardAbout" required>
-        <option value="" disabled selected>Select one...</option>
-        {heardAbout.map((o) => (<option value={o}>{o}</option>))}
+        <option value="" disabled selected>{t.selOne}</option>
+        {heardAbout.map((o) => (<option value={o.value}>{o.label}</option>))}
       </select>
     </div>
 
-    <p class="bcf-consent">By requesting a meeting with hubsell you are agreeing to our <a class="link" href="/privacy">Privacy Policy</a>.</p>
-    <button class="button is-large bcf-submit" type="submit">Submit</button>
+    <p class="bcf-consent">{t.consentPre}<a class="link" href="/privacy">{t.consentLink}</a>{t.consentPost}</p>
+    <button class="button is-large bcf-submit" type="submit">{t.submit}</button>
     <p class="bcf-error" role="alert" aria-live="polite"></p>
   </form>
 
   <div class="bcf-done" hidden>
-    <p class="bcf-done__title">Thank you. We will be in touch soon.</p>
-    <p class="bcf-done__text">We will email you at the address you gave us to set up a time.</p>
+    <p class="bcf-done__title">{t.doneTitle}</p>
+    <p class="bcf-done__text">{t.doneText}</p>
   </div>
 </div>
 
@@ -147,6 +231,20 @@ const heardAbout = ['LinkedIn', 'Referral', 'Search Engine', 'AI Chat', 'Other']
       const errEl = root.querySelector<HTMLElement>('.bcf-error')!;
       const label = button.textContent || 'Submit';
 
+      let i18n: Record<string, string> | null = null;
+      try { i18n = root.dataset.i18n ? JSON.parse(root.dataset.i18n) : null; } catch { i18n = null; }
+      const MSG = {
+        required: i18n?.required ?? 'Please fill in all required fields.',
+        validEmail: i18n?.validEmail ?? 'Please enter a valid email address.',
+        blocked: i18n?.blocked ?? EMAIL_DOMAIN_MESSAGES.blocked,
+        free: i18n?.free ?? EMAIL_DOMAIN_MESSAGES.free,
+        dropdowns: i18n?.dropdowns ?? 'Please complete every dropdown.',
+        role: i18n?.role ?? 'Please choose the option that best describes you.',
+        sending: i18n?.sending ?? 'Sending…',
+        failed: i18n?.failed ?? 'Submission failed. Please review your details.',
+        network: i18n?.network ?? 'Could not reach the server. Please try again.',
+      };
+
       const get = (name: string) => form.querySelector<HTMLInputElement | HTMLSelectElement>(`[name="${name}"]`)!;
       const textFields = ['firstName', 'lastName', 'company', 'email'];
       const selectFields = ['teamSize', 'crm', 'acv', 'challenge', 'heardAbout'];
@@ -169,19 +267,19 @@ const heardAbout = ['LinkedIn', 'Referral', 'Search Engine', 'AI Chat', 'Other']
 
         for (const n of textFields) {
           const el = get(n);
-          if (!(el.value || '').trim()) return fail(el, 'Please fill in all required fields.');
+          if (!(el.value || '').trim()) return fail(el, MSG.required);
         }
         const email = (get('email').value || '').trim();
-        if (!EMAIL_RE.test(email)) return fail(get('email'), 'Please enter a valid email address.');
+        if (!EMAIL_RE.test(email)) return fail(get('email'), MSG.validEmail);
         const verdict = classifyEmailLight(email);
-        if (verdict === 'blocked') return fail(get('email'), EMAIL_DOMAIN_MESSAGES.blocked);
-        if (verdict === 'free') return fail(get('email'), EMAIL_DOMAIN_MESSAGES.free);
+        if (verdict === 'blocked') return fail(get('email'), MSG.blocked);
+        if (verdict === 'free') return fail(get('email'), MSG.free);
         for (const n of selectFields) {
           const el = get(n);
-          if (!el.value) return fail(el, 'Please complete every dropdown.');
+          if (!el.value) return fail(el, MSG.dropdowns);
         }
         const role = form.querySelector<HTMLInputElement>('input[name="role"]:checked');
-        if (!role) return fail(form.querySelector<HTMLElement>('.bcf-radios'), 'Please choose the option that best describes you.');
+        if (!role) return fail(form.querySelector<HTMLElement>('.bcf-radios'), MSG.role);
 
         const fields = {
           firstName: (get('firstName').value || '').trim(),
@@ -197,7 +295,7 @@ const heardAbout = ['LinkedIn', 'Referral', 'Search Engine', 'AI Chat', 'Other']
         };
 
         button.disabled = true;
-        button.textContent = 'Sending…';
+        button.textContent = MSG.sending;
         try {
           const res = await fetch('/api/subscribe', {
             method: 'POST',
@@ -206,7 +304,7 @@ const heardAbout = ['LinkedIn', 'Referral', 'Search Engine', 'AI Chat', 'Other']
           });
           const payload = await res.json().catch(() => ({}));
           if (!res.ok || payload?.ok === false) {
-            errEl.textContent = payload?.error || 'Submission failed. Please review your details.';
+            errEl.textContent = payload?.error || MSG.failed;
             button.disabled = false;
             button.textContent = label;
             return;
@@ -214,7 +312,7 @@ const heardAbout = ['LinkedIn', 'Referral', 'Search Engine', 'AI Chat', 'Other']
           form.hidden = true;
           done.hidden = false;
         } catch {
-          errEl.textContent = 'Could not reach the server. Please try again.';
+          errEl.textContent = MSG.network;
           button.disabled = false;
           button.textContent = label;
         }

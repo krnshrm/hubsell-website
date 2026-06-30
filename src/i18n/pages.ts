@@ -84,3 +84,54 @@ const contact = byLocale<ContactCopy>(
 export function getContact(locale: string | undefined): ContactCopy {
   return contact[asLocale(locale)];
 }
+
+// ── Book a call ─────────────────────────────────────────────────────────────────
+export interface BookCallCopy {
+  metaTitle: string;
+  metaDescription: string;
+  eyebrow: string;
+  title: string;
+  sub: string;
+  coversHeading: string;
+  covers: string[];
+  note: string;
+}
+
+const bookCall = byLocale<BookCallCopy>(
+  {
+    metaTitle: 'Book a call | hubsell',
+    metaDescription:
+      'See hubsell run on your own market. Request a call and we will show you live-sourced data, the email and LinkedIn flow, and CRM sync on real accounts.',
+    eyebrow: 'Get started',
+    title: 'Book a call',
+    sub: 'See hubsell run on your own market. We will show you live-sourced data, the email and LinkedIn flow, and the CRM sync on real accounts, then map it to your pipeline.',
+    coversHeading: 'What the call covers',
+    covers: [
+      'A live look at zero-day sourcing on your ICP, not a generic demo.',
+      'How the email and LinkedIn steps run as one coordinated flow.',
+      'Where hubsell replaces tools you already pay for.',
+      'A clear answer on fit, pricing, and onboarding for your team.',
+    ],
+    note: 'Our team handles your first campaign setup, so most teams run their first outbound within the first week.',
+  },
+  {
+    metaTitle: 'Gespräch buchen | hubsell',
+    metaDescription:
+      'Erleben Sie hubsell in Ihrem eigenen Markt. Buchen Sie ein Gespräch und wir zeigen Ihnen live recherchierte Daten, den E-Mail- und LinkedIn-Ablauf und die CRM-Synchronisierung an echten Accounts.',
+    eyebrow: 'Loslegen',
+    title: 'Gespräch buchen',
+    sub: 'Erleben Sie hubsell in Ihrem eigenen Markt. Wir zeigen Ihnen live recherchierte Daten, den E-Mail- und LinkedIn-Ablauf und die CRM-Synchronisierung an echten Accounts und übertragen das anschließend auf Ihre Pipeline.',
+    coversHeading: 'Was das Gespräch abdeckt',
+    covers: [
+      'Ein Live-Blick auf Zero-Day-Sourcing für Ihr ICP, keine generische Demo.',
+      'Wie die E-Mail- und LinkedIn-Schritte als ein abgestimmter Ablauf laufen.',
+      'Wo hubsell Tools ersetzt, für die Sie bereits zahlen.',
+      'Eine klare Antwort zu Eignung, Preis und Onboarding für Ihr Team.',
+    ],
+    note: 'Unser Team übernimmt die Einrichtung Ihrer ersten Kampagne, sodass die meisten Teams ihren ersten Outbound schon in der ersten Woche starten.',
+  },
+);
+
+export function getBookCall(locale: string | undefined): BookCallCopy {
+  return bookCall[asLocale(locale)];
+}

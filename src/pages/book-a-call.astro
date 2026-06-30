@@ -1,53 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import BookCallForm from '../components/BookCallForm.astro';
+import BookCallBody from '../components/BookCallBody.astro';
 ---
 <BaseLayout
   title="Book a call | hubsell"
   description="See hubsell run on your own market. Request a call and we will show you live-sourced data, the email and LinkedIn flow, and CRM sync on real accounts."
 >
-  <section class="sec sec--paper bc-hero">
-    <div class="wrap">
-      <p class="eyebrow is-accent">Get started</p>
-      <h1 class="bc-title">Book a call</h1>
-      <p class="bc-sub subheading">See hubsell run on your own market. We will show you live-sourced data, the email and LinkedIn flow, and the CRM sync on real accounts, then map it to your pipeline.</p>
-    </div>
-  </section>
-
-  <section class="sec sec--sand bc-body">
-    <div class="wrap">
-      <div class="bc-grid">
-        <div class="bc-copy">
-          <h2 class="heading_tertiary">What the call covers</h2>
-          <ul class="bc-list">
-            <li>A live look at zero-day sourcing on your ICP, not a generic demo.</li>
-            <li>How the email and LinkedIn steps run as one coordinated flow.</li>
-            <li>Where hubsell replaces tools you already pay for.</li>
-            <li>A clear answer on fit, pricing, and onboarding for your team.</li>
-          </ul>
-          <p class="bc-note">Our team handles your first campaign setup, so most teams run their first outbound within the first week.</p>
-        </div>
-        <div class="bc-formcard">
-          <BookCallForm />
-        </div>
-      </div>
-    </div>
-  </section>
+  <BookCallBody />
 </BaseLayout>
-
-<style>
-  .bc-hero { padding-bottom: clamp(24px,3vw,36px); }
-  .bc-title { font-family:var(--font-head); font-weight:600; font-size:clamp(2rem,4.4vw,2.75rem); line-height:1.1; letter-spacing:-.02em; color:var(--sec-tx); margin:8px 0 0; }
-  .bc-sub { margin-top:14px; max-width:60ch; }
-
-  .bc-grid { display:grid; grid-template-columns:0.82fr 1.18fr; gap:clamp(28px,5vw,56px); align-items:start; }
-  @media (max-width:820px){ .bc-grid{ grid-template-columns:1fr; } }
-
-  .bc-copy .heading_tertiary { color:var(--sec-tx); margin-bottom:16px; }
-  .bc-list { list-style:none; margin:0 0 22px; padding:0; display:flex; flex-direction:column; gap:12px; }
-  .bc-list li { position:relative; padding-left:24px; font-family:var(--font-body); font-size:1.0625rem; line-height:1.5; color:var(--sec-tx); }
-  .bc-list li::before { content:""; position:absolute; left:2px; top:.55em; width:8px; height:8px; border-radius:50%; background:var(--accent-on); }
-  .bc-note { font-family:var(--font-body); font-size:15px; line-height:1.6; color:var(--sec-tx); opacity:.78; margin:0; max-width:46ch; }
-
-  .bc-formcard { background:var(--sec-card); border:1px solid var(--sec-bd); border-radius:var(--radius-lg); padding:clamp(22px,3vw,30px); }
-</style>
