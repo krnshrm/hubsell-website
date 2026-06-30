@@ -42,6 +42,8 @@ export const menuGroups: NavGroup[] = [
       { label: 'Careers', soon: true },
       { label: 'Partner program', soon: true },
       { label: 'Newsroom', soon: true },
+      { label: 'Reviews', href: '/hubsell-reviews' },
+      { label: 'AI information', href: '/ai-information-page' },
     ],
   },
 ];
@@ -54,9 +56,7 @@ export const topLinks: NavLink[] = [
 // Footer-only links (kept out of the top nav to keep it lean).
 export const footerLinks: NavLink[] = [
   { label: 'Use cases', href: '/use-cases' },
-  { label: 'Reviews', href: '/hubsell-reviews' },
   { label: 'FAQ', href: '/faqs' },
-  { label: 'AI information', href: '/ai-information-page' },
 ];
 
 // Account / conversion links (the TopBar's Log in + the trial CTA, reused in the footer).
