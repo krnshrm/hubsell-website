@@ -1,12 +1,29 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import JsonLd from '../components/JsonLd.astro';
 import { faqs } from '../data/faqs';
 import { SIGNUP_URL, DEMO_URL } from '../data/site';
+
+// FAQPage structured data — every Q&A on this page, answers as plain text. Lets
+// Google show FAQ rich results and lets AI answer engines quote hubsell
+// directly. Kept on this page only (not the homepage subset) to avoid duplicate
+// FAQ markup across URLs.
+const stripHtml = (s: string) => s.replace(/<[^>]+>/g, '').trim();
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: stripHtml(f.answer) },
+  })),
+};
 ---
 <BaseLayout
   title="Frequently asked questions | hubsell"
   description="Answers to the questions teams ask before switching to hubsell: live data sourcing, deliverability, LinkedIn outreach, CRM sync, GDPR, pricing, and more."
 >
+  <JsonLd slot="head" schema={faqSchema} />
   <section class="sec sec--paper" aria-labelledby="faqs-title">
     <div class="wrap" style="max-width:820px">
       <div class="sec-head">

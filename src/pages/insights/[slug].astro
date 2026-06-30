@@ -1,7 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import JsonLd from '../../components/JsonLd.astro';
 import WaitlistForm from '../../components/WaitlistForm.astro';
+import { SITE_URL, breadcrumbSchema } from '../../data/seo';
 
 export async function getStaticPaths() {
   const posts = await getCollection('insights', (p) => !p.data.draft);
@@ -9,7 +11,7 @@ export async function getStaticPaths() {
 }
 
 const { post, posts } = Astro.props;
-const { title, description, coverImage, thumbnail, sources, readTime, summary, cta } = post.data;
+const { title, description, coverImage, thumbnail, sources, readTime, summary, cta, publishedAt } = post.data;
 
 // post.body is the raw Webflow HTML (already image- and link-rewritten by the
 // converter). If a post had an empty body in the export, fall back to its summary
@@ -30,13 +32,37 @@ const related = pool.length
 // Trial CTA copy: a per-post override (frontmatter `cta`) if set, otherwise a
 // default that references this post by title so it never reads as generic.
 const ctaText = cta || `You just read "${title}". hubsell gives you the verified contact data, multichannel outreach, and CRM sync to act on it. Start a free trial and run it on your own pipeline.`;
+
+// Article + breadcrumb structured data for this post (rich results + AI answers).
+const postUrl = `${SITE_URL}/insights/${post.slug}`;
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  ...(coverImage ? { image: [coverImage] } : {}),
+  ...(publishedAt ? { datePublished: publishedAt.toISOString().slice(0, 10) } : {}),
+  author: { '@type': 'Organization', name: 'hubsell', url: SITE_URL },
+  publisher: {
+    '@type': 'Organization',
+    name: 'hubsell',
+    logo: { '@type': 'ImageObject', url: 'https://assets.hubsell.com/logo/hubsell-favicon.svg' },
+  },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': postUrl },
+};
+const articleCrumbs = breadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Insights', url: '/insights' },
+  { name: title, url: `/insights/${post.slug}` },
+]);
 ---
-<BaseLayout title={`${title} | hubsell`} description={description} ogImage={coverImage}>
+<BaseLayout title={`${title} | hubsell`} description={description} ogImage={coverImage} ogType="article">
   <link
     slot="head"
     rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap"
   />
+  <JsonLd slot="head" schema={[articleSchema, articleCrumbs]} />
 
   <article class="sec sec--paper post-page">
     <div class="wrap">

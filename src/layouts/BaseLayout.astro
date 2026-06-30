@@ -2,6 +2,8 @@
 import TopBar from '../components/TopBar.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import JsonLd from '../components/JsonLd.astro';
+import { OG_IMAGE, organizationSchema, websiteSchema } from '../data/seo';
 import '../styles/global.css';
 
 export interface Props {
@@ -9,6 +11,7 @@ export interface Props {
   description?: string;
   canonical?: string;
   ogImage?: string;
+  ogType?: string;
   noindex?: boolean;
 }
 
@@ -16,9 +19,15 @@ const {
   title = 'hubsell | Replace Your Outbound Stack with One Platform',
   description = 'hubsell replaces your sales intelligence, sales engagement, and LinkedIn outreach tools with one platform — real-time data, email + LinkedIn sequences, and automatic CRM sync.',
   canonical = new URL(Astro.url.pathname, Astro.site).href,
-  ogImage,
+  ogImage = OG_IMAGE,
+  ogType = 'website',
   noindex = false,
 } = Astro.props;
+
+// Append the brand to any title that doesn't already include it, so every tab
+// and search result is consistent (a page passing "Reviews" becomes
+// "Reviews | hubsell"). Titles that already say "hubsell" are left untouched.
+const fullTitle = title.includes('hubsell') ? title : `${title} | hubsell`;
 ---
 <!doctype html>
 <html lang="en">
@@ -26,20 +35,23 @@ const {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="referrer" content="same-origin" />
-    <title>{title}</title>
+    <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
 
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="hubsell" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
+    <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
-    {ogImage && <meta name="twitter:image" content={ogImage} />}
+    <meta name="twitter:image" content={ogImage} />
+
+    <JsonLd schema={[organizationSchema, websiteSchema]} />
 
     <meta name="theme-color" content="#EADBC2" />
     <link rel="icon" type="image/svg+xml" href="https://assets.hubsell.com/logo/hubsell-favicon.svg" />

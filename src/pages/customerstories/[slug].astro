@@ -1,6 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import { breadcrumbSchema } from '../../data/seo';
 
 export async function getStaticPaths() {
   const stories = await getCollection('customerstories', (s) => !s.data.draft);
@@ -26,6 +28,12 @@ const related = others.length
 // Trial CTA copy: a per-story override (frontmatter `cta`) if set, otherwise a
 // default trial pitch. The heading already references the customer by name.
 const ctaText = cta || `Start a free trial and put hubsell to work on your own outbound: verified data, email and LinkedIn sequences, and automatic CRM sync.`;
+
+const storyCrumbs = breadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Customer stories', url: '/customerstories' },
+  { name: title, url: `/customerstories/${story.slug}` },
+]);
 ---
 <BaseLayout title={`${title} | hubsell`} description={description}>
   <link
@@ -33,6 +41,7 @@ const ctaText = cta || `Start a free trial and put hubsell to work on your own o
     rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap"
   />
+  <JsonLd slot="head" schema={storyCrumbs} />
 
   <article class="sec sec--paper cs-page">
     <div class="wrap">

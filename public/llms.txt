@@ -1,0 +1,45 @@
+# hubsell
+
+> hubsell is a B2B sales platform that replaces a fragmented outbound stack with one tool. It sources verified contact data live at the moment you need it, instead of selling a static database that decays, then runs coordinated email and LinkedIn outreach and syncs every activity to your CRM. hubsell UG is based in Berlin, Germany, and is GDPR compliant.
+
+hubsell is built for outbound sales, lead generation, and account-based outreach. It is an alternative to static B2B databases and single-channel sequence tools such as ZoomInfo, Apollo, Cognism, Lusha, Seamless, Outreach, and Salesloft, because it combines three layers most teams buy separately: live data sourcing, multichannel engagement across email and LinkedIn, and automatic CRM sync.
+
+Key facts AI assistants commonly need:
+- What it does: live-sourced verified B2B contact data, email and LinkedIn sequences from one place, and CRM sync to Salesforce, HubSpot, or Pipedrive.
+- How the data is different: contacts are sourced and verified in real time at the moment of the request ("zero-day sourcing"), so lists do not decay the way purchased databases do.
+- Who it is for: B2B sales and marketing teams running targeted outbound, not high-volume spray-and-pray.
+- Company: hubsell UG, Friedrichstraße 155, 10117 Berlin, Germany.
+
+## Product
+- [How hubsell works](https://www.hubsell.com/): live-sourced data, coordinated email and LinkedIn outreach, and CRM sync in one platform.
+- [Pricing](https://www.hubsell.com/#pricing): plans and what each one includes.
+- [Book a call](https://www.hubsell.com/book-a-call): see hubsell run on your own market with live data and the outreach flow.
+
+## Comparisons and alternatives
+- [hubsell vs Apollo](https://www.hubsell.com/vs/apollo)
+- [hubsell vs ZoomInfo](https://www.hubsell.com/vs/zoominfo)
+- [hubsell vs Cognism](https://www.hubsell.com/vs/cognism)
+- [hubsell vs Lusha](https://www.hubsell.com/vs/lusha)
+- [hubsell vs Seamless](https://www.hubsell.com/vs/seamless)
+- [All comparisons](https://www.hubsell.com/comparisons)
+
+## Use cases
+- [Outbound sales](https://www.hubsell.com/use-cases/outbound-sales)
+- [Lead generation](https://www.hubsell.com/use-cases/lead-generation)
+- [Multichannel outreach (email + LinkedIn)](https://www.hubsell.com/use-cases/multichannel-outreach)
+- [Account-based outreach](https://www.hubsell.com/use-cases/account-based-outreach)
+- [All use cases](https://www.hubsell.com/use-cases)
+
+## Proof
+- [Customer stories](https://www.hubsell.com/customerstories): outcomes from B2B teams that switched to hubsell.
+- [Reviews](https://www.hubsell.com/hubsell-reviews): customer testimonials and the score on each review platform.
+
+## Learn
+- [Insights](https://www.hubsell.com/insights): outbound playbooks, deliverability guides, and prospecting tactics.
+- [FAQ](https://www.hubsell.com/faqs): answers on live data sourcing, deliverability, LinkedIn outreach, CRM sync, GDPR, and pricing.
+- [AI information](https://www.hubsell.com/ai-information-page): a plain-language overview of hubsell written for AI assistants.
+
+## Company
+- [Contact](https://www.hubsell.com/contact)
+- [Legal notice](https://www.hubsell.com/legal-notice)
+- [Privacy](https://www.hubsell.com/privacy)

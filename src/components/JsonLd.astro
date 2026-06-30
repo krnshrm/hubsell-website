@@ -1,0 +1,11 @@
+---
+// Renders a JSON-LD <script> for structured data (helps Google rich results and
+// AI answer engines understand the page). Pass a schema object or an array of
+// them. Astro leaves application/ld+json scripts inline and unbundled, so the
+// JSON ships verbatim in the static HTML.
+interface Props {
+  schema: Record<string, unknown> | Record<string, unknown>[];
+}
+const { schema } = Astro.props;
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

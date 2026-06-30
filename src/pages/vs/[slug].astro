@@ -1,8 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import JsonLd from '../../components/JsonLd.astro';
 import TestimonialStrip from '../../components/TestimonialStrip.astro';
 import { pickTestimonials } from '../../data/testimonials';
+import { SITE_URL, breadcrumbSchema } from '../../data/seo';
 
 // Build every comparison. Unlike insights/stories we do NOT filter on `draft`:
 // the rows are drafted in Webflow but are the launch pages (see content config).
@@ -29,8 +31,20 @@ const related = items.filter((i) => i.slug !== item.slug).sort((a, b) => oi(a.sl
 
 // Social proof: a default trio that reads as "teams chose hubsell over the alternatives".
 const vsQuotes = pickTestimonials(['matterway', 'spryker', 'cibt']);
+
+// Also target "{competitor} alternative" searches: make sure the meta
+// description says it, without clobbering curated copy that already does.
+const seoDescFinal = /alternative/i.test(seoDesc)
+  ? seoDesc
+  : `${seoDesc} The live-sourced ${competitor} alternative.`.trim();
+const vsCrumbs = breadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Comparisons', url: '/comparisons' },
+  { name: `${competitor} vs hubsell`, url: `/vs/${item.slug}` },
+]);
 ---
-<BaseLayout title={`${seoTitle} | hubsell`} description={seoDesc}>
+<BaseLayout title={seoTitle} description={seoDescFinal}>
+  <JsonLd slot="head" schema={vsCrumbs} />
   <article class="sec sec--paper vs-page">
     <div class="wrap">
       <a class="vs-back" href="/comparisons">&larr; All comparisons</a>
