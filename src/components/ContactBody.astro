@@ -4,7 +4,7 @@
 // lives in one place. Email addresses stay as-is; the office country line and the
 // Book-a-call link localize, and the form receives locale-appropriate labels.
 import RequestForm from './RequestForm.astro';
-import { asLocale, localizeUrl } from '../i18n/utils';
+import { asLocale, localizedHref } from '../i18n/utils';
 import { getContact } from '../i18n/pages';
 
 const L = asLocale(Astro.currentLocale);
@@ -40,7 +40,7 @@ const c = getContact(L);
         </div>
         <div class="ct-block">
           <p class="ct-label">{c.labelTalk}</p>
-          <a class="ct-link link" href={localizeUrl(L, '/book-a-call')}>{c.bookCall} &rarr;</a>
+          <a class="ct-link link" href={localizedHref(L, '/book-a-call')}>{c.bookCall} &rarr;</a>
         </div>
       </div>
       <div class="ct-formcard">

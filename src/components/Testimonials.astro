@@ -1,8 +1,9 @@
 ---
 // Section 10 — What B2B teams say about hubsell (Espresso). Carousel.
 import { getHome } from '../data/home-i18n';
-import { asLocale } from '../i18n/utils';
-const { testimonials, s } = getHome(asLocale(Astro.currentLocale));
+import { asLocale, localizedHref } from '../i18n/utils';
+const L = asLocale(Astro.currentLocale);
+const { testimonials, s } = getHome(L);
 ---
 <section class="sec sec--esp" aria-labelledby="tst-title">
   <div class="wrap">
@@ -34,7 +35,7 @@ const { testimonials, s } = getHome(asLocale(Astro.currentLocale));
                     </div>
                   ))}
                 </div>
-                <a href={`/customerstories/${t.slug}`} class="link" style="font-size:14px">{s.testimonialsSec.readPre}{t.company}{s.testimonialsSec.readPost}</a>
+                <a href={localizedHref(L, `/customerstories/${t.slug}`)} class="link" style="font-size:14px">{s.testimonialsSec.readPre}{t.company}{s.testimonialsSec.readPost}</a>
               </div>
             </div>
           ))}

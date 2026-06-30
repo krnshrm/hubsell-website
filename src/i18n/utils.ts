@@ -59,3 +59,19 @@ export function hasTranslation(locale: Locale, base: string): boolean {
   const list = (translatedRoutes[locale] || []).map(normalize);
   return list.includes(normalize(base));
 }
+
+// Locale-aware href for an internal link. Returns the localized URL only when a
+// real translated page exists for this locale, so links never point into a
+// fallback redirect; otherwise the original English path is returned. External
+// links, mail/tel, and pure anchors pass through. On English, returns the path
+// unchanged. As pages are translated and added to translatedRoutes, their links
+// localize automatically with no further edits.
+export function localizedHref(locale: string | undefined, path: string): string {
+  if (!path) return path;
+  if (/^(https?:|mailto:|tel:)/.test(path)) return path;
+  if (path.startsWith('#')) return path;
+  const loc = asLocale(locale);
+  if (loc === defaultLocale) return path;
+  const base = (path.split('#')[0] || '/').split('?')[0] || '/';
+  return hasTranslation(loc, base) ? localizeUrl(loc, path) : path;
+}

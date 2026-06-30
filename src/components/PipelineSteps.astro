@@ -6,13 +6,14 @@
 // the row stacks (text above visual); below 860px each embed uses its own
 // vertical mobile layout.
 import { getHome } from '../data/home-i18n';
-import { asLocale } from '../i18n/utils';
+import { asLocale, localizedHref } from '../i18n/utils';
 import { SIGNUP_URL } from '../data/site';
 import SocialProspecting from './SocialProspecting.astro';
 import MultichannelFlow from './MultichannelFlow.astro';
 import CrmSyncTracker from './CrmSyncTracker.astro';
 
-const { steps: pipelineSteps, s } = getHome(asLocale(Astro.currentLocale));
+const L = asLocale(Astro.currentLocale);
+const { steps: pipelineSteps, s } = getHome(L);
 const EMBEDS: Record<string, any> = {
   '05-sp-widget': SocialProspecting,
   '06-multichannel-flow': MultichannelFlow,
@@ -44,7 +45,7 @@ const DIMS: Record<string, { w: number; h: number }> = {
               <div class="step__points">
                 {step.points.map((p) => <p class="paragraph" style="opacity:.84;margin:0">{p}</p>)}
               </div>
-              <a href={SIGNUP_URL} class="button is-secondary step__cta">{step.cta}</a>
+              <a href={localizedHref(L, SIGNUP_URL)} class="button is-secondary step__cta">{step.cta}</a>
             </div>
             <div class="step__media">
               <div class="viz" style={`--w:${d.w};--h:${d.h}`}>

@@ -6,8 +6,9 @@
 // (Comparisons CMS collection: apollo, zoominfo, cognism, lusha, seamless).
 // Competitor copy stays factual — positioning, never a put-down.
 import { getHome } from '../data/home-i18n';
-import { asLocale } from '../i18n/utils';
-const { comparison, s } = getHome(asLocale(Astro.currentLocale));
+import { asLocale, localizedHref } from '../i18n/utils';
+const L = asLocale(Astro.currentLocale);
+const { comparison, s } = getHome(L);
 const HUB_LOGO = 'https://assets.hubsell.com/logo/hubsell-wordmark-light.svg';
 
 const cols = ['hub', 'aio', 'data', 'lookup'] as const;
@@ -34,7 +35,7 @@ const last = rows.length - 1;
         <div class="cmp__corner"></div>
         {cols.map((c) => (
           heads[c].href
-            ? <a class="cmp__head cmp__col-link" href={heads[c].href}>{heads[c].label} <span aria-hidden="true">→</span></a>
+            ? <a class="cmp__head cmp__col-link" href={localizedHref(L, heads[c].href)}>{heads[c].label} <span aria-hidden="true">→</span></a>
             : <div class="cmp__head cmp__head--hub"><img class="cmp__hublogo" src={HUB_LOGO} alt="hubsell" /></div>
         ))}
 
@@ -65,7 +66,7 @@ const last = rows.length - 1;
 
     <div class="cmp__links reveal">
       <span class="cmp__links-label">{s.cmp.linksLabel}</span>
-      {allComparisons.map((c) => <a href={c.href}>{c.name}</a>)}
+      {allComparisons.map((c) => <a href={localizedHref(L, c.href)}>{c.name}</a>)}
     </div>
   </div>
 </section>

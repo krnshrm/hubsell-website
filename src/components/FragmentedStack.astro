@@ -6,8 +6,9 @@ import FragmentedPile from './FragmentedPile.astro';
 import UnifiedGrid from './UnifiedGrid.astro';
 import { SIGNUP_URL } from '../data/site';
 import { getHome } from '../data/home-i18n';
-import { asLocale } from '../i18n/utils';
-const { s } = getHome(asLocale(Astro.currentLocale));
+import { asLocale, localizedHref } from '../i18n/utils';
+const L = asLocale(Astro.currentLocale);
+const { s } = getHome(L);
 ---
 <section class="sec sec--navy frag" aria-labelledby="frag-title">
   <div class="wrap">
@@ -39,7 +40,7 @@ const { s } = getHome(asLocale(Astro.currentLocale));
     </div>
 
     <div class="reveal" style="display:flex;justify-content:center;margin-top:36px">
-      <a href={SIGNUP_URL} class="button is-large">{s.frag.cta}</a>
+      <a href={localizedHref(L, SIGNUP_URL)} class="button is-large">{s.frag.cta}</a>
     </div>
   </div>
 </section>

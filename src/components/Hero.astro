@@ -6,8 +6,9 @@ import HeroPipelineFlow from './HeroPipelineFlow.astro';
 import AskAiWidget from './AskAiWidget.astro';
 import { SIGNUP_URL, DEMO_URL } from '../data/site';
 import { getHome } from '../data/home-i18n';
-import { asLocale } from '../i18n/utils';
-const { s } = getHome(asLocale(Astro.currentLocale));
+import { asLocale, localizedHref } from '../i18n/utils';
+const L = asLocale(Astro.currentLocale);
+const { s } = getHome(L);
 ---
 <section id="hero" class="sec sec--sand hero">
   <div class="wrap">
@@ -18,8 +19,8 @@ const { s } = getHome(asLocale(Astro.currentLocale));
         <p class="subheading hero__sub">{s.hero.sub}</p>
 
         <div class="hero__cta">
-          <a class="button is-large" href={SIGNUP_URL}>{s.hero.ctaPrimary}</a>
-          <a class="button is-secondary is-large" href={DEMO_URL}>{s.hero.ctaSecondary}</a>
+          <a class="button is-large" href={localizedHref(L, SIGNUP_URL)}>{s.hero.ctaPrimary}</a>
+          <a class="button is-secondary is-large" href={localizedHref(L, DEMO_URL)}>{s.hero.ctaSecondary}</a>
         </div>
 
         <p class="hero__ratings">{s.hero.ratingsPre}<strong>{s.hero.ratingsScore}</strong>{s.hero.ratingsPost}</p>

@@ -8,7 +8,7 @@
 //   • CTAs point at the relative /book-a-call path.
 //   • script re-inits on astro:page-load and guards against double-binding.
 import { et } from '../data/embed-i18n';
-import { asLocale } from '../i18n/utils';
+import { asLocale, localizedHref } from '../i18n/utils';
 const L = asLocale(Astro.currentLocale);
 ---
 <div class="pricing-wrap" data-pricing>
@@ -64,7 +64,7 @@ const L = asLocale(Astro.currentLocale);
             <span>{et(L, "Add on:")} <span class="pricing-card-link" data-go-to-tab="data">{et(L, "Data")}</span></span>
           </li>
         </ul>
-        <a href="/book-a-call" class="pricing-card-cta">{et(L, "Let's Start")}</a>
+        <a href={localizedHref(L, '/book-a-call')} class="pricing-card-cta">{et(L, "Let's Start")}</a>
       </div>
 
       <div class="pricing-card is-popular">
@@ -110,7 +110,7 @@ const L = asLocale(Astro.currentLocale);
             <span>{et(L, "Add on:")} <span class="pricing-card-link" data-go-to-tab="data">{et(L, "Data")}</span></span>
           </li>
         </ul>
-        <a href="/book-a-call" class="pricing-card-cta">{et(L, "Let's Grow")}</a>
+        <a href={localizedHref(L, '/book-a-call')} class="pricing-card-cta">{et(L, "Let's Grow")}</a>
       </div>
 
       <div class="pricing-card">
@@ -143,7 +143,7 @@ const L = asLocale(Astro.currentLocale);
             <span>{et(L, "Add on:")} <span class="pricing-card-link" data-go-to-tab="data">{et(L, "Data")}</span></span>
           </li>
         </ul>
-        <a href="/book-a-call" class="pricing-card-cta">{et(L, "Let's Scale")}</a>
+        <a href={localizedHref(L, '/book-a-call')} class="pricing-card-cta">{et(L, "Let's Scale")}</a>
       </div>
 
     </div>
@@ -174,7 +174,7 @@ const L = asLocale(Astro.currentLocale);
             <span>{et(L, "Email Validation (incl. on Catch-All domains)")}</span>
           </li>
         </ul>
-        <a href="/book-a-call" class="pricing-card-cta">{et(L, "Get your data")}</a>
+        <a href={localizedHref(L, '/book-a-call')} class="pricing-card-cta">{et(L, "Get your data")}</a>
       </div>
 
       <div class="pricing-card">
@@ -207,7 +207,7 @@ const L = asLocale(Astro.currentLocale);
             <span>{et(L, "CRM Enrichment")}</span>
           </li>
         </ul>
-        <a href="/book-a-call" class="pricing-card-cta">{et(L, "Build your database")}</a>
+        <a href={localizedHref(L, '/book-a-call')} class="pricing-card-cta">{et(L, "Build your database")}</a>
       </div>
 
     </div>

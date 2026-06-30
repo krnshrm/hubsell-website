@@ -9,8 +9,9 @@ const ratings = [
   { platform: 'TrustRadius', score: '10', out: '/10', url: 'https://www.trustradius.com/products/hubsell/reviews' },
 ];
 import { getHome } from '../data/home-i18n';
-import { asLocale } from '../i18n/utils';
-const { s } = getHome(asLocale(Astro.currentLocale));
+import { asLocale, localizedHref } from '../i18n/utils';
+const L = asLocale(Astro.currentLocale);
+const { s } = getHome(L);
 ---
 <section class="sec sec--sand" aria-label="Ratings">
   <div class="wrap">
@@ -21,7 +22,7 @@ const { s } = getHome(asLocale(Astro.currentLocale));
       {ratings.map((r) => (
         <a
           class="card rating-card"
-          href={r.url}
+          href={localizedHref(L, r.url)}
           target="_blank"
           rel="noopener noreferrer"
           aria-label={s.ratings.aria(r.platform, r.score, r.out)}

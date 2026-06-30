@@ -1,9 +1,10 @@
 ---
 // Section 14 — Insights (Paper): newsletter signup + latest blog posts.
 import { getHome } from '../data/home-i18n';
-import { asLocale } from '../i18n/utils';
+import { asLocale, localizedHref } from '../i18n/utils';
 import WaitlistForm from './WaitlistForm.astro';
-const { insights, s } = getHome(asLocale(Astro.currentLocale));
+const L = asLocale(Astro.currentLocale);
+const { insights, s } = getHome(L);
 ---
 <section id="insights" class="sec sec--paper" aria-labelledby="insights-title">
   <div class="wrap">
@@ -24,7 +25,7 @@ const { insights, s } = getHome(asLocale(Astro.currentLocale));
 
     <div class="grid grid-3 reveal-stagger">
       {insights.map((post) => (
-        <a class="post" href={`/insights/${post.slug}`}>
+        <a class="post" href={localizedHref(L, `/insights/${post.slug}`)}>
           <img class="post__img" src={post.image} alt={post.title} loading="lazy" width="400" height="225" />
           <div class="post__body">
             <p class="eyebrow is-accent" style="font-size:.72rem">{s.insightsSec.cardTag}</p>
@@ -36,7 +37,7 @@ const { insights, s } = getHome(asLocale(Astro.currentLocale));
     </div>
 
     <p class="reveal" style="margin-top:30px">
-      <a href="/insights" class="link">{s.insightsSec.readMore}</a>
+      <a href={localizedHref(L, '/insights')} class="link">{s.insightsSec.readMore}</a>
     </p>
   </div>
 </section>

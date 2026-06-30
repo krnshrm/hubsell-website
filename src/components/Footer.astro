@@ -5,7 +5,7 @@
 // nav links, the account links, and the legal links come from src/data/navigation.ts.
 import { getCollection } from 'astro:content';
 import { menuGroups, topLinks, footerLinks, legalLinks, liveLinks } from '../data/navigation';
-import { asLocale, useTranslations, localizeUrl } from '../i18n/utils';
+import { asLocale, useTranslations, localizedHref } from '../i18n/utils';
 import AskAiWidget from './AskAiWidget.astro';
 
 const year = new Date().getFullYear();
@@ -57,7 +57,7 @@ const columns = [
   <div class="wrap">
     <div class="site-footer__top">
       <div class="site-footer__brand-block">
-        <a href={localizeUrl(locale, '/')} class="site-footer__brand" aria-label="hubsell home">
+        <a href={localizedHref(locale, '/')} class="site-footer__brand" aria-label="hubsell home">
           <img class="site-footer__logo" src={LOGO_LIGHT} alt="hubsell" width="124" />
         </a>
         <p class="site-footer__tag">{t('footer.tagline')}</p>
@@ -68,7 +68,7 @@ const columns = [
           <div class="site-footer__col">
             <p class="site-footer__colhead">{c.heading}</p>
             <ul>
-              {c.links.map((l) => (<li><a href={localizeUrl(locale, l.href)} class={l.all ? 'is-all' : undefined}>{l.key ? t(l.key) : l.label}</a></li>))}
+              {c.links.map((l) => (<li><a href={localizedHref(locale, l.href)} class={l.all ? 'is-all' : undefined}>{l.key ? t(l.key) : l.label}</a></li>))}
             </ul>
           </div>
         ))}
@@ -76,7 +76,7 @@ const columns = [
     </div>
 
     <nav class="site-footer__legal" aria-label="Legal">
-      {legalLinks.map((l) => (<a href={localizeUrl(locale, l.href!)}>{l.key ? t(l.key) : l.label}</a>))}
+      {legalLinks.map((l) => (<a href={localizedHref(locale, l.href!)}>{l.key ? t(l.key) : l.label}</a>))}
     </nav>
 
     <div class="site-footer__bottom">

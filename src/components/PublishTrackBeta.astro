@@ -2,8 +2,9 @@
 // Section 11 — Your LinkedIn content is already generating demand (Paper).
 import { SIGNUP_URL } from '../data/site';
 import { getHome } from '../data/home-i18n';
-import { asLocale } from '../i18n/utils';
-const { s } = getHome(asLocale(Astro.currentLocale));
+import { asLocale, localizedHref } from '../i18n/utils';
+const L = asLocale(Astro.currentLocale);
+const { s } = getHome(L);
 const now = s.loop.now;
 const beta = s.loop.beta;
 ---
@@ -14,7 +15,7 @@ const beta = s.loop.beta;
         <p class="eyebrow is-accent">{s.loop.eyebrow}</p>
         <h2 id="loop-title" class="heading_primary" style="margin:8px 0 14px">{s.loop.titlePre}<span class="accent">{s.loop.titleAccent}</span>{s.loop.titlePost}</h2>
         <p class="paragraph">{s.loop.body}</p>
-        <a href={SIGNUP_URL} class="button" style="margin-top:22px">{s.loop.cta}</a>
+        <a href={localizedHref(L, SIGNUP_URL)} class="button" style="margin-top:22px">{s.loop.cta}</a>
       </div>
 
       <div class="card">
