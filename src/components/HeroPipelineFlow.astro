@@ -10,6 +10,9 @@
 //   • per-step icon hues → brand palette (terracotta/amber/coral/navy/green)
 // Motion is gated behind the .has-anim class (reduced-motion / no-JS show the
 // cards and the static connector at rest).
+import { et } from '../data/embed-i18n';
+import { asLocale } from '../i18n/utils';
+const L = asLocale(Astro.currentLocale);
 ---
 <div class="hubsell-flow-embed">
   <div class="hw-track-container">
@@ -35,8 +38,8 @@
         </svg>
       </div>
       <div class="hw-text-group">
-        <p class="hw-title">Source fresh contacts</p>
-        <p class="hw-subtitle">Find targeted B2B prospects</p>
+        <p class="hw-title">{et(L, "Source fresh contacts")}</p>
+        <p class="hw-subtitle">{et(L, "Find targeted B2B prospects")}</p>
       </div>
     </div>
 
@@ -48,8 +51,8 @@
         </svg>
       </div>
       <div class="hw-text-group">
-        <p class="hw-title">Qualify with AI</p>
-        <p class="hw-subtitle">Score and filter leads instantly</p>
+        <p class="hw-title">{et(L, "Qualify with AI")}</p>
+        <p class="hw-subtitle">{et(L, "Score and filter leads instantly")}</p>
       </div>
     </div>
 
@@ -64,8 +67,8 @@
         </svg>
       </div>
       <div class="hw-text-group">
-        <p class="hw-title">Get accurate data</p>
-        <p class="hw-subtitle">Verify emails &amp; phone numbers</p>
+        <p class="hw-title">{et(L, "Get accurate data")}</p>
+        <p class="hw-subtitle">{et(L, "Verify emails & phone numbers")}</p>
       </div>
     </div>
 
@@ -78,8 +81,8 @@
         </svg>
       </div>
       <div class="hw-text-group">
-        <p class="hw-title">Reach out</p>
-        <p class="hw-subtitle">Via email + LinkedIn</p>
+        <p class="hw-title">{et(L, "Reach out")}</p>
+        <p class="hw-subtitle">{et(L, "Via email + LinkedIn")}</p>
       </div>
     </div>
 
@@ -91,8 +94,8 @@
         </svg>
       </div>
       <div class="hw-text-group">
-        <p class="hw-title">Log activity to CRM</p>
-        <p class="hw-subtitle">HubSpot, Salesforce, &amp; Pipedrive</p>
+        <p class="hw-title">{et(L, "Log activity to CRM")}</p>
+        <p class="hw-subtitle">{et(L, "HubSpot, Salesforce, & Pipedrive")}</p>
       </div>
     </div>
 
@@ -106,8 +109,8 @@
         </svg>
       </div>
       <div class="hw-text-group">
-        <p class="hw-title">Iterate and improve</p>
-        <p class="hw-subtitle">Continuous optimization</p>
+        <p class="hw-title">{et(L, "Iterate and improve")}</p>
+        <p class="hw-subtitle">{et(L, "Continuous optimization")}</p>
       </div>
     </div>
 

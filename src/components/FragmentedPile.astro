@@ -4,6 +4,9 @@
 // Adapted from the supplied widget: self-hosted GSAP (no global), reduced-motion
 // safe (cards only start hidden when motion is allowed), font @import dropped
 // (Lexend / Instrument Sans load globally), sized for the navy problem section.
+import { et } from '../data/embed-i18n';
+import { asLocale } from '../i18n/utils';
+const L = asLocale(Astro.currentLocale);
 ---
 <div class="ft-wrap">
   <div class="ft-grid">
@@ -14,10 +17,10 @@
           <div class="ft-icon-box">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>
           </div>
-          <div class="ft-title">Lead Databases</div>
+          <div class="ft-title">{et(L, "Lead Databases")}</div>
         </div>
         <div class="ft-card-back">
-          <div class="ft-desc">Data decays 30% a year.<br>Coverage gaps in your ICP.</div>
+          <div class="ft-desc">{et(L, "Data decays 30% a year.")}<br>{et(L, "Coverage gaps in your ICP.")}</div>
         </div>
       </div>
     </div>
@@ -28,10 +31,10 @@
           <div class="ft-icon-box">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
           </div>
-          <div class="ft-title">Cold Email Tools</div>
+          <div class="ft-title">{et(L, "Cold Email Tools")}</div>
         </div>
         <div class="ft-card-back">
-          <div class="ft-desc">Email runs on its own.<br>LinkedIn is a separate tool.</div>
+          <div class="ft-desc">{et(L, "Email runs on its own.")}<br>{et(L, "LinkedIn is a separate tool.")}</div>
         </div>
       </div>
     </div>
@@ -42,10 +45,10 @@
           <div class="ft-icon-box">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           </div>
-          <div class="ft-title">LinkedIn Outreach</div>
+          <div class="ft-title">{et(L, "LinkedIn Outreach")}</div>
         </div>
         <div class="ft-card-back">
-          <div class="ft-desc">Point solution only.<br>No link to email sequences.</div>
+          <div class="ft-desc">{et(L, "Point solution only.")}<br>{et(L, "No link to email sequences.")}</div>
         </div>
       </div>
     </div>
@@ -56,10 +59,10 @@
           <div class="ft-icon-box">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
           </div>
-          <div class="ft-title">Email Finders</div>
+          <div class="ft-title">{et(L, "Email Finders")}</div>
         </div>
         <div class="ft-card-back">
-          <div class="ft-desc">Multiple providers to manage.<br>Manual stacking, no flow.</div>
+          <div class="ft-desc">{et(L, "Multiple providers to manage.")}<br>{et(L, "Manual stacking, no flow.")}</div>
         </div>
       </div>
     </div>
@@ -70,10 +73,10 @@
           <div class="ft-icon-box">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
           </div>
-          <div class="ft-title">Buyer Intent Tools</div>
+          <div class="ft-title">{et(L, "Buyer Intent Tools")}</div>
         </div>
         <div class="ft-card-back">
-          <div class="ft-desc">No native action layer.<br>Signals don’t trigger outreach.</div>
+          <div class="ft-desc">{et(L, "No native action layer.")}<br>{et(L, "Signals don’t trigger outreach.")}</div>
         </div>
       </div>
     </div>
@@ -84,10 +87,10 @@
           <div class="ft-icon-box">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           </div>
-          <div class="ft-title">CRM Admin</div>
+          <div class="ft-title">{et(L, "CRM Admin")}</div>
         </div>
         <div class="ft-card-back">
-          <div class="ft-desc">Reps log by hand, or not at all.<br>CRM always out of date.</div>
+          <div class="ft-desc">{et(L, "Reps log by hand, or not at all.")}<br>{et(L, "CRM always out of date.")}</div>
         </div>
       </div>
     </div>

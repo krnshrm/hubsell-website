@@ -5,6 +5,9 @@
 // colour, so it carries the unification. Adapted from the supplied widget:
 // self-hosted GSAP, reduced-motion safe, purple recoloured to green, font
 // @import dropped, sized for the navy problem section.
+import { et } from '../data/embed-i18n';
+import { asLocale } from '../i18n/utils';
+const L = asLocale(Astro.currentLocale);
 ---
 <div class="ut-wrap">
   <div class="ut-grid">
@@ -16,10 +19,10 @@
           <div class="ut-icon-box">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
           </div>
-          <div class="ut-title">ICP Targeting</div>
+          <div class="ut-title">{et(L, "ICP Targeting")}</div>
         </div>
         <div class="ut-card-back">
-          <div class="ut-desc">Filter by persona, role,<br>seniority, and company.</div>
+          <div class="ut-desc">{et(L, "Filter by persona, role,")}<br>{et(L, "seniority, and company.")}</div>
         </div>
       </div>
     </div>
@@ -38,10 +41,10 @@
           <div class="ut-icon-box">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>
           </div>
-          <div class="ut-title">Account Targeting</div>
+          <div class="ut-title">{et(L, "Account Targeting")}</div>
         </div>
         <div class="ut-card-back">
-          <div class="ut-desc">Reach every stakeholder<br>from one campaign.</div>
+          <div class="ut-desc">{et(L, "Reach every stakeholder")}<br>{et(L, "from one campaign.")}</div>
         </div>
       </div>
     </div>
@@ -60,10 +63,10 @@
           <div class="ut-icon-box">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
           </div>
-          <div class="ut-title">Multichannel Orchestration</div>
+          <div class="ut-title">{et(L, "Multichannel Orchestration")}</div>
         </div>
         <div class="ut-card-back">
-          <div class="ut-desc">Email and LinkedIn in<br>one coordinated flow.</div>
+          <div class="ut-desc">{et(L, "Email and LinkedIn in")}<br>{et(L, "one coordinated flow.")}</div>
         </div>
       </div>
     </div>
@@ -100,10 +103,10 @@
           <div class="ut-icon-box">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
           </div>
-          <div class="ut-title">Multi-Step Enrichment</div>
+          <div class="ut-title">{et(L, "Multi-Step Enrichment")}</div>
         </div>
         <div class="ut-card-back">
-          <div class="ut-desc">AI-cleaned, human-verified<br>data at point of use.</div>
+          <div class="ut-desc">{et(L, "AI-cleaned, human-verified")}<br>{et(L, "data at point of use.")}</div>
         </div>
       </div>
     </div>
@@ -122,10 +125,10 @@
           <div class="ut-icon-box">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
           </div>
-          <div class="ut-title">Signal Layering</div>
+          <div class="ut-title">{et(L, "Signal Layering")}</div>
         </div>
         <div class="ut-card-back">
-          <div class="ut-desc">In-market buyers from<br>job changes &amp; events.</div>
+          <div class="ut-desc">{et(L, "In-market buyers from")}<br>{et(L, "job changes & events.")}</div>
         </div>
       </div>
     </div>
@@ -144,10 +147,10 @@
           <div class="ut-icon-box">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
           </div>
-          <div class="ut-title">Synced CRM</div>
+          <div class="ut-title">{et(L, "Synced CRM")}</div>
         </div>
         <div class="ut-card-back">
-          <div class="ut-desc">Auto-logged to Salesforce,<br>HubSpot, and Pipedrive.</div>
+          <div class="ut-desc">{et(L, "Auto-logged to Salesforce,")}<br>{et(L, "HubSpot, and Pipedrive.")}</div>
         </div>
       </div>
     </div>

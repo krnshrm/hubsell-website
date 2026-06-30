@@ -6,23 +6,26 @@
 // Adapted from the supplied widget: self-hosted GSAP (no global), reduced-motion
 // safe (hidden states only apply when motion is on), purple recoloured to
 // hubsell green, font @import dropped. Sits on the light (Paper) section.
+import { et } from '../data/embed-i18n';
+import { asLocale } from '../i18n/utils';
+const L = asLocale(Astro.currentLocale);
 ---
 <div class="d0-wrap">
   <div class="d0-headers">
     <div class="gsap-hide d0-head-l">
-      <div class="d0-eyebrow d0-eyebrow-left">Every other platform</div>
-      <div class="d0-col-heading">The database model</div>
+      <div class="d0-eyebrow d0-eyebrow-left">{et(L, "Every other platform")}</div>
+      <div class="d0-col-heading">{et(L, "The database model")}</div>
     </div>
     <div></div>
     <div class="gsap-hide d0-head-r">
       <div class="d0-eyebrow d0-eyebrow-right">hubsell</div>
-      <div class="d0-col-heading">Zero-day sourcing</div>
+      <div class="d0-col-heading">{et(L, "Zero-day sourcing")}</div>
     </div>
   </div>
 
   <div class="d0-timeline-container">
     <div class="d0-divider"></div>
-    <div class="d0-vs gsap-hide">vs</div>
+    <div class="d0-vs gsap-hide">{et(L, "vs")}</div>
 
     <div class="d0-grid">
 
@@ -41,11 +44,11 @@
             <div class="d0-rail"><div class="d0-dot left-dot"></div></div>
             <div class="d0-content">
               <div class="d0-text-wrap">
-                <div class="d0-node-title">Data captured</div>
-                <div class="d0-node-sub">Fresh at this moment only</div>
-                <div class="d0-tooltip">Brokers scrape the web. The moment it hits their database, it begins decaying at ~30% per year.</div>
+                <div class="d0-node-title">{et(L, "Data captured")}</div>
+                <div class="d0-node-sub">{et(L, "Fresh at this moment only")}</div>
+                <div class="d0-tooltip">{et(L, "Brokers scrape the web. The moment it hits their database, it begins decaying at ~30% per year.")}</div>
               </div>
-              <div class="d0-gap">3 to 6 months pass</div>
+              <div class="d0-gap">{et(L, "3 to 6 months pass")}</div>
             </div>
           </div>
 
@@ -53,11 +56,11 @@
             <div class="d0-rail"><div class="d0-dot left-dot"></div></div>
             <div class="d0-content">
               <div class="d0-text-wrap">
-                <div class="d0-node-title">Added to the database</div>
-                <div class="d0-node-sub">Cleaned, formatted, and sold</div>
-                <div class="d0-tooltip">Months pass while lists are cleaned and bundled. You buy a static list that is already outdated.</div>
+                <div class="d0-node-title">{et(L, "Added to the database")}</div>
+                <div class="d0-node-sub">{et(L, "Cleaned, formatted, and sold")}</div>
+                <div class="d0-tooltip">{et(L, "Months pass while lists are cleaned and bundled. You buy a static list that is already outdated.")}</div>
               </div>
-              <div class="d0-gap">You purchase the list</div>
+              <div class="d0-gap">{et(L, "You purchase the list")}</div>
             </div>
           </div>
 
@@ -65,11 +68,11 @@
             <div class="d0-rail"><div class="d0-dot left-dot"></div></div>
             <div class="d0-content">
               <div class="d0-text-wrap">
-                <div class="d0-node-title">Manual verification</div>
-                <div class="d0-node-sub">Hours wasted cross-checking profiles</div>
-                <div class="d0-tooltip">Reps don’t trust the data. They spend 20%+ of their day verifying profiles on LinkedIn instead of selling.</div>
+                <div class="d0-node-title">{et(L, "Manual verification")}</div>
+                <div class="d0-node-sub">{et(L, "Hours wasted cross-checking profiles")}</div>
+                <div class="d0-tooltip">{et(L, "Reps don’t trust the data. They spend 20%+ of their day verifying profiles on LinkedIn instead of selling.")}</div>
               </div>
-              <div class="d0-gap">Weeks of delay</div>
+              <div class="d0-gap">{et(L, "Weeks of delay")}</div>
             </div>
           </div>
 
@@ -77,11 +80,11 @@
             <div class="d0-rail"><div class="d0-dot left-dot"></div></div>
             <div class="d0-content">
               <div class="d0-text-wrap">
-                <div class="d0-node-title">Your rep sends outreach</div>
-                <div class="d0-node-sub">Titles wrong. Emails dead.</div>
-                <div class="d0-tooltip">Prospects have moved on. Messages hit spam traps or bounce entirely, destroying your sender reputation.</div>
+                <div class="d0-node-title">{et(L, "Your rep sends outreach")}</div>
+                <div class="d0-node-sub">{et(L, "Titles wrong. Emails dead.")}</div>
+                <div class="d0-tooltip">{et(L, "Prospects have moved on. Messages hit spam traps or bounce entirely, destroying your sender reputation.")}</div>
               </div>
-              <div class="d0-gap">Campaign results</div>
+              <div class="d0-gap">{et(L, "Campaign results")}</div>
             </div>
           </div>
 
@@ -89,9 +92,9 @@
             <div class="d0-rail"><div class="d0-dot left-dot"></div></div>
             <div class="d0-content">
               <div class="d0-text-wrap">
-                <div class="d0-node-title d0-final-left">Domain damaged, quota missed</div>
-                <div class="d0-node-sub">High bounce rates, blacklisted domains.</div>
-                <div class="d0-tooltip">Your emails start going straight to spam folders. Your outbound pipeline dries up completely.</div>
+                <div class="d0-node-title d0-final-left">{et(L, "Domain damaged, quota missed")}</div>
+                <div class="d0-node-sub">{et(L, "High bounce rates, blacklisted domains.")}</div>
+                <div class="d0-tooltip">{et(L, "Your emails start going straight to spam folders. Your outbound pipeline dries up completely.")}</div>
               </div>
             </div>
           </div>
@@ -114,11 +117,11 @@
             <div class="d0-rail"><div class="d0-dot right-dot"></div></div>
             <div class="d0-content">
               <div class="d0-text-wrap">
-                <div class="d0-node-title">You define your ICP</div>
-                <div class="d0-node-sub">Title, company type, signals</div>
-                <div class="d0-tooltip">Set precise parameters and buying signals to target exactly who you need right now.</div>
+                <div class="d0-node-title">{et(L, "You define your ICP")}</div>
+                <div class="d0-node-sub">{et(L, "Title, company type, signals")}</div>
+                <div class="d0-tooltip">{et(L, "Set precise parameters and buying signals to target exactly who you need right now.")}</div>
               </div>
-              <div class="d0-gap gap-right">Immediate</div>
+              <div class="d0-gap gap-right">{et(L, "Immediate")}</div>
             </div>
           </div>
 
@@ -126,11 +129,11 @@
             <div class="d0-rail"><div class="d0-dot right-dot"></div></div>
             <div class="d0-content">
               <div class="d0-text-wrap">
-                <div class="d0-node-title">Sourced live from LinkedIn</div>
-                <div class="d0-node-sub">Matched at this exact moment</div>
-                <div class="d0-tooltip">hubsell pulls live, accurate profile data directly from the source. No stale databases.</div>
+                <div class="d0-node-title">{et(L, "Sourced live from LinkedIn")}</div>
+                <div class="d0-node-sub">{et(L, "Matched at this exact moment")}</div>
+                <div class="d0-tooltip">{et(L, "hubsell pulls live, accurate profile data directly from the source. No stale databases.")}</div>
               </div>
-              <div class="d0-gap gap-right">Immediate</div>
+              <div class="d0-gap gap-right">{et(L, "Immediate")}</div>
             </div>
           </div>
 
@@ -138,11 +141,11 @@
             <div class="d0-rail"><div class="d0-dot right-dot"></div></div>
             <div class="d0-content">
               <div class="d0-text-wrap">
-                <div class="d0-node-title">Validated and enriched</div>
-                <div class="d0-node-sub">Emails confirmed, signals layered</div>
-                <div class="d0-tooltip">Emails are verified on the fly (even catch-alls), and intent signals are mapped to each prospect.</div>
+                <div class="d0-node-title">{et(L, "Validated and enriched")}</div>
+                <div class="d0-node-sub">{et(L, "Emails confirmed, signals layered")}</div>
+                <div class="d0-tooltip">{et(L, "Emails are verified on the fly (even catch-alls), and intent signals are mapped to each prospect.")}</div>
               </div>
-              <div class="d0-gap gap-right">Immediate</div>
+              <div class="d0-gap gap-right">{et(L, "Immediate")}</div>
             </div>
           </div>
 
@@ -150,11 +153,11 @@
             <div class="d0-rail"><div class="d0-dot right-dot"></div></div>
             <div class="d0-content">
               <div class="d0-text-wrap">
-                <div class="d0-node-title">Your rep sends outreach</div>
-                <div class="d0-node-sub">Right person, right time</div>
-                <div class="d0-tooltip">Automated, highly relevant messaging reaches verified inboxes with a high deliverability rate.</div>
+                <div class="d0-node-title">{et(L, "Your rep sends outreach")}</div>
+                <div class="d0-node-sub">{et(L, "Right person, right time")}</div>
+                <div class="d0-tooltip">{et(L, "Automated, highly relevant messaging reaches verified inboxes with a high deliverability rate.")}</div>
               </div>
-              <div class="d0-gap gap-right">Results</div>
+              <div class="d0-gap gap-right">{et(L, "Results")}</div>
             </div>
           </div>
 
@@ -162,9 +165,9 @@
             <div class="d0-rail"><div class="d0-dot right-dot"></div></div>
             <div class="d0-content">
               <div class="d0-text-wrap">
-                <div class="d0-node-title d0-final-right">Pipeline built</div>
-                <div class="d0-node-sub">Meetings booked automatically</div>
-                <div class="d0-tooltip">Your reps focus entirely on closing deals while hubsell handles the precise sourcing and delivery.</div>
+                <div class="d0-node-title d0-final-right">{et(L, "Pipeline built")}</div>
+                <div class="d0-node-sub">{et(L, "Meetings booked automatically")}</div>
+                <div class="d0-tooltip">{et(L, "Your reps focus entirely on closing deals while hubsell handles the precise sourcing and delivery.")}</div>
               </div>
             </div>
           </div>

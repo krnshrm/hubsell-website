@@ -5,6 +5,9 @@
 // electricity is hubsell green. Adapted from the supplied widget: bundled GSAP,
 // reduced-motion safe (cards rest visible when motion is off), purple recoloured
 // to green, font import dropped.
+import { et } from '../data/embed-i18n';
+import { asLocale } from '../i18n/utils';
+const L = asLocale(Astro.currentLocale);
 ---
 <div class="sp-wrap">
   <!-- DESKTOP CANVAS -->
@@ -25,68 +28,68 @@
     </svg>
 
     <div class="sp-card sp-card-tl">
-      <div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle></svg></div><p class="sp-title">Prospects following company</p></div>
+      <div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle></svg></div><p class="sp-title">{et(L, "Prospects following company")}</p></div>
       <div class="sp-contact-list">
         <div class="sp-contact-item"><div class="sp-avatar-mini bg-bl">MT</div><span class="sp-contact-name">Max Truman</span></div>
         <div class="sp-contact-item"><div class="sp-avatar-mini bg-gr">SJ</div><span class="sp-contact-name">Sarah Jenkins</span></div>
         <div class="sp-contact-item"><div class="sp-avatar-mini bg-or">DL</div><span class="sp-contact-name">David Lee</span></div>
       </div>
-      <div class="sp-others">+148 others</div>
+      <div class="sp-others">{et(L, "+148 others")}</div>
     </div>
 
     <div class="sp-card sp-card-ml">
-      <div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div><p class="sp-title">Prospects engaged with post</p></div>
+      <div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div><p class="sp-title">{et(L, "Prospects engaged with post")}</p></div>
       <div class="sp-contact-list">
         <div class="sp-contact-item"><div class="sp-avatar-mini bg-pr">AH</div><span class="sp-contact-name">Ali Hassan</span></div>
         <div class="sp-contact-item"><div class="sp-avatar-mini bg-pk">ND</div><span class="sp-contact-name">Nina Dobrev</span></div>
         <div class="sp-contact-item"><div class="sp-avatar-mini bg-bl">MC</div><span class="sp-contact-name">Marcus Cole</span></div>
       </div>
-      <div class="sp-others">+231 others</div>
+      <div class="sp-others">{et(L, "+231 others")}</div>
     </div>
 
     <div class="sp-card sp-card-bl">
-      <div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></div><p class="sp-title">Prospects following leader</p></div>
+      <div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></div><p class="sp-title">{et(L, "Prospects following leader")}</p></div>
       <div class="sp-contact-list">
         <div class="sp-contact-item"><div class="sp-avatar-mini bg-tl">MT</div><span class="sp-contact-name">Mia Torres</span></div>
         <div class="sp-contact-item"><div class="sp-avatar-mini bg-or">EW</div><span class="sp-contact-name">Evan Wright</span></div>
         <div class="sp-contact-item"><div class="sp-avatar-mini bg-gr">CP</div><span class="sp-contact-name">Chloe Price</span></div>
       </div>
-      <div class="sp-others">+342 others</div>
+      <div class="sp-others">{et(L, "+342 others")}</div>
     </div>
 
     <div class="sp-center-node">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-      Your true ICP
+      {et(L, "Your true ICP")}
     </div>
 
     <div class="sp-card sp-card-tr">
-      <div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.2 7.8 13.4 13.4 7.8 16.2 10.6 10.6 16.2 7.8"></polygon></svg></div><p class="sp-title">Prospects changed jobs</p></div>
+      <div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.2 7.8 13.4 13.4 7.8 16.2 10.6 10.6 16.2 7.8"></polygon></svg></div><p class="sp-title">{et(L, "Prospects changed jobs")}</p></div>
       <div class="sp-contact-list">
         <div class="sp-contact-item"><div class="sp-avatar-mini bg-pk">MN</div><span class="sp-contact-name">May Nguyen</span></div>
         <div class="sp-contact-item"><div class="sp-avatar-mini bg-rd">LK</div><span class="sp-contact-name">Lucas King</span></div>
         <div class="sp-contact-item"><div class="sp-avatar-mini bg-bl">ZS</div><span class="sp-contact-name">Zoe Smith</span></div>
       </div>
-      <div class="sp-others">+112 others</div>
+      <div class="sp-others">{et(L, "+112 others")}</div>
     </div>
 
     <div class="sp-card sp-card-mr">
-      <div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div><p class="sp-title">Prospects attended event</p></div>
+      <div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div><p class="sp-title">{et(L, "Prospects attended event")}</p></div>
       <div class="sp-contact-list">
         <div class="sp-contact-item"><div class="sp-avatar-mini bg-or">TP</div><span class="sp-contact-name">Tae Parker</span></div>
         <div class="sp-contact-item"><div class="sp-avatar-mini bg-pr">OL</div><span class="sp-contact-name">Omar Little</span></div>
         <div class="sp-contact-item"><div class="sp-avatar-mini bg-tl">FG</div><span class="sp-contact-name">Fiona Gallagher</span></div>
       </div>
-      <div class="sp-others">+456 others</div>
+      <div class="sp-others">{et(L, "+456 others")}</div>
     </div>
 
     <div class="sp-card sp-card-br">
-      <div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div><p class="sp-title">Prospects hiring active roles</p></div>
+      <div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div><p class="sp-title">{et(L, "Prospects hiring active roles")}</p></div>
       <div class="sp-contact-list">
         <div class="sp-contact-item"><div class="sp-avatar-mini bg-gr">LS</div><span class="sp-contact-name">Lia Soares</span></div>
         <div class="sp-contact-item"><div class="sp-avatar-mini bg-bl">NF</div><span class="sp-contact-name">Noah Fence</span></div>
         <div class="sp-contact-item"><div class="sp-avatar-mini bg-rd">ES</div><span class="sp-contact-name">Emma Stone</span></div>
       </div>
-      <div class="sp-others">+189 others</div>
+      <div class="sp-others">{et(L, "+189 others")}</div>
     </div>
   </div>
 
@@ -95,14 +98,14 @@
     <div class="sp-mobile-track"><div class="sp-mobile-spark"></div></div>
     <div class="sp-center-node-mob">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-      Your true ICP
+      {et(L, "Your true ICP")}
     </div>
-    <div class="sp-card-mob"><div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle></svg></div><p class="sp-title">Prospects following company</p></div><div class="sp-contact-list"><div class="sp-contact-item"><div class="sp-avatar-mini bg-bl">MT</div><span class="sp-contact-name">Max Truman</span></div><div class="sp-contact-item"><div class="sp-avatar-mini bg-gr">SJ</div><span class="sp-contact-name">Sarah Jenkins</span></div></div></div>
-    <div class="sp-card-mob"><div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div><p class="sp-title">Prospects engaged with post</p></div><div class="sp-contact-list"><div class="sp-contact-item"><div class="sp-avatar-mini bg-pr">AH</div><span class="sp-contact-name">Ali Hassan</span></div><div class="sp-contact-item"><div class="sp-avatar-mini bg-pk">ND</div><span class="sp-contact-name">Nina Dobrev</span></div></div></div>
-    <div class="sp-card-mob"><div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></div><p class="sp-title">Prospects following leader</p></div><div class="sp-contact-list"><div class="sp-contact-item"><div class="sp-avatar-mini bg-tl">MT</div><span class="sp-contact-name">Mia Torres</span></div><div class="sp-contact-item"><div class="sp-avatar-mini bg-or">EW</div><span class="sp-contact-name">Evan Wright</span></div></div></div>
-    <div class="sp-card-mob"><div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.2 7.8 13.4 13.4 7.8 16.2 10.6 10.6 16.2 7.8"></polygon></svg></div><p class="sp-title">Prospects changed jobs</p></div><div class="sp-contact-list"><div class="sp-contact-item"><div class="sp-avatar-mini bg-pk">MN</div><span class="sp-contact-name">May Nguyen</span></div><div class="sp-contact-item"><div class="sp-avatar-mini bg-rd">LK</div><span class="sp-contact-name">Lucas King</span></div></div></div>
-    <div class="sp-card-mob"><div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div><p class="sp-title">Prospects attended event</p></div><div class="sp-contact-list"><div class="sp-contact-item"><div class="sp-avatar-mini bg-or">TP</div><span class="sp-contact-name">Tae Parker</span></div><div class="sp-contact-item"><div class="sp-avatar-mini bg-pr">OL</div><span class="sp-contact-name">Omar Little</span></div></div></div>
-    <div class="sp-card-mob"><div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div><p class="sp-title">Prospects hiring active roles</p></div><div class="sp-contact-list"><div class="sp-contact-item"><div class="sp-avatar-mini bg-gr">LS</div><span class="sp-contact-name">Lia Soares</span></div><div class="sp-contact-item"><div class="sp-avatar-mini bg-bl">NF</div><span class="sp-contact-name">Noah Fence</span></div></div></div>
+    <div class="sp-card-mob"><div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle></svg></div><p class="sp-title">{et(L, "Prospects following company")}</p></div><div class="sp-contact-list"><div class="sp-contact-item"><div class="sp-avatar-mini bg-bl">MT</div><span class="sp-contact-name">Max Truman</span></div><div class="sp-contact-item"><div class="sp-avatar-mini bg-gr">SJ</div><span class="sp-contact-name">Sarah Jenkins</span></div></div></div>
+    <div class="sp-card-mob"><div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div><p class="sp-title">{et(L, "Prospects engaged with post")}</p></div><div class="sp-contact-list"><div class="sp-contact-item"><div class="sp-avatar-mini bg-pr">AH</div><span class="sp-contact-name">Ali Hassan</span></div><div class="sp-contact-item"><div class="sp-avatar-mini bg-pk">ND</div><span class="sp-contact-name">Nina Dobrev</span></div></div></div>
+    <div class="sp-card-mob"><div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></div><p class="sp-title">{et(L, "Prospects following leader")}</p></div><div class="sp-contact-list"><div class="sp-contact-item"><div class="sp-avatar-mini bg-tl">MT</div><span class="sp-contact-name">Mia Torres</span></div><div class="sp-contact-item"><div class="sp-avatar-mini bg-or">EW</div><span class="sp-contact-name">Evan Wright</span></div></div></div>
+    <div class="sp-card-mob"><div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.2 7.8 13.4 13.4 7.8 16.2 10.6 10.6 16.2 7.8"></polygon></svg></div><p class="sp-title">{et(L, "Prospects changed jobs")}</p></div><div class="sp-contact-list"><div class="sp-contact-item"><div class="sp-avatar-mini bg-pk">MN</div><span class="sp-contact-name">May Nguyen</span></div><div class="sp-contact-item"><div class="sp-avatar-mini bg-rd">LK</div><span class="sp-contact-name">Lucas King</span></div></div></div>
+    <div class="sp-card-mob"><div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div><p class="sp-title">{et(L, "Prospects attended event")}</p></div><div class="sp-contact-list"><div class="sp-contact-item"><div class="sp-avatar-mini bg-or">TP</div><span class="sp-contact-name">Tae Parker</span></div><div class="sp-contact-item"><div class="sp-avatar-mini bg-pr">OL</div><span class="sp-contact-name">Omar Little</span></div></div></div>
+    <div class="sp-card-mob"><div class="sp-header"><div class="sp-icon-wrapper"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div><p class="sp-title">{et(L, "Prospects hiring active roles")}</p></div><div class="sp-contact-list"><div class="sp-contact-item"><div class="sp-avatar-mini bg-gr">LS</div><span class="sp-contact-name">Lia Soares</span></div><div class="sp-contact-item"><div class="sp-avatar-mini bg-bl">NF</div><span class="sp-contact-name">Noah Fence</span></div></div></div>
   </div>
 </div>
 

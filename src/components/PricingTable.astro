@@ -7,6 +7,9 @@
 //   • hardcoded #7c3aed / #2d50ef and the purple tints/shadows are removed.
 //   • CTAs point at the relative /book-a-call path.
 //   • script re-inits on astro:page-load and guards against double-binding.
+import { et } from '../data/embed-i18n';
+import { asLocale } from '../i18n/utils';
+const L = asLocale(Astro.currentLocale);
 ---
 <div class="pricing-wrap" data-pricing>
 
@@ -18,12 +21,12 @@
     </div>
     <div class="pricing-tabs">
       <button class="pricing-tab is-active" data-tab="platform">
-        <div class="pricing-tab-title">Platform</div>
-        <div class="pricing-tab-sub">GTM orchestration</div>
+        <div class="pricing-tab-title">{et(L, "Platform")}</div>
+        <div class="pricing-tab-sub">{et(L, "GTM orchestration")}</div>
       </button>
       <button class="pricing-tab" data-tab="data">
-        <div class="pricing-tab-title">Data add-on <span class="pricing-tab-dot"></span></div>
-        <div class="pricing-tab-sub">Sales intelligence</div>
+        <div class="pricing-tab-title">{et(L, "Data add-on")} <span class="pricing-tab-dot"></span></div>
+        <div class="pricing-tab-sub">{et(L, "Sales intelligence")}</div>
       </button>
     </div>
   </div>
@@ -33,99 +36,99 @@
 
       <div class="pricing-card">
         <div class="pricing-card-name">Start</div>
-        <div class="pricing-card-price-prefix">Starting at</div>
-        <div class="pricing-card-price"><span class="price-currency">€</span><span class="price-value" data-eur="120" data-usd="140" data-gbp="100">120</span><span class="pricing-card-price-period">/seat/month</span></div>
-        <div class="pricing-card-desc">For solopreneurs and early-stage teams starting their with their GTM motion.</div>
-        <div class="pricing-card-emph-line">Includes 1 seat.</div>
+        <div class="pricing-card-price-prefix">{et(L, "Starting at")}</div>
+        <div class="pricing-card-price"><span class="price-currency">€</span><span class="price-value" data-eur="120" data-usd="140" data-gbp="100">120</span><span class="pricing-card-price-period">{et(L, "/seat/month")}</span></div>
+        <div class="pricing-card-desc">{et(L, "For solopreneurs and early-stage teams starting their with their GTM motion.")}</div>
+        <div class="pricing-card-emph-line">{et(L, "Includes 1 seat.")}</div>
         <div class="pricing-card-divider"></div>
-        <div class="pricing-card-features-label">Start features:</div>
+        <div class="pricing-card-features-label">{et(L, "Start features:")}</div>
         <ul class="pricing-card-features">
           <li>
             <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg></div>
-            <span>Essential Node Types</span>
+            <span>{et(L, "Essential Node Types")}</span>
           </li>
           <li>
             <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></div>
-            <span>Multi-channel Outreach (Email, LinkedIn &amp; Tasks)</span>
+            <span>{et(L, "Multi-channel Outreach (Email, LinkedIn & Tasks)")}</span>
           </li>
           <li>
             <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21v-5h5"/></svg></div>
-            <span>CRM Sync Contacts &amp; Accounts</span>
+            <span>{et(L, "CRM Sync Contacts & Accounts")}</span>
           </li>
           <li>
             <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg></div>
-            <span>Human Chat Based Support</span>
+            <span>{et(L, "Human Chat Based Support")}</span>
           </li>
           <li>
             <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></div>
-            <span>Add on: <span class="pricing-card-link" data-go-to-tab="data">Data</span></span>
+            <span>{et(L, "Add on:")} <span class="pricing-card-link" data-go-to-tab="data">{et(L, "Data")}</span></span>
           </li>
         </ul>
-        <a href="/book-a-call" class="pricing-card-cta">Let's Start</a>
+        <a href="/book-a-call" class="pricing-card-cta">{et(L, "Let's Start")}</a>
       </div>
 
       <div class="pricing-card is-popular">
-        <div class="pricing-card-badge">Most popular</div>
+        <div class="pricing-card-badge">{et(L, "Most popular")}</div>
         <div class="pricing-card-name">Grow</div>
-        <div class="pricing-card-price-prefix">Starting at</div>
+        <div class="pricing-card-price-prefix">{et(L, "Starting at")}</div>
         <div class="pricing-card-price"><span class="price-currency">€</span><span class="price-value" data-eur="4320" data-usd="5000" data-gbp="3700">4,320</span><span class="pricing-card-price-period">/year</span></div>
-        <div class="pricing-card-desc">For teams that want more powerful features to scale their pipeline across every channel.</div>
-        <div class="pricing-card-emph-line">Includes 3 seats.</div>
+        <div class="pricing-card-desc">{et(L, "For teams that want more powerful features to scale their pipeline across every channel.")}</div>
+        <div class="pricing-card-emph-line">{et(L, "Includes 3 seats.")}</div>
         <div class="pricing-card-divider"></div>
-        <div class="pricing-card-features-label">Everything in Start, plus:</div>
+        <div class="pricing-card-features-label">{et(L, "Everything in Start, plus:")}</div>
         <ul class="pricing-card-features">
           <li>
             <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></div>
-            <span>AI Node Types</span>
+            <span>{et(L, "AI Node Types")}</span>
           </li>
           <li>
             <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></div>
-            <span>Data Node Types</span>
+            <span>{et(L, "Data Node Types")}</span>
           </li>
           <li>
             <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></div>
-            <span>Publish to LinkedIn (Coming soon)</span>
+            <span>{et(L, "Publish to LinkedIn (Coming soon)")}</span>
           </li>
           <li>
             <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg></div>
-            <span>Unified Inbox (Coming soon)</span>
+            <span>{et(L, "Unified Inbox (Coming soon)")}</span>
           </li>
           <li>
             <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><path d="m9 16 2 2 4-4"/></svg></div>
-            <span>CRM Sync Tasks &amp; Activities</span>
+            <span>{et(L, "CRM Sync Tasks & Activities")}</span>
           </li>
           <li>
             <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
-            <span>Full Onboarding</span>
+            <span>{et(L, "Full Onboarding")}</span>
           </li>
           <li>
             <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-            <span>Additional seats at <span class="pricing-card-emph">€1440 per year</span>.</span>
+            <span>{et(L, "Additional seats at")} <span class="pricing-card-emph">{et(L, "€1440 per year")}</span>.</span>
           </li>
           <li>
             <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></div>
-            <span>Add on: <span class="pricing-card-link" data-go-to-tab="data">Data</span></span>
+            <span>{et(L, "Add on:")} <span class="pricing-card-link" data-go-to-tab="data">{et(L, "Data")}</span></span>
           </li>
         </ul>
-        <a href="/book-a-call" class="pricing-card-cta">Let's Grow</a>
+        <a href="/book-a-call" class="pricing-card-cta">{et(L, "Let's Grow")}</a>
       </div>
 
       <div class="pricing-card">
         <div class="pricing-card-name">Scale</div>
-        <div class="pricing-card-price-prefix">Starting at</div>
+        <div class="pricing-card-price-prefix">{et(L, "Starting at")}</div>
         <div class="pricing-card-price"><span class="price-currency">€</span><span class="price-value" data-eur="12000" data-usd="13800" data-gbp="10300">12,000</span><span class="pricing-card-price-period">/year</span></div>
-        <div class="pricing-card-desc">For large teams that require custom solutions and in-depth technical onboarding.</div>
-        <div class="pricing-card-emph-line">Includes 10 seats.</div>
+        <div class="pricing-card-desc">{et(L, "For large teams that require custom solutions and in-depth technical onboarding.")}</div>
+        <div class="pricing-card-emph-line">{et(L, "Includes 10 seats.")}</div>
         <div class="pricing-card-divider"></div>
-        <div class="pricing-card-features-label">Everything in Grow, plus:</div>
+        <div class="pricing-card-features-label">{et(L, "Everything in Grow, plus:")}</div>
         <ul class="pricing-card-features">
           <li>
             <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><path d="M3 14h7v7H3z"/></svg></div>
-            <span>Custom Node Types</span>
+            <span>{et(L, "Custom Node Types")}</span>
           </li>
           <li>
             <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/><line x1="6" x2="6" y1="9" y2="21"/></svg></div>
-            <span>Custom CRM Sync</span>
+            <span>{et(L, "Custom CRM Sync")}</span>
           </li>
           <li>
             <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg></div>
@@ -133,14 +136,14 @@
           </li>
           <li>
             <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-            <span>Additional seats at <span class="pricing-card-emph">€1200 per year</span>.</span>
+            <span>{et(L, "Additional seats at")} <span class="pricing-card-emph">{et(L, "€1200 per year")}</span>.</span>
           </li>
           <li>
             <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></div>
-            <span>Add on: <span class="pricing-card-link" data-go-to-tab="data">Data</span></span>
+            <span>{et(L, "Add on:")} <span class="pricing-card-link" data-go-to-tab="data">{et(L, "Data")}</span></span>
           </li>
         </ul>
-        <a href="/book-a-call" class="pricing-card-cta">Let's Scale</a>
+        <a href="/book-a-call" class="pricing-card-cta">{et(L, "Let's Scale")}</a>
       </div>
 
     </div>
@@ -151,12 +154,12 @@
 
       <div class="pricing-card">
         <div class="pricing-card-name">Sales Intelligence | Pay as you go</div>
-        <div class="pricing-card-price-prefix">Starting at</div>
-        <div class="pricing-card-price"><span class="price-currency">€</span><span class="price-value" data-eur="1.25" data-usd="1.45" data-gbp="1.10">1.25</span><span class="pricing-card-price-period">/credit</span></div>
+        <div class="pricing-card-price-prefix">{et(L, "Starting at")}</div>
+        <div class="pricing-card-price"><span class="price-currency">€</span><span class="price-value" data-eur="1.25" data-usd="1.45" data-gbp="1.10">1.25</span><span class="pricing-card-price-period">{et(L, "/credit")}</span></div>
 
-        <div class="pricing-card-desc">Only pay for what you use. Cost per credit is <span class="pricing-card-emph">25% more</span> than with a Sales Intelligence Subscription.</div>
+        <div class="pricing-card-desc">{et(L, "Only pay for what you use. Cost per credit is")} <span class="pricing-card-emph">{et(L, "25% more")}</span> {et(L, "than with a Sales Intelligence Subscription.")}</div>
         <div class="pricing-card-divider"></div>
-        <div class="pricing-card-features-label">Start features:</div>
+        <div class="pricing-card-features-label">{et(L, "Start features:")}</div>
         <ul class="pricing-card-features">
           <li>
             <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
@@ -164,47 +167,47 @@
           </li>
           <li>
             <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-            <span>Realtime Data Sourcing</span>
+            <span>{et(L, "Realtime Data Sourcing")}</span>
           </li>
           <li>
             <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h8"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/><path d="m16 19 2 2 4-4"/></svg></div>
-            <span>Email Validation (incl. on Catch-All domains)</span>
+            <span>{et(L, "Email Validation (incl. on Catch-All domains)")}</span>
           </li>
         </ul>
-        <a href="/book-a-call" class="pricing-card-cta">Get your data</a>
+        <a href="/book-a-call" class="pricing-card-cta">{et(L, "Get your data")}</a>
       </div>
 
       <div class="pricing-card">
-        <div class="pricing-card-name">Sales Intelligence | Subscription</div>
-        <div class="pricing-card-price-prefix">Starting at</div>
+        <div class="pricing-card-name">{et(L, "Sales Intelligence | Subscription")}</div>
+        <div class="pricing-card-price-prefix">{et(L, "Starting at")}</div>
         <div class="pricing-card-price"><span class="price-currency">€</span><span class="price-value" data-eur="5000" data-usd="5800" data-gbp="4300">5,000</span><span class="pricing-card-price-period">/year</span></div>
-        <div class="pricing-card-desc">For teams that need a larger amount of data and more advanced sourcing techniques.</div>
-        <div class="pricing-card-emph-line">Includes 5000 credits - enriches 10K-50K contacts.</div>
+        <div class="pricing-card-desc">{et(L, "For teams that need a larger amount of data and more advanced sourcing techniques.")}</div>
+        <div class="pricing-card-emph-line">{et(L, "Includes 5000 credits - enriches 10K-50K contacts.")}</div>
         <div class="pricing-card-divider"></div>
-        <div class="pricing-card-features-label">Everything in Pay as you go, plus:</div>
+        <div class="pricing-card-features-label">{et(L, "Everything in Pay as you go, plus:")}</div>
         <ul class="pricing-card-features">
           <li>
             <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-            <span>Account Based Targeting</span>
+            <span>{et(L, "Account Based Targeting")}</span>
           </li>
           <li>
             <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></div>
-            <span>Named Account Enrichment</span>
+            <span>{et(L, "Named Account Enrichment")}</span>
           </li>
           <li>
             <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></div>
-            <span>Custom Data Sourcing</span>
+            <span>{et(L, "Custom Data Sourcing")}</span>
           </li>
           <li>
             <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-            <span>Phone Number Sourcing</span>
+            <span>{et(L, "Phone Number Sourcing")}</span>
           </li>
           <li>
             <div class="feat-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21v-5h5"/></svg></div>
-            <span>CRM Enrichment</span>
+            <span>{et(L, "CRM Enrichment")}</span>
           </li>
         </ul>
-        <a href="/book-a-call" class="pricing-card-cta">Build your database</a>
+        <a href="/book-a-call" class="pricing-card-cta">{et(L, "Build your database")}</a>
       </div>
 
     </div>
@@ -213,9 +216,9 @@
   <div class="pricing-popup-bg" data-popup-bg>
     <div class="pricing-popup">
       <button class="pricing-popup-close" data-popup-close>×</button>
-      <div class="pricing-popup-title">How credits work</div>
+      <div class="pricing-popup-title">{et(L, "How credits work")}</div>
       <div class="pricing-popup-body">
-        Credits are consumed at different rates depending on the action. Enrichment, validation, and intent signals each draw a different number of credits per record.
+        {et(L, "Credits are consumed at different rates depending on the action. Enrichment, validation, and intent signals each draw a different number of credits per record.")}
       </div>
     </div>
   </div>
