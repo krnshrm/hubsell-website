@@ -264,8 +264,8 @@ const L = asLocale(Astro.currentLocale);
   }
 
   .hw-text-group{display:flex; flex-direction:column; gap:2px}
-  .hw-title{font-family:'Lexend',sans-serif; font-weight:600; font-size:14px; color:#192341; margin:0}
-  .hw-subtitle{font-size:11px; color:#54596B; margin:0; line-height:1.2}
+  .hw-title{font-family:'Lexend',sans-serif; font-weight:600; font-size:14px; color:#192341; margin:0; overflow-wrap:break-word; hyphens:auto; }
+  .hw-subtitle{font-size:11px; color:#54596B; margin:0; line-height:1.2; overflow-wrap:break-word; hyphens:auto; }
 
   @media (prefers-reduced-motion: reduce){
     .hw-pulse{display:none}

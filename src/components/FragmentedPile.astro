@@ -121,8 +121,8 @@ const L = asLocale(Astro.currentLocale);
 
   .ft-icon-box{ width:44px; height:44px; border-radius:10px; background:rgba(232,98,80,.12); color:#E86250; display:flex; align-items:center; justify-content:center; flex-shrink:0 }
   .ft-icon-box svg{ width:22px; height:22px }
-  .ft-title{ font-family:'Lexend', sans-serif; font-size:16px; font-weight:600; color:#192341; line-height:1.2; margin:0 }
-  .ft-desc{ font-size:14px; color:#C0392B; font-weight:500; line-height:1.4; margin:0 }
+  .ft-title{ font-family:'Lexend', sans-serif; font-size:16px; font-weight:600; color:#192341; line-height:1.2; margin:0 ; overflow-wrap:break-word; hyphens:auto; }
+  .ft-desc{ font-size:14px; color:#C0392B; font-weight:500; line-height:1.4; margin:0 ; overflow-wrap:break-word; hyphens:auto; }
 
   @media (max-width:768px){ .ft-grid{ grid-template-columns:1fr; gap:16px } }
   @media (prefers-reduced-motion:reduce){ .ft-card-inner{ transition:none } }
