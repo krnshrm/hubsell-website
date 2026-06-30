@@ -1,0 +1,58 @@
+---
+// Reviews page body. Single source rendered by /hubsell-reviews (English) and
+// /de/hubsell-reviews (German); self-localizes from Astro.currentLocale. RatingsStrip
+// localizes itself via getHome; the testimonial wall takes the localized pool. The
+// Review/breadcrumb JSON-LD is built in the route files so its slot="head" reaches
+// BaseLayout.
+import RatingsStrip from './RatingsStrip.astro';
+import TestimonialStrip from './TestimonialStrip.astro';
+import { TESTIMONIALS } from '../data/testimonials';
+import { TESTIMONIALS_DE } from '../data/testimonials.de';
+import { getReviewsPage } from '../i18n/pages';
+import { asLocale, localizedHref } from '../i18n/utils';
+import { SIGNUP_URL, DEMO_URL } from '../data/site';
+
+const L = asLocale(Astro.currentLocale);
+const c = getReviewsPage(L);
+const quotes = L === 'de' ? TESTIMONIALS_DE : TESTIMONIALS;
+---
+<!-- Hero · Paper -->
+<section class="sec sec--paper">
+  <div class="wrap rv-hero">
+    <p class="eyebrow is-accent">{c.eyebrow}</p>
+    <h1 class="heading_primary">{c.h1}</h1>
+    <p class="subheading rv-sub">{c.heroSub}</p>
+  </div>
+</section>
+
+<!-- Ratings · Sand (shared component, links out to each platform) -->
+<RatingsStrip />
+
+<!-- Reviews wall · Paper -->
+<section class="sec sec--paper">
+  <div class="wrap">
+    <h2 class="heading_secondary rv-wallhead">{c.wallHead}</h2>
+    <TestimonialStrip quotes={quotes} heading="" />
+  </div>
+</section>
+
+<!-- CTA · Navy -->
+<section class="sec sec--navy">
+  <div class="wrap rv-cta">
+    <h2 class="heading_primary">{c.ctaTitle}</h2>
+    <p class="subheading rv-sub">{c.ctaSub}</p>
+    <div class="rv-actions">
+      <a class="button is-large" href={localizedHref(L, SIGNUP_URL)}>{c.ctaPrimary}</a>
+      <a class="button is-large is-secondary" href={localizedHref(L, DEMO_URL)}>{c.ctaSecondary}</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .rv-hero { max-width:70ch; }
+  .rv-sub { margin-top:14px; }
+  .rv-wallhead { margin-bottom:22px; }
+  .rv-cta { text-align:center; max-width:62ch; margin-inline:auto; }
+  .rv-cta .rv-sub { margin-inline:auto; }
+  .rv-actions { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:26px; }
+</style>

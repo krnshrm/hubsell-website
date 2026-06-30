@@ -135,3 +135,108 @@ const bookCall = byLocale<BookCallCopy>(
 export function getBookCall(locale: string | undefined): BookCallCopy {
   return bookCall[asLocale(locale)];
 }
+
+// ── FAQs page ───────────────────────────────────────────────────────────────────
+export interface FaqsCopy {
+  metaTitle: string;
+  metaDescription: string;
+  eyebrow: string;
+  title: string;
+  subPre: string;   // before the inline demo link
+  demoLink: string; // inline link text
+  subPost: string;  // after the link
+  ctaTitle: string;
+  ctaText: string;
+  ctaPrimary: string;
+  ctaSecondary: string;
+}
+
+const faqsPage = byLocale<FaqsCopy>(
+  {
+    metaTitle: 'Frequently asked questions | hubsell',
+    metaDescription:
+      'Answers to the questions teams ask before switching to hubsell: live data sourcing, deliverability, LinkedIn outreach, CRM sync, GDPR, pricing, and more.',
+    eyebrow: 'FAQ',
+    title: 'Questions, answered.',
+    subPre: 'Everything teams ask before switching to hubsell. Still stuck? ',
+    demoLink: 'Book a 20-minute demo',
+    subPost: '.',
+    ctaTitle: 'Still weighing it up?',
+    ctaText: 'Put hubsell on your own ICP and see the data and the outreach flow on real accounts.',
+    ctaPrimary: 'Start free trial',
+    ctaSecondary: 'Book a demo',
+  },
+  {
+    metaTitle: 'Häufig gestellte Fragen | hubsell',
+    metaDescription:
+      'Antworten auf die Fragen, die Teams vor dem Wechsel zu hubsell stellen: Live-Datenrecherche, Zustellbarkeit, LinkedIn-Outreach, CRM-Synchronisierung, DSGVO, Preise und mehr.',
+    eyebrow: 'FAQ',
+    title: 'Antworten auf Ihre Fragen.',
+    subPre: 'Alles, was Teams vor dem Wechsel zu hubsell fragen. Noch unsicher? ',
+    demoLink: '20-minütige Demo buchen',
+    subPost: '.',
+    ctaTitle: 'Noch am Abwägen?',
+    ctaText: 'Testen Sie hubsell mit Ihrem eigenen ICP und sehen Sie die Daten und den Outreach-Ablauf an echten Accounts.',
+    ctaPrimary: 'Kostenlos testen',
+    ctaSecondary: 'Demo buchen',
+  },
+);
+
+export function getFaqsPage(locale: string | undefined): FaqsCopy {
+  return faqsPage[asLocale(locale)];
+}
+
+// ── Reviews page (hubsell-reviews) ───────────────────────────────────────────────
+export interface ReviewsCopy {
+  metaTitle: string;
+  metaDescription: string;
+  eyebrow: string;
+  h1: string;
+  heroSub: string;
+  wallHead: string;
+  ctaTitle: string;
+  ctaSub: string;
+  ctaPrimary: string;
+  ctaSecondary: string;
+  crumbHome: string;
+  crumbReviews: string;
+}
+
+const reviewsPage = byLocale<ReviewsCopy>(
+  {
+    metaTitle: 'hubsell Reviews: ratings and testimonials from B2B teams',
+    metaDescription:
+      'Read verified reviews of hubsell from teams like Matterway, Spryker, and Workspace 365 who replaced their outbound stack with live-sourced data, multichannel outreach, and CRM sync.',
+    eyebrow: 'Reviews',
+    h1: 'What teams say about hubsell',
+    heroSub:
+      'Verified reviews from sales and marketing teams who replaced static lists and a stack of disconnected tools with one platform. Read what they tell us, and see the score on each review platform.',
+    wallHead: 'In their words',
+    ctaTitle: 'See why teams switch to hubsell',
+    ctaSub: 'Start a free trial, or book a call and we will walk you through it.',
+    ctaPrimary: 'Start free trial',
+    ctaSecondary: 'Book a call',
+    crumbHome: 'Home',
+    crumbReviews: 'Reviews',
+  },
+  {
+    metaTitle: 'hubsell Bewertungen: Rezensionen und Erfahrungen von B2B-Teams',
+    metaDescription:
+      'Lesen Sie verifizierte Bewertungen von hubsell von Teams wie Matterway, Spryker und Workspace 365, die ihren Outbound-Stack durch live recherchierte Daten, Multichannel-Outreach und CRM-Synchronisierung ersetzt haben.',
+    eyebrow: 'Bewertungen',
+    h1: 'Was Teams über hubsell sagen',
+    heroSub:
+      'Verifizierte Bewertungen von Vertriebs- und Marketingteams, die statische Listen und einen Stapel unverbundener Tools durch eine einzige Plattform ersetzt haben. Lesen Sie, was sie uns berichten, und sehen Sie die Bewertung auf jeder Plattform.',
+    wallHead: 'In ihren Worten',
+    ctaTitle: 'Sehen Sie, warum Teams zu hubsell wechseln',
+    ctaSub: 'Starten Sie einen kostenlosen Test oder buchen Sie ein Gespräch, und wir führen Sie durch alles.',
+    ctaPrimary: 'Kostenlos testen',
+    ctaSecondary: 'Gespräch buchen',
+    crumbHome: 'Startseite',
+    crumbReviews: 'Bewertungen',
+  },
+);
+
+export function getReviewsPage(locale: string | undefined): ReviewsCopy {
+  return reviewsPage[asLocale(locale)];
+}
