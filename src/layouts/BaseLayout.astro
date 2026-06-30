@@ -4,6 +4,8 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import JsonLd from '../components/JsonLd.astro';
 import { OG_IMAGE, organizationSchema, websiteSchema } from '../data/seo';
+import { locales, defaultLocale } from '../i18n/ui';
+import { asLocale, basePath, hasTranslation, localizeUrl } from '../i18n/utils';
 import '../styles/global.css';
 
 export interface Props {
@@ -28,9 +30,19 @@ const {
 // and search result is consistent (a page passing "Reviews" becomes
 // "Reviews | hubsell"). Titles that already say "hubsell" are left untouched.
 const fullTitle = title.includes('hubsell') ? title : `${title} | hubsell`;
+
+// Active locale + hreflang alternates. We only advertise a language version that
+// actually exists (English plus any translated locale for this page), so we never
+// point search engines at a redirect stub. Until a page has a translation this
+// emits nothing, leaving English output unchanged.
+const locale = asLocale(Astro.currentLocale);
+const base = basePath(Astro.url.pathname, locale);
+const altLocales = locales.filter((l) => hasTranslation(l, base));
+const showHreflang = altLocales.length > 1;
+const altHref = (l: string) => new URL(localizeUrl(l, base), Astro.site).href;
 ---
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -38,6 +50,10 @@ const fullTitle = title.includes('hubsell') ? title : `${title} | hubsell`;
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {showHreflang && altLocales.map((l) => (
+      <link rel="alternate" hreflang={l} href={altHref(l)} />
+    ))}
+    {showHreflang && <link rel="alternate" hreflang="x-default" href={altHref(defaultLocale)} />}
     {noindex && <meta name="robots" content="noindex, nofollow" />}
 
     <meta property="og:type" content={ogType} />

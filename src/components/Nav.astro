@@ -7,9 +7,13 @@
 // primary nav (Resources, Pricing) and the trial CTA.
 import { SIGNUP_URL } from '../data/site';
 import { menuGroups, topLinks, liveLinks } from '../data/navigation';
+import { asLocale, useTranslations, localizeUrl } from '../i18n/utils';
 
 const LOGO_DARK = 'https://assets.hubsell.com/logo/hubsell-wordmark-dark.svg';   // for light sections
 const LOGO_LIGHT = 'https://assets.hubsell.com/logo/hubsell-wordmark-light.svg'; // for dark sections
+
+const locale = asLocale(Astro.currentLocale);
+const t = useTranslations(locale);
 
 // The Resources mega-menu and top-level links live in src/data/navigation.ts so the
 // nav and footer stay in sync. Products / Solutions / Our Data / GTM Developers come
@@ -17,30 +21,30 @@ const LOGO_LIGHT = 'https://assets.hubsell.com/logo/hubsell-wordmark-light.svg';
 ---
 <header class="nav" data-tone="light">
   <div class="nav__inner">
-    <a href="/" class="nav__mark" aria-label="hubsell home">
+    <a href={localizeUrl(locale, '/')} class="nav__mark" aria-label="hubsell home">
       <img class="nav__logo nav__logo--dark" src={LOGO_DARK} alt="hubsell" width="108" />
       <img class="nav__logo nav__logo--light" src={LOGO_LIGHT} alt="hubsell" width="108" />
     </a>
 
     <nav class="nav__links" aria-label="Primary">
       <div class="nav__group nav__group--mega">
-        <button type="button" class="nav__link nav__trigger" aria-haspopup="true" aria-expanded="false">Resources</button>
+        <button type="button" class="nav__link nav__trigger" aria-haspopup="true" aria-expanded="false">{t('nav.resources')}</button>
         <div class="nav__mega">
           {menuGroups.filter((group) => liveLinks(group.links).length).map((group) => (
             <div class="nav__megacol">
-              <p class="nav__megahead">{group.heading}</p>
+              <p class="nav__megahead">{group.key ? t(group.key) : group.heading}</p>
               <ul>
-                {liveLinks(group.links).map((l) => (<li><a href={l.href}>{l.label}</a></li>))}
+                {liveLinks(group.links).map((l) => (<li><a href={localizeUrl(locale, l.href!)}>{l.key ? t(l.key) : l.label}</a></li>))}
               </ul>
             </div>
           ))}
         </div>
       </div>
-      {topLinks.map((l) => (<a class="nav__link" href={l.href}>{l.label}</a>))}
+      {topLinks.map((l) => (<a class="nav__link" href={localizeUrl(locale, l.href!)}>{l.key ? t(l.key) : l.label}</a>))}
     </nav>
 
     <div class="nav__actions">
-      <a class="button is-small nav__cta" href={SIGNUP_URL}>Start free trial</a>
+      <a class="button is-small nav__cta" href={localizeUrl(locale, SIGNUP_URL)}>{t('cta.trial')}</a>
       <button type="button" class="nav__burger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -48,13 +52,13 @@ const LOGO_LIGHT = 'https://assets.hubsell.com/logo/hubsell-wordmark-light.svg';
   </div>
 
   <div class="nav__mobile" hidden>
-    <p class="nav__mobhead">Resources</p>
+    <p class="nav__mobhead">{t('nav.resources')}</p>
     {menuGroups.flatMap((g) => liveLinks(g.links)).map((l) => (
-      <a class="nav__moblink" href={l.href}>{l.label}</a>
+      <a class="nav__moblink" href={localizeUrl(locale, l.href!)}>{l.key ? t(l.key) : l.label}</a>
     ))}
     <hr class="nav__mobrule" />
-    {topLinks.map((l) => (<a class="nav__moblink" href={l.href}>{l.label}</a>))}
-    <a class="button nav__mobcta" href={SIGNUP_URL}>Start free trial</a>
+    {topLinks.map((l) => (<a class="nav__moblink" href={localizeUrl(locale, l.href!)}>{l.key ? t(l.key) : l.label}</a>))}
+    <a class="button nav__mobcta" href={localizeUrl(locale, SIGNUP_URL)}>{t('cta.trial')}</a>
   </div>
 </header>
 

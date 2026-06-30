@@ -5,10 +5,14 @@
 // nav links, the account links, and the legal links come from src/data/navigation.ts.
 import { getCollection } from 'astro:content';
 import { menuGroups, topLinks, footerLinks, legalLinks, liveLinks } from '../data/navigation';
+import { asLocale, useTranslations, localizeUrl } from '../i18n/utils';
 import AskAiWidget from './AskAiWidget.astro';
 
 const year = new Date().getFullYear();
 const LOGO_LIGHT = 'https://assets.hubsell.com/logo/hubsell-wordmark-light.svg'; // cream wordmark for the dark footer
+
+const locale = asLocale(Astro.currentLocale);
+const t = useTranslations(locale);
 
 // Collections, expanded, in the same order as their overview pages.
 const CS_ORDER = ['safran', 'staffbase', 'verhaert', 'elium', 'workspace365', 'sensolus'];
@@ -31,32 +35,32 @@ const companyLinks = company ? liveLinks(company.links) : [];
 const resourceLinks = [...learnLinks, ...footerLinks, ...liveLinks(topLinks)];
 
 const columns = [
-  { heading: 'Resources', links: resourceLinks },
+  { heading: t('footer.heading.resources'), links: resourceLinks },
   {
-    heading: 'Customer stories',
+    heading: t('footer.heading.customerstories'),
     links: [
       ...stories.map((s) => ({ label: s.data.company || s.data.title, href: `/customerstories/${s.slug}` })),
-      { label: 'All customer stories', href: '/customerstories', all: true },
+      { label: t('footer.all.customerstories'), href: '/customerstories', all: true },
     ],
   },
   {
-    heading: 'Comparisons',
+    heading: t('footer.heading.comparisons'),
     links: [
       ...comparisons.map((c) => ({ label: c.data.title, href: `/vs/${c.slug}` })),
-      { label: 'All comparisons', href: '/comparisons', all: true },
+      { label: t('footer.all.comparisons'), href: '/comparisons', all: true },
     ],
   },
-  { heading: 'Company', links: companyLinks },
+  { heading: t('footer.heading.company'), links: companyLinks },
 ].filter((c) => c.links.length);
 ---
 <footer class="sec site-footer">
   <div class="wrap">
     <div class="site-footer__top">
       <div class="site-footer__brand-block">
-        <a href="/" class="site-footer__brand" aria-label="hubsell home">
+        <a href={localizeUrl(locale, '/')} class="site-footer__brand" aria-label="hubsell home">
           <img class="site-footer__logo" src={LOGO_LIGHT} alt="hubsell" width="124" />
         </a>
-        <p class="site-footer__tag">Replace your outbound stack. Live-sourced data, email and LinkedIn outreach, and CRM sync in one platform.</p>
+        <p class="site-footer__tag">{t('footer.tagline')}</p>
       </div>
 
       <nav class="site-footer__cols" aria-label="Footer">
@@ -64,7 +68,7 @@ const columns = [
           <div class="site-footer__col">
             <p class="site-footer__colhead">{c.heading}</p>
             <ul>
-              {c.links.map((l) => (<li><a href={l.href} class={l.all ? 'is-all' : undefined}>{l.label}</a></li>))}
+              {c.links.map((l) => (<li><a href={localizeUrl(locale, l.href)} class={l.all ? 'is-all' : undefined}>{l.key ? t(l.key) : l.label}</a></li>))}
             </ul>
           </div>
         ))}
@@ -72,11 +76,11 @@ const columns = [
     </div>
 
     <nav class="site-footer__legal" aria-label="Legal">
-      {legalLinks.map((l) => (<a href={l.href}>{l.label}</a>))}
+      {legalLinks.map((l) => (<a href={localizeUrl(locale, l.href!)}>{l.key ? t(l.key) : l.label}</a>))}
     </nav>
 
     <div class="site-footer__bottom">
-      <p class="site-footer__meta">© 2016–{year} hubsell UG · Friedrichstrasse 155, 10117 Berlin, Germany · HRB 175309B · DE305258320</p>
+      <p class="site-footer__meta">© 2016–{year} hubsell UG · Friedrichstrasse 155, 10117 Berlin, {t('footer.country')} · HRB 175309B · DE305258320</p>
       <AskAiWidget />
     </div>
   </div>
