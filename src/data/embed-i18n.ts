@@ -18,7 +18,7 @@ type Dict = Record<string, string>;
 
 const de: Dict = {
   // ── HeroPipelineFlow (hero visual) ──────────────────────────────────────────
-  'Source fresh contacts': 'Frische Kontakte recherchieren',
+  'Source fresh contacts': 'Frische Kontakte finden',
   'Find targeted B2B prospects': 'Gezielte B2B-Interessenten finden',
   'Qualify with AI': 'Mit KI qualifizieren',
   'Score and filter leads instantly': 'Leads sofort bewerten und filtern',
@@ -26,7 +26,7 @@ const de: Dict = {
   'Verify emails & phone numbers': 'E-Mails & Telefonnummern verifizieren',
   'Reach out': 'Kontaktieren',
   'Via email + LinkedIn': 'Per E-Mail + LinkedIn',
-  'Log activity to CRM': 'Aktivität im CRM protokollieren',
+  'Log activity to CRM': 'Im CRM protokollieren',
   'HubSpot, Salesforce, & Pipedrive': 'HubSpot, Salesforce & Pipedrive',
   'Iterate and improve': 'Iterieren und verbessern',
   'Continuous optimization': 'Kontinuierliche Optimierung',
