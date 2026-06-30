@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import WaitlistForm from '../../components/WaitlistForm.astro';
 import { SITE_URL, breadcrumbSchema } from '../../data/seo';
+import { SIGNUP_URL } from '../../data/site';
 
 export async function getStaticPaths() {
   const posts = await getCollection('insights', (p) => !p.data.draft);
@@ -127,7 +128,7 @@ const articleCrumbs = breadcrumbSchema([
       <aside class="post-cta sec--navy">
         <h2 class="post-cta__title">Put this into practice</h2>
         <p class="post-cta__text">{ctaText}</p>
-        <a class="button is-large" href="https://app.hubsell.com/signup">Start free trial</a>
+        <a class="button is-large" href={SIGNUP_URL}>Start free trial</a>
       </aside>
     </div>
   </article>

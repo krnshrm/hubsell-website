@@ -5,6 +5,7 @@ import JsonLd from '../../components/JsonLd.astro';
 import TestimonialStrip from '../../components/TestimonialStrip.astro';
 import { pickTestimonials } from '../../data/testimonials';
 import { SITE_URL, breadcrumbSchema } from '../../data/seo';
+import { SIGNUP_URL } from '../../data/site';
 
 // Build every comparison. Unlike insights/stories we do NOT filter on `draft`:
 // the rows are drafted in Webflow but are the launch pages (see content config).
@@ -22,7 +23,7 @@ const seoDesc = d.metaDescription || d.heroSubhead || '';
 const ctaHeading = d.ctaHeading || 'See hubsell on your own ICP';
 const ctaButton = d.ctaButtonText || 'Book a demo';
 const ctaLink = d.ctaLink || '/book-a-call';
-const SIGNUP = 'https://app.hubsell.com/signup';
+const SIGNUP = SIGNUP_URL;
 
 // Other comparisons, in the same order the homepage uses.
 const ORDER = ['apollo', 'zoominfo', 'cognism', 'lusha', 'seamless'];

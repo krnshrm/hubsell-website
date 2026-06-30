@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import { breadcrumbSchema } from '../../data/seo';
+import { SIGNUP_URL } from '../../data/site';
 
 export async function getStaticPaths() {
   const stories = await getCollection('customerstories', (s) => !s.data.draft);
@@ -114,7 +115,7 @@ const storyCrumbs = breadcrumbSchema([
       <aside class="cs-cta sec--navy">
         <h2 class="cs-cta__title">Want results like {company || 'these'}?</h2>
         <p class="cs-cta__text">{ctaText}</p>
-        <a class="button is-large" href="https://app.hubsell.com/signup">Start free trial</a>
+        <a class="button is-large" href={SIGNUP_URL}>Start free trial</a>
       </aside>
     </div>
   </article>
