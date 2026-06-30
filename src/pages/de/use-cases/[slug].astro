@@ -1,10 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import UseCaseDetail from '../../components/UseCaseDetail.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import UseCaseDetail from '../../../components/UseCaseDetail.astro';
 
 export async function getStaticPaths() {
-  const items = await getCollection('usecases', (u) => !u.data.draft);
+  const items = await getCollection('usecasesDe', (u) => !u.data.draft);
   return items.map((entry) => ({ params: { slug: entry.slug }, props: { entry, items } }));
 }
 const { entry, items } = Astro.props;

@@ -81,28 +81,30 @@ const comparisons = defineCollection({
 // src/content/usecases/<slug>.md: frontmatter for the hero, the featured proof
 // story, the key features and roles, plus the page body as Markdown. Rendered the
 // normal way (render() + <Content />), not set:html, so the body is real Markdown.
-const usecases = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string(),                        // H1
-    label: z.string().optional(),             // short name for cards / nav
-    eyebrow: z.string().optional(),           // category label above the H1
-    metaTitle: z.string().optional(),         // SEO <title> (falls back to title)
-    description: z.string().optional(),       // SEO meta + card excerpt
-    subhead: z.string().optional(),           // hero intro
-    widget: z.string().optional(),            // product widget component to render as the page visual
-    widgetBg: z.string().optional(),          // section class for the widget band (e.g. "sec--navy")
-    widgetCaption: z.string().optional(),     // short line above the widget
-    proofStory: z.string().optional(),        // customer-story slug to feature as proof
-    features: z.array(z.string()).optional(), // key feature labels
-    roles: z.array(z.string()).optional(),    // who it's for (labels)
-    related: z.array(z.string()).optional(),  // related use-case slugs
-    quotes: z.array(z.string()).optional(),   // testimonial slugs for the proof strip
-    ctaHeading: z.string().optional(),        // optional CTA heading override
-    ctaText: z.string().optional(),           // optional CTA body override
-    order: z.number().default(99),            // overview sort order
-    draft: z.boolean().default(false),
-  }),
+const usecaseSchema = z.object({
+  title: z.string(),                        // H1
+  label: z.string().optional(),             // short name for cards / nav
+  eyebrow: z.string().optional(),           // category label above the H1
+  metaTitle: z.string().optional(),         // SEO <title> (falls back to title)
+  description: z.string().optional(),       // SEO meta + card excerpt
+  subhead: z.string().optional(),           // hero intro
+  widget: z.string().optional(),            // product widget component to render as the page visual
+  widgetBg: z.string().optional(),          // section class for the widget band (e.g. "sec--navy")
+  widgetCaption: z.string().optional(),     // short line above the widget
+  proofStory: z.string().optional(),        // customer-story slug to feature as proof
+  features: z.array(z.string()).optional(), // key feature labels
+  roles: z.array(z.string()).optional(),    // who it's for (labels)
+  related: z.array(z.string()).optional(),  // related use-case slugs
+  quotes: z.array(z.string()).optional(),   // testimonial slugs for the proof strip
+  ctaHeading: z.string().optional(),        // optional CTA heading override
+  ctaText: z.string().optional(),           // optional CTA body override
+  order: z.number().default(99),            // overview sort order
+  draft: z.boolean().default(false),
 });
 
-export const collections = { insights, customerstories, comparisons, usecases };
+const usecases = defineCollection({ type: 'content', schema: usecaseSchema });
+// German use-cases: same schema, parallel folder. src/content/usecasesDe/<slug>.md
+// uses the SAME slug as its English counterpart so the two map one to one.
+const usecasesDe = defineCollection({ type: 'content', schema: usecaseSchema });
+
+export const collections = { insights, customerstories, comparisons, usecases, usecasesDe };

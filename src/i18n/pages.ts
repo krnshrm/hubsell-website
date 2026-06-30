@@ -240,3 +240,83 @@ const reviewsPage = byLocale<ReviewsCopy>(
 export function getReviewsPage(locale: string | undefined): ReviewsCopy {
   return reviewsPage[asLocale(locale)];
 }
+
+// ── Use cases (overview + detail) ────────────────────────────────────────────────
+export interface UseCasesCopy {
+  // overview
+  ovMetaTitle: string;
+  ovMetaDescription: string;
+  ovEyebrow: string;
+  ovH1: string;
+  ovSub: string;
+  // detail
+  back: string;
+  eyebrowDefault: string;
+  ctaPrimary: string;
+  ctaSecondary: string;
+  powersHead: string;
+  rolesHead: string;
+  proofLabel: string;
+  storyPre: string;
+  storyPost: string;
+  stripHeading: string;
+  ctaHeadingDefault: string;
+  ctaTextDefault: string;
+  relatedLabel: string;
+  explore: string;
+}
+
+const useCasesPage = byLocale<UseCasesCopy>(
+  {
+    ovMetaTitle: 'Use cases | hubsell',
+    ovMetaDescription:
+      'One platform for outbound: lead generation, multichannel email and LinkedIn outreach, and account-based outreach. See how each one works in hubsell.',
+    ovEyebrow: 'Use cases',
+    ovH1: 'One platform, every outbound motion',
+    ovSub:
+      'From sourcing leads to working whole buying committees, here is how teams put hubsell to work. Each one runs on the same live data, the same email and LinkedIn sequencing, and the same automatic CRM sync.',
+    back: 'All use cases',
+    eyebrowDefault: 'Use case',
+    ctaPrimary: 'Start free trial',
+    ctaSecondary: 'Book a demo',
+    powersHead: 'What powers it',
+    rolesHead: 'Who it is for',
+    proofLabel: 'Proof',
+    storyPre: 'Read the ',
+    storyPost: ' story →',
+    stripHeading: 'More teams using hubsell',
+    ctaHeadingDefault: 'See it run on your own pipeline',
+    ctaTextDefault:
+      'Start a free trial and put hubsell to work on your outbound: live-sourced data, email and LinkedIn sequences, and automatic CRM sync.',
+    relatedLabel: 'More use cases',
+    explore: 'Explore →',
+  },
+  {
+    ovMetaTitle: 'Anwendungsfälle | hubsell',
+    ovMetaDescription:
+      'Eine Plattform für Outbound: Lead-Generierung, Multichannel-Outreach über E-Mail und LinkedIn sowie account-basierter Outreach. So funktioniert jeder Fall in hubsell.',
+    ovEyebrow: 'Anwendungsfälle',
+    ovH1: 'Eine Plattform, jede Outbound-Bewegung',
+    ovSub:
+      'Vom Recherchieren von Leads bis zur Ansprache ganzer Buying-Committees: So setzen Teams hubsell ein. Jeder Fall läuft auf denselben Live-Daten, demselben E-Mail- und LinkedIn-Sequencing und derselben automatischen CRM-Synchronisierung.',
+    back: 'Alle Anwendungsfälle',
+    eyebrowDefault: 'Anwendungsfall',
+    ctaPrimary: 'Kostenlos testen',
+    ctaSecondary: 'Demo buchen',
+    powersHead: 'Was es antreibt',
+    rolesHead: 'Für wen es ist',
+    proofLabel: 'Beleg',
+    storyPre: 'Die Story von ',
+    storyPost: ' lesen →',
+    stripHeading: 'Weitere Teams, die hubsell nutzen',
+    ctaHeadingDefault: 'Sehen Sie es an Ihrer eigenen Pipeline',
+    ctaTextDefault:
+      'Starten Sie einen kostenlosen Test und setzen Sie hubsell für Ihren Outbound ein: live recherchierte Daten, E-Mail- und LinkedIn-Sequenzen und automatische CRM-Synchronisierung.',
+    relatedLabel: 'Weitere Anwendungsfälle',
+    explore: 'Entdecken →',
+  },
+);
+
+export function getUseCasesPage(locale: string | undefined): UseCasesCopy {
+  return useCasesPage[asLocale(locale)];
+}
