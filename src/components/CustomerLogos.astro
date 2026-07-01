@@ -85,10 +85,10 @@ const { s } = getHome(asLocale(Astro.currentLocale));
     >
       <div class="marquee__track">
         {logos.map((logo) => (
-          <img class="marquee__logo" src={logo.src} alt={logo.name} loading="lazy" decoding="async" draggable={false} />
+          <img class="marquee__logo" src={logo.src} alt={logo.name} loading="eager" decoding="async" draggable={false} />
         ))}
         {logos.map((logo) => (
-          <img class="marquee__logo" src={logo.src} alt="" aria-hidden="true" loading="lazy" decoding="async" draggable={false} />
+          <img class="marquee__logo" src={logo.src} alt="" aria-hidden="true" loading="eager" decoding="async" draggable={false} />
         ))}
       </div>
     </div>
@@ -96,22 +96,47 @@ const { s } = getHome(asLocale(Astro.currentLocale));
 </section>
 
 <style>
-  /* logos are colourful SVGs built for light backgrounds: mute to a uniform
-     wall on paper, restore full colour on hover. On dark sections render them
-     as white silhouettes so they stay visible. */
-  .marquee__logo{height:30px;width:auto;flex:none;display:block;opacity:.62;filter:grayscale(1);transition:opacity .2s,filter .2s}
+  /* Auto-scrolling wall of customer logos. They are colourful SVGs drawn for light
+     backgrounds, so we mute them to a uniform grayscale wall and restore full
+     colour on hover. In dark mode we do NOT recolour the logos (flat white
+     silhouettes lost detail and looked uneven across the set); instead the marquee
+     rides on a light warm panel so the original logos stay legible — the same
+     "light card on a dark section" pattern used elsewhere on the page. */
+  .marquee{
+    padding:22px 0;
+    border-radius:var(--radius-lg);
+    background:transparent;
+    transition:background .25s;
+  }
+  :global([data-theme="dark"]) .marquee{
+    background:#E7DCC8; /* lighter, but not white — dark logos stay readable */
+  }
+
+  /* Spacing lives on each logo (margin), not on the track (flex gap), so the seam
+     between the two identical copies matches the internal spacing exactly and the
+     translateX(-50%) loop repeats with no half-gap jump. */
+  .marquee__track{gap:0}
+  .marquee__logo{
+    height:30px;width:auto;flex:none;display:block;
+    margin-right:56px;
+    opacity:.62;filter:grayscale(1);
+    transition:opacity .2s,filter .2s;
+  }
   .marquee__logo:hover{opacity:1;filter:grayscale(0)}
-  :global([data-theme="dark"]) .marquee__logo{filter:brightness(0) invert(1);opacity:.72}
+  :global([data-theme="dark"]) .marquee__logo{opacity:.72}
   :global([data-theme="dark"]) .marquee__logo:hover{opacity:1}
+
   /* ~66 logos: slow, calm drift. Higher specificity than the global 32s rule.
      This single number is the speed dial — larger = slower. */
   :global(html.has-anim) .marquee__track{animation-duration:180s}
 </style>
 
 <script>
-  // Randomise logo order on every page load. The track holds two identical
-  // halves (for the seamless loop), so we apply ONE shuffle order to both
-  // halves — keeping them in sync so the looping offset stays seamless.
+  // Randomise the logo order on every load so the wall looks fresh, while the two
+  // identical halves (needed for the seamless loop) stay in sync — one shuffle
+  // order is applied to both halves. The images are eager-loaded (see markup), so
+  // both halves always have real widths and the marquee scrolls through EVERY logo
+  // before repeating, instead of resetting after only a few.
   function shuffleMarquee(track) {
     const items = Array.from(track.children);
     const half = items.length / 2;
@@ -128,5 +153,9 @@ const { s } = getHome(asLocale(Astro.currentLocale));
     for (const i of order) frag.appendChild(second[i]);
     track.appendChild(frag);
   }
-  document.querySelectorAll('.marquee__track').forEach(shuffleMarquee);
+  function initMarquees() {
+    document.querySelectorAll('.marquee__track').forEach(shuffleMarquee);
+  }
+  initMarquees();
+  document.addEventListener('astro:page-load', initMarquees);
 </script>
