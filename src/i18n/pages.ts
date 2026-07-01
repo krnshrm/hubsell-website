@@ -320,3 +320,109 @@ const useCasesPage = byLocale<UseCasesCopy>(
 export function getUseCasesPage(locale: string | undefined): UseCasesCopy {
   return useCasesPage[asLocale(locale)];
 }
+
+// ── Comparisons (overview + /vs detail) ──────────────────────────────────────────
+export interface ComparisonsCopy {
+  ovMetaTitle: string;
+  ovMetaDescription: string;
+  ovEyebrow: string;
+  ovH1: string;
+  ovSub: string;
+  back: string;
+  eyebrowPrefix: string;
+  ctaPrimary: string;
+  ctaButtonDefault: string;
+  coreDiffH2: string;
+  featureH2: string;
+  dataQualityH2: string;
+  pricingH2: string;
+  chooseH2: string;
+  chooseHub: string;
+  chooseCompPre: string;
+  chooseCompPost: string;
+  stripHeading: string;
+  ctaHeadingDefault: string;
+  ctaText: string;
+  factCheckedPre: string;
+  factCheckedPost: string;
+  sourcesSummary: string;
+  relatedLabel: string;
+  compare: string;
+  altPre: string;
+  altPost: string;
+  crumbHome: string;
+  crumbComparisons: string;
+}
+
+const comparisonsPage = byLocale<ComparisonsCopy>(
+  {
+    ovMetaTitle: 'hubsell vs the alternatives | hubsell',
+    ovMetaDescription:
+      'Honest, fact-checked comparisons of hubsell against Apollo, ZoomInfo, Cognism, Lusha, and Seamless. Where each tool fits, and where hubsell is the better choice.',
+    ovEyebrow: 'Comparisons',
+    ovH1: 'hubsell vs the alternatives',
+    ovSub:
+      'Most outbound stacks bolt a database to a sequencer to a sync tool. hubsell sources contacts live, runs email and LinkedIn as one flow, and syncs every touch to your CRM. Here is how it compares, including where the other tools are the better fit.',
+    back: 'All comparisons',
+    eyebrowPrefix: 'Comparison',
+    ctaPrimary: 'Start free trial',
+    ctaButtonDefault: 'Book a demo',
+    coreDiffH2: 'The core difference',
+    featureH2: 'Feature by feature',
+    dataQualityH2: 'Data quality',
+    pricingH2: 'Pricing',
+    chooseH2: 'Which should you choose?',
+    chooseHub: 'Choose hubsell if',
+    chooseCompPre: 'Choose ',
+    chooseCompPost: ' if',
+    stripHeading: 'Why teams switch to hubsell',
+    ctaHeadingDefault: 'See hubsell on your own ICP',
+    ctaText: 'Put hubsell on your own ICP and see the data and the outreach flow on real accounts, no commitment.',
+    factCheckedPre: 'Last fact-checked ',
+    factCheckedPost: '. Competitor details change; tell us if anything here is out of date.',
+    sourcesSummary: 'Sources',
+    relatedLabel: 'More comparisons',
+    compare: 'Compare →',
+    altPre: ' The live-sourced ',
+    altPost: ' alternative.',
+    crumbHome: 'Home',
+    crumbComparisons: 'Comparisons',
+  },
+  {
+    ovMetaTitle: 'hubsell vs. die Alternativen | hubsell',
+    ovMetaDescription:
+      'Ehrliche, faktengeprüfte Vergleiche von hubsell mit Apollo, ZoomInfo, Cognism, Lusha und Seamless. Wo jedes Tool passt und wo hubsell die bessere Wahl ist.',
+    ovEyebrow: 'Vergleiche',
+    ovH1: 'hubsell vs. die Alternativen',
+    ovSub:
+      'Die meisten Outbound-Stacks schrauben eine Datenbank an einen Sequencer an ein Sync-Tool. hubsell recherchiert Kontakte live, betreibt E-Mail und LinkedIn als einen Ablauf und synchronisiert jeden Kontaktpunkt mit Ihrem CRM. So schneidet es im Vergleich ab, samt der Fälle, in denen die anderen Tools besser passen.',
+    back: 'Alle Vergleiche',
+    eyebrowPrefix: 'Vergleich',
+    ctaPrimary: 'Kostenlos testen',
+    ctaButtonDefault: 'Demo buchen',
+    coreDiffH2: 'Der zentrale Unterschied',
+    featureH2: 'Funktion für Funktion',
+    dataQualityH2: 'Datenqualität',
+    pricingH2: 'Preise',
+    chooseH2: 'Was sollten Sie wählen?',
+    chooseHub: 'hubsell wählen, wenn',
+    chooseCompPre: '',
+    chooseCompPost: ' wählen, wenn',
+    stripHeading: 'Warum Teams zu hubsell wechseln',
+    ctaHeadingDefault: 'hubsell an Ihrem eigenen ICP sehen',
+    ctaText: 'Setzen Sie hubsell auf Ihren eigenen ICP an und sehen Sie die Daten und den Outreach-Ablauf an echten Accounts, ohne Verpflichtung.',
+    factCheckedPre: 'Zuletzt geprüft am ',
+    factCheckedPost: '. Angaben zu Wettbewerbern ändern sich. Sagen Sie uns Bescheid, wenn hier etwas veraltet ist.',
+    sourcesSummary: 'Quellen',
+    relatedLabel: 'Weitere Vergleiche',
+    compare: 'Vergleichen →',
+    altPre: ' Die live recherchierte Alternative zu ',
+    altPost: '.',
+    crumbHome: 'Startseite',
+    crumbComparisons: 'Vergleiche',
+  },
+);
+
+export function getComparisonsPage(locale: string | undefined): ComparisonsCopy {
+  return comparisonsPage[asLocale(locale)];
+}

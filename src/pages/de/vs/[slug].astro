@@ -1,15 +1,14 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import JsonLd from '../../components/JsonLd.astro';
-import ComparisonDetail from '../../components/ComparisonDetail.astro';
-import { breadcrumbSchema } from '../../data/seo';
-import { getComparisonsPage } from '../../i18n/pages';
-import { asLocale, localizeUrl } from '../../i18n/utils';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import ComparisonDetail from '../../../components/ComparisonDetail.astro';
+import { breadcrumbSchema } from '../../../data/seo';
+import { getComparisonsPage } from '../../../i18n/pages';
+import { asLocale, localizeUrl } from '../../../i18n/utils';
 
-// Build every comparison (rows are drafted in Webflow but are the launch pages).
 export async function getStaticPaths() {
-  const items = await getCollection('comparisons');
+  const items = await getCollection('comparisonsDe');
   return items.map((item) => ({ params: { slug: item.slug }, props: { item, items } }));
 }
 const { item, items } = Astro.props;
