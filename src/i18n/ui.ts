@@ -8,6 +8,12 @@ export const locales = ['en', 'de', 'nl', 'fr', 'es', 'pt'] as const;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = 'en';
 
+// Which locales appear in the language switcher (TopBar). fr/es/pt are parked
+// until their translations are done — they stay in `locales` (type + fallback)
+// but are hidden from the UI. Add a locale here when it's ready to be offered.
+// de is live; nl shows as a greyed "Soon" until it has translatedRoutes.
+export const switcherLocales: Locale[] = ['en', 'de', 'nl'];
+
 // Shown in the language switcher, each name in its own language.
 export const localeNames: Record<Locale, string> = {
   en: 'English',
@@ -44,6 +50,10 @@ const en: Dict = {
   'nav.resources': 'Resources',
   'nav.heading.learn': 'Learn',
   'nav.heading.company': 'Company',
+  // Insights/blog stay English-only for now. Rule: English shows "Insights";
+  // every OTHER locale marks it "Insights (EN)" so visitors know the content is
+  // in English. When adding a new locale's dict below, set nav.insights to
+  // "Insights (EN)" (or the localized equivalent + "(EN)").
   'nav.insights': 'Insights',
   'nav.customerstories': 'Customer stories',
   'nav.comparisons': 'Comparisons',
@@ -80,7 +90,7 @@ const de: Dict = {
   'nav.resources': 'Ressourcen',
   'nav.heading.learn': 'Lernen',
   'nav.heading.company': 'Unternehmen',
-  'nav.insights': 'Insights',
+  'nav.insights': 'Insights (EN)',
   'nav.customerstories': 'Erfolgsgeschichten',
   'nav.comparisons': 'Vergleiche',
   'nav.contact': 'Kontakt',

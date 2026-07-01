@@ -4,16 +4,17 @@
 // HubSpot pattern). Holds the language control, the light/dark theme toggle, and
 // log in. Uses the global theme tokens so it flips with light/dark mode.
 import { LOGIN_URL } from '../data/site';
-import { locales, localeNames } from '../i18n/ui';
+import { switcherLocales, localeNames } from '../i18n/ui';
 import { asLocale, useTranslations, localizeUrl, basePath, hasTranslation } from '../i18n/utils';
 
 const locale = asLocale(Astro.currentLocale);
 const t = useTranslations(locale);
 const base = basePath(Astro.url.pathname, locale);
 
-// One entry per locale. A language is a real link only where THIS page is
-// translated; otherwise it stays greyed ("Soon"). English always exists.
-const langItems = locales.map((l) => ({
+// One entry per switcher locale (fr/es/pt are hidden until ready — see ui.ts).
+// A language is a real link only where THIS page is translated; otherwise it
+// stays greyed ("Soon"). English always exists.
+const langItems = switcherLocales.map((l) => ({
   code: l,
   name: localeNames[l],
   current: l === locale,
