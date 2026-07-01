@@ -46,6 +46,9 @@ const customerstories = defineCollection({ type: 'content', schema: customerStor
 // German customer stories: same schema, parallel folder src/content/customerstoriesDe/<slug>.md,
 // same slugs as the English entries.
 const customerstoriesDe = defineCollection({ type: 'content', schema: customerStorySchema });
+// Dutch customer stories: same schema, parallel folder src/content/customerstoriesNl/<slug>.md,
+// same slugs as the English entries.
+const customerstoriesNl = defineCollection({ type: 'content', schema: customerStorySchema });
 
 // Comparisons (/vs pages) — migrated from the Webflow "Comparisons" collection.
 // One .md per competitor at src/content/comparisons/<slug>.md. Unlike the blog and
@@ -117,4 +120,4 @@ const usecasesDe = defineCollection({ type: 'content', schema: usecaseSchema });
 // same slugs as the English entries.
 const usecasesNl = defineCollection({ type: 'content', schema: usecaseSchema });
 
-export const collections = { insights, customerstories, customerstoriesDe, comparisons, comparisonsDe, comparisonsNl, usecases, usecasesDe, usecasesNl };
+export const collections = { insights, customerstories, customerstoriesDe, customerstoriesNl, comparisons, comparisonsDe, comparisonsNl, usecases, usecasesDe, usecasesNl };

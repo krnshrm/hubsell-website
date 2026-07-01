@@ -615,6 +615,27 @@ const customerStoriesPage = byLocale<CustomerStoriesCopy>(
     crumbHome: 'Startseite',
     crumbStories: 'Kundenstorys',
   },
+  {
+    ovMetaTitle: 'Klantverhalen | hubsell',
+    ovMetaDescription:
+      'Hoe B2B-teams hubsell inzetten om de acquisitiekosten te verlagen, nieuwe markten te betreden en meer pipeline te genereren. Echte resultaten van echte klanten.',
+    ovEyebrow: 'Klanten',
+    ovH1: 'Echte teams, echte pipeline',
+    ovSub:
+      'Hoe sales- en marketingteams hubsell inzetten om de acquisitiekosten te verlagen, nieuwe markten te bereiken en meer kansen te genereren.',
+    back: 'Alle klantverhalen',
+    eyebrowStory: 'Klantverhaal',
+    relatedLabel: 'Meer klantverhalen',
+    readStory: 'Lees het verhaal →',
+    ctaTitlePre: 'Wilt u resultaten zoals ',
+    ctaTitleFallback: 'deze',
+    ctaTitlePost: '?',
+    ctaButton: 'Gratis proberen',
+    ctaTextDefault:
+      'Start een gratis proefperiode en zet hubsell in voor uw eigen outbound: geverifieerde data, e-mail- en LinkedIn-sequenties en automatische CRM-synchronisatie.',
+    crumbHome: 'Home',
+    crumbStories: 'Klantverhalen',
+  },
 );
 
 export function getCustomerStoriesPage(locale: string | undefined): CustomerStoriesCopy {

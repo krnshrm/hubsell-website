@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import CustomerStoryDetail from '../../../components/CustomerStoryDetail.astro';
+import { breadcrumbSchema } from '../../../data/seo';
+import { getCustomerStoriesPage } from '../../../i18n/pages';
+import { asLocale, localizeUrl } from '../../../i18n/utils';
+
+export async function getStaticPaths() {
+  const stories = await getCollection('customerstoriesNl', (s) => !s.data.draft);
+  return stories.map((story) => ({ params: { slug: story.slug }, props: { story, stories } }));
+}
+const { story, stories } = Astro.props;
+const { title, description } = story.data;
+const L = asLocale(Astro.currentLocale);
+const c = getCustomerStoriesPage(L);
+const storyCrumbs = breadcrumbSchema([
+  { name: c.crumbHome, url: localizeUrl(L, '/') },
+  { name: c.crumbStories, url: localizeUrl(L, '/customerstories') },
+  { name: title, url: localizeUrl(L, `/customerstories/${story.slug}`) },
+]);
+---
+<BaseLayout title={`${title} | hubsell`} description={description}>
+  <link
+    slot="head"
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap"
+  />
+  <JsonLd slot="head" schema={storyCrumbs} />
+  <CustomerStoryDetail story={story} stories={stories} />
+</BaseLayout>
