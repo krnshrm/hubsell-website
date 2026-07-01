@@ -1,161 +1,127 @@
 ---
-// Section 2 — Customer logos (Paper). Auto-scrolling marquee of real customer
-// logos served from Cloudflare R2 (assets.hubsell.com/logos/).
-// Server order is alphabetical (no-JS fallback); a client script reshuffles it
-// on every page load. No reveal animation here — the marquee already moves.
-const logos = [
-  { name: "Accelex", src: "https://assets.hubsell.com/logos/6998a59f00fc5b4e86d04d31_Accelex.svg" },
-  { name: "Adoptech", src: "https://assets.hubsell.com/logos/6998a59f48e8453cb0865a0b_Adoptech.svg" },
-  { name: "altKom", src: "https://assets.hubsell.com/logos/6998a59f16b4c8646bc79f71_altKom.svg" },
-  { name: "Anonos", src: "https://assets.hubsell.com/logos/6998a59f5fe87c04870fd7c4_Anonos.svg" },
-  { name: "ArtNight", src: "https://assets.hubsell.com/logos/6998a59f8be537706b8c178f_ArtNight.svg" },
-  { name: "Aspire Software", src: "https://assets.hubsell.com/logos/6998a59f3452f8b4695b5a80_Aspire-Software.svg" },
-  { name: "Atheneum Partners", src: "https://assets.hubsell.com/logos/6998a59fc62d8b4132029a73_Atheneum-Partners.svg" },
-  { name: "Blacklane", src: "https://assets.hubsell.com/logos/6998a59f09ed57f18df4c3d0_Blacklane.svg" },
-  { name: "Book a Tiger", src: "https://assets.hubsell.com/logos/6998a59f52797ae5b0f153ef_Book-a-Tiger.svg" },
-  { name: "CartonCloud", src: "https://assets.hubsell.com/logos/6998a59f196f5ed85eac6497_CartonCloud.svg" },
-  { name: "Cegeka", src: "https://assets.hubsell.com/logos/6998a59f09ed57f18df4c3e4_Cegeka.svg" },
-  { name: "celus", src: "https://assets.hubsell.com/logos/6998a59ffa9dfcd298ae725e_celus.svg" },
-  { name: "Combell", src: "https://assets.hubsell.com/logos/6998a5a161c19162215c7cec_Combell.svg" },
-  { name: "CrossEngage", src: "https://assets.hubsell.com/logos/6998a59f09ed57f18df4c3f8_CrossEngage.svg" },
-  { name: "Docolution", src: "https://assets.hubsell.com/logos/6998a59f0b8cbce05a34c7d2_Docolution.svg" },
-  { name: "Eng", src: "https://assets.hubsell.com/logos/6998a59f2ce680dd8ae4e76a_Eng.svg" },
-  { name: "Etvas", src: "https://assets.hubsell.com/logos/6998a5a00f68b675a07e2b56_Etvas.svg" },
-  { name: "FABs", src: "https://assets.hubsell.com/logos/6998a5a06aeabbbea89c3080_FABs.svg" },
-  { name: "Flexigrant", src: "https://assets.hubsell.com/logos/6998a5a0ba89e51e3589f319_Flexigrant.svg" },
-  { name: "GeminiSense", src: "https://assets.hubsell.com/logos/6998a5a0a5050a683fb9639a_GeminiSense.svg" },
-  { name: "GLS Sprachenzentrum", src: "https://assets.hubsell.com/logos/6998a5a0115d997ba479a747_GLS-Sprachenzentrum.svg" },
-  { name: "GreatContent", src: "https://assets.hubsell.com/logos/6998a59fe2b14d201e771388_GreatContent.svg" },
-  { name: "Idhammar", src: "https://assets.hubsell.com/logos/6998a5a011721d6ad4f6461a_Idhammar.svg" },
-  { name: "Inatech", src: "https://assets.hubsell.com/logos/6998a5a0dafd0dc31b00666c_Inatech.svg" },
-  { name: "Insurance Quantified", src: "https://assets.hubsell.com/logos/699988ea4a9a3fe7ea1f720e_Insurance-Quantified.svg" },
-  { name: "intertours", src: "https://assets.hubsell.com/logos/6998a5a0e0070a601efbb16e_intertours.svg" },
-  { name: "ipushpull", src: "https://assets.hubsell.com/logos/6998a5a1c67db980e6458cd0_ipushpull.svg" },
-  { name: "Kapturall", src: "https://assets.hubsell.com/logos/6998a5a1a86ab14f562fc7c2_Kapturall.svg" },
-  { name: "Kiin", src: "https://assets.hubsell.com/logos/6998a5a1fc186a89e1bdc781_Kiin.svg" },
-  { name: "Kurve", src: "https://assets.hubsell.com/logos/6998a5a1aec80a522eff748e_Kurve.svg" },
-  { name: "Matterway", src: "https://assets.hubsell.com/logos/6998a5a28483a97e76ce1c69_Matterway.svg" },
-  { name: "meetyoo", src: "https://assets.hubsell.com/logos/6998a5a10a2e10c6da4874c7_meetyoo.svg" },
-  { name: "Monotype", src: "https://assets.hubsell.com/logos/6998f31e8d66e1f222d84ab6_Monotype.avif" },
-  { name: "Nebenan", src: "https://assets.hubsell.com/logos/6998a5a161f68e90be7c8e47_Nebenan.svg" },
-  { name: "Osiris", src: "https://assets.hubsell.com/logos/6998a5a23452f8b4695b5b8c_Osiris.svg" },
-  { name: "PAQT", src: "https://assets.hubsell.com/logos/6998a5a2365824be1cf1507e_PAQT.svg" },
-  { name: "Personio", src: "https://assets.hubsell.com/logos/6998a5a29edafe8deeceb5a2_Personio.svg" },
-  { name: "Pixxio", src: "https://assets.hubsell.com/logos/6998a5a39edafe8deeceb5c2_Pixxio.svg" },
-  { name: "PrintSafari", src: "https://assets.hubsell.com/logos/6998a5a2a1022d98f5200381_PrintSafari.svg" },
-  { name: "QiO", src: "https://assets.hubsell.com/logos/6998a5a2fd327ecdb744dc06_QiO.svg" },
-  { name: "Recognyte", src: "https://assets.hubsell.com/logos/6998a5a3a12892b5d3462e12_Recognyte.svg" },
-  { name: "Safran Software", src: "https://assets.hubsell.com/logos/6998a5a3d1e6f3a4831a8f45_Safran-Software.svg" },
-  { name: "Sensolus", src: "https://assets.hubsell.com/logos/6998a5a3d68828bdce8239a2_Sensolus.svg" },
-  { name: "Sharpist", src: "https://assets.hubsell.com/logos/6998a5a3aad280cb4d7b7f62_Sharpist.svg" },
-  { name: "Signavio", src: "https://assets.hubsell.com/logos/6998a5a311721d6ad4f6467d_Signavio.svg" },
-  { name: "Spryker", src: "https://assets.hubsell.com/logos/6998a5a38b6f73e660ec0a3f_Spryker-logo-1.svg" },
-  { name: "Staffbase", src: "https://assets.hubsell.com/logos/6998a5a331fa506eb2472cc2_Staffbase.svg" },
-  { name: "Sysmax", src: "https://assets.hubsell.com/logos/6998a5a3baa84e10f1f62e6a_Sysmax.svg" },
-  { name: "Telenor", src: "https://assets.hubsell.com/logos/6998a5a35fe87c04870fd859_Telenor.svg" },
-  { name: "Triggre", src: "https://assets.hubsell.com/logos/6998a5a42ce680dd8ae4e7e1_Triggre.svg" },
-  { name: "urbanfuture", src: "https://assets.hubsell.com/logos/6998a5a403ff7338768ac18d_urbanfuture.svg" },
-  { name: "Userlane", src: "https://assets.hubsell.com/logos/6998a5a4a2a500c8f20cc571_Userlane.svg" },
-  { name: "Valantic", src: "https://assets.hubsell.com/logos/6998a5a4bbab803ac89fdd5d_Valantic.svg" },
-  { name: "Valsight", src: "https://assets.hubsell.com/logos/6998a5a481763c9973b7c0da_Valsight.svg" },
-  { name: "Variti", src: "https://assets.hubsell.com/logos/6998a5a46abdaa91ff96fb03_Variti.svg" },
-  { name: "Venditan", src: "https://assets.hubsell.com/logos/6998a5a4b61f94085bb53249_Venditan.svg" },
-  { name: "Verhaert", src: "https://assets.hubsell.com/logos/6998a5a50b8cbce05a34c8f6_Verhaert.svg" },
-  { name: "Versino", src: "https://assets.hubsell.com/logos/6998a5a554b0f5773246f023_Versino.svg" },
-  { name: "verso", src: "https://assets.hubsell.com/logos/6998a5a581763c9973b7c10d_verso.svg" },
-  { name: "vjsual", src: "https://assets.hubsell.com/logos/6998a5a416b4c8646bc7a38e_vjsual.svg" },
-  { name: "Voycer", src: "https://assets.hubsell.com/logos/6998a5a5b9ee489ca56c9c68_Voycer.svg" },
-  { name: "WithIntelligence", src: "https://assets.hubsell.com/logos/6998a5a57359377a0ac685d6_WithIntelligence.svg" },
-  { name: "Wizrom", src: "https://assets.hubsell.com/logos/6998a5a5ae391a02699e62b6_Wizrom.svg" },
-  { name: "Workspace 365", src: "https://assets.hubsell.com/logos/6998a5a52084daa6c519f180_Workspace-365.svg" },
-  { name: "Wunderpen", src: "https://assets.hubsell.com/logos/6998a5a5774baab89c697180_Wunderpen.svg" },
-  { name: "Yarado", src: "https://assets.hubsell.com/logos/6998a5a5214933648ccc4d2a_Yarado.svg" },
-];
+// Section 2 — Customer logos (Paper). Static, hand-picked grid (was an auto-scrolling
+// marquee of ~66 logos). A short, curated set reads as more trustworthy than an endless
+// band. The six companies that have a published customer story link to it and carry a
+// small "story attached" indicator (accent dot + a localized "read the story" line);
+// the rest are shown plain. Logos are colourful SVGs drawn for light backgrounds, so
+// every tile is a white card in BOTH themes to keep them legible (the same "light card
+// on a dark section" pattern used elsewhere). Localizes UI strings from the locale.
 import { getHome } from '../data/home-i18n';
-import { asLocale } from '../i18n/utils';
-const { s } = getHome(asLocale(Astro.currentLocale));
+import { getCustomerStoriesPage } from '../i18n/pages';
+import { asLocale, localizedHref } from '../i18n/utils';
+
+const L = asLocale(Astro.currentLocale);
+const { s } = getHome(L);
+const cs = getCustomerStoriesPage(L);
+
+// Companies with a published customer story: linked + story indicator. `slug` maps to
+// /customerstories/<slug> (localized at render). Order matches the stories overview.
+const storyLogos = [
+  { name: 'Safran Software', slug: 'safran',       src: 'https://assets.hubsell.com/logos/6998a5a3d1e6f3a4831a8f45_Safran-Software.svg' },
+  { name: 'Staffbase',       slug: 'staffbase',    src: 'https://assets.hubsell.com/logos/6998a5a331fa506eb2472cc2_Staffbase.svg' },
+  { name: 'Verhaert',        slug: 'verhaert',     src: 'https://assets.hubsell.com/logos/6998a5a50b8cbce05a34c8f6_Verhaert.svg' },
+  { name: 'Elium',           slug: 'elium',        src: '' }, // TODO: upload Elium logo to R2 (logos/) and paste the URL here
+  { name: 'Workspace 365',   slug: 'workspace365', src: 'https://assets.hubsell.com/logos/6998a5a52084daa6c519f180_Workspace-365.svg' },
+  { name: 'Sensolus',        slug: 'sensolus',     src: 'https://assets.hubsell.com/logos/6998a5a3d68828bdce8239a2_Sensolus.svg' },
+];
+
+// Additional hand-picked logos (no story): shown plain.
+const moreLogos = [
+  { name: 'GLS',       src: 'https://assets.hubsell.com/logos/6998a5a0115d997ba479a747_GLS-Sprachenzentrum.svg' },
+  { name: 'FABs',      src: 'https://assets.hubsell.com/logos/6998a5a06aeabbbea89c3080_FABs.svg' },
+  { name: 'ipushpull', src: 'https://assets.hubsell.com/logos/6998a5a1c67db980e6458cd0_ipushpull.svg' },
+  { name: 'Kapturall', src: 'https://assets.hubsell.com/logos/6998a5a1a86ab14f562fc7c2_Kapturall.svg' },
+  { name: 'Monotype',  src: 'https://assets.hubsell.com/logos/6998f31e8d66e1f222d84ab6_Monotype.avif' },
+  { name: 'EuroComms', src: '' }, // TODO: upload EuroComms logo to R2 (logos/) and paste the URL here
+];
 ---
-<section class="sec sec--paper" aria-label="Customers">
+<section class="sec sec--paper" aria-label={s.logos.aria}>
   <div class="wrap">
-    <p class="eyebrow" style="text-align:center;margin-bottom:26px">{s.logos.eyebrow}</p>
-    <div
-      class="marquee"
-      role="img"
-      aria-label={s.logos.aria}
-    >
-      <div class="marquee__track">
-        {logos.map((logo) => (
-          <img class="marquee__logo" src={logo.src} alt={logo.name} loading="eager" decoding="async" draggable={false} />
-        ))}
-        {logos.map((logo) => (
-          <img class="marquee__logo" src={logo.src} alt="" aria-hidden="true" loading="eager" decoding="async" draggable={false} />
-        ))}
-      </div>
-    </div>
+    <p class="eyebrow logos-eyebrow">{s.logos.eyebrow}</p>
+
+    <ul class="logo-grid reveal-stagger">
+      {storyLogos.map((l) => (
+        <li>
+          <a class="logo-tile logo-tile--story" href={localizedHref(L, `/customerstories/${l.slug}`)} aria-label={`${l.name} — ${cs.eyebrowStory}`}>
+            <span class="logo-tile__dot" aria-hidden="true"></span>
+            <span class="logo-tile__art">
+              {l.src
+                ? <img class="logo-tile__img" src={l.src} alt={l.name} loading="lazy" decoding="async" width="120" height="34" />
+                : <span class="logo-tile__ph">{l.name}</span>}
+            </span>
+            <span class="logo-tile__cta">{cs.readStory}</span>
+          </a>
+        </li>
+      ))}
+      {moreLogos.map((l) => (
+        <li>
+          <div class="logo-tile">
+            <span class="logo-tile__art">
+              {l.src
+                ? <img class="logo-tile__img" src={l.src} alt={l.name} loading="lazy" decoding="async" width="120" height="34" />
+                : <span class="logo-tile__ph">{l.name}</span>}
+            </span>
+          </div>
+        </li>
+      ))}
+    </ul>
   </div>
 </section>
 
 <style>
-  /* Auto-scrolling wall of customer logos. They are colourful SVGs drawn for light
-     backgrounds, so we mute them to a uniform grayscale wall and restore full
-     colour on hover. In dark mode we do NOT recolour the logos (flat white
-     silhouettes lost detail and looked uneven across the set); instead the marquee
-     rides on a light warm panel so the original logos stay legible — the same
-     "light card on a dark section" pattern used elsewhere on the page. */
-  .marquee{
-    padding:22px 0;
+  .logos-eyebrow { text-align:center; margin-bottom:26px; }
+
+  .logo-grid{
+    list-style:none; margin:0 auto; padding:0;
+    max-width:820px;
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:16px;
+  }
+  .logo-grid > li { margin:0; }
+
+  /* Every tile is a white card in both themes so the colourful, light-background
+     logos stay legible on the dark section too. */
+  .logo-tile{
+    position:relative;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
+    height:100%; min-height:96px;
+    background:#FFFFFF;
+    border:1px solid var(--sec-bd);
     border-radius:var(--radius-lg);
-    background:transparent;
-    transition:background .25s;
+    padding:22px 18px;
+    text-decoration:none;
+    transition:border-color .15s, transform .06s, box-shadow .15s;
   }
-  :global([data-theme="dark"]) .marquee{
-    background:#E7DCC8; /* lighter, but not white — dark logos stay readable */
+  .logo-tile__art{ display:flex; align-items:center; justify-content:center; min-height:34px; }
+  .logo-tile__img{ height:30px; width:auto; max-width:150px; display:block; }
+  .logo-tile__ph{
+    font-family:var(--font-body); font-weight:600; font-size:15px; letter-spacing:.01em;
+    color:#192341; opacity:.85;
   }
 
-  /* Spacing lives on each logo (margin), not on the track (flex gap), so the seam
-     between the two identical copies matches the internal spacing exactly and the
-     translateX(-50%) loop repeats with no half-gap jump. */
-  .marquee__track{gap:0}
-  .marquee__logo{
-    height:30px;width:auto;flex:none;display:block;
-    margin-right:56px;
-    opacity:.62;filter:grayscale(1);
-    transition:opacity .2s,filter .2s;
+  /* Story tiles: interactive + indicator. Accent stays the fixed brand terracotta
+     (not the theme accent) because the card is always white. */
+  .logo-tile--story{ cursor:pointer; }
+  .logo-tile--story:hover{
+    border-color:var(--brand);
+    transform:translateY(-2px);
+    box-shadow:0 6px 20px rgba(25,35,65,.10);
   }
-  .marquee__logo:hover{opacity:1;filter:grayscale(0)}
-  :global([data-theme="dark"]) .marquee__logo{opacity:.72}
-  :global([data-theme="dark"]) .marquee__logo:hover{opacity:1}
+  .logo-tile--story:focus-visible{ outline:2px solid var(--brand); outline-offset:2px; }
+  .logo-tile__dot{
+    position:absolute; top:12px; right:12px;
+    width:7px; height:7px; border-radius:50%;
+    background:var(--brand);
+    box-shadow:0 0 0 3px color-mix(in srgb, var(--brand) 20%, transparent);
+  }
+  .logo-tile__cta{
+    font-family:var(--font-body); font-weight:500; font-size:12.5px; line-height:1;
+    color:var(--brand);
+    transition:opacity .15s;
+  }
+  .logo-tile--story:hover .logo-tile__cta{ opacity:.82; }
 
-  /* ~66 logos: slow, calm drift. Higher specificity than the global 32s rule.
-     This single number is the speed dial — larger = slower. */
-  :global(html.has-anim) .marquee__track{animation-duration:180s}
+  @media (max-width:640px){
+    .logo-grid{ grid-template-columns:repeat(2, 1fr); gap:12px; }
+    .logo-tile{ min-height:88px; padding:18px 14px; }
+  }
 </style>
-
-<script>
-  // Randomise the logo order on every load so the wall looks fresh, while the two
-  // identical halves (needed for the seamless loop) stay in sync — one shuffle
-  // order is applied to both halves. The images are eager-loaded (see markup), so
-  // both halves always have real widths and the marquee scrolls through EVERY logo
-  // before repeating, instead of resetting after only a few.
-  function shuffleMarquee(track) {
-    const items = Array.from(track.children);
-    const half = items.length / 2;
-    if (!Number.isInteger(half) || half < 2) return;
-    const first = items.slice(0, half);
-    const second = items.slice(half);
-    const order = Array.from({ length: half }, (_, i) => i);
-    for (let i = half - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [order[i], order[j]] = [order[j], order[i]];
-    }
-    const frag = document.createDocumentFragment();
-    for (const i of order) frag.appendChild(first[i]);
-    for (const i of order) frag.appendChild(second[i]);
-    track.appendChild(frag);
-  }
-  function initMarquees() {
-    document.querySelectorAll('.marquee__track').forEach(shuffleMarquee);
-  }
-  initMarquees();
-  document.addEventListener('astro:page-load', initMarquees);
-</script>
