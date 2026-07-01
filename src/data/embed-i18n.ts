@@ -180,6 +180,7 @@ const de: Dict = {
   'Sales intelligence': 'Sales Intelligence',
   'Starting at': 'Ab',
   '/seat/month': '/Platz/Monat',
+  '/year': '/Jahr',
   'For solopreneurs and early-stage teams starting their with their GTM motion.': 'Für Solopreneure und Teams in der Frühphase, die ihre GTM-Bewegung starten.',
   'Includes 1 seat.': 'Beinhaltet 1 Platz.',
   'Start features:': 'Start-Funktionen:',
@@ -233,7 +234,7 @@ const de: Dict = {
 
 const nl: Dict = {
   // ── HeroPipelineFlow (hero visual) ──────────────────────────────────────────
-  'Source fresh contacts': 'Verse contacten verzamelen',
+  'Source fresh contacts': 'Verse contacten',
   'Find targeted B2B prospects': 'Gerichte B2B-prospects vinden',
   'Qualify with AI': 'Kwalificeren met AI',
   'Score and filter leads instantly': 'Leads direct scoren en filteren',
@@ -241,7 +242,7 @@ const nl: Dict = {
   'Verify emails & phone numbers': 'E-mails & telefoonnummers verifiëren',
   'Reach out': 'Benaderen',
   'Via email + LinkedIn': 'Via e-mail + LinkedIn',
-  'Log activity to CRM': 'Activiteit vastleggen in CRM',
+  'Log activity to CRM': 'Vastleggen in CRM',
   'HubSpot, Salesforce, & Pipedrive': 'HubSpot, Salesforce & Pipedrive',
   'Iterate and improve': 'Itereren en verbeteren',
   'Continuous optimization': 'Continue optimalisatie',
@@ -291,7 +292,7 @@ const nl: Dict = {
   'Trigger when added to list': 'Trigger bij toevoegen aan lijst',
   'Connection request': 'Connectieverzoek',
   'LinkedIn connection request': 'LinkedIn-connectieverzoek',
-  'Did they accept?': 'Hebben ze geaccepteerd?',
+  'Did they accept?': 'Geaccepteerd?',
   'Follow-up conditions': 'Opvolgvoorwaarden',
   'Accepted': 'Geaccepteerd',
   'Intro message': 'Introbericht',
@@ -395,6 +396,7 @@ const nl: Dict = {
   'Sales intelligence': 'Sales intelligence',
   'Starting at': 'Vanaf',
   '/seat/month': '/gebruiker/maand',
+  '/year': '/jaar',
   'For solopreneurs and early-stage teams starting their with their GTM motion.': 'Voor solopreneurs en teams in een vroege fase die met hun GTM-beweging starten.',
   'Includes 1 seat.': 'Bevat 1 gebruiker.',
   'Start features:': 'Start-functies:',

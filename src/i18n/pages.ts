@@ -7,8 +7,8 @@
 import { asLocale } from './utils';
 import type { Locale } from './ui';
 
-function byLocale<T>(en: T, de: T): Record<Locale, T> {
-  return { en, de, nl: en, fr: en, es: en, pt: en };
+function byLocale<T>(en: T, de: T, nl?: T): Record<Locale, T> {
+  return { en, de, nl: nl ?? en, fr: en, es: en, pt: en };
 }
 
 // ── Contact ───────────────────────────────────────────────────────────────────
@@ -79,6 +79,28 @@ const contact = byLocale<ContactCopy>(
       successText: 'Danke für Ihre Nachricht. Wir antworten Ihnen bald per E-Mail.',
     },
   },
+  {
+    metaTitle: 'Contact | hubsell',
+    metaDescription:
+      'Neem contact op met hubsell. Vragen over het platform, uw account, partnerships of pers. Stuur een bericht en de juiste persoon neemt contact met u op.',
+    eyebrow: 'Contact',
+    title: 'Neem contact op',
+    sub: 'Vragen over hubsell, uw account, partnerships of pers. Stuur een bericht en de juiste persoon neemt contact met u op.',
+    labelSupport: 'Algemeen en support',
+    labelLegal: 'Juridisch en privacy',
+    labelOffice: 'Kantoor',
+    country: 'D-10117 Berlijn, Duitsland',
+    labelTalk: 'Liever even overleggen?',
+    bookCall: 'Plan een gesprek',
+    form: {
+      buttonLabel: 'Bericht versturen',
+      emailPlaceholder: 'naam@bedrijf.nl',
+      messageLabel: 'Uw bericht',
+      messagePlaceholder: 'Waarmee kunnen we helpen?',
+      successTitle: 'Bericht verzonden.',
+      successText: 'Bedankt voor uw bericht. We reageren binnenkort per e-mail.',
+    },
+  },
 );
 
 export function getContact(locale: string | undefined): ContactCopy {
@@ -129,6 +151,22 @@ const bookCall = byLocale<BookCallCopy>(
       'Eine klare Antwort zu Eignung, Preis und Onboarding für Ihr Team.',
     ],
     note: 'Unser Team übernimmt die Einrichtung Ihrer ersten Kampagne, sodass die meisten Teams ihren ersten Outbound schon in der ersten Woche starten.',
+  },
+  {
+    metaTitle: 'Plan een gesprek | hubsell',
+    metaDescription:
+      'Zie hubsell draaien op uw eigen markt. Plan een gesprek en we tonen u live verzamelde data, de e-mail- en LinkedIn-flow en de CRM-synchronisatie op echte accounts.',
+    eyebrow: 'Aan de slag',
+    title: 'Plan een gesprek',
+    sub: 'Zie hubsell draaien op uw eigen markt. We tonen u live verzamelde data, de e-mail- en LinkedIn-flow en de CRM-synchronisatie op echte accounts, en vertalen dat vervolgens naar uw pipeline.',
+    coversHeading: 'Wat het gesprek behandelt',
+    covers: [
+      'Een live blik op zero-day-sourcing voor uw ICP, geen generieke demo.',
+      'Hoe de e-mail- en LinkedIn-stappen als één gecoördineerde flow lopen.',
+      'Waar hubsell tools vervangt waarvoor u al betaalt.',
+      'Een helder antwoord over fit, prijs en onboarding voor uw team.',
+    ],
+    note: 'Ons team verzorgt de inrichting van uw eerste campagne, zodat de meeste teams hun eerste outbound al in de eerste week draaien.',
   },
 );
 

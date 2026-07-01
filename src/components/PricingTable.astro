@@ -71,7 +71,7 @@ const L = asLocale(Astro.currentLocale);
         <div class="pricing-card-badge">{et(L, "Most popular")}</div>
         <div class="pricing-card-name">Grow</div>
         <div class="pricing-card-price-prefix">{et(L, "Starting at")}</div>
-        <div class="pricing-card-price"><span class="price-currency">€</span><span class="price-value" data-eur="4320" data-usd="5000" data-gbp="3700">4,320</span><span class="pricing-card-price-period">/year</span></div>
+        <div class="pricing-card-price"><span class="price-currency">€</span><span class="price-value" data-eur="4320" data-usd="5000" data-gbp="3700">4,320</span><span class="pricing-card-price-period">{et(L, "/year")}</span></div>
         <div class="pricing-card-desc">{et(L, "For teams that want more powerful features to scale their pipeline across every channel.")}</div>
         <div class="pricing-card-emph-line">{et(L, "Includes 3 seats.")}</div>
         <div class="pricing-card-divider"></div>
@@ -116,7 +116,7 @@ const L = asLocale(Astro.currentLocale);
       <div class="pricing-card">
         <div class="pricing-card-name">Scale</div>
         <div class="pricing-card-price-prefix">{et(L, "Starting at")}</div>
-        <div class="pricing-card-price"><span class="price-currency">€</span><span class="price-value" data-eur="12000" data-usd="13800" data-gbp="10300">12,000</span><span class="pricing-card-price-period">/year</span></div>
+        <div class="pricing-card-price"><span class="price-currency">€</span><span class="price-value" data-eur="12000" data-usd="13800" data-gbp="10300">12,000</span><span class="pricing-card-price-period">{et(L, "/year")}</span></div>
         <div class="pricing-card-desc">{et(L, "For large teams that require custom solutions and in-depth technical onboarding.")}</div>
         <div class="pricing-card-emph-line">{et(L, "Includes 10 seats.")}</div>
         <div class="pricing-card-divider"></div>
@@ -180,7 +180,7 @@ const L = asLocale(Astro.currentLocale);
       <div class="pricing-card">
         <div class="pricing-card-name">{et(L, "Sales Intelligence | Subscription")}</div>
         <div class="pricing-card-price-prefix">{et(L, "Starting at")}</div>
-        <div class="pricing-card-price"><span class="price-currency">€</span><span class="price-value" data-eur="5000" data-usd="5800" data-gbp="4300">5,000</span><span class="pricing-card-price-period">/year</span></div>
+        <div class="pricing-card-price"><span class="price-currency">€</span><span class="price-value" data-eur="5000" data-usd="5800" data-gbp="4300">5,000</span><span class="pricing-card-price-period">{et(L, "/year")}</span></div>
         <div class="pricing-card-desc">{et(L, "For teams that need a larger amount of data and more advanced sourcing techniques.")}</div>
         <div class="pricing-card-emph-line">{et(L, "Includes 5000 credits - enriches 10K-50K contacts.")}</div>
         <div class="pricing-card-divider"></div>

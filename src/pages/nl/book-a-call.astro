@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BookCallBody from '../../components/BookCallBody.astro';
+import { getBookCall } from '../../i18n/pages';
+const c = getBookCall('nl');
+---
+<BaseLayout title={c.metaTitle} description={c.metaDescription}>
+  <BookCallBody />
+</BaseLayout>

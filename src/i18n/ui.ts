@@ -42,7 +42,7 @@ export const translatedRoutes: Partial<Record<Locale, string[]>> = {
     '/customerstories/elium', '/customerstories/workspace365', '/customerstories/sensolus',
   ],
   nl: [
-    '/',
+    '/', '/contact', '/book-a-call',
   ],
   // fr: [], es: [], pt: [],
 };
