@@ -29,6 +29,6 @@ export default defineConfig({
     },
     // Add a locale here when we START translating it; until then its URLs are not
     // generated (the switcher shows it as "Soon", so nothing links to it). German first.
-    fallback: { de: 'en' },
+    fallback: { de: 'en', nl: 'en' },
   },
 });

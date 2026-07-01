@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import { softwareApplicationSchema } from '../../data/seo';
+import Hero from '../../components/Hero.astro';
+import CustomerLogos from '../../components/CustomerLogos.astro';
+import Comparison from '../../components/Comparison.astro';
+import FragmentedStack from '../../components/FragmentedStack.astro';
+import ZeroDaySourcing from '../../components/ZeroDaySourcing.astro';
+import RatingsStrip from '../../components/RatingsStrip.astro';
+import PipelineSteps from '../../components/PipelineSteps.astro';
+import Pricing from '../../components/Pricing.astro';
+import UseCases from '../../components/UseCases.astro';
+import Features from '../../components/Features.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import PublishTrackBeta from '../../components/PublishTrackBeta.astro';
+import Faq from '../../components/Faq.astro';
+import Insights from '../../components/Insights.astro';
+
+// Dutch homepage. Same section rhythm as the English home; each section reads
+// Astro.currentLocale (='nl' from the /nl/ path) and renders its Dutch copy via
+// src/data/home-i18n.ts. The pricing table and animated product embeds pull
+// their Dutch labels from src/data/embed-i18n.ts.
+---
+<BaseLayout title="hubsell | B2B-sales-intelligence & outbound in één platform">
+  <JsonLd slot="head" schema={softwareApplicationSchema} />
+  {/*  1 */}<Hero />
+  {/*  2 */}<CustomerLogos />
+  {/*  3 */}<Comparison />
+  {/*  4 */}<FragmentedStack />
+  {/*  5 */}<ZeroDaySourcing />
+  {/*  6 */}<RatingsStrip />
+  {/*  7 */}<PipelineSteps />
+  {/*  8 */}<Pricing />
+  {/*  9 */}<UseCases />
+  {/* 10 */}<Features />
+  {/* 11 */}<Testimonials />
+  {/* 12 */}<PublishTrackBeta />
+  {/* 13 */}<Faq />
+  {/* 14 */}<Insights />
+</BaseLayout>

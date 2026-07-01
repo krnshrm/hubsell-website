@@ -41,7 +41,10 @@ export const translatedRoutes: Partial<Record<Locale, string[]>> = {
     '/customerstories/safran', '/customerstories/staffbase', '/customerstories/verhaert',
     '/customerstories/elium', '/customerstories/workspace365', '/customerstories/sensolus',
   ],
-  // nl: [], fr: [], es: [], pt: [],
+  nl: [
+    '/',
+  ],
+  // fr: [], es: [], pt: [],
 };
 
 type Dict = Record<string, string>;
@@ -120,4 +123,38 @@ const de: Dict = {
   'lang.label': 'Sprache',
 };
 
-export const ui: Partial<Record<Locale, Dict>> = { en, de };
+const nl: Dict = {
+  'nav.resources': 'Bronnen',
+  'nav.heading.learn': 'Leren',
+  'nav.heading.company': 'Bedrijf',
+  'nav.insights': 'Insights (EN)',
+  'nav.customerstories': 'Klantverhalen',
+  'nav.comparisons': 'Vergelijkingen',
+  'nav.contact': 'Contact',
+  'nav.reviews': 'Beoordelingen',
+  'nav.aiinfo': 'AI-informatie',
+  'nav.pricing': 'Prijzen',
+  'nav.usecases': 'Toepassingen',
+  'nav.faq': 'FAQ',
+  'cta.trial': 'Gratis proberen',
+  'cta.login': 'Inloggen',
+  'badge.soon': 'Binnenkort',
+  'footer.tagline': 'Vervang uw outbound-stack. Live verzamelde data, e-mail- en LinkedIn-outreach en CRM-synchronisatie op één platform.',
+  'footer.heading.resources': 'Bronnen',
+  'footer.heading.customerstories': 'Klantverhalen',
+  'footer.heading.comparisons': 'Vergelijkingen',
+  'footer.heading.company': 'Bedrijf',
+  'footer.all.customerstories': 'Alle klantverhalen',
+  'footer.all.comparisons': 'Alle vergelijkingen',
+  'legal.legalnotice': 'Juridische kennisgeving',
+  'legal.privacy': 'Privacybeleid',
+  'legal.dpa': 'Verwerkersovereenkomst',
+  'legal.terms': 'Algemene voorwaarden',
+  'legal.affiliate': 'Affiliate-voorwaarden',
+  'footer.country': 'Duitsland',
+  'theme.dark': 'Donkere modus',
+  'theme.light': 'Lichte modus',
+  'lang.label': 'Taal',
+};
+
+export const ui: Partial<Record<Locale, Dict>> = { en, de, nl };

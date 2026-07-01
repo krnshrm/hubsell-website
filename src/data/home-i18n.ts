@@ -11,6 +11,10 @@ import {
   pipelineStepsDe, featuresDe, rolesDe, testimonialsDe, insightsDe,
   comparisonDe, faqsDe, stringsDe,
 } from './home.de';
+import {
+  pipelineStepsNl, featuresNl, rolesNl, testimonialsNl, insightsNl,
+  comparisonNl, faqsNl, stringsNl,
+} from './home.nl';
 import { defaultLocale, type Locale } from '../i18n/ui';
 
 // Comparison matrix data. Marks ('yes'|'part'|'no') and the /vs hrefs are
@@ -178,16 +182,24 @@ const comparisonEn: ComparisonData = {
 };
 
 export function getHome(localeInput: string | undefined) {
-  const locale: Locale = localeInput === 'de' ? 'de' : defaultLocale;
-  const de = locale === 'de';
+  const locale: Locale =
+    localeInput === 'de' ? 'de' : localeInput === 'nl' ? 'nl' : defaultLocale;
+  if (locale === 'de') {
+    return {
+      steps: pipelineStepsDe, features: featuresDe, roles: rolesDe,
+      testimonials: testimonialsDe, insights: insightsDe,
+      comparison: comparisonDe, faqs: faqsDe, s: stringsDe,
+    };
+  }
+  if (locale === 'nl') {
+    return {
+      steps: pipelineStepsNl, features: featuresNl, roles: rolesNl,
+      testimonials: testimonialsNl, insights: insightsNl,
+      comparison: comparisonNl, faqs: faqsNl, s: stringsNl,
+    };
+  }
   return {
-    steps: de ? pipelineStepsDe : pipelineSteps,
-    features: de ? featuresDe : features,
-    roles: de ? rolesDe : roles,
-    testimonials: de ? testimonialsDe : testimonials,
-    insights: de ? insightsDe : insights,
-    comparison: de ? comparisonDe : comparisonEn,
-    faqs: de ? faqsDe : homeFaqs,
-    s: de ? stringsDe : stringsEn,
+    steps: pipelineSteps, features, roles, testimonials, insights,
+    comparison: comparisonEn, faqs: homeFaqs, s: stringsEn,
   };
 }
