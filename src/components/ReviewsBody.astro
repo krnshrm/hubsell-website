@@ -8,13 +8,14 @@ import RatingsStrip from './RatingsStrip.astro';
 import TestimonialStrip from './TestimonialStrip.astro';
 import { TESTIMONIALS } from '../data/testimonials';
 import { TESTIMONIALS_DE } from '../data/testimonials.de';
+import { TESTIMONIALS_NL } from '../data/testimonials.nl';
 import { getReviewsPage } from '../i18n/pages';
 import { asLocale, localizedHref } from '../i18n/utils';
 import { SIGNUP_URL, DEMO_URL } from '../data/site';
 
 const L = asLocale(Astro.currentLocale);
 const c = getReviewsPage(L);
-const quotes = L === 'de' ? TESTIMONIALS_DE : TESTIMONIALS;
+const quotes = L === 'de' ? TESTIMONIALS_DE : L === 'nl' ? TESTIMONIALS_NL : TESTIMONIALS;
 ---
 <!-- Hero · Paper -->
 <section class="sec sec--paper">

@@ -14,7 +14,9 @@ import MultichannelFlow from './MultichannelFlow.astro';
 import SocialProspecting from './SocialProspecting.astro';
 import { TESTIMONIALS } from '../data/testimonials';
 import { TESTIMONIALS_DE } from '../data/testimonials.de';
+import { TESTIMONIALS_NL } from '../data/testimonials.nl';
 import { testimonialsDe } from '../data/home.de';
+import { testimonialsNl } from '../data/home.nl';
 import { getUseCasesPage } from '../i18n/pages';
 import { asLocale, localizedHref } from '../i18n/utils';
 import { SIGNUP_URL, DEMO_URL } from '../data/site';
@@ -40,14 +42,15 @@ if (d.proofStory) {
   proof = stories.find((s: any) => s.slug === d.proofStory) || null;
 }
 const deProof = L === 'de' && proof ? testimonialsDe.find((t) => t.slug === proof.slug) : null;
-const proofQuote = ((deProof?.quote ?? proof?.data.testimonial) ?? '').replace(/^[\s"“”]+|[\s"“”]+$/g, '');
-const proofMetrics = (deProof?.results ?? proof?.data.results) ?? [];
+const nlProof = L === 'nl' && proof ? testimonialsNl.find((t) => t.slug === proof.slug) : null;
+const proofQuote = ((deProof?.quote ?? nlProof?.quote ?? proof?.data.testimonial) ?? '').replace(/^[\s"“”]+|[\s"“”]+$/g, '');
+const proofMetrics = (deProof?.results ?? nlProof?.results ?? proof?.data.results) ?? [];
 const proofRole = proof ? [proof.data.championTitle, proof.data.company].filter(Boolean).join(', ') : '';
 const championPhoto = proof ? TESTIMONIALS.find((t) => t.storySlug === proof.slug)?.photo : undefined;
 
 // Strip = curated testimonials for this use case, from the locale-matched pool,
 // never repeating the proof champion.
-const pool = L === 'de' ? TESTIMONIALS_DE : TESTIMONIALS;
+const pool = L === 'de' ? TESTIMONIALS_DE : L === 'nl' ? TESTIMONIALS_NL : TESTIMONIALS;
 const stripQuotes = (d.quotes ?? [])
   .map((s: string) => pool.find((t) => t.slug === s))
   .filter(Boolean)

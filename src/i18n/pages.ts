@@ -218,6 +218,20 @@ const faqsPage = byLocale<FaqsCopy>(
     ctaPrimary: 'Kostenlos testen',
     ctaSecondary: 'Demo buchen',
   },
+  {
+    metaTitle: 'Veelgestelde vragen | hubsell',
+    metaDescription:
+      'Antwoorden op de vragen die teams stellen voordat ze overstappen naar hubsell: live dataverzameling, deliverability, LinkedIn-outreach, CRM-synchronisatie, AVG, prijzen en meer.',
+    eyebrow: 'FAQ',
+    title: 'Antwoorden op uw vragen.',
+    subPre: 'Alles wat teams vragen voordat ze overstappen naar hubsell. Nog twijfels? ',
+    demoLink: 'Plan een demo van 20 minuten',
+    subPost: '.',
+    ctaTitle: 'Nog aan het afwegen?',
+    ctaText: 'Zet hubsell op uw eigen ICP en zie de data en de outreach-flow op echte accounts.',
+    ctaPrimary: 'Gratis proberen',
+    ctaSecondary: 'Demo plannen',
+  },
 );
 
 export function getFaqsPage(locale: string | undefined): FaqsCopy {
@@ -272,6 +286,22 @@ const reviewsPage = byLocale<ReviewsCopy>(
     ctaSecondary: 'Gespräch buchen',
     crumbHome: 'Startseite',
     crumbReviews: 'Bewertungen',
+  },
+  {
+    metaTitle: 'hubsell-beoordelingen: ratings en ervaringen van B2B-teams',
+    metaDescription:
+      'Lees geverifieerde beoordelingen van hubsell van teams als Matterway, Spryker en Workspace 365 die hun outbound-stack vervingen door live verzamelde data, multichannel-outreach en CRM-synchronisatie.',
+    eyebrow: 'Beoordelingen',
+    h1: 'Wat teams over hubsell zeggen',
+    heroSub:
+      'Geverifieerde beoordelingen van sales- en marketingteams die statische lijsten en een stapel losse tools vervingen door één platform. Lees wat ze ons vertellen, en zie de score op elk beoordelingsplatform.',
+    wallHead: 'In hun woorden',
+    ctaTitle: 'Zie waarom teams overstappen naar hubsell',
+    ctaSub: 'Start een gratis proefperiode, of plan een gesprek en we lopen er samen doorheen.',
+    ctaPrimary: 'Gratis proberen',
+    ctaSecondary: 'Plan een gesprek',
+    crumbHome: 'Home',
+    crumbReviews: 'Beoordelingen',
   },
 );
 
@@ -352,6 +382,30 @@ const useCasesPage = byLocale<UseCasesCopy>(
       'Starten Sie einen kostenlosen Test und setzen Sie hubsell für Ihren Outbound ein: live recherchierte Daten, E-Mail- und LinkedIn-Sequenzen und automatische CRM-Synchronisierung.',
     relatedLabel: 'Weitere Anwendungsfälle',
     explore: 'Entdecken →',
+  },
+  {
+    ovMetaTitle: 'Toepassingen | hubsell',
+    ovMetaDescription:
+      'Eén platform voor outbound: leadgeneratie, multichannel-outreach via e-mail en LinkedIn, en account-based outreach. Zo werkt elke toepassing in hubsell.',
+    ovEyebrow: 'Toepassingen',
+    ovH1: 'Eén platform, elke outbound-beweging',
+    ovSub:
+      'Van het verzamelen van leads tot het bewerken van complete buying committees: zo zetten teams hubsell in. Elke toepassing draait op dezelfde live data, hetzelfde e-mail- en LinkedIn-sequencing en dezelfde automatische CRM-synchronisatie.',
+    back: 'Alle toepassingen',
+    eyebrowDefault: 'Toepassing',
+    ctaPrimary: 'Gratis proberen',
+    ctaSecondary: 'Demo plannen',
+    powersHead: 'Wat het aandrijft',
+    rolesHead: 'Voor wie het is',
+    proofLabel: 'Bewijs',
+    storyPre: 'Lees het verhaal van ',
+    storyPost: ' →',
+    stripHeading: 'Meer teams die hubsell gebruiken',
+    ctaHeadingDefault: 'Zie het draaien op uw eigen pipeline',
+    ctaTextDefault:
+      'Start een gratis proefperiode en zet hubsell in voor uw outbound: live verzamelde data, e-mail- en LinkedIn-sequenties en automatische CRM-synchronisatie.',
+    relatedLabel: 'Meer toepassingen',
+    explore: 'Ontdekken →',
   },
 );
 

@@ -110,5 +110,8 @@ const usecases = defineCollection({ type: 'content', schema: usecaseSchema });
 // German use-cases: same schema, parallel folder. src/content/usecasesDe/<slug>.md
 // uses the SAME slug as its English counterpart so the two map one to one.
 const usecasesDe = defineCollection({ type: 'content', schema: usecaseSchema });
+// Dutch use-cases: same schema, parallel folder src/content/usecasesNl/<slug>.md,
+// same slugs as the English entries.
+const usecasesNl = defineCollection({ type: 'content', schema: usecaseSchema });
 
-export const collections = { insights, customerstories, customerstoriesDe, comparisons, comparisonsDe, usecases, usecasesDe };
+export const collections = { insights, customerstories, customerstoriesDe, comparisons, comparisonsDe, usecases, usecasesDe, usecasesNl };

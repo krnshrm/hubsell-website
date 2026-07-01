@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import FaqsBody from '../../components/FaqsBody.astro';
+import { getFaqs } from '../../data/faqs-i18n';
+import { getFaqsPage } from '../../i18n/pages';
+
+const c = getFaqsPage('nl');
+const stripHtml = (s: string) => s.replace(/<[^>]+>/g, '').trim();
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: getFaqs('nl').map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: stripHtml(f.answer) },
+  })),
+};
+---
+<BaseLayout title={c.metaTitle} description={c.metaDescription}>
+  <JsonLd slot="head" schema={faqSchema} />
+  <FaqsBody />
+</BaseLayout>
