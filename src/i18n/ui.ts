@@ -33,7 +33,6 @@ export const translatedRoutes: Partial<Record<Locale, string[]>> = {
     '/vs/apollo', '/vs/zoominfo', '/vs/cognism', '/vs/lusha', '/vs/seamless',
     '/customerstories',
     '/customerstories/safran', '/customerstories/staffbase', '/customerstories/verhaert',
-    '/customerstories/elium', '/customerstories/workspace365', '/customerstories/sensolus',
   ],
   // nl: [], fr: [], es: [], pt: [],
 };
