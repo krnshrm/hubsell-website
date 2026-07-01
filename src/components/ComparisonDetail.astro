@@ -7,6 +7,7 @@
 import TestimonialStrip from './TestimonialStrip.astro';
 import { TESTIMONIALS } from '../data/testimonials';
 import { TESTIMONIALS_DE } from '../data/testimonials.de';
+import { TESTIMONIALS_NL } from '../data/testimonials.nl';
 import { getComparisonsPage } from '../i18n/pages';
 import { asLocale, localizedHref } from '../i18n/utils';
 import { SIGNUP_URL } from '../data/site';
@@ -29,7 +30,7 @@ const oi = (s: string) => { const i = ORDER.indexOf(s); return i === -1 ? 99 : i
 const related = items.filter((i) => i.slug !== item.slug).sort((a, b) => oi(a.slug) - oi(b.slug));
 
 // Social proof: a default trio that reads as "teams chose hubsell over the alternatives".
-const pool = L === 'de' ? TESTIMONIALS_DE : TESTIMONIALS;
+const pool = L === 'de' ? TESTIMONIALS_DE : L === 'nl' ? TESTIMONIALS_NL : TESTIMONIALS;
 const vsQuotes = ['matterway', 'spryker', 'cibt'].map((s) => pool.find((t) => t.slug === s)).filter(Boolean);
 ---
 <article class="sec sec--paper vs-page">

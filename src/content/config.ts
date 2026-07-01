@@ -80,6 +80,9 @@ const comparisons = defineCollection({ type: 'content', schema: comparisonSchema
 // German comparisons: same schema, parallel folder src/content/comparisonsDe/<slug>.md,
 // same slugs as the English entries.
 const comparisonsDe = defineCollection({ type: 'content', schema: comparisonSchema });
+// Dutch comparisons: same schema, parallel folder src/content/comparisonsNl/<slug>.md,
+// same slugs as the English entries.
+const comparisonsNl = defineCollection({ type: 'content', schema: comparisonSchema });
 
 // Use-cases — authored in Astro (no Webflow source). One .md per use-case at
 // src/content/usecases/<slug>.md: frontmatter for the hero, the featured proof
@@ -114,4 +117,4 @@ const usecasesDe = defineCollection({ type: 'content', schema: usecaseSchema });
 // same slugs as the English entries.
 const usecasesNl = defineCollection({ type: 'content', schema: usecaseSchema });
 
-export const collections = { insights, customerstories, customerstoriesDe, comparisons, comparisonsDe, usecases, usecasesDe, usecasesNl };
+export const collections = { insights, customerstories, customerstoriesDe, comparisons, comparisonsDe, comparisonsNl, usecases, usecasesDe, usecasesNl };

@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import ComparisonDetail from '../../../components/ComparisonDetail.astro';
+import { breadcrumbSchema } from '../../../data/seo';
+import { getComparisonsPage } from '../../../i18n/pages';
+import { asLocale, localizeUrl } from '../../../i18n/utils';
+
+export async function getStaticPaths() {
+  const items = await getCollection('comparisonsNl');
+  return items.map((item) => ({ params: { slug: item.slug }, props: { item, items } }));
+}
+const { item, items } = Astro.props;
+const d = item.data;
+const L = asLocale(Astro.currentLocale);
+const c = getComparisonsPage(L);
+const competitor = d.title;
+const seoTitle = d.metaTitle || `${competitor} vs hubsell`;
+const seoDesc = d.metaDescription || d.heroSubhead || '';
+const seoDescFinal = /alternative/i.test(seoDesc) ? seoDesc : `${seoDesc}${c.altPre}${competitor}${c.altPost}`.trim();
+const crumbs = breadcrumbSchema([
+  { name: c.crumbHome, url: localizeUrl(L, '/') },
+  { name: c.crumbComparisons, url: localizeUrl(L, '/comparisons') },
+  { name: `${competitor} vs hubsell`, url: localizeUrl(L, `/vs/${item.slug}`) },
+]);
+---
+<BaseLayout title={seoTitle} description={seoDescFinal}>
+  <JsonLd slot="head" schema={crumbs} />
+  <ComparisonDetail item={item} items={items} />
+</BaseLayout>
