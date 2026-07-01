@@ -426,3 +426,72 @@ const comparisonsPage = byLocale<ComparisonsCopy>(
 export function getComparisonsPage(locale: string | undefined): ComparisonsCopy {
   return comparisonsPage[asLocale(locale)];
 }
+
+// ── Customer stories (overview + detail) ─────────────────────────────────────────
+export interface CustomerStoriesCopy {
+  ovMetaTitle: string;
+  ovMetaDescription: string;
+  ovEyebrow: string;
+  ovH1: string;
+  ovSub: string;
+  back: string;
+  eyebrowStory: string;
+  relatedLabel: string;
+  readStory: string;
+  ctaTitlePre: string;
+  ctaTitleFallback: string;
+  ctaTitlePost: string;
+  ctaButton: string;
+  ctaTextDefault: string;
+  crumbHome: string;
+  crumbStories: string;
+}
+
+const customerStoriesPage = byLocale<CustomerStoriesCopy>(
+  {
+    ovMetaTitle: 'Customer stories | hubsell',
+    ovMetaDescription:
+      'How B2B teams use hubsell to lower acquisition cost, enter new markets, and generate more pipeline. Real results from real customers.',
+    ovEyebrow: 'Customers',
+    ovH1: 'Real teams, real pipeline',
+    ovSub:
+      'How sales and marketing teams use hubsell to lower acquisition cost, reach new markets, and generate more opportunities.',
+    back: 'All customer stories',
+    eyebrowStory: 'Customer story',
+    relatedLabel: 'More customer stories',
+    readStory: 'Read the story →',
+    ctaTitlePre: 'Want results like ',
+    ctaTitleFallback: 'these',
+    ctaTitlePost: '?',
+    ctaButton: 'Start free trial',
+    ctaTextDefault:
+      'Start a free trial and put hubsell to work on your own outbound: verified data, email and LinkedIn sequences, and automatic CRM sync.',
+    crumbHome: 'Home',
+    crumbStories: 'Customer stories',
+  },
+  {
+    ovMetaTitle: 'Kundenstorys | hubsell',
+    ovMetaDescription:
+      'Wie B2B-Teams mit hubsell die Akquisekosten senken, neue Märkte erschließen und mehr Pipeline erzeugen. Echte Ergebnisse von echten Kunden.',
+    ovEyebrow: 'Kunden',
+    ovH1: 'Echte Teams, echte Pipeline',
+    ovSub:
+      'Wie Vertriebs- und Marketingteams mit hubsell die Akquisekosten senken, neue Märkte erreichen und mehr Chancen erzeugen.',
+    back: 'Alle Kundenstorys',
+    eyebrowStory: 'Kundenstory',
+    relatedLabel: 'Weitere Kundenstorys',
+    readStory: 'Story lesen →',
+    ctaTitlePre: 'Möchten Sie Ergebnisse wie ',
+    ctaTitleFallback: 'diese',
+    ctaTitlePost: '?',
+    ctaButton: 'Kostenlos testen',
+    ctaTextDefault:
+      'Starten Sie einen kostenlosen Test und setzen Sie hubsell für Ihren eigenen Outbound ein: verifizierte Daten, E-Mail- und LinkedIn-Sequenzen und automatische CRM-Synchronisierung.',
+    crumbHome: 'Startseite',
+    crumbStories: 'Kundenstorys',
+  },
+);
+
+export function getCustomerStoriesPage(locale: string | undefined): CustomerStoriesCopy {
+  return customerStoriesPage[asLocale(locale)];
+}
