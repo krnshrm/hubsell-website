@@ -166,8 +166,8 @@ const comparisonEn: ComparisonData = {
     { label: 'Live, validated data', cells: {
       hub:['yes','Sourced live, verified at point of use'], aio:['part','Pre-built database of ~275M'],
       data:['part','Large static database'], lookup:['part','One-off contact lookups'] } },
-    { label: 'Email + LinkedIn, one flow', cells: {
-      hub:['yes','One sequence across both channels'], aio:['part','Email automated, LinkedIn manual'],
+    { label: 'Email, LinkedIn & phone, one flow', cells: {
+      hub:['yes','One sequence, calls as CRM tasks'], aio:['part','Email automated, LinkedIn manual'],
       data:['no','Outreach sold separately'], lookup:['no','No outreach layer'] } },
     { label: 'Automatic CRM sync', cells: {
       hub:['yes','Salesforce, HubSpot & Pipedrive'], aio:['part','Salesforce & HubSpot native'],

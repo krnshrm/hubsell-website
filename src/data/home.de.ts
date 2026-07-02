@@ -31,8 +31,8 @@ export const pipelineStepsDe: PipelineStep[] = [
     label: 'Schritt 2 · Koordinierte Flows',
     title: 'Führen Sie einen ', titleAccent: 'koordinierten Multi-Channel', tail: '-Flow aus',
     points: [
-      'Ziehen Sie E-Mail- und LinkedIn-Schritte per Drag-and-drop in einen einzigen Flow.',
-      'Profilbesuche, Kontaktanfragen, DMs, InMail – alles abgestimmt auf Ihre E-Mail-Kadenz.',
+      'Ziehen Sie E-Mail-, LinkedIn- und Telefon-Schritte per Drag-and-drop in einen einzigen Flow.',
+      'Profilbesuche, Kontaktanfragen, DMs, InMail, Anrufaufgaben – alles abgestimmt auf Ihre E-Mail-Kadenz.',
       'Verzweigungsbedingungen leiten Kontakte automatisch danach, was sie tun, sodass jeder Pfad ohne manuelles Eingreifen abgedeckt ist.',
     ],
     cta: 'Demo ansehen', embed: '06-multichannel-flow', recolor: 'espresso', flip: true,
@@ -51,7 +51,7 @@ export const pipelineStepsDe: PipelineStep[] = [
 
 export const featuresDe: Feature[] = [
   { title: 'Live recherchierte Interessentendaten', body: 'Ersetzen Sie statische Datenbanken durch live recherchierte Kontakte, die zu Ihrem ICP passen. Keine veralteten Daten, kein verschwendetes Outreach-Budget.' },
-  { title: 'E-Mail + LinkedIn in einem Flow', body: 'Führen Sie E-Mail und LinkedIn als eine koordinierte Sequenz aus, nicht als zwei getrennte Tools. Profilbesuche, Kontaktanfragen, DMs und InMail laufen aus einem einzigen Flow.' },
+  { title: 'E-Mail, LinkedIn & Telefon in einem Flow', body: 'Führen Sie E-Mail, LinkedIn und Telefon als eine koordinierte Sequenz aus, nicht als getrennte Tools. Profilbesuche, Kontaktanfragen, DMs, InMail und Anrufaufgaben laufen aus einem einzigen Flow.' },
   { title: 'KI-Qualifizierung und -Routing', body: 'Qualifizieren Sie Kontakte mit KI anhand Ihres ICP und leiten Sie sie automatisch in den richtigen Flow – bevor Sie ein einziges Credit für Outreach ausgeben.', beta: true },
   { title: 'Abdeckung des Buying Committee', body: 'Erreichen Sie jeden Stakeholder in einem Zielkunden über E-Mail und LinkedIn aus einer einzigen Kampagne. Kein Tool-Wechsel.' },
   { title: 'Intelligentes Outreach über mehrere Absender', body: 'Verteilen Sie Outreach sicher über CEO-, VP-Sales- und Fachexperten-Profile, um die Reichweite zu vervielfachen, ohne einen einzelnen Absender zu verbrennen.' },
@@ -166,8 +166,8 @@ export const comparisonDe: ComparisonData = {
     { label: 'Live, validierte Daten', cells: {
       hub:['yes','Live recherchiert, im Moment der Nutzung verifiziert'], aio:['part','Vorgefertigte Datenbank mit ~275 Mio.'],
       data:['part','Große statische Datenbank'], lookup:['part','Einzelne Kontaktabfragen'] } },
-    { label: 'E-Mail + LinkedIn, ein Flow', cells: {
-      hub:['yes','Eine Sequenz über beide Kanäle'], aio:['part','E-Mail automatisiert, LinkedIn manuell'],
+    { label: 'E-Mail, LinkedIn & Telefon, ein Flow', cells: {
+      hub:['yes','Eine Sequenz, Anrufe als CRM-Aufgaben'], aio:['part','E-Mail automatisiert, LinkedIn manuell'],
       data:['no','Outreach separat verkauft'], lookup:['no','Keine Outreach-Ebene'] } },
     { label: 'Automatische CRM-Synchronisierung', cells: {
       hub:['yes','Salesforce, HubSpot & Pipedrive'], aio:['part','Salesforce & HubSpot nativ'],
@@ -215,13 +215,13 @@ export const faqsDe: Faq[] = [
   {
     question: 'Wie schneidet hubsell im Vergleich zu Outreach oder Salesloft ab?',
     slug: 'hubsell-vs-outreach-salesloft',
-    answer: '<p>Outreach und Salesloft sind E-Mail-Sequenz-Tools – sie recherchieren keine Daten und beherrschen LinkedIn nicht nativ. Sie brauchen weiterhin einen separaten Datenanbieter und einen manuellen LinkedIn-Prozess. hubsell deckt alle drei Ebenen ab: aktuelle Interessentendaten, koordinierte E-Mail- + LinkedIn-Sequenzen und automatische CRM-Synchronisierung. Eine Plattform, ein Abonnement.</p>',
+    answer: '<p>Outreach und Salesloft sind E-Mail-Sequenz-Tools – sie recherchieren keine Daten und beherrschen LinkedIn nicht nativ. Sie brauchen weiterhin einen separaten Datenanbieter und einen manuellen LinkedIn-Prozess. hubsell deckt alle drei Ebenen ab: aktuelle Interessentendaten, koordinierte E-Mail- und LinkedIn-Sequenzen plus Anrufaufgaben und automatische CRM-Synchronisierung. Eine Plattform, ein Abonnement.</p>',
     onHomepage: true,
   },
   {
     question: 'Wie unterscheidet sich hubsell von statischen B2B-Datenbanken wie ZoomInfo oder Apollo?',
     slug: 'hubsell-catch-all-domains',
-    answer: '<p>Die meisten Sales-Intelligence-Tools übergeben Ihnen einen statischen Export und überlassen den Outreach einer anderen Plattform. hubsell recherchiert Kontakte live im Moment Ihrer Anfrage – und lässt Sie dann per E-Mail und LinkedIn ansprechen und alles mit Ihrem CRM synchronisieren, ganz ohne Tool-Wechsel. Kein Datenbankverfall, kein zusammengeflickter Stack.</p>',
+    answer: '<p>Die meisten Sales-Intelligence-Tools übergeben Ihnen einen statischen Export und überlassen den Outreach einer anderen Plattform. hubsell recherchiert Kontakte live im Moment Ihrer Anfrage – und lässt Sie dann per E-Mail, LinkedIn und Telefon ansprechen und alles mit Ihrem CRM synchronisieren, ganz ohne Tool-Wechsel. Kein Datenbankverfall, kein zusammengeflickter Stack.</p>',
     onHomepage: true,
   },
   {

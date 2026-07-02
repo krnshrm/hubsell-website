@@ -18,18 +18,18 @@ type Dict = Record<string, string>;
 
 const de: Dict = {
   // ── HeroPipelineFlow (hero visual) ──────────────────────────────────────────
-  'Source fresh contacts': 'Frische Kontakte finden',
-  'Find targeted B2B prospects': 'Gezielte B2B-Interessenten finden',
-  'Qualify with AI': 'Mit KI qualifizieren',
-  'Score and filter leads instantly': 'Leads sofort bewerten und filtern',
-  'Get accurate data': 'Korrekte Daten erhalten',
-  'Verify emails & phone numbers': 'E-Mails & Telefonnummern verifizieren',
-  'Reach out': 'Kontaktieren',
-  'Via email + LinkedIn': 'Per E-Mail + LinkedIn',
-  'Log activity to CRM': 'Im CRM protokollieren',
-  'HubSpot, Salesforce, & Pipedrive': 'HubSpot, Salesforce & Pipedrive',
-  'Iterate and improve': 'Iterieren und verbessern',
-  'Continuous optimization': 'Kontinuierliche Optimierung',
+  'Source live contacts': 'Live-Kontakte finden',
+  'pulled from LinkedIn, matched to your ICP': 'aus LinkedIn, passend zu Ihrem ICP',
+  'Layer buying signals': 'Kaufsignale ergänzen',
+  'job changes, events, post engagement': 'Jobwechsel, Events, Post-Interaktionen',
+  'Validate contact details': 'Kontaktdaten verifizieren',
+  'checked on the spot, catch-alls included': 'sofort geprüft, inklusive Catch-all-Domains',
+  'Run email, LinkedIn, & phone': 'E-Mail, LinkedIn & Telefon',
+  'one coordinated flow, calls as CRM tasks': 'ein abgestimmter Ablauf, Anrufe als CRM-Aufgaben',
+  'Sync to your CRM': 'Mit Ihrem CRM synchronisieren',
+  'Salesforce, HubSpot, Pipedrive, auto-logged': 'Salesforce, HubSpot, Pipedrive, automatisch protokolliert',
+  'Track replies and meetings': 'Antworten und Termine verfolgen',
+  'every touch recorded, nothing by hand': 'jeder Kontaktpunkt erfasst, nichts von Hand',
 
   // ── FragmentedPile (problem: disconnected tools) ────────────────────────────
   'Lead Databases': 'Lead-Datenbanken',
@@ -234,18 +234,18 @@ const de: Dict = {
 
 const nl: Dict = {
   // ── HeroPipelineFlow (hero visual) ──────────────────────────────────────────
-  'Source fresh contacts': 'Verse contacten',
-  'Find targeted B2B prospects': 'Gerichte B2B-prospects vinden',
-  'Qualify with AI': 'Kwalificeren met AI',
-  'Score and filter leads instantly': 'Leads direct scoren en filteren',
-  'Get accurate data': 'Accurate data ophalen',
-  'Verify emails & phone numbers': 'E-mails & telefoonnummers verifiëren',
-  'Reach out': 'Benaderen',
-  'Via email + LinkedIn': 'Via e-mail + LinkedIn',
-  'Log activity to CRM': 'Vastleggen in CRM',
-  'HubSpot, Salesforce, & Pipedrive': 'HubSpot, Salesforce & Pipedrive',
-  'Iterate and improve': 'Itereren en verbeteren',
-  'Continuous optimization': 'Continue optimalisatie',
+  'Source live contacts': 'Live contacten vinden',
+  'pulled from LinkedIn, matched to your ICP': 'uit LinkedIn, afgestemd op uw ICP',
+  'Layer buying signals': 'Koopsignalen toevoegen',
+  'job changes, events, post engagement': 'functiewissels, events, post-interacties',
+  'Validate contact details': 'Contactgegevens valideren',
+  'checked on the spot, catch-alls included': 'direct gecontroleerd, inclusief catch-alls',
+  'Run email, LinkedIn, & phone': 'E-mail, LinkedIn & telefoon',
+  'one coordinated flow, calls as CRM tasks': 'één gecoördineerde flow, beltaken in uw CRM',
+  'Sync to your CRM': 'Synchroniseren met uw CRM',
+  'Salesforce, HubSpot, Pipedrive, auto-logged': 'Salesforce, HubSpot, Pipedrive, automatisch vastgelegd',
+  'Track replies and meetings': 'Antwoorden en afspraken volgen',
+  'every touch recorded, nothing by hand': 'elk contactmoment vastgelegd, niets met de hand',
 
   // ── FragmentedPile (problem: disconnected tools) ────────────────────────────
   'Lead Databases': 'Lead-databases',

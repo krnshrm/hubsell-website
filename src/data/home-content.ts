@@ -34,8 +34,8 @@ export const pipelineSteps: PipelineStep[] = [
     label: 'Step 2 · Coordinated flows',
     title: 'Run one ', titleAccent: 'coordinated multi-channel', tail: ' flow',
     points: [
-      'Drag and drop email and LinkedIn steps into a single flow.',
-      'Profile visits, connection requests, DMs, InMail, all coordinated with your email cadence.',
+      'Drag and drop email, LinkedIn, and phone steps into a single flow.',
+      'Profile visits, connection requests, DMs, InMail, and call tasks, all coordinated with your email cadence.',
       'Branching conditions automatically route contacts based on what they do, so every path is handled without manual intervention.',
     ],
     cta: 'Get a demo', embed: '06-multichannel-flow', recolor: 'espresso', flip: true,
@@ -61,7 +61,7 @@ export interface Feature {
 // "Live data, email and LinkedIn orchestrated in one solution"
 export const features: Feature[] = [
   { title: 'Live-sourced prospect data', body: 'Replace static databases with live-sourced contacts matched to your ICP. No stale data, no wasted outreach budget.' },
-  { title: 'Email + LinkedIn in one flow', body: 'Run email and LinkedIn as one coordinated sequence, not two separate tools. Profile visits, connection requests, DMs, and InMail all run from a single flow.' },
+  { title: 'Email, LinkedIn & phone in one flow', body: 'Run email, LinkedIn, and phone as one coordinated sequence, not separate tools. Profile visits, connection requests, DMs, InMail, and call tasks all run from a single flow.' },
   { title: 'AI qualification and routing', body: 'Use AI to qualify contacts against your ICP and route them into the right flow automatically, before you spend a single credit on outreach.', beta: true },
   { title: 'Buying committee coverage', body: 'Reach every stakeholder at a target account across email and LinkedIn from a single campaign. No tool-switching.' },
   { title: 'Multi-sender intelligent outreach', body: 'Spread outreach safely across CEO, VP Sales, and SME profiles to multiply reach without burning any single sender.' },

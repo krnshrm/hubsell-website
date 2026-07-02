@@ -31,8 +31,8 @@ export const pipelineStepsNl: PipelineStep[] = [
     label: 'Stap 2 · Gecoördineerde flows',
     title: 'Voer een ', titleAccent: 'gecoördineerde multichannel', tail: '-flow uit',
     points: [
-      'Sleep e-mail- en LinkedIn-stappen met drag-and-drop in één enkele flow.',
-      'Profielbezoeken, connectieverzoeken, DMs, InMail, alles afgestemd op uw e-mailcadans.',
+      'Sleep e-mail-, LinkedIn- en telefoon-stappen met drag-and-drop in één enkele flow.',
+      'Profielbezoeken, connectieverzoeken, DMs, InMail, beltaken, alles afgestemd op uw e-mailcadans.',
       'Vertakkingsvoorwaarden sturen contacten automatisch op basis van wat ze doen, zodat elk pad zonder handmatig ingrijpen gedekt is.',
     ],
     cta: 'Demo bekijken', embed: '06-multichannel-flow', recolor: 'espresso', flip: true,
@@ -51,7 +51,7 @@ export const pipelineStepsNl: PipelineStep[] = [
 
 export const featuresNl: Feature[] = [
   { title: 'Live verzamelde prospectdata', body: 'Vervang statische databases door live verzamelde contacten die bij uw ICP passen. Geen verouderde data, geen verspild outreach-budget.' },
-  { title: 'E-mail + LinkedIn in één flow', body: 'Voer e-mail en LinkedIn uit als één gecoördineerde sequentie, niet als twee losse tools. Profielbezoeken, connectieverzoeken, DMs en InMail lopen vanuit één flow.' },
+  { title: 'E-mail, LinkedIn & telefoon in één flow', body: 'Voer e-mail, LinkedIn en telefoon uit als één gecoördineerde sequentie, niet als losse tools. Profielbezoeken, connectieverzoeken, DMs, InMail en beltaken lopen vanuit één flow.' },
   { title: 'AI-kwalificatie en -routing', body: 'Kwalificeer contacten met AI op basis van uw ICP en stuur ze automatisch naar de juiste flow, voordat u ook maar één credit aan outreach uitgeeft.', beta: true },
   { title: 'Dekking van het buying committee', body: 'Bereik elke stakeholder binnen een doelaccount via e-mail en LinkedIn vanuit één campagne. Geen tool-wissel.' },
   { title: 'Slimme outreach via meerdere afzenders', body: 'Verdeel outreach veilig over CEO-, VP Sales- en expertprofielen om het bereik te vermenigvuldigen, zonder één afzender te verbranden.' },
@@ -166,8 +166,8 @@ export const comparisonNl: ComparisonData = {
     { label: 'Live, gevalideerde data', cells: {
       hub:['yes','Live verzameld, geverifieerd op moment van gebruik'], aio:['part','Kant-en-klare database met ~275 mln.'],
       data:['part','Grote statische database'], lookup:['part','Losse contactopvragingen'] } },
-    { label: 'E-mail + LinkedIn, één flow', cells: {
-      hub:['yes','Eén sequentie over beide kanalen'], aio:['part','E-mail geautomatiseerd, LinkedIn handmatig'],
+    { label: 'E-mail, LinkedIn & telefoon, één flow', cells: {
+      hub:['yes','Eén sequentie, beltaken in het CRM'], aio:['part','E-mail geautomatiseerd, LinkedIn handmatig'],
       data:['no','Outreach apart verkocht'], lookup:['no','Geen outreach-laag'] } },
     { label: 'Automatische CRM-synchronisatie', cells: {
       hub:['yes','Salesforce, HubSpot & Pipedrive'], aio:['part','Salesforce & HubSpot native'],
@@ -215,13 +215,13 @@ export const faqsNl: Faq[] = [
   {
     question: 'Hoe verhoudt hubsell zich tot Outreach of Salesloft?',
     slug: 'hubsell-vs-outreach-salesloft',
-    answer: '<p>Outreach en Salesloft zijn e-mailsequentie-tools, ze verzamelen geen data en beheersen LinkedIn niet native. U hebt nog steeds een aparte dataleverancier en een handmatig LinkedIn-proces nodig. hubsell dekt alle drie de lagen: actuele prospectdata, gecoördineerde e-mail- + LinkedIn-sequenties en automatische CRM-synchronisatie. Eén platform, één abonnement.</p>',
+    answer: '<p>Outreach en Salesloft zijn e-mailsequentie-tools, ze verzamelen geen data en beheersen LinkedIn niet native. U hebt nog steeds een aparte dataleverancier en een handmatig LinkedIn-proces nodig. hubsell dekt alle drie de lagen: actuele prospectdata, gecoördineerde e-mail- en LinkedIn-sequenties plus beltaken en automatische CRM-synchronisatie. Eén platform, één abonnement.</p>',
     onHomepage: true,
   },
   {
     question: 'Waarin verschilt hubsell van statische B2B-databases zoals ZoomInfo of Apollo?',
     slug: 'hubsell-catch-all-domains',
-    answer: '<p>De meeste sales-intelligence-tools geven u een statische export en laten de outreach aan een ander platform over. hubsell verzamelt contacten live op het moment van uw aanvraag, en laat u ze vervolgens via e-mail en LinkedIn benaderen en alles met uw CRM synchroniseren, zonder tool-wissel. Geen databaseverval, geen aan elkaar geknoopte stack.</p>',
+    answer: '<p>De meeste sales-intelligence-tools geven u een statische export en laten de outreach aan een ander platform over. hubsell verzamelt contacten live op het moment van uw aanvraag, en laat u ze vervolgens via e-mail, LinkedIn en telefoon benaderen en alles met uw CRM synchroniseren, zonder tool-wissel. Geen databaseverval, geen aan elkaar geknoopte stack.</p>',
     onHomepage: true,
   },
   {

@@ -66,13 +66,13 @@ export const faqs: Faq[] = [
   {
     question: "How does hubsell compare to Outreach or Salesloft?",
     slug: "hubsell-vs-outreach-salesloft",
-    answer: "<p>Outreach and Salesloft are email sequence tools — they don’t source data and they don’t do LinkedIn natively. You still need a separate data provider and a manual LinkedIn process. hubsell covers all three layers: live prospect data, coordinated email + LinkedIn sequences, and automatic CRM sync. One platform, one subscription.</p>",
+    answer: "<p>Outreach and Salesloft are email sequence tools — they don’t source data and they don’t do LinkedIn natively. You still need a separate data provider and a manual LinkedIn process. hubsell covers all three layers: live prospect data, coordinated email and LinkedIn sequences, plus call tasks, and automatic CRM sync. One platform, one subscription.</p>",
     onHomepage: true,
   },
   {
     question: "How does hubsell differ from static B2B databases like ZoomInfo or Apollo?",
     slug: "hubsell-catch-all-domains",
-    answer: "<p>Most sales intelligence tools hand you a static export and leave the outreach to another platform. hubsell sources contacts live at the moment of your request — then lets you reach out via email and LinkedIn and sync everything to your CRM, all without switching tools. No database decay, no duct-taped stack.</p>",
+    answer: "<p>Most sales intelligence tools hand you a static export and leave the outreach to another platform. hubsell sources contacts live at the moment of your request — then lets you reach out via email, LinkedIn, and phone and sync everything to your CRM, all without switching tools. No database decay, no duct-taped stack.</p>",
     onHomepage: true,
   },
   {
