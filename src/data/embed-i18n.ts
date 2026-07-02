@@ -28,8 +28,9 @@ const de: Dict = {
   'one coordinated flow, calls as CRM tasks': 'ein abgestimmter Ablauf, Anrufe als CRM-Aufgaben',
   'Sync to your CRM': 'Mit Ihrem CRM synchronisieren',
   'Salesforce, HubSpot, Pipedrive, auto-logged': 'Salesforce, HubSpot, Pipedrive, automatisch protokolliert',
-  'Track replies and meetings': 'Antworten und Termine verfolgen',
-  'every touch recorded, nothing by hand': 'jeder Kontaktpunkt erfasst, nichts von Hand',
+  'Live data': 'Live-Daten',
+  'Outreach': 'Outreach',
+  'CRM sync': 'CRM-Sync',
 
   // ── FragmentedPile (problem: disconnected tools) ────────────────────────────
   'Lead Databases': 'Lead-Datenbanken',
@@ -244,8 +245,9 @@ const nl: Dict = {
   'one coordinated flow, calls as CRM tasks': 'één gecoördineerde flow, beltaken in uw CRM',
   'Sync to your CRM': 'Synchroniseren met uw CRM',
   'Salesforce, HubSpot, Pipedrive, auto-logged': 'Salesforce, HubSpot, Pipedrive, automatisch vastgelegd',
-  'Track replies and meetings': 'Antwoorden en afspraken volgen',
-  'every touch recorded, nothing by hand': 'elk contactmoment vastgelegd, niets met de hand',
+  'Live data': 'Live data',
+  'Outreach': 'Outreach',
+  'CRM sync': 'CRM-sync',
 
   // ── FragmentedPile (problem: disconnected tools) ────────────────────────────
   'Lead Databases': 'Lead-databases',

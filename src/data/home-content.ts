@@ -20,7 +20,7 @@ export interface PipelineStep {
 export const pipelineSteps: PipelineStep[] = [
   {
     n: '01',
-    label: 'Step 1 · Live-sourced data',
+    label: 'Live data',
     title: 'Find the ', titleAccent: 'right people', tail: ', not just the right filters',
     points: [
       'Most platforms let you filter by title and industry.',
@@ -31,7 +31,7 @@ export const pipelineSteps: PipelineStep[] = [
   },
   {
     n: '02',
-    label: 'Step 2 · Coordinated flows',
+    label: 'Multichannel outreach',
     title: 'Run one ', titleAccent: 'coordinated multi-channel', tail: ' flow',
     points: [
       'Drag and drop email, LinkedIn, and phone steps into a single flow.',
@@ -42,7 +42,7 @@ export const pipelineSteps: PipelineStep[] = [
   },
   {
     n: '03',
-    label: 'Step 3 · Automatic CRM sync',
+    label: 'Automatic CRM Sync',
     title: 'Log any and all activities ', titleAccent: 'to your CRM in real time', tail: '',
     points: [
       'Every touchpoint, sent, opened, replied, connected, is logged to Salesforce, HubSpot, Pipedrive, Freshworks, or ActiveCampaign automatically.',

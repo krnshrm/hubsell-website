@@ -17,7 +17,7 @@ import type { HomeStrings, ComparisonData } from './home-i18n';
 export const pipelineStepsDe: PipelineStep[] = [
   {
     n: '01',
-    label: 'Schritt 1 · Live recherchierte Daten',
+    label: 'Live-Daten',
     title: 'Finden Sie die ', titleAccent: 'richtigen Menschen', tail: ', nicht nur die richtigen Filter',
     points: [
       'Die meisten Plattformen lassen Sie nach Position und Branche filtern.',
@@ -28,7 +28,7 @@ export const pipelineStepsDe: PipelineStep[] = [
   },
   {
     n: '02',
-    label: 'Schritt 2 · Koordinierte Flows',
+    label: 'Multichannel-Outreach',
     title: 'Führen Sie einen ', titleAccent: 'koordinierten Multi-Channel', tail: '-Flow aus',
     points: [
       'Ziehen Sie E-Mail-, LinkedIn- und Telefon-Schritte per Drag-and-drop in einen einzigen Flow.',
@@ -39,7 +39,7 @@ export const pipelineStepsDe: PipelineStep[] = [
   },
   {
     n: '03',
-    label: 'Schritt 3 · Automatische CRM-Synchronisierung',
+    label: 'Automatische CRM-Synchronisierung',
     title: 'Protokollieren Sie alle Aktivitäten ', titleAccent: 'in Echtzeit in Ihrem CRM', tail: '',
     points: [
       'Jeder Touchpoint – gesendet, geöffnet, beantwortet, vernetzt – wird automatisch in Salesforce, HubSpot, Pipedrive, Freshworks oder ActiveCampaign protokolliert.',

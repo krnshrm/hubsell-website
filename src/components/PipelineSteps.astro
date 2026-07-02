@@ -38,7 +38,7 @@ const DIMS: Record<string, { w: number; h: number }> = {
         const Embed = EMBEDS[step.embed];
         const d = DIMS[step.embed] ?? { w: 700, h: 500 };
         return (
-          <div class={`step reveal${step.flip ? ' is-flip' : ''}`}>
+          <div id={`stage-${step.n}`} class={`step reveal${step.flip ? ' is-flip' : ''}`}>
             <div class="step__head">
               <p class="step__eyebrow">{step.label}</p>
               <h3 class="heading_secondary" style="margin-top:10px">{step.title}<span class="accent">{step.titleAccent}</span>{step.tail}</h3>
@@ -61,7 +61,7 @@ const DIMS: Record<string, { w: number; h: number }> = {
 
 <style>
   .steps{ display:flex; flex-direction:column; gap:clamp(96px,12vw,168px); margin-top:clamp(52px,6vw,84px) }
-  .step{ display:flex; flex-direction:column; gap:24px }
+  .step{ display:flex; flex-direction:column; gap:24px; scroll-margin-top:90px }
   .step__head{ display:flex; flex-direction:column }
   .step__eyebrow{ font-family:var(--font-body); font-weight:600; font-size:13px; letter-spacing:.04em; text-transform:uppercase; color:var(--accent-on) }
   .step__points{ display:flex; flex-direction:column; gap:12px; margin-top:20px }

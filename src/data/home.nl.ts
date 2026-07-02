@@ -17,7 +17,7 @@ import type { HomeStrings, ComparisonData } from './home-i18n';
 export const pipelineStepsNl: PipelineStep[] = [
   {
     n: '01',
-    label: 'Stap 1 · Live verzamelde data',
+    label: 'Live data',
     title: 'Vind de ', titleAccent: 'juiste mensen', tail: ', niet alleen de juiste filters',
     points: [
       'De meeste platforms laten u filteren op functie en branche.',
@@ -28,7 +28,7 @@ export const pipelineStepsNl: PipelineStep[] = [
   },
   {
     n: '02',
-    label: 'Stap 2 · Gecoördineerde flows',
+    label: 'Multichannel-outreach',
     title: 'Voer een ', titleAccent: 'gecoördineerde multichannel', tail: '-flow uit',
     points: [
       'Sleep e-mail-, LinkedIn- en telefoon-stappen met drag-and-drop in één enkele flow.',
@@ -39,7 +39,7 @@ export const pipelineStepsNl: PipelineStep[] = [
   },
   {
     n: '03',
-    label: 'Stap 3 · Automatische CRM-synchronisatie',
+    label: 'Automatische CRM-synchronisatie',
     title: 'Leg alle activiteit ', titleAccent: 'in realtime vast in uw CRM', tail: '',
     points: [
       'Elk touchpoint, verzonden, geopend, beantwoord, verbonden, wordt automatisch vastgelegd in Salesforce, HubSpot, Pipedrive, Freshworks of ActiveCampaign.',
