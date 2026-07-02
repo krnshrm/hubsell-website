@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { SIGNUP_URL, DEMO_URL } from '../data/site';
+import { SIGNUP_URL } from '../data/site';
 
 const items = (await getCollection('usecases', (u) => !u.data.draft))
   .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
@@ -32,8 +32,7 @@ const items = (await getCollection('usecases', (u) => !u.data.draft))
       </div>
 
       <div class="uc-ov-cta">
-        <a class="button is-large" href={SIGNUP_URL}>Start free trial</a>
-        <a class="button is-large is-secondary" href={DEMO_URL}>Book a demo</a>
+        <a class="button is-large" href={SIGNUP_URL}>Book a demo</a>
       </div>
     </div>
   </section>

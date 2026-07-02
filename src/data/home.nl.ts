@@ -249,7 +249,7 @@ export const stringsNl: HomeStrings = {
     eyebrow: 'Voor VP’s Sales die genoeg hebben van betalen voor 6+ tools',
     titlePre: 'Vervang uw ', titleAccent: 'outbound', titlePost: '-stack door één platform.',
     sub: 'Uw team hoort tijd te besteden aan verkopen, niet aan het wisselen van tabs. hubsell brengt uw data, uw outreach en uw CRM-synchronisatie samen op één plek, zodat dat lukt.',
-    ctaPrimary: 'Gratis proberen', ctaSecondary: 'In actie zien',
+    ctaPrimary: 'Demo plannen', ctaSecondary: 'In actie zien',
     ratingsPre: 'Beoordeeld met ', ratingsScore: '4,8/5,0', ratingsPost: ' op Capterra, GetApp en SoftwareAdvice.',
   },
   logos: {
@@ -296,7 +296,7 @@ export const stringsNl: HomeStrings = {
     eyebrow: 'Publiceren & volgen · Beta',
     titlePre: 'Uw LinkedIn-content genereert al vraag. Sluit nu ', titleAccent: 'de cirkel', titlePost: '.',
     body: 'De meeste outbound begint koud. Maar iedereen die uw LinkedIn-content liket, erop reageert of deelt, heeft zich al gemeld. U kunt post-engagers vandaag al in hubsell importeren en in een sequentie opnemen. Wat in de beta komt, is de gesloten cirkel: rechtstreeks vanuit hubsell publiceren, elke interactie in realtime volgen en elke persoon automatisch in een warme sequentie opnemen, zonder ooit een lijst te exporteren of tabs te wisselen.',
-    cta: 'Gratis proberen',
+    cta: 'Demo plannen',
     nowLabel: 'Vandaag beschikbaar', betaLabel: 'Komt in de beta',
     now: ['Importeer iedereen die liket, reageert of deelt', 'Neem post-engagers vandaag al op in een sequentie'],
     beta: ['Publiceer rechtstreeks vanuit hubsell', 'Volg elke interactie in realtime', 'Neem elke persoon automatisch op in een warme sequentie', 'Geen lijsten exporteren, geen tabs wisselen'],

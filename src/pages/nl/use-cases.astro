@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getUseCasesPage } from '../../i18n/pages';
 import { asLocale, localizedHref } from '../../i18n/utils';
-import { SIGNUP_URL, DEMO_URL } from '../../data/site';
+import { SIGNUP_URL } from '../../data/site';
 
 const L = asLocale(Astro.currentLocale);
 const c = getUseCasesPage(L);
@@ -34,7 +34,6 @@ const items = (await getCollection('usecasesNl', (u) => !u.data.draft))
 
       <div class="uc-ov-cta">
         <a class="button is-large" href={localizedHref(L, SIGNUP_URL)}>{c.ctaPrimary}</a>
-        <a class="button is-large is-secondary" href={localizedHref(L, DEMO_URL)}>{c.ctaSecondary}</a>
       </div>
     </div>
   </section>

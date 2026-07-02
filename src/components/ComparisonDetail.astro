@@ -20,8 +20,6 @@ const L = asLocale(Astro.currentLocale);
 const c = getComparisonsPage(L);
 
 const competitor = d.title;
-const ctaButton = d.ctaButtonText || c.ctaButtonDefault;
-const ctaLink = d.ctaLink || '/book-a-call';
 const ctaHeading = d.ctaHeading || c.ctaHeadingDefault;
 
 // Other comparisons, in the same order the homepage uses.
@@ -43,7 +41,6 @@ const vsQuotes = ['matterway', 'spryker', 'cibt'].map((s) => pool.find((t) => t.
       {d.heroSubhead && <p class="vs-sub">{d.heroSubhead}</p>}
       <div class="vs-actions">
         <a class="button is-large" href={localizedHref(L, SIGNUP_URL)}>{c.ctaPrimary}</a>
-        <a class="button is-large is-secondary" href={localizedHref(L, ctaLink)}>{ctaButton}</a>
       </div>
     </header>
 
@@ -113,7 +110,6 @@ const vsQuotes = ['matterway', 'spryker', 'cibt'].map((s) => pool.find((t) => t.
       <p class="vs-cta__text">{c.ctaText}</p>
       <div class="vs-actions is-center">
         <a class="button is-large" href={localizedHref(L, SIGNUP_URL)}>{c.ctaPrimary}</a>
-        <a class="button is-large is-secondary" href={localizedHref(L, ctaLink)}>{ctaButton}</a>
       </div>
     </aside>
 

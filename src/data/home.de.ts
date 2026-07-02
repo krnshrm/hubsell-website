@@ -249,7 +249,7 @@ export const stringsDe: HomeStrings = {
     eyebrow: 'Für VPs of Sales, die genug davon haben, für 6+ Tools zu zahlen',
     titlePre: 'Ersetzen Sie Ihren ', titleAccent: 'Outbound', titlePost: '-Stack durch eine Plattform.',
     sub: 'Ihr Team sollte Zeit mit Verkaufen verbringen, nicht mit dem Wechseln von Tabs. hubsell bringt Ihre Daten, Ihren Outreach und Ihre CRM-Synchronisierung an einen Ort, damit genau das gelingt.',
-    ctaPrimary: 'Kostenlos testen', ctaSecondary: 'In Aktion sehen',
+    ctaPrimary: 'Demo buchen', ctaSecondary: 'In Aktion sehen',
     ratingsPre: 'Bewertet mit ', ratingsScore: '4,8/5,0', ratingsPost: ' bei Capterra, GetApp und SoftwareAdvice.',
   },
   logos: {
@@ -296,7 +296,7 @@ export const stringsDe: HomeStrings = {
     eyebrow: 'Publizieren & verfolgen · Beta',
     titlePre: 'Ihr LinkedIn-Content erzeugt bereits Nachfrage. Jetzt ', titleAccent: 'schließen Sie den Kreis', titlePost: '.',
     body: 'Die meisten Outbound-Aktivitäten beginnen kalt. Aber jeder, der Ihren LinkedIn-Content liked, kommentiert oder teilt, hat sich bereits gemeldet. Sie können Post-Interagierende schon heute in hubsell importieren und in eine Sequenz aufnehmen. Was in der Beta kommt, ist der geschlossene Kreis: direkt aus hubsell publizieren, jede Interaktion in Echtzeit verfolgen und jede Person automatisch in eine warme Sequenz aufnehmen – ganz ohne Liste zu exportieren oder Tabs zu wechseln.',
-    cta: 'Kostenlos testen',
+    cta: 'Demo buchen',
     nowLabel: 'Heute verfügbar', betaLabel: 'In der Beta',
     now: ['Importieren Sie alle, die liken, kommentieren oder teilen', 'Nehmen Sie Post-Interagierende noch heute in eine Sequenz auf'],
     beta: ['Direkt aus hubsell publizieren', 'Jede Interaktion in Echtzeit verfolgen', 'Jede Person automatisch in eine warme Sequenz aufnehmen', 'Kein Listenexport, kein Tab-Wechsel'],

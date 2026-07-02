@@ -32,7 +32,7 @@ const related = pool.length
 
 // Trial CTA copy: a per-post override (frontmatter `cta`) if set, otherwise a
 // default that references this post by title so it never reads as generic.
-const ctaText = cta || `You just read "${title}". hubsell gives you the verified contact data, multichannel outreach, and CRM sync to act on it. Start a free trial and run it on your own pipeline.`;
+const ctaText = cta || `You just read "${title}". hubsell gives you the verified contact data, multichannel outreach, and CRM sync to act on it. Book a demo and see it run on your own pipeline.`;
 
 // Article + breadcrumb structured data for this post (rich results + AI answers).
 const postUrl = `${SITE_URL}/insights/${post.slug}`;
@@ -128,7 +128,7 @@ const articleCrumbs = breadcrumbSchema([
       <aside class="post-cta sec--navy">
         <h2 class="post-cta__title">Put this into practice</h2>
         <p class="post-cta__text">{ctaText}</p>
-        <a class="button is-large" href={SIGNUP_URL}>Start free trial</a>
+        <a class="button is-large" href={SIGNUP_URL}>Book a demo</a>
       </aside>
     </div>
   </article>

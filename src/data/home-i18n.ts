@@ -81,7 +81,7 @@ const stringsEn: HomeStrings = {
     eyebrow: 'For VPs of Sales tired of paying for 6+ tools',
     titlePre: 'Replace your ', titleAccent: 'outbound', titlePost: ' stack with one platform.',
     sub: 'Your team should spend time selling, not switching tabs. hubsell brings your data, outreach, and CRM sync into one place so they can.',
-    ctaPrimary: 'Start free trial', ctaSecondary: 'See it in action',
+    ctaPrimary: 'Book a demo', ctaSecondary: 'See it in action',
     ratingsPre: 'Rated ', ratingsScore: '4.8/5.0', ratingsPost: ' across Capterra, GetApp, and SoftwareAdvice.',
   },
   logos: {
@@ -128,7 +128,7 @@ const stringsEn: HomeStrings = {
     eyebrow: 'Publish & track · Beta',
     titlePre: 'Your LinkedIn content is already generating demand. Now ', titleAccent: 'close the loop', titlePost: '.',
     body: 'Most outbound starts cold. But everyone who likes, comments, or reposts your LinkedIn content has already raised their hand. You can already import post engagers into hubsell and enrol them in a sequence today. What is coming in beta is the closed loop: publish directly from hubsell, track every engagement as it happens, and automatically enrol each person into a warm sequence, without ever exporting a list or switching tabs.',
-    cta: 'Start free trial',
+    cta: 'Book a demo',
     nowLabel: 'Available today', betaLabel: 'Coming in beta',
     now: ['Import everyone who likes, comments, or reposts', 'Enrol post engagers into a sequence today'],
     beta: ['Publish directly from hubsell', 'Track every engagement as it happens', 'Auto-enrol each person into a warm sequence', 'No exporting lists, no switching tabs'],

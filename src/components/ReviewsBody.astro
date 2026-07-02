@@ -11,7 +11,7 @@ import { TESTIMONIALS_DE } from '../data/testimonials.de';
 import { TESTIMONIALS_NL } from '../data/testimonials.nl';
 import { getReviewsPage } from '../i18n/pages';
 import { asLocale, localizedHref } from '../i18n/utils';
-import { SIGNUP_URL, DEMO_URL } from '../data/site';
+import { SIGNUP_URL } from '../data/site';
 
 const L = asLocale(Astro.currentLocale);
 const c = getReviewsPage(L);
@@ -44,7 +44,6 @@ const quotes = L === 'de' ? TESTIMONIALS_DE : L === 'nl' ? TESTIMONIALS_NL : TES
     <p class="subheading rv-sub">{c.ctaSub}</p>
     <div class="rv-actions">
       <a class="button is-large" href={localizedHref(L, SIGNUP_URL)}>{c.ctaPrimary}</a>
-      <a class="button is-large is-secondary" href={localizedHref(L, DEMO_URL)}>{c.ctaSecondary}</a>
     </div>
   </div>
 </section>

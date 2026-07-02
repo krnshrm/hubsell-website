@@ -70,7 +70,7 @@ export const footerLinks: NavLink[] = [
 
 // Account / conversion links (the TopBar's Log in + the trial CTA, reused in the footer).
 export const accountLinks: NavLink[] = [
-  { label: 'Start free trial', key: 'cta.trial', href: SIGNUP_URL, external: true },
+  { label: 'Book a demo', key: 'cta.trial', href: SIGNUP_URL, external: true },
   { label: 'Log in', key: 'cta.login', href: LOGIN_URL, external: true },
 ];
 
