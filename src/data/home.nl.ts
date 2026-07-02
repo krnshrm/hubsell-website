@@ -42,7 +42,7 @@ export const pipelineStepsNl: PipelineStep[] = [
     label: 'Automatische CRM-synchronisatie',
     title: 'Leg alle activiteit ', titleAccent: 'in realtime vast in uw CRM', tail: '',
     points: [
-      'Elk touchpoint, verzonden, geopend, beantwoord, verbonden, wordt automatisch vastgelegd in Salesforce, HubSpot, Pipedrive, Freshworks of ActiveCampaign.',
+      'Elk touchpoint, verzonden, geopend, beantwoord, verbonden, wordt automatisch vastgelegd in Salesforce, HubSpot of Pipedrive.',
       'Geen handmatige invoer. Geen dataverval. Uw team werkt aan de pipeline, niet aan de spreadsheet.',
     ],
     cta: 'Live bekijken', embed: '07-crm-sync-tracker', recolor: 'espresso', flip: false,

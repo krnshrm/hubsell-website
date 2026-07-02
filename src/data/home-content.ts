@@ -45,7 +45,7 @@ export const pipelineSteps: PipelineStep[] = [
     label: 'Automatic CRM Sync',
     title: 'Log any and all activities ', titleAccent: 'to your CRM in real time', tail: '',
     points: [
-      'Every touchpoint, sent, opened, replied, connected, is logged to Salesforce, HubSpot, Pipedrive, Freshworks, or ActiveCampaign automatically.',
+      'Every touchpoint, sent, opened, replied, connected, is logged to Salesforce, HubSpot, or Pipedrive automatically.',
       'No manual entry. No data rot. Your team works the pipeline, not the spreadsheet.',
     ],
     cta: 'See it live', embed: '07-crm-sync-tracker', recolor: 'espresso', flip: false,
