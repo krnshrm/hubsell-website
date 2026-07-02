@@ -1,9 +1,9 @@
 // hubsell — site motion system.
-// Self-hosted Lenis smooth scroll + GSAP ScrollTrigger reveals, rebuilt from the
-// Webflow site custom code. The `.reveal` / `.reveal-stagger` class contract is
-// preserved so existing markup just works. Unlike the original, this respects
-// prefers-reduced-motion: when reduced, we skip Lenis and all reveals entirely
-// and leave content at full opacity (the inline head guard never adds .has-anim).
+// Self-hosted Lenis smooth scroll + the GSAP/ScrollTrigger wiring the product
+// embeds rely on. The scroll-reveal tweens were removed (2026-07-02): content
+// no longer slides in on scroll, and the `.reveal` / `.reveal-stagger` classes
+// left in the markup are inert. Respects prefers-reduced-motion: when reduced,
+// we skip Lenis entirely (the inline head guard never adds .has-anim).
 
 import Lenis from 'lenis';
 import { gsap } from 'gsap';
@@ -37,29 +37,8 @@ function initMotion() {
     });
   });
 
-  // Single-element fade-up.
-  gsap.utils.toArray<HTMLElement>('.reveal').forEach((el) => {
-    gsap.fromTo(
-      el,
-      { opacity: 0, y: 80 },
-      {
-        opacity: 1, y: 0, duration: 1.3, ease: 'expo.out',
-        scrollTrigger: { trigger: el, start: 'top 80%', toggleActions: 'play none none none' },
-      }
-    );
-  });
-
-  // Staggered children fade-up.
-  gsap.utils.toArray<HTMLElement>('.reveal-stagger').forEach((el) => {
-    gsap.fromTo(
-      el.children,
-      { opacity: 0, y: 60 },
-      {
-        opacity: 1, y: 0, duration: 1, stagger: 0.15, ease: 'expo.out',
-        scrollTrigger: { trigger: el, start: 'top 80%', toggleActions: 'play none none none' },
-      }
-    );
-  });
+  // Scroll reveals removed — sections are always visible. The product embeds
+  // own their ScrollTriggers; the Lenis wiring above keeps them in sync.
 }
 
 initMotion();
