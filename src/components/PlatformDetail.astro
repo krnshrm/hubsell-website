@@ -1,0 +1,147 @@
+---
+// Shared body template for the three /platform capability pages. The route file
+// owns BaseLayout, title/description, and breadcrumb JSON-LD; this renders the
+// sections. Background rhythm: paper, sand, navy, paper, sand (FAQ), espresso.
+import { localizedHref } from '../i18n/utils';
+import { SIGNUP_URL } from '../data/site';
+import { getHome } from '../data/home-i18n';
+import { getPlatformQuote } from '../data/platform-i18n';
+import type { PlatformDetailData } from '../data/platform-content';
+import type { Locale } from '../i18n/ui';
+import SocialProspecting from './SocialProspecting.astro';
+import MultichannelFlow from './MultichannelFlow.astro';
+import CrmSyncTracker from './CrmSyncTracker.astro';
+import ZeroDayTimeline from './ZeroDayTimeline.astro';
+import PlatformStoryCard from './PlatformStoryCard.astro';
+import PlatformFaqPicks from './PlatformFaqPicks.astro';
+
+interface Props { L: Locale; data: PlatformDetailData }
+const { L, data: d } = Astro.props;
+const { s } = getHome(L);
+
+const EMBEDS: Record<string, any> = {
+  '05-sp-widget': SocialProspecting,
+  '06-multichannel-flow': MultichannelFlow,
+  '07-crm-sync-tracker': CrmSyncTracker,
+};
+const DIMS: Record<string, { w: number; h: number }> = {
+  '05-sp-widget': { w: 630, h: 500 },
+  '06-multichannel-flow': { w: 740, h: 520 },
+  '07-crm-sync-tracker': { w: 710, h: 480 },
+};
+const Embed = EMBEDS[d.row.embed];
+const dim = DIMS[d.row.embed] ?? { w: 700, h: 500 };
+const quote = getPlatformQuote(L, d.quoteSlug);
+---
+<!-- 1 · Hero (paper) -->
+<section class="sec sec--paper" aria-labelledby="pf-title">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:0">
+      <p class="eyebrow is-accent">{d.eyebrow}</p>
+      <h1 id="pf-title" class="heading_hero" style="margin-top:10px">{d.h1Pre}<span class="accent">{d.h1Accent}</span>{d.h1Post}</h1>
+      <p class="subheading" style="margin-top:16px;max-width:62ch">{d.sub}</p>
+      <p style="margin:28px 0 0"><a href={localizedHref(L, SIGNUP_URL)} class="button">{d.demoCta}</a></p>
+    </div>
+    {d.heroTimeline && (
+      <div style="margin-top:clamp(36px,5vw,60px)">
+        <ZeroDayTimeline />
+      </div>
+    )}
+  </div>
+</section>
+
+<!-- 2 · Feature row with the product embed (sand) -->
+<section class="sec sec--sand" aria-label={d.row.titlePre + d.row.titleAccent + d.row.titlePost} style="--vw:640">
+  <div class="wrap" style="max-width:1200px">
+    <div class="prow">
+      <div class="prow__head">
+        <h2 class="heading_secondary">{d.row.titlePre}<span class="accent">{d.row.titleAccent}</span>{d.row.titlePost}</h2>
+        <div class="prow__points">
+          {d.row.points.map((p) => <p class="paragraph" style="opacity:.84;margin:0">{p}</p>)}
+        </div>
+      </div>
+      <div class="prow__media">
+        <div class="viz" style={`--w:${dim.w};--h:${dim.h}`}>
+          <div class="viz__inner">{Embed && <Embed />}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · Value grid (navy) -->
+<section class="sec sec--navy" aria-label={d.gridTitlePre + d.gridTitleAccent + d.gridTitlePost}>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="heading_primary">{d.gridTitlePre}<span class="accent">{d.gridTitleAccent}</span>{d.gridTitlePost}</h2>
+    </div>
+    <div class="pgrid">
+      {d.blocks.map((b) => (
+        <div class="card">
+          <h3 class="heading_small">{b.title}</h3>
+          <p class="paragraph_small" style="margin-top:10px">{b.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- 4 · Proof: customer story + quote (paper) -->
+<section class="sec sec--paper" aria-label={d.proofTitle}>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow is-accent">{d.proofEyebrow}</p>
+      <h2 class="heading_primary" style="margin-top:8px">{d.proofTitle}</h2>
+    </div>
+    <div class="pproof">
+      <PlatformStoryCard L={L} slug={d.storySlug} label={d.storyLabel} />
+      {quote && (
+        <figure class="card pquote">
+          <blockquote class="quote" style="margin:0">&ldquo;{quote.quote}&rdquo;</blockquote>
+          <figcaption class="paragraph_small" style="margin-top:16px">
+            <b>{quote.name}</b>{quote.title && `, ${quote.title}`}{quote.company && ` \u00b7 ${quote.company}`}
+          </figcaption>
+        </figure>
+      )}
+    </div>
+  </div>
+</section>
+
+<!-- 5 · FAQ picks (sand) -->
+<PlatformFaqPicks L={L} eyebrow={d.faqEyebrow} title={d.faqTitle} slugs={d.faqSlugs} seeAll={s.faqSec.seeAll} />
+
+<!-- 6 · Closing CTA (espresso) -->
+<section class="sec sec--esp" aria-label={d.closing.titlePre + d.closing.titleAccent + d.closing.titlePost}>
+  <div class="wrap" style="text-align:center">
+    <h2 class="heading_primary">{d.closing.titlePre}<span class="accent">{d.closing.titleAccent}</span>{d.closing.titlePost}</h2>
+    <p class="subheading" style="margin:16px auto 0;max-width:56ch">{d.closing.sub}</p>
+    <p style="margin:30px 0 0"><a href={localizedHref(L, SIGNUP_URL)} class="button is-large">{d.closingCta}</a></p>
+  </div>
+</section>
+
+<style>
+  .prow{ display:flex; flex-direction:column; gap:24px }
+  .prow__head{ display:flex; flex-direction:column }
+  .prow__points{ display:flex; flex-direction:column; gap:12px; margin-top:20px }
+  .viz{ width:100% }
+
+  .pgrid{ display:grid; grid-template-columns:1fr; gap:20px }
+  .pproof{ display:grid; grid-template-columns:1fr; gap:20px; align-items:stretch }
+  .pquote{ display:flex; flex-direction:column; justify-content:center }
+
+  @media (min-width:760px){
+    .pgrid{ grid-template-columns:1fr 1fr }
+    .pproof{ grid-template-columns:1fr 1fr }
+  }
+
+  @media (min-width:1120px){
+    .prow{ flex-direction:row; align-items:center; gap:clamp(40px,4vw,72px) }
+    .prow__head{ flex:1 1 0; min-width:0 }
+    .prow__media{ flex:0 0 calc(var(--vw) * 1px); display:flex; justify-content:center }
+    .viz{ position:relative; width:calc(var(--vw) * 1px); aspect-ratio:var(--w) / var(--h) }
+    .viz__inner{ position:absolute; top:0; left:0; width:calc(var(--w) * 1px); height:calc(var(--h) * 1px); transform-origin:top left; transform:scale(calc(var(--vw) / var(--w))) }
+    .viz__inner > :global(.sp-wrap),
+    .viz__inner > :global(.hubsell-tree-embed),
+    .viz__inner > :global(.hubsell-sync-embed){ padding:0 }
+  }
+</style>

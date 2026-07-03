@@ -17,12 +17,12 @@ export const faqsNlExtra: Record<string, { question: string; answer: string }> =
   'personalize-outreach-at-scale': {
     question: 'Hoe personaliseren we cold outreach op schaal zonder als een AI-robot te klinken?',
     answer:
-      '<p>De „uncanny valley” in sales ontstaat wanneer teams AI gebruiken om empathie na te bootsen. Zet in plaats van complexe AI-prompts voor generieke lijsten in op „observable intent”, oftewel waarneembare signalen. Een simpel, vast bericht aan een zeer relevante lijst, bijvoorbeeld de deelnemers van een bepaald webinar, verslaat altijd nagebootste AI-empathie aan een generieke persona.</p>',
+      '<p>Kopers herkennen AI-geschreven vleierij meteen, en dat kost u reacties. Een eenvoudig, direct bericht aan een zeer relevante lijst, bijvoorbeeld deelnemers aan een specifiek webinar of mensen die met een specifieke post interageren, verslaat machinaal gepersonaliseerde teksten aan een generieke persona keer op keer. hubsell bouwt de relevantie al in bij de data: live verzamelde contacten, afgestemd op uw ICP, zodat het bericht kort en eerlijk kan blijven.</p>',
   },
   'stop-sales-email-bounces': {
     question: 'Hoe voorkomen we dat onze sales-e-mails bouncen door slechte CRM-data?',
     answer:
-      '<p>Een B2B-beslisser blijft gemiddeld zo’n 2,5 jaar op dezelfde plek. Statische CRMs en gekochte lijsten verliezen daardoor jaarlijks 25 tot 30% van hun geldigheid. hubsell lost dit op met zero-day-sourcing. We verzamelen en verifiëren contactdata in realtime, precies op het moment van uw aanvraag. Dat zorgt voor maximale nauwkeurigheid en beschermt uw afzenderreputatie.</p>',
+      '<p>De gemiddelde zittingsduur van een B2B-beslisser is ongeveer 2,5 jaar, waardoor statische CRM’s en gekochte lijsten met 25 tot 30% per jaar vervallen. hubsell lost dit op met zero-day sourcing, onze live-datamethode: wij verzamelen en valideren contactgegevens op het exacte moment van uw aanvraag. Dat houdt de nauwkeurigheid hoog en beschermt uw verzendreputatie.</p>',
   },
   'hubsell-high-volume-sales': {
     question: 'Is hubsell geschikt voor transactionele sales met hoog volume en lage ACV?',
@@ -32,7 +32,7 @@ export const faqsNlExtra: Record<string, { question: string; answer: string }> =
   'mass-email-brand-reputation': {
     question: 'Schaadt massale cold e-mailing actief onze merkreputatie en deliverability?',
     answer:
-      '<p>Door de nieuwste regels van Google en Yahoo ruïneren „spray and pray”-tactieken met hoog volume snel de afzenderreputatie van uw domein. Engagement orchestration lost dit op met uiterst nauwkeurige targeting, native API-verzending en multi-threading, oftewel het veilig verdelen van outreach over 5 tot 10 interne profielen. Zo blijft de deliverability hoog en de schade aan het domein nul.</p>',
+      '<p>De nieuwste regels van Google en Yahoo betekenen dat massaal ongericht mailen de verzendreputatie van uw domein snel verwoest. hubsell beschermt die met precieze targeting, native API-verzending via Google en Microsoft en het veilig verdelen van outreach over 5 tot 10 interne verzendprofielen. Minder volume per verzender, hogere deliverability, geen beschadigd domein.</p>',
   },
   'third-party-intent-data-accuracy': {
     question: 'Zijn B2B-intent-data van derden echt nauwkeurig?',
@@ -42,7 +42,7 @@ export const faqsNlExtra: Record<string, { question: string; answer: string }> =
   'sdr-vs-executive-linkedin-outreach': {
     question: 'Moeten onze SDR’s of onze leidinggevenden de LinkedIn-outreach doen?',
     answer:
-      '<p>Dit heet de messenger-paradox. Wanneer een SDR een connectieverzoek stuurt, liggen de acceptatieratio’s meestal onder 20%, omdat kopers een pitch verwachten. Stuurt een oprichter, een leidinggevende of een expert exact hetzelfde verzoek, dan stijgen de acceptatieratio’s naar meer dan 50%.</p>',
+      '<p>Wie het bericht verstuurt, verandert het resultaat. Als een SDR een connectieverzoek stuurt, blijft de acceptatie doorgaans onder 20%, omdat kopers een pitch verwachten. Stuurt een oprichter, executive of vakexpert exact hetzelfde verzoek, dan springt de acceptatie naar boven 50%. hubsell is gebouwd om outreach uit te voeren vanaf de profielen die kopers echt accepteren.</p>',
   },
   'cold-email-reply-rates-dropping': {
     question: 'Waarom dalen onze antwoordratio’s op cold e-mails plotseling zo sterk?',

@@ -1,0 +1,47 @@
+---
+// Customer-story card for the /platform pages. Loads the story from the locale's
+// content collection so title, description, and metrics are already translated,
+// and links to the full story with a locale-aware href.
+import { getCollection } from 'astro:content';
+import { localizedHref } from '../i18n/utils';
+import type { Locale } from '../i18n/ui';
+
+interface Props {
+  L: Locale;
+  slug: string;
+  label: string;
+}
+const { L, slug, label } = Astro.props;
+const collName = L === 'de' ? 'customerstoriesDe' : L === 'nl' ? 'customerstoriesNl' : 'customerstories';
+const stories = await getCollection(collName as 'customerstories');
+const story = stories.find((s) => s.slug === slug);
+const d = story?.data as any;
+const results: { metric: string; label: string }[] = (d?.results ?? []).slice(0, 2);
+---
+{story && (
+  <article class="card story-card">
+    <p class="eyebrow is-accent">{d.company}</p>
+    <h3 class="heading_small" style="margin-top:10px">{d.title}</h3>
+    <p class="paragraph_small" style="margin-top:10px">{d.description}</p>
+    {results.length > 0 && (
+      <div class="story-card__metrics">
+        {results.map((r) => (
+          <div class="story-card__metric">
+            <span class="story-card__num">{r.metric}</span>
+            <span class="story-card__lbl">{r.label}</span>
+          </div>
+        ))}
+      </div>
+    )}
+    <a href={localizedHref(L, `/customerstories/${slug}`)} class="link" style="margin-top:auto">{label} &rarr;</a>
+  </article>
+)}
+
+<style>
+  .story-card{ display:flex; flex-direction:column; gap:0 }
+  .story-card .link{ display:inline-block; padding-top:18px }
+  .story-card__metrics{ display:flex; gap:28px; margin:18px 0 4px; flex-wrap:wrap }
+  .story-card__metric{ display:flex; flex-direction:column; gap:2px }
+  .story-card__num{ font-family:var(--font-head); font-weight:600; font-size:1.5rem; color:var(--accent-on) }
+  .story-card__lbl{ font-size:13px; opacity:.7 }
+</style>

@@ -12,6 +12,7 @@ export interface PipelineStep {
   tail: string;
   points: string[];
   cta: string;
+  more: string; // label of the second, ghost link to the /platform page
   embed: string;
   recolor?: string;
   flip: boolean; // true = embed on the left, text on the right
@@ -27,7 +28,7 @@ export const pipelineSteps: PipelineStep[] = [
       'hubsell sources from live behavioral signals: people following a company page, engaging with a LinkedIn post, changing jobs, attending events, or hiring for specific roles.',
       'Every contact entering your flow is matched to your ICP and validated at the point of use.',
     ],
-    cta: 'Source your data', embed: '05-sp-widget', flip: false,
+    cta: 'Source your data', more: 'Explore live data', embed: '05-sp-widget', flip: false,
   },
   {
     n: '02',
@@ -38,7 +39,7 @@ export const pipelineSteps: PipelineStep[] = [
       'Profile visits, connection requests, DMs, InMail, and call tasks, all coordinated with your email cadence.',
       'Branching conditions automatically route contacts based on what they do, so every path is handled without manual intervention.',
     ],
-    cta: 'Get a demo', embed: '06-multichannel-flow', recolor: 'espresso', flip: true,
+    cta: 'Get a demo', more: 'Explore multichannel outreach', embed: '06-multichannel-flow', recolor: 'espresso', flip: true,
   },
   {
     n: '03',
@@ -48,7 +49,7 @@ export const pipelineSteps: PipelineStep[] = [
       'Every touchpoint, sent, opened, replied, connected, is logged to Salesforce, HubSpot, or Pipedrive automatically.',
       'No manual entry. No data rot. Your team works the pipeline, not the spreadsheet.',
     ],
-    cta: 'See it live', embed: '07-crm-sync-tracker', recolor: 'espresso', flip: false,
+    cta: 'See it live', more: 'Explore CRM sync', embed: '07-crm-sync-tracker', recolor: 'espresso', flip: false,
   },
 ];
 

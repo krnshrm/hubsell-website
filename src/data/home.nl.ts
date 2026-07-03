@@ -24,7 +24,7 @@ export const pipelineStepsNl: PipelineStep[] = [
       'hubsell verzamelt op basis van actuele gedragssignalen: mensen die een bedrijfspagina volgen, met een LinkedIn-bericht interacteren, van baan wisselen, events bezoeken of gericht vacatures plaatsen.',
       'Elk contact dat in uw flow terechtkomt, wordt afgestemd op uw ICP en gevalideerd op het moment van gebruik.',
     ],
-    cta: 'Data verzamelen', embed: '05-sp-widget', flip: false,
+    cta: 'Data verzamelen', more: 'Meer over live data', embed: '05-sp-widget', flip: false,
   },
   {
     n: '02',
@@ -35,7 +35,7 @@ export const pipelineStepsNl: PipelineStep[] = [
       'Profielbezoeken, connectieverzoeken, DMs, InMail, beltaken, alles afgestemd op uw e-mailcadans.',
       'Vertakkingsvoorwaarden sturen contacten automatisch op basis van wat ze doen, zodat elk pad zonder handmatig ingrijpen gedekt is.',
     ],
-    cta: 'Demo bekijken', embed: '06-multichannel-flow', recolor: 'espresso', flip: true,
+    cta: 'Demo bekijken', more: 'Meer over multichannel-outreach', embed: '06-multichannel-flow', recolor: 'espresso', flip: true,
   },
   {
     n: '03',
@@ -45,7 +45,7 @@ export const pipelineStepsNl: PipelineStep[] = [
       'Elk touchpoint, verzonden, geopend, beantwoord, verbonden, wordt automatisch vastgelegd in Salesforce, HubSpot of Pipedrive.',
       'Geen handmatige invoer. Geen dataverval. Uw team werkt aan de pipeline, niet aan de spreadsheet.',
     ],
-    cta: 'Live bekijken', embed: '07-crm-sync-tracker', recolor: 'espresso', flip: false,
+    cta: 'Live bekijken', more: 'Meer over CRM-sync', embed: '07-crm-sync-tracker', recolor: 'espresso', flip: false,
   },
 ];
 
@@ -233,7 +233,7 @@ export const faqsNl: Faq[] = [
   {
     question: 'Wat is de krachtigste manier om een B2B-publiek op te bouwen dat na verloop van tijd niet vervalt?',
     slug: 'build-b2b-audience-no-decay',
-    answer: '<p>E-mailadressen zijn eigendom van de werkgever, wat betekent dat lijsten jaarlijks met ongeveer 30% vervallen wanneer mensen van baan wisselen. LinkedIn-profielen zijn gekoppeld aan de persoonlijke identiteit. Door „Network Equity” op LinkedIn op te bouwen, verhuizen uw contacten mee met de koper en krijgt u automatisch toegang tot een nieuw doelaccount wanneer die van bedrijf wisselt.</p>',
+    answer: '<p>E-mailadressen zijn van de werkgever, dus lijsten vervallen met zo’n 30% per jaar wanneer mensen van baan wisselen. LinkedIn-connecties zijn aan de persoon gebonden en reizen mee. Bouw uw publiek op als eerstegraads LinkedIn-netwerk en elke baanwissel wordt een warme ingang bij een nieuw doelaccount in plaats van een dood contact.</p>',
     onHomepage: true,
   },
   {

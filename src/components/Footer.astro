@@ -4,7 +4,7 @@
 // content collections, so new entries appear here automatically. The remaining live
 // nav links, the account links, and the legal links come from src/data/navigation.ts.
 import { getCollection } from 'astro:content';
-import { menuGroups, topLinks, footerLinks, legalLinks, liveLinks } from '../data/navigation';
+import { menuGroups, topLinks, footerLinks, platformLinks, legalLinks, liveLinks } from '../data/navigation';
 import { asLocale, useTranslations, localizedHref } from '../i18n/utils';
 import AskAiWidget from './AskAiWidget.astro';
 
@@ -35,6 +35,7 @@ const companyLinks = company ? liveLinks(company.links) : [];
 const resourceLinks = [...learnLinks, ...footerLinks, ...liveLinks(topLinks)];
 
 const columns = [
+  { heading: t('footer.heading.platform'), links: liveLinks(platformLinks) },
   { heading: t('footer.heading.resources'), links: resourceLinks },
   {
     heading: t('footer.heading.customerstories'),

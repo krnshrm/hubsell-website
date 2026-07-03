@@ -1,0 +1,124 @@
+---
+// Body template for the /platform overview page. The route file owns BaseLayout
+// and the breadcrumb JSON-LD. Background rhythm: sand (hero), navy (problem),
+// paper (capabilities), sand (results), espresso (proof), sand via FaqPicks would
+// repeat, so FAQ takes paper here, then navy (closing CTA is inside proof? no):
+// final order: sand, navy, paper, sand, espresso, paper (FAQ), navy (CTA).
+import { localizedHref } from '../i18n/utils';
+import { SIGNUP_URL } from '../data/site';
+import { getHome } from '../data/home-i18n';
+import { getPlatformQuote } from '../data/platform-i18n';
+import type { PlatformOverviewData } from '../data/platform-content';
+import type { Locale } from '../i18n/ui';
+import PlatformFaqPicks from './PlatformFaqPicks.astro';
+
+interface Props { L: Locale; data: PlatformOverviewData }
+const { L, data: d } = Astro.props;
+const { s } = getHome(L);
+const quote = getPlatformQuote(L, d.quoteSlug);
+---
+<!-- 1 · Hero (sand) -->
+<section class="sec sec--sand" aria-labelledby="pov-title">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:0">
+      <p class="eyebrow is-accent">{d.eyebrow}</p>
+      <h1 id="pov-title" class="heading_hero" style="margin-top:10px">{d.h1Pre}<span class="accent">{d.h1Accent}</span>{d.h1Post}</h1>
+      <p class="subheading" style="margin-top:16px;max-width:62ch">{d.sub}</p>
+      <p style="margin:28px 0 0"><a href={localizedHref(L, SIGNUP_URL)} class="button">{d.demoCta}</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · The problem (navy) -->
+<section class="sec sec--navy" aria-label={d.problemTitlePre + d.problemTitleAccent + d.problemTitlePost}>
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:0">
+      <p class="eyebrow is-accent">{d.problemEyebrow}</p>
+      <h2 class="heading_primary" style="margin-top:8px">{d.problemTitlePre}<span class="accent">{d.problemTitleAccent}</span>{d.problemTitlePost}</h2>
+      {d.problemBody.map((p) => <p class="paragraph" style="margin-top:18px;opacity:.88;max-width:64ch">{p}</p>)}
+    </div>
+  </div>
+</section>
+
+<!-- 3 · The three capabilities (paper) -->
+<section class="sec sec--paper" aria-label={d.capsTitle}>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow is-accent">{d.capsEyebrow}</p>
+      <h2 class="heading_primary" style="margin-top:8px">{d.capsTitle}</h2>
+    </div>
+    <div class="pov-caps">
+      {d.caps.map((c) => (
+        <a class="card pov-cap" href={localizedHref(L, c.href)}>
+          <p class="eyebrow is-accent">{c.eyebrow}</p>
+          <h3 class="heading_small" style="margin-top:10px">{c.title}</h3>
+          <p class="paragraph_small" style="margin-top:10px">{c.body}</p>
+          <span class="link" style="margin-top:auto;padding-top:18px;display:inline-block">{c.linkLabel} &rarr;</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- 4 · Results (sand) -->
+<section class="sec sec--sand" aria-label={d.resultsTitle}>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow is-accent">{d.resultsEyebrow}</p>
+      <h2 class="heading_primary" style="margin-top:8px">{d.resultsTitle}</h2>
+    </div>
+    <div class="pov-results">
+      {d.results.map((r) => (
+        <div class="card">
+          <h3 class="heading_small">{r.title}</h3>
+          <p class="paragraph_small" style="margin-top:10px">{r.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- 5 · Proof (espresso) -->
+<section class="sec sec--esp" aria-label={d.proofTitle}>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow is-accent">{d.proofEyebrow}</p>
+      <h2 class="heading_primary" style="margin-top:8px">{d.proofTitle}</h2>
+      <p class="paragraph" style="margin-top:14px;opacity:.85">{d.ratingsLine}</p>
+    </div>
+    {quote && (
+      <figure class="card pov-quote">
+        <blockquote class="quote" style="margin:0">&ldquo;{quote.quote}&rdquo;</blockquote>
+        <figcaption class="paragraph_small" style="margin-top:16px">
+          <b>{quote.name}</b>{quote.title && `, ${quote.title}`}{quote.company && ` \u00b7 ${quote.company}`}
+        </figcaption>
+      </figure>
+    )}
+  </div>
+</section>
+
+<!-- 6 · FAQ picks (paper) -->
+<PlatformFaqPicks L={L} eyebrow={d.faqEyebrow} title={d.faqTitle} slugs={d.faqSlugs} seeAll={s.faqSec.seeAll} tone="paper" />
+
+<!-- 7 · Closing CTA (navy) -->
+<section class="sec sec--navy" aria-label={d.closing.titlePre + d.closing.titleAccent + d.closing.titlePost}>
+  <div class="wrap" style="text-align:center">
+    <h2 class="heading_primary">{d.closing.titlePre}<span class="accent">{d.closing.titleAccent}</span>{d.closing.titlePost}</h2>
+    <p class="subheading" style="margin:16px auto 0;max-width:56ch">{d.closing.sub}</p>
+    <p style="margin:30px 0 0"><a href={localizedHref(L, SIGNUP_URL)} class="button is-large">{d.closingCta}</a></p>
+  </div>
+</section>
+
+<style>
+  .pov-caps{ display:grid; grid-template-columns:1fr; gap:20px }
+  .pov-cap{ display:flex; flex-direction:column; text-decoration:none; transition:transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s ease, border-color .3s ease }
+  .pov-cap:hover{ transform:translateY(-4px); border-color:var(--accent-on); box-shadow:0 16px 48px rgba(0,0,0,.08) }
+  .pov-results{ display:grid; grid-template-columns:1fr; gap:20px }
+  .pov-quote{ max-width:720px }
+  @media (min-width:760px){
+    .pov-results{ grid-template-columns:1fr 1fr }
+  }
+  @media (min-width:980px){
+    .pov-caps{ grid-template-columns:1fr 1fr 1fr }
+  }
+</style>

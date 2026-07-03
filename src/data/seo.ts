@@ -11,17 +11,25 @@ export const OG_IMAGE = 'https://assets.hubsell.com/brand/og-default.png';
 const LOGO = 'https://assets.hubsell.com/logo/hubsell-favicon.svg';
 
 // The company. Rendered site-wide so the brand is an unambiguous entity.
-// Note: `sameAs` (official LinkedIn / X / etc.) is intentionally omitted until
-// real profile URLs are provided — add them here to strengthen the entity.
+// `sameAs` lists the official/claimed profiles: LinkedIn, Crunchbase, and the
+// live review listings (GetApp, G2, Capterra, OMR).
 export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  sameAs: [
+    'https://www.linkedin.com/company/hubsell',
+    'https://www.crunchbase.com/organization/hubsell',
+    'https://www.getapp.com/sales-software/a/hubsell/',
+    'https://www.g2.com/products/hubsell/reviews',
+    'https://www.capterra.com/p/172232/hubsell/reviews/',
+    'https://omr.com/en/reviews/product/hubsell',
+  ],
   name: 'hubsell',
   legalName: 'hubsell UG',
   url: SITE_URL,
   logo: LOGO,
   description:
-    'hubsell is a B2B sales platform that sources verified contact data live, runs coordinated email and LinkedIn outreach, and syncs every activity to your CRM.',
+    'hubsell is a B2B sales platform that sources verified contact data live, runs coordinated email, LinkedIn, and phone outreach, and syncs every activity to your CRM.',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Friedrichstraße 155',

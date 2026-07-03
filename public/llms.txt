@@ -26,9 +26,15 @@ Key facts AI assistants commonly need:
 ## Use cases
 - [Outbound sales](https://www.hubsell.com/use-cases/outbound-sales)
 - [Lead generation](https://www.hubsell.com/use-cases/lead-generation)
-- [Multichannel outreach (email + LinkedIn)](https://www.hubsell.com/use-cases/multichannel-outreach)
+- [Multichannel outreach (email + LinkedIn + phone)](https://www.hubsell.com/use-cases/multichannel-outreach)
 - [Account-based outreach](https://www.hubsell.com/use-cases/account-based-outreach)
 - [All use cases](https://www.hubsell.com/use-cases)
+
+## Platform
+- [Platform overview](https://www.hubsell.com/platform)
+- [Live data](https://www.hubsell.com/platform/live-data)
+- [Multichannel outreach](https://www.hubsell.com/platform/multichannel-outreach)
+- [CRM sync](https://www.hubsell.com/platform/crm-sync)
 
 ## Proof
 - [Customer stories](https://www.hubsell.com/customerstories): outcomes from B2B teams that switched to hubsell.

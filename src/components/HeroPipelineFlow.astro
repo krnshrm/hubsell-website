@@ -11,11 +11,15 @@
 // Motion is gated behind the .has-anim class (reduced-motion / no-JS show the
 // cards and the static connector at rest).
 import { et } from '../data/embed-i18n';
-import { asLocale } from '../i18n/utils';
+import { asLocale, localizedHref } from '../i18n/utils';
 const L = asLocale(Astro.currentLocale);
 // Each hero card links to its matching stage in the pipeline section for now.
 // Swap these to the /platform/* pages when those ship.
-const STAGE = { data: '#stage-01', outreach: '#stage-02', sync: '#stage-03' };
+const STAGE = {
+  data: localizedHref(L, '/platform/live-data'),
+  outreach: localizedHref(L, '/platform/multichannel-outreach'),
+  sync: localizedHref(L, '/platform/crm-sync'),
+};
 ---
 <div class="hubsell-flow-embed">
   <div class="hw-track-container">

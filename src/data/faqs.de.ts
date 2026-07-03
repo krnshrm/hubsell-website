@@ -1,7 +1,7 @@
 // German for the FAQs that are NOT on the homepage (onHomepage: false in faqs.ts).
 // The homepage FAQ German lives in home.de.ts (faqsDe); faqs-i18n.ts merges both
 // into the full localized set for the /faqs page. Keyed by slug. Brand terms
-// (Zero-Day-Sourcing, Engagement Orchestration, Messenger-Paradox, ICP, ACV) are
+// (Zero-Day-Sourcing, ICP, ACV) are
 // kept; answers keep their <p> markup.
 export const faqsDeExtra: Record<string, { question: string; answer: string }> = {
   'orchestrate-multiple-profiles': {
@@ -17,12 +17,12 @@ export const faqsDeExtra: Record<string, { question: string; answer: string }> =
   'personalize-outreach-at-scale': {
     question: 'Wie personalisieren wir Cold Outreach im großen Maßstab, ohne wie ein KI-Roboter zu klingen?',
     answer:
-      '<p>Das „Uncanny Valley“ im Vertrieb entsteht, wenn Teams mit KI Empathie vortäuschen. Setzen Sie statt komplexer KI-Prompts für generische Listen auf „Observable Intent“, also beobachtbare Signale. Eine einfache, feste Nachricht an eine hochrelevante Liste, etwa an die Teilnehmenden eines bestimmten Webinars, schlägt vorgetäuschte KI-Empathie an eine generische Persona immer.</p>',
+      '<p>Käufer erkennen KI-geschriebene Schmeichelei sofort, und das kostet Antworten. Eine einfache, direkte Nachricht an eine hochrelevante Liste, etwa Teilnehmer eines bestimmten Webinars oder Personen, die mit einem bestimmten Post interagieren, schlägt maschinell personalisierte Texte an eine generische Persona durchgängig. hubsell baut die Relevanz bereits in die Daten ein: live recherchierte Kontakte, passend zu Ihrem ICP, damit die Nachricht kurz und ehrlich bleiben kann.</p>',
   },
   'stop-sales-email-bounces': {
     question: 'Wie verhindern wir, dass unsere Vertriebs-E-Mails wegen schlechter CRM-Daten zurückkommen?',
     answer:
-      '<p>Die durchschnittliche Verweildauer eines B2B-Entscheiders liegt bei etwa 2,5 Jahren. Statische CRMs und gekaufte Listen verlieren dadurch jährlich 25 bis 30 Prozent ihrer Gültigkeit. hubsell löst das mit Zero-Day-Sourcing. Wir recherchieren und verifizieren Kontaktdaten in Echtzeit, genau im Moment Ihrer Anfrage. Das sorgt für höchste Genauigkeit und schützt Ihre Absenderreputation.</p>',
+      '<p>Die durchschnittliche Verweildauer eines B2B-Entscheiders liegt bei rund 2,5 Jahren, statische CRMs und gekaufte Listen verfallen daher um 25 bis 30% pro Jahr. hubsell löst das mit Zero-Day-Sourcing, unserer Live-Daten-Methode: Wir recherchieren und verifizieren Kontaktdaten im exakten Moment Ihrer Anfrage. Das hält die Genauigkeit hoch und schützt Ihre Absenderreputation.</p>',
   },
   'hubsell-high-volume-sales': {
     question: 'Eignet sich hubsell für transaktionalen Vertrieb mit hohem Volumen und niedrigem ACV?',
@@ -32,7 +32,7 @@ export const faqsDeExtra: Record<string, { question: string; answer: string }> =
   'mass-email-brand-reputation': {
     question: 'Schadet massenhaftes Cold E-Mailing aktiv unserer Markenreputation und Zustellbarkeit?',
     answer:
-      '<p>Durch die neuesten Regeln von Google und Yahoo ruinieren „Spray and Pray“-Taktiken mit hohem Volumen die Absenderreputation Ihrer Domain schnell. Engagement Orchestration löst das durch hochpräzises Targeting, nativen API-Versand und Multi-Threading, also das sichere Verteilen des Outreach auf 5 bis 10 interne Profile. So bleiben die Zustellbarkeit hoch und der Schaden für die Domain bei null.</p>',
+      '<p>Die neuesten Regeln von Google und Yahoo bedeuten: Massenversand nach dem Gießkannenprinzip ruiniert die Absenderreputation Ihrer Domain in kurzer Zeit. hubsell schützt sie mit präzisem Targeting, nativem API-Versand über Google und Microsoft und der sicheren Verteilung des Outreach auf 5 bis 10 interne Absenderprofile. Weniger Volumen pro Absender, höhere Zustellbarkeit, keine beschädigte Domain.</p>',
   },
   'third-party-intent-data-accuracy': {
     question: 'Sind B2B-Intent-Daten von Drittanbietern tatsächlich genau?',
@@ -42,7 +42,7 @@ export const faqsDeExtra: Record<string, { question: string; answer: string }> =
   'sdr-vs-executive-linkedin-outreach': {
     question: 'Sollten unsere SDRs oder unsere Führungskräfte den LinkedIn-Outreach übernehmen?',
     answer:
-      '<p>Das nennt sich Messenger-Paradox. Wenn ein SDR eine Kontaktanfrage sendet, liegen die Annahmequoten meist unter 20 Prozent, weil Käufer einen Pitch erwarten. Sendet eine Gründerin, eine Führungskraft oder ein Fachexperte genau dieselbe Anfrage, steigen die Annahmequoten auf über 50 Prozent.</p>',
+      '<p>Wer die Nachricht sendet, verändert das Ergebnis. Sendet ein SDR eine Kontaktanfrage, liegt die Annahmequote typischerweise unter 20%, weil Käufer einen Pitch erwarten. Sendet ein Gründer, eine Führungskraft oder ein Fachexperte exakt dieselbe Anfrage, springt die Annahmequote auf über 50%. hubsell ist dafür gebaut, Outreach von den Profilen auszuführen, die Käufer tatsächlich akzeptieren.</p>',
   },
   'cold-email-reply-rates-dropping': {
     question: 'Warum sinken unsere Antwortraten bei Cold E-Mails plötzlich so stark?',

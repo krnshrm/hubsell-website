@@ -42,7 +42,7 @@ export const faqs: Faq[] = [
   {
     question: "How can we personalize cold outreach at scale without sounding like an AI robot?",
     slug: "personalize-outreach-at-scale",
-    answer: "<p>The \"Uncanny Valley\" of sales occurs when teams use AI to fake empathy. Instead of writing complex AI prompts for generic lists, rely on \"Observable Intent.\" A simple, static message sent to a highly relevant list (e.g., attendees of a specific webinar) always outperforms fake AI empathy sent to a generic persona.</p>",
+    answer: "<p>Buyers spot AI-written flattery instantly, and it costs you replies. A simple, direct message sent to a highly relevant list, say attendees of a specific webinar or people engaging with a specific post, consistently beats machine-personalized copy sent to a generic persona. hubsell builds the relevance in at the data stage: live-sourced contacts matched to your ICP, so the message can stay short and honest.</p>",
     onHomepage: false,
   },
   {
@@ -60,7 +60,7 @@ export const faqs: Faq[] = [
   {
     question: "How do we stop our sales emails from bouncing due to bad CRM data?",
     slug: "stop-sales-email-bounces",
-    answer: "<p>The average tenure of a B2B decision-maker is roughly 2.5 years, meaning static CRMs and purchased lists decay by 25% to 30% annually. hubsell solves this with Zero-Day Sourcing. We source and deeply verify contact data in real-time at the exact moment of your request, ensuring absolute accuracy and protecting your sender reputation.</p>",
+    answer: "<p>The average tenure of a B2B decision-maker is roughly 2.5 years, meaning static CRMs and purchased lists decay by 25 to 30% annually. hubsell solves this with zero-day sourcing, our live-data method: we source and verify contact data at the exact moment of your request, which keeps accuracy high and protects your sender reputation.</p>",
     onHomepage: false,
   },
   {
@@ -90,7 +90,7 @@ export const faqs: Faq[] = [
   {
     question: "Is mass cold emailing actively damaging our brand reputation and deliverability?",
     slug: "mass-email-brand-reputation",
-    answer: "<p>Google and Yahoo's latest rules mean high-volume \"spray and pray\" tactics will quickly ruin your domain's sender reputation. Engagement Orchestration solves this by utilizing ultra-precise targeting, native API sending, and multi-threading (spreading outreach safely across 5-10 internal profiles) to ensure high deliverability and zero domain burn.</p>",
+    answer: "<p>Google and Yahoo’s latest rules mean high-volume spray and pray tactics will quickly ruin your domain’s sender reputation. hubsell protects it with precise targeting, native API sending through Google and Microsoft, and by spreading outreach safely across 5 to 10 internal sender profiles. Lower volume per sender, higher deliverability, no domain burn.</p>",
     onHomepage: false,
   },
   {
@@ -102,13 +102,13 @@ export const faqs: Faq[] = [
   {
     question: "Should our SDRs or our Executives be sending LinkedIn outreach?",
     slug: "sdr-vs-executive-linkedin-outreach",
-    answer: "<p>This is known as the Messenger Paradox. When an SDR sends a connection request, acceptance rates typically hover below 20% because buyers anticipate a pitch. When a Founder, Executive, or Subject Matter Expert sends the exact same request, acceptance rates jump to 50%+.</p>",
+    answer: "<p>Who sends the message changes the result. When an SDR sends a connection request, acceptance rates typically sit below 20% because buyers anticipate a pitch. When a founder, executive, or subject matter expert sends the exact same request, acceptance rates jump above 50%. hubsell is built to run outreach from the profiles buyers actually accept.</p>",
     onHomepage: false,
   },
   {
     question: "What is the most effective way to build a B2B audience that doesn't decay over time?",
     slug: "build-b2b-audience-no-decay",
-    answer: "<p>Email addresses belong to the employer, meaning lists decay by roughly 30% annually as people switch jobs. LinkedIn profiles are tied to the human identity. By building \"Network Equity\" on LinkedIn, your connections travel with the buyer, granting you automatic entry into a new target account when they change companies.</p>",
+    answer: "<p>Email addresses belong to the employer, so lists decay by roughly 30% annually as people switch jobs. LinkedIn connections are tied to the person and travel with them. Build your audience as a first-degree LinkedIn network and every job change becomes a warm way into a new account instead of a dead contact.</p>",
     onHomepage: true,
   },
   {

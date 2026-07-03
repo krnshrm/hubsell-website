@@ -2,6 +2,9 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import UseCaseDetail from '../../../components/UseCaseDetail.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { breadcrumbSchema } from '../../../data/seo';
+import { asLocale, localizeUrl } from '../../../i18n/utils';
 
 export async function getStaticPaths() {
   const items = await getCollection('usecasesDe', (u) => !u.data.draft);
@@ -10,7 +13,14 @@ export async function getStaticPaths() {
 const { entry, items } = Astro.props;
 const d = entry.data;
 const metaTitle = d.metaTitle ? `${d.metaTitle} | hubsell` : `${d.title} | hubsell`;
+const L = asLocale(Astro.currentLocale);
+const crumbs = breadcrumbSchema([
+  { name: 'Startseite', url: localizeUrl(L, '/') },
+  { name: 'Anwendungsfälle', url: localizeUrl(L, '/use-cases') },
+  { name: d.title, url: localizeUrl(L, `/use-cases/${entry.slug}`) },
+]);
 ---
 <BaseLayout title={metaTitle} description={d.description}>
+  <JsonLd slot="head" schema={crumbs} />
   <UseCaseDetail entry={entry} items={items} />
 </BaseLayout>

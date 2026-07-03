@@ -20,6 +20,11 @@ const EMBEDS: Record<string, any> = {
   '07-crm-sync-tracker': CrmSyncTracker,
 };
 // Native canvas size of each embed, used to scale it into the visual column.
+const MORE: Record<string, string> = {
+  '01': '/platform/live-data',
+  '02': '/platform/multichannel-outreach',
+  '03': '/platform/crm-sync',
+};
 const DIMS: Record<string, { w: number; h: number }> = {
   '05-sp-widget': { w: 630, h: 500 },
   '06-multichannel-flow': { w: 740, h: 520 },
@@ -45,7 +50,10 @@ const DIMS: Record<string, { w: number; h: number }> = {
               <div class="step__points">
                 {step.points.map((p) => <p class="paragraph" style="opacity:.84;margin:0">{p}</p>)}
               </div>
-              <a href={localizedHref(L, SIGNUP_URL)} class="button is-secondary step__cta">{step.cta}</a>
+              <div class="step__ctas">
+                <a href={localizedHref(L, SIGNUP_URL)} class="button is-secondary">{step.cta}</a>
+                <a href={localizedHref(L, MORE[step.n])} class="button is-ghost">{step.more} &rarr;</a>
+              </div>
             </div>
             <div class="step__media">
               <div class="viz" style={`--w:${d.w};--h:${d.h}`}>
@@ -65,7 +73,7 @@ const DIMS: Record<string, { w: number; h: number }> = {
   .step__head{ display:flex; flex-direction:column }
   .step__eyebrow{ font-family:var(--font-body); font-weight:600; font-size:13px; letter-spacing:.04em; text-transform:uppercase; color:var(--accent-on) }
   .step__points{ display:flex; flex-direction:column; gap:12px; margin-top:20px }
-  .step__cta{ align-self:flex-start; margin-top:30px }
+  .step__ctas{ display:flex; align-items:center; gap:6px 18px; flex-wrap:wrap; margin-top:30px }
   .viz{ width:100% }
 
   @media (min-width:1120px){

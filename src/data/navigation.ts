@@ -68,6 +68,14 @@ export const footerLinks: NavLink[] = [
   { label: 'FAQ', key: 'nav.faq', href: '/faqs' },
 ];
 
+// Platform pages (footer's own column; also linked from the hero and the pipeline section).
+export const platformLinks: NavLink[] = [
+  { label: 'Platform overview', key: 'nav.platform.overview', href: '/platform' },
+  { label: 'Live data', key: 'nav.platform.livedata', href: '/platform/live-data' },
+  { label: 'Multichannel outreach', key: 'nav.platform.outreach', href: '/platform/multichannel-outreach' },
+  { label: 'CRM sync', key: 'nav.platform.crmsync', href: '/platform/crm-sync' },
+];
+
 // Account / conversion links (the TopBar's Log in + the trial CTA, reused in the footer).
 export const accountLinks: NavLink[] = [
   { label: 'Book a demo', key: 'cta.trial', href: SIGNUP_URL, external: true },

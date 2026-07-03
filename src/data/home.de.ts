@@ -24,7 +24,7 @@ export const pipelineStepsDe: PipelineStep[] = [
       'hubsell recherchiert aus aktuellen Verhaltenssignalen: Personen, die einer Unternehmensseite folgen, mit einem LinkedIn-Beitrag interagieren, den Job wechseln, Events besuchen oder gezielt Stellen ausschreiben.',
       'Jeder Kontakt, der in Ihren Flow gelangt, wird mit Ihrem ICP abgeglichen und im Moment der Nutzung validiert.',
     ],
-    cta: 'Daten recherchieren', embed: '05-sp-widget', flip: false,
+    cta: 'Daten recherchieren', more: 'Mehr zu Live-Daten', embed: '05-sp-widget', flip: false,
   },
   {
     n: '02',
@@ -35,7 +35,7 @@ export const pipelineStepsDe: PipelineStep[] = [
       'Profilbesuche, Kontaktanfragen, DMs, InMail, Anrufaufgaben – alles abgestimmt auf Ihre E-Mail-Kadenz.',
       'Verzweigungsbedingungen leiten Kontakte automatisch danach, was sie tun, sodass jeder Pfad ohne manuelles Eingreifen abgedeckt ist.',
     ],
-    cta: 'Demo ansehen', embed: '06-multichannel-flow', recolor: 'espresso', flip: true,
+    cta: 'Demo ansehen', more: 'Mehr zu Multichannel-Outreach', embed: '06-multichannel-flow', recolor: 'espresso', flip: true,
   },
   {
     n: '03',
@@ -45,7 +45,7 @@ export const pipelineStepsDe: PipelineStep[] = [
       'Jeder Touchpoint – gesendet, geöffnet, beantwortet, vernetzt – wird automatisch in Salesforce, HubSpot oder Pipedrive protokolliert.',
       'Keine manuelle Eingabe. Kein Datenverfall. Ihr Team bearbeitet die Pipeline, nicht die Tabelle.',
     ],
-    cta: 'Live ansehen', embed: '07-crm-sync-tracker', recolor: 'espresso', flip: false,
+    cta: 'Live ansehen', more: 'Mehr zu CRM-Sync', embed: '07-crm-sync-tracker', recolor: 'espresso', flip: false,
   },
 ];
 
@@ -233,7 +233,7 @@ export const faqsDe: Faq[] = [
   {
     question: 'Wie baut man am wirkungsvollsten ein B2B-Publikum auf, das im Laufe der Zeit nicht verfällt?',
     slug: 'build-b2b-audience-no-decay',
-    answer: '<p>E-Mail-Adressen gehören dem Arbeitgeber, das heißt, Listen verfallen jährlich um rund 30 %, wenn Menschen den Job wechseln. LinkedIn-Profile sind an die persönliche Identität gebunden. Indem Sie „Network Equity“ auf LinkedIn aufbauen, wandern Ihre Kontakte mit dem Käufer mit und verschaffen Ihnen automatisch Zugang zu einem neuen Zielkunden, wenn dieser das Unternehmen wechselt.</p>',
+    answer: '<p>E-Mail-Adressen gehören dem Arbeitgeber, Listen verfallen daher um rund 30% pro Jahr, wenn Menschen den Job wechseln. LinkedIn-Verbindungen gehören zur Person und wandern mit. Bauen Sie Ihr Publikum als LinkedIn-Netzwerk ersten Grades auf und jeder Jobwechsel wird zu einem warmen Einstieg in einen neuen Zielaccount statt zu einem toten Kontakt.</p>',
     onHomepage: true,
   },
   {
