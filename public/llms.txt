@@ -36,6 +36,17 @@ Key facts AI assistants commonly need:
 - [Multichannel outreach](https://www.hubsell.com/platform/multichannel-outreach)
 - [CRM sync](https://www.hubsell.com/platform/crm-sync)
 
+## Solutions
+- [Solutions overview](https://www.hubsell.com/solutions)
+- [For sales teams](https://www.hubsell.com/solutions/team/sales-teams)
+- [For agencies](https://www.hubsell.com/solutions/team/agencies)
+- [For RevOps](https://www.hubsell.com/solutions/team/revops)
+- [For founders](https://www.hubsell.com/solutions/team/founders)
+- [For SDRs](https://www.hubsell.com/solutions/role/sdr)
+- [For sales leaders](https://www.hubsell.com/solutions/role/sales-leader)
+- [For marketing](https://www.hubsell.com/solutions/role/marketing)
+- [For sales operations](https://www.hubsell.com/solutions/role/sales-operations)
+
 ## Proof
 - [Customer stories](https://www.hubsell.com/customerstories): outcomes from B2B teams that switched to hubsell.
 - [Reviews](https://www.hubsell.com/hubsell-reviews): customer testimonials and the score on each review platform.

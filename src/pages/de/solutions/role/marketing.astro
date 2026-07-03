@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import SolutionDetail from '../../../../components/SolutionDetail.astro';
+import { breadcrumbSchema } from '../../../../data/seo';
+import { getSolutionDetail } from '../../../../data/solutions-i18n';
+import { asLocale, localizeUrl } from '../../../../i18n/utils';
+
+const L = asLocale(Astro.currentLocale);
+const d = getSolutionDetail(L, '/solutions/role/marketing');
+const crumbs = breadcrumbSchema([
+  { name: 'Startseite', url: localizeUrl(L, '/') },
+  { name: 'Lösungen', url: localizeUrl(L, '/solutions') },
+  { name: d.eyebrow, url: localizeUrl(L, '/solutions/role/marketing') },
+]);
+---
+<BaseLayout title={d.title} description={d.metaDescription}>
+  <JsonLd slot="head" schema={crumbs} />
+  <SolutionDetail L={L} data={d} />
+</BaseLayout>

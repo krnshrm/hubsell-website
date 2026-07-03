@@ -4,7 +4,7 @@
 // content collections, so new entries appear here automatically. The remaining live
 // nav links, the account links, and the legal links come from src/data/navigation.ts.
 import { getCollection } from 'astro:content';
-import { menuGroups, topLinks, footerLinks, platformLinks, legalLinks, liveLinks } from '../data/navigation';
+import { menuGroups, topLinks, footerLinks, platformLinks, solutionsTeamLinks, solutionsRoleLinks, legalLinks, liveLinks } from '../data/navigation';
 import { asLocale, useTranslations, localizedHref } from '../i18n/utils';
 import AskAiWidget from './AskAiWidget.astro';
 
@@ -32,10 +32,15 @@ const learn = menuGroups.find((g) => g.heading === 'Learn');
 const company = menuGroups.find((g) => g.heading === 'Company');
 const learnLinks = learn ? liveLinks(learn.links).filter((l) => !expanded.has(l.href)) : [];
 const companyLinks = company ? liveLinks(company.links) : [];
-const resourceLinks = [...learnLinks, ...footerLinks, ...liveLinks(topLinks)];
+const resourceLinks = [...learnLinks, ...footerLinks];
+// Pricing leads the Platform column in the footer (it stays a standalone nav button).
+const platformCol = [...liveLinks(topLinks), ...liveLinks(platformLinks)];
+// Solutions column stacks both axes under one heading.
+const solutionsCol = [...liveLinks(solutionsTeamLinks), ...liveLinks(solutionsRoleLinks)];
 
 const columns = [
-  { heading: t('footer.heading.platform'), links: liveLinks(platformLinks) },
+  { heading: t('footer.heading.platform'), links: platformCol },
+  { heading: t('footer.heading.solutions'), links: solutionsCol },
   { heading: t('footer.heading.resources'), links: resourceLinks },
   {
     heading: t('footer.heading.customerstories'),

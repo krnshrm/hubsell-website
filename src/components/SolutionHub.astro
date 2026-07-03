@@ -1,0 +1,82 @@
+---
+// Body template for the /solutions hub. The route file owns BaseLayout and the
+// breadcrumb JSON-LD. Two labelled sections (By team, By role), each a grid of
+// cards linking to the leaf pages. Background rhythm: sand (hero), paper (team),
+// navy (role), espresso (closing CTA).
+import { localizedHref } from '../i18n/utils';
+import { SIGNUP_URL } from '../data/site';
+import { getSolutionsHub } from '../data/solutions-i18n';
+import type { Locale } from '../i18n/ui';
+
+interface Props { L: Locale }
+const { L } = Astro.props;
+const d = getSolutionsHub(L);
+---
+<!-- 1 · Hero (sand) -->
+<section class="sec sec--sand" aria-labelledby="solhub-title">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:0">
+      <p class="eyebrow is-accent">{d.eyebrow}</p>
+      <h1 id="solhub-title" class="heading_hero" style="margin-top:10px">{d.h1Pre}<span class="accent">{d.h1Accent}</span>{d.h1Post}</h1>
+      <p class="subheading" style="margin-top:16px;max-width:62ch">{d.sub}</p>
+      <p style="margin:28px 0 0"><a href={localizedHref(L, SIGNUP_URL)} class="button">{d.demoCta}</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · By team (paper) -->
+<section class="sec sec--paper" aria-label={d.teamTitle}>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow is-accent">{d.teamEyebrow}</p>
+      <h2 class="heading_primary" style="margin-top:8px">{d.teamTitle}</h2>
+    </div>
+    <div class="solhub-grid">
+      {d.team.map((c) => (
+        <a class="card solhub-card" href={localizedHref(L, c.href)}>
+          <p class="eyebrow is-accent">{c.eyebrow}</p>
+          <h3 class="heading_small" style="margin-top:10px">{c.title}</h3>
+          <p class="paragraph_small" style="margin-top:10px">{c.body}</p>
+          <span class="link" style="margin-top:auto;padding-top:16px;display:inline-block">{c.linkLabel} &rarr;</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- 3 · By role (navy) -->
+<section class="sec sec--navy" aria-label={d.roleTitle}>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow is-accent">{d.roleEyebrow}</p>
+      <h2 class="heading_primary" style="margin-top:8px">{d.roleTitle}</h2>
+    </div>
+    <div class="solhub-grid">
+      {d.role.map((c) => (
+        <a class="card solhub-card" href={localizedHref(L, c.href)}>
+          <p class="eyebrow is-accent">{c.eyebrow}</p>
+          <h3 class="heading_small" style="margin-top:10px">{c.title}</h3>
+          <p class="paragraph_small" style="margin-top:10px">{c.body}</p>
+          <span class="link" style="margin-top:auto;padding-top:16px;display:inline-block">{c.linkLabel} &rarr;</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- 4 · Closing CTA (espresso) -->
+<section class="sec sec--esp" aria-label={d.closing.titlePre + d.closing.titleAccent + d.closing.titlePost}>
+  <div class="wrap" style="text-align:center">
+    <h2 class="heading_primary">{d.closing.titlePre}<span class="accent">{d.closing.titleAccent}</span>{d.closing.titlePost}</h2>
+    <p class="subheading" style="margin:16px auto 0;max-width:56ch">{d.closing.sub}</p>
+    <p style="margin:30px 0 0"><a href={localizedHref(L, SIGNUP_URL)} class="button is-large">{d.closingCta}</a></p>
+  </div>
+</section>
+
+<style>
+  .solhub-grid{ display:grid; grid-template-columns:1fr; gap:20px }
+  .solhub-card{ display:flex; flex-direction:column; text-decoration:none; transition:transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s ease, border-color .3s ease }
+  .solhub-card:hover{ transform:translateY(-4px); border-color:var(--accent-on); box-shadow:0 16px 48px rgba(0,0,0,.08) }
+  @media (min-width:680px){ .solhub-grid{ grid-template-columns:1fr 1fr } }
+  @media (min-width:1000px){ .solhub-grid{ grid-template-columns:1fr 1fr 1fr 1fr } }
+</style>

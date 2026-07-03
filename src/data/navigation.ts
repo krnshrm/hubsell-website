@@ -76,6 +76,40 @@ export const platformLinks: NavLink[] = [
   { label: 'CRM sync', key: 'nav.platform.crmsync', href: '/platform/crm-sync' },
 ];
 
+// Solutions pages, split across two axes. Rendered as a two-column nav menu
+// (By team / By role) and as a two-group footer column.
+export const solutionsTeamLinks: NavLink[] = [
+  { label: 'Sales teams', key: 'nav.sol.salesteams', href: '/solutions/team/sales-teams' },
+  { label: 'Agencies', key: 'nav.sol.agencies', href: '/solutions/team/agencies' },
+  { label: 'RevOps', key: 'nav.sol.revops', href: '/solutions/team/revops' },
+  { label: 'Founders', key: 'nav.sol.founders', href: '/solutions/team/founders' },
+];
+export const solutionsRoleLinks: NavLink[] = [
+  { label: 'SDRs', key: 'nav.sol.sdr', href: '/solutions/role/sdr' },
+  { label: 'Sales leaders', key: 'nav.sol.salesleader', href: '/solutions/role/sales-leader' },
+  { label: 'Marketing', key: 'nav.sol.marketing', href: '/solutions/role/marketing' },
+  { label: 'Sales operations', key: 'nav.sol.salesops', href: '/solutions/role/sales-operations' },
+];
+
+// The primary-nav mega-menus, in display order: Solutions, Platform, then Resources.
+// Each menu has a trigger label (chrome key) and one or more titled columns. Pricing
+// stays a flat top link (topLinks) and renders after these; see Nav.astro.
+export interface NavMenuColumn { headingKey?: string; heading?: string; links: NavLink[] }
+export interface NavMenu { triggerKey: string; trigger: string; href?: string; columns: NavMenuColumn[] }
+export const megaMenus: NavMenu[] = [
+  {
+    triggerKey: 'nav.solutions', trigger: 'Solutions', href: '/solutions',
+    columns: [
+      { headingKey: 'nav.sol.byteam', heading: 'By team', links: solutionsTeamLinks },
+      { headingKey: 'nav.sol.byrole', heading: 'By role', links: solutionsRoleLinks },
+    ],
+  },
+  {
+    triggerKey: 'nav.platform', trigger: 'Platform', href: '/platform',
+    columns: [{ links: platformLinks }],
+  },
+];
+
 // Account / conversion links (the TopBar's Log in + the trial CTA, reused in the footer).
 export const accountLinks: NavLink[] = [
   { label: 'Book a demo', key: 'cta.trial', href: SIGNUP_URL, external: true },

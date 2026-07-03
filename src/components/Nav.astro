@@ -6,7 +6,7 @@
 // Login + language + theme live in the TopBar above this; this bar carries the
 // primary nav (Resources, Pricing) and the trial CTA.
 import { SIGNUP_URL } from '../data/site';
-import { menuGroups, topLinks, liveLinks } from '../data/navigation';
+import { megaMenus, menuGroups, topLinks, liveLinks } from '../data/navigation';
 import { asLocale, useTranslations, localizedHref } from '../i18n/utils';
 
 const LOGO_DARK = 'https://assets.hubsell.com/logo/hubsell-wordmark-dark.svg';   // for light sections
@@ -27,6 +27,21 @@ const t = useTranslations(locale);
     </a>
 
     <nav class="nav__links" aria-label="Primary">
+      {megaMenus.map((menu) => (
+        <div class="nav__group nav__group--mega">
+          <button type="button" class="nav__link nav__trigger" aria-haspopup="true" aria-expanded="false">{t(menu.triggerKey)}</button>
+          <div class="nav__mega">
+            {menu.columns.map((col) => (
+              <div class="nav__megacol">
+                {col.headingKey && <p class="nav__megahead">{t(col.headingKey)}</p>}
+                <ul>
+                  {liveLinks(col.links).map((l) => (<li><a href={localizedHref(locale, l.href!)}>{l.key ? t(l.key) : l.label}</a></li>))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
       <div class="nav__group nav__group--mega">
         <button type="button" class="nav__link nav__trigger" aria-haspopup="true" aria-expanded="false">{t('nav.resources')}</button>
         <div class="nav__mega">
@@ -52,6 +67,14 @@ const t = useTranslations(locale);
   </div>
 
   <div class="nav__mobile" hidden>
+    {megaMenus.map((menu) => (
+      <>
+        <p class="nav__mobhead">{t(menu.triggerKey)}</p>
+        {menu.columns.flatMap((col) => liveLinks(col.links)).map((l) => (
+          <a class="nav__moblink" href={localizedHref(locale, l.href!)}>{l.key ? t(l.key) : l.label}</a>
+        ))}
+      </>
+    ))}
     <p class="nav__mobhead">{t('nav.resources')}</p>
     {menuGroups.flatMap((g) => liveLinks(g.links)).map((l) => (
       <a class="nav__moblink" href={localizedHref(locale, l.href!)}>{l.key ? t(l.key) : l.label}</a>

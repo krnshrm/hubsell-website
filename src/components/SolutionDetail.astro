@@ -1,0 +1,120 @@
+---
+// Shared body template for the /solutions leaf pages (team + role). The route file
+// owns BaseLayout, title/description, and breadcrumb JSON-LD; this renders the
+// sections. Jobs-to-be-done framing: hero, the jobs, how hubsell helps (each block
+// links out to a platform or use-case page), proof (story + quote, or quote only),
+// FAQ picks, closing CTA. Background rhythm: sand, paper, navy, sand, paper, esp.
+import { localizedHref } from '../i18n/utils';
+import { SIGNUP_URL } from '../data/site';
+import { getHome } from '../data/home-i18n';
+import { getSolutionQuote } from '../data/solutions-i18n';
+import type { SolutionDetailData } from '../data/solutions-content';
+import type { Locale } from '../i18n/ui';
+import PlatformStoryCard from './PlatformStoryCard.astro';
+import PlatformFaqPicks from './PlatformFaqPicks.astro';
+
+interface Props { L: Locale; data: SolutionDetailData }
+const { L, data: d } = Astro.props;
+const { s } = getHome(L);
+const quote = getSolutionQuote(L, d.quoteSlug);
+---
+<!-- 1 · Hero (sand) -->
+<section class="sec sec--sand" aria-labelledby="sol-title">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:0">
+      <p class="eyebrow is-accent">{d.eyebrow}</p>
+      <h1 id="sol-title" class="heading_hero" style="margin-top:10px">{d.h1Pre}<span class="accent">{d.h1Accent}</span>{d.h1Post}</h1>
+      <p class="subheading" style="margin-top:16px;max-width:62ch">{d.sub}</p>
+      <p style="margin:28px 0 0"><a href={localizedHref(L, SIGNUP_URL)} class="button">{d.demoCta}</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · The jobs to be done (paper) -->
+<section class="sec sec--paper" aria-label={d.jobsTitle}>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow is-accent">{d.jobsEyebrow}</p>
+      <h2 class="heading_primary" style="margin-top:8px">{d.jobsTitle}</h2>
+    </div>
+    <ol class="sol-jobs">
+      {d.jobs.map((j, i) => (
+        <li class="sol-job">
+          <span class="sol-job__n">{String(i + 1).padStart(2, '0')}</span>
+          <p class="paragraph" style="margin:0">{j}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<!-- 3 · How hubsell helps (navy) -->
+<section class="sec sec--navy" aria-label={d.howTitle}>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow is-accent">{d.howEyebrow}</p>
+      <h2 class="heading_primary" style="margin-top:8px">{d.howTitle}</h2>
+    </div>
+    <div class="sol-how">
+      {d.how.map((h) => (
+        <div class="card sol-howcard">
+          <h3 class="heading_small">{h.title}</h3>
+          <p class="paragraph_small" style="margin-top:10px">{h.body}</p>
+          <a href={localizedHref(L, h.href)} class="link" style="margin-top:auto;padding-top:16px;display:inline-block">{h.linkLabel} &rarr;</a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- 4 · Proof: story (optional) + quote (sand) -->
+<section class="sec sec--sand" aria-label={d.proofTitle}>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow is-accent">{d.proofEyebrow}</p>
+      <h2 class="heading_primary" style="margin-top:8px">{d.proofTitle}</h2>
+    </div>
+    <div class={d.storySlug ? 'sol-proof' : 'sol-proof is-solo'}>
+      {d.storySlug && <PlatformStoryCard L={L} slug={d.storySlug} label={d.storyLabel ?? ''} />}
+      {quote && (
+        <figure class="card sol-quote">
+          <blockquote class="quote" style="margin:0">&ldquo;{quote.quote}&rdquo;</blockquote>
+          <figcaption class="paragraph_small" style="margin-top:16px">
+            <b>{quote.name}</b>{quote.title && `, ${quote.title}`}{quote.company && ` \u00b7 ${quote.company}`}
+          </figcaption>
+        </figure>
+      )}
+    </div>
+  </div>
+</section>
+
+<!-- 5 · FAQ picks (paper) -->
+<PlatformFaqPicks L={L} eyebrow={d.faqEyebrow} title={d.faqTitle} slugs={d.faqSlugs} seeAll={s.faqSec.seeAll} tone="paper" />
+
+<!-- 6 · Closing CTA (espresso) -->
+<section class="sec sec--esp" aria-label={d.closing.titlePre + d.closing.titleAccent + d.closing.titlePost}>
+  <div class="wrap" style="text-align:center">
+    <h2 class="heading_primary">{d.closing.titlePre}<span class="accent">{d.closing.titleAccent}</span>{d.closing.titlePost}</h2>
+    <p class="subheading" style="margin:16px auto 0;max-width:56ch">{d.closing.sub}</p>
+    <p style="margin:30px 0 0"><a href={localizedHref(L, SIGNUP_URL)} class="button is-large">{d.closingCta}</a></p>
+  </div>
+</section>
+
+<style>
+  .sol-jobs{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr; gap:16px; counter-reset:none }
+  .sol-job{ display:flex; gap:18px; align-items:flex-start; padding:20px 0; border-top:1px solid var(--sec-bd) }
+  .sol-job:first-child{ border-top:0 }
+  .sol-job__n{ font-family:var(--font-head); font-weight:600; font-size:1.1rem; color:var(--accent-on); flex:none; line-height:1.5 }
+
+  .sol-how{ display:grid; grid-template-columns:1fr; gap:20px }
+  .sol-howcard{ display:flex; flex-direction:column }
+
+  .sol-proof{ display:grid; grid-template-columns:1fr; gap:20px; align-items:stretch }
+  .sol-proof.is-solo{ max-width:720px }
+  .sol-quote{ display:flex; flex-direction:column; justify-content:center }
+
+  @media (min-width:760px){
+    .sol-how{ grid-template-columns:1fr 1fr 1fr }
+    .sol-proof:not(.is-solo){ grid-template-columns:1fr 1fr }
+  }
+</style>
