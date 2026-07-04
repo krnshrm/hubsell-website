@@ -5,8 +5,8 @@
 // nav links, the account links, and the legal links come from src/data/navigation.ts.
 import { getCollection } from 'astro:content';
 import { menuGroups, topLinks, footerLinks, platformLinks, solutionsTeamLinks, solutionsRoleLinks, legalLinks, liveLinks } from '../data/navigation';
+import { SIGNUP_URL } from '../data/site';
 import { asLocale, useTranslations, localizedHref } from '../i18n/utils';
-import AskAiWidget from './AskAiWidget.astro';
 
 const year = new Date().getFullYear();
 const LOGO_LIGHT = 'https://assets.hubsell.com/logo/hubsell-wordmark-light.svg'; // cream wordmark for the dark footer
@@ -32,15 +32,23 @@ const learn = menuGroups.find((g) => g.heading === 'Learn');
 const company = menuGroups.find((g) => g.heading === 'Company');
 const learnLinks = learn ? liveLinks(learn.links).filter((l) => !expanded.has(l.href)) : [];
 const companyLinks = company ? liveLinks(company.links) : [];
+
+// Get started: Pricing plus Book a demo (Sign up rejoins once the signup page ships).
+const getStartedCol = [
+  ...liveLinks(topLinks),                                   // Pricing (/#pricing)
+  { label: t('cta.trial'), href: SIGNUP_URL, external: true }, // Book a demo
+];
+// Solutions column = the team pages; Roles column = the role pages (Apollo's split).
+const solutionsCol = liveLinks(solutionsTeamLinks);
+const rolesCol = liveLinks(solutionsRoleLinks);
+// Resources = the Learn links (Insights and so on) plus the footer-only links (Use cases, FAQ).
 const resourceLinks = [...learnLinks, ...footerLinks];
-// Pricing leads the Platform column in the footer (it stays a standalone nav button).
-const platformCol = [...liveLinks(topLinks), ...liveLinks(platformLinks)];
-// Solutions column stacks both axes under one heading.
-const solutionsCol = [...liveLinks(solutionsTeamLinks), ...liveLinks(solutionsRoleLinks)];
 
 const columns = [
-  { heading: t('footer.heading.platform'), links: platformCol },
+  { heading: t('footer.heading.getstarted'), links: getStartedCol },
   { heading: t('footer.heading.solutions'), links: solutionsCol },
+  { heading: t('footer.heading.platform'), links: liveLinks(platformLinks) },
+  { heading: t('footer.heading.roles'), links: rolesCol },
   { heading: t('footer.heading.resources'), links: resourceLinks },
   {
     heading: t('footer.heading.customerstories'),
@@ -87,7 +95,6 @@ const columns = [
 
     <div class="site-footer__bottom">
       <p class="site-footer__meta">© 2016–{year} hubsell UG · Friedrichstrasse 155, 10117 Berlin, {t('footer.country')} · HRB 175309B · DE305258320</p>
-      <AskAiWidget />
     </div>
   </div>
 </footer>
