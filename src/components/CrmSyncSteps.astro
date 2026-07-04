@@ -1,0 +1,126 @@
+---
+// Stepped detail visual for /platform/crm-sync. Expands the CrmSyncTracker embed
+// into three walked steps: (1) every activity is captured, (2) it maps to the
+// right CRM fields, (3) it syncs two-way in real time with no middleware. Same
+// 2-column row shape and white-card / green vocabulary. Animated, reduced-motion
+// safe. CRM brand names stay English on purpose.
+import { et } from '../data/embed-i18n';
+import { asLocale } from '../i18n/utils';
+const L = asLocale(Astro.currentLocale);
+---
+<div class="crs" data-crs>
+  <!-- STEP 1 — capture -->
+  <div class="crs-step">
+    <div class="crs-text">
+      <span class="crs-num">01</span>
+      <h3 class="heading_small">{et(L, 'Every activity captured')}</h3>
+      <p class="paragraph_small crs-cap">{et(L, 'Sends, opens, replies, and calls are logged as they happen.')}</p>
+    </div>
+    <div class="crs-viz">
+      <div class="crs-feed card">
+        <div class="crs-frow"><span class="crs-fdot"></span>{et(L, 'Email sent')}<span class="crs-ftime">09:04</span></div>
+        <div class="crs-frow"><span class="crs-fdot"></span>{et(L, 'Email opened')}<span class="crs-ftime">09:12</span></div>
+        <div class="crs-frow"><span class="crs-fdot"></span>{et(L, 'Reply received')}<span class="crs-ftime">10:20</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 — map to fields -->
+  <div class="crs-step">
+    <div class="crs-text">
+      <span class="crs-num">02</span>
+      <h3 class="heading_small">{et(L, 'Mapped to the right fields')}</h3>
+      <p class="paragraph_small crs-cap">{et(L, 'Each activity lands on the correct contact, deal, and field.')}</p>
+    </div>
+    <div class="crs-viz">
+      <div class="crs-map">
+        <div class="crs-src">{et(L, 'Activity')}</div>
+        <svg class="crs-arrow" viewBox="0 0 60 24" aria-hidden="true"><path class="crs-flow" d="M0 12 H50"/><path d="M46 6 L56 12 L46 18" fill="none"/></svg>
+        <div class="crs-fields">
+          <span>{et(L, 'Contact')}</span><span>{et(L, 'Deal stage')}</span><span>{et(L, 'Last touch')}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 — two-way sync -->
+  <div class="crs-step">
+    <div class="crs-text">
+      <span class="crs-num">03</span>
+      <h3 class="heading_small">{et(L, 'Two-way, in real time')}</h3>
+      <p class="paragraph_small crs-cap">{et(L, 'Salesforce, HubSpot, and Pipedrive stay current, no middleware to run.')}</p>
+    </div>
+    <div class="crs-viz">
+      <div class="crs-sync">
+        <div class="crs-hub">hubsell</div>
+        <svg class="crs-twoway" viewBox="0 0 80 40" preserveAspectRatio="none" aria-hidden="true">
+          <path class="crs-flow" d="M0 14 H80"/><path d="M74 9 L84 14 L74 19" fill="none" transform="translate(-4,0)"/>
+          <path class="crs-flow" d="M80 26 H0"/><path d="M6 21 L-4 26 L6 31" fill="none" transform="translate(4,0)"/>
+        </svg>
+        <div class="crs-crms">
+          <span>Salesforce</span><span>HubSpot</span><span>Pipedrive</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .crs{ display:flex; flex-direction:column; gap:14px }
+  .crs-step{ display:grid; grid-template-columns:1fr; gap:16px; align-items:center;
+    border:1px solid var(--sec-bd); border-radius:16px; padding:22px; background:color-mix(in srgb, var(--sec-tx) 3%, transparent) }
+  .crs-num{ font-family:var(--font-head); font-weight:600; font-size:.95rem; color:var(--accent-on) }
+  .crs-text .heading_small{ margin:6px 0 0 }
+  .crs-cap{ margin:8px 0 0; max-width:44ch }
+  .crs-viz{ display:flex; align-items:center; justify-content:center; min-height:120px }
+
+  .crs-feed{ width:100%; max-width:320px; padding:14px 18px }
+  .crs-frow{ display:flex; align-items:center; gap:10px; padding:9px 0; border-top:1px solid var(--sec-bd); font:500 13.5px/1 var(--font-body); color:var(--sec-tx) }
+  .crs-frow:first-child{ border-top:0 }
+  .crs-fdot{ width:8px; height:8px; border-radius:50%; background:#2FA06E; flex:none; box-shadow:0 0 0 3px rgba(47,160,110,.18) }
+  .crs-ftime{ margin-left:auto; font:500 12px/1 var(--font-body); color:var(--sec-tx); opacity:.55 }
+
+  .crs-map{ display:flex; align-items:center; gap:12px; width:100%; justify-content:center; flex-wrap:wrap }
+  .crs-src{ background:#FFFFFF; color:#192341; border:1px solid #E5E7EB; border-radius:10px; padding:10px 16px; font:500 13px/1 var(--font-body); box-shadow:0 4px 12px rgba(0,0,0,.10) }
+  .crs-fields{ display:flex; flex-direction:column; gap:6px }
+  .crs-fields span{ background:#FFFFFF; color:#155C3F; border:1px solid #2FA06E; border-radius:8px; padding:7px 12px; font:600 12px/1 var(--font-body) }
+  .crs-arrow{ width:60px; height:24px; color:#2FA06E; flex:none }
+  .crs-arrow path{ stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; fill:none }
+
+  .crs-sync{ display:flex; align-items:center; gap:10px; width:100%; justify-content:center; flex-wrap:wrap }
+  .crs-hub{ background:#FFFFFF; color:#155C3F; border:2px solid #2FA06E; border-radius:12px; padding:12px 18px; font:600 15px/1 var(--font-head); box-shadow:0 6px 16px rgba(47,160,110,.18) }
+  .crs-twoway{ width:80px; height:40px; color:#2FA06E; flex:none }
+  .crs-twoway path{ stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; fill:none }
+  .crs-crms{ display:flex; flex-direction:column; gap:6px }
+  .crs-crms span{ background:#FFFFFF; color:#192341; border:1px solid #E5E7EB; border-radius:8px; padding:7px 12px; font:500 12.5px/1 var(--font-body); box-shadow:0 3px 8px rgba(0,0,0,.10) }
+
+  .crs-flow{ stroke:#2FA06E; stroke-width:2; fill:none }
+
+  @media (min-width:760px){
+    .crs-step{ grid-template-columns:0.9fr 1.1fr; gap:28px; padding:26px 30px }
+  }
+
+  :global(html.has-anim) [data-crs] .crs-step{ opacity:0; transform:translateY(16px) }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  function initCrmSyncSteps() {
+    const wrap = document.querySelector('[data-crs]') as HTMLElement | null;
+    if (!wrap || wrap.dataset.init) return;
+    if (!document.documentElement.classList.contains('has-anim')) return;
+    wrap.dataset.init = '1';
+    gsap.registerPlugin(ScrollTrigger);
+
+    const steps = Array.from(wrap.querySelectorAll('.crs-step')) as HTMLElement[];
+    steps.forEach((step) => {
+      gsap.timeline({ scrollTrigger: { trigger: step, start: 'top 82%', toggleActions: 'play none none none' } })
+        .fromTo(step, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', clearProps: 'transform' });
+    });
+  }
+
+  initCrmSyncSteps();
+  document.addEventListener('astro:page-load', initCrmSyncSteps);
+</script>

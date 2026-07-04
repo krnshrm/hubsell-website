@@ -10,6 +10,8 @@ export interface PlatformRow {
   titlePre: string; titleAccent: string; titlePost: string;
   points: string[];
   embed: PlatformEmbedKey;
+  stepEyebrow?: string;
+  stepTitle?: string;
 }
 
 export interface PlatformClosing { titlePre: string; titleAccent: string; titlePost: string; sub: string }
@@ -36,7 +38,7 @@ export interface PlatformDetailData {
 }
 
 export interface PlatformCapabilityCard {
-  eyebrow: string; title: string; body: string; href: string; linkLabel: string;
+  eyebrow: string; title: string; body: string; href: string; linkLabel: string; steps?: string[];
 }
 
 export interface PlatformOverviewData {
@@ -67,8 +69,8 @@ export const platform: PlatformData = {
     title: 'The hubsell platform: live data, multichannel outreach, and CRM sync',
     metaDescription: 'One platform that sources B2B contacts live, runs email, LinkedIn, and phone outreach in one flow, and logs everything to your CRM automatically.',
     eyebrow: 'The platform',
-    h1Pre: 'Three tools\u2019 worth of work. ', h1Accent: 'One platform', h1Post: '.',
-    sub: 'hubsell replaces your data provider, your outreach tool, and your sync middleware with one system: live data, multichannel outreach, and automatic CRM sync.',
+    h1Pre: 'Six tools\u2019 worth of work. ', h1Accent: 'One platform', h1Post: '.',
+    sub: 'hubsell replaces your data, enrichment, sequencer, deliverability, dialer, and CRM sync tools with one system: live data, multichannel outreach, and automatic CRM sync.',
     demoCta: 'Book a demo',
     problemEyebrow: 'The problem',
     problemTitlePre: 'Most outbound stacks are three subscriptions ', problemTitleAccent: 'duct-taped together', problemTitlePost: '.',
@@ -84,18 +86,21 @@ export const platform: PlatformData = {
         title: 'Sourced the day you ask',
         body: 'hubsell does not sell access to a static database. Define your ICP and we source contacts live from LinkedIn, matched to your criteria and verified at the point of use.',
         href: '/platform/live-data', linkLabel: 'Explore live data',
+        steps: ['Six live sources', 'Pooled into your ICP', 'Verified at the point of use'],
       },
       {
         eyebrow: 'Multichannel outreach',
         title: 'Email, LinkedIn, and phone in one flow',
         body: 'One coordinated sequence across all three channels, with branching that reacts to what each contact does and sending spread safely across your team\u2019s profiles.',
         href: '/platform/multichannel-outreach', linkLabel: 'Explore multichannel outreach',
+        steps: ['One sequence, not three tools', 'Email, LinkedIn, and phone', 'Reacts to what they do'],
       },
       {
         eyebrow: 'CRM sync',
         title: 'Every touchpoint logged automatically',
         body: 'Sends, opens, replies, and connections land in Salesforce, HubSpot, or Pipedrive the moment they happen. No manual entry, no data rot.',
         href: '/platform/crm-sync', linkLabel: 'Explore CRM sync',
+        steps: ['Every activity captured', 'Mapped to the right fields', 'Two-way, in real time'],
       },
     ],
     resultsEyebrow: 'Why it works',
@@ -142,6 +147,8 @@ export const platform: PlatformData = {
           'Signals tell you who is worth contacting this week, not just who matches a filter.',
         ],
         embed: '05-sp-widget',
+        stepEyebrow: 'How it works',
+        stepTitle: 'From live signal to verified contact',
       },
       gridTitlePre: 'Data that is ', gridTitleAccent: 'correct on the day you use it', gridTitlePost: '',
       blocks: [
@@ -193,6 +200,8 @@ export const platform: PlatformData = {
           'Branching conditions route every contact on what they do: opened, replied, accepted, or went quiet.',
         ],
         embed: '06-multichannel-flow',
+        stepEyebrow: 'How it works',
+        stepTitle: 'One flow across every channel',
       },
       gridTitlePre: 'Built to ', gridTitleAccent: 'get delivered and get answered', gridTitlePost: '',
       blocks: [
@@ -244,6 +253,8 @@ export const platform: PlatformData = {
           'No manual entry. No data rot. Your team works the pipeline, not the spreadsheet.',
         ],
         embed: '07-crm-sync-tracker',
+        stepEyebrow: 'How it works',
+        stepTitle: 'From activity to synced record',
       },
       gridTitlePre: 'A system of record you can ', gridTitleAccent: 'finally trust', gridTitlePost: '',
       blocks: [

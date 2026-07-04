@@ -1,0 +1,147 @@
+---
+// Stepped How-section visual for /solutions/team/agencies. Renders the page's three how blocks
+// (already translated) as detailed rows, each with a small self-contained visual.
+// Reuses the card / chip / node / green vocabulary from the platform visuals.
+// Animated on scroll, reduced-motion safe.
+import { et } from '../data/embed-i18n';
+import { localizedHref, asLocale } from '../i18n/utils';
+import type { Locale } from '../i18n/ui';
+import type { SolutionHow } from '../data/solutions-content';
+
+interface Props { L: Locale; how: SolutionHow[] }
+const { L, how } = Astro.props;
+const el = asLocale(Astro.currentLocale);
+---
+<div class="solviz" data-solviz>
+  <div class="sv-step">
+    <div class="sv-text">
+      <span class="sv-num">01</span>
+      <h3 class="heading_small">{how[0].title}</h3>
+      <p class="paragraph_small sv-cap">{how[0].body}</p>
+      <a href={localizedHref(L, how[0].href)} class="link sv-link">{how[0].linkLabel} &rarr;</a>
+    </div>
+    <div class="sv-viz">
+      <div class="sv-fan">
+        <div class="sv-col">
+          <span class="sv-chip"><i class="sv-dot"></i>{et(el, 'Following company')}</span>
+          <span class="sv-chip"><i class="sv-dot"></i>{et(el, 'Engaged with post')}</span>
+          <span class="sv-chip"><i class="sv-dot"></i>{et(el, 'Changed jobs')}</span>
+        </div>
+        <svg class="sv-conv" viewBox="0 0 40 90" preserveAspectRatio="none" aria-hidden="true"><path class="sv-flow" d="M0 15 H20 V45 M0 45 H20 M0 75 H20 V45"/></svg>
+        <span class="sv-node"><i class="sv-nodedot"></i>{et(el, 'Your true ICP')}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sv-step">
+    <div class="sv-text">
+      <span class="sv-num">02</span>
+      <h3 class="heading_small">{how[1].title}</h3>
+      <p class="paragraph_small sv-cap">{how[1].body}</p>
+      <a href={localizedHref(L, how[1].href)} class="link sv-link">{how[1].linkLabel} &rarr;</a>
+    </div>
+    <div class="sv-viz">
+      <div class="sv-meter card">
+        <div class="sv-mtop"><span>{et(el, 'Safe sending')}</span><b>{et(el, 'Healthy')}</b></div>
+        <div class="sv-bar"><i style="width:82%"></i></div>
+        <p class="sv-mnote">{et(el, 'Spread across sender profiles, within limits.')}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sv-step">
+    <div class="sv-text">
+      <span class="sv-num">03</span>
+      <h3 class="heading_small">{how[2].title}</h3>
+      <p class="paragraph_small sv-cap">{how[2].body}</p>
+      <a href={localizedHref(L, how[2].href)} class="link sv-link">{how[2].linkLabel} &rarr;</a>
+    </div>
+    <div class="sv-viz">
+      <div class="sv-report card">
+        <div class="sv-rrow"><span>{et(el, 'Meetings booked')}</span><b>24</b></div>
+        <div class="sv-rrow"><span>{et(el, 'Pipeline added')}</span><b>+18%</b></div>
+        <div class="sv-rrow"><span>{et(el, 'Reply rate')}</span><b>9.1%</b></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .solviz{ display:flex; flex-direction:column; gap:14px }
+  .sv-step{ display:grid; grid-template-columns:1fr; gap:16px; align-items:center;
+    border:1px solid var(--sec-bd); border-radius:16px; padding:22px; background:color-mix(in srgb, var(--sec-tx) 4%, transparent) }
+  .sv-num{ font-family:var(--font-head); font-weight:600; font-size:.95rem; color:var(--accent-on) }
+  .sv-text .heading_small{ margin:6px 0 0 }
+  .sv-cap{ margin:8px 0 0; max-width:46ch }
+  .sv-link{ display:inline-block; margin-top:14px }
+  .sv-viz{ display:flex; align-items:center; justify-content:center; min-height:120px }
+
+  .sv-chip{ display:inline-flex; align-items:center; gap:8px; background:#FFFFFF; color:#192341; border:1px solid #E5E7EB;
+    border-radius:10px; padding:8px 12px; font:500 12.5px/1 var(--font-body); box-shadow:0 4px 12px rgba(0,0,0,.10); white-space:nowrap }
+  .sv-dot{ width:8px; height:8px; border-radius:50%; background:#2FA06E; flex:none; box-shadow:0 0 0 3px rgba(47,160,110,.18) }
+  .sv-fan{ display:flex; align-items:center; gap:6px }
+  .sv-col{ display:flex; flex-direction:column; gap:8px }
+  .sv-conv{ width:40px; height:90px; color:#2FA06E; flex:none }
+  .sv-flow{ stroke:#2FA06E; stroke-width:2; fill:none }
+  .sv-node{ display:inline-flex; align-items:center; gap:7px; background:#FFFFFF; color:#155C3F; border:2px solid #2FA06E;
+    border-radius:20px; padding:9px 14px; font:600 12px/1 var(--font-head); box-shadow:0 6px 16px rgba(47,160,110,.18); white-space:nowrap }
+  .sv-nodedot{ width:9px; height:9px; border-radius:50%; background:#2FA06E; flex:none }
+
+  .sv-channels{ display:flex; gap:10px; flex-wrap:wrap; justify-content:center }
+  .sv-chan{ background:#FFFFFF; color:#192341; border:1px solid #E5E7EB; border-radius:10px; padding:10px 16px;
+    font:500 13.5px/1 var(--font-body); box-shadow:0 4px 12px rgba(0,0,0,.10) }
+
+  .sv-feed{ width:100%; max-width:330px; padding:14px 18px }
+  .sv-frow{ display:flex; align-items:center; gap:10px; padding:9px 0; border-top:1px solid var(--sec-bd);
+    font:500 13px/1 var(--font-body); color:var(--sec-tx) }
+  .sv-frow:first-child{ border-top:0 }
+  .sv-frow b{ margin-left:auto; font:600 11.5px/1 var(--font-body); color:#155C3F; background:#E4F2EA; border-radius:999px; padding:4px 9px }
+
+  @media (min-width:760px){
+    .sv-step{ grid-template-columns:1.05fr 0.95fr; gap:30px; padding:26px 30px }
+  }
+  :global(html.has-anim) [data-solviz] .sv-step{ opacity:0; transform:translateY(16px) }
+</style>
+<style>
+  .sv-center{ display:flex; justify-content:center; width:100% }
+  .sv-node-lg{ font-size:14px; padding:12px 20px }
+  .sv-cluster{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; padding:14px; border:2px solid #2FA06E; border-radius:14px; background:rgba(47,160,110,.06) }
+  .sv-tool{ background:#FFFFFF; color:#192341; border:1px solid #2FA06E; border-radius:8px; padding:8px 10px; font:500 11.5px/1 var(--font-body); text-align:center }
+  .sv-meter,.sv-report,.sv-time{ width:100%; max-width:330px; padding:16px 18px }
+  .sv-mtop{ display:flex; align-items:center; justify-content:space-between; font:500 13px/1 var(--font-body); color:var(--sec-tx) }
+  .sv-mtop b{ color:#155C3F; background:#E4F2EA; border-radius:999px; padding:4px 9px; font:600 11.5px/1 var(--font-body) }
+  .sv-bar{ height:10px; border-radius:999px; background:color-mix(in srgb,var(--sec-tx) 12%,transparent); margin:12px 0 10px; overflow:hidden }
+  .sv-bar i{ display:block; height:100%; background:#2FA06E; border-radius:999px }
+  .sv-mnote{ margin:0; font:500 12px/1.5 var(--font-body); color:var(--sec-tx); opacity:.68 }
+  .sv-rrow,.sv-barrow{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:9px 0; border-top:1px solid var(--sec-bd); font:500 13px/1 var(--font-body); color:var(--sec-tx) }
+  .sv-rrow:first-child{ border-top:0 }
+  .sv-rrow b{ color:#155C3F }
+  .sv-bars{ display:flex; flex-direction:column; gap:12px; width:100%; max-width:340px }
+  .sv-barrow{ border-top:0; padding:4px 0 }
+  .sv-barrow span{ width:64px; flex:none }
+  .sv-bar2{ flex:1; height:12px; border-radius:999px; background:color-mix(in srgb,var(--sec-tx) 12%,transparent); overflow:hidden }
+  .sv-bar2 i{ display:block; height:100%; background:#2FA06E; border-radius:999px }
+  .sv-bar2 i.is-low{ background:var(--accent-on) }
+  .sv-barrow b{ width:48px; text-align:right; flex:none; color:var(--sec-tx) }
+  .sv-network{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:center; max-width:280px }
+  .sv-ndot{ width:16px; height:16px; border-radius:50%; background:#FFFFFF; border:1px solid #E5E7EB; box-shadow:0 3px 8px rgba(0,0,0,.12) }
+  .sv-ndot.is-warm{ background:#2FA06E; border-color:#2FA06E; box-shadow:0 0 0 4px rgba(47,160,110,.18) }
+  .sv-tbig{ font:600 1.4rem/1 var(--font-head); color:#155C3F }
+</style>
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  function initSolVizAgencies() {
+    const wrap = document.querySelector('[data-solviz]') as HTMLElement | null;
+    if (!wrap || wrap.dataset.init) return;
+    if (!document.documentElement.classList.contains('has-anim')) return;
+    wrap.dataset.init = '1';
+    gsap.registerPlugin(ScrollTrigger);
+    (Array.from(wrap.querySelectorAll('.sv-step')) as HTMLElement[]).forEach((step) => {
+      gsap.timeline({ scrollTrigger: { trigger: step, start: 'top 82%', toggleActions: 'play none none none' } })
+        .fromTo(step, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', clearProps: 'transform' });
+    });
+  }
+  initSolVizAgencies();
+  document.addEventListener('astro:page-load', initSolVizAgencies);
+</script>

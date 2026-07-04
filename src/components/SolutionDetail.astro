@@ -12,11 +12,31 @@ import type { SolutionDetailData } from '../data/solutions-content';
 import type { Locale } from '../i18n/ui';
 import PlatformStoryCard from './PlatformStoryCard.astro';
 import PlatformFaqPicks from './PlatformFaqPicks.astro';
+import SolutionStepsSalesTeams from './SolutionStepsSalesTeams.astro';
+import SolutionStepsAgencies from './SolutionStepsAgencies.astro';
+import SolutionStepsRevops from './SolutionStepsRevops.astro';
+import SolutionStepsFounders from './SolutionStepsFounders.astro';
+import SolutionStepsSdr from './SolutionStepsSdr.astro';
+import SolutionStepsSalesLeader from './SolutionStepsSalesLeader.astro';
+import SolutionStepsMarketing from './SolutionStepsMarketing.astro';
+import SolutionStepsSalesOperations from './SolutionStepsSalesOperations.astro';
+
+const STEP_VISUALS: Record<string, any> = {
+  '/solutions/team/sales-teams': SolutionStepsSalesTeams,
+  '/solutions/team/agencies': SolutionStepsAgencies,
+  '/solutions/team/revops': SolutionStepsRevops,
+  '/solutions/team/founders': SolutionStepsFounders,
+  '/solutions/role/sdr': SolutionStepsSdr,
+  '/solutions/role/sales-leader': SolutionStepsSalesLeader,
+  '/solutions/role/marketing': SolutionStepsMarketing,
+  '/solutions/role/sales-operations': SolutionStepsSalesOperations,
+};
 
 interface Props { L: Locale; data: SolutionDetailData }
 const { L, data: d } = Astro.props;
 const { s } = getHome(L);
 const quote = getSolutionQuote(L, d.quoteSlug);
+const StepVisual = STEP_VISUALS[d.path];
 ---
 <!-- 1 · Hero (sand) -->
 <section class="sec sec--sand" aria-labelledby="sol-title">
@@ -55,15 +75,19 @@ const quote = getSolutionQuote(L, d.quoteSlug);
       <p class="eyebrow is-accent">{d.howEyebrow}</p>
       <h2 class="heading_primary" style="margin-top:8px">{d.howTitle}</h2>
     </div>
-    <div class="sol-how">
-      {d.how.map((h) => (
-        <div class="card sol-howcard">
-          <h3 class="heading_small">{h.title}</h3>
-          <p class="paragraph_small" style="margin-top:10px">{h.body}</p>
-          <a href={localizedHref(L, h.href)} class="link" style="margin-top:auto;padding-top:16px;display:inline-block">{h.linkLabel} &rarr;</a>
+    {StepVisual
+      ? <StepVisual L={L} how={d.how} />
+      : (
+        <div class="sol-how">
+          {d.how.map((h) => (
+            <div class="card sol-howcard">
+              <h3 class="heading_small">{h.title}</h3>
+              <p class="paragraph_small" style="margin-top:10px">{h.body}</p>
+              <a href={localizedHref(L, h.href)} class="link" style="margin-top:auto;padding-top:16px;display:inline-block">{h.linkLabel} &rarr;</a>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
+      )}
   </div>
 </section>
 

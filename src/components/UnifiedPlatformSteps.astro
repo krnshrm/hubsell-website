@@ -1,0 +1,120 @@
+---
+// Stepped visual for the /platform overview problem section. Three walked steps:
+// (1) six disconnected point tools, (2) they wire onto one data set, (3) one
+// system, one invoice. Same 2-column row shape and white-card / green vocabulary.
+// Animated, reduced-motion safe.
+import { et } from '../data/embed-i18n';
+import { asLocale } from '../i18n/utils';
+const L = asLocale(Astro.currentLocale);
+
+const TOOLS = ['Data', 'Enrichment', 'Sequencer', 'Deliverability', 'Dialer', 'CRM sync'];
+---
+<div class="ups" data-ups>
+  <!-- STEP 1 — fragmented -->
+  <div class="ups-step">
+    <div class="ups-text">
+      <span class="ups-num">01</span>
+      <h3 class="heading_small">{et(L, 'Six tools that do not talk')}</h3>
+      <p class="paragraph_small ups-cap">{et(L, 'A separate point tool for each job, and a separate invoice.')}</p>
+    </div>
+    <div class="ups-viz">
+      <div class="ups-scatter">
+        {TOOLS.map((tool) => (<div class="ups-tool is-loose">{et(L, tool)}</div>))}
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 — connect -->
+  <div class="ups-step">
+    <div class="ups-text">
+      <span class="ups-num">02</span>
+      <h3 class="heading_small">{et(L, 'Wired onto one data set')}</h3>
+      <p class="paragraph_small ups-cap">{et(L, 'hubsell runs every job on the same live data, so nothing decays in a handover.')}</p>
+    </div>
+    <div class="ups-viz">
+      <div class="ups-connect">
+        <div class="ups-ring">
+          {TOOLS.map((tool) => (<div class="ups-tool is-wired">{et(L, tool)}</div>))}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 — one system -->
+  <div class="ups-step">
+    <div class="ups-text">
+      <span class="ups-num">03</span>
+      <h3 class="heading_small">{et(L, 'One system, one invoice')}</h3>
+      <p class="paragraph_small ups-cap">{et(L, 'Source, sequence, and sync from a single workspace.')}</p>
+    </div>
+    <div class="ups-viz">
+      <div class="ups-one">
+        <div class="ups-hub">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          hubsell
+        </div>
+        <p class="ups-onecap">{et(L, 'Live data, outreach, and CRM sync in one place.')}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .ups{ display:flex; flex-direction:column; gap:14px }
+  .ups-step{ display:grid; grid-template-columns:1fr; gap:16px; align-items:center;
+    border:1px solid var(--sec-bd); border-radius:16px; padding:22px; background:color-mix(in srgb, var(--sec-tx) 4%, transparent) }
+  .ups-num{ font-family:var(--font-head); font-weight:600; font-size:.95rem; color:var(--accent-on) }
+  .ups-text .heading_small{ margin:6px 0 0 }
+  .ups-cap{ margin:8px 0 0; max-width:44ch }
+  .ups-viz{ display:flex; align-items:center; justify-content:center; min-height:130px }
+
+  .ups-tool{ background:#FFFFFF; color:#192341; border:1px solid #E5E7EB; border-radius:10px; padding:9px 13px; font:500 12.5px/1 var(--font-body); box-shadow:0 4px 12px rgba(0,0,0,.10) }
+
+  /* step 1 — scattered, tilted */
+  .ups-scatter{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; max-width:360px }
+  .ups-tool.is-loose:nth-child(2n){ transform:rotate(-3deg) }
+  .ups-tool.is-loose:nth-child(3n){ transform:rotate(2.5deg) }
+
+  /* step 2 — aligned in a bordered frame joined by green */
+  .ups-connect{ width:100%; display:flex; justify-content:center }
+  .ups-ring{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; padding:16px; border:2px solid #2FA06E; border-radius:14px;
+    background:rgba(47,160,110,.06); box-shadow:0 6px 20px rgba(47,160,110,.14) }
+  .ups-tool.is-wired{ border-color:#2FA06E; text-align:center }
+
+  /* step 3 — one hub */
+  .ups-one{ display:flex; flex-direction:column; align-items:center; gap:12px; text-align:center }
+  .ups-hub{ display:flex; align-items:center; gap:8px; background:#FFFFFF; color:#155C3F; border:2px solid #2FA06E; border-radius:14px;
+    padding:14px 22px; font:600 17px/1 var(--font-head); box-shadow:0 8px 22px rgba(47,160,110,.20) }
+  .ups-onecap{ margin:0; font:500 13px/1.5 var(--font-body); color:var(--sec-tx); opacity:.75; max-width:34ch }
+
+  @media (min-width:760px){
+    .ups-step{ grid-template-columns:0.9fr 1.1fr; gap:28px; padding:26px 30px }
+  }
+
+  :global(html.has-anim) [data-ups] .ups-step{ opacity:0; transform:translateY(16px) }
+  :global(html.has-anim) [data-ups] .ups-tool{ opacity:0 }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  function initUnifiedPlatformSteps() {
+    const wrap = document.querySelector('[data-ups]') as HTMLElement | null;
+    if (!wrap || wrap.dataset.init) return;
+    if (!document.documentElement.classList.contains('has-anim')) return;
+    wrap.dataset.init = '1';
+    gsap.registerPlugin(ScrollTrigger);
+
+    const steps = Array.from(wrap.querySelectorAll('.ups-step')) as HTMLElement[];
+    steps.forEach((step) => {
+      const tools = step.querySelectorAll('.ups-tool');
+      const tl = gsap.timeline({ scrollTrigger: { trigger: step, start: 'top 82%', toggleActions: 'play none none none' } });
+      tl.fromTo(step, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', clearProps: 'transform' });
+      if (tools.length) tl.fromTo(tools, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out', stagger: 0.05, clearProps: 'transform' }, '-=0.2');
+    });
+  }
+
+  initUnifiedPlatformSteps();
+  document.addEventListener('astro:page-load', initUnifiedPlatformSteps);
+</script>

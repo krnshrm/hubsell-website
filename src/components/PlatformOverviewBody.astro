@@ -11,6 +11,8 @@ import { getPlatformQuote } from '../data/platform-i18n';
 import type { PlatformOverviewData } from '../data/platform-content';
 import type { Locale } from '../i18n/ui';
 import PlatformFaqPicks from './PlatformFaqPicks.astro';
+import UnifiedPlatformSteps from './UnifiedPlatformSteps.astro';
+import { et } from '../data/embed-i18n';
 
 interface Props { L: Locale; data: PlatformOverviewData }
 const { L, data: d } = Astro.props;
@@ -37,6 +39,9 @@ const quote = getPlatformQuote(L, d.quoteSlug);
       <h2 class="heading_primary" style="margin-top:8px">{d.problemTitlePre}<span class="accent">{d.problemTitleAccent}</span>{d.problemTitlePost}</h2>
       {d.problemBody.map((p) => <p class="paragraph" style="margin-top:18px;opacity:.88;max-width:64ch">{p}</p>)}
     </div>
+    <div style="margin-top:clamp(28px,4vw,44px)">
+      <UnifiedPlatformSteps />
+    </div>
   </div>
 </section>
 
@@ -53,6 +58,13 @@ const quote = getPlatformQuote(L, d.quoteSlug);
           <p class="eyebrow is-accent">{c.eyebrow}</p>
           <h3 class="heading_small" style="margin-top:10px">{c.title}</h3>
           <p class="paragraph_small" style="margin-top:10px">{c.body}</p>
+          {c.steps && (
+            <ol class="pov-strip">
+              {c.steps.map((st, i) => (
+                <li class="pov-striprow"><span class="pov-stripnum">{i + 1}</span>{et(L, st)}</li>
+              ))}
+            </ol>
+          )}
           <span class="link" style="margin-top:auto;padding-top:18px;display:inline-block">{c.linkLabel} &rarr;</span>
         </a>
       ))}
@@ -113,6 +125,10 @@ const quote = getPlatformQuote(L, d.quoteSlug);
   .pov-caps{ display:grid; grid-template-columns:1fr; gap:20px }
   .pov-cap{ display:flex; flex-direction:column; text-decoration:none; transition:transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s ease, border-color .3s ease }
   .pov-cap:hover{ transform:translateY(-4px); border-color:var(--accent-on); box-shadow:0 16px 48px rgba(0,0,0,.08) }
+  .pov-strip{ list-style:none; margin:16px 0 0; padding:14px 0 0; border-top:1px solid var(--sec-bd); display:flex; flex-direction:column; gap:9px }
+  .pov-striprow{ display:flex; align-items:flex-start; gap:10px; font:500 13px/1.4 var(--font-body); color:var(--sec-tx); opacity:.86 }
+  .pov-stripnum{ flex:none; width:19px; height:19px; border-radius:50%; background:var(--positive-soft); color:var(--positive-ink);
+    font:600 11px/19px var(--font-head); text-align:center }
   .pov-results{ display:grid; grid-template-columns:1fr; gap:20px }
   .pov-quote{ max-width:720px }
   @media (min-width:760px){

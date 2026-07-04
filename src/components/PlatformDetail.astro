@@ -12,6 +12,9 @@ import SocialProspecting from './SocialProspecting.astro';
 import MultichannelFlow from './MultichannelFlow.astro';
 import CrmSyncTracker from './CrmSyncTracker.astro';
 import ZeroDayTimeline from './ZeroDayTimeline.astro';
+import LiveDataSteps from './LiveDataSteps.astro';
+import MultichannelSteps from './MultichannelSteps.astro';
+import CrmSyncSteps from './CrmSyncSteps.astro';
 import PlatformStoryCard from './PlatformStoryCard.astro';
 import PlatformFaqPicks from './PlatformFaqPicks.astro';
 
@@ -31,6 +34,14 @@ const DIMS: Record<string, { w: number; h: number }> = {
 };
 const Embed = EMBEDS[d.row.embed];
 const dim = DIMS[d.row.embed] ?? { w: 700, h: 500 };
+// Stepped detail visuals: a walked, multi-row expansion of the summary embed.
+// Keyed by the same embed id; only the pages that have one render the section.
+const STEP_EMBEDS: Record<string, any> = {
+  '05-sp-widget': LiveDataSteps,
+  '06-multichannel-flow': MultichannelSteps,
+  '07-crm-sync-tracker': CrmSyncSteps,
+};
+const StepEmbed = STEP_EMBEDS[d.row.embed];
 const quote = getPlatformQuote(L, d.quoteSlug);
 ---
 <!-- 1 · Hero (paper) -->
@@ -68,6 +79,19 @@ const quote = getPlatformQuote(L, d.quoteSlug);
     </div>
   </div>
 </section>
+
+{StepEmbed && (
+  <!-- 2b · Stepped detail walkthrough (paper) -->
+  <section class="sec sec--paper" aria-label={d.row.titlePre + d.row.titleAccent + d.row.titlePost}>
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow is-accent">{d.row.stepEyebrow ?? d.eyebrow}</p>
+        <h2 class="heading_primary" style="margin-top:8px">{d.row.stepTitle ?? (d.row.titlePre + d.row.titleAccent + d.row.titlePost)}</h2>
+      </div>
+      <StepEmbed />
+    </div>
+  </section>
+)}
 
 <!-- 3 · Value grid (navy) -->
 <section class="sec sec--navy" aria-label={d.gridTitlePre + d.gridTitleAccent + d.gridTitlePost}>

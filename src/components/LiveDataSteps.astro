@@ -1,0 +1,168 @@
+---
+// Stepped detail visual for /platform/live-data. Expands the SocialProspecting
+// grid into a walked sequence: (1) six live signal sources, (2) they pool into
+// one ICP, (3) each contact is verified at the point of use, (4) the verified
+// contact is handed to outreach. Each step is a 2-column row: label + one caption
+// on one side, a small white-card visual on the other. White cards stay white in
+// both themes (product-screenshot rule); green is the connected/verified colour.
+// Animated on scroll, reduced-motion safe: steps rest visible when motion is off.
+import { et } from '../data/embed-i18n';
+import { asLocale } from '../i18n/utils';
+const L = asLocale(Astro.currentLocale);
+
+const SOURCES = [
+  'Following company', 'Engaged with post', 'Following leader',
+  'Changed jobs', 'Attended event', 'Hiring for roles',
+];
+---
+<div class="lds" data-lds>
+  <!-- STEP 1 — six live sources -->
+  <div class="lds-step">
+    <div class="lds-text">
+      <span class="lds-num">01</span>
+      <h3 class="heading_small">{et(L, 'Six live sources')}</h3>
+      <p class="paragraph_small lds-cap">{et(L, 'Every signal is sourced live, the day you ask.')}</p>
+    </div>
+    <div class="lds-viz">
+      <div class="lds-sources">
+        {SOURCES.map((s) => (
+          <div class="lds-chip">
+            <span class="lds-dot"></span>{et(L, s)}
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 — pool into ICP -->
+  <div class="lds-step">
+    <div class="lds-text">
+      <span class="lds-num">02</span>
+      <h3 class="heading_small">{et(L, 'Pooled into your ICP')}</h3>
+      <p class="paragraph_small lds-cap">{et(L, 'The signals converge on the people who match your ICP.')}</p>
+    </div>
+    <div class="lds-viz">
+      <div class="lds-pool">
+        <div class="lds-pool-in">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <svg class="lds-pool-svg" viewBox="0 0 120 40" preserveAspectRatio="none" aria-hidden="true">
+          <path class="lds-flow" d="M0 20 H120" />
+        </svg>
+        <div class="lds-node">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          {et(L, 'Your true ICP')}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 — verify at point of use -->
+  <div class="lds-step">
+    <div class="lds-text">
+      <span class="lds-num">03</span>
+      <h3 class="heading_small">{et(L, 'Verified at the point of use')}</h3>
+      <p class="paragraph_small lds-cap">{et(L, 'Each contact is checked the moment you need it, catch-alls included.')}</p>
+    </div>
+    <div class="lds-viz">
+      <div class="lds-verify card">
+        <div class="lds-vrow"><span class="lds-vname">Max Truman</span><span class="lds-vok" data-check>{et(L, 'Verified')}</span></div>
+        <div class="lds-vrow"><span class="lds-vname">Sarah Jenkins</span><span class="lds-vok" data-check>{et(L, 'Verified')}</span></div>
+        <div class="lds-vrow"><span class="lds-vname">David Lee</span><span class="lds-vok" data-check>{et(L, 'Verified')}</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4 — deliver to outreach -->
+  <div class="lds-step">
+    <div class="lds-text">
+      <span class="lds-num">04</span>
+      <h3 class="heading_small">{et(L, 'Handed to outreach')}</h3>
+      <p class="paragraph_small lds-cap">{et(L, 'You pay for a contact that is correct today, then reach out.')}</p>
+    </div>
+    <div class="lds-viz">
+      <div class="lds-deliver">
+        <div class="lds-pill">{et(L, 'Verified contact')}</div>
+        <svg class="lds-arrow" viewBox="0 0 60 24" aria-hidden="true"><path class="lds-flow" d="M0 12 H50" /><path d="M46 6 L56 12 L46 18" fill="none" /></svg>
+        <div class="lds-pill is-green">{et(L, 'Into your sequence')}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .lds{ display:flex; flex-direction:column; gap:14px }
+  .lds-step{ display:grid; grid-template-columns:1fr; gap:16px; align-items:center;
+    border:1px solid var(--sec-bd); border-radius:16px; padding:22px; background:color-mix(in srgb, var(--sec-tx) 3%, transparent) }
+  .lds-num{ font-family:var(--font-head); font-weight:600; font-size:.95rem; color:var(--accent-on) }
+  .lds-text .heading_small{ margin:6px 0 0 }
+  .lds-cap{ margin:8px 0 0; max-width:44ch }
+  .lds-viz{ display:flex; align-items:center; justify-content:center; min-height:120px }
+
+  /* step 1 — source chips */
+  .lds-sources{ display:grid; grid-template-columns:1fr 1fr; gap:8px; width:100% }
+  .lds-chip{ display:flex; align-items:center; gap:8px; background:#FFFFFF; color:#192341; border:1px solid #E5E7EB;
+    border-radius:10px; padding:9px 12px; font:500 12.5px/1.2 var(--font-body); box-shadow:0 4px 12px rgba(0,0,0,.10) }
+  .lds-dot{ width:8px; height:8px; border-radius:50%; background:#2FA06E; flex:none; box-shadow:0 0 0 3px rgba(47,160,110,.18) }
+
+  /* step 2 — pool into node */
+  .lds-pool{ display:flex; align-items:center; gap:10px; width:100% }
+  .lds-pool-in{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:6px; flex:none }
+  .lds-pool-in span{ width:16px; height:16px; border-radius:50%; background:#FFFFFF; border:1px solid #E5E7EB; box-shadow:0 3px 8px rgba(0,0,0,.12) }
+  .lds-pool-svg{ flex:1; height:40px; color:#2FA06E }
+  .lds-node{ flex:none; display:flex; align-items:center; gap:6px; background:#FFFFFF; color:#155C3F; border:2px solid #2FA06E;
+    border-radius:20px; padding:9px 14px; font:600 12px/1 var(--font-head); box-shadow:0 6px 16px rgba(47,160,110,.18) }
+
+  /* step 3 — verify card */
+  .lds-verify{ width:100%; max-width:340px; padding:16px 18px }
+  .lds-vrow{ display:flex; align-items:center; justify-content:space-between; padding:9px 0; border-top:1px solid var(--sec-bd) }
+  .lds-vrow:first-child{ border-top:0 }
+  .lds-vname{ font:500 14px/1 var(--font-body); color:var(--sec-tx) }
+  .lds-vok{ display:inline-flex; align-items:center; gap:6px; font:600 12px/1 var(--font-body); color:#155C3F;
+    background:#E4F2EA; border-radius:999px; padding:5px 10px }
+  .lds-vok::before{ content:'\2713'; font-weight:700 }
+
+  /* step 4 — deliver */
+  .lds-deliver{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:center }
+  .lds-pill{ background:#FFFFFF; color:#192341; border:1px solid #E5E7EB; border-radius:10px; padding:10px 14px; font:500 13px/1 var(--font-body); box-shadow:0 4px 12px rgba(0,0,0,.10) }
+  .lds-pill.is-green{ border-color:#2FA06E; color:#155C3F }
+  .lds-arrow{ width:60px; height:24px; color:#2FA06E; flex:none }
+  .lds-arrow path{ stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; fill:none }
+
+  .lds-flow{ stroke:#2FA06E; stroke-width:2; fill:none }
+
+  @media (min-width:760px){
+    .lds-step{ grid-template-columns:0.9fr 1.1fr; gap:28px; padding:26px 30px }
+    .lds-sources{ grid-template-columns:1fr 1fr 1fr }
+  }
+
+  /* animation start states, only when motion is allowed */
+  :global(html.has-anim) [data-lds] .lds-step{ opacity:0; transform:translateY(16px) }
+  :global(html.has-anim) [data-lds] .lds-chip{ opacity:0 }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  function initLiveDataSteps() {
+    const wrap = document.querySelector('[data-lds]') as HTMLElement | null;
+    if (!wrap || wrap.dataset.init) return;
+    if (!document.documentElement.classList.contains('has-anim')) return;
+    wrap.dataset.init = '1';
+    gsap.registerPlugin(ScrollTrigger);
+
+    const steps = Array.from(wrap.querySelectorAll('.lds-step')) as HTMLElement[];
+    steps.forEach((step) => {
+      const chips = step.querySelectorAll('.lds-chip');
+      const tl = gsap.timeline({
+        scrollTrigger: { trigger: step, start: 'top 82%', toggleActions: 'play none none none' },
+      });
+      tl.fromTo(step, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', clearProps: 'transform' });
+      if (chips.length) tl.fromTo(chips, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out', stagger: 0.06, clearProps: 'transform' }, '-=0.2');
+    });
+  }
+
+  initLiveDataSteps();
+  document.addEventListener('astro:page-load', initLiveDataSteps);
+</script>

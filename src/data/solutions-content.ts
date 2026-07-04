@@ -103,7 +103,7 @@ export const solutions: SolutionsData = {
       demoCta: 'Book a demo',
       jobsEyebrow: 'The work', jobsTitle: 'The jobs you need done',
       jobs: [
-        'Fill the pipeline without buying three separate tools.',
+        'Fill the pipeline without buying six separate tools.',
         'Keep every rep\u2019s outreach on brand and on deliverability.',
         'See real pipeline numbers, not what got typed in by hand.',
       ],
@@ -153,7 +153,7 @@ export const solutions: SolutionsData = {
       metaDescription: 'Give RevOps one system across sourcing, outreach, and CRM, with clean handoffs and reporting the leadership team can trust.',
       eyebrow: 'For RevOps',
       h1Pre: 'One connected engine, not a ', h1Accent: 'stack to reconcile', h1Post: '',
-      sub: 'You own the numbers. That is hard when data lives in three tools that do not talk. hubsell runs sourcing, outreach, and CRM sync on one data set, so the pipeline reflects reality.',
+      sub: 'You own the numbers. That is hard when data lives in six tools that do not talk. hubsell runs sourcing, outreach, and CRM sync on one data set, so the pipeline reflects reality.',
       demoCta: 'Book a demo',
       jobsEyebrow: 'The work', jobsTitle: 'The jobs you need done',
       jobs: [
@@ -163,7 +163,7 @@ export const solutions: SolutionsData = {
       ],
       howEyebrow: 'How hubsell helps', howTitle: 'How hubsell gets it done',
       how: [
-        { title: 'One platform, not three tools', body: 'hubsell replaces the data provider, the outreach tool, and the sync middleware with one system on one data set.', href: '/platform', linkLabel: 'See the platform' },
+        { title: 'One platform, not six', body: 'hubsell replaces the data, enrichment, sequencer, deliverability, dialer, and CRM sync tools with one system on one data set.', href: '/platform', linkLabel: 'See the platform' },
         { title: 'Verified data in, no rot between tools', body: 'Data is sourced and checked at the point of use, so records do not decay in a handover between products.', href: '/platform/live-data', linkLabel: 'See live data' },
         { title: 'Real-time two-way CRM sync', body: 'Every activity logs to Salesforce, HubSpot, or Pipedrive automatically, with no middleware to maintain.', href: '/platform/crm-sync', linkLabel: 'See CRM sync' },
       ],
