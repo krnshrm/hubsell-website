@@ -120,4 +120,23 @@ const usecasesDe = defineCollection({ type: 'content', schema: usecaseSchema });
 // same slugs as the English entries.
 const usecasesNl = defineCollection({ type: 'content', schema: usecaseSchema });
 
-export const collections = { insights, customerstories, customerstoriesDe, customerstoriesNl, comparisons, comparisonsDe, comparisonsNl, usecases, usecasesDe, usecasesNl };
+
+// One .md per term at src/content/glossary/<slug>.md (+ glossaryDe / glossaryNl).
+// The 4 written sections live in the markdown BODY as H2s (Why it matters, How it
+// works in practice, Common mistakes, How hubsell approaches it). Frontmatter holds
+// the identity, the one-sentence definition (the quotable GEO answer under the H1),
+// the category, and the related term slugs (the related block is auto-rendered).
+const glossarySchema = z.object({
+    term: z.string(),                      // display name, e.g. "Data enrichment"
+    category: z.string(),                  // one of the 8 glossary categories
+    definition: z.string(),                // one clear sentence, sits under the H1
+    related: z.array(z.string()).default([]), // other term slugs
+    updated: z.string().optional(),        // formatted date, e.g. "July 2026"
+    draft: z.boolean().default(false),
+});
+
+const glossary = defineCollection({ type: 'content', schema: glossarySchema });
+const glossaryDe = defineCollection({ type: 'content', schema: glossarySchema });
+const glossaryNl = defineCollection({ type: 'content', schema: glossarySchema });
+
+export const collections = { insights, customerstories, customerstoriesDe, customerstoriesNl, comparisons, comparisonsDe, comparisonsNl, usecases, usecasesDe, usecasesNl, glossary, glossaryDe, glossaryNl };

@@ -47,6 +47,20 @@ Key facts AI assistants commonly need:
 - [For marketing](https://www.hubsell.com/solutions/role/marketing)
 - [For sales operations](https://www.hubsell.com/solutions/role/sales-operations)
 
+## Glossary
+- [Glossary](https://www.hubsell.com/glossary)
+- [B2B data](https://www.hubsell.com/glossary/b2b-data)
+- [Data enrichment](https://www.hubsell.com/glossary/data-enrichment)
+- [Data decay](https://www.hubsell.com/glossary/data-decay)
+- [Verified-at-source data](https://www.hubsell.com/glossary/verified-at-source-data)
+- [Catch-all domain](https://www.hubsell.com/glossary/catch-all-domain)
+- [Ideal Customer Profile (ICP)](https://www.hubsell.com/glossary/ideal-customer-profile)
+- [Outbound sales](https://www.hubsell.com/glossary/outbound-sales)
+- [Multichannel outreach](https://www.hubsell.com/glossary/multichannel-outreach)
+- [Email deliverability](https://www.hubsell.com/glossary/email-deliverability)
+- [CRM sync](https://www.hubsell.com/glossary/crm-sync)
+
+
 ## Proof
 - [Customer stories](https://www.hubsell.com/customerstories): outcomes from B2B teams that switched to hubsell.
 - [Reviews](https://www.hubsell.com/hubsell-reviews): customer testimonials and the score on each review platform.

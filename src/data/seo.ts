@@ -75,3 +75,33 @@ export function breadcrumbSchema(items: { name: string; url: string }[]) {
     })),
   };
 }
+
+// A single glossary term, for term pages. `inDefinedTermSet` links it back to the
+// glossary index so answer engines see the set membership.
+export function definedTermSchema(opts: { name: string; description: string; url: string; termCode?: string }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'DefinedTerm',
+    name: opts.name,
+    description: opts.description,
+    url: opts.url.startsWith('http') ? opts.url : `${SITE_URL}${opts.url}`,
+    inDefinedTermSet: `${SITE_URL}/glossary`,
+    ...(opts.termCode ? { termCode: opts.termCode } : {}),
+  };
+}
+
+// The glossary index as a DefinedTermSet, with every term as a hasDefinedTerm entry.
+export function definedTermSetSchema(terms: { name: string; description: string; url: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'DefinedTermSet',
+    name: 'hubsell B2B sales and data glossary',
+    url: `${SITE_URL}/glossary`,
+    hasDefinedTerm: terms.map((tm) => ({
+      '@type': 'DefinedTerm',
+      name: tm.name,
+      description: tm.description,
+      url: tm.url.startsWith('http') ? tm.url : `${SITE_URL}${tm.url}`,
+    })),
+  };
+}

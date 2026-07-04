@@ -34,6 +34,7 @@ export const menuGroups: NavGroup[] = [
       { label: 'Insights', key: 'nav.insights', href: '/insights' },
       { label: 'Customer stories', key: 'nav.customerstories', href: '/customerstories' },
       { label: 'Comparisons', key: 'nav.comparisons', href: '/comparisons' },
+      { label: 'Glossary', key: 'nav.glossary', href: '/glossary' },
       { label: 'Resource center', soon: true },
       { label: 'Events', soon: true },
       { label: 'AI sales coach', soon: true },
@@ -65,6 +66,7 @@ export const topLinks: NavLink[] = [
 // Footer-only links (kept out of the top nav to keep it lean).
 export const footerLinks: NavLink[] = [
   { label: 'Use cases', key: 'nav.usecases', href: '/use-cases' },
+  { label: 'Glossary', key: 'nav.glossary', href: '/glossary' },
   { label: 'FAQ', key: 'nav.faq', href: '/faqs' },
 ];
 

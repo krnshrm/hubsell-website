@@ -1,0 +1,143 @@
+---
+// Glossary index body. Hero, category filter chips, a search box, an A-to-Z jump
+// bar, and one card per term (term, category tag, one-line definition). Filtering
+// and search run client-side over data attributes so the page stays static and
+// fast. The route file owns BaseLayout and the DefinedTermSet + breadcrumb JSON-LD.
+import { getCollection } from 'astro:content';
+import { localizedHref } from '../i18n/utils';
+import { SIGNUP_URL } from '../data/site';
+import { glossaryCollection, glossaryChrome, categoryKey, GLOSSARY_CATEGORY_ORDER } from '../data/glossary-i18n';
+import type { Locale } from '../i18n/ui';
+
+interface Props { L: Locale }
+const { L } = Astro.props;
+const c = glossaryChrome(L);
+
+const entries = await getCollection(glossaryCollection(L), (e) => !e.data.draft);
+// Sort alphabetically by term for the A-to-Z reading order.
+const terms = entries
+  .map((e) => ({
+    slug: e.slug,
+    term: e.data.term,
+    definition: e.data.definition,
+    category: e.data.category,
+    catKey: categoryKey(L, e.data.category),
+    letter: e.data.term.replace(/^\W+/, '').charAt(0).toUpperCase(),
+  }))
+  .sort((a, b) => a.term.localeCompare(b.term, undefined, { sensitivity: 'base' }));
+
+const categoriesPresent = GLOSSARY_CATEGORY_ORDER.filter((k) => terms.some((t) => t.catKey === k));
+const letters = Array.from(new Set(terms.map((t) => t.letter))).sort();
+---
+<!-- Hero (sand) -->
+<section class="sec sec--sand" aria-labelledby="gl-title">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:0">
+      <p class="eyebrow is-accent">{c.eyebrow}</p>
+      <h1 id="gl-title" class="heading_hero" style="margin-top:10px">{c.h1}</h1>
+      <p class="subheading" style="margin-top:16px;max-width:60ch">{c.intro}</p>
+      <p class="gl-count" style="margin-top:14px">{c.termsLabel(terms.length)}</p>
+    </div>
+  </div>
+</section>
+
+<!-- Controls + grid (paper) -->
+<section class="sec sec--paper" aria-label={c.h1}>
+  <div class="wrap">
+    <div class="gl-controls">
+      <input type="search" class="gl-search" placeholder={c.searchPlaceholder} aria-label={c.searchPlaceholder} data-gl-search />
+      <div class="gl-chips" role="group" aria-label="Categories">
+        <button type="button" class="gl-chip is-on" data-cat="">{c.all}</button>
+        {categoriesPresent.map((k) => (
+          <button type="button" class="gl-chip" data-cat={k}>{c.categoryLabel(k)}</button>
+        ))}
+      </div>
+      <nav class="gl-az" aria-label="A to Z">
+        {letters.map((ltr) => <a href={`#gl-${ltr}`} class="gl-azlink">{ltr}</a>)}
+      </nav>
+    </div>
+
+    <div class="gl-grid" data-gl-grid>
+      {terms.map((t) => (
+        <a
+          class="gl-card"
+          href={localizedHref(L, `/glossary/${t.slug}`)}
+          data-term={t.term.toLowerCase()}
+          data-cat={t.catKey}
+          id={`gl-${t.letter}`}
+        >
+          <span class="gl-card__cat">{c.categoryLabel(t.catKey)}</span>
+          <span class="gl-card__term">{t.term}</span>
+          <span class="gl-card__def">{t.definition}</span>
+        </a>
+      ))}
+    </div>
+    <p class="gl-empty" data-gl-empty hidden>{c.searchPlaceholder}</p>
+  </div>
+</section>
+
+<style>
+  .gl-count{ font:600 .95rem/1 var(--font-head); color:var(--accent-on) }
+  .gl-controls{ display:flex; flex-direction:column; gap:16px; margin-bottom:26px }
+  .gl-search{ width:100%; max-width:420px; padding:12px 16px; border:1px solid var(--sec-bd); border-radius:12px;
+    background:var(--sec-card); color:var(--sec-tx); font:400 15px/1.2 var(--font-body) }
+  .gl-search:focus{ outline:2px solid var(--accent-on); outline-offset:1px }
+  .gl-chips{ display:flex; flex-wrap:wrap; gap:8px }
+  .gl-chip{ border:1px solid var(--sec-bd); background:transparent; color:var(--sec-tx); border-radius:999px;
+    padding:7px 14px; font:500 13px/1 var(--font-body); cursor:pointer; transition:background .2s, border-color .2s, color .2s }
+  .gl-chip:hover{ border-color:var(--accent-on) }
+  .gl-chip.is-on{ background:var(--accent-on); border-color:var(--accent-on); color:#fff }
+  .gl-az{ display:flex; flex-wrap:wrap; gap:4px }
+  .gl-azlink{ display:inline-flex; align-items:center; justify-content:center; min-width:26px; height:26px;
+    border-radius:7px; font:600 12.5px/1 var(--font-head); color:var(--accent-on); text-decoration:none }
+  .gl-azlink:hover{ background:color-mix(in srgb, var(--accent-on) 14%, transparent) }
+
+  .gl-grid{ display:grid; grid-template-columns:1fr; gap:14px }
+  .gl-card{ display:flex; flex-direction:column; gap:8px; padding:18px 20px; border:1px solid var(--sec-bd);
+    border-radius:14px; background:var(--sec-card); text-decoration:none; scroll-margin-top:90px;
+    transition:transform .25s cubic-bezier(.16,1,.3,1), border-color .25s, box-shadow .25s }
+  .gl-card:hover{ transform:translateY(-3px); border-color:var(--accent-on); box-shadow:0 14px 40px rgba(0,0,0,.07) }
+  .gl-card__cat{ font:600 11px/1 var(--font-head); letter-spacing:.04em; text-transform:uppercase; color:var(--accent-on) }
+  .gl-card__term{ font:600 1.15rem/1.2 var(--font-head); color:var(--sec-tx) }
+  .gl-card__def{ font:400 14px/1.5 var(--font-body); color:var(--sec-tx); opacity:.82 }
+  .gl-empty{ margin-top:20px; color:var(--sec-tx); opacity:.7 }
+
+  @media (min-width:680px){ .gl-grid{ grid-template-columns:1fr 1fr } }
+  @media (min-width:1040px){ .gl-grid{ grid-template-columns:1fr 1fr 1fr } }
+</style>
+
+<script>
+  function initGlossaryIndex() {
+    const grid = document.querySelector('[data-gl-grid]');
+    if (!grid || (grid as HTMLElement).dataset.init) return;
+    (grid as HTMLElement).dataset.init = '1';
+    const cards = Array.from(grid.querySelectorAll('.gl-card')) as HTMLElement[];
+    const search = document.querySelector('[data-gl-search]') as HTMLInputElement | null;
+    const chips = Array.from(document.querySelectorAll('.gl-chip')) as HTMLElement[];
+    const empty = document.querySelector('[data-gl-empty]') as HTMLElement | null;
+    let activeCat = '';
+    let query = '';
+
+    function apply() {
+      let shown = 0;
+      cards.forEach((card) => {
+        const matchesCat = !activeCat || card.dataset.cat === activeCat;
+        const matchesQuery = !query || (card.dataset.term || '').includes(query);
+        const show = matchesCat && matchesQuery;
+        card.style.display = show ? '' : 'none';
+        if (show) shown++;
+      });
+      if (empty) empty.hidden = shown !== 0;
+    }
+
+    search?.addEventListener('input', () => { query = search.value.trim().toLowerCase(); apply(); });
+    chips.forEach((chip) => chip.addEventListener('click', () => {
+      chips.forEach((x) => x.classList.remove('is-on'));
+      chip.classList.add('is-on');
+      activeCat = chip.dataset.cat || '';
+      apply();
+    }));
+  }
+  initGlossaryIndex();
+  document.addEventListener('astro:page-load', initGlossaryIndex);
+</script>

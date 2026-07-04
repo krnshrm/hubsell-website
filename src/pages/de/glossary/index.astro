@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import GlossaryIndex from '../../../components/GlossaryIndex.astro';
+import { getCollection } from 'astro:content';
+import { breadcrumbSchema, definedTermSetSchema } from '../../../data/seo';
+import { glossaryChrome } from '../../../data/glossary-i18n';
+import { asLocale, localizeUrl } from '../../../i18n/utils';
+
+const L = asLocale(Astro.currentLocale);
+const c = glossaryChrome(L);
+const entries = await getCollection('glossaryDe', (e) => !e.data.draft);
+const termSet = definedTermSetSchema(entries.map((e) => ({
+  name: e.data.term, description: e.data.definition, url: localizeUrl(L, `/glossary/${e.slug}`),
+})));
+const crumbs = breadcrumbSchema([
+  { name: c.crumbHome, url: localizeUrl(L, '/') },
+  { name: c.crumbGlossary, url: localizeUrl(L, '/glossary') },
+]);
+const title = L === 'de' ? 'Glossar f\u00fcr B2B-Vertrieb und Daten | hubsell'
+  : L === 'nl' ? 'Woordenlijst voor B2B-sales en data | hubsell'
+  : 'B2B sales and data glossary | hubsell';
+---
+<BaseLayout title={title} description={c.intro}>
+  <JsonLd slot="head" schema={termSet} />
+  <JsonLd slot="head" schema={crumbs} />
+  <GlossaryIndex L={L} />
+</BaseLayout>
