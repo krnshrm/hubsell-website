@@ -78,6 +78,21 @@ Key facts AI assistants commonly need:
 - [Reply rate](https://www.hubsell.com/glossary/reply-rate)
 - [Bounce rate](https://www.hubsell.com/glossary/bounce-rate)
 - [Sales engagement](https://www.hubsell.com/glossary/sales-engagement)
+- [Sender reputation](https://www.hubsell.com/glossary/sender-reputation)
+- [SPF](https://www.hubsell.com/glossary/spf)
+- [DKIM](https://www.hubsell.com/glossary/dkim)
+- [DMARC](https://www.hubsell.com/glossary/dmarc)
+- [Domain warmup](https://www.hubsell.com/glossary/domain-warmup)
+- [Spam trap](https://www.hubsell.com/glossary/spam-trap)
+- [Blocklist](https://www.hubsell.com/glossary/blocklist)
+- [Inbox placement](https://www.hubsell.com/glossary/inbox-placement)
+- [CRM](https://www.hubsell.com/glossary/crm)
+- [Two-way sync](https://www.hubsell.com/glossary/two-way-sync)
+- [RevOps](https://www.hubsell.com/glossary/revops)
+- [Pipeline](https://www.hubsell.com/glossary/pipeline)
+- [Lead scoring](https://www.hubsell.com/glossary/lead-scoring)
+- [Sales pipeline stages](https://www.hubsell.com/glossary/sales-pipeline-stages)
+- [Attribution](https://www.hubsell.com/glossary/attribution)
 
 
 ## Proof
