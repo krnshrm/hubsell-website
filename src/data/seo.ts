@@ -59,6 +59,39 @@ export const softwareApplicationSchema = {
   description:
     'hubsell replaces your sales intelligence, sales engagement, and LinkedIn outreach tools with one platform: live-sourced verified contact data, coordinated email and LinkedIn sequences, and automatic CRM sync.',
   publisher: { '@type': 'Organization', name: 'hubsell', url: SITE_URL },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.8',
+    reviewCount: '35',
+    bestRating: '5',
+    worstRating: '1',
+  },
+  // Same base plan billed two ways (12 x 120 = 1440). Each offer carries its
+  // billing period so search reads them as billing options, not a price range.
+  offers: [
+    {
+      '@type': 'Offer',
+      price: '120',
+      priceCurrency: 'EUR',
+      priceSpecification: {
+        '@type': 'UnitPriceSpecification',
+        price: '120',
+        priceCurrency: 'EUR',
+        referenceQuantity: { '@type': 'QuantitativeValue', value: '1', unitCode: 'MON' },
+      },
+    },
+    {
+      '@type': 'Offer',
+      price: '1440',
+      priceCurrency: 'EUR',
+      priceSpecification: {
+        '@type': 'UnitPriceSpecification',
+        price: '1440',
+        priceCurrency: 'EUR',
+        referenceQuantity: { '@type': 'QuantitativeValue', value: '1', unitCode: 'ANN' },
+      },
+    },
+  ],
 };
 
 // Breadcrumb trail builder. Pass ordered [{ name, url }] items (absolute or
