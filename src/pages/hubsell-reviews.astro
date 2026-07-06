@@ -2,15 +2,16 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import JsonLd from '../components/JsonLd.astro';
 import ReviewsBody from '../components/ReviewsBody.astro';
-import { TESTIMONIALS } from '../data/testimonials';
 import { getReviewsPage } from '../i18n/pages';
 import { SITE_URL, breadcrumbSchema } from '../data/seo';
 
 const c = getReviewsPage('en');
 
-// Real customer testimonials marked up as Review objects so AI answer engines can
-// cite what customers say. No invented star ratings: quotes carry no numeric score,
-// and the per-platform scores (RatingsStrip) link out to their sources.
+// hubsell as SoftwareApplication with a real aggregateRating: 4.8 average across
+// 35 reviews (the Gartner-owned GetApp/Capterra listing, which share one pool).
+// The testimonials still show on the page as text; they carry no numeric score,
+// so they are not emitted as Review objects (Google requires a reviewRating per
+// review, and we do not invent scores). Switch the source in one place if needed.
 const reviewsSchema = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
@@ -18,15 +19,13 @@ const reviewsSchema = {
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Web',
   url: SITE_URL,
-  review: TESTIMONIALS.map((t) => ({
-    '@type': 'Review',
-    author: {
-      '@type': 'Person',
-      name: t.name,
-      ...(t.company ? { worksFor: { '@type': 'Organization', name: t.company } } : {}),
-    },
-    reviewBody: t.quote,
-  })),
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.8',
+    reviewCount: '35',
+    bestRating: '5',
+    worstRating: '1',
+  },
 };
 const reviewCrumbs = breadcrumbSchema([
   { name: c.crumbHome, url: '/' },
