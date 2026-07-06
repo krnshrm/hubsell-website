@@ -53,9 +53,13 @@
 html{
   scroll-behavior:smooth; scroll-padding-top:72px;
   -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  /* Guard: if any element is briefly wider than the screen, clip it instead of
+     letting iOS Safari inflate the viewport and skip the mobile breakpoints.
+     clip (not hidden) keeps the sticky nav and sticky elements working. */
+  overflow-x:clip;
 }
 body{
-  margin:0; background:var(--bg); color:var(--text);
+  margin:0; overflow-x:clip; background:var(--bg); color:var(--text);
   font-family:var(--font-body); font-size:16px; line-height:1.65;
   transition:background .25s, color .25s;
 }
