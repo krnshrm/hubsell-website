@@ -7,6 +7,7 @@
 import { getCollection } from 'astro:content';
 import { localizedHref } from '../i18n/utils';
 import { glossaryCollection, glossaryChrome, categoryKey } from '../data/glossary-i18n';
+import AskAiWidget from './AskAiWidget.astro';
 import type { Locale } from '../i18n/ui';
 
 interface Props { L: Locale }
@@ -88,6 +89,12 @@ const present = new Set(groups.map((g) => g.letter));
       ))}
     </div>
     <p class="gl-empty" data-gl-empty hidden>{c.searchPlaceholder}</p>
+  </div>
+</section>
+
+<section class="sec sec--sand" aria-label="Ask AI about hubsell" style="padding-top:clamp(30px,4vw,46px);padding-bottom:clamp(30px,4vw,46px)">
+  <div class="wrap" style="text-align:center">
+    <AskAiWidget />
   </div>
 </section>
 

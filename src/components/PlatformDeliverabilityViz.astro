@@ -1,0 +1,46 @@
+---
+// Static product motif for /platform/deliverability. White card, navy ink in
+// both themes (product-screenshot look), so it stays legible on dark sections.
+---
+<div class="dlv">
+  <div class="dlv__top">
+    <span class="dlv__title">Deliverability</span>
+    <span class="dlv__live"><span class="dlv__dot"></span>Live</span>
+  </div>
+
+  <div class="dlv__placement">
+    <div class="dlv__pl-head">
+      <span>Inbox placement</span><span class="dlv__pct">98%</span>
+    </div>
+    <div class="dlv__bar"><span class="dlv__bar-fill" style="width:98%"></span></div>
+    <div class="dlv__legend"><span>Primary inbox</span><span>Spam 2%</span></div>
+  </div>
+
+  <div class="dlv__auth">
+    <div class="dlv__auth-row"><span>SPF</span><span class="dlv__pass">&#10003; Pass</span></div>
+    <div class="dlv__auth-row"><span>DKIM</span><span class="dlv__pass">&#10003; Pass</span></div>
+    <div class="dlv__auth-row"><span>DMARC</span><span class="dlv__pass">&#10003; Pass</span></div>
+  </div>
+
+  <div class="dlv__foot">Verified at source &middot; catch-all flagged &middot; sent from your mailbox</div>
+</div>
+
+<style>
+  .dlv{background:#fff;border:1px solid #ECE1D4;border-radius:16px;padding:22px;
+    width:100%;font-family:var(--font-body);color:#192341;box-shadow:0 1px 2px rgba(25,35,65,.05)}
+  .dlv__top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+  .dlv__title{font-family:var(--font-head);font-weight:600;font-size:1.05rem}
+  .dlv__live{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:#155C3F}
+  .dlv__dot{width:7px;height:7px;border-radius:50%;background:#2FA06E;box-shadow:0 0 0 3px rgba(47,160,110,.2)}
+  .dlv__placement{background:#FBF7F1;border:1px solid #ECE1D4;border-radius:12px;padding:16px;margin-bottom:16px}
+  .dlv__pl-head{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:#54596B;margin-bottom:10px}
+  .dlv__pct{font-family:var(--font-head);font-weight:600;font-size:1.5rem;color:#192341}
+  .dlv__bar{height:10px;border-radius:999px;background:#EADBC2;overflow:hidden}
+  .dlv__bar-fill{display:block;height:100%;background:#2FA06E;border-radius:999px}
+  .dlv__legend{display:flex;justify-content:space-between;font-size:11.5px;color:#978E84;margin-top:8px}
+  .dlv__auth{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+  .dlv__auth-row{display:flex;justify-content:space-between;align-items:center;font-size:13.5px;font-weight:500;
+    background:#FBF7F1;border:1px solid #ECE1D4;border-radius:10px;padding:10px 14px}
+  .dlv__pass{color:#155C3F;font-weight:600;font-size:12.5px}
+  .dlv__foot{font-size:12px;color:#978E84;border-top:1px solid #ECE1D4;padding-top:14px}
+</style>

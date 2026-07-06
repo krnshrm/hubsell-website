@@ -229,5 +229,195 @@ export const platformNl: PlatformData = {
       },
       closingCta: 'Demo plannen',
     },
+{
+      "path": "/platform/deliverability",
+      "title": "Deliverability: in de inbox landen, niet in de spammap | hubsell",
+      "metaDescription": "hubsell verstuurt vanuit uw eigen mailboxen via de Google- en Microsoft-APIs, valideert elk contact bij de bron en doseert het volume, zodat uw outreach de inbox bereikt.",
+      "eyebrow": "Deliverability",
+      "h1Pre": "Bereik de ",
+      "h1Accent": "inbox",
+      "h1Post": ", niet de spammap",
+      "sub": "Goede targeting betekent niets als het bericht nooit aankomt. hubsell beschermt het hele pad naar de inbox: gevalideerde contacten, geauthenticeerd versturen vanuit uw eigen mailboxen en een volume dat is gedoseerd om uw reputatie intact te houden.",
+      "demoCta": "Demo plannen",
+      "row": {
+            "titlePre": "Verstuurd zoals ",
+            "titleAccent": "inboxen vertrouwen",
+            "titlePost": "",
+            "points": [
+                  "E-mails versturen via de Google- en Microsoft-APIs, rechtstreeks vanuit uw eigen mailboxen, zonder externe relay in het pad.",
+                  "Elk contact wordt gevalideerd op het moment van verzamelen, catch-all-domeinen gemarkeerd, zodat bounces laag blijven.",
+                  "Het volume wordt binnen veilige limieten over uw verzendprofielen gespreid, zodat een nieuw domein nooit een filter in wordt geblazen."
+            ],
+            "embed": "08-deliverability",
+            "stepEyebrow": "Hoe het werkt",
+            "stepTitle": "Van gevalideerd contact naar de inbox"
+      },
+      "gridTitlePre": "Gebouwd om ",
+      "gridTitleAccent": "bezorgd te worden",
+      "gridTitlePost": "",
+      "blocks": [
+            {
+                  "title": "Gevalideerd bij de bron",
+                  "body": "Elk adres wordt gecontroleerd op het moment van gebruik, niet getrokken uit een lijst die maanden geleden is vastgelegd. Catch-all-domeinen worden voor het versturen gemarkeerd, zodat u credits besteedt aan contacten die daadwerkelijk mail kunnen ontvangen."
+            },
+            {
+                  "title": "Verstuurd vanuit uw mailboxen",
+                  "body": "Outreach gaat via de Google- en Microsoft-APIs rechtstreeks vanuit uw eigen accounts. Er is geen server van derden in het pad die filters kunnen wantrouwen, zodat uw verzending eruitziet als wat het is: echte mail van een echt persoon."
+            },
+            {
+                  "title": "Authenticatie goed gedaan",
+                  "body": "SPF, DKIM en DMARC zijn de controles die providers draaien om te beslissen of mail echt van u komt. hubsell begeleidt u om alle drie correct in te stellen, zodat uw domein slaagt en uw berichten worden vertrouwd."
+            },
+            {
+                  "title": "Gedoseerd, niet geblazen",
+                  "body": "Het volume wordt over verzendprofielen gespreid en binnen veilige limieten opgevoerd. Een nieuw domein warmt op in plaats van te pieken, zodat u reputatie opbouwt in plaats van die bij de eerste verzending te verbranden."
+            }
+      ],
+      "proofEyebrow": "Proof",
+      "proofTitle": "Wat de inbox verandert",
+      "quoteSlug": "staffbase",
+      "storySlug": "staffbase",
+      "storyLabel": "Lees het Staffbase-verhaal",
+      "faqEyebrow": "FAQ",
+      "faqTitle": "Veelgestelde vragen over deliverability",
+      "faqSlugs": [
+            "stop-sales-email-bounces",
+            "hubsell-email-infrastructure",
+            "hubsell-catch-all-domains"
+      ],
+      "closing": {
+            "titlePre": "Bekijk uw ",
+            "titleAccent": "inboxplaatsing",
+            "titlePost": ", niet alleen uw openingsratio.",
+            "sub": "Breng uw huidige verzendopzet mee in een kort gesprek en we laten zien waar uw mail daadwerkelijk landt en waarom."
+      },
+      "closingCta": "Demo plannen"
+},
+{
+      "path": "/platform/personalization",
+      "title": "Personalisatie op schaal: relevante outreach voor elk contact | hubsell",
+      "metaDescription": "hubsell personaliseert outreach vanuit live signalen en gevalideerde data, zodat elk bericht relevant is voor de persoon en het moment, verstuurd naar duizenden zonder de menselijke toets te verliezen.",
+      "eyebrow": "Personalisatie",
+      "h1Pre": "Relevant voor ",
+      "h1Accent": "elk contact",
+      "h1Post": ", bij elk volume",
+      "sub": "Generieke mail wordt genegeerd. hubsell bouwt elk bericht uit live signalen en gevalideerde data over de persoon en het account, zodat outreach leest alsof het voor hen is geschreven, ook wanneer u het naar duizenden verstuurt.",
+      "demoCta": "Demo plannen",
+      "row": {
+            "titlePre": "Geschreven voor de ",
+            "titleAccent": "persoon en het moment",
+            "titlePost": "",
+            "points": [
+                  "Voeg echte details toe over de persoon, het bedrijf en wat ze nu doen, niet alleen een voornaam.",
+                  "Live signalen zoals een functiewissel, een aanwervingsronde of activiteit rond een evenement geven elk bericht een reden om te bestaan.",
+                  "Dezelfde flow personaliseert \u00e9\u00e9n contact of tienduizend, zodat relevantie u geen bereik kost."
+            ],
+            "embed": "09-personalization",
+            "stepEyebrow": "Hoe het werkt",
+            "stepTitle": "Van live signaal naar een bericht dat past"
+      },
+      "gridTitlePre": "Relevantie die ",
+      "gridTitleAccent": "met u meeschaalt",
+      "gridTitlePost": "",
+      "blocks": [
+            {
+                  "title": "Voorbij de voornaam",
+                  "body": "Echte personalisatie gebruikt wat waar is over het account: de rol, het bedrijf, het moment. hubsell put uit gevalideerde data en live signalen, zodat een bericht verwijst naar iets dat er voor de lezer daadwerkelijk toe doet."
+            },
+            {
+                  "title": "Gegrond in live signalen",
+                  "body": "Een functiewissel, een financieringsronde, een aanwervingsronde of betrokkenheid bij een onderwerp geeft outreach een echte haak. hubsell leest deze signalen en zet ze in, zodat het bericht met een reden aankomt."
+            },
+            {
+                  "title": "Consistent op volume",
+                  "body": "Met de hand personaliseren schaalt niet, en samenvoegvelden voelen hol. hubsell houdt elk bericht relevant of u nu tien of tienduizend verstuurt, zodat bereik en relevantie niet meer tegen elkaar trekken."
+            },
+            {
+                  "title": "Correcte data eronder",
+                  "body": "Personalisatie is maar zo goed als de data erachter. Omdat elk contact bij de bron is gevalideerd, kloppen de details waarnaar u verwijst, zodat een gepersonaliseerde regel nooit landt als een verkeerd-bedrijf-fout."
+            }
+      ],
+      "proofEyebrow": "Proof",
+      "proofTitle": "Wat echte relevantie verandert",
+      "quoteSlug": "elium",
+      "storySlug": "elium",
+      "storyLabel": "Lees het Elium-verhaal",
+      "faqEyebrow": "FAQ",
+      "faqTitle": "Veelgestelde vragen over personalisatie",
+      "faqSlugs": [
+            "personalize-outreach-at-scale",
+            "hubsell-conversion-rates"
+      ],
+      "closing": {
+            "titlePre": "Bekijk outreach die ",
+            "titleAccent": "persoonlijk leest",
+            "titlePost": ", op schaal.",
+            "sub": "Laat ons uw doelgroep zien in een kort gesprek en we schetsen hoe outreach die op schaal gepersonaliseerd is er voor die doelgroep uitziet."
+      },
+      "closingCta": "Demo plannen"
+},
+{
+      "path": "/platform/enrichment",
+      "title": "Data enrichment: volledige, gevalideerde contactrecords | hubsell",
+      "metaDescription": "hubsell verrijkt elk contact uit meerdere live bronnen en valideert het resultaat op het moment van gebruik, zodat u volledige, actuele records krijgt in plaats van halflege rijen.",
+      "eyebrow": "Enrichment",
+      "h1Pre": "Volledige records, ",
+      "h1Accent": "vandaag gevalideerd",
+      "h1Post": "",
+      "sub": "Een halfgevulde contactrecord remt outreach. hubsell verrijkt elk contact uit meerdere live bronnen en valideert het resultaat op het moment dat u het gebruikt, zodat u werkt vanuit volledige, actuele data in plaats van gaten.",
+      "demoCta": "Demo plannen",
+      "row": {
+            "titlePre": "Gevuld uit ",
+            "titleAccent": "meerdere live bronnen",
+            "titlePost": "",
+            "points": [
+                  "Elke record wordt gebouwd door om beurten meerdere bronnen te gebruiken, zodat een gat in de ene door een andere wordt gevuld.",
+                  "Zakelijk e-mailadres, telefoon, rol en bedrijfsdetails komen samen tot \u00e9\u00e9n volledig contact, niet een verstrooiing van halve rijen.",
+                  "De voltooide record wordt op het moment van gebruik gevalideerd, zodat waarnaar u verstuurt op de dag van gebruik correct is."
+            ],
+            "embed": "10-enrichment",
+            "stepEyebrow": "Hoe het werkt",
+            "stepTitle": "Van gedeeltelijke rij naar volledige, gevalideerde record"
+      },
+      "gridTitlePre": "Records die ",
+      "gridTitleAccent": "volledig en actueel zijn",
+      "gridTitlePost": "",
+      "blocks": [
+            {
+                  "title": "Meerdere bronnen, \u00e9\u00e9n record",
+                  "body": "hubsell put om beurten uit meerdere live bronnen, zodat een andere het gat vult waar de ene tekortschiet. Het resultaat is een volledig contact in plaats van een rij met de belangrijke velden ontbrekend."
+            },
+            {
+                  "title": "Gevalideerd op het moment van gebruik",
+                  "body": "Enrichment zonder validatie vult velden alleen met verouderde gissingen. hubsell controleert de voltooide record op het moment dat u die gebruikt, catch-all-domeinen inbegrepen, zodat een volledige record ook een correcte is."
+            },
+            {
+                  "title": "Geen verouderende database",
+                  "body": "Een statische verrijkte lijst begint te verouderen op de dag dat die is gebouwd. hubsell verrijkt live, op de dag dat u het vraagt, zodat u niet betaalt om records bij te vullen die jaren geleden zijn vastgelegd en sindsdien zijn afgedreven."
+            },
+            {
+                  "title": "Klaar voor outreach",
+                  "body": "Een volledige, gevalideerde record stroomt rechtstreeks in uw sequenties en uw CRM. Er is geen export, geen opschoonronde, geen tweede tool, zodat de data die u verrijkt de data is waarnaar u verstuurt."
+            }
+      ],
+      "proofEyebrow": "Proof",
+      "proofTitle": "Wat volledige data verandert",
+      "quoteSlug": "verhaert",
+      "storySlug": "verhaert",
+      "storyLabel": "Lees het Verhaert-verhaal",
+      "faqEyebrow": "FAQ",
+      "faqTitle": "Veelgestelde vragen over enrichment",
+      "faqSlugs": [
+            "build-b2b-audience-no-decay",
+            "third-party-intent-data-accuracy"
+      ],
+      "closing": {
+            "titlePre": "Bekijk uw lijst ",
+            "titleAccent": "gevuld en gevalideerd",
+            "titlePost": ".",
+            "sub": "Stuur ons in een kort gesprek een steekproef van uw data en we laten zien wat live enrichment ervoor teruggeeft."
+      },
+      "closingCta": "Demo plannen"
+}
   ],
 };

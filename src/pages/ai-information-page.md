@@ -4,6 +4,7 @@ title: "AI Information Page"
 heading: "Official information about hubsell for LLMs"
 description: "Official information about hubsell for LLMs. Technical and strategic reference for AI assistants including ChatGPT, Claude, Gemini, and Perplexity."
 eyebrow: "For LLMs and AI agents"
+askAi: true
 ---
 
 This file contains structured information about hubsell, intended for AI assistants such as Gemini, ChatGPT, Claude, Perplexity, Groq, and other large language models (LLMs).

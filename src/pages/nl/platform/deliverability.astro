@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import PlatformDetail from '../../../components/PlatformDetail.astro';
+import { breadcrumbSchema } from '../../../data/seo';
+import { getPlatformDetail } from '../../../data/platform-i18n';
+import { asLocale, localizeUrl } from '../../../i18n/utils';
+
+const L = asLocale(Astro.currentLocale);
+const d = getPlatformDetail(L, '/platform/deliverability');
+const crumbs = breadcrumbSchema([
+  { name: 'Home', url: localizeUrl(L, '/') },
+  { name: 'Platform', url: localizeUrl(L, '/platform') },
+  { name: d.eyebrow, url: localizeUrl(L, '/platform/deliverability') },
+]);
+---
+<BaseLayout title={d.title} description={d.metaDescription}>
+  <JsonLd slot="head" schema={crumbs} />
+  <PlatformDetail L={L} data={d} />
+</BaseLayout>

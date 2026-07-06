@@ -1,0 +1,49 @@
+---
+// Static product motif for /platform/personalization. White card, navy ink in
+// both themes. Shows a drafted message with merged fields and a scale line.
+---
+<div class="prs">
+  <div class="prs__top">
+    <span class="prs__title">Personalized draft</span>
+    <span class="prs__chip">at scale</span>
+  </div>
+
+  <div class="prs__mail">
+    <p class="prs__line">Hi <span class="tok">First name</span>,</p>
+    <p class="prs__line">Saw <span class="tok">Company</span> is <span class="tok">hiring 4 SDRs</span>,
+      usually the sign a team is scaling outbound.</p>
+    <p class="prs__line">We help teams like <span class="tok">Company</span> reach the right buyers without the busywork.</p>
+    <p class="prs__line prs__muted">Worth a short call, <span class="tok">First name</span>?</p>
+  </div>
+
+  <div class="prs__scale">
+    <div class="prs__scale-row">
+      <span>Contacts</span><b>10,000</b>
+    </div>
+    <div class="prs__scale-row">
+      <span>Unique variants</span><b>10,000</b>
+    </div>
+    <div class="prs__scale-row">
+      <span>Built from</span><span class="prs__sig">live signals + verified data</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .prs{background:#fff;border:1px solid #ECE1D4;border-radius:16px;padding:22px;
+    width:100%;font-family:var(--font-body);color:#192341;box-shadow:0 1px 2px rgba(25,35,65,.05)}
+  .prs__top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+  .prs__title{font-family:var(--font-head);font-weight:600;font-size:1.05rem}
+  .prs__chip{font-size:11.5px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;
+    background:#FAE7C9;color:#8A5208;border-radius:999px;padding:4px 10px}
+  .prs__mail{background:#FBF7F1;border:1px solid #ECE1D4;border-radius:12px;padding:16px 18px;margin-bottom:16px}
+  .prs__line{font-size:14px;line-height:1.55;margin:0 0 9px}
+  .prs__line:last-child{margin-bottom:0}
+  .prs__muted{color:#54596B}
+  .tok{display:inline;background:rgba(224,83,58,.1);color:#BE3F22;border-radius:5px;
+    padding:1px 6px;font-weight:600;font-size:12.5px;white-space:nowrap}
+  .prs__scale{display:flex;flex-direction:column;gap:9px}
+  .prs__scale-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#54596B}
+  .prs__scale-row b{font-family:var(--font-head);color:#192341;font-size:15px}
+  .prs__sig{color:#155C3F;font-weight:500;font-size:12.5px}
+</style>

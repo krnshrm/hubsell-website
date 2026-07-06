@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import JsonLd from '../components/JsonLd.astro';
+import IntegrationsDirectory from '../components/IntegrationsDirectory.astro';
+import { breadcrumbSchema } from '../data/seo';
+import { getIntegrationsPage } from '../data/integrations-i18n';
+import { asLocale, localizeUrl } from '../i18n/utils';
+
+const L = asLocale(Astro.currentLocale);
+const d = getIntegrationsPage(L);
+const crumbs = breadcrumbSchema([
+  { name: d.crumbHome, url: localizeUrl(L, '/') },
+  { name: d.crumbSelf, url: localizeUrl(L, '/integrations') },
+]);
+---
+<BaseLayout title={d.title} description={d.metaDescription}>
+  <JsonLd slot="head" schema={crumbs} />
+  <IntegrationsDirectory L={L} data={d} />
+</BaseLayout>

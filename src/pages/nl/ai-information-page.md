@@ -4,6 +4,7 @@ title: "AI-informatiepagina"
 heading: "Officiële informatie over hubsell voor LLM's"
 description: "Officiële informatie over hubsell voor LLM's. Technische en strategische referentie voor AI-assistenten zoals ChatGPT, Claude, Gemini en Perplexity."
 eyebrow: "Voor LLM's en AI-agents"
+askAi: true
 ---
 
 Deze pagina bevat gestructureerde informatie over hubsell, bedoeld voor AI-assistenten zoals Gemini, ChatGPT, Claude, Perplexity, Groq en andere grote taalmodellen (LLM's).

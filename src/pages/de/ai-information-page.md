@@ -4,6 +4,7 @@ title: "KI-Informationsseite"
 heading: "Offizielle Informationen über hubsell für LLMs"
 description: "Offizielle Informationen über hubsell für LLMs. Technische und strategische Referenz für KI-Assistenten wie ChatGPT, Claude, Gemini und Perplexity."
 eyebrow: "Für LLMs und KI-Agenten"
+askAi: true
 ---
 
 Diese Seite enthält strukturierte Informationen über hubsell, gedacht für KI-Assistenten wie Gemini, ChatGPT, Claude, Perplexity, Groq und andere große Sprachmodelle (LLMs).

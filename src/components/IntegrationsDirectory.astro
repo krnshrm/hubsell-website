@@ -1,0 +1,76 @@
+---
+// Renders the /integrations directory from getIntegrationsPage(L). Uses the
+// shared section tokens and .card/.chip classes so it themes with the rest of
+// the site. Logos are intentionally omitted for the stub set: a monogram badge
+// avoids broken images until real logo assets are wired in.
+import { localizedHref } from '../i18n/utils';
+import { SIGNUP_URL } from '../data/site';
+import type { IntegrationsPageData } from '../data/integrations-i18n';
+import type { Locale } from '../i18n/ui';
+
+interface Props { L: Locale; data: IntegrationsPageData }
+const { L, data: d } = Astro.props;
+---
+<!-- 1 · Hero (paper) -->
+<section class="sec sec--paper" aria-labelledby="intg-title">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:0">
+      <p class="eyebrow is-accent">{d.eyebrow}</p>
+      <h1 id="intg-title" class="heading_hero" style="margin-top:10px">{d.h1Pre}<span class="accent">{d.h1Accent}</span>{d.h1Post}</h1>
+      <p class="subheading" style="margin-top:16px;max-width:60ch">{d.sub}</p>
+      <p style="margin:28px 0 0"><a href={localizedHref(L, SIGNUP_URL)} class="button">{d.demoCta}</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · Directory (sand) -->
+<section class="sec sec--sand" aria-label={d.listTitle}>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow is-accent">{d.listEyebrow}</p>
+      <h2 class="heading_primary" style="margin-top:8px">{d.listTitle}</h2>
+    </div>
+
+    <div class="intg-grid">
+      {d.items.map((it) => (
+        <div class="card intg-card">
+          <div class="intg-top">
+            <span class="intg-mono" aria-hidden="true">{it.name.charAt(0)}</span>
+            <span class="intg-live"><span class="intg-dot"></span>{it.status}</span>
+          </div>
+          <h3 class="heading_small" style="margin-top:16px">{it.name}</h3>
+          <p style="margin-top:10px"><span class="chip">{it.category}</span></p>
+          <p class="paragraph_small" style="margin-top:12px">{it.blurb}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="card intg-note">
+      <h3 class="heading_small">{d.noteTitle}</h3>
+      <p class="paragraph_small" style="margin-top:8px;max-width:72ch">{d.noteBody}</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · Closing (navy) -->
+<section class="sec sec--navy" aria-label={d.closingPre + d.closingAccent + d.closingPost}>
+  <div class="wrap">
+    <div class="sec-head" style="text-align:center;max-width:60ch;margin-left:auto;margin-right:auto">
+      <h2 class="heading_primary">{d.closingPre}<span class="accent">{d.closingAccent}</span>{d.closingPost}</h2>
+      <p class="subheading" style="margin-top:14px">{d.closingSub}</p>
+      <p style="margin-top:26px"><a href={localizedHref(L, SIGNUP_URL)} class="button">{d.closingCta}</a></p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .intg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:20px;margin-top:8px}
+  .intg-card{display:flex;flex-direction:column}
+  .intg-top{display:flex;align-items:center;justify-content:space-between}
+  .intg-mono{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;
+    font-family:var(--font-head);font-weight:600;font-size:1.15rem;color:var(--accent-on);
+    background:var(--sec-bg);border:1px solid var(--sec-bd)}
+  .intg-live{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:500;color:var(--sec-tx);opacity:.8}
+  .intg-dot{width:7px;height:7px;border-radius:50%;background:#2FA06E;box-shadow:0 0 0 3px rgba(47,160,110,.18)}
+  .intg-note{margin-top:22px}
+</style>

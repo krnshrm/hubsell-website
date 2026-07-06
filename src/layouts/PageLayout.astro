@@ -4,9 +4,10 @@
 // and provide `title`, `description`, and optionally `heading` (visible H1, falls
 // back to title), `eyebrow`, `lastUpdated`, `noindex`, and `ogImage`.
 import BaseLayout from './BaseLayout.astro';
+import AskAiWidget from '../components/AskAiWidget.astro';
 
 const { frontmatter } = Astro.props;
-const { title, description, heading, eyebrow, lastUpdated, noindex, ogImage } = frontmatter;
+const { title, description, heading, eyebrow, lastUpdated, noindex, ogImage, askAi } = frontmatter;
 ---
 <BaseLayout title={`${title} | hubsell`} description={description} noindex={noindex} ogImage={ogImage}>
   <section class="sec sec--sand pg-head">
@@ -20,6 +21,11 @@ const { title, description, heading, eyebrow, lastUpdated, noindex, ogImage } = 
   <section class="sec sec--paper pg-bodywrap">
     <div class="wrap">
       <article class="page-prose"><slot /></article>
+      {askAi && (
+        <div class="pg-askai">
+          <AskAiWidget />
+        </div>
+      )}
     </div>
   </section>
 </BaseLayout>
@@ -28,6 +34,7 @@ const { title, description, heading, eyebrow, lastUpdated, noindex, ogImage } = 
   .pg-head { padding-bottom:clamp(22px,3.5vw,34px); }
   .pg-title { margin-top:8px; }
   .pg-meta { font-family:var(--font-body); font-size:13px; color:var(--sec-tx); opacity:.7; margin:10px 0 0; }
+  .pg-askai { margin-top:clamp(30px,4.5vw,46px); padding-top:clamp(22px,3vw,30px); border-top:1px solid var(--sec-bd); }
 
   /* Content body: sans-serif, comfortable reading measure, theme-aware via the
      enclosing .sec--paper tokens. Scoped under .page-prose so it stays local. */

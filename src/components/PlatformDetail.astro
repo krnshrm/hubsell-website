@@ -15,6 +15,9 @@ import ZeroDayTimeline from './ZeroDayTimeline.astro';
 import LiveDataSteps from './LiveDataSteps.astro';
 import MultichannelSteps from './MultichannelSteps.astro';
 import CrmSyncSteps from './CrmSyncSteps.astro';
+import PlatformDeliverabilityViz from './PlatformDeliverabilityViz.astro';
+import PlatformPersonalizationViz from './PlatformPersonalizationViz.astro';
+import PlatformEnrichmentViz from './PlatformEnrichmentViz.astro';
 import PlatformStoryCard from './PlatformStoryCard.astro';
 import PlatformFaqPicks from './PlatformFaqPicks.astro';
 
@@ -26,11 +29,17 @@ const EMBEDS: Record<string, any> = {
   '05-sp-widget': SocialProspecting,
   '06-multichannel-flow': MultichannelFlow,
   '07-crm-sync-tracker': CrmSyncTracker,
+  '08-deliverability': PlatformDeliverabilityViz,
+  '09-personalization': PlatformPersonalizationViz,
+  '10-enrichment': PlatformEnrichmentViz,
 };
 const DIMS: Record<string, { w: number; h: number }> = {
   '05-sp-widget': { w: 630, h: 500 },
   '06-multichannel-flow': { w: 740, h: 520 },
   '07-crm-sync-tracker': { w: 710, h: 480 },
+  '08-deliverability': { w: 560, h: 470 },
+  '09-personalization': { w: 560, h: 470 },
+  '10-enrichment': { w: 560, h: 470 },
 };
 const Embed = EMBEDS[d.row.embed];
 const dim = DIMS[d.row.embed] ?? { w: 700, h: 500 };

@@ -2,7 +2,7 @@
 // German lives in platform.de.ts, Dutch in platform.nl.ts; getPlatform() in
 // platform-i18n.ts picks per locale. Structure mirrors the home-content pattern.
 
-export type PlatformEmbedKey = '05-sp-widget' | '06-multichannel-flow' | '07-crm-sync-tracker';
+export type PlatformEmbedKey = '05-sp-widget' | '06-multichannel-flow' | '07-crm-sync-tracker' | '08-deliverability' | '09-personalization' | '10-enrichment';
 
 export interface PlatformBlock { title: string; body: string }
 
@@ -289,5 +289,195 @@ export const platform: PlatformData = {
       },
       closingCta: 'Book a demo',
     },
+{
+      "path": "/platform/deliverability",
+      "title": "Deliverability: land in the inbox, not the spam folder | hubsell",
+      "metaDescription": "hubsell sends from your own mailboxes through the Google and Microsoft APIs, verifies every contact at source, and paces volume, so your outreach reaches the inbox.",
+      "eyebrow": "Deliverability",
+      "h1Pre": "Reach the ",
+      "h1Accent": "inbox",
+      "h1Post": ", not the spam folder",
+      "sub": "Great targeting means nothing if the message never arrives. hubsell protects the whole path to the inbox: verified contacts, authenticated sending from your own mailboxes, and volume paced to keep your reputation intact.",
+      "demoCta": "Book a demo",
+      "row": {
+            "titlePre": "Sent the way ",
+            "titleAccent": "inboxes trust",
+            "titlePost": "",
+            "points": [
+                  "Emails send through the Google and Microsoft APIs, straight from your own mailboxes, with no external relay in the path.",
+                  "Every contact is verified the moment it is sourced, catch-all domains flagged, so bounces stay low.",
+                  "Volume is spread across your sender profiles within safe limits, so a new domain is never blasted into a filter."
+            ],
+            "embed": "08-deliverability",
+            "stepEyebrow": "How it works",
+            "stepTitle": "From verified contact to the inbox"
+      },
+      "gridTitlePre": "Built to ",
+      "gridTitleAccent": "get delivered",
+      "gridTitlePost": "",
+      "blocks": [
+            {
+                  "title": "Verified at source",
+                  "body": "Each address is checked at the point of use, not pulled from a list captured months ago. Catch-all domains are flagged before you send, so you spend credits on contacts that can actually receive mail."
+            },
+            {
+                  "title": "Sent from your mailboxes",
+                  "body": "Outreach goes through the Google and Microsoft APIs directly from your own accounts. There is no third-party server in the path for filters to distrust, so your sending looks like what it is: real mail from a real person."
+            },
+            {
+                  "title": "Authentication done right",
+                  "body": "SPF, DKIM, and DMARC are the checks providers run to decide if mail is really from you. hubsell guides you to set all three correctly, so your domain passes and your messages are trusted."
+            },
+            {
+                  "title": "Paced, not blasted",
+                  "body": "Volume is spread across sender profiles and ramped within safe limits. A new domain warms up instead of spiking, so you build reputation rather than burning it on the first send."
+            }
+      ],
+      "proofEyebrow": "Proof",
+      "proofTitle": "What landing in the inbox changes",
+      "quoteSlug": "staffbase",
+      "storySlug": "staffbase",
+      "storyLabel": "Read the Staffbase story",
+      "faqEyebrow": "FAQ",
+      "faqTitle": "Common questions about deliverability",
+      "faqSlugs": [
+            "stop-sales-email-bounces",
+            "hubsell-email-infrastructure",
+            "hubsell-catch-all-domains"
+      ],
+      "closing": {
+            "titlePre": "See your ",
+            "titleAccent": "inbox placement",
+            "titlePost": ", not just your open rate.",
+            "sub": "Bring your current sending setup to a short call and we will show you where your mail is actually landing and why."
+      },
+      "closingCta": "Book a demo"
+},
+{
+      "path": "/platform/personalization",
+      "title": "Personalization at scale: relevant outreach for every contact | hubsell",
+      "metaDescription": "hubsell personalizes outreach from live signals and verified data, so every message is relevant to the person and the moment, sent to thousands without losing the human touch.",
+      "eyebrow": "Personalization",
+      "h1Pre": "Relevant to ",
+      "h1Accent": "every contact",
+      "h1Post": ", at any volume",
+      "sub": "Generic mail gets ignored. hubsell builds each message from live signals and verified data about the person and the account, so outreach reads as written for them, even when you send it to thousands.",
+      "demoCta": "Book a demo",
+      "row": {
+            "titlePre": "Written for the ",
+            "titleAccent": "person and the moment",
+            "titlePost": "",
+            "points": [
+                  "Merge in real details about the person, the company, and what they are doing right now, not just a first name.",
+                  "Live signals such as a job change, a hiring push, or event activity give every message a reason to exist.",
+                  "The same flow personalizes one contact or ten thousand, so relevance does not cost you reach."
+            ],
+            "embed": "09-personalization",
+            "stepEyebrow": "How it works",
+            "stepTitle": "From live signal to a message that fits"
+      },
+      "gridTitlePre": "Relevance that ",
+      "gridTitleAccent": "scales with you",
+      "gridTitlePost": "",
+      "blocks": [
+            {
+                  "title": "Beyond the first name",
+                  "body": "Real personalization uses what is true about the account: the role, the company, the moment. hubsell pulls from verified data and live signals, so a message references something that actually matters to the reader."
+            },
+            {
+                  "title": "Grounded in live signals",
+                  "body": "A job change, a funding round, a hiring push, or engagement on a topic gives outreach a genuine hook. hubsell reads these signals and puts them to work, so the message arrives with a reason."
+            },
+            {
+                  "title": "Consistent at volume",
+                  "body": "Personalizing by hand does not scale, and mail merge fields feel hollow. hubsell keeps every message relevant whether you send ten or ten thousand, so reach and relevance stop pulling against each other."
+            },
+            {
+                  "title": "Correct data underneath",
+                  "body": "Personalization is only as good as the data behind it. Because every contact is verified at source, the details you reference are right, so a personalized line never lands as a wrong-company mistake."
+            }
+      ],
+      "proofEyebrow": "Proof",
+      "proofTitle": "What real relevance changes",
+      "quoteSlug": "elium",
+      "storySlug": "elium",
+      "storyLabel": "Read the Elium story",
+      "faqEyebrow": "FAQ",
+      "faqTitle": "Common questions about personalization",
+      "faqSlugs": [
+            "personalize-outreach-at-scale",
+            "hubsell-conversion-rates"
+      ],
+      "closing": {
+            "titlePre": "See outreach that ",
+            "titleAccent": "reads as personal",
+            "titlePost": ", at scale.",
+            "sub": "Show us your audience on a short call and we will draft what personalized-at-scale outreach looks like for it."
+      },
+      "closingCta": "Book a demo"
+},
+{
+      "path": "/platform/enrichment",
+      "title": "Data enrichment: complete, verified contact records | hubsell",
+      "metaDescription": "hubsell enriches every contact from multiple live sources and verifies the result at the point of use, so you get complete, current records instead of half-empty rows.",
+      "eyebrow": "Enrichment",
+      "h1Pre": "Complete records, ",
+      "h1Accent": "verified today",
+      "h1Post": "",
+      "sub": "A half-filled contact record stalls outreach. hubsell enriches each contact from several live sources and verifies the result the moment you use it, so you work from complete, current data rather than gaps.",
+      "demoCta": "Book a demo",
+      "row": {
+            "titlePre": "Filled from ",
+            "titleAccent": "several live sources",
+            "titlePost": "",
+            "points": [
+                  "Each record is built by drawing on multiple sources in turn, so a gap in one is filled by another.",
+                  "Work email, phone, role, and company details come together into one complete contact, not a scatter of half-rows.",
+                  "The finished record is verified at the point of use, so what you send to is correct on the day you use it."
+            ],
+            "embed": "10-enrichment",
+            "stepEyebrow": "How it works",
+            "stepTitle": "From partial row to complete, verified record"
+      },
+      "gridTitlePre": "Records that are ",
+      "gridTitleAccent": "complete and current",
+      "gridTitlePost": "",
+      "blocks": [
+            {
+                  "title": "Multiple sources, one record",
+                  "body": "hubsell draws on several live sources in turn, so where one comes up short another fills the gap. The result is a complete contact rather than a row with the important fields missing."
+            },
+            {
+                  "title": "Verified at the point of use",
+                  "body": "Enrichment without verification just fills fields with stale guesses. hubsell checks the finished record the moment you use it, catch-all domains included, so a complete record is also a correct one."
+            },
+            {
+                  "title": "No decaying database",
+                  "body": "A static enriched list starts rotting the day it is built. hubsell enriches live, on the day you ask, so you are not paying to top up records that were captured years ago and have drifted since."
+            },
+            {
+                  "title": "Ready for outreach",
+                  "body": "A complete, verified record flows straight into your sequences and your CRM. There is no export, no cleanup pass, no second tool, so the data you enrich is the data you send to."
+            }
+      ],
+      "proofEyebrow": "Proof",
+      "proofTitle": "What complete data changes",
+      "quoteSlug": "verhaert",
+      "storySlug": "verhaert",
+      "storyLabel": "Read the Verhaert story",
+      "faqEyebrow": "FAQ",
+      "faqTitle": "Common questions about enrichment",
+      "faqSlugs": [
+            "build-b2b-audience-no-decay",
+            "third-party-intent-data-accuracy"
+      ],
+      "closing": {
+            "titlePre": "See your list ",
+            "titleAccent": "filled and verified",
+            "titlePost": ".",
+            "sub": "Send us a sample of your data on a short call and we will show you what live enrichment returns for it."
+      },
+      "closingCta": "Book a demo"
+}
   ],
 };

@@ -228,5 +228,195 @@ export const platformDe: PlatformData = {
       },
       closingCta: 'Demo buchen',
     },
+{
+      "path": "/platform/deliverability",
+      "title": "Deliverability: im Posteingang landen, nicht im Spam-Ordner | hubsell",
+      "metaDescription": "hubsell sendet aus Ihren eigenen Postf\u00e4chern \u00fcber die Google- und Microsoft-APIs, verifiziert jeden Kontakt an der Quelle und taktet das Volumen, sodass Ihr Outreach den Posteingang erreicht.",
+      "eyebrow": "Deliverability",
+      "h1Pre": "Den ",
+      "h1Accent": "Posteingang",
+      "h1Post": " erreichen, nicht den Spam-Ordner",
+      "sub": "Gutes Targeting bringt nichts, wenn die Nachricht nie ankommt. hubsell sch\u00fctzt den ganzen Weg zum Posteingang: verifizierte Kontakte, authentifiziertes Senden aus Ihren eigenen Postf\u00e4chern und ein Volumen, das getaktet ist, damit Ihre Reputation intakt bleibt.",
+      "demoCta": "Demo buchen",
+      "row": {
+            "titlePre": "Gesendet, wie ",
+            "titleAccent": "Posteing\u00e4nge es vertrauen",
+            "titlePost": "",
+            "points": [
+                  "E-Mails senden \u00fcber die Google- und Microsoft-APIs, direkt aus Ihren eigenen Postf\u00e4chern, ohne externen Relay im Weg.",
+                  "Jeder Kontakt wird im Moment der Recherche verifiziert, catch-all-Domains markiert, sodass Bounces niedrig bleiben.",
+                  "Das Volumen verteilt sich innerhalb sicherer Limits auf Ihre Absenderprofile, sodass eine neue Domain nie in einen Filter geblasen wird."
+            ],
+            "embed": "08-deliverability",
+            "stepEyebrow": "So funktioniert es",
+            "stepTitle": "Vom verifizierten Kontakt in den Posteingang"
+      },
+      "gridTitlePre": "Gebaut, um ",
+      "gridTitleAccent": "zugestellt zu werden",
+      "gridTitlePost": "",
+      "blocks": [
+            {
+                  "title": "An der Quelle verifiziert",
+                  "body": "Jede Adresse wird am Punkt der Nutzung gepr\u00fcft, nicht aus einer vor Monaten erfassten Liste gezogen. Catch-all-Domains werden vor dem Senden markiert, sodass Sie Credits f\u00fcr Kontakte ausgeben, die Mail tats\u00e4chlich empfangen k\u00f6nnen."
+            },
+            {
+                  "title": "Aus Ihren Postf\u00e4chern gesendet",
+                  "body": "Outreach geht \u00fcber die Google- und Microsoft-APIs direkt aus Ihren eigenen Konten. Es gibt keinen Drittserver im Weg, dem Filter misstrauen k\u00f6nnten, sodass Ihr Senden aussieht wie das, was es ist: echte Mail von einer echten Person."
+            },
+            {
+                  "title": "Authentifizierung richtig gemacht",
+                  "body": "SPF, DKIM und DMARC sind die Pr\u00fcfungen, mit denen Anbieter entscheiden, ob Mail wirklich von Ihnen stammt. hubsell leitet Sie an, alle drei korrekt zu setzen, sodass Ihre Domain besteht und Ihre Nachrichten vertraut werden."
+            },
+            {
+                  "title": "Getaktet, nicht geblasen",
+                  "body": "Das Volumen verteilt sich auf Absenderprofile und wird innerhalb sicherer Limits hochgefahren. Eine neue Domain w\u00e4rmt sich auf, statt zu spiken, sodass Sie Reputation aufbauen, statt sie beim ersten Senden zu verbrennen."
+            }
+      ],
+      "proofEyebrow": "Proof",
+      "proofTitle": "Was der Posteingang ver\u00e4ndert",
+      "quoteSlug": "staffbase",
+      "storySlug": "staffbase",
+      "storyLabel": "Zur Staffbase-Story",
+      "faqEyebrow": "FAQ",
+      "faqTitle": "H\u00e4ufige Fragen zur Deliverability",
+      "faqSlugs": [
+            "stop-sales-email-bounces",
+            "hubsell-email-infrastructure",
+            "hubsell-catch-all-domains"
+      ],
+      "closing": {
+            "titlePre": "Sehen Sie Ihre ",
+            "titleAccent": "Inbox-Platzierung",
+            "titlePost": ", nicht nur Ihre \u00d6ffnungsrate.",
+            "sub": "Bringen Sie Ihr aktuelles Sende-Setup in ein kurzes Gespr\u00e4ch, und wir zeigen Ihnen, wo Ihre Mail tats\u00e4chlich landet und warum."
+      },
+      "closingCta": "Demo buchen"
+},
+{
+      "path": "/platform/personalization",
+      "title": "Personalisierung im gro\u00dfen Ma\u00dfstab: relevanter Outreach f\u00fcr jeden Kontakt | hubsell",
+      "metaDescription": "hubsell personalisiert Outreach aus Live-Signalen und verifizierten Daten, sodass jede Nachricht f\u00fcr die Person und den Moment relevant ist, an Tausende gesendet, ohne die menschliche Note zu verlieren.",
+      "eyebrow": "Personalisierung",
+      "h1Pre": "Relevant f\u00fcr ",
+      "h1Accent": "jeden Kontakt",
+      "h1Post": ", bei jedem Volumen",
+      "sub": "Generische Mail wird ignoriert. hubsell baut jede Nachricht aus Live-Signalen und verifizierten Daten \u00fcber die Person und den Account, sodass Outreach sich liest, als w\u00e4re er f\u00fcr sie geschrieben, selbst wenn Sie ihn an Tausende senden.",
+      "demoCta": "Demo buchen",
+      "row": {
+            "titlePre": "Geschrieben f\u00fcr die ",
+            "titleAccent": "Person und den Moment",
+            "titlePost": "",
+            "points": [
+                  "F\u00fcgen Sie echte Details \u00fcber die Person, das Unternehmen und das, was sie gerade tun, ein, nicht nur einen Vornamen.",
+                  "Live-Signale wie ein Jobwechsel, ein Hiring-Schub oder Event-Aktivit\u00e4t geben jeder Nachricht einen Grund zu existieren.",
+                  "Derselbe Flow personalisiert einen Kontakt oder zehntausend, sodass Relevanz Sie keine Reichweite kostet."
+            ],
+            "embed": "09-personalization",
+            "stepEyebrow": "So funktioniert es",
+            "stepTitle": "Vom Live-Signal zur passenden Nachricht"
+      },
+      "gridTitlePre": "Relevanz, die ",
+      "gridTitleAccent": "mit Ihnen skaliert",
+      "gridTitlePost": "",
+      "blocks": [
+            {
+                  "title": "Mehr als der Vorname",
+                  "body": "Echte Personalisierung nutzt, was \u00fcber den Account wahr ist: die Rolle, das Unternehmen, den Moment. hubsell zieht aus verifizierten Daten und Live-Signalen, sodass eine Nachricht auf etwas verweist, das dem Leser tats\u00e4chlich wichtig ist."
+            },
+            {
+                  "title": "Auf Live-Signalen gegr\u00fcndet",
+                  "body": "Ein Jobwechsel, eine Finanzierungsrunde, ein Hiring-Schub oder Engagement zu einem Thema geben Outreach einen echten Anker. hubsell liest diese Signale und setzt sie ein, sodass die Nachricht mit einem Grund ankommt."
+            },
+            {
+                  "title": "Konsistent bei Volumen",
+                  "body": "Von Hand zu personalisieren skaliert nicht, und Serienbrieffelder wirken hohl. hubsell h\u00e4lt jede Nachricht relevant, ob Sie zehn oder zehntausend senden, sodass Reichweite und Relevanz nicht mehr gegeneinander ziehen."
+            },
+            {
+                  "title": "Korrekte Daten darunter",
+                  "body": "Personalisierung ist nur so gut wie die Daten dahinter. Weil jeder Kontakt an der Quelle verifiziert ist, stimmen die Details, auf die Sie verweisen, sodass eine personalisierte Zeile nie als Falsches-Unternehmen-Fehler landet."
+            }
+      ],
+      "proofEyebrow": "Proof",
+      "proofTitle": "Was echte Relevanz ver\u00e4ndert",
+      "quoteSlug": "elium",
+      "storySlug": "elium",
+      "storyLabel": "Zur Elium-Story",
+      "faqEyebrow": "FAQ",
+      "faqTitle": "H\u00e4ufige Fragen zur Personalisierung",
+      "faqSlugs": [
+            "personalize-outreach-at-scale",
+            "hubsell-conversion-rates"
+      ],
+      "closing": {
+            "titlePre": "Sehen Sie Outreach, der sich ",
+            "titleAccent": "pers\u00f6nlich liest",
+            "titlePost": ", im gro\u00dfen Ma\u00dfstab.",
+            "sub": "Zeigen Sie uns Ihre Zielgruppe in einem kurzen Gespr\u00e4ch, und wir entwerfen, wie personalisierter Outreach im gro\u00dfen Ma\u00dfstab daf\u00fcr aussieht."
+      },
+      "closingCta": "Demo buchen"
+},
+{
+      "path": "/platform/enrichment",
+      "title": "Data Enrichment: vollst\u00e4ndige, verifizierte Kontaktdatens\u00e4tze | hubsell",
+      "metaDescription": "hubsell reichert jeden Kontakt aus mehreren Live-Quellen an und verifiziert das Ergebnis am Punkt der Nutzung, sodass Sie vollst\u00e4ndige, aktuelle Datens\u00e4tze erhalten statt halbleerer Zeilen.",
+      "eyebrow": "Enrichment",
+      "h1Pre": "Vollst\u00e4ndige Datens\u00e4tze, ",
+      "h1Accent": "heute verifiziert",
+      "h1Post": "",
+      "sub": "Ein halb gef\u00fcllter Kontaktdatensatz bremst Outreach. hubsell reichert jeden Kontakt aus mehreren Live-Quellen an und verifiziert das Ergebnis in dem Moment, in dem Sie es nutzen, sodass Sie aus vollst\u00e4ndigen, aktuellen Daten arbeiten statt aus L\u00fccken.",
+      "demoCta": "Demo buchen",
+      "row": {
+            "titlePre": "Gef\u00fcllt aus ",
+            "titleAccent": "mehreren Live-Quellen",
+            "titlePost": "",
+            "points": [
+                  "Jeder Datensatz wird gebaut, indem der Reihe nach mehrere Quellen genutzt werden, sodass eine L\u00fccke in der einen von einer anderen gef\u00fcllt wird.",
+                  "Gesch\u00e4ftliche E-Mail, Telefon, Rolle und Unternehmensdetails kommen zu einem vollst\u00e4ndigen Kontakt zusammen, nicht zu einem Streu halber Zeilen.",
+                  "Der fertige Datensatz wird am Punkt der Nutzung verifiziert, sodass das, wohin Sie senden, am Tag der Nutzung korrekt ist."
+            ],
+            "embed": "10-enrichment",
+            "stepEyebrow": "So funktioniert es",
+            "stepTitle": "Von der Teilzeile zum vollst\u00e4ndigen, verifizierten Datensatz"
+      },
+      "gridTitlePre": "Datens\u00e4tze, die ",
+      "gridTitleAccent": "vollst\u00e4ndig und aktuell sind",
+      "gridTitlePost": "",
+      "blocks": [
+            {
+                  "title": "Mehrere Quellen, ein Datensatz",
+                  "body": "hubsell nutzt der Reihe nach mehrere Live-Quellen, sodass eine andere die L\u00fccke f\u00fcllt, wo eine zu kurz kommt. Das Ergebnis ist ein vollst\u00e4ndiger Kontakt statt einer Zeile mit fehlenden wichtigen Feldern."
+            },
+            {
+                  "title": "Am Punkt der Nutzung verifiziert",
+                  "body": "Enrichment ohne Verifizierung f\u00fcllt Felder nur mit veralteten Vermutungen. hubsell pr\u00fcft den fertigen Datensatz in dem Moment, in dem Sie ihn nutzen, catch-all-Domains inklusive, sodass ein vollst\u00e4ndiger Datensatz auch ein korrekter ist."
+            },
+            {
+                  "title": "Keine verfallende Datenbank",
+                  "body": "Eine statische angereicherte Liste beginnt am Tag ihrer Erstellung zu verrotten. hubsell reichert live an, an dem Tag, an dem Sie fragen, sodass Sie nicht daf\u00fcr zahlen, Datens\u00e4tze aufzuf\u00fcllen, die vor Jahren erfasst wurden und seither abgedriftet sind."
+            },
+            {
+                  "title": "Bereit f\u00fcr Outreach",
+                  "body": "Ein vollst\u00e4ndiger, verifizierter Datensatz flie\u00dft direkt in Ihre Sequenzen und Ihr CRM. Es gibt keinen Export, keinen Bereinigungsdurchlauf, kein zweites Tool, sodass die Daten, die Sie anreichern, die Daten sind, an die Sie senden."
+            }
+      ],
+      "proofEyebrow": "Proof",
+      "proofTitle": "Was vollst\u00e4ndige Daten ver\u00e4ndern",
+      "quoteSlug": "verhaert",
+      "storySlug": "verhaert",
+      "storyLabel": "Zur Verhaert-Story",
+      "faqEyebrow": "FAQ",
+      "faqTitle": "H\u00e4ufige Fragen zum Enrichment",
+      "faqSlugs": [
+            "build-b2b-audience-no-decay",
+            "third-party-intent-data-accuracy"
+      ],
+      "closing": {
+            "titlePre": "Sehen Sie Ihre Liste ",
+            "titleAccent": "gef\u00fcllt und verifiziert",
+            "titlePost": ".",
+            "sub": "Senden Sie uns in einem kurzen Gespr\u00e4ch eine Stichprobe Ihrer Daten, und wir zeigen Ihnen, was Live-Enrichment daf\u00fcr zur\u00fcckgibt."
+      },
+      "closingCta": "Demo buchen"
+}
   ],
 };

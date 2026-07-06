@@ -76,6 +76,10 @@ export const platformLinks: NavLink[] = [
   { label: 'Live data', key: 'nav.platform.livedata', href: '/platform/live-data' },
   { label: 'Multichannel outreach', key: 'nav.platform.outreach', href: '/platform/multichannel-outreach' },
   { label: 'CRM sync', key: 'nav.platform.crmsync', href: '/platform/crm-sync' },
+  { label: 'Deliverability', key: 'nav.platform.deliverability', href: '/platform/deliverability' },
+  { label: 'Personalization', key: 'nav.platform.personalization', href: '/platform/personalization' },
+  { label: 'Enrichment', key: 'nav.platform.enrichment', href: '/platform/enrichment' },
+  { label: 'Integrations', key: 'nav.platform.integrations', href: '/integrations' },
 ];
 
 // Solutions pages, split across two axes. Rendered as a two-column nav menu
