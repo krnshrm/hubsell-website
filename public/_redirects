@@ -17,3 +17,22 @@
 
 # Conventional /sitemap.xml -> the generated sitemap index.
 /sitemap.xml   /sitemap-index.xml   301
+
+# --- Post-cutover fixes: broken internal links found in migrated blog posts (2026-07) ---
+# Old Webflow product URLs -> matching new platform pages.
+/products/campaigns    /platform/multichannel-outreach   301
+/products/campaigns/   /platform/multichannel-outreach   301
+/products/contacts     /platform/live-data               301
+/products/contacts/    /platform/live-data               301
+
+# Drifted /insights slugs -> current slugs.
+/insights/b2b-lead-generation-channels-to-boost-your-growth    /insights/b2b-lead-generation-channels   301
+/insights/b2b-lead-generation-channels-to-boost-your-growth/   /insights/b2b-lead-generation-channels   301
+/insights/the-types-sales-tools-you-need-to-increase-roi       /insights/the-types-of-outbound-sales-tools-you-need-to-increase-roi   301
+/insights/the-types-sales-tools-you-need-to-increase-roi/      /insights/the-types-of-outbound-sales-tools-you-need-to-increase-roi   301
+/insights/why-copy-matters-in-outbound-lead-generation         /insights/why-copy-matters-in-outbound-lead-generation-and-how-to-do-it-right   301
+/insights/why-copy-matters-in-outbound-lead-generation/        /insights/why-copy-matters-in-outbound-lead-generation-and-how-to-do-it-right   301
+
+# Post that was not migrated -> insights index.
+/insights/must-have-sales-tools-for-2019     /insights   301
+/insights/must-have-sales-tools-for-2019/    /insights   301
