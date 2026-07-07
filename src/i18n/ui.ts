@@ -31,7 +31,7 @@ export const localeNames: Record<Locale, string> = {
 // homepage is the first entry (added in the next PR).
 export const translatedRoutes: Partial<Record<Locale, string[]>> = {
   de: [
-    '/', '/contact', '/book-a-call', '/faqs', '/hubsell-reviews', '/ai-information-page',
+    '/', '/contact', '/book-a-call', '/pricing', '/faqs', '/hubsell-reviews', '/ai-information-page',
     '/use-cases',
     '/platform', '/platform/live-data', '/platform/multichannel-outreach', '/platform/crm-sync', '/platform/deliverability', '/platform/personalization', '/platform/enrichment', '/integrations',
     '/solutions', '/solutions/team/sales-teams', '/solutions/team/agencies', '/solutions/team/revops', '/solutions/team/founders', '/solutions/role/sdr', '/solutions/role/sales-leader', '/solutions/role/marketing', '/solutions/role/sales-operations',
@@ -111,7 +111,7 @@ export const translatedRoutes: Partial<Record<Locale, string[]>> = {
     '/glossary/llms-txt',
   ],
   nl: [
-    '/', '/contact', '/book-a-call',
+    '/', '/contact', '/book-a-call', '/pricing',
     '/faqs', '/hubsell-reviews', '/ai-information-page',
     '/use-cases',
     '/platform', '/platform/live-data', '/platform/multichannel-outreach', '/platform/crm-sync', '/platform/deliverability', '/platform/personalization', '/platform/enrichment', '/integrations',

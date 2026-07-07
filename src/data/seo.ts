@@ -85,11 +85,11 @@ export const softwareApplicationSchema = {
     {
       '@type': 'Offer',
       name: 'Grow',
-      price: '1440',
+      price: '4320',
       priceCurrency: 'EUR',
       priceSpecification: {
         '@type': 'UnitPriceSpecification',
-        price: '1440',
+        price: '4320',
         priceCurrency: 'EUR',
         referenceQuantity: { '@type': 'QuantitativeValue', value: '1', unitCode: 'ANN' },
       },

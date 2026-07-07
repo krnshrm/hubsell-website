@@ -60,7 +60,7 @@ export const menuGroups: NavGroup[] = [
 
 // Top-level links shown beside the Resources trigger (and in the footer's Product column).
 export const topLinks: NavLink[] = [
-  { label: 'Pricing', key: 'nav.pricing', href: '/#pricing' },
+  { label: 'Pricing', key: 'nav.pricing', href: '/pricing' },
 ];
 
 // Footer-only links (kept out of the top nav to keep it lean).

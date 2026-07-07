@@ -3,8 +3,10 @@
 // (currency conversion, Platform/Data tabs, cards), rebranded in PricingTable.astro.
 import PricingTable from './PricingTable.astro';
 import { getHome } from '../data/home-i18n';
-import { asLocale } from '../i18n/utils';
-const { s } = getHome(asLocale(Astro.currentLocale));
+import { asLocale, localizedHref } from '../i18n/utils';
+const L = asLocale(Astro.currentLocale);
+const { s } = getHome(L);
+const seeFull = L === 'de' ? 'Alle Preise und FAQ ansehen' : L === 'nl' ? 'Bekijk alle prijzen en FAQ' : 'See full pricing and FAQ';
 ---
 <section id="pricing" class="sec sec--paper" aria-labelledby="pricing-title">
   <div class="wrap">
@@ -15,5 +17,8 @@ const { s } = getHome(asLocale(Astro.currentLocale));
     <div class="reveal">
       <PricingTable />
     </div>
+    <p class="reveal" style="text-align:center;margin-top:22px">
+      <a href={localizedHref(L, '/pricing')} class="link">{seeFull} &rarr;</a>
+    </p>
   </div>
 </section>
