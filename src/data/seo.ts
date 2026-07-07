@@ -66,11 +66,13 @@ export const softwareApplicationSchema = {
     bestRating: '5',
     worstRating: '1',
   },
-  // Same base plan billed two ways (12 x 120 = 1440). Each offer carries its
-  // billing period so search reads them as billing options, not a price range.
+  // Two real tiers: Start billed monthly, Grow billed annually. Grow costs the
+  // same per month as Start but includes more features, so annual is an upgrade
+  // rather than a discount. Each offer carries its billing period.
   offers: [
     {
       '@type': 'Offer',
+      name: 'Start',
       price: '120',
       priceCurrency: 'EUR',
       priceSpecification: {
@@ -82,6 +84,7 @@ export const softwareApplicationSchema = {
     },
     {
       '@type': 'Offer',
+      name: 'Grow',
       price: '1440',
       priceCurrency: 'EUR',
       priceSpecification: {
