@@ -1,5 +1,6 @@
 ---
-title: "12 methods for qualifying your leads and when to use them in your sales process"
+title: "12 lead qualification methods and when to use them"
+topics: ["Lead generation", "Sales operations"]
 description: "Boost your sales efficiency by mastering lead qualification. This comprehensive guide explores 12 proven methodologies, including BANT, MEDDIC, and SPIN, to help you identify high-fit prospects early. Learn how to leverage automation and ideal customer profiles to improve your close rates."
 summary: "Did you know only 25 percent of leads are legitimate sales qualified, and 79 percent of marketing leads never convert? Moreover, on average 73 percent of leads are not sales-ready, and 50 percent are qualified but not yet ready to buy. The stats from this study spotlight the importance of prioritising the right leads and letting go of the irrelevant ones to better manage the time of your sales teams. In this post, I will define the process of lead qualification, when to use it, followed by a comprehensive guide into the most effective methods for filtering leads."
 publishedAt: 2026-04-14

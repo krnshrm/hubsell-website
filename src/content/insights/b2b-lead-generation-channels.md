@@ -1,5 +1,6 @@
 ---
-title: "The best B2B lead generation channels to boost your growth"
+title: "The best B2B lead generation channels to grow pipeline"
+topics: ["Lead generation"]
 description: "Explore an extensive and diverse range of B2B lead generation channels for 2021 to significantly boost your revenue. This comprehensive guide covers webinars, live streaming, social media strategies, and cold email outreach. Learn how to leverage virtual conferences, SEO, and physical letters."
 summary: "In this post, I will discuss some of the newest B2B lead generation channels along with channels which have stood the test of time."
 publishedAt: 2026-04-23

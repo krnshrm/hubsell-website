@@ -1,5 +1,6 @@
 ---
-title: "Sales and marketing courses to upgrade your team in 2021"
+title: "The best sales and marketing courses for your team"
+topics: ["Sales skills"]
 description: "Discover the best online sales and marketing courses to advance your career. From short introductory sessions to in-depth master programs, this guide covers top-rated training in prospecting, negotiation, digital marketing, SEO, and content strategy from providers like HubSpot, Google, and Udemy. Fi"
 summary: "As the gap between sales and marketing bridges ever closer to each other, learning new skills in each department is becoming very useful when tackling the challenges of opportunity generation."
 publishedAt: 2026-03-31

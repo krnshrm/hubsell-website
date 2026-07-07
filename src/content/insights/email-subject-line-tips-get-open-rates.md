@@ -1,5 +1,6 @@
 ---
-title: "16 email subject line insider tips to get 50%+ open rates"
+title: "16 cold email subject line tips for higher open rates"
+topics: ["Cold email", "Email deliverability"]
 description: "Boost your cold email open rates with these 16 expert subject line tips. Learn how to craft short, mobile-friendly headlines, use psychological triggers like urgency and curiosity, and avoid common spam filters. Master personalization and A/B testing to create high-performing outreach campaigns."
 summary: "In cold outreach, one of the most impactful metrics is open rate. Email deliverability, sender name, even the email preview will impact your performance, but no element has quite as much pull as the subject line. It is no wonder that 47% of recipients open an email by looking at the subject line alone."
 publishedAt: 2026-04-14

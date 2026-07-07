@@ -1,5 +1,6 @@
 ---
-title: "What is intent data and how to use it in your B2B sales and marketing efforts"
+title: "Intent data: what it is and how to use it in B2B"
+topics: ["Data enrichment", "Prospect data"]
 description: "Discover the power of intent data for B2B sales and marketing success. Learn the key differences between first-party and third-party data and how they improve lead scoring, account-based marketing, and customer retention. Hubsell helps you track behavioral signals to shorten your sales cycles."
 summary: "Intent data provides your team with consistent behavioral signals that can track your potential or existing customers’ web activity during the buyer journey."
 publishedAt: 2026-04-14

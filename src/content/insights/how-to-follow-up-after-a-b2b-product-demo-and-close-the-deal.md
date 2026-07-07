@@ -1,5 +1,6 @@
 ---
-title: "How to follow up after a B2B product demo and close the deal"
+title: "How to follow up after a B2B demo and close the deal"
+topics: ["Sales skills"]
 description: "Master the post-demo follow-up stage with these five essential guidelines to increase your closing rate. Learn why you should never assume a deal is done until the money is in the bank, how to provide value with product info, and the importance of giving prospects space while knowing when to re-enga"
 summary: "Following up after a demo to close a B2B deal can be quite frustrating for companies. That is because SQLs are so close to becoming customers. But, if the process goes awry, then all the time and effort invested will go to waste. So, in this post, I want to share our guidelines for following up after the demo, as well as common pitfalls to avoid."
 publishedAt: 2026-04-02

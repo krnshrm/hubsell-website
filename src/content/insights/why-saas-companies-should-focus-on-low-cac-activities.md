@@ -1,5 +1,6 @@
 ---
-title: "Why SaaS companies should focus on low customer acquisition activities"
+title: "Why SaaS should focus on low-CAC growth activities"
+topics: ["Sales operations"]
 description: "Optimize your SaaS company’s profitability by mastering Customer Acquisition Cost (CAC), Customer Lifetime Value (CLV), and Contribution Margin. This guide explores strategies to lower CAC through automation, lead quality improvements, and cold-calling 2.0 to ensure sustainable business growth."
 summary: "As a growing SaaS company every expense you make needs to be scrutinised, because there are several different channels you can invest in in order to generate sales. One of the traps that SaaS companies should avoid is spending money on low ROI activities. A great metric to take as the rule of thumb while determining the ROI is the customer acquisition cost (CAC)."
 publishedAt: 2026-04-23

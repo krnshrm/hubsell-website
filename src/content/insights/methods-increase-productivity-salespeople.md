@@ -1,5 +1,6 @@
 ---
-title: "Seven methods to increase the productivity of your salespeople"
+title: "7 ways to increase your sales team productivity"
+topics: ["Sales operations", "Sales skills"]
 description: "Boost B2B sales performance by addressing common inefficiencies and implementing seven proven productivity enhancers. This guide covers essential strategies like investing in comprehensive onboarding, motivating your team, setting clear goals, and perfecting product demos to scale your business."
 summary: "In a B2B company, sales is what makes the machine keep going. And, a successful sales team is comprised of productive salespeople. So, in this blog, I will examine seven methods to improve the productivity of each salesperson. And the biggest factors that contribute to sales inefficiency."
 publishedAt: 2026-04-23

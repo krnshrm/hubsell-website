@@ -1,5 +1,6 @@
 ---
-title: "Nine subject line insider tips to get 50%+ open rates"
+title: "9 subject line tips for higher cold email open rates"
+topics: ["Cold email", "Email deliverability"]
 description: "Optimize your B2B cold outreach with nine essential subject line tips to achieve open rates between 40% and 70%. Learn to balance character length, avoid spam words and clickbait, leverage personalization, and use A/B testing to ensure your messages resonate and drive positive engagement."
 summary: "Writing successful subject lines can be a challenge for businesses because it requires a mixture of ongoing testing and a certain expertise in the field. At hubsell we’ve seen the best and worst subject lines and committed almost all of the mistakes possible. This article consists of our top nine insider tips to help your subject line game go to the next level."
 publishedAt: 2026-03-31

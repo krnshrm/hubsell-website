@@ -1,5 +1,6 @@
 ---
-title: "The top CTA mistakes to avoid in B2B cold outreach messages"
+title: "5 CTA mistakes to avoid in B2B cold outreach"
+topics: ["Cold email"]
 description: "Improve your B2B cold outreach by avoiding common Call to Action mistakes. This guide explores five frequent errors: missing CTAs, lack of focus, obscure requests, over-aggressiveness, and excessive jargon. Learn how to create clear, effective CTAs that drive engagement and increase sales."
 summary: "Our best campaigns’ messages at hubsell had strong Call to Actions. The job of a CTA is not to charm or convince the reader. It is to confidently and smoothly advance the relationship. However, it is common to make mistakes in the CTA creation process. So, I would like to share with you the top CTA mistakes you want to avoid in B2B cold outreach."
 publishedAt: 2026-04-23

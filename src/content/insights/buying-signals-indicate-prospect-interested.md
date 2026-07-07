@@ -1,5 +1,6 @@
 ---
-title: "31 buying signals that indicate your prospect is (still) interested"
+title: "31 buying signals that show your prospect is interested"
+topics: ["Sales skills", "Lead generation"]
 description: "Identify and leverage 31 crucial buying signals to close more B2B deals. This guide categorizes signs from prospect calls, email outreach, and company insights—like new funding or leadership changes. Master how to spot interest through website behavior and social media to focus on the right leads."
 summary: "Whether you are in sales or marketing, buying signals are crucial to look out for. Some of these signals may be subtle, while others are not so subtle."
 publishedAt: 2026-04-14

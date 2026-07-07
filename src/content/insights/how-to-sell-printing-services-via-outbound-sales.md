@@ -1,5 +1,6 @@
 ---
-title: "How to sell printing services via outbound sales"
+title: "How to sell printing services with outbound sales"
+topics: ["Industry guides", "Outbound sales"]
 description: "Learn how outbound sales can revolutionize your printing business. This guide covers overcoming high competition and digital shifts through targeted buyer personas, high-quality B2B data, and omnichannel outreach. Master personalization and automation to build a robust sales pipeline today."
 summary: "Effective outbound sales strategies for selling printing services. Learn how to research, target, and engage potential clients to boost your printing business."
 publishedAt: 2026-03-31

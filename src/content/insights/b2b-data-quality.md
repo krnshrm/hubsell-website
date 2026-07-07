@@ -1,5 +1,6 @@
 ---
-title: "An uncompromising analysis of B2B data and why it needs to be qualitative"
+title: "B2B data quality: why accurate data closes more deals"
+topics: ["Prospect data"]
 description: "High-quality B2B data is the foundation of successful sales and marketing. Explore why data quality must be prioritized by focusing on relevancy, accuracy, validity, breadth, and freshness. Learn how low-quality data impacts revenue and discover five essentials to solve your data problems."
 summary: "What are the issues of low-quality B2B data and how is it impacting your sales revenue? Find out how you can get high-quality B2B data for your sales and marketing teams."
 publishedAt: 2026-04-14

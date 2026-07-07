@@ -1,5 +1,6 @@
 ---
-title: "13 effective B2B sales methodologies to use in complex deals"
+title: "13 B2B sales methodologies for complex deals"
+topics: ["Sales skills", "Sales operations"]
 description: "Explore thirteen powerful B2B sales methodologies designed to close complex deals and drive revenue. From SPIN Selling and The Challenger Sale to modern signal-based approaches, this guide reviews the core principles, unique benefits, and practical applications of each strategy to help your team suc"
 summary: "A sales methodology is an essential ingredient if your B2B sales team wants to close large, complex deals, manage your opportunities and challenges, and coach your sales reps through the sales process."
 publishedAt: 2026-04-14

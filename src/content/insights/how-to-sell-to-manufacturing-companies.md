@@ -1,5 +1,6 @@
 ---
-title: "How to sell into the manufacturing industry and get manufacturing companies as customers"
+title: "How to sell to manufacturing companies"
+topics: ["Industry guides"]
 description: "The manufacturing industry faces significant challenges post-pandemic, from revenue recovery to supply chain streamlining. Based on the 2021 State of Manufacturing Report, 91% of leaders are increasing digital transformation investments while 68% prioritize building supply chain resilience."
 summary: "Since the pandemic hit, we saw companies in the manufacturing industry face severe challenges which uncovered new risks as well as highlighting areas that exposed them to major disruptions. Depending on how they were affected, a wide range of tasks is at hand for many manufacturing companies to fulfil from recovering lost revenue to streamlining their supply chain."
 publishedAt: 2026-04-02

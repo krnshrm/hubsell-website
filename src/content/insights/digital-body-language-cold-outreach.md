@@ -1,5 +1,6 @@
 ---
-title: "9 ways to use digital body language in your cold outreach to win over your prospects"
+title: "9 ways to use digital body language in cold outreach"
+topics: ["Cold email", "Sales skills"]
 description: "Master digital body language to transform your cold outreach and build trust with prospects. Learn nine actionable strategies, from leveraging industry trends and social proof to using the Sandler pain funnel. Streamline sales by communicating clearly and providing value at every touchpoint."
 summary: "Digital body language is one of the best tools for shaping outreach and giving value at every touch point. Think of it as a golden ticket to fostering solid connections and trust-filled interactions with your prospects. Use the tips in this blog as a guide to refine your prospecting strategy and become a superstar SDR!"
 publishedAt: 2026-04-14

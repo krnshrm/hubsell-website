@@ -1,5 +1,6 @@
 ---
-title: "How millennial buyers are influencing B2B sales and marketing"
+title: "How millennial buyers are changing B2B sales"
+topics: ["Sales skills"]
 description: "Millennials are redefining B2B sales with their tech-savvy preferences and focus on digital-first experiences. This generation prioritizes convenience, data-driven insights, and peer reviews over traditional sales tactics. Learn how B2B businesses are adapting through automation and video content."
 summary: "The impact millennials have had on B2B sales and digital marketing is critical now more than ever. The time has come for B2B businesses to shift priorities and look into elements of your business that have until now seemed less impactful on sales."
 publishedAt: 2026-03-31

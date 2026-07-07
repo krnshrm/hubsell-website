@@ -1,5 +1,6 @@
 ---
-title: "What is Revenue Operations and how to set it up in your company"
+title: "What is RevOps and how to set it up"
+topics: ["Sales operations"]
 description: "RevOps aligns marketing, sales, and customer success to break down silos and drive growth. By focusing on data, processes, technology, and strategic insights, companies can improve efficiency and customer retention. Key metrics like pipeline velocity and churn ensure predictable revenue success."
 summary: "If you are in marketing and sales, you have likely noticed the term Revenue Operations (“RevOps” for short) on the rise lately. Case in point, Revenue Operations job titles on LinkedIn are increasing across the board, based on a SiriusDecisions report. It also reveals titles Director Revenue Operations surpassed Director Sales Operations titles by a whopping 68% on the social platform.If you are also one of the many who are confused about what RevOps means, why you need it and how to do it, this post is for you."
 publishedAt: 2026-04-23

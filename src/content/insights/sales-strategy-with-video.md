@@ -1,5 +1,6 @@
 ---
-title: "6 ways to reimagine your sales strategy with video"
+title: "6 ways to use video in your B2B sales strategy"
+topics: ["Sales skills", "Multichannel outreach"]
 description: "Discover how video content can transform your B2B sales process. From personalized sales videos and product demos to webinars and video testimonials, learn how to capture prospect attention, build trust, and close more deals. Stay ahead by incorporating video throughout the entire buyer journey."
 summary: "A video-first approach is a fantastic way to ensure your selling methods do not appear outdated to your potential target customers. A sustainable game plan is to create and share the above videos throughout the buyer journey."
 publishedAt: 2026-04-14

@@ -1,5 +1,6 @@
 ---
-title: "How to give a product demo that turns prospects into customers"
+title: "How to give a product demo that converts prospects"
+topics: ["Sales skills"]
 description: "Master the art of B2B sales demos with this comprehensive guide. Learn how to structure your presentations, from the ideal 30-60 minute length to involving the right decision-makers. Improve your closing rates by assessing lead fit, handling objections professionally, and following up effectively."
 summary: "The skill of giving a demo is one of the most important to have in the process of closing a deal. If the salesperson fails to present the product correctly and handle the objections, then the demo to close ratio will be much lower. We have given many demos at hubsell and made a lot of mistakes along the way. In this post I share our demo structure and why it is so powerful in B2B sales."
 publishedAt: 2026-04-02

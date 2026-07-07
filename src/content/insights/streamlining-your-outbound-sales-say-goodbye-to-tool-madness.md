@@ -1,5 +1,6 @@
 ---
-title: "Streamlining your outbound sales say goodbye to tool madness"
+title: "How to cut tool sprawl in your outbound sales stack"
+topics: ["Sales operations", "Outbound sales"]
 description: "Stop drowning in tool madness. SDRs often juggle multiple platforms for data, outreach, and CRM syncing, leading to costly context switching and lost productivity. Hubsell consolidates your B2B outreach into one unified dashboard with accurate data and AI tools to help you focus on selling."
 summary: "Streamline your outbound sales by consolidating tools. Learn how hubsell can enhance productivity and improve sales outcomes by reducing tool chaos and context switching."
 publishedAt: 2026-03-31

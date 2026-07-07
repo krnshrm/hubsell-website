@@ -1,5 +1,6 @@
 ---
-title: "How to close a deal in B2B with these six must-have skills"
+title: "How to close a B2B deal: 6 must-have skills"
+topics: ["Sales skills"]
 description: "Master the bottom of the funnel to close more B2B deals. This guide covers essential BOFU steps: consulting customers with active listening, negotiating for win-win outcomes with assertiveness, creating contracts with legal know-how, and using persuasion to mitigate last-minute buyer anxiety."
 summary: "If you do not get good at closing deals, then all your hard work of getting leads and moving them down to the BOFU will be for nothing. So, in this post, I am going to show you how to close a deal by learning the top skills necessary in the bottom of the funnel."
 publishedAt: 2026-04-02

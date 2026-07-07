@@ -1,5 +1,6 @@
 ---
-title: "14 mistakes you are likely to make when doing cold outreach"
+title: "14 common cold outreach mistakes and how to avoid them"
+topics: ["Cold email", "Outbound sales"]
 description: "Avoid these 14 common cold outreach mistakes to grow your customer base. This guide covers essential tips for data segmentation, personalizing email copy, optimizing sending processes, and using multi-channel strategies. Learn how to improve deliverability and boost your positive reply rates."
 summary: "Cold outreach is a very effective strategy for B2B companies to acquire new customers. However, there are many moving parts in the process and it is easy to make mistakes which we have seen through our customers’ experiences and our own. In this post, we are going to explain these mistakes and give you some tips on how to avoid them in the future."
 publishedAt: 2026-04-14

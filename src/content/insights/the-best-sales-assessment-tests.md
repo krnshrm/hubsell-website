@@ -1,5 +1,6 @@
 ---
-title: "The best sales assessment tests you need when building your team"
+title: "The best sales assessment tests for hiring your team"
+topics: ["Sales skills"]
 description: "Discover top sales assessment tests to streamline your hiring and find the best fit for your team. This guide covers popular tools like MBTI, DISC, and the Grit Scale, explaining how each reveals key personality traits, motivations, and behaviors essential for success in B2B sales roles today."
 summary: "Whether you are looking for a more efficient way to hire the best salespeople or you want to save time doing so, you’ll want to make sure you are taking advantage of sales assessment tests."
 publishedAt: 2026-04-23

@@ -1,5 +1,6 @@
 ---
-title: "How to handle rejection in sales: A guide to shrugging off the sting of rejection and the venom of failure"
+title: "How to handle rejection in sales: 8 practical strategies"
+topics: ["Sales skills"]
 description: "Master the art of handling sales rejection with eight effective strategies. This guide covers creating routines, adjusting goals, and using technology like CRMs and automation tools to build resilience. Learn to evaluate rejections as learning opportunities and maintain a growth-oriented mindset."
 summary: "Let us face it, no matter how good you are, rejection and failure will always be part of the sales process. Whether it’s the actual rejection or the fear of it that gets you trembling, you can never escape it. So how do you overcome the nasty rejection and/or the fear of it? Here are eight easy tips to help you handle rejection with confidence—and meet your goals despite it."
 publishedAt: 2026-03-31

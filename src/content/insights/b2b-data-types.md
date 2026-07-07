@@ -1,5 +1,6 @@
 ---
-title: "6 types of B2B data you need to shorten your B2B sales cycle"
+title: "The 6 types of B2B data that shorten your sales cycle"
+topics: ["Prospect data"]
 description: "Mastering B2B sales requires a deep understanding of these data types: demographic, descriptive, firmographic, chronographic, psychographic, and intent data. This comprehensive guide explores how to leverage these insights to segment your audience and execute personalized ABM campaigns effectively."
 summary: "Most sales and marketing professionals unequivocally agree that arming cold outreach with personalisation is one of the best ways to capture your prospect’s attention. Personalisation, however, rests on B2B data, as it is this data which helps you to get to know your prospect, segment them according to their similarities and craft targeted messages that would be meaningful to your contacts."
 publishedAt: 2026-04-14

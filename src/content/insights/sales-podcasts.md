@@ -1,5 +1,6 @@
 ---
-title: "The only list you will need for the latest and greatest sales podcasts"
+title: "The best B2B sales podcasts to follow"
+topics: ["Sales skills"]
 description: "Discover the best B2B sales podcasts to boost your career in 2021. This comprehensive list features top shows like Daily Sales Tips and Sales Success Stories, offering expert advice on prospecting, sales processes, and business psychology. Perfect for SDRs and C-level executives looking to lead and"
 summary: "With a wealth of sales podcasts available, it can be hard to find ones that really appeal to you. See this list for the most popular choices."
 publishedAt: 2026-04-23

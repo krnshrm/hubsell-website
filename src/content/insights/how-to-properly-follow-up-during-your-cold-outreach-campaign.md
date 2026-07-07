@@ -1,5 +1,6 @@
 ---
-title: "How to properly follow-up during your cold outreach campaign"
+title: "How to follow up in a cold outreach campaign"
+topics: ["Cold email", "Outbound sales"]
 description: "Master the art of cold outreach follow-ups with this comprehensive guide. Learn the three stages of follow-up, how to structure messages for prospects who didn't read or aren't convinced, and the best timing for emails. From value-added tips to the \"goodbye\" message, optimize your B2B sales."
 summary: "Having a successful follow-up strategy when doing cold outreach is a hard task to accomplish, because the structure and content of your outreach campaign, including the follow-up, is impacted by many factors. In this post, I want to address some of the key factors, why you should follow-up and how to do it right in order to maximize your opportunities with prospects."
 publishedAt: 2026-03-31

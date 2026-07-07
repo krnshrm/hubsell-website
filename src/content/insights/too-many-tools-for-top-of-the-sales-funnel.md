@@ -1,5 +1,6 @@
 ---
-title: "Are you using too many sales tools for top of the sales funnel?"
+title: "Too many top-of-funnel sales tools? How to simplify"
+topics: ["Sales operations"]
 description: "Discover how SDRs and BDRs can overcome cognitive overload caused by using too many specialized sales tools. This post explores the challenges of tool fragmentation, such as steep learning curves and context switching, and offers actionable steps like tech consolidation and leveraging AI."
 summary: "Learn how to overcome cognitive overload and streamline tool usage for SDRs and BDRs. Discover the challenges of using multiple tools and actionable steps to improve workflow efficiency."
 publishedAt: 2026-04-14

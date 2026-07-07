@@ -1,5 +1,6 @@
 ---
-title: "The type of cold emails that end up in the spam folder"
+title: "The cold emails that land in spam, and how to fix them"
+topics: ["Email deliverability", "Cold email"]
 description: "Improve your cold email open and response rates by avoiding common mistakes that trigger spam filters. This guide analyzes six real-life email failures, offering actionable tips on crafting effective subject lines, building personal connections, and using the right call to action for B2B sales."
 summary: "Are you wondering why the average open and response rates to your cold emailing campaigns are low? A while back I wrote a blog post about the importance of copy in the outbound lead generation and how to do it right. Now, to help you better understand why your cold emails are not converting, I’ve handpicked some of my “favorite” cold email failures and explained why they’re marked as SPAM by Google or/ and by prospects themselves."
 publishedAt: 2026-04-23

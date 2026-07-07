@@ -1,5 +1,6 @@
 ---
-title: "Why does B2B buyer’s anxiety exist and how to deal with it"
+title: "B2B buyer anxiety: why it happens and how to ease it"
+topics: ["Sales skills"]
 description: "Buyer's anxiety is a natural hurdle in high-stakes B2B sales. This post explores why prospects hesitate and how sales reps can effectively overcome these fears. Learn to build credibility by handling objections regarding product legitimacy, business trust, and pricing to reduce risk and close deals."
 summary: "Buyer’s anxiety is the hesitation you feel when thinking about purchasing a big-ticket product. In B2B, sales reps need to constantly monitor and appease prospects’ emotions to get the deal done. So, in this post, I will discuss the reasons for buyers’ anxiety and how to deal with it like a sales veteran."
 publishedAt: 2026-04-23

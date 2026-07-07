@@ -1,5 +1,6 @@
 ---
-title: "How to write compelling cold email subject lines for superb open rates"
+title: "How to write cold email subject lines that get opened"
+topics: ["Cold email", "Email deliverability"]
 description: "Boost your cold email open rates by mastering subject lines. This guide outlines four essential rules: avoid spam or clickbait, keep length to about 60 characters, use relevant symbols or numbers, and leverage personalization. Includes real-world examples to help you generate more sales leads."
 summary: "The journey of a prospect starts with the subject line. A bad one will bring lower open rates. So, in this post, I will explain what makes good cold email subject lines to get high open rates. And a few important rules to keep in mind."
 publishedAt: 2026-03-31

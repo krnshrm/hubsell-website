@@ -1,5 +1,6 @@
 ---
 title: "A complete glossary of B2B sales and marketing terms"
+topics: ["Sales operations"]
 description: "Navigate the complex world of B2B sales and marketing with our comprehensive glossary of technical and informal terms. Stay updated on the latest industry jargon and essential concepts to sharpen your strategy. This guide helps professionals master the language of modern business development."
 summary: "There’s a huge number of technical and informal B2B sales and marketing terms. New terms are created by companies too keeping us all on our toes.Therefore whether you’re in an office or working from home, it’s essential to get a good handle on the terms used as soon as possible.This glossary has been compiled to give you an overall understanding of B2B sales and marketing terms. So here’s our complete list of the words and phrases used in sales and marketing right now."
 publishedAt: 2026-04-14

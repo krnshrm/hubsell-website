@@ -1,5 +1,6 @@
 ---
-title: "11 reasons why B2B landing pages should be used in your outbound sales"
+title: "B2B landing pages for outbound sales: 11 reasons to use them"
+topics: ["Outbound sales", "Lead generation"]
 description: "Discover how B2B landing pages revolutionize outbound sales by centralizing your value proposition and building trust through social proof. Use diverse media and low-commitment CTAs to engage prospects at their own pace, gain deep analytics, and qualify leads for a more efficient sales process."
 summary: "Multi-channel outreach is definitely one of the best ways to go about generating sales opportunities, but I think we can confidently say that most prospects you reach out to are being bombarded by cold calls, cold emails, social messages, and so forth. So how do you stand out from the crowd?"
 publishedAt: 2026-04-14

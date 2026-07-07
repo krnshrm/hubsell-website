@@ -1,5 +1,6 @@
 ---
-title: "The sale starts with a no, a lesson on objection handling"
+title: "The sale starts with a no: a guide to objection handling"
+topics: ["Sales skills"]
 description: "Learn why \"the sale starts with a no\" and how to handle common sales objections. This post explores the reasons prospects say no, from timing to value perception, and offers three key strategies to convert these rejections into successful deals by utilizing constructive criticism and team knowledge."
 summary: "In this post, I’ll write about the reasons prospects say no and why their no is not a deal breaker. Then we’ll take a look at why it is important that sales people close deals with clients that initially said no. In the end, I’ll talk about what to do when the prospect says “no.”"
 publishedAt: 2026-05-14

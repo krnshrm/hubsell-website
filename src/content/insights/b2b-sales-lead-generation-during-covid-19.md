@@ -1,5 +1,6 @@
 ---
-title: "B2B lead generation and sales during COVID-19 [Updated]"
+title: "B2B lead generation during COVID-19: rebuilding pipeline"
+topics: ["Lead generation", "Outbound sales"]
 description: "Discover how COVID-19 impacted B2B lead generation and learn strategic ways for sales teams to rebuild their pipelines. This article explores the shift to remote work, budgetary adjustments, and the vital role of digital tools and automation in increasing productivity while reducing costs."
 summary: "As we cross over half a year of living in times of COVID, it is clear that the crisis is far more than just a health crisis – we are seeing societies and economies be affected at their core. However, it is estimated that the novel vaccine for COVID will be ready in less than 2 years and progress is being made to bring the crisis to its end which may be in sight by early to mid 2021."
 publishedAt: 2026-04-14

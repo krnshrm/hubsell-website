@@ -1,5 +1,6 @@
 ---
-title: "How to find and sell to Financial Services companies"
+title: "How to sell to financial services companies"
+topics: ["Industry guides"]
 description: "Discover how the financial services industry is evolving through AI, blockchain, and digital adoption. This guide covers how to leverage high-quality B2B data and multichannel outbound sales -via email, LinkedIn, and phone - to effectively target, personalise, and win new financial customers."
 summary: "The rate at which the Financial Services industry adopted new digital technologies has been faster than ever before. Although the industry was already heading in this direction, the coronavirus pandemic has accelerated these efforts simply out of necessity."
 publishedAt: 2026-03-31

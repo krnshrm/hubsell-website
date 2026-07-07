@@ -1,5 +1,6 @@
 ---
-title: "Drawing a line between sales and marketing budget"
+title: "How to split your sales and marketing budget"
+topics: ["Sales operations"]
 description: "Optimize your sales and marketing budget by understanding key factors like deal size, product complexity, and competition. This guide explores how to balance inbound and outbound strategies to drive growth, increase ROI, and reach your target market faster with the right budget allocation."
 summary: "Knowing where to draw the line between sales and marketing is a key strategic decision which heavily influences a company’s growth. This article discusses some of the key considerations related to that decision."
 publishedAt: 2026-03-31

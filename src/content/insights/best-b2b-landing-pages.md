@@ -1,5 +1,6 @@
 ---
-title: "A curated list of the best B2B landing pages"
+title: "The best B2B landing page examples to learn from"
+topics: ["Lead generation"]
 description: "Explore top B2B landing page examples and best practices to drive conversions. Learn how to leverage social proof, hero images, and video to engage prospects. Discover different types of landing pages, from standalone to industry-specific, and the revolutionary personalized Sales Story model."
 summary: "B2B landing pages are a great way to have a passive stream of leads flowing into your business. But, have you ever wanted to know what components drive conversions? Or what you can do to optimise your landing pages?"
 publishedAt: 2026-04-14

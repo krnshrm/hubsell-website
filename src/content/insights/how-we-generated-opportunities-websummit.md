@@ -1,5 +1,6 @@
 ---
-title: "How we generated 18 opportunities at WebSummit and how you can do it too"
+title: "How we booked 18 meetings at Web Summit (and how to copy it)"
+topics: ["Outbound sales", "Lead generation"]
 description: "Maximize your B2B conference ROI with these proven strategies. Learn how to identify target markets, source high-quality prospects, and automate multi-channel outreach to schedule meetings before the event begins. Transform your next conference into a powerful engine for sales and investment."
 summary: "If you are a business to business company, then chances are you are relying on conferences to generate new opportunities and meet potential investors. Learn in this post the tactics that we deployed to get the most out of WebSummit."
 publishedAt: 2026-04-23

@@ -1,5 +1,6 @@
 ---
-title: "Eight use cases where cold outreach will be your number one tactic"
+title: "8 use cases where cold outreach is your best tactic"
+topics: ["Cold email", "Outbound sales"]
 description: "Discover 8 powerful use cases for cold outreach beyond outbound sales. This guide covers accelerating enterprise sales, entering new markets, testing product-market fit, and modernizing cold calling. Learn how to leverage automation for recruitment, link building, and connecting with investors."
 summary: "Gone are the days when cold outreach was only used for outbound sales. There are now much more nuanced ways of using cold outreach to your advantage. Collated below in this blog post are 8 use cases where cold outreach will be your number one tactic to use and apply."
 publishedAt: 2026-03-31

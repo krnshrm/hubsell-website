@@ -1,5 +1,6 @@
 ---
-title: "11 ways to use social selling on LinkedIn to drive more B2B sales"
+title: "11 ways to use social selling on LinkedIn for B2B"
+topics: ["LinkedIn"]
 description: "Social media is a powerful tool for B2B growth, but it requires a strategic approach rather than expecting overnight results. This post explores how salespeople can effectively fill their pipelines by leveraging social platforms to build relationships and drive sustainable business results."
 summary: "If you are like the tens of thousands of salespeople in B2B sales filling their sales pipeline online, you know that social media can be a powerful tool to bring in growth. But it is not a magic bean that can sprout growth overnight and provide you with leads."
 publishedAt: 2026-04-14

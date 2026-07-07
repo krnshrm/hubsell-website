@@ -1,5 +1,6 @@
 ---
-title: "Outbound sales conversion rates to shoot for and how to achieve them in a campaign"
+title: "Outbound sales conversion rates to aim for, and how to hit them"
+topics: ["Outbound sales", "Sales operations"]
 description: "Learn how to measure and optimize key B2B cold outreach metrics to boost your sales performance. This guide covers recommended targets for open rates, bounce rates, and reply-to-demo ratios based on hubsell's extensive campaign data. Improve your bottom line by tracking what works and adjusting."
 summary: "In sales, measuring the effectiveness of cold outreach is paramount. Why is it important to have all those metrics measured? To prove the effectiveness of your cold outreach, to analyse what works and adjust accordingly, and to predict the path to the periodical goals. So, I want to share with you the campaign results our customers have achieved and give you an estimate of conversion metrics that you should shoot for."
 publishedAt: 2026-03-31

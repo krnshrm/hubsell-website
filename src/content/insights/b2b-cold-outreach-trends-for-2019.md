@@ -1,5 +1,6 @@
 ---
-title: "B2B cold outreach trends for 2019 with insights by Litmus"
+title: "B2B cold outreach trends for 2019, with data from Litmus"
+topics: ["Cold email", "Outbound sales"]
 description: "Explore the shifting landscape of B2B outbound sales following the impact of GDPR and email saturation in 2018. Discover key 2019 trends, including the rise of social selling, multi-channel strategies, and the importance of thought leadership to stay ahead of the competition and grow revenue."
 summary: "2018 was an important year for the B2B outbound sales world. Both good and bad things happened that forced companies to adapt. I am going to focus on what we learned last year and predict what the trends will be in 2019. Some of the points are inspired by a webinar hosted by Litmus."
 publishedAt: 2026-04-14

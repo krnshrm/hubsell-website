@@ -1,5 +1,6 @@
 ---
-title: "What is digital body language and how to use it to engage your buyers?"
+title: "Digital body language: how to read and engage B2B buyers"
+topics: ["Sales skills"]
 description: "Master digital body language to enhance your virtual communication and B2B sales pitches. This guide explores key strategies from Erica Dhawan to build trust through emails and video calls. Learn how to read prospect cues, mirror behavior on Zoom, and ensure your digital persona is authentic."
 summary: "That abrasive email. Those bone-dry texts. The awkward pause on a zoom call. We have all had our share of encounters with ambiguous body language cues online and perhaps contributed to it too within our personal digital worlds. Can you wager to put a number to how many times your emails or texts might have been misinterpreted by your colleagues, boss or prospects? Research can. A study by the Journal of Personality and Social Psychology says that number is more than 50%. That is like saying “I love you” to your partner and at least half the time, they are like yeah right! All this comes down to one thing, that Digital Body Language is important. You need to be well versed in it to ensure your tone is sincere and your pitches are landing. This blog will help you do exactly that."
 publishedAt: 2026-04-23

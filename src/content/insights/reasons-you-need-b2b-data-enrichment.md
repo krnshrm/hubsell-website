@@ -1,5 +1,6 @@
 ---
-title: "6 reasons why you need a B2B data enrichment process"
+title: "6 reasons you need a B2B data enrichment process"
+topics: ["Data enrichment", "Prospect data"]
 description: "Data enrichment is the key to B2B success. This post explores how CRM enrichment enhances your data with vital variables to improve engagement, skyrocket conversion rates, and speed up your sales funnel. Learn how to eliminate data decay, ensure GDPR compliance, and choose the right data provider."
 summary: "B2B data enrichment (CRM enrichment) is the process of enhancing B2B contact data with additional variables at prospect and company levels. Sometimes referred to as data appending, data enrichment can be performed manually or with the help of a data enrichment service."
 publishedAt: 2026-04-14

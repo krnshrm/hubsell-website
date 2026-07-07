@@ -1,5 +1,6 @@
 ---
-title: "AI prompts for outbound sales [to setup calls in 2024]"
+title: "AI prompts for outbound sales that book more calls"
+topics: ["Outbound sales", "Personalization"]
 description: "Learn how AI prompting is the new template for outbound sales. This guide breaks down the five essential components of a high-performing prompt: sender and recipient context, sending objective, strict guardrails, and desired examples. Master these to create unique, personalized B2B outreach."
 summary: "Learn how to craft the perfect AI prompt for outbound sales to boost engagement and conversions. Discover the key to higher engagement and conversions."
 publishedAt: 2026-04-14

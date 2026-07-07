@@ -1,5 +1,6 @@
 ---
-title: "Four common sales prospecting techniques to avoid in B2B"
+title: "4 sales prospecting techniques to avoid in B2B"
+topics: ["Outbound sales", "Prospect data"]
 description: "Optimize your B2B outreach by avoiding common prospecting mistakes. This guide explores why you should stop using cheap bulk data, skip in-house data teams, and automate your process. Learn to use market segmentation and rich lead variables to boost your campaign ROI and domain health."
 summary: "Prospecting is one of the most important steps of successful outreach campaigns. Salespeople can spend upwards of a third of their time gathering prospects. Unfortunately, there are common mistakes in that process that should be avoided. So, I will analyse them and offer a solution for each in this post."
 publishedAt: 2026-03-31

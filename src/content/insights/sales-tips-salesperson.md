@@ -1,5 +1,6 @@
 ---
-title: "11 sales tips for being a stellar salesperson and increasing your close rate"
+title: "11 sales tips to raise your close rate"
+topics: ["Sales skills"]
 description: "Master B2B sales with 11 essential tips for the modern landscape. Learn to differentiate from competitors, use qualified data, and leverage sales automation. This guide covers everything from storytelling and preparation to navigating pricing and catering to millennial buyers for better results."
 summary: "In modern B2B sales , what makes you a great salesperson is being able to walk in your customer’s shoes and understand their needs. You need to be able to extract the true value of your solution for an individual buyer and make your potential customer feel at ease and begin to trust you."
 publishedAt: 2026-04-14

@@ -1,5 +1,6 @@
 ---
-title: "A closer look at sales automation and its key strong points"
+title: "Sales automation for outbound: bigger deals and faster scaling"
+topics: ["Outbound sales", "Sales operations"]
 description: "Explore how sales automation and outbound lead generation increase average deal size and scalability. This post covers targeting high-value prospects, testing product-market fit rapidly, and evolving SDR roles into value-adding positions to shorten training and maximize your ROI efficiently."
 summary: "Sales automation, in this case, refers to deploying a system that allows you to automate prospecting, list building, outreaching and following-up. Scalability with an automated system is 5-10 times higher than without one because you can increase the volume that you want to target, without the need to hire more SDRs to manage everything, as you would do with cold calling for example. When you’re targeting prospects via automated outbound lead generation the average deal size that you’re getting per customer can be increased, something that I’m tackling here point by point."
 publishedAt: 2026-04-14

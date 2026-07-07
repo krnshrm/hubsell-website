@@ -1,5 +1,6 @@
 ---
-title: "Why lead generation needs to be a qualitative process"
+title: "Why lead generation should focus on quality, not volume"
+topics: ["Lead generation", "Prospect data"]
 description: "Learn how to transition from quantity to quality in automated outbound lead generation. This guide explores the dangers of spam, the importance of accurate data, and how to create personalized email copy that builds trust. Scale your outreach effectively while maintaining a high conversion rate."
 summary: "In this blog post, I will be explaining the importance of a qualitative outbound lead generation process by tackling the consequences of a non-qualitative approach, outlining the dangers of spam and highlighting the attributes of good email copy and how to improve it so that it becomes qualitative."
 publishedAt: 2026-04-23

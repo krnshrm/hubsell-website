@@ -1,5 +1,6 @@
 ---
-title: "How to follow up after a prospect replies to a cold sales email in B2B"
+title: "How to follow up after a reply to your cold email"
+topics: ["Cold email", "Sales skills"]
 description: "Learn how to effectively follow up after a prospect replies to a cold sales email. This guide covers how to qualify leads as SQLs or MQLs, set specific goals like demos or resource downloads, and strike the right balance of aggressiveness to guide prospects successfully through your sales funnel."
 summary: "The stage of following-up after the first contact can be one of the most frustrating for companies. You put in all the work to get replies from prospects but then none of those conversations lead to anything. I have also experienced the disappointment and have learned a few tricks along the way. So, I want to share those with you in this post. You will learn how to separate types of leads, set sales goals and accomplish them."
 publishedAt: 2026-04-14

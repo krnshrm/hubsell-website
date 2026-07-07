@@ -1,5 +1,6 @@
 ---
-title: "Masterclass: 9 tips to level up your Sales Navigator game"
+title: "9 LinkedIn Sales Navigator tips for better prospecting"
+topics: ["LinkedIn", "Prospect data"]
 description: "Unlock the full potential of LinkedIn Sales Navigator with these nine essential tips. Learn how to master boolean search queries, utilize custom lists for account-based prospecting, and leverage LinkedIn groups to expand your reach. Improve your B2B sales strategy and build higher-quality pipelines."
 summary: "LinkedIn Sales Navigator is amongst the top most powerful tools in any B2B sales stack. If you are reading this, then most likely you have a subscription for Sales Navigator as well, but are you getting the max out of it?"
 publishedAt: 2026-04-02

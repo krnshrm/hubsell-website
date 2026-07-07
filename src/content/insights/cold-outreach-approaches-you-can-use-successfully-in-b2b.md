@@ -1,5 +1,6 @@
 ---
-title: "Three cold outreach approaches you can use successfully in B2B"
+title: "3 cold outreach approaches that work in B2B"
+topics: ["Cold email", "Outbound sales"]
 description: "Discover the best B2B cold outreach strategies for your business. This post explores the all-out, periodic, and department-focus approaches, highlighting their pros, cons, and risks. Learn how to choose the optimal strategy based on market saturation, company size, and reputation management."
 summary: "Cold outreach can be an effective channel to find prospects interested in your product. And, there are multiple approaches to reaching out, from low to high aggressiveness. So, in this post, I would like to share with you a few B2B outreach strategies and how to choose one."
 publishedAt: 2026-04-23

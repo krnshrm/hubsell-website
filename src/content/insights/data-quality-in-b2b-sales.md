@@ -1,5 +1,6 @@
 ---
-title: "Data quality in B2B sales [and why you need your data to be qualitative]"
+title: "Data quality in B2B sales: sources, pitfalls, and fixes"
+topics: ["Prospect data"]
 description: "High-quality data is essential for B2B sales success. This post explores common data pitfalls like duplicates and inaccuracies, identifies reliable sources like LinkedIn and company sites, and outlines best practices for validation and maintenance to reduce bounce rates and boost efficiency."
 summary: "Discover the power of data quality in B2B sales. Learn how to maintain clean data, enhance personalization, and improve conversion rates for successful sales efforts."
 publishedAt: 2026-03-31

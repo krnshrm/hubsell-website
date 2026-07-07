@@ -1,5 +1,6 @@
 ---
-title: "A step-by-step guide on how to do a discovery call"
+title: "How to run a sales discovery call, step by step"
+topics: ["Sales skills"]
 description: "Master the art of the discovery call with this comprehensive guide. Learn how to research prospects, adopt the right mindset, and ask the right qualifying questions to determine business fit. Follow our proven five-step structure to establish relationships and move your sales process forward today."
 summary: "It’s a great feeling when a prospect thanks you after a very pleasant discovery call and looks forward to working further with you. This is the goal we all want and should be why you’re here to find out how to achieve this."
 publishedAt: 2026-04-14

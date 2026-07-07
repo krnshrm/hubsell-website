@@ -1,5 +1,6 @@
 ---
-title: "Sales call best practices: 7 things you should and should not do in a sales call"
+title: "Sales call best practices: 7 things to do and avoid"
+topics: ["Sales skills"]
 description: "Master the essential dos and don'ts of B2B sales to keep your pipeline flowing. This guide covers 14 professional tips, including avoiding powerless language, practicing active listening, and focusing on value over price. Learn how to lead the sales process and build lasting buyer trust today."
 summary: "Sales can be a challenging job—but if you know the essential dos and don’ts of selling, you would have an easier time keeping your pipeline steady and flowing. This is exactly what this blog will do for you."
 publishedAt: 2026-04-23

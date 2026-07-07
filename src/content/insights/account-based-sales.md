@@ -1,5 +1,6 @@
 ---
-title: "A quick guide to account-based sales"
+title: "Account-based sales: a practical guide for B2B teams"
+topics: ["Outbound sales", "Lead generation"]
 description: "Explore the account-based sales model to boost your B2B revenue. Learn how to align sales and marketing teams, define your ideal customer profile, and implement a multi-channel outreach strategy. This guide covers essential KPIs like ACV and LTV to help you track success and scale effectively."
 summary: "Although the account-based sales model has been here for a long time now, its popularity has consistently increased over the last few years. But, what exactly is it? Is it an ideal strategy for you? How do you apply it? Let us explore these questions in detail."
 publishedAt: 2026-04-14

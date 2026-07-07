@@ -1,5 +1,6 @@
 ---
-title: "The growing list of tried and tested B2B lead generation ideas"
+title: "34 proven B2B lead generation ideas for a steady pipeline"
+topics: ["Lead generation"]
 description: "Discover 34 proven B2B lead generation ideas designed to help sales and marketing teams build a repeatable, scalable, and profitable pipeline. This definitive list covers essential tactics like targeted cold emailing and solving prospect pain points to drive engagement and increase revenue."
 summary: "B2B lead generation is a hot topic for every company in the B2B market. Sales and marketing teams battle to be more creative and adventurous when it comes to finding more potential customers to keep the sales pipeline filled. But, with so many ways to generate B2B leads, it can be challenging to find a method that is repeatable, scalable and (most importantly) profitable."
 publishedAt: 2026-04-23

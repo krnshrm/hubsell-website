@@ -1,5 +1,6 @@
 ---
-title: "Advantages and disadvantages of cold outreach in the summer"
+title: "Cold outreach in the summer: pros, cons, and how to win"
+topics: ["Cold email", "Outbound sales"]
 description: "Discover the seasonal factors that impact cold outreach and explore the pros and cons of reaching out to prospects during the summer. Learn how lower competition and a relaxed environment can give you a leg up on competitors, despite lower traffic and receptiveness. Gain a summer momentum."
 summary: "The summer is approaching and professionals tend to take time off to enjoy it with their friends and relatives. So, you may be asking yourself: ‘Will this period negatively impact the results of my cold outreach campaigns?’. The answer is, somewhat. However, it might also be a defining period for your company and its progress. In this post, I will discuss the seasonal factors that impact cold outreach and the pros and cons of reaching out to prospects in the summer."
 publishedAt: 2026-04-14

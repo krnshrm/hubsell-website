@@ -1,5 +1,6 @@
 ---
-title: "Why copy matters in outbound lead generation and how to do it right"
+title: "Why copy matters in outbound, and how to write it"
+topics: ["Cold email", "Personalization"]
 description: "Discover why high-quality copy is the ultimate differentiator in outbound lead generation. This post explores how personalized, concise messaging builds trust and establishes strong relationships with prospects. Learn the essential attributes and proven structures for writing impactful emails."
 summary: "The question here is a simple one: why should I read your email and not any of the other 20 in my inbox? Why should I click on your subject line and not just send the email to trash? Because you convinced me that it would be worth it. How? Through the copy, you’ve used. Just as spoken words make all the difference during calling campaigns, when it comes to outbound lead generation, copy is king. It’s also the only way to differentiate yourself and establish a relationship with the person you’re writing to."
 publishedAt: 2026-04-23

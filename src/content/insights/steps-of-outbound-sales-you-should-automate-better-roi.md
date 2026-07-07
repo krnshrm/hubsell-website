@@ -1,5 +1,6 @@
 ---
-title: "Seven steps of outbound sales you should automate for a better ROI"
+title: "7 steps of outbound sales you should automate"
+topics: ["Outbound sales", "Sales operations"]
 description: "Streamline your B2B outbound sales by automating repetitive tasks. This guide covers seven key areas to automate, including data curation, cold outreach, follow-ups, and lead scoring. Free up your sales team to focus on high-value human interactions like negotiation and closing deals effectively."
 summary: "B2B salespeople are busy, so any time-saving automation is welcome. Unfortunately, a lot of their time is spent on tasks that could be automated. At hubsell, we have gone through the process of automating sales to free up time for more relevant tasks. So, in this post, I want to share seven steps of outbound sales that you can automate."
 publishedAt: 2026-03-31

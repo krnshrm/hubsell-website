@@ -1,5 +1,6 @@
 ---
-title: "Lessons I learned from cold-calling & why you need to find an alternative"
+title: "Cold calling lessons and why to move to automated outreach"
+topics: ["Outbound sales", "Multichannel outreach"]
 description: "Explore why traditional cold-calling is failing in modern sales and discover the benefits of transitioning to automated outbound mailing. This article highlights key issues like low scalability and intrusiveness, offering a more flexible, personalized, and efficient alternative for your team."
 summary: "The rules for outbound sales used to be quite simple: the more calls you made, the more opportunities you generated and the more deals you closed. This worked for a while until cold-calling became the norm and synonymous with prospects feeling pressured, stressed and in need of finding excuses to end the call before the salesperson could even say what it was all about."
 publishedAt: 2026-03-31

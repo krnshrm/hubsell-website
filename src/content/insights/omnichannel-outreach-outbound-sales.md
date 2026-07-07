@@ -1,5 +1,6 @@
 ---
-title: "Why you need omnichannel outreach to drive your outbound sales"
+title: "Why omnichannel outreach drives outbound sales"
+topics: ["Multichannel outreach"]
 description: "Master omnichannel outreach to engage B2B prospects across email, social media, and phone. This guide explains the differences between multichannel and omnichannel strategies, highlighting the importance of integration and automation. Learn how to implement dynamic campaigns for better sales results"
 summary: "You start browsing for a product on one device and end up buying it on a different one, or you start online and complete the sale in the store. Sound familiar? You are not alone."
 publishedAt: 2026-04-23

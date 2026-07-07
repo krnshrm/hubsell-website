@@ -1,5 +1,6 @@
 ---
-title: "What is message-market fit and why do you need to achieve it to scale outbound sales?"
+title: "Message-market fit: how to scale outbound that converts"
+topics: ["Personalization", "Outbound sales"]
 description: "Achieve message-market fit and supercharge your outbound sales with this 3-step framework. Learn how to know your prospects using B2B data, map product features to customer value, and create hyper-personalized content. Master the art of resonance to attract the right leads and scale your sales."
 summary: "Messaging is a key part of any great sales or marketing campaign. But any message that is not adapted to context is as good as a flyer lying facedown on a pavement. In order to find sufficient demand in the market, you must craft an effective approach to communicate your product’s value."
 publishedAt: 2026-04-14

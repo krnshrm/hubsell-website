@@ -1,5 +1,6 @@
 ---
-title: "22 of the greatest books about sales that will leave you better than before"
+title: "22 of the best sales books to read this year"
+topics: ["Sales skills"]
 description: "Explore our curated list of the greatest sales books to master prospecting, negotiation, and the psychology of persuasion. Featuring timeless classics and modern guides from experts like Robert Cialdini and Chris Voss, these reads will help you build mindset and skills to close more deals."
 summary: "Whether you are a business owner, a long time sales leader or a first-time sales rep, these sales books will cover sales methodologies, mindset, entrepreneurship, negotiation and much more that will benefit you in becoming the best salesperson you can be."
 publishedAt: 2026-04-14

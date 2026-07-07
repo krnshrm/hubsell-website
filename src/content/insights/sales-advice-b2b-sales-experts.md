@@ -1,5 +1,6 @@
 ---
 title: "Sales advice from 28 top B2B sales experts"
+topics: ["Sales skills"]
 description: "Discover 50 impactful quotes from B2B sales experts like Mark Hunter and Aaron Ross. This blog post compiles essential advice on building relationships, mastering business acumen, and adopting buyer-centric strategies to help both new and experienced salespeople excel and reach the next level."
 summary: "There is a reason we idolise certain people in our industries. They have accomplished far more than the average person and have guided many people along the years. So, I wanted to write a blog post that would pay homage to the sales influencers of our industry, B2B sales."
 publishedAt: 2026-04-02

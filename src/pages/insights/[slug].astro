@@ -12,7 +12,7 @@ export async function getStaticPaths() {
 }
 
 const { post, posts } = Astro.props;
-const { title, description, coverImage, thumbnail, sources, readTime, summary, cta, publishedAt } = post.data;
+const { title, description, coverImage, thumbnail, sources, readTime, summary, cta, publishedAt, topics } = post.data;
 
 // post.body is the raw Webflow HTML (already image- and link-rewritten by the
 // converter). If a post had an empty body in the export, fall back to its summary
@@ -20,15 +20,46 @@ const { title, description, coverImage, thumbnail, sources, readTime, summary, c
 const bodyHtml = post.body && post.body.trim() ? post.body : summary ? `<p>${summary}</p>` : '';
 const heroImage = coverImage || thumbnail;
 
-// Two related posts to keep reading: prefer ones with an image, and rotate the
-// starting point by the current slug so different posts surface different picks.
+// Two related posts: prefer ones that share a topic with this post (and have an
+// image), then fall back to the previous image-preferred rotation so every post
+// still gets two picks.
 const cardImg = (p) => p.data.thumbnail || p.data.coverImage;
-const withImg = posts.filter((p) => p.slug !== post.slug && cardImg(p));
-const pool = withImg.length >= 2 ? withImg : posts.filter((p) => p.slug !== post.slug);
+const myTopics = new Set(post.data.topics || []);
+const others = posts.filter((p) => p.slug !== post.slug);
+const sharedCount = (p) => (p.data.topics || []).filter((t) => myTopics.has(t)).length;
+const byTopic = others
+  .filter((p) => sharedCount(p) > 0)
+  .sort((a, b) => (sharedCount(b) - sharedCount(a)) || ((cardImg(b) ? 1 : 0) - (cardImg(a) ? 1 : 0)));
+const withImg = others.filter((p) => cardImg(p));
+const pool = withImg.length >= 2 ? withImg : others;
 const off = pool.length ? [...post.slug].reduce((a, c) => a + c.charCodeAt(0), 0) % pool.length : 0;
-const related = pool.length
-  ? [...new Map([pool[off], pool[(off + 1) % pool.length]].filter(Boolean).map((p) => [p.slug, p])).values()]
-  : [];
+const rotation = pool.length ? [pool[off], pool[(off + 1) % pool.length]] : [];
+const related = [...new Map([...byTopic, ...rotation].filter(Boolean).map((p) => [p.slug, p])).values()].slice(0, 2);
+
+// A few relevant hubsell pages for this post's topics. Kept in the template as
+// internal links to product pages, so the migrated post body stays untouched.
+const HUB_LINKS = {
+  'Outbound sales': [{ label: 'Outbound sales', href: '/use-cases/outbound-sales' }],
+  'Cold email': [{ label: 'Multichannel outreach', href: '/platform/multichannel-outreach' }, { label: 'Deliverability', href: '/platform/deliverability' }],
+  'Email deliverability': [{ label: 'Deliverability', href: '/platform/deliverability' }, { label: 'Inbox placement', href: '/glossary/inbox-placement' }],
+  'Prospect data': [{ label: 'Live-sourced data', href: '/platform/live-data' }],
+  'Data enrichment': [{ label: 'Data enrichment', href: '/platform/enrichment' }],
+  'LinkedIn': [{ label: 'Multichannel outreach', href: '/platform/multichannel-outreach' }],
+  'Lead generation': [{ label: 'Lead generation', href: '/use-cases/lead-generation' }],
+  'Multichannel outreach': [{ label: 'Multichannel outreach', href: '/platform/multichannel-outreach' }, { label: 'Multichannel use case', href: '/use-cases/multichannel-outreach' }],
+  'Sales operations': [{ label: 'CRM sync', href: '/platform/crm-sync' }, { label: 'What is RevOps', href: '/glossary/revops' }],
+  'Personalization': [{ label: 'Personalization', href: '/platform/personalization' }],
+  'Industry guides': [{ label: 'Account-based outreach', href: '/use-cases/account-based-outreach' }],
+  'Sales skills': [],
+};
+const hubSeen = new Set();
+const hubLinksAll = [];
+for (const t of (post.data.topics || [])) {
+  for (const l of (HUB_LINKS[t] || [])) {
+    if (!hubSeen.has(l.href)) { hubSeen.add(l.href); hubLinksAll.push(l); }
+  }
+}
+const hubLinks = hubLinksAll.slice(0, 3);
 
 // Trial CTA copy: a per-post override (frontmatter `cta`) if set, otherwise a
 // default that references this post by title so it never reads as generic.
@@ -115,13 +146,24 @@ const articleCrumbs = breadcrumbSchema([
                   <img class="post__img" src={cardImg(p)} alt={p.data.title} loading="lazy" width="400" height="225" />
                 )}
                 <div class="post__body">
-                  <p class="eyebrow is-accent" style="font-size:.72rem">B2B sales</p>
+                  <p class="eyebrow is-accent" style="font-size:.72rem">{(p.data.topics && p.data.topics[0]) || 'B2B sales'}</p>
                   <h3 class="post__title">{p.data.title}</h3>
                   {p.data.readTime && <p class="post__meta">{p.data.readTime}</p>}
                 </div>
               </a>
             ))}
           </div>
+        </aside>
+      )}
+
+      {hubLinks.length > 0 && (
+        <aside class="post-hub">
+          <p class="eyebrow is-accent">Related on hubsell</p>
+          <ul class="post-hub__list">
+            {hubLinks.map((l) => (
+              <li><a class="link" href={l.href}>{l.label}</a></li>
+            ))}
+          </ul>
         </aside>
       )}
 
@@ -210,6 +252,9 @@ const articleCrumbs = breadcrumbSchema([
   .post-related { margin:56px 0 0; }
   .post-related__grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-top:16px; }
   .post-related .post__meta { font-family:var(--font-body); font-size:12.5px; color:var(--sec-tx); opacity:.55; margin:10px 0 0; }
+  .post-hub { margin:40px 0 0; }
+  .post-hub__list { list-style:none; padding:0; margin:12px 0 0; display:flex; flex-wrap:wrap; gap:10px 22px; }
+  .post-hub__list a { font-weight:500; }
 
   .post-cta {
     margin:48px 0 0; padding:clamp(28px,4vw,44px);

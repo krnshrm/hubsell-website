@@ -1,5 +1,6 @@
 ---
-title: "How Salesforce and Udemy used outbound lead generation to create growth"
+title: "How Salesforce and Udemy grew with outbound lead generation"
+topics: ["Outbound sales", "Lead generation"]
 description: "Discover how Salesforce and Udemy used outbound lead generation to scale growth. Learn about Aaron Ross's Cold Calling 2.0 and the downward referral tactic that streamlined sales processes. Explore how creative, out-of-the-box approaches can boost growth metrics and lead to high-quality sales."
 summary: "In this blog post, I want to show you how outbound lead generation and sales development can be used to boost key growth metrics in ways that are not as easily possible through other methods. I will do that by focusing on the above-mentioned case studies that are extremely relevant not only for sales but also for expanding your supply-side stakeholders."
 publishedAt: 2026-03-31

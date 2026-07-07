@@ -1,5 +1,6 @@
 ---
-title: "The types of outbound sales tools you need to increase ROI"
+title: "The outbound sales tools you need at each funnel stage"
+topics: ["Sales operations", "Outbound sales"]
 description: "Learn how to optimize your outbound sales funnel by choosing the right tools for every stage. From TOFU lead generation and data suppliers to MOFU CRM systems and BOFU e-signature software, this guide breaks down the essential categories to help you improve ROI and increase sales efficiency."
 summary: "Research is often required to identify and trial the best software in the market to check if it fits with the company, and at hubsell I have had to go through the same experience. So today, I would like to share with you my favourite types of sales tools to increase ROI."
 publishedAt: 2026-04-23

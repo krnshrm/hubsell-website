@@ -1,5 +1,6 @@
 ---
-title: "A long list of sales tools for your B2B sales stack [routinely updated]"
+title: "B2B sales tools: how to build a sales stack that performs"
+topics: ["Sales operations"]
 description: "Discover the essentials of building a powerful B2B sales stack to enhance your team's productivity and revenue. This guide covers what a sales technology stack is, why it is vital for modern sales teams, and provides a comprehensive list of tools to help you build your own effective collection."
 summary: "Companies have to use technology to aid them in acquiring new customers. The average amount of tools that a company deploys is between five to seven for sales alone. Research is often required to identify and trial software in the market to check for company fit. At hubsell I have gone through the same process. So, in this post I would like to share with you the types of tools and some examples that have improved our ROI and efficiency."
 publishedAt: 2026-04-14

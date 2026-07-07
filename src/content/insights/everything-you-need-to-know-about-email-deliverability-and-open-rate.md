@@ -1,5 +1,6 @@
 ---
-title: "Everything you need to know about email deliverability and open rate"
+title: "Email deliverability and open rates: the complete guide"
+topics: ["Email deliverability", "Cold email"]
 description: "Explore the critical role of email deliverability and high open rates in successful B2B outreach. This comprehensive guide covers essential strategies to ensure your messages land in the inbox rather than the spam folder, maximizing your campaign performance and overall prospecting engagement."
 summary: "Email deliverability and high open rates are key to all email outreach and how it impacts campaign performance. Consider the following: any email that is not delivered into the inbox of the intended recipient will not be opened. Stronger even, the snippet of it will not be seen by the intended recipient. Effectively, those prospects are not part of the overall potential of the campaign."
 publishedAt: 2026-04-14

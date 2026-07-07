@@ -1,5 +1,6 @@
 ---
-title: "Advantages of message personalisation and dynamic placeholders"
+title: "Email personalization with placeholders that lift reply rates"
+topics: ["Personalization", "Cold email"]
 description: "Boost your email open and reply rates by using dynamic and static placeholders to personalise messages. This guide covers how to leverage data points like name, department, and industry to resonate with prospects, avoid spam filters, and improve your outreach automation strategy effectively."
 summary: "To get the best open and reply rates, you need to personalise your messages for the recipient. Dynamic and static placeholders can be used to do that. So, in this post, I am going to show you a few impactful placeholders and why should you personalise your messages in the first place."
 publishedAt: 2026-04-14

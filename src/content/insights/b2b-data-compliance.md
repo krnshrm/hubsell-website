@@ -1,5 +1,6 @@
 ---
-title: "A complete guide to B2B data compliance and cold outreach"
+title: "B2B data compliance for cold outreach: a complete guide"
+topics: ["Prospect data"]
 description: "Ensure your B2B data protection is rock-solid and your cold outreach remains fully compliant with local laws. This guide covers essential definitions of data compliance and provides actionable steps to align your outbound sales strategy with current regulations and safety standards."
 summary: "In today’s era of big data, data has become central to marketing and strategy. This data-filled world of marketing comes with a caveat, there are issues such as data compliance, consent, and intent that come with data. If you are wondering what data protection is and how to do it, you have come to the right place."
 publishedAt: 2026-04-14

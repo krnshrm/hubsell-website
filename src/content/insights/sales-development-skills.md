@@ -1,5 +1,6 @@
 ---
-title: "11 sales development skills you need to master"
+title: "11 sales development skills every SDR should master"
+topics: ["Sales skills"]
 description: "Master the SDR role with 11 essential tips to shift from spray and pray to sales engineering. This guide covers building a B2B tech stack, perfecting copywriting and cold calling, and using multi-channel outreach to build trusted relationships and scale your lead generation success effectively."
 summary: "The pattern is too familiar- getting hold of TAM, sequencing emails, cold calling, leaving voicemails and repeat. The classic sales process is all well and good, only its execution needs a little brushing up. There are now too many distractions, too many other priorities, and people are busier than ever. Sales experts suggest ditching spray and pray, surprising prospects with “pattern interrupt” and becoming ‘sales engineers’ for best results."
 publishedAt: 2026-04-14

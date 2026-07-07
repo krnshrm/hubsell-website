@@ -1,5 +1,6 @@
 ---
 title: "The why and how of outbound sales"
+topics: ["Outbound sales"]
 description: "Master B2B outbound sales with this comprehensive guide. Learn how to scale your customer base through structured sales development, from defining customer profiles to handling objections. Discover which tasks to automate and how to maintain a human touch to close high-ticket deals effectively."
 summary: "In this blog post I breakdown how to structure your sales process into sales development and account management, and some ways that you can automate the process to increase productivity output."
 publishedAt: 2026-04-23

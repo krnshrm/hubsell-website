@@ -1,5 +1,6 @@
 ---
-title: "How to sell into the pharmaceutical industry and get pharmaceutical companies as customers"
+title: "How to sell to pharmaceutical companies"
+topics: ["Industry guides"]
 description: "Explore the rapid growth of the global pharmaceutical manufacturing market, valued at USD 404.1 billion in 2020. This post delves into the key drivers behind this expansion, including technological advancements and increasing healthcare needs, and what they mean for the future of the industry."
 summary: "The only way to stay ahead of the curve when it comes to selling into the pharmaceutical industry is through in-depth research and proactive outbound sales. This blog post will define a step by step guide of how to get pharmaceutical companies as customers using the same strategy."
 publishedAt: 2026-04-02

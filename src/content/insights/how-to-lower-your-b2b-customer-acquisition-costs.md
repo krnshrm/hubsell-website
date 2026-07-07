@@ -1,5 +1,6 @@
 ---
-title: "9 ways to lower your B2B Customer Acquisition Costs (CAC)"
+title: "9 ways to lower your B2B customer acquisition cost (CAC)"
+topics: ["Sales operations"]
 description: "Understand Customer Acquisition Cost (CAC) and its importance for business growth. This guide explains how to calculate CAC and provides nine actionable strategies to lower it, including optimizing your website, using sales automation, and focusing on high-quality leads to improve your ROI."
 summary: "CAC, or customer acquisition cost, is a crucial business metric to assess the resources you need to attract new customers and continue your business growth. In a nutshell, if you want your business to expand its customer base and still make a profit, then it is important to understand what CAC entails, its significance, and how your team can calculate it."
 publishedAt: 2026-04-14

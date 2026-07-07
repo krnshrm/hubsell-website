@@ -1,5 +1,6 @@
 ---
-title: "How to create an ideal target customer profile in B2B for a better ROI"
+title: "How to build a B2B ideal customer profile (ICP)"
+topics: ["Prospect data", "Outbound sales"]
 description: "Learn how creating an ideal customer profile (ICP) enhances B2B sales. This guide explores company and decision-maker factors like industry, size, and seniority. Discover how a well-defined ICP enables increased personalization, market specificity, and optimized product-market fit for campaigns."
 summary: "A customer profile is a list of factors that describe the ideal customer. They can be at the company or individual level. In B2B sales, a customer profile is needed to reach and connect with the ideal decision-makers. The process of defining a profile can lead to mistakes, so, in this post, I will discuss why it matters to have a customer profile and its factors. And, how to apply that information to your campaigns."
 publishedAt: 2026-03-31

@@ -1,5 +1,6 @@
 ---
-title: "Five simple ways to increase sales productivity in B2B"
+title: "5 simple ways to increase B2B sales productivity"
+topics: ["Sales operations", "Outbound sales"]
 description: "Boost B2B sales productivity with these five essential strategies. Learn how to generate higher-quality leads, automate repetitive sales tasks, and invest in the right tools. By measuring key metrics and using lead scoring, you can scale faster, improve ROI, and create a happier sales team."
 summary: "In B2B sales is what makes the machine keep going. The more deals the sales team closes the better off the company will be. But, there are usually productivity mistakes that sales team commit. Or even parts of the process that can be improved. So, in this post, I will show you how to increase sales productivity and the benefits of doing so."
 publishedAt: 2026-04-02

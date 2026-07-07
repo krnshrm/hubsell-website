@@ -1,5 +1,6 @@
 ---
-title: "B2B Data and everything you need to know about it for B2B Sales [in 2023]"
+title: "B2B data for sales: what it is and how to use it"
+topics: ["Prospect data"]
 description: "Understand the essentials of B2B data with this comprehensive guide. Learn how to define, manage, and convert business information into successful sales. Discover how a structured database of individual contacts and key data points can optimize your various marketing and sales activities today."
 summary: "Whatever industry you are in, if you are a business selling a product or service to another business, you will need B2B data. There are many use cases involving B2B data but this guide will help you define what it is, how to manage it, and how to convert it to sales."
 publishedAt: 2026-04-14
