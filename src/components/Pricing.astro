@@ -7,6 +7,7 @@ import { asLocale, localizedHref } from '../i18n/utils';
 const L = asLocale(Astro.currentLocale);
 const { s } = getHome(L);
 const seeFull = L === 'de' ? 'Alle Preise und FAQ ansehen' : L === 'nl' ? 'Bekijk alle prijzen en FAQ' : 'See full pricing and FAQ';
+const seeFeatures = L === 'de' ? 'Zur vollst\u00e4ndigen Feature-Liste' : L === 'nl' ? 'Bekijk de volledige featurelijst' : 'See the full feature list';
 ---
 <section id="pricing" class="sec sec--paper" aria-labelledby="pricing-title">
   <div class="wrap">
@@ -19,6 +20,8 @@ const seeFull = L === 'de' ? 'Alle Preise und FAQ ansehen' : L === 'nl' ? 'Bekij
     </div>
     <p class="reveal" style="text-align:center;margin-top:22px">
       <a href={localizedHref(L, '/pricing')} class="link">{seeFull} &rarr;</a>
+      <span style="opacity:.4;margin:0 12px">&middot;</span>
+      <a href={localizedHref(L, '/pricing#feature-list')} class="link">{seeFeatures} &rarr;</a>
     </p>
   </div>
 </section>

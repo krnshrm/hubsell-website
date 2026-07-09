@@ -1,16 +1,17 @@
 // Feature availability matrix for the /pricing comparison table. Source: the
-// founder's Pricing_features_list sheet (2026-07-09), with these agreed edits:
-// Human Chat Based Support restored (all tiers), "Like last post" and "Invite
-// to attend LinkedIn event" added (tier mapping = placeholder, see flags in
-// the delivery notes), the two coming-soon features moved into their own
-// category, and "Event Attendantes" spelled "Event Attendees".
+// founder's Pricing_features_list sheet (2026-07-09) plus the 2026-07-09 update
+// round: sentence case throughout (only the first word and names capitalized),
+// "AI nodes" and "Data nodes" renamed, and `soon: true` on every node the
+// founder marked as coming soon. Ticks show the tier the node lands in.
 // Node and group labels are product terms and stay English in every locale;
 // only the top-level category headers localize (pricing-page.ts `groups`).
-// t = [Start, Grow, Scale]. A row with `children` is an expandable group.
+// t = [Start, Grow, Scale]. A row with `children` is a group with a static
+// sub-header; all rows render expanded (no collapse).
 
 export interface PricingFeatureRow {
   label: string;
   t?: [boolean, boolean, boolean];
+  soon?: boolean;
   children?: PricingFeatureRow[];
 }
 export type PricingCategoryKey = 'workflow' | 'crmsync' | 'datasrc' | 'support' | 'comingsoon';
@@ -24,63 +25,63 @@ export const PRICING_FEATURES: PricingFeatureCategory[] = [
     children: [
       { label: 'Triggers', children: [
         { label: 'Contact added to the flow', t: [y, y, y] },
-        { label: 'Track a LinkedIn post', t: [n, y, y] },
-        { label: 'Publish & track a LinkedIn post', t: [n, y, y] },
-        { label: 'Sales Navigator Lead search', t: [n, y, y] },
-        { label: 'LinkedIn Classic People search', t: [n, y, y] },
-        { label: 'Contact fills a form', t: [n, y, y] },
-        { label: 'Contact added to a list', t: [n, y, y] },
-        { label: 'Contact matches filter', t: [n, y, y] },
-        { label: 'Contact visits LinkedIn profile', t: [n, y, y] },
-        { label: 'Contact replies to Outreach', t: [n, y, y] },
-        { label: 'Webhook', t: [n, n, y] },
+        { label: 'Track a LinkedIn post', t: [n, y, y], soon: true },
+        { label: 'Publish & track a LinkedIn post', t: [n, y, y], soon: true },
+        { label: 'Sales Navigator lead search', t: [n, y, y], soon: true },
+        { label: 'LinkedIn classic people search', t: [n, y, y], soon: true },
+        { label: 'Contact fills a form', t: [n, y, y], soon: true },
+        { label: 'Contact added to a list', t: [n, y, y], soon: true },
+        { label: 'Contact matches filter', t: [n, y, y], soon: true },
+        { label: 'Contact visits LinkedIn profile', t: [n, y, y], soon: true },
+        { label: 'Contact replies to outreach', t: [n, y, y], soon: true },
+        { label: 'Webhook', t: [n, n, y], soon: true },
       ]},
       { label: 'Outreach nodes', children: [
         { label: 'Email', t: [y, y, y] },
         { label: 'Follow-up email', t: [y, y, y] },
-        { label: 'LinkedIn Connection request', t: [y, y, y] },
-        { label: 'LinkedIn Connection request withdrawal', t: [y, y, y] },
-        { label: 'LinkedIn Profile visit', t: [y, y, y] },
-        { label: 'LinkedIn Direct Message', t: [y, y, y] },
-        { label: 'LinkedIn Inmail', t: [y, y, y] },
-        { label: 'Like last post', t: [y, y, y] },
+        { label: 'LinkedIn connection request', t: [y, y, y] },
+        { label: 'LinkedIn connection request withdrawal', t: [y, y, y] },
+        { label: 'LinkedIn profile visit', t: [y, y, y] },
+        { label: 'LinkedIn direct message', t: [y, y, y] },
+        { label: 'LinkedIn InMail', t: [y, y, y] },
+        { label: 'Like last post', t: [y, y, y], soon: true },
         { label: 'Tasks', t: [y, y, y] },
-        { label: 'Invite to follow Company page', t: [n, y, y] },
-        { label: 'Invite to attend LinkedIn event', t: [n, y, y] },
+        { label: 'Invite to follow company page', t: [n, y, y], soon: true },
+        { label: 'Invite to attend LinkedIn event', t: [n, y, y], soon: true },
       ]},
-      { label: 'AI Node Types', children: [
-        { label: 'Prompt AI', t: [y, y, y] },
-        { label: 'Qualify with AI', t: [n, y, y] },
-        { label: 'Enrich with AI', t: [n, y, y] },
+      { label: 'AI nodes', children: [
+        { label: 'Prompt AI', t: [y, y, y], soon: true },
+        { label: 'Qualify with AI', t: [n, y, y], soon: true },
+        { label: 'Enrich with AI', t: [n, y, y], soon: true },
       ]},
-      { label: 'Data Node Types', children: [
-        { label: 'Check Email Address', t: [y, y, y] },
-        { label: 'Check LinkedIn URL', t: [y, y, y] },
-        { label: 'Enrich Contact Data', t: [n, y, y] },
-        { label: 'Update contact field', t: [n, y, y] },
-        { label: 'Sync to CRM', t: [n, y, y] },
+      { label: 'Data nodes', children: [
+        { label: 'Check email address', t: [y, y, y], soon: true },
+        { label: 'Check LinkedIn URL', t: [y, y, y], soon: true },
+        { label: 'Enrich contact data', t: [n, y, y], soon: true },
+        { label: 'Update contact field', t: [n, y, y], soon: true },
+        { label: 'Sync to CRM', t: [n, y, y], soon: true },
       ]},
-      { label: 'Flow Control Nodes', children: [
-        { label: 'Follow-up Conditions', t: [y, y, y] },
-        { label: 'Split Branches', t: [y, y, y] },
-        { label: 'Move Contact to Flow', t: [n, y, y] },
+      { label: 'Flow control nodes', children: [
+        { label: 'Follow-up conditions', t: [y, y, y] },
+        { label: 'Split branches', t: [y, y, y], soon: true },
+        { label: 'Move contact to flow', t: [n, y, y] },
       ]},
-      { label: 'Custom Node Types', t: [n, n, y] },
+      { label: 'Custom node types', t: [n, n, y] },
     ],
   },
   {
     key: 'crmsync',
     children: [
-      { label: 'CRM Sync Contacts & Accounts', t: [y, y, y] },
-      { label: 'CRM Sync Tasks & Activities', t: [n, y, y] },
-      { label: 'Custom CRM Sync', t: [n, n, y] },
+      { label: 'CRM sync contacts & accounts', t: [y, y, y] },
+      { label: 'CRM sync tasks & activities', t: [n, y, y] },
+      { label: 'Custom CRM sync', t: [n, n, y] },
     ],
   },
   {
     key: 'datasrc',
     children: [
-      { label: 'Social Prospecting', children: [
-        { label: 'Prospects from a Sales Navigator Lead search', t: [y, y, y] },
+      { label: 'Social prospecting', children: [
+        { label: 'Prospects from a Sales Navigator lead search', t: [y, y, y] },
         { label: 'Prospects that react to a LinkedIn post', t: [y, y, y] },
         { label: 'Prospects that attended a LinkedIn event', t: [y, y, y] },
         { label: 'Prospects that follow a thought leader', t: [y, y, y] },
@@ -89,22 +90,22 @@ export const PRICING_FEATURES: PricingFeatureCategory[] = [
         { label: 'Prospects hiring for certain roles', t: [n, y, y] },
       ]},
       { label: 'Data processing', children: [
-        { label: 'Email Validation (incl. on Catch-All domains)', t: [y, y, y] },
-        { label: 'Phone Number Sourcing', t: [n, y, y] },
-        { label: 'Custom Data Sourcing', t: [n, n, y] },
+        { label: 'Email validation (incl. on catch-all domains)', t: [y, y, y] },
+        { label: 'Phone number sourcing', t: [n, y, y] },
+        { label: 'Custom data sourcing', t: [n, n, y] },
       ]},
       { label: 'Enrichment and targeting', children: [
-        { label: 'Event Attendees', t: [n, y, y] },
-        { label: 'Named Accounts', t: [n, y, y] },
-        { label: 'CRM Enrichment', t: [n, y, y] },
+        { label: 'Event attendees', t: [n, y, y] },
+        { label: 'Named accounts', t: [n, y, y] },
+        { label: 'CRM enrichment', t: [n, y, y] },
       ]},
     ],
   },
   {
     key: 'support',
     children: [
-      { label: 'Human Chat Based Support', t: [y, y, y] },
-      { label: 'Full Onboarding', t: [n, y, y] },
+      { label: 'Human chat based support', t: [y, y, y] },
+      { label: 'Full onboarding', t: [n, y, y] },
       { label: 'Quarterly update call', t: [n, y, y] },
       { label: 'Dedicated CSM', t: [n, n, y] },
     ],
@@ -113,7 +114,7 @@ export const PRICING_FEATURES: PricingFeatureCategory[] = [
     key: 'comingsoon',
     children: [
       { label: 'Publish to LinkedIn', t: [n, y, y] },
-      { label: 'Unified Inbox', t: [n, y, y] },
+      { label: 'Unified inbox', t: [n, y, y] },
     ],
   },
 ];

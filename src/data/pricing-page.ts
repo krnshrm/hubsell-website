@@ -15,6 +15,7 @@ export interface PricingPageData {
   cat: Record<string, string>;
   groups: Record<string, string>;
   creditsNote: string;
+  soonLabel: string;
   planRow: string; seatsRow: string; billingRow: string; priceNote: string;
   monthly: string; annual: string; perCredit: string; perYear: string;
   seatsStart: string; seatsGrow: string; seatsScale: string;
@@ -102,11 +103,12 @@ const EN: PricingPageData = {
   "groups": {
     "workflow": "Workflow nodes",
     "crmsync": "CRM sync",
-    "datasrc": "Data Sourcing and Enrichment",
+    "datasrc": "Data sourcing and enrichment",
     "support": "Support and onboarding",
     "comingsoon": "Coming soon"
   },
   "creditsNote": "Data sourcing and enrichment run on Sales Intelligence credits: \u20ac1.25 per credit pay as you go, or \u20ac5,000 per year for 5,000 credits.",
+  "soonLabel": "Coming soon",
   "crumbHome": "Home",
   "crumbSelf": "Pricing"
 };
@@ -194,6 +196,7 @@ const DE: PricingPageData = {
     "comingsoon": "In K\u00fcrze"
   },
   "creditsNote": "Data Sourcing und Enrichment laufen \u00fcber Sales-Intelligence-Credits: \u20ac1,25 pro Credit im Pay as you go oder \u20ac5.000 pro Jahr f\u00fcr 5.000 Credits.",
+  "soonLabel": "Bald verf\u00fcgbar",
   "crumbHome": "Startseite",
   "crumbSelf": "Preise"
 };
@@ -281,6 +284,7 @@ const NL: PricingPageData = {
     "comingsoon": "Binnenkort"
   },
   "creditsNote": "Data sourcing en enrichment draaien op Sales Intelligence-credits: \u20ac1,25 per credit met pay as you go, of \u20ac5.000 per jaar voor 5.000 credits.",
+  "soonLabel": "Binnenkort",
   "crumbHome": "Home",
   "crumbSelf": "Prijzen"
 };
