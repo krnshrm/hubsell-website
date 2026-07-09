@@ -22,7 +22,7 @@
 
   /* ---- SECTION ROLE TOKENS (theme-aware) ---- */
   --sec-paper:#FBF7F1; --sec-paper-tx:#192341; --sec-paper-bd:#ECE1D4; --sec-paper-card:#FFFFFF;
-  --sec-sand:#EADBC2;  --sec-sand-tx:#192341;  --sec-sand-bd:#DCC9AC;  --sec-sand-card:#FFFFFF;
+  --sec-sand:#FFFFFF;  --sec-sand-tx:#192341;  --sec-sand-bd:#ECE1D4;  --sec-sand-card:#FBF7F1;
   --sec-navy:#192341;  --sec-navy-tx:#FBF4EA;  --sec-navy-bd:rgba(255,255,255,.16); --sec-navy-card:#222E4C;
   --sec-esp:#2B1E17;   --sec-esp-tx:#FBF4EA;   --sec-esp-bd:rgba(255,255,255,.16);  --sec-esp-card:#3A2A20;
 
