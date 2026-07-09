@@ -21,6 +21,14 @@ export interface SolutionCard {
   linkLabel: string;
 }
 
+export interface SolutionPainPoint { label: string; body: string }
+export interface SolutionPain {
+  problemTitle: string; problemBody: string;
+  solutionTitle: string; solutionBody: string;
+  points: SolutionPainPoint[];
+  href?: string; linkLabel?: string;   // optional platform link per block
+}
+
 export interface SolutionDetailData {
   path: string;                 // English-root path, e.g. '/solutions/team/sales-teams'
   axis: 'team' | 'role';
@@ -30,10 +38,11 @@ export interface SolutionDetailData {
   h1Pre: string; h1Accent: string; h1Post: string;
   sub: string;
   demoCta: string;
-  jobsEyebrow: string; jobsTitle: string;
-  jobs: string[];               // 3 to 4 concrete jobs to be done
-  howEyebrow: string; howTitle: string;
-  how: SolutionHow[];           // 3 blocks, each linking out
+  jobsEyebrow?: string; jobsTitle?: string;
+  jobs?: string[];              // 3 to 4 concrete jobs to be done (omit when pains is used)
+  howEyebrow?: string; howTitle?: string;
+  how?: SolutionHow[];          // 3 blocks, each linking out (omit when pains is used)
+  pains?: SolutionPain[];       // problem/solution pairs, the alternative body to jobs+how
   proofEyebrow: string; proofTitle: string;
   quoteSlug: string;            // testimonial slug in the shared pool
   storySlug?: string;           // customer story slug (omitted = testimonial only)
@@ -211,17 +220,51 @@ export const solutions: SolutionsData = {
       h1Pre: 'More conversations, ', h1Accent: 'less list building', h1Post: '',
       sub: 'An SDR\u2019s day gets eaten by finding contacts, checking emails, and updating the CRM. hubsell does that part, so you can spend your hours on the conversations that hit quota.',
       demoCta: 'Book a demo',
-      jobsEyebrow: 'The work', jobsTitle: 'The jobs you need done',
-      jobs: [
-        'Get a list of the right people without hours of research.',
-        'Reach them across email, LinkedIn, and phone in one flow.',
-        'Stop logging activity by hand.',
-      ],
-      howEyebrow: 'How hubsell helps', howTitle: 'How hubsell gets it done',
-      how: [
-        { title: 'A ready list, not hours of research', body: 'Live-sourced contacts matched to your ICP and verified, so you start the day with people worth calling.', href: '/platform/live-data', linkLabel: 'See live data' },
-        { title: 'One flow across every channel', body: 'Email, LinkedIn, and phone in a single sequence with branching, so you follow up in the right place at the right time.', href: '/platform/multichannel-outreach', linkLabel: 'See multichannel outreach' },
-        { title: 'No more manual logging', body: 'Every send, open, and reply lands in the CRM by itself, so you are not updating records at the end of the day.', href: '/platform/crm-sync', linkLabel: 'See CRM sync' },
+      pains: [
+        {
+          problemTitle: "The 72% Admin Tax", 
+          problemBody: "You hired sellers. You are paying for data entry. SDRs spend just 28% of their week selling. The rest burns away in manual research, fragmented tools, and CRM upkeep.",
+          solutionTitle: "Let Sellers Sell", solutionBody: "hubsell destroys operational friction, shifting time from backend admin directly to revenue-generating conversations.",
+          points: [
+            { label: "Zero Research Burnout", body: "Start the day with a verified, ready-to-work pipeline." },
+            { label: "Zero Tool Fatigue", body: "Execute every touchpoint in one uninterrupted flow." },
+            { label: "Zero Admin Anxiety", body: "Never manually log a CRM update again." },
+          ],
+          href: '/platform/crm-sync', linkLabel: "See CRM sync",
+        },
+        {
+          problemTitle: "The Spam Compromise", 
+          problemBody: "Volume or relevance. Pick one. To hit quota, SDRs need volume. To get replies, they need personalization. The result? Hours wasted drafting individual emails, or generic spam blasts that ruin your brand reputation.",
+          solutionTitle: "Scale Without the Robot Voice", solutionBody: "hubsell breaks the compromise.",
+          points: [
+            { label: "Zero Generic Outreach", body: "Automate deep account-level personalization." },
+            { label: "Zero Volume Drops", body: "Hit high-activity quotas without sacrificing message quality." },
+            { label: "Zero Wasted Touches", body: "Reach prospects with messages that read like a human wrote them." },
+          ],
+          href: '/platform/personalization', linkLabel: "See personalization",
+        },
+        {
+          problemTitle: "The Deliverability Black Hole", 
+          problemBody: "The invisible SDR. 20% of B2B emails never see the primary inbox. Your team spends hours crafting sequences that die in spam filters because bounced emails and bad data ruined your domain health.",
+          solutionTitle: "Guaranteed Inbox Placement", solutionBody: "hubsell protects your domain so your SDRs are actually heard.",
+          points: [
+            { label: "Zero Bounces", body: "Only verified, active contacts enter the sequence." },
+            { label: "Zero Spam Triggers", body: "Automated pacing keeps sending behavior looking natural." },
+            { label: "Zero Wasted Effort", body: "Your outreach lands where it belongs: in front of the prospect." },
+          ],
+          href: '/platform/deliverability', linkLabel: "See deliverability",
+        },
+        {
+          problemTitle: "The 90-Day Dead Zone", 
+          problemBody: "It takes three months to ramp a new SDR. The brutal truth? They aren\u2019t spending that time learning how to sell your product. They are learning how to navigate your bloated, multi-tool tech stack.",
+          solutionTitle: "Day-One Productivity", solutionBody: "hubsell drastically shrinks the learning curve.",
+          points: [
+            { label: "Zero Tool Bloat", body: "Train new hires on one unified workflow, not five disjointed apps." },
+            { label: "Zero Guesswork", body: "Pre-built sequences and automated workflows dictate the day." },
+            { label: "Zero Delay", body: "Turn new hires into active pipeline generators in days, not months." },
+          ],
+          href: '/platform', linkLabel: "See the platform",
+        },
       ],
       proofEyebrow: 'Proof', proofTitle: 'What reps say',
       quoteSlug: 'aspire',

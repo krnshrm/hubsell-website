@@ -155,17 +155,51 @@ export const solutionsDe: SolutionsData = {
       h1Pre: 'Mehr Gespr\u00e4che, ', h1Accent: 'weniger Listenbau', h1Post: '',
       sub: 'Der Tag eines SDR wird vom Finden von Kontakten, Pr\u00fcfen von E-Mails und Aktualisieren des CRM aufgefressen. hubsell \u00fcbernimmt diesen Teil, damit Sie Ihre Stunden den Gespr\u00e4chen widmen, die die Quote erreichen.',
       demoCta: 'Demo buchen',
-      jobsEyebrow: 'Die Arbeit', jobsTitle: 'Die Aufgaben, die Sie erledigen m\u00fcssen',
-      jobs: [
-        'Eine Liste der richtigen Personen bekommen, ohne stundenlange Recherche.',
-        'Sie \u00fcber E-Mail, LinkedIn und Telefon in einem Flow erreichen.',
-        'Aktivit\u00e4ten nicht mehr von Hand protokollieren.',
-      ],
-      howEyebrow: 'Wie hubsell hilft', howTitle: 'Wie hubsell das l\u00f6st',
-      how: [
-        { title: 'Eine fertige Liste, keine stundenlange Recherche', body: 'Live recherchierte Kontakte, passend zu Ihrem ICP und verifiziert, damit Sie den Tag mit Menschen beginnen, die einen Anruf wert sind.', href: '/platform/live-data', linkLabel: 'Zu Live-Daten' },
-        { title: 'Ein Flow \u00fcber jeden Kanal', body: 'E-Mail, LinkedIn und Telefon in einer Sequenz mit Verzweigungen, damit Sie am richtigen Ort zur richtigen Zeit nachfassen.', href: '/platform/multichannel-outreach', linkLabel: 'Zu Multichannel-Outreach' },
-        { title: 'Kein manuelles Protokollieren mehr', body: 'Jedes Senden, \u00d6ffnen und Antworten landet von selbst im CRM, sodass Sie am Tagesende keine Datens\u00e4tze pflegen.', href: '/platform/crm-sync', linkLabel: 'Zu CRM-Sync' },
+      pains: [
+        {
+          problemTitle: "Die 72%-Admin-Steuer", 
+          problemBody: "Sie haben Verk\u00e4ufer eingestellt. Sie bezahlen f\u00fcr Dateneingabe. SDRs verbringen nur 28% ihrer Woche mit Verkaufen. Der Rest verbrennt in manueller Recherche, fragmentierten Tools und CRM-Pflege.",
+          solutionTitle: "Lassen Sie Verk\u00e4ufer verkaufen", solutionBody: "hubsell beseitigt operative Reibung und verschiebt Zeit von Backend-Admin direkt in umsatzbringende Gespr\u00e4che.",
+          points: [
+            { label: "Null Recherche-Burnout", body: "Starten Sie den Tag mit einer verifizierten, sofort bearbeitbaren Pipeline." },
+            { label: "Null Tool-M\u00fcdigkeit", body: "F\u00fchren Sie jeden Touchpoint in einem ununterbrochenen Flow aus." },
+            { label: "Null Admin-Stress", body: "Nie wieder ein CRM-Update von Hand eintragen." },
+          ],
+          href: '/platform/crm-sync', linkLabel: "Zum CRM-Sync",
+        },
+        {
+          problemTitle: "Der Spam-Kompromiss", 
+          problemBody: "Volumen oder Relevanz. Entscheiden Sie sich. Um die Quote zu erreichen, brauchen SDRs Volumen. Um Antworten zu bekommen, brauchen sie Personalisierung. Das Ergebnis? Stunden, die im Verfassen einzelner E-Mails verschwinden, oder generische Spam-Blasts, die Ihre Markenreputation ruinieren.",
+          solutionTitle: "Skalieren ohne Roboterstimme", solutionBody: "hubsell l\u00f6st den Kompromiss auf.",
+          points: [
+            { label: "Null generischer Outreach", body: "Automatisieren Sie tiefe Personalisierung auf Account-Ebene." },
+            { label: "Null Volumeneinbruch", body: "Erreichen Sie hohe Aktivit\u00e4tsquoten, ohne die Qualit\u00e4t der Nachrichten zu opfern." },
+            { label: "Null verschwendete Touches", body: "Erreichen Sie Prospects mit Nachrichten, die klingen, als h\u00e4tte ein Mensch sie geschrieben." },
+          ],
+          href: '/platform/personalization', linkLabel: "Zur Personalisierung",
+        },
+        {
+          problemTitle: "Das schwarze Loch der Deliverability", 
+          problemBody: "Der unsichtbare SDR. 20% der B2B-E-Mails erreichen nie den prim\u00e4ren Posteingang. Ihr Team verbringt Stunden mit Sequenzen, die in Spam-Filtern sterben, weil Bounces und schlechte Daten Ihre Domain-Gesundheit ruiniert haben.",
+          solutionTitle: "Garantierte Inbox-Platzierung", solutionBody: "hubsell sch\u00fctzt Ihre Domain, damit Ihre SDRs tats\u00e4chlich geh\u00f6rt werden.",
+          points: [
+            { label: "Null Bounces", body: "Nur verifizierte, aktive Kontakte gelangen in die Sequenz." },
+            { label: "Null Spam-Trigger", body: "Automatisiertes Pacing h\u00e4lt das Sendeverhalten nat\u00fcrlich." },
+            { label: "Null verschwendeter Aufwand", body: "Ihr Outreach landet, wo er hingeh\u00f6rt: vor dem Prospect." },
+          ],
+          href: '/platform/deliverability', linkLabel: "Zur Deliverability",
+        },
+        {
+          problemTitle: "Die 90-Tage-Totzone", 
+          problemBody: "Es dauert drei Monate, einen neuen SDR einzuarbeiten. Die bittere Wahrheit? Diese Zeit geht nicht ins Lernen, wie man Ihr Produkt verkauft. Sie geht ins Navigieren Ihres aufgebl\u00e4hten Multi-Tool-Stacks.",
+          solutionTitle: "Produktiv ab Tag eins", solutionBody: "hubsell verk\u00fcrzt die Lernkurve drastisch.",
+          points: [
+            { label: "Null Tool-Wildwuchs", body: "Schulen Sie neue Mitarbeiter auf einem einheitlichen Workflow, nicht auf f\u00fcnf getrennten Apps." },
+            { label: "Null R\u00e4tselraten", body: "Vorgefertigte Sequenzen und automatisierte Workflows geben den Tag vor." },
+            { label: "Null Verz\u00f6gerung", body: "Machen Sie neue Mitarbeiter in Tagen zu aktiven Pipeline-Generatoren, nicht in Monaten." },
+          ],
+          href: '/platform', linkLabel: "Zur Plattform",
+        },
       ],
       proofEyebrow: 'Beleg', proofTitle: 'Was Reps sagen',
       quoteSlug: 'aspire',

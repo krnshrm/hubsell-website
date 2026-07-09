@@ -50,7 +50,39 @@ const StepVisual = STEP_VISUALS[d.path];
   </div>
 </section>
 
+<!-- 1b · Problem / solution pairs (paper), used instead of jobs+how when present -->
+{d.pains && d.pains.length > 0 && (
+  <section class="sec sec--paper" aria-label={d.eyebrow}>
+    <div class="wrap">
+      <div class="sol-pains">
+        {d.pains.map((p, i) => (
+          <div class="sol-pain">
+            <div class="sol-pain__problem">
+              <span class="sol-job__n">{String(i + 1).padStart(2, '0')}</span>
+              <h2 class="heading_primary" style="margin-top:10px">{p.problemTitle}</h2>
+              <p class="paragraph" style="margin-top:14px">{p.problemBody}</p>
+            </div>
+            <div class="card sol-pain__solution">
+              <h3 class="heading_small">{p.solutionTitle}</h3>
+              <p class="paragraph_small" style="margin-top:10px">{p.solutionBody}</p>
+              <ul class="sol-pain__points">
+                {p.points.map((pt) => (
+                  <li><b>{pt.label}:</b> {pt.body}</li>
+                ))}
+              </ul>
+              {p.href && p.linkLabel && (
+                <a href={localizedHref(L, p.href)} class="link" style="margin-top:auto;padding-top:18px;display:inline-block">{p.linkLabel} &rarr;</a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
 <!-- 2 · The jobs to be done (paper) -->
+{d.jobs && d.jobs.length > 0 && (
 <section class="sec sec--paper" aria-label={d.jobsTitle}>
   <div class="wrap">
     <div class="sec-head">
@@ -67,8 +99,10 @@ const StepVisual = STEP_VISUALS[d.path];
     </ol>
   </div>
 </section>
+)}
 
 <!-- 3 · How hubsell helps (navy) -->
+{d.how && d.how.length > 0 && (
 <section class="sec sec--navy" aria-label={d.howTitle}>
   <div class="wrap">
     <div class="sec-head">
@@ -90,6 +124,7 @@ const StepVisual = STEP_VISUALS[d.path];
       )}
   </div>
 </section>
+)}
 
 <!-- 4 · Proof: story (optional) + quote (sand) -->
 <section class="sec sec--sand" aria-label={d.proofTitle}>
@@ -137,7 +172,15 @@ const StepVisual = STEP_VISUALS[d.path];
   .sol-proof.is-solo{ max-width:720px }
   .sol-quote{ display:flex; flex-direction:column; justify-content:center }
 
+  .sol-pains{ display:grid; grid-template-columns:1fr; gap:clamp(40px,6vw,64px) }
+  .sol-pain{ display:grid; grid-template-columns:1fr; gap:22px; align-items:start }
+  .sol-pain__solution{ display:flex; flex-direction:column }
+  .sol-pain__points{ list-style:none; margin:14px 0 0; padding:0; display:grid; gap:10px }
+  .sol-pain__points li{ font-family:var(--font-body); font-size:14.5px; line-height:1.6; color:var(--sec-tx) }
+  .sol-pain__points b{ font-weight:600 }
+
   @media (min-width:760px){
+    .sol-pain{ grid-template-columns:1fr 1fr; gap:36px }
     .sol-how{ grid-template-columns:1fr 1fr 1fr }
     .sol-proof:not(.is-solo){ grid-template-columns:1fr 1fr }
   }

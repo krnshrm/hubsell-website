@@ -155,17 +155,51 @@ export const solutionsNl: SolutionsData = {
       h1Pre: 'Meer gesprekken, ', h1Accent: 'minder lijsten bouwen', h1Post: '',
       sub: 'De dag van een SDR wordt opgeslokt door contacten zoeken, e-mails checken en het CRM bijwerken. hubsell doet dat deel, zodat u uw uren kunt besteden aan de gesprekken die uw target halen.',
       demoCta: 'Demo plannen',
-      jobsEyebrow: 'Het werk', jobsTitle: 'De klussen die u moet klaren',
-      jobs: [
-        'Een lijst van de juiste mensen krijgen zonder uren onderzoek.',
-        'Ze bereiken via e-mail, LinkedIn en telefoon in \u00e9\u00e9n flow.',
-        'Stoppen met activiteiten met de hand vastleggen.',
-      ],
-      howEyebrow: 'Hoe hubsell helpt', howTitle: 'Hoe hubsell het klaart',
-      how: [
-        { title: 'Een kant-en-klare lijst, geen uren onderzoek', body: 'Live verzamelde contacten afgestemd op uw ICP en geverifieerd, zodat u de dag begint met mensen die een gesprek waard zijn.', href: '/platform/live-data', linkLabel: 'Naar live data' },
-        { title: '\u00c9\u00e9n flow over elk kanaal', body: 'E-mail, LinkedIn en telefoon in \u00e9\u00e9n sequentie met vertakking, zodat u op de juiste plek op het juiste moment opvolgt.', href: '/platform/multichannel-outreach', linkLabel: 'Naar multichannel-outreach' },
-        { title: 'Geen handmatige vastlegging meer', body: 'Elke verzending, opening en reactie landt vanzelf in het CRM, zodat u aan het eind van de dag geen records bijwerkt.', href: '/platform/crm-sync', linkLabel: 'Naar CRM-sync' },
+      pains: [
+        {
+          problemTitle: "De 72% admin-taks", 
+          problemBody: "U hebt verkopers aangenomen. U betaalt voor data-invoer. SDR\u2019s besteden slechts 28% van hun week aan verkopen. De rest verbrandt aan handmatig onderzoek, versnipperde tools en CRM-onderhoud.",
+          solutionTitle: "Laat verkopers verkopen", solutionBody: "hubsell vernietigt operationele frictie en verschuift tijd van backend-admin direct naar omzetgenererende gesprekken.",
+          points: [
+            { label: "Nul research-burn-out", body: "Begin de dag met een gevalideerde, direct bruikbare pipeline." },
+            { label: "Nul tool-vermoeidheid", body: "Voer elk touchpoint uit in \u00e9\u00e9n ononderbroken flow." },
+            { label: "Nul admin-stress", body: "Nooit meer handmatig een CRM-update loggen." },
+          ],
+          href: '/platform/crm-sync', linkLabel: "Bekijk CRM-sync",
+        },
+        {
+          problemTitle: "Het spam-compromis", 
+          problemBody: "Volume of relevantie. Kies maar. Om quota te halen hebben SDR\u2019s volume nodig. Om reacties te krijgen, personalisatie. Het resultaat? Uren verspild aan het schrijven van losse e-mails, of generieke spam-blasts die uw merkreputatie ru\u00efneren.",
+          solutionTitle: "Schalen zonder robotstem", solutionBody: "hubsell doorbreekt het compromis.",
+          points: [
+            { label: "Nul generieke outreach", body: "Automatiseer diepe personalisatie op accountniveau." },
+            { label: "Nul volumedips", body: "Haal hoge activiteitsquota zonder in te leveren op berichtkwaliteit." },
+            { label: "Nul verspilde touches", body: "Bereik prospects met berichten die lezen alsof een mens ze schreef." },
+          ],
+          href: '/platform/personalization', linkLabel: "Bekijk personalisatie",
+        },
+        {
+          problemTitle: "Het zwarte gat van deliverability", 
+          problemBody: "De onzichtbare SDR. 20% van de B2B-e-mails bereikt nooit de primaire inbox. Uw team besteedt uren aan sequenties die sterven in spamfilters, omdat bounces en slechte data de gezondheid van uw domein hebben geru\u00efneerd.",
+          solutionTitle: "Gegarandeerde inboxplaatsing", solutionBody: "hubsell beschermt uw domein, zodat uw SDR\u2019s daadwerkelijk gehoord worden.",
+          points: [
+            { label: "Nul bounces", body: "Alleen gevalideerde, actieve contacten komen de sequentie in." },
+            { label: "Nul spamtriggers", body: "Geautomatiseerde pacing houdt het verzendgedrag natuurlijk." },
+            { label: "Nul verspilde moeite", body: "Uw outreach landt waar die hoort: bij de prospect." },
+          ],
+          href: '/platform/deliverability', linkLabel: "Bekijk deliverability",
+        },
+        {
+          problemTitle: "De 90-dagen dode zone", 
+          problemBody: "Het duurt drie maanden om een nieuwe SDR in te werken. De harde waarheid? Die tijd gaat niet naar leren hoe ze uw product verkopen. Die gaat naar leren navigeren door uw opgeblazen multi-tool-stack.",
+          solutionTitle: "Productief vanaf dag \u00e9\u00e9n", solutionBody: "hubsell verkort de leercurve drastisch.",
+          points: [
+            { label: "Nul tool-wildgroei", body: "Train nieuwe mensen op \u00e9\u00e9n uniforme workflow, niet op vijf losse apps." },
+            { label: "Nul giswerk", body: "Kant-en-klare sequenties en geautomatiseerde workflows bepalen de dag." },
+            { label: "Nul vertraging", body: "Maak van nieuwe mensen in dagen actieve pipeline-generators, niet in maanden." },
+          ],
+          href: '/platform', linkLabel: "Bekijk het platform",
+        },
       ],
       proofEyebrow: 'Bewijs', proofTitle: 'Wat reps zeggen',
       quoteSlug: 'aspire',
