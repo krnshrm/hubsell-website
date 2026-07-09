@@ -1,47 +1,25 @@
 ---
-// Two detailed comparison tables (Platform: Start/Grow/Scale, Data: Pay as you
-// go/Subscription) built verbatim from the pricing widget. Feature labels resolve
-// through et() so they match the widget's own translations; category and column
-// labels come from pricing-page.ts. Availability is per tier, taken from the
-// "everything in the previous tier, plus" structure in the widget.
-import { et } from '../data/embed-i18n';
+// Detailed, expandable comparison table for /pricing. One table across the
+// Start/Grow/Scale tiers, built from PRICING_FEATURES (the founder's approved
+// sheet). Groups with children expand on click to reveal their items; leaf
+// rows show ticks directly. Node and group labels are product terms and stay
+// English in every locale; category headers and the credits note localize via
+// pricing-page.ts. The former separate Data add-on table is replaced by the
+// datasrc category plus a credits note (the add-on differs by price only).
+import { PRICING_FEATURES } from '../data/pricing-features';
+import type { PricingFeatureRow } from '../data/pricing-features';
 import type { PricingPageData } from '../data/pricing-page';
 import type { Locale } from '../i18n/ui';
 
 interface Props { L: Locale; data: PricingPageData }
-const { L, data: d } = Astro.props;
+const { data: d } = Astro.props;
 
-const PLATFORM = [
-  { cat: 'nodes', f: 'Essential Node Types', t: [true, true, true] },
-  { cat: 'nodes', f: 'AI Node Types', t: [false, true, true] },
-  { cat: 'nodes', f: 'Data Node Types', t: [false, true, true] },
-  { cat: 'nodes', f: 'Custom Node Types', t: [false, false, true] },
-  { cat: 'outreach', f: 'Multi-channel Outreach (Email, LinkedIn & Tasks)', t: [true, true, true] },
-  { cat: 'outreach', f: 'Publish to LinkedIn (Coming soon)', t: [false, true, true] },
-  { cat: 'outreach', f: 'Unified Inbox (Coming soon)', t: [false, true, true] },
-  { cat: 'crm', f: 'CRM Sync Contacts & Accounts', t: [true, true, true] },
-  { cat: 'crm', f: 'CRM Sync Tasks & Activities', t: [false, true, true] },
-  { cat: 'crm', f: 'Custom CRM Sync', t: [false, false, true] },
-  { cat: 'support', f: 'Human Chat Based Support', t: [true, true, true] },
-  { cat: 'support', f: 'Full Onboarding', t: [false, true, true] },
-];
-const DATA = [
-  { cat: 'sourcing', f: 'Social Prospecting', t: [true, true] },
-  { cat: 'sourcing', f: 'Realtime Data Sourcing', t: [true, true] },
-  { cat: 'sourcing', f: 'Email Validation (incl. on Catch-All domains)', t: [true, true] },
-  { cat: 'sourcing', f: 'Custom Data Sourcing', t: [false, true] },
-  { cat: 'sourcing', f: 'Phone Number Sourcing', t: [false, true] },
-  { cat: 'enrichment', f: 'Account Based Targeting', t: [false, true] },
-  { cat: 'enrichment', f: 'Named Account Enrichment', t: [false, true] },
-  { cat: 'enrichment', f: 'CRM Enrichment', t: [false, true] },
-];
-function grouped(rows: any[]) {
-  const out: any[] = []; let last: string | null = null;
-  for (const r of rows) { if (r.cat !== last) { out.push({ head: r.cat }); last = r.cat; } out.push(r); }
-  return out;
-}
-const platRows = grouped(PLATFORM);
-const dataRows = grouped(DATA);
+// stable ids for expand/collapse wiring
+let gid = 0;
+const withIds = PRICING_FEATURES.map((cat) => ({
+  ...cat,
+  children: cat.children.map((row: PricingFeatureRow) => ({ ...row, _id: row.children ? `pcg${gid++}` : null })),
+}));
 ---
 <section class="sec sec--paper" aria-labelledby="pc-title">
   <div class="wrap">
@@ -50,8 +28,6 @@ const dataRows = grouped(DATA);
       <h2 id="pc-title" class="heading_primary" style="margin-top:8px">{d.compareTitle}</h2>
     </div>
 
-    <!-- Platform -->
-    <p class="pc-cap">{d.platformName} <span>{d.platformSub}</span></p>
     <div class="pc-scroll">
       <table class="pc">
         <thead>
@@ -62,39 +38,42 @@ const dataRows = grouped(DATA);
           <tr><th class="pc-feat">{d.planRow}</th><td>&euro;120</td><td>&euro;4,320</td><td>&euro;12,000</td></tr>
           <tr><th class="pc-feat">{d.seatsRow}</th><td>{d.seatsStart}</td><td>{d.seatsGrow}</td><td>{d.seatsScale}</td></tr>
           <tr><th class="pc-feat">{d.billingRow}</th><td>{d.monthly}</td><td>{d.annual}</td><td>{d.annual}</td></tr>
-          {platRows.map((r: any) => r.head ? (
-            <tr class="pc-cat"><td colspan="4">{d.cat[r.head]}</td></tr>
-          ) : (
-            <tr>
-              <th class="pc-feat">{et(L, r.f)}</th>
-              {r.t.map((on: boolean) => (
-                <td>{on ? <span class="pc-yes" aria-label={d.yes}>&#10003;</span> : <span class="pc-no" aria-label={d.no}>&ndash;</span>}</td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
 
-    <!-- Data add-on -->
-    <p class="pc-cap" style="margin-top:40px">{d.dataName} <span>{d.dataSub}</span></p>
-    <div class="pc-scroll">
-      <table class="pc pc--2">
-        <thead>
-          <tr><th class="pc-feat"></th><th>{d.colPayg}</th><th>{d.colSub}</th></tr>
-        </thead>
-        <tbody>
-          <tr class="pc-cat"><td colspan="3">{d.cat.plan}</td></tr>
-          <tr><th class="pc-feat">{d.planRow}</th><td>&euro;1.25<span class="pc-per">{d.perCredit}</span></td><td>&euro;5,000<span class="pc-per">{d.perYear}</span></td></tr>
-          {dataRows.map((r: any) => r.head ? (
-            <tr class="pc-cat"><td colspan="3">{d.cat[r.head]}</td></tr>
-          ) : (
-            <tr>
-              <th class="pc-feat">{et(L, r.f)}</th>
-              {r.t.map((on: boolean) => (
-                <td>{on ? <span class="pc-yes" aria-label={d.yes}>&#10003;</span> : <span class="pc-no" aria-label={d.no}>&ndash;</span>}</td>
+          {withIds.map((cat) => (
+            <Fragment>
+              <tr class="pc-cat"><td colspan="4">{d.groups[cat.key]}</td></tr>
+              {cat.key === 'datasrc' && (
+                <tr class="pc-note-row"><td colspan="4">{d.creditsNote}</td></tr>
+              )}
+              {cat.children.map((row: any) => row.children ? (
+                <Fragment>
+                  <tr class="pc-group">
+                    <td colspan="4">
+                      <button type="button" aria-expanded="false" data-pc-group={row._id}>
+                        <span class="pc-caret" aria-hidden="true"></span>
+                        {row.label}
+                        <span class="pc-count">{row.children.length}</span>
+                      </button>
+                    </td>
+                  </tr>
+                  {row.children.map((c: PricingFeatureRow) => (
+                    <tr class="pc-sub" data-pc-child={row._id} hidden>
+                      <th class="pc-feat">{c.label}</th>
+                      {(c.t || []).map((on: boolean) => (
+                        <td>{on ? <span class="pc-yes" aria-label={d.yes}>&#10003;</span> : <span class="pc-no" aria-label={d.no}>&ndash;</span>}</td>
+                      ))}
+                    </tr>
+                  ))}
+                </Fragment>
+              ) : (
+                <tr>
+                  <th class="pc-feat">{row.label}</th>
+                  {row.t.map((on: boolean) => (
+                    <td>{on ? <span class="pc-yes" aria-label={d.yes}>&#10003;</span> : <span class="pc-no" aria-label={d.no}>&ndash;</span>}</td>
+                  ))}
+                </tr>
               ))}
-            </tr>
+            </Fragment>
           ))}
         </tbody>
       </table>
@@ -104,19 +83,37 @@ const dataRows = grouped(DATA);
   </div>
 </section>
 
+<script>
+  document.querySelectorAll('[data-pc-group]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-pc-group');
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      document.querySelectorAll(`[data-pc-child="${id}"]`).forEach((tr) => {
+        (tr as HTMLElement).toggleAttribute('hidden', open);
+      });
+    });
+  });
+</script>
+
 <style>
-  .pc-cap { font-family:var(--font-head); font-weight:600; font-size:1.05rem; color:var(--sec-tx); margin:26px 0 12px; }
-  .pc-cap span { font-family:var(--font-body); font-weight:400; font-size:.9rem; color:var(--sec-tx); opacity:.6; margin-left:8px; }
   .pc-scroll { overflow-x:auto; border:1px solid var(--sec-bd); border-radius:var(--radius-lg); background:var(--sec-card); }
   table.pc { width:100%; border-collapse:collapse; min-width:560px; font-family:var(--font-body); }
   .pc th, .pc td { padding:13px 16px; text-align:center; font-size:14px; color:var(--sec-tx); border-bottom:1px solid var(--sec-bd); }
   .pc thead th { font-family:var(--font-head); font-weight:600; font-size:15px; }
   .pc .pc-feat { text-align:left; font-weight:400; opacity:.9; width:44%; }
   .pc thead .pc-feat { width:44%; }
+  .pc tr[hidden] { display:none; }
   .pc-cat td { text-align:left; font-family:var(--font-body); font-weight:500; font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--sec-tx); opacity:.55; background:var(--sec-bg); padding-top:16px; padding-bottom:8px; }
+  .pc-note-row td { text-align:left; font-size:12.5px; color:var(--sec-tx); opacity:.65; padding-top:8px; padding-bottom:10px; }
+  .pc-group td { text-align:left; padding:0; }
+  .pc-group button { display:flex; align-items:center; gap:10px; width:100%; padding:13px 16px; background:none; border:0; cursor:pointer; font-family:var(--font-body); font-weight:500; font-size:14px; color:var(--sec-tx); text-align:left; }
+  .pc-caret { width:0; height:0; border-left:5px solid currentColor; border-top:4px solid transparent; border-bottom:4px solid transparent; opacity:.55; transition:transform .15s ease; }
+  .pc-group button[aria-expanded="true"] .pc-caret { transform:rotate(90deg); }
+  .pc-count { font-size:11.5px; font-weight:500; color:var(--sec-tx); opacity:.5; background:var(--sec-bg); border:1px solid var(--sec-bd); border-radius:999px; padding:1px 8px; }
+  .pc-sub .pc-feat { padding-left:42px; }
   .pc tbody tr:last-child th, .pc tbody tr:last-child td { border-bottom:0; }
   .pc-yes { color:#2FA06E; font-weight:700; }
   .pc-no { color:var(--sec-tx); opacity:.35; }
-  .pc-per { opacity:.6; font-size:12px; margin-left:2px; }
   .pc-note { font-size:13px; color:var(--sec-tx); opacity:.6; margin:16px 0 0; }
 </style>

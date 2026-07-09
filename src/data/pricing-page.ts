@@ -13,6 +13,8 @@ export interface PricingPageData {
   platformName: string; platformSub: string; dataName: string; dataSub: string;
   colStart: string; colGrow: string; colScale: string; colPayg: string; colSub: string;
   cat: Record<string, string>;
+  groups: Record<string, string>;
+  creditsNote: string;
   planRow: string; seatsRow: string; billingRow: string; priceNote: string;
   monthly: string; annual: string; perCredit: string; perYear: string;
   seatsStart: string; seatsGrow: string; seatsScale: string;
@@ -97,6 +99,14 @@ const EN: PricingPageData = {
   "closingPost": "?",
   "closingSub": "Book a short demo and we will map hubsell to your pipeline and your team size.",
   "closingCta": "Book a demo",
+  "groups": {
+    "workflow": "Workflow nodes",
+    "crmsync": "CRM sync",
+    "datasrc": "Data Sourcing and Enrichment",
+    "support": "Support and onboarding",
+    "comingsoon": "Coming soon"
+  },
+  "creditsNote": "Data sourcing and enrichment run on Sales Intelligence credits: \u20ac1.25 per credit pay as you go, or \u20ac5,000 per year for 5,000 credits.",
   "crumbHome": "Home",
   "crumbSelf": "Pricing"
 };
@@ -176,6 +186,14 @@ const DE: PricingPageData = {
   "closingPost": "?",
   "closingSub": "Buchen Sie eine kurze Demo, und wir bilden hubsell auf Ihre Pipeline und Ihre Teamgr\u00f6\u00dfe ab.",
   "closingCta": "Demo buchen",
+  "groups": {
+    "workflow": "Workflow-Nodes",
+    "crmsync": "CRM-Sync",
+    "datasrc": "Data Sourcing und Enrichment",
+    "support": "Support und Onboarding",
+    "comingsoon": "In K\u00fcrze"
+  },
+  "creditsNote": "Data Sourcing und Enrichment laufen \u00fcber Sales-Intelligence-Credits: \u20ac1,25 pro Credit im Pay as you go oder \u20ac5.000 pro Jahr f\u00fcr 5.000 Credits.",
   "crumbHome": "Startseite",
   "crumbSelf": "Preise"
 };
@@ -255,6 +273,14 @@ const NL: PricingPageData = {
   "closingPost": "?",
   "closingSub": "Plan een korte demo en we leggen hubsell over uw pipeline en teamgrootte.",
   "closingCta": "Demo plannen",
+  "groups": {
+    "workflow": "Workflow-nodes",
+    "crmsync": "CRM-sync",
+    "datasrc": "Data sourcing en enrichment",
+    "support": "Support en onboarding",
+    "comingsoon": "Binnenkort"
+  },
+  "creditsNote": "Data sourcing en enrichment draaien op Sales Intelligence-credits: \u20ac1,25 per credit met pay as you go, of \u20ac5.000 per jaar voor 5.000 credits.",
   "crumbHome": "Home",
   "crumbSelf": "Prijzen"
 };
