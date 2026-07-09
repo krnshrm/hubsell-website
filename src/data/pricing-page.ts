@@ -76,7 +76,7 @@ const EN: PricingPageData = {
     },
     {
       "q": "What is the difference between Start, Grow, and Scale?",
-      "a": "Start is one seat, billed monthly, with the essentials. Grow starts at 3 seats and adds AI and data nodes, LinkedIn publishing and a unified inbox (both coming soon), CRM task sync, and full onboarding. Scale starts at 10 seats and adds custom nodes and custom CRM sync."
+      "a": "Start is one seat, billed monthly, with the essentials. Grow starts at 3 seats and adds CRM task sync and full onboarding. Scale starts at 10 seats and adds custom nodes and custom CRM sync."
     },
     {
       "q": "Can I pay monthly or annually?",
@@ -164,7 +164,7 @@ const DE: PricingPageData = {
     },
     {
       "q": "Was ist der Unterschied zwischen Start, Grow und Scale?",
-      "a": "Start ist ein Seat, monatlich abgerechnet, mit den Grundfunktionen. Grow beginnt bei 3 Seats und erg\u00e4nzt AI- und Data-Nodes, LinkedIn-Publishing und eine Unified Inbox (beide in K\u00fcrze), CRM-Task-Sync und ein vollst\u00e4ndiges Onboarding. Scale beginnt bei 10 Seats und erg\u00e4nzt Custom Nodes und Custom CRM-Sync."
+      "a": "Start ist ein Seat, monatlich abgerechnet, mit den Grundfunktionen. Grow beginnt bei 3 Seats und erg\u00e4nzt CRM-Task-Sync und ein vollst\u00e4ndiges Onboarding. Scale beginnt bei 10 Seats und erg\u00e4nzt Custom Nodes und Custom CRM-Sync."
     },
     {
       "q": "Kann ich monatlich oder j\u00e4hrlich zahlen?",
@@ -252,7 +252,7 @@ const NL: PricingPageData = {
     },
     {
       "q": "Wat is het verschil tussen Start, Grow en Scale?",
-      "a": "Start is \u00e9\u00e9n gebruiker, maandelijks gefactureerd, met de basis. Grow begint bij 3 gebruikers en voegt AI- en data-nodes toe, LinkedIn-publishing en een unified inbox (beide binnenkort), CRM-tasksync en volledige onboarding. Scale begint bij 10 gebruikers en voegt custom nodes en custom CRM-sync toe."
+      "a": "Start is \u00e9\u00e9n gebruiker, maandelijks gefactureerd, met de basis. Grow begint bij 3 gebruikers en voegt CRM-tasksync en volledige onboarding toe. Scale begint bij 10 gebruikers en voegt custom nodes en custom CRM-sync toe."
     },
     {
       "q": "Kan ik maandelijks of jaarlijks betalen?",

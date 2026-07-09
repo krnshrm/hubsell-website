@@ -8,6 +8,7 @@
 // note, and the chip label localize via pricing-page.ts. The section id
 // (feature-list) is the anchor target for the homepage link.
 import { PRICING_FEATURES } from '../data/pricing-features';
+import { FEATURE_ICONS } from '../data/pricing-feature-icons';
 import type { PricingFeatureRow } from '../data/pricing-features';
 import type { PricingPageData } from '../data/pricing-page';
 import type { Locale } from '../i18n/ui';
@@ -42,7 +43,10 @@ const { data: d } = Astro.props;
               {cat.children.map((row: any) => (
                 <Fragment>
                   {row.children && (
-                    <tr class="pc-group"><td colspan="4">{row.label}</td></tr>
+                    <tr class="pc-group"><td colspan="4"><span class="pc-l2">
+                      {FEATURE_ICONS[row.label] && <span class="pc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={FEATURE_ICONS[row.label]} /></span>}
+                      {row.label}
+                    </span></td></tr>
                   )}
                   {row.children && row.children.map((c: PricingFeatureRow) => (
                     <tr class="pc-sub">
@@ -54,7 +58,10 @@ const { data: d } = Astro.props;
                   ))}
                   {!row.children && (
                     <tr>
-                      <th class="pc-feat">{row.label}{row.soon && <span class="pc-soon">{d.soonLabel}</span>}</th>
+                      <th class="pc-feat"><span class="pc-l2">
+                        {FEATURE_ICONS[row.label] && <span class="pc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={FEATURE_ICONS[row.label]} /></span>}
+                        {row.label}{row.soon && <span class="pc-soon">{d.soonLabel}</span>}
+                      </span></th>
                       {(row.t || []).map((on: boolean) => (
                         <td>{on ? <span class="pc-yes" aria-label={d.yes}>&#10003;</span> : <span class="pc-no" aria-label={d.no}>&ndash;</span>}</td>
                       ))}
@@ -82,6 +89,9 @@ const { data: d } = Astro.props;
   .pc-cat td { text-align:left; font-family:var(--font-body); font-weight:500; font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--sec-tx); opacity:.55; background:var(--sec-bg); padding-top:16px; padding-bottom:8px; }
   .pc-note-row td { text-align:left; font-size:12.5px; color:var(--sec-tx); opacity:.65; padding-top:8px; padding-bottom:10px; }
   .pc-group td { text-align:left; font-family:var(--font-body); font-weight:600; font-size:14px; color:var(--sec-tx); }
+  .pc-l2 { display:inline-flex; align-items:center; gap:9px; }
+  .pc-ico { width:22px; height:22px; border-radius:6px; background:color-mix(in srgb, var(--accent-primary) 10%, transparent); color:var(--accent-primary); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .pc-ico svg { width:12px; height:12px; }
   .pc-sub .pc-feat { padding-left:42px; }
   .pc tbody tr:last-child th, .pc tbody tr:last-child td { border-bottom:0; }
   .pc-yes { color:#2FA06E; font-weight:700; }
