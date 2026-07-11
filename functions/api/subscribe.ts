@@ -19,6 +19,7 @@ const EVENT_BY_FORM: Record<string, string> = {
   'publish-track': 'publish-track-waitlist',
   newsletter: 'newsletter-signup',
   'book-a-call': 'book-a-call-request',
+  'sdr-partial': 'sdr-partial-request',
   contact: 'contact-form',
 };
 
@@ -173,6 +174,7 @@ function esc(v: unknown): string {
 // Friendly labels for the alert subject/heading, keyed by the form id.
 const FORM_LABELS: Record<string, string> = {
   'book-a-call': 'Book a call request',
+  'sdr-partial': 'Partial call request (email only)',
   contact: 'Contact form message',
   waitlist: 'Waitlist signup',
   newsletter: 'Newsletter signup',

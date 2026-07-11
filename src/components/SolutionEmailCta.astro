@@ -1,0 +1,207 @@
+---
+// Single CTA band for solution pages that opt in via `emailCta`: the closing
+// heading plus an email-only field. Submitting the email fires the
+// 'sdr-partial' form at /api/subscribe (Plunk event 'sdr-partial-request',
+// corporate-email gated server-side like book-a-call), then opens the full
+// BookCallForm in a native <dialog> with the email pre-filled. Completing the
+// full form fires the existing 'book-a-call-request' event.
+// The dialog content is a light token island (sec--paper) so the form renders
+// like the book-a-call page in both themes.
+import BookCallForm from './BookCallForm.astro';
+import type { SolutionClosing, SolutionEmailCta } from '../data/solutions-content';
+import type { Locale } from '../i18n/ui';
+
+interface Props { L: Locale; closing: SolutionClosing; cta: SolutionEmailCta }
+const { L, closing, cta } = Astro.props;
+
+// UI-chrome strings (validation and progress), same wording as BookCallForm.
+const MSGS = {
+  en: {
+    validEmail: 'Please enter a valid email address.',
+    blocked: 'This domain is restricted.',
+    free: 'Please use your corporate work email.',
+    sending: 'Sending…',
+    close: 'Close',
+  },
+  de: {
+    validEmail: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
+    blocked: 'Diese Domain ist gesperrt.',
+    free: 'Bitte verwenden Sie Ihre geschäftliche E-Mail-Adresse.',
+    sending: 'Senden …',
+    close: 'Schließen',
+  },
+  nl: {
+    validEmail: 'Voer een geldig e-mailadres in.',
+    blocked: 'Dit domein is geblokkeerd.',
+    free: 'Gebruik uw zakelijke e-mailadres.',
+    sending: 'Versturen…',
+    close: 'Sluiten',
+  },
+} as const;
+const m = (MSGS as Record<string, typeof MSGS.en>)[L] ?? MSGS.en;
+const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(m) };
+---
+<section class="sec sec--esp" aria-label={closing.titlePre + closing.titleAccent + closing.titlePost}>
+  <div class="wrap secta" style="text-align:center" {...i18nAttr}>
+    <h2 class="heading_primary">{closing.titlePre}<span class="accent">{closing.titleAccent}</span>{closing.titlePost}</h2>
+    <p class="subheading" style="margin:16px auto 0;max-width:56ch">{closing.sub}</p>
+
+    <form class="secta-form" novalidate>
+      <label class="sr-only" for="secta-email">Email</label>
+      <input class="input secta-input" id="secta-email" name="email" type="email" autocomplete="email" placeholder={cta.placeholder} />
+      <button class="button is-large secta-submit" type="submit">{cta.button}</button>
+    </form>
+    <p class="secta-note">{cta.note}</p>
+    <p class="secta-error" role="alert" aria-live="polite"></p>
+
+    <dialog class="secta-dialog">
+      <div class="secta-modal sec--paper">
+        <button class="secta-close" type="button" aria-label={m.close}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <p class="secta-modal__title">{cta.modalTitle}</p>
+        <p class="secta-modal__sub">{cta.modalSub}</p>
+        <BookCallForm />
+      </div>
+    </dialog>
+  </div>
+</section>
+
+<style>
+  .secta-form{
+    display:flex; gap:10px; flex-wrap:wrap; justify-content:center;
+    max-width:520px; margin:30px auto 0;
+  }
+  .secta-input{ flex:1; min-width:220px; width:auto }
+  .input{
+    font-family:var(--font-body); font-size:1rem; padding:13px 16px;
+    color:var(--sec-tx); background:var(--sec-card); border:1px solid var(--sec-bd);
+    border-radius:var(--radius); transition:border-color .15s, box-shadow .15s;
+  }
+  .input::placeholder{ color:var(--sec-tx); opacity:.45 }
+  .input:focus{ outline:none; border-color:var(--accent-on); box-shadow:0 0 0 3px color-mix(in srgb, var(--accent-on) 22%, transparent) }
+  .input.is-error{ border-color:var(--error); box-shadow:0 0 0 3px color-mix(in srgb, var(--error) 20%, transparent) }
+  .secta-note{ font-family:var(--font-body); font-size:13.5px; color:var(--sec-tx); opacity:.6; margin:14px 0 0 }
+  .secta-error{ font-family:var(--font-body); font-size:13.5px; color:var(--error); margin:12px 0 0 }
+  .secta-error:empty{ margin:0 }
+  .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0 }
+
+  /* ---- Dialog. Native <dialog> supplies focus trap, Escape, and ::backdrop. ---- */
+  .secta-dialog{
+    padding:0; border:0; background:transparent; max-width:none;
+    width:min(680px, calc(100vw - 32px)); margin:auto;
+  }
+  .secta-dialog::backdrop{ background:rgba(20,17,13,.62); backdrop-filter:blur(2px) }
+  /* Light token island so the form looks like the book-a-call page in both themes. */
+  .secta-modal{
+    position:relative; text-align:left;
+    background:var(--sec-bg); color:var(--sec-tx);
+    border:1px solid var(--sec-bd); border-radius:var(--radius-lg);
+    padding:clamp(24px, 4vw, 40px);
+    max-height:calc(100dvh - 48px); overflow-y:auto;
+  }
+  .secta-close{
+    position:absolute; top:14px; right:14px; z-index:2;
+    display:flex; align-items:center; justify-content:center;
+    width:36px; height:36px; border-radius:50%; cursor:pointer;
+    background:transparent; color:var(--sec-tx);
+    border:1px solid var(--sec-bd); transition:border-color .15s;
+  }
+  .secta-close:hover{ border-color:var(--accent-on); color:var(--accent-on) }
+  .secta-modal__title{ font-family:var(--font-head); font-weight:600; font-size:1.4rem; color:var(--sec-tx); margin:0 34px 6px 0 }
+  .secta-modal__sub{ font-family:var(--font-body); font-size:15px; line-height:1.55; color:var(--sec-tx); opacity:.75; margin:0 0 22px }
+</style>
+
+<script>
+  import { classifyEmailLight, EMAIL_DOMAIN_MESSAGES } from '../data/free-email-domains.ts';
+
+  const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
+  function initEmailCta() {
+    document.querySelectorAll<HTMLElement>('.secta').forEach((root) => {
+      if (root.dataset.bound) return;
+      root.dataset.bound = 'true';
+
+      const form = root.querySelector<HTMLFormElement>('.secta-form')!;
+      const input = root.querySelector<HTMLInputElement>('.secta-input')!;
+      const button = root.querySelector<HTMLButtonElement>('.secta-submit')!;
+      const errEl = root.querySelector<HTMLElement>('.secta-error')!;
+      const dialog = root.querySelector<HTMLDialogElement>('.secta-dialog')!;
+      const closeBtn = root.querySelector<HTMLButtonElement>('.secta-close')!;
+      const label = button.textContent || 'Submit';
+
+      let i18n: Record<string, string> | null = null;
+      try { i18n = root.dataset.i18n ? JSON.parse(root.dataset.i18n) : null; } catch { i18n = null; }
+      const MSG = {
+        validEmail: i18n?.validEmail ?? 'Please enter a valid email address.',
+        blocked: i18n?.blocked ?? EMAIL_DOMAIN_MESSAGES.blocked,
+        free: i18n?.free ?? EMAIL_DOMAIN_MESSAGES.free,
+        sending: i18n?.sending ?? 'Sending…',
+      };
+
+      function fail(msg: string) {
+        input.classList.add('is-error');
+        errEl.textContent = msg;
+        input.focus();
+      }
+      input.addEventListener('input', () => {
+        input.classList.remove('is-error');
+        errEl.textContent = '';
+      });
+
+      function openModal(email: string) {
+        const emailField = dialog.querySelector<HTMLInputElement>('input[name="email"]');
+        if (emailField) emailField.value = email;
+        dialog.showModal();
+        document.documentElement.style.overflow = 'hidden';
+      }
+      dialog.addEventListener('close', () => {
+        document.documentElement.style.overflow = '';
+      });
+      closeBtn.addEventListener('click', () => dialog.close());
+      // Backdrop click closes; clicks inside the card do not bubble to the dialog box.
+      dialog.addEventListener('click', (e) => {
+        if (e.target === dialog) dialog.close();
+      });
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        errEl.textContent = '';
+        input.classList.remove('is-error');
+
+        const email = (input.value || '').trim();
+        if (!EMAIL_RE.test(email)) return fail(MSG.validEmail);
+        const verdict = classifyEmailLight(email);
+        if (verdict === 'blocked') return fail(MSG.blocked);
+        if (verdict === 'free') return fail(MSG.free);
+
+        button.disabled = true;
+        button.textContent = MSG.sending;
+        try {
+          const res = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ form: 'sdr-partial', email, fields: { page: location.pathname } }),
+          });
+          if (res.status === 422) {
+            // The server-side email gate said no; surface it and stop.
+            const payload = await res.json().catch(() => ({}));
+            button.disabled = false;
+            button.textContent = label;
+            return fail(payload?.error || MSG.free);
+          }
+          // Any other outcome (ok, or a server hiccup): the partial event is
+          // best-effort, so continue into the full form either way.
+        } catch {
+          // Network error: still open the full form; it retries the whole flow.
+        }
+        button.disabled = false;
+        button.textContent = label;
+        openModal(email);
+      });
+    });
+  }
+
+  initEmailCta();
+  document.addEventListener('astro:page-load', initEmailCta);
+</script>

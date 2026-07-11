@@ -13,6 +13,17 @@ export interface SolutionHow {
 
 export interface SolutionClosing { titlePre: string; titleAccent: string; titlePost: string; sub: string }
 
+// Copy for the single email-plus-button CTA band (used instead of the plain
+// closing section when present). The band reuses the page's `closing` heading
+// and sub; these strings drive the email field and the full-form dialog.
+export interface SolutionEmailCta {
+  placeholder: string;  // email input placeholder
+  button: string;       // submit label on the partial (email-only) step
+  note: string;         // small line under the field
+  modalTitle: string;   // heading inside the full-form dialog
+  modalSub: string;
+}
+
 export interface SolutionCard {
   eyebrow: string;    // the audience name, e.g. "Sales teams"
   title: string;      // the one-line promise
@@ -45,11 +56,13 @@ export interface SolutionDetailData {
   pains?: SolutionPain[];       // problem/solution pairs, the alternative body to jobs+how
   proofEyebrow: string; proofTitle: string;
   quoteSlug: string;            // testimonial slug in the shared pool
+  quoteSlug2?: string;          // optional second quote shown beside the first
   storySlug?: string;           // customer story slug (omitted = testimonial only)
   storyLabel?: string;
   faqEyebrow: string; faqTitle: string; faqSlugs: string[];
   closing: SolutionClosing;
   closingCta: string;
+  emailCta?: SolutionEmailCta;  // when present: one email CTA band above the FAQ replaces the closing section and the hero button
 }
 
 export interface SolutionHubData {
@@ -217,9 +230,21 @@ export const solutions: SolutionsData = {
       title: 'hubsell for SDRs: hit quota without the busywork | hubsell',
       metaDescription: 'Give SDRs fresh data, multichannel sequences, and automatic CRM logging so they spend their day selling, not building lists.',
       eyebrow: 'For SDRs',
-      h1Pre: 'More conversations, ', h1Accent: 'less list building', h1Post: '',
-      sub: 'An SDR\u2019s day gets eaten by finding contacts, checking emails, and updating the CRM. hubsell does that part, so you can spend your hours on the conversations that hit quota.',
+      h1Pre: 'Get your selling time ', h1Accent: 'back', h1Post: '.',
+      sub: 'SDRs spend just 28% of their week actually selling. The rest goes to research, tool switching, and CRM upkeep. hubsell takes that work off your plate, so your hours go to the conversations that hit quota.',
       demoCta: 'Book a demo',
+      jobsEyebrow: 'The work', jobsTitle: 'The jobs you need done',
+      jobs: [
+        'Get a list of the right people without hours of research.',
+        'Reach them across email, LinkedIn, and phone in one flow.',
+        'Stop logging activity by hand.',
+      ],
+      howEyebrow: 'How hubsell helps', howTitle: 'How hubsell gets it done',
+      how: [
+        { title: 'A ready list, not hours of research', body: 'Live-sourced contacts matched to your ICP and verified, so you start the day with people worth calling.', href: '/platform/live-data', linkLabel: 'See live data' },
+        { title: 'One flow across every channel', body: 'Email, LinkedIn, and phone in a single sequence with branching, so you follow up in the right place at the right time.', href: '/platform/multichannel-outreach', linkLabel: 'See multichannel outreach' },
+        { title: 'No more manual logging', body: 'Every send, open, and reply lands in the CRM by itself, so you are not updating records at the end of the day.', href: '/platform/crm-sync', linkLabel: 'See CRM sync' },
+      ],
       pains: [
         {
           problemTitle: "The 72% Admin Tax", 
@@ -246,9 +271,9 @@ export const solutions: SolutionsData = {
         {
           problemTitle: "The Deliverability Black Hole", 
           problemBody: "The invisible SDR. 20% of B2B emails never see the primary inbox. Your team spends hours crafting sequences that die in spam filters because bounced emails and bad data ruined your domain health.",
-          solutionTitle: "Guaranteed Inbox Placement", solutionBody: "hubsell protects your domain so your SDRs are actually heard.",
+          solutionTitle: "Protected inbox placement", solutionBody: "hubsell protects your domain so your SDRs are actually heard.",
           points: [
-            { label: "Zero Bounces", body: "Only verified, active contacts enter the sequence." },
+            { label: "Verified before sending", body: "Only verified, active contacts enter the sequence." },
             { label: "Zero Spam Triggers", body: "Automated pacing keeps sending behavior looking natural." },
             { label: "Zero Wasted Effort", body: "Your outreach lands where it belongs: in front of the prospect." },
           ],
@@ -268,10 +293,18 @@ export const solutions: SolutionsData = {
       ],
       proofEyebrow: 'Proof', proofTitle: 'What reps say',
       quoteSlug: 'aspire',
+      quoteSlug2: 'cibt',
       faqEyebrow: 'FAQ', faqTitle: 'Common questions',
       faqSlugs: ['personalize-outreach-at-scale', 'sdr-vs-executive-linkedin-outreach', 'stop-sales-email-bounces'],
       closing: { titlePre: 'Spend your day ', titleAccent: 'selling', titlePost: '.', sub: 'Book a demo and we will show you an SDR\u2019s day in hubsell.' },
       closingCta: 'Book a demo',
+      emailCta: {
+        placeholder: 'email@yourcompany.com',
+        button: 'Book a demo',
+        note: 'Enter your work email and we will take it from there.',
+        modalTitle: 'Almost there.',
+        modalSub: 'Tell us a little about your setup so we can prepare the right demo.',
+      },
     },
     {
       path: '/solutions/role/sales-leader', axis: 'role',

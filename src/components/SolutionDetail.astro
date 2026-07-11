@@ -20,6 +20,8 @@ import SolutionStepsSdr from './SolutionStepsSdr.astro';
 import SolutionStepsSalesLeader from './SolutionStepsSalesLeader.astro';
 import SolutionStepsMarketing from './SolutionStepsMarketing.astro';
 import SolutionStepsSalesOperations from './SolutionStepsSalesOperations.astro';
+import SolutionHeroSdr from './SolutionHeroSdr.astro';
+import SolutionEmailCta from './SolutionEmailCta.astro';
 
 const STEP_VISUALS: Record<string, any> = {
   '/solutions/team/sales-teams': SolutionStepsSalesTeams,
@@ -32,20 +34,37 @@ const STEP_VISUALS: Record<string, any> = {
   '/solutions/role/sales-operations': SolutionStepsSalesOperations,
 };
 
+// Pages with an animated hero visual render the hero as two columns.
+const HERO_VISUALS: Record<string, any> = {
+  '/solutions/role/sdr': SolutionHeroSdr,
+};
+
 interface Props { L: Locale; data: SolutionDetailData }
 const { L, data: d } = Astro.props;
 const { s } = getHome(L);
 const quote = getSolutionQuote(L, d.quoteSlug);
 const StepVisual = STEP_VISUALS[d.path];
+const HeroVisual = HERO_VISUALS[d.path];
+const quote2 = d.quoteSlug2 ? getSolutionQuote(L, d.quoteSlug2) : undefined;
+const proofItems = (d.storySlug ? 1 : 0) + (quote ? 1 : 0) + (quote2 ? 1 : 0);
 ---
-<!-- 1 · Hero (sand) -->
+<!-- 1 · Hero (sand). Two columns when the page has a hero visual. -->
 <section class="sec sec--sand" aria-labelledby="sol-title">
   <div class="wrap">
-    <div class="sec-head" style="margin-bottom:0">
-      <p class="eyebrow is-accent">{d.eyebrow}</p>
-      <h1 id="sol-title" class="heading_hero" style="margin-top:10px">{d.h1Pre}<span class="accent">{d.h1Accent}</span>{d.h1Post}</h1>
-      <p class="subheading" style="margin-top:16px;max-width:62ch">{d.sub}</p>
-      <p style="margin:28px 0 0"><a href={localizedHref(L, SIGNUP_URL)} class="button">{d.demoCta}</a></p>
+    <div class={HeroVisual ? 'sol-hero has-visual' : 'sol-hero'}>
+      <div class="sec-head" style="margin-bottom:0">
+        <p class="eyebrow is-accent">{d.eyebrow}</p>
+        <h1 id="sol-title" class="heading_hero" style="margin-top:10px">{d.h1Pre}<span class="accent">{d.h1Accent}</span>{d.h1Post}</h1>
+        <p class="subheading" style="margin-top:16px;max-width:62ch">{d.sub}</p>
+        {!d.emailCta && (
+          <p style="margin:28px 0 0"><a href={localizedHref(L, SIGNUP_URL)} class="button">{d.demoCta}</a></p>
+        )}
+      </div>
+      {HeroVisual && (
+        <div class="sol-hero__visual">
+          <HeroVisual L={L} />
+        </div>
+      )}
     </div>
   </div>
 </section>
@@ -133,7 +152,7 @@ const StepVisual = STEP_VISUALS[d.path];
       <p class="eyebrow is-accent">{d.proofEyebrow}</p>
       <h2 class="heading_primary" style="margin-top:8px">{d.proofTitle}</h2>
     </div>
-    <div class={d.storySlug ? 'sol-proof' : 'sol-proof is-solo'}>
+    <div class={proofItems > 1 ? 'sol-proof' : 'sol-proof is-solo'}>
       {d.storySlug && <PlatformStoryCard L={L} slug={d.storySlug} label={d.storyLabel ?? ''} />}
       {quote && (
         <figure class="card sol-quote">
@@ -143,14 +162,26 @@ const StepVisual = STEP_VISUALS[d.path];
           </figcaption>
         </figure>
       )}
+      {quote2 && (
+        <figure class="card sol-quote">
+          <blockquote class="quote" style="margin:0">&ldquo;{quote2.quote}&rdquo;</blockquote>
+          <figcaption class="paragraph_small" style="margin-top:16px">
+            <b>{quote2.name}</b>{quote2.title && `, ${quote2.title}`}{quote2.company && ` \u00b7 ${quote2.company}`}
+          </figcaption>
+        </figure>
+      )}
     </div>
   </div>
 </section>
 
-<!-- 5 · FAQ picks (paper) -->
+<!-- 5 · Single email CTA band (espresso), above the FAQ, on pages that opt in -->
+{d.emailCta && <SolutionEmailCta L={L} closing={d.closing} cta={d.emailCta} />}
+
+<!-- 6 · FAQ picks (paper) -->
 <PlatformFaqPicks L={L} eyebrow={d.faqEyebrow} title={d.faqTitle} slugs={d.faqSlugs} seeAll={s.faqSec.seeAll} tone="paper" />
 
-<!-- 6 · Closing CTA (espresso) -->
+<!-- 7 · Closing CTA (espresso), only when the page has no email CTA band -->
+{!d.emailCta && (
 <section class="sec sec--esp" aria-label={d.closing.titlePre + d.closing.titleAccent + d.closing.titlePost}>
   <div class="wrap" style="text-align:center">
     <h2 class="heading_primary">{d.closing.titlePre}<span class="accent">{d.closing.titleAccent}</span>{d.closing.titlePost}</h2>
@@ -158,8 +189,15 @@ const StepVisual = STEP_VISUALS[d.path];
     <p style="margin:30px 0 0"><a href={localizedHref(L, SIGNUP_URL)} class="button is-large">{d.closingCta}</a></p>
   </div>
 </section>
+)}
 
 <style>
+  .sol-hero{ display:grid; grid-template-columns:1fr; gap:32px; align-items:center }
+  .sol-hero__visual{ display:flex; justify-content:center }
+  @media (min-width:880px){
+    .sol-hero.has-visual{ grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:clamp(32px,5vw,72px) }
+  }
+
   .sol-jobs{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr; gap:16px; counter-reset:none }
   .sol-job{ display:flex; gap:18px; align-items:flex-start; padding:20px 0; border-top:1px solid var(--sec-bd) }
   .sol-job:first-child{ border-top:0 }

@@ -152,9 +152,21 @@ export const solutionsDe: SolutionsData = {
       title: 'hubsell f\u00fcr SDRs: Quote erreichen ohne Busywork | hubsell',
       metaDescription: 'Geben Sie SDRs frische Daten, Multichannel-Sequenzen und automatische CRM-Protokollierung, damit sie ihren Tag mit Verkaufen verbringen, nicht mit Listenbau.',
       eyebrow: 'F\u00fcr SDRs',
-      h1Pre: 'Mehr Gespr\u00e4che, ', h1Accent: 'weniger Listenbau', h1Post: '',
-      sub: 'Der Tag eines SDR wird vom Finden von Kontakten, Pr\u00fcfen von E-Mails und Aktualisieren des CRM aufgefressen. hubsell \u00fcbernimmt diesen Teil, damit Sie Ihre Stunden den Gespr\u00e4chen widmen, die die Quote erreichen.',
+      h1Pre: 'Holen Sie sich Ihre ', h1Accent: 'Verkaufszeit', h1Post: ' zur\u00fcck.',
+      sub: 'SDRs verbringen nur 28% ihrer Woche mit dem eigentlichen Verkaufen. Der Rest geht f\u00fcr Recherche, Tool-Wechsel und CRM-Pflege drauf. hubsell nimmt Ihnen diese Arbeit ab, damit Ihre Stunden in die Gespr\u00e4che flie\u00dfen, die die Quote erreichen.',
       demoCta: 'Demo buchen',
+      jobsEyebrow: 'Die Arbeit', jobsTitle: 'Die Aufgaben, die Sie erledigen m\u00fcssen',
+      jobs: [
+        'Eine Liste der richtigen Personen bekommen, ohne stundenlange Recherche.',
+        'Sie \u00fcber E-Mail, LinkedIn und Telefon in einem Flow erreichen.',
+        'Aktivit\u00e4ten nicht mehr von Hand protokollieren.',
+      ],
+      howEyebrow: 'Wie hubsell hilft', howTitle: 'Wie hubsell das l\u00f6st',
+      how: [
+        { title: 'Eine fertige Liste, keine stundenlange Recherche', body: 'Live recherchierte Kontakte, passend zu Ihrem ICP und verifiziert, damit Sie den Tag mit Menschen beginnen, die einen Anruf wert sind.', href: '/platform/live-data', linkLabel: 'Zu Live-Daten' },
+        { title: 'Ein Flow \u00fcber jeden Kanal', body: 'E-Mail, LinkedIn und Telefon in einer Sequenz mit Verzweigungen, damit Sie am richtigen Ort zur richtigen Zeit nachfassen.', href: '/platform/multichannel-outreach', linkLabel: 'Zu Multichannel-Outreach' },
+        { title: 'Kein manuelles Protokollieren mehr', body: 'Jedes Senden, \u00d6ffnen und Antworten landet von selbst im CRM, sodass Sie am Tagesende keine Datens\u00e4tze pflegen.', href: '/platform/crm-sync', linkLabel: 'Zu CRM-Sync' },
+      ],
       pains: [
         {
           problemTitle: "Die 72%-Admin-Steuer", 
@@ -181,9 +193,9 @@ export const solutionsDe: SolutionsData = {
         {
           problemTitle: "Das schwarze Loch der Deliverability", 
           problemBody: "Der unsichtbare SDR. 20% der B2B-E-Mails erreichen nie den prim\u00e4ren Posteingang. Ihr Team verbringt Stunden mit Sequenzen, die in Spam-Filtern sterben, weil Bounces und schlechte Daten Ihre Domain-Gesundheit ruiniert haben.",
-          solutionTitle: "Garantierte Inbox-Platzierung", solutionBody: "hubsell sch\u00fctzt Ihre Domain, damit Ihre SDRs tats\u00e4chlich geh\u00f6rt werden.",
+          solutionTitle: "Gesch\u00fctzte Inbox-Platzierung", solutionBody: "hubsell sch\u00fctzt Ihre Domain, damit Ihre SDRs tats\u00e4chlich geh\u00f6rt werden.",
           points: [
-            { label: "Null Bounces", body: "Nur verifizierte, aktive Kontakte gelangen in die Sequenz." },
+            { label: "Verifiziert vor dem Versand", body: "Nur verifizierte, aktive Kontakte gelangen in die Sequenz." },
             { label: "Null Spam-Trigger", body: "Automatisiertes Pacing h\u00e4lt das Sendeverhalten nat\u00fcrlich." },
             { label: "Null verschwendeter Aufwand", body: "Ihr Outreach landet, wo er hingeh\u00f6rt: vor dem Prospect." },
           ],
@@ -203,10 +215,18 @@ export const solutionsDe: SolutionsData = {
       ],
       proofEyebrow: 'Beleg', proofTitle: 'Was Reps sagen',
       quoteSlug: 'aspire',
+      quoteSlug2: 'cibt',
       faqEyebrow: 'FAQ', faqTitle: 'H\u00e4ufige Fragen',
       faqSlugs: ['personalize-outreach-at-scale', 'sdr-vs-executive-linkedin-outreach', 'stop-sales-email-bounces'],
       closing: { titlePre: 'Verbringen Sie Ihren Tag mit ', titleAccent: 'Verkaufen', titlePost: '.', sub: 'Buchen Sie eine Demo und wir zeigen Ihnen den Tag eines SDR in hubsell.' },
       closingCta: 'Demo buchen',
+      emailCta: {
+        placeholder: 'name@firma.de',
+        button: 'Demo buchen',
+        note: 'Geben Sie Ihre gesch\u00e4ftliche E-Mail-Adresse ein, wir \u00fcbernehmen den Rest.',
+        modalTitle: 'Fast geschafft.',
+        modalSub: 'Erz\u00e4hlen Sie uns kurz von Ihrem Setup, damit wir die passende Demo vorbereiten k\u00f6nnen.',
+      },
     },
     {
       path: '/solutions/role/sales-leader', axis: 'role',

@@ -1,0 +1,150 @@
+---
+// Hero visual for /solutions/role/sdr: four capability cards that light up in
+// sequence, with a rotating "no more" line underneath that lands the message.
+// Repurposes the homepage pipeline card vocabulary (white cards, palette icon
+// hues, glow-on-pass) but is its own, simpler loop: no spine, no travelling
+// light. Motion is gated behind html.has-anim; reduced motion and no-JS show
+// the four cards at rest and the "no more" lines as a static list.
+import { et } from '../data/embed-i18n';
+import { asLocale } from '../i18n/utils';
+const L = asLocale(Astro.currentLocale);
+
+const BEATS = [
+  { title: 'Source live data on multiple signals', sub: 'job changes, hiring, post engagement, and more', color: '#E0533A' },
+  { title: 'Get accurate contact data you can rely on', sub: 'verified at the source, catch-all safe', color: '#F4A93C' },
+  { title: 'Reach out across email, LinkedIn, and phone', sub: 'one coordinated sequence', color: '#192341' },
+  { title: 'Log every activity to your CRM', sub: 'automatically, in real time', color: '#2FA06E' },
+];
+
+const NO_MORES = [
+  'No more rechecking your data.',
+  'No more stitching three vendors for one email address.',
+  'No more emails dying in spam.',
+  'No more manual CRM logging.',
+  'No more switching between five tools.',
+];
+
+const ICONS = [
+  '<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline>',
+  '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>',
+  '<rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 5-10-5"></path>',
+  '<path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"></path><path d="M16 21v-5h5"></path>',
+];
+---
+<div class="shs" data-shs>
+  <div class="shs-stack">
+    {BEATS.map((b, i) => (
+      <div class="shs-card" style={`--color:${b.color}; --lit-delay:${i * 3}s;`}>
+        <div class="shs-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={ICONS[i]} />
+        </div>
+        <div class="shs-text">
+          <p class="shs-title">{et(L, b.title)}</p>
+          <p class="shs-sub">{et(L, b.sub)}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div class="shs-nomore" aria-label={et(L, 'No more rechecking your data.')}>
+    {NO_MORES.map((n, i) => (
+      <p class="shs-line" style={`--line-delay:${i * 3}s;`}>
+        <svg class="shs-x" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span>{et(L, n)}</span>
+      </p>
+    ))}
+  </div>
+</div>
+
+<style>
+  .shs{ width:100%; max-width:340px; font-family:var(--font-body) }
+  .shs-stack{ display:flex; flex-direction:column; gap:14px }
+
+  /* White cards in both themes (product-screenshot look), like the homepage flow. */
+  .shs-card{
+    display:flex; align-items:center; gap:14px; padding:14px 16px;
+    background:#FFFFFF; border:1px solid #ECE1D4; border-radius:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,.04);
+  }
+  .shs-icon{
+    width:39px; height:39px; flex:none; border:1px solid #ECE1D4; border-radius:6px;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--color); background:#FBF7F1;
+  }
+  .shs-title{ font-family:var(--font-head); font-weight:600; font-size:14px; line-height:1.3; color:#192341; margin:0 }
+  .shs-sub{ font-size:11.5px; line-height:1.35; color:#54596B; margin:2px 0 0 }
+
+  /* The "no more" lines. At rest (no-JS / reduced motion) they render as a
+     static list; once .is-playing lands they collapse into one rotating slot. */
+  .shs-nomore{ position:relative; margin-top:18px }
+  .shs-line{
+    display:flex; align-items:flex-start; gap:8px; margin:0 0 7px;
+    font-size:13.5px; font-weight:500; line-height:1.45; color:var(--sec-tx);
+  }
+  .shs-x{ flex:none; color:var(--accent-on); margin-top:3px }
+
+  /* Card glow cycle: 12s loop, one card lit at a time (delays 0/3/6/9s). */
+  @keyframes shs-card-lit{
+    0%, 25%, 100%{ transform:translateY(0); box-shadow:0 4px 12px rgba(0,0,0,.04); border-color:#ECE1D4 }
+    6%{ transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,.08); border-color:var(--color) }
+  }
+  @keyframes shs-icon-lit{
+    0%, 25%, 100%{ border-color:#ECE1D4; background-color:#FBF7F1 }
+    6%{ border-color:var(--color); background-color:color-mix(in srgb, var(--color) 8%, transparent) }
+  }
+  /* Line rotation: 15s loop, each line visible for its 3s slot with a crossfade. */
+  @keyframes shs-line-flow{
+    0%{ opacity:0; transform:translateY(6px) }
+    4%, 18%{ opacity:1; transform:translateY(0) }
+    23%, 100%{ opacity:0; transform:translateY(-6px) }
+  }
+
+  /* Pre-animation state when motion is enabled (BaseLayout adds .has-anim). */
+  :global(html.has-anim) [data-shs] .shs-card{ opacity:0 }
+  :global(html.has-anim) [data-shs] .shs-line{ opacity:0 }
+
+  /* Flowing state, added by JS after the reveal. */
+  .shs.is-playing .shs-card{
+    animation:shs-card-lit 12s linear infinite; animation-delay:var(--lit-delay,0s);
+  }
+  .shs.is-playing .shs-icon{
+    animation:shs-icon-lit 12s linear infinite; animation-delay:var(--lit-delay,0s);
+  }
+  .shs.is-playing .shs-nomore{ min-height:3.2em }
+  .shs.is-playing .shs-line{
+    position:absolute; top:0; left:0; right:0; margin:0;
+    animation:shs-line-flow 15s linear infinite; animation-delay:var(--line-delay,0s);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .shs.is-playing .shs-card, .shs.is-playing .shs-icon{ animation:none }
+    .shs.is-playing .shs-line{ position:static; animation:none; opacity:1; margin:0 0 7px }
+    .shs.is-playing .shs-nomore{ min-height:0 }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  function initSdrHero() {
+    const wrap = document.querySelector('[data-shs]') as HTMLElement | null;
+    if (!wrap || wrap.dataset.ready) return;
+    if (!document.documentElement.classList.contains('has-anim')) return;
+    wrap.dataset.ready = '1';
+    gsap.registerPlugin(ScrollTrigger);
+
+    const cards = wrap.querySelectorAll('.shs-card');
+    const tl = gsap.timeline({
+      scrollTrigger: { trigger: wrap, start: 'top 85%', toggleActions: 'play none none none' },
+    });
+    tl.fromTo(cards,
+      { opacity: 0, y: 15 },
+      { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out', stagger: 0.14, clearProps: 'transform' }
+    );
+    tl.add(() => wrap.classList.add('is-playing'), '-=0.1');
+  }
+
+  initSdrHero();
+  document.addEventListener('astro:page-load', initSdrHero);
+</script>

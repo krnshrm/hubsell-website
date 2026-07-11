@@ -152,9 +152,21 @@ export const solutionsNl: SolutionsData = {
       title: 'hubsell voor SDR\u2019s: haal je target zonder de rompslomp | hubsell',
       metaDescription: 'Geef SDR\u2019s verse data, multichannel-sequenties en automatische CRM-vastlegging, zodat ze hun dag aan verkopen besteden, niet aan lijsten bouwen.',
       eyebrow: 'Voor SDR\u2019s',
-      h1Pre: 'Meer gesprekken, ', h1Accent: 'minder lijsten bouwen', h1Post: '',
-      sub: 'De dag van een SDR wordt opgeslokt door contacten zoeken, e-mails checken en het CRM bijwerken. hubsell doet dat deel, zodat u uw uren kunt besteden aan de gesprekken die uw target halen.',
+      h1Pre: 'Krijg uw ', h1Accent: 'verkooptijd', h1Post: ' terug.',
+      sub: 'SDR\u2019s besteden maar 28% van hun week aan echt verkopen. De rest gaat op aan onderzoek, wisselen tussen tools en CRM-onderhoud. hubsell neemt dat werk over, zodat uw uren naar de gesprekken gaan die uw target halen.',
       demoCta: 'Demo plannen',
+      jobsEyebrow: 'Het werk', jobsTitle: 'De klussen die u moet klaren',
+      jobs: [
+        'Een lijst van de juiste mensen krijgen zonder uren onderzoek.',
+        'Ze bereiken via e-mail, LinkedIn en telefoon in \u00e9\u00e9n flow.',
+        'Stoppen met activiteiten met de hand vastleggen.',
+      ],
+      howEyebrow: 'Hoe hubsell helpt', howTitle: 'Hoe hubsell het klaart',
+      how: [
+        { title: 'Een kant-en-klare lijst, geen uren onderzoek', body: 'Live verzamelde contacten afgestemd op uw ICP en geverifieerd, zodat u de dag begint met mensen die een gesprek waard zijn.', href: '/platform/live-data', linkLabel: 'Naar live data' },
+        { title: '\u00c9\u00e9n flow over elk kanaal', body: 'E-mail, LinkedIn en telefoon in \u00e9\u00e9n sequentie met vertakking, zodat u op de juiste plek op het juiste moment opvolgt.', href: '/platform/multichannel-outreach', linkLabel: 'Naar multichannel-outreach' },
+        { title: 'Geen handmatige vastlegging meer', body: 'Elke verzending, opening en reactie landt vanzelf in het CRM, zodat u aan het eind van de dag geen records bijwerkt.', href: '/platform/crm-sync', linkLabel: 'Naar CRM-sync' },
+      ],
       pains: [
         {
           problemTitle: "De 72% admin-taks", 
@@ -181,9 +193,9 @@ export const solutionsNl: SolutionsData = {
         {
           problemTitle: "Het zwarte gat van deliverability", 
           problemBody: "De onzichtbare SDR. 20% van de B2B-e-mails bereikt nooit de primaire inbox. Uw team besteedt uren aan sequenties die sterven in spamfilters, omdat bounces en slechte data de gezondheid van uw domein hebben geru\u00efneerd.",
-          solutionTitle: "Gegarandeerde inboxplaatsing", solutionBody: "hubsell beschermt uw domein, zodat uw SDR\u2019s daadwerkelijk gehoord worden.",
+          solutionTitle: "Beschermde inboxplaatsing", solutionBody: "hubsell beschermt uw domein, zodat uw SDR\u2019s daadwerkelijk gehoord worden.",
           points: [
-            { label: "Nul bounces", body: "Alleen gevalideerde, actieve contacten komen de sequentie in." },
+            { label: "Gevalideerd v\u00f3\u00f3r verzending", body: "Alleen gevalideerde, actieve contacten komen de sequentie in." },
             { label: "Nul spamtriggers", body: "Geautomatiseerde pacing houdt het verzendgedrag natuurlijk." },
             { label: "Nul verspilde moeite", body: "Uw outreach landt waar die hoort: bij de prospect." },
           ],
@@ -203,10 +215,18 @@ export const solutionsNl: SolutionsData = {
       ],
       proofEyebrow: 'Bewijs', proofTitle: 'Wat reps zeggen',
       quoteSlug: 'aspire',
+      quoteSlug2: 'cibt',
       faqEyebrow: 'FAQ', faqTitle: 'Veelgestelde vragen',
       faqSlugs: ['personalize-outreach-at-scale', 'sdr-vs-executive-linkedin-outreach', 'stop-sales-email-bounces'],
       closing: { titlePre: 'Besteed uw dag aan ', titleAccent: 'verkopen', titlePost: '.', sub: 'Plan een demo en we laten de dag van een SDR in hubsell zien.' },
       closingCta: 'Demo plannen',
+      emailCta: {
+        placeholder: 'naam@bedrijf.nl',
+        button: 'Demo plannen',
+        note: 'Vul uw zakelijke e-mailadres in, wij regelen de rest.',
+        modalTitle: 'Bijna klaar.',
+        modalSub: 'Vertel ons kort iets over uw setup, dan bereiden we de juiste demo voor.',
+      },
     },
     {
       path: '/solutions/role/sales-leader', axis: 'role',

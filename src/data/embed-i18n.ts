@@ -325,6 +325,21 @@ const de: Dict = {
   'Safe sending': 'Sicherer Versand',
   'Spread across sender profiles, within limits.': 'Verteilt auf Absenderprofile, innerhalb der Limits.',
   'Synced out': 'Rausgesynct',
+
+  // ── SolutionHeroSdr (SDR page hero visual) ──────────────────────────────────
+  'Source live data on multiple signals': 'Live-Daten aus mehreren Signalen beziehen',
+  'job changes, hiring, post engagement, and more': 'Jobwechsel, Einstellungen, Post-Interaktionen und mehr',
+  'Get accurate contact data you can rely on': 'Kontaktdaten, auf die Sie sich verlassen können',
+  'verified at the source, catch-all safe': 'an der Quelle verifiziert, Catch-all-sicher',
+  'Reach out across email, LinkedIn, and phone': 'Outreach über E-Mail, LinkedIn und Telefon',
+  'one coordinated sequence': 'eine abgestimmte Sequenz',
+  'Log every activity to your CRM': 'Jede Aktivität im CRM protokollieren',
+  'automatically, in real time': 'automatisch, in Echtzeit',
+  'No more rechecking your data.': 'Nie wieder Daten nachprüfen.',
+  'No more stitching three vendors for one email address.': 'Nie wieder drei Anbieter für eine E-Mail-Adresse zusammenstückeln.',
+  'No more emails dying in spam.': 'Nie wieder E-Mails, die im Spam sterben.',
+  'No more manual CRM logging.': 'Nie wieder manuelles CRM-Protokollieren.',
+  'No more switching between five tools.': 'Nie wieder zwischen fünf Tools wechseln.',
 };
 
 const nl: Dict = {
@@ -636,6 +651,21 @@ const nl: Dict = {
   'Safe sending': 'Veilig verzenden',
   'Spread across sender profiles, within limits.': 'Verdeeld over verzendprofielen, binnen de limieten.',
   'Synced out': 'Uitgesynct',
+
+  // ── SolutionHeroSdr (SDR page hero visual) ──────────────────────────────────
+  'Source live data on multiple signals': 'Live data verzamelen op meerdere signalen',
+  'job changes, hiring, post engagement, and more': 'baanwissels, vacatures, post-interacties en meer',
+  'Get accurate contact data you can rely on': 'Contactdata waar u op kunt vertrouwen',
+  'verified at the source, catch-all safe': 'gevalideerd bij de bron, veilig bij catch-all',
+  'Reach out across email, LinkedIn, and phone': 'Outreach via e-mail, LinkedIn en telefoon',
+  'one coordinated sequence': 'één afgestemde sequentie',
+  'Log every activity to your CRM': 'Elke activiteit in uw CRM vastleggen',
+  'automatically, in real time': 'automatisch, in realtime',
+  'No more rechecking your data.': 'Nooit meer data nachecken.',
+  'No more stitching three vendors for one email address.': 'Nooit meer drie leveranciers voor één e-mailadres.',
+  'No more emails dying in spam.': 'Nooit meer e-mails die in spam sterven.',
+  'No more manual CRM logging.': 'Nooit meer handmatig CRM-loggen.',
+  'No more switching between five tools.': 'Nooit meer wisselen tussen vijf tools.',
 };
 
 const dict: Partial<Record<Locale, Dict>> = { de, nl };
