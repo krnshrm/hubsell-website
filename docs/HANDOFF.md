@@ -1,0 +1,117 @@
+# hubsell.com - handoff & backlog (v5, lives in the repo)
+
+_Last updated: 2026-07-11. This file lives at `docs/HANDOFF.md` and is the entry point for any new or parallel chat. The GitHub repo and its git log are the source of truth; when this file and the code disagree, the code wins. Companion docs: `docs/SITEMAP.md` (full site map with per-page status) and `docs/hubsell-style-guide.html` (visual reference). This supersedes the v4 handoff of 2026-07-01._
+
+## Status
+- The site is LIVE on Astro (Cloudflare Pages). www.hubsell.com serves the Astro site. Webflow is legacy (rollback only). Never write to Webflow.
+- Locales live on `main`: English (base, no prefix), German (`/de/`), Dutch (`/nl/`). The switcher offers en/de/nl. French, Spanish, Portuguese are not built and hidden from the switcher.
+- Full build is 421 pages.
+- Shipped since v4 (2026-07-01), at commit level, see `git log` for detail: Dutch merged to `main`; homepage logo shelf; single "Book a demo" primary CTA site-wide; homepage hero rework (5 grouped cards linking to pipeline stages, phone as call tasks); platform pages (`/platform` + 6 capability pages + `/integrations` stub); solutions pages (`/solutions` overview + 4 team + 4 role pages); trilingual glossary (66 terms); blog title rewrite across all 87 posts (keyword titles, topic tags, related posts, hub links); standalone `/pricing` (widget, per-node comparison, FAQ); footer restructured into Apollo-style columns; scroll reveal animations removed; palette change (sand dropped, see Design system); real aggregateRating (4.8, 35) in Reviews and homepage schema; AskAiWidget placed (PageLayout, glossary index, hero); broken-link redirects; mobile overflow fix.
+- IN REVIEW: the SDR solutions page (`/solutions/role/sdr`) is being reworked with the founder (new hero + animated visual, merged old/new body content awaiting a prune pass, single email CTA that fires a partial Plunk event then opens a compact book-a-call form in a modal, rewritten claims and labels, reworked section rhythm, muted eyebrows). EN/DE/NL. The merged body (pains + jobs + how) is deliberately long for review; a prune decision is pending.
+
+## READ FIRST - what a new chat needs
+This work is done by editing a local Astro project and handing the founder changed files plus a `git push` command. It needs the sandbox code/file tools (bash, file read/write, file delivery). A session that only exposes connectors with no file/code tools CANNOT do this work.
+
+A new chat needs: this file, `docs/SITEMAP.md`, `docs/hubsell-style-guide.html`, and repo access (the founder uploads a git bundle: `git bundle create ~/Downloads/YYYYMMDD-hubsell-repo.bundle --all`, then uploads it to the chat). The bundle carries full git history, which past sessions have needed for content recovery.
+
+## Parallel chats - coordination rules
+- Each parallel chat works on its OWN branch, never directly on `main` (a push to `main` is a live deploy).
+- Keep parallel chats on disjoint file sets where possible. High-collision files to watch: `src/data/embed-i18n.ts`, `src/data/navigation.ts`, `src/styles/global.css`, `src/i18n/ui.ts`, the three `solutions*` data files, and `src/components/SolutionDetail.astro` / `BookCallForm.astro` (all touched by the in-review SDR work).
+- Tell each chat which other work is in flight so it does not undo or double-apply it.
+- Merge one branch at a time into `main`, build between merges.
+
+## Working model (unchanged)
+- The founder (Karan / `krnshrm`, git author `ks@hubsell.com`) runs everything on a Mac. Claude provides files plus step-by-step instructions. He does NOT use Claude Code.
+- Local folder `~/Coding/hubsell-website`. Repo `github.com/krnshrm/hubsell-website` (HTTPS + PAT). Local Node 20.
+- Do NOT put `cd` in commands. He runs them from the repo root. Delivered bash commands end with `git push` so Cloudflare redeploys.
+- Delivery loop: Claude edits files in the sandbox, runs `npm run build` to verify, hands over the changed file(s), he drops them in and runs `git add . && git commit && git push`, Cloudflare auto-rebuilds.
+- Delivery styles that work: (a) small surgical edits as a short `perl` one-liner (portable on macOS, never `sed -i`); (b) new or multi-file changes as a timestamped tarball he extracts from `~/Downloads` with `tar -xzf`. Tarball is preferred for bracket-named route files like `[slug].astro` and for anything with tricky quoting.
+- Files arrive in his `~/Downloads`.
+
+## Deploy safety (IMPORTANT)
+- Cloudflare auto-deploys PRODUCTION only on a push to `main`. So a push to `main` is a live deploy.
+- Do all larger or in-progress work on a branch. Go-live is a deliberate merge into `main`.
+- Merge-to-main procedure: pre-flight on the feature branch (`git status` clean, `npm run build` green at the expected page count, eyeball the branch preview), then `git checkout main`, `git pull`, `git merge <branch>`, `npm run build` again, `git push origin main`. Rollback: Cloudflare Pages "Rollback to this deployment" (fastest), or `git revert -m 1 <merge-sha> && git push`.
+
+## Standing rules (apply to ALL future work)
+- COPY STYLE for anything Claude writes in English: no em dashes, no AI-sounding words (seamless, elevate, leverage, robust, streamline, unlock, end-to-end, etc.), plain clear language, spell out ranges ("3 to 6"). Em dashes inside code comments are fine.
+- COPY STYLE for translations: the "no AI-sounding words" rule applies in the target language too. Do NOT carry an English buzzword across as a loanword. Render it in plain target-language wording (Dutch examples: "seamless/naadloos" became "soepel"; "end-to-end" became "voor het hele traject" or "van begin tot eind").
+- Migrated content (blog bodies, legal text, testimonials, customer-story bodies): the ENGLISH stays verbatim, including its punctuation. When TRANSLATING that content into a locale, translate faithfully but still apply the no-buzzword rule and the locale's formatting rules.
+- Never write to Webflow. All work goes in the Astro repo.
+- Astro CSS scoping gotcha: scoped `<style>` rules do NOT reach `set:html` / `<Content/>` markdown (Astro adds a per-component hash to both sides of selectors). Wrap those selectors in `:global()`. In layouts, slotted markdown has no hash, so use `<style is:global>` scoped under a unique class.
+- White-card visuals on dark sections keep white cards and dark text in both themes (product-screenshot look). Visuals that paint text on the section background must consume `--sec-tx` so they flip in dark mode.
+- GSAP embeds: bundle `gsap` (no CDN, no global `window.gsap`), convert each widget to an Astro module script, register ScrollTrigger inside an `init…()` guard, call it plus `document.addEventListener('astro:page-load', init…)`, and gate every hidden start state behind `:global(html.has-anim) .<class>{…}` so reduced-motion and no-JS show everything at rest. Note: the generic scroll REVEAL animations (`.reveal`) were removed site-wide in commit `989a8a1`; component widget animations remain and follow this rule.
+- Always clarify before a long multi-step compute. Keep chat replies concise; the founder is technical. Use bullets and numbered lists. Provide instructions as bash terminal commands.
+- Naming: files Claude creates for delivery carry a timestamp `YYYYMMDD-HHMM-NAME`. Repo files with canonical names (like this one, `SITEMAP.md`, `README.md`) keep their name.
+- Visual copy detail: card subtitles and similar short lines in visuals use sentence case (capital first letter), not all-lowercase.
+
+## Locked technical decisions
+- Astro `output: 'static'`, hosted on Cloudflare Pages (preset Astro, build `npm run build`, output `dist`, `NODE_VERSION=20`).
+- Forms post to a Cloudflare Pages Function at `functions/api/subscribe.ts`, which calls Plunk. Working env (Production): `PLUNK_PUBLIC_KEY` (pk_, `/v1/track`), `PLUNK_API_BASE=https://next-api.useplunk.com` (the newer host; classic `api.useplunk.com` returns 401), `PLUNK_SECRET_KEY` (sk_, `/v1/send` team alerts), `NOTIFY_EMAIL`. Newsletter double opt-in via `DOUBLE_OPTIN_FORMS={newsletter}`; `UNGATED_FORMS={contact}`; `EVENT_BY_FORM` maps forms to Plunk events. Events in use include `book-a-call-request`, `contact-form`, `newsletter`, and `sdr-partial-request` (the SDR page's email-only step; the founder builds the timed follow-up automation in Plunk on it).
+- Assets on Cloudflare R2 at `assets.hubsell.com` (EU bucket `hubsell-assets`). Folders: `insights/`, `avatars/`, `customers/`, `logo/`, `logos/`, `brand/`. The founder runs uploads on his Mac (Claude never holds R2 creds): drop a manifest JSON in the repo root, `set -a; source .env; set +a`, then `node scripts/migrate-from-manifest.mjs --manifest <file>` (idempotent). Manifest entries: `{ sourceUrl, key, contentType, prefix }`. R2 `.env` keys: `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `R2_BUCKET=hubsell-assets`, `R2_PUBLIC_BASE=https://assets.hubsell.com`, `R2_JURISDICTION=eu`.
+- `astro.config.mjs` has `site: 'https://www.hubsell.com'`. URL paths match the old site exactly. Bundled GSAP plus self-hosted Lenis (no CDN). Reduced motion respected everywhere.
+- App at `app.hubsell.com` (login at `/`, signup at `/signup`). The signup page is NOT live yet, so `SIGNUP_URL` in `src/data/site.ts` is `/book-a-call` (revert when signup ships; one line restores every button).
+- CRM names in copy: only Salesforce, HubSpot, Pipedrive (Freshworks and ActiveCampaign were dropped site-wide).
+- Star ratings in search: `aggregateRating` uses real, verifiable numbers only (currently 4.8 from 35). Do not invent counts.
+
+## Internationalisation (i18n) - en base, de and nl live
+Astro built-in i18n. English at the root (no prefix); German and Dutch under `/de/` and `/nl/`, per-page fallback redirects untranslated locale paths to English (nothing 404s). hreflang (en/de/nl/x-default) emitted only where the page exists.
+
+- `astro.config.mjs` i18n block: `locales: ['en','de','nl','fr','es','pt']`, `defaultLocale: 'en'`, `routing.prefixDefaultLocale: false`, `fallbackType: 'redirect'`. Untranslated `/de/` or `/nl/` paths render a small meta-refresh redirect STUB (~0.3 KB, noindex, canonical to English). A real translated page at the same path replaces the stub.
+- `src/i18n/ui.ts`: `Locale` type; `switcherLocales` (currently `['en','de','nl']`); `localeNames`; `translatedRoutes` (drives hreflang and the switcher); chrome dictionaries (`ui.en`, `ui.de`, `ui.nl`).
+- `src/i18n/utils.ts`: `asLocale`, `localizeUrl`, `localizedHref`, `useTranslations`, `basePath`, `hasTranslation`. Internal links go through `localizedHref(L, '/path')`.
+- `src/i18n/pages.ts`: `byLocale<T>(en, de, nl?)` and per-page copy getters.
+- Localised data: `home-i18n.ts` (+ `home-content.ts`, `home.de.ts`, `home.nl.ts`), `faqs-i18n.ts` (+ `faqs.de.ts`, `faqs.nl.ts`), `testimonials.de.ts`/`testimonials.nl.ts`, `embed-i18n.ts` (strings for the animated embeds, keyed by the exact English text), `solutions-content.ts` (+ `solutions.de.ts`, `solutions.nl.ts`), and the platform/pricing/glossary equivalents (see `src/data/`).
+- Content collections are per-locale, same schema, parallel folders (English base, `…De`, `…Nl`), registered in `src/content/config.ts`. CRITICAL: the folder name under `src/content/` MUST exactly match the camelCase collection key in `config.ts`, and tarballs must preserve that case.
+- Blog (Insights, 87 posts) and legal pages stay ENGLISH, served to `/de/` and `/nl/` via the fallback. The Insights nav/footer item reads "Insights (EN)" in non-English locales. Legal was imported verbatim on purpose and is not machine-translated.
+- German conventions: formal "Sie", lowercase brand "hubsell", German number and date formatting, job titles kept English, review quotes translated.
+- Dutch conventions: formal "u"/"uw"; keep in English: CRM, LinkedIn, ICP, GTM, Outbound, Beta, SDR, credits, deliverability, sales/RevOps, job titles; "seat" becomes "gebruiker" in hubsell's own copy but stays "seat" for competitor per-seat pricing. Numbers: decimal comma (4,8), thousands with a period ($15.000), "%" attached (30%), currency sign before the figure, ranges with "tot". Curly apostrophe (U+2019) for Dutch plurals (SDR's, ratio's). Body quotes „…" (U+201E/U+201D). GDPR to "AVG". YAML: simple fields double-quoted; HTML-bearing fields single-quoted with curly apostrophes only.
+- Remaining locales (fr, es, pt): add the chrome dictionary + `switcherLocales` entry in `ui.ts`, confirm the `fallback` block, translate in the six batches Dutch used (chrome+homepage+embeds; contact+book-a-call; faqs+reviews+AI info; use-cases; comparisons; customer stories), add `getXxxPage` locale args, per-locale collections + `/<loc>/*` routes, verify with a full build and a dist size-check that pages are real, not stubs. Ship on a branch. The blog (about 199,000 words) stays English via fallback; legal is never machine-translated.
+
+## Design system (in `src/styles/global.css`)
+- Section classes (theme-aware via role tokens `--sec-bg/-tx/-bd/-card`): `.sec--paper`, `.sec--sand`, `.sec--navy` (card `#222E4C`), `.sec--esp` (espresso, card `#3A2A20`). PALETTE CHANGE (commit `6546bdb`): the sand fill `#EADBC2` was dropped; `.sec--sand` now renders WHITE (`#FFFFFF`, card `#FBF7F1`), so light sections alternate paper and white. `docs/hubsell-style-guide.html` predates this change and still shows the old sand swatch and the old marquee logo band; treat the style guide as the reference for type, tokens, components, and dark mode, and the code as the reference for section fills.
+- Palette: `--brand:#E0533A` (terracotta, the single action color, `--accent-on` maps to it), `--brand-hover:#BE3F22`, `--coral:#E86250`, `--amber:#F4A93C`, `--positive:#2FA06E` (good/synced; soft `#E4F2EA`, ink `#155C3F`), `--error:#D8483B`. Ink/text: navy `#192341`, slate `#54596B`/`#4A5168`, taupe `#978E84`, cream `#FBF4EA`. Dark mode via `[data-theme="dark"]` token flips (accent brightens to ~`#F2694E`).
+- Fonts: Lexend (headings) + Instrument Sans (body) globally; Newsreader (serif) only on blog and legal templates. Type classes: `heading_hero/_primary/_secondary/_tertiary/_small`, `subheading`, `paragraph`, `paragraph_small`, `eyebrow` (+`is-accent`), `quote`. Buttons: `.button` (+`.is-secondary`, `.is-ghost`, `.is-small`, `.is-large`, `[disabled]`). CTA convention: a single "Book a demo" primary; secondary buttons were removed site-wide.
+- Eyebrow convention: muted (plain `.eyebrow`) is the default on the homepage hero and the solutions pages; `is-accent` remains on platform pages and inside the shared story card. When in doubt, muted.
+- Layout: `.wrap{max-width:var(--maxw,1100px);margin:0 auto;padding:0 clamp(20px,5vw,56px)}`.
+- Logo assets (R2): `logo/hubsell-wordmark-dark.svg` (light sections), `logo/hubsell-wordmark-light.svg` (dark/footer), `logo/hubsell-favicon.svg`. Default social image: `brand/og-default.png`. Customer + partner logos under R2 `logos/`.
+
+## Current state - what is LIVE / built
+See `docs/SITEMAP.md` for the per-page table. Summary: homepage (11 sections), platform (`/platform` + live-data, multichannel-outreach, crm-sync, deliverability, personalization, enrichment, `/integrations` stub), solutions (overview + team: sales-teams, agencies, revops, founders; roles: sdr, sales-leader, sales-operations, marketing), `/pricing`, use-cases (overview + 4), comparisons (overview + 5 `/vs`), customer stories (overview + 6), insights (87 posts, rewritten titles), glossary (66 terms), faqs, reviews, AI info page, contact, book-a-call, legal (5 pages), custom 404. Locales: en, de, nl (except blog and legal, which stay English).
+
+Key infra: BaseLayout (title/description/canonical/OG/Twitter/JSON-LD, hreflang, head slot, pre-paint theme + has-anim), Nav + TopBar (language switcher, light/dark toggle, Log in), Footer (Apollo-style columns), motion.ts (Lenis + GSAP), `JsonLd.astro` + `seo.ts`, `public/llms.txt`.
+
+SDR page specifics (in review): `SolutionDetail.astro` renders all solution pages; the SDR entry additionally has `pains` (4 problem/solution blocks with alternating layout), `painsEyebrow/painsTitle`, `quoteSlug2`, and `emailCta` (which swaps the closing section for an email-plus-button band above the FAQ and hides the hero button). `SolutionHeroSdr.astro` is the animated hero visual (4 beats + rotating "no more" lines). `SolutionEmailCta.astro` is the CTA band: validates the corporate email, fires form `sdr-partial` to `/api/subscribe`, then opens `BookCallForm compact` (first name, last name, company, email, phone) in a native dialog with the email pre-filled.
+
+## BACKLOG - prioritized
+### A. Immediate / in flight
+- [ ] SDR page: founder review of the merged draft, then the prune pass (pains vs jobs vs how overlap), then rewrite the meta title/description, then decide whether to roll the pattern (hero visual, email CTA) out to the other 7 solution pages.
+- [ ] Plunk: the founder sets up the automation on `sdr-partial-request` (timed calendar email, suppressed by `book-a-call-request`), and confirms the newsletter double opt-in Template and Action exist.
+- [ ] Trial CTA revert: when the signup page is live, set `SIGNUP_URL` in `src/data/site.ts` back to `https://app.hubsell.com/signup`.
+- [ ] SEO follow-ups: official company social URLs in `Organization.sameAs` (`src/data/seo.ts`); resubmit sitemaps in Search Console and Bing; re-run Rich Results and OG validators after major page changes.
+- [ ] R2 housekeeping: sweep the size-variant leftovers at the bucket root; confirm the Sensolus and Staffbase champion photos load from R2, not Webflow.
+
+### B. New marketing pages
+- [ ] `/use-cases/market-expansion` (maps to the Staffbase story) and `/use-cases/account-based-marketing`.
+- [ ] Customers: `/customers` logo wall (60+ logos on R2; the homepage shelf pattern could inform the design).
+- [ ] Company: `/about` (PageLayout exists, needs founder content), `/security` (important for a data company), `/careers`, `/partners`, `/press`.
+- [ ] Get started: `/demo` (could alias to `/book-a-call`).
+- [ ] Resources: `/guides`, `/templates`, `/tools` (email verifier or ROI calculator), help center (likely `help.hubsell.com`).
+- [ ] Compare: `/alternatives` hub (optional). Legal: `/cookies`, `/sub-processors` (optional).
+- [ ] Features collection from the Features CSV (backlog since v4; the CSV must be re-uploaded to the chat that takes it).
+
+### C. Navigation and IA
+- [ ] Flip the mega-menu "Soon" items to live links as their pages ship (gated by the `soon` flag in `navigation.ts`; the footer picks pages up automatically once the flag is removed).
+
+### D. Internationalisation
+- [ ] French, Spanish, Portuguese (Brazil): follow the recipe in the i18n section, each on its own branch.
+
+## Reference
+- Repo: `github.com/krnshrm/hubsell-website`. Local `~/Coding/hubsell-website`. Node 20.
+- Hosting: Cloudflare Pages, output `dist`. Custom domain `www.hubsell.com` live, apex redirects to www. Preview builds at `hubsell-website.pages.dev`. Env: `NODE_VERSION=20`, `PLUNK_PUBLIC_KEY`, `PLUNK_SECRET_KEY`, `PLUNK_API_BASE`, `NOTIFY_EMAIL`.
+- Assets: Cloudflare R2 at `assets.hubsell.com`, bucket `hubsell-assets`, EU jurisdiction. Uploader script `scripts/migrate-from-manifest.mjs`.
+- Forms: Plunk via `functions/api/subscribe.ts` (`/v1/track` public key, `/v1/send` secret key for team alerts).
+- App: `app.hubsell.com` (login `/`, signup `/signup` not live yet).
+- Webflow (LEGACY, read-only, rollback): Site ID `69958f2709be924c893e6da3`. Old image CDN host `cdn.prod.website-files.com/69958f2709be924c893e6da3/…`.
+- Company: hubsell UG, Friedrichstraße 155, 10117 Berlin, Germany. HRB 175309B. VAT DE305258320.
+- Sandbox network allows npm, pypi, github (not the Webflow CDN, R2, or Plunk, and the GitHub repo is private so `git clone` over HTTPS fails without credentials - use a git bundle). `web_fetch` and `web_search` reach the internet. Because the sandbox cannot reach R2, Claude cannot verify asset URLs directly; the founder confirms them on his Mac.
