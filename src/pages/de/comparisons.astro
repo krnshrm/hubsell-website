@@ -8,7 +8,7 @@ const ORDER = ['apollo', 'zoominfo', 'cognism', 'lusha', 'seamless'];
 const oi = (s) => { const i = ORDER.indexOf(s); return i === -1 ? 99 : i; };
 const L = asLocale(Astro.currentLocale);
 const c = getComparisonsPage(L);
-const items = (await getCollection('comparisonsDe')).sort((a, b) => oi(a.slug) - oi(b.slug));
+const items = (await getCollection('comparisonsDe')).sort((a, b) => oi(a.id) - oi(b.id));
 ---
 <BaseLayout title={c.ovMetaTitle} description={c.ovMetaDescription}>
   <section class="sec sec--paper" aria-labelledby="vs-title">
@@ -21,7 +21,7 @@ const items = (await getCollection('comparisonsDe')).sort((a, b) => oi(a.slug) -
 
       <div class="grid grid-3 reveal-stagger" style="margin-top:28px">
         {items.map((i) => (
-          <a class="vs-card" href={localizedHref(L, `/vs/${i.slug}`)}>
+          <a class="vs-card" href={localizedHref(L, `/vs/${i.id}`)}>
             {i.data.category && <span class="vs-card__cat">{i.data.category}</span>}
             <h2 class="vs-card__title">{i.data.title} vs hubsell</h2>
             {i.data.metaDescription && <p class="vs-card__desc">{i.data.metaDescription}</p>}

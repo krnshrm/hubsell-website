@@ -20,7 +20,7 @@ const items = (await getCollection('usecases', (u) => !u.data.draft))
 
       <div class="grid grid-3 reveal-stagger" style="margin-top:28px">
         {items.map((u) => (
-          <a class="uc-ov-card" href={`/use-cases/${u.slug}`}>
+          <a class="uc-ov-card" href={`/use-cases/${u.id}`}>
             <h2 class="uc-ov-card__title">{u.data.label || u.data.title}</h2>
             {u.data.description && <p class="uc-ov-card__desc">{u.data.description}</p>}
             {u.data.roles?.length > 0 && (

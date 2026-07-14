@@ -25,7 +25,7 @@ const ctaHeading = d.ctaHeading || c.ctaHeadingDefault;
 // Other comparisons, in the same order the homepage uses.
 const ORDER = ['apollo', 'zoominfo', 'cognism', 'lusha', 'seamless'];
 const oi = (s: string) => { const i = ORDER.indexOf(s); return i === -1 ? 99 : i; };
-const related = items.filter((i) => i.slug !== item.slug).sort((a, b) => oi(a.slug) - oi(b.slug));
+const related = items.filter((i) => i.id !== item.id).sort((a, b) => oi(a.id) - oi(b.id));
 
 // Social proof: a default trio that reads as "teams chose hubsell over the alternatives".
 const pool = L === 'de' ? TESTIMONIALS_DE : L === 'nl' ? TESTIMONIALS_NL : TESTIMONIALS;
@@ -130,7 +130,7 @@ const vsQuotes = ['matterway', 'spryker', 'cibt'].map((s) => pool.find((t) => t.
         <p class="eyebrow is-accent">{c.relatedLabel}</p>
         <div class="vs-related__grid">
           {related.map((i: any) => (
-            <a class="vs-card" href={localizedHref(L, `/vs/${i.slug}`)}>
+            <a class="vs-card" href={localizedHref(L, `/vs/${i.id}`)}>
               {i.data.category && <span class="vs-card__cat">{i.data.category}</span>}
               <h3 class="vs-card__title">{i.data.title} vs hubsell</h3>
               <span class="vs-card__more">{c.compare}</span>

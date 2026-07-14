@@ -7,8 +7,8 @@ import { SITE_URL, breadcrumbSchema } from '../../data/seo';
 import { SIGNUP_URL } from '../../data/site';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('insights', (p) => !p.data.draft);
-  return posts.map((post) => ({ params: { slug: post.slug }, props: { post, posts } }));
+  const posts = (await getCollection('insights', (p) => !p.data.draft)).sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post, posts } }));
 }
 
 const { post, posts } = Astro.props;
@@ -25,16 +25,16 @@ const heroImage = coverImage || thumbnail;
 // still gets two picks.
 const cardImg = (p) => p.data.thumbnail || p.data.coverImage;
 const myTopics = new Set(post.data.topics || []);
-const others = posts.filter((p) => p.slug !== post.slug);
+const others = posts.filter((p) => p.id !== post.id);
 const sharedCount = (p) => (p.data.topics || []).filter((t) => myTopics.has(t)).length;
 const byTopic = others
   .filter((p) => sharedCount(p) > 0)
   .sort((a, b) => (sharedCount(b) - sharedCount(a)) || ((cardImg(b) ? 1 : 0) - (cardImg(a) ? 1 : 0)));
 const withImg = others.filter((p) => cardImg(p));
 const pool = withImg.length >= 2 ? withImg : others;
-const off = pool.length ? [...post.slug].reduce((a, c) => a + c.charCodeAt(0), 0) % pool.length : 0;
+const off = pool.length ? [...post.id].reduce((a, c) => a + c.charCodeAt(0), 0) % pool.length : 0;
 const rotation = pool.length ? [pool[off], pool[(off + 1) % pool.length]] : [];
-const related = [...new Map([...byTopic, ...rotation].filter(Boolean).map((p) => [p.slug, p])).values()].slice(0, 2);
+const related = [...new Map([...byTopic, ...rotation].filter(Boolean).map((p) => [p.id, p])).values()].slice(0, 2);
 
 // A few relevant hubsell pages for this post's topics. Kept in the template as
 // internal links to product pages, so the migrated post body stays untouched.
@@ -66,7 +66,7 @@ const hubLinks = hubLinksAll.slice(0, 3);
 const ctaText = cta || `You just read "${title}". hubsell gives you the verified contact data, multichannel outreach, and CRM sync to act on it. Book a demo and see it run on your own pipeline.`;
 
 // Article + breadcrumb structured data for this post (rich results + AI answers).
-const postUrl = `${SITE_URL}/insights/${post.slug}`;
+const postUrl = `${SITE_URL}/insights/${post.id}`;
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
@@ -85,7 +85,7 @@ const articleSchema = {
 const articleCrumbs = breadcrumbSchema([
   { name: 'Home', url: '/' },
   { name: 'Insights', url: '/insights' },
-  { name: title, url: `/insights/${post.slug}` },
+  { name: title, url: `/insights/${post.id}` },
 ]);
 ---
 <BaseLayout title={`${title} | hubsell`} description={description} ogImage={coverImage} ogType="article">
@@ -141,7 +141,7 @@ const articleCrumbs = breadcrumbSchema([
           <p class="eyebrow is-accent">Keep reading</p>
           <div class="post-related__grid">
             {related.map((p) => (
-              <a class="post" href={`/insights/${p.slug}`}>
+              <a class="post" href={`/insights/${p.id}`}>
                 {cardImg(p) && (
                   <img class="post__img" src={cardImg(p)} alt={p.data.title} loading="lazy" width="400" height="225" />
                 )}

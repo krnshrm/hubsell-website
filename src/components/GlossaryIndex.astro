@@ -17,7 +17,7 @@ const c = glossaryChrome(L);
 const entries = await getCollection(glossaryCollection(L), (e) => !e.data.draft);
 const terms = entries
   .map((e) => ({
-    slug: e.slug,
+    slug: e.id,
     term: e.data.term,
     definition: e.data.definition,
     catKey: categoryKey(L, e.data.category),

@@ -9,13 +9,13 @@ import { asLocale, localizeUrl } from '../../../i18n/utils';
 
 export async function getStaticPaths() {
   const entries = await getCollection('glossaryDe', (e) => !e.data.draft);
-  return entries.map((entry) => ({ params: { slug: entry.slug }, props: { entry } }));
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
 }
 
 const { entry } = Astro.props;
 const L = asLocale(Astro.currentLocale);
 const c = glossaryChrome(L);
-const url = localizeUrl(L, `/glossary/${entry.slug}`);
+const url = localizeUrl(L, `/glossary/${entry.id}`);
 const term = definedTermSchema({ name: entry.data.term, description: entry.data.definition, url });
 const crumbs = breadcrumbSchema([
   { name: c.crumbHome, url: localizeUrl(L, '/') },

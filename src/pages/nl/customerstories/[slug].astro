@@ -9,7 +9,7 @@ import { asLocale, localizeUrl } from '../../../i18n/utils';
 
 export async function getStaticPaths() {
   const stories = await getCollection('customerstoriesNl', (s) => !s.data.draft);
-  return stories.map((story) => ({ params: { slug: story.slug }, props: { story, stories } }));
+  return stories.map((story) => ({ params: { slug: story.id }, props: { story, stories } }));
 }
 const { story, stories } = Astro.props;
 const { title, description } = story.data;
@@ -18,7 +18,7 @@ const c = getCustomerStoriesPage(L);
 const storyCrumbs = breadcrumbSchema([
   { name: c.crumbHome, url: localizeUrl(L, '/') },
   { name: c.crumbStories, url: localizeUrl(L, '/customerstories') },
-  { name: title, url: localizeUrl(L, `/customerstories/${story.slug}`) },
+  { name: title, url: localizeUrl(L, `/customerstories/${story.id}`) },
 ]);
 ---
 <BaseLayout title={`${title} | hubsell`} description={description}>

@@ -18,7 +18,7 @@ const t = useTranslations(locale);
 const CS_ORDER = ['safran', 'staffbase', 'verhaert', 'elium', 'workspace365', 'sensolus'];
 const CMP_ORDER = ['apollo', 'zoominfo', 'cognism', 'lusha', 'seamless'];
 const byOrder = (order) => (a, b) => {
-  const i = order.indexOf(a.slug), j = order.indexOf(b.slug);
+  const i = order.indexOf(a.id), j = order.indexOf(b.id);
   return (i < 0 ? 99 : i) - (j < 0 ? 99 : j);
 };
 const stories = (await getCollection('customerstories', (s) => !s.data.draft)).sort(byOrder(CS_ORDER));
@@ -53,14 +53,14 @@ const columns = [
   {
     heading: t('footer.heading.customerstories'),
     links: [
-      ...stories.map((s) => ({ label: s.data.company || s.data.title, href: `/customerstories/${s.slug}` })),
+      ...stories.map((s) => ({ label: s.data.company || s.data.title, href: `/customerstories/${s.id}` })),
       { label: t('footer.all.customerstories'), href: '/customerstories', all: true },
     ],
   },
   {
     heading: t('footer.heading.comparisons'),
     links: [
-      ...comparisons.map((c) => ({ label: c.data.title, href: `/vs/${c.slug}` })),
+      ...comparisons.map((c) => ({ label: c.data.title, href: `/vs/${c.id}` })),
       { label: t('footer.all.comparisons'), href: '/comparisons', all: true },
     ],
   },

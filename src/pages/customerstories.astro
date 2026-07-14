@@ -6,7 +6,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const ORDER = ['safran', 'staffbase', 'verhaert', 'elium', 'workspace365', 'sensolus'];
 const stories = (await getCollection('customerstories', (s) => !s.data.draft))
   .sort((a, b) => {
-    const ia = ORDER.indexOf(a.slug); const ib = ORDER.indexOf(b.slug);
+    const ia = ORDER.indexOf(a.id); const ib = ORDER.indexOf(b.id);
     return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
   });
 ---
@@ -24,7 +24,7 @@ const stories = (await getCollection('customerstories', (s) => !s.data.draft))
 
       <div class="grid grid-3 reveal-stagger" style="margin-top:28px">
         {stories.map((s) => (
-          <a class="cs-card" href={`/customerstories/${s.slug}`}>
+          <a class="cs-card" href={`/customerstories/${s.id}`}>
             <div class="cs-card__top">
               {s.data.championImage && (
                 <img class="cs-card__img" src={s.data.championImage} alt={s.data.champion} loading="lazy" width="40" height="40" />

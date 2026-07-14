@@ -3,7 +3,7 @@
 // (the quotable answer), then the markdown body (the 4 written H2 sections), then
 // an auto-built Related terms block, then a soft CTA. The route file owns
 // BaseLayout and the DefinedTerm + breadcrumb JSON-LD.
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
 import { localizedHref } from '../i18n/utils';
 import { SIGNUP_URL } from '../data/site';
 import { glossaryCollection, glossaryChrome, categoryKey } from '../data/glossary-i18n';
@@ -12,16 +12,16 @@ import type { Locale } from '../i18n/ui';
 interface Props { L: Locale; entry: CollectionEntry<'glossary'> }
 const { L, entry } = Astro.props;
 const c = glossaryChrome(L);
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 const catKey = categoryKey(L, entry.data.category);
 
 // Resolve related slugs to their display names in the same locale.
 const all = await getCollection(glossaryCollection(L), (e) => !e.data.draft);
-const bySlug = new Map(all.map((e) => [e.slug, e]));
+const bySlug = new Map(all.map((e) => [e.id, e]));
 const related = (entry.data.related || [])
   .map((s) => bySlug.get(s))
   .filter((e): e is typeof all[number] => Boolean(e))
-  .map((e) => ({ slug: e.slug, term: e.data.term, definition: e.data.definition }));
+  .map((e) => ({ slug: e.id, term: e.data.term, definition: e.data.definition }));
 ---
 <article class="sec sec--paper gl-term">
   <div class="wrap wrap--narrow">

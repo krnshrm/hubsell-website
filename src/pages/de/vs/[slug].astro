@@ -9,7 +9,7 @@ import { asLocale, localizeUrl } from '../../../i18n/utils';
 
 export async function getStaticPaths() {
   const items = await getCollection('comparisonsDe');
-  return items.map((item) => ({ params: { slug: item.slug }, props: { item, items } }));
+  return items.map((item) => ({ params: { slug: item.id }, props: { item, items } }));
 }
 const { item, items } = Astro.props;
 const d = item.data;
@@ -22,7 +22,7 @@ const seoDescFinal = /alternative/i.test(seoDesc) ? seoDesc : `${seoDesc}${c.alt
 const crumbs = breadcrumbSchema([
   { name: c.crumbHome, url: localizeUrl(L, '/') },
   { name: c.crumbComparisons, url: localizeUrl(L, '/comparisons') },
-  { name: `${competitor} vs hubsell`, url: localizeUrl(L, `/vs/${item.slug}`) },
+  { name: `${competitor} vs hubsell`, url: localizeUrl(L, `/vs/${item.id}`) },
 ]);
 ---
 <BaseLayout title={seoTitle} description={seoDescFinal}>

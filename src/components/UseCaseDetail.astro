@@ -5,7 +5,7 @@
 // and its sibling items (same collection) for the related lookup. The proof block
 // reuses the German champion quote + metrics from testimonialsDe by slug; the
 // testimonial strip draws from the locale-matched pool.
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import Avatar from './Avatar.astro';
 import TestimonialStrip from './TestimonialStrip.astro';
 import UnifiedGrid from './UnifiedGrid.astro';
@@ -24,7 +24,7 @@ import { SIGNUP_URL } from '../data/site';
 interface Props { entry: any; items: any[]; }
 const { entry, items } = Astro.props;
 const d = entry.data;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 
 const L = asLocale(Astro.currentLocale);
 const c = getUseCasesPage(L);
@@ -39,14 +39,14 @@ const widgetBg = d.widgetBg || 'sec--navy';
 let proof: any = null;
 if (d.proofStory) {
   const stories = await getCollection('customerstories', (s: any) => !s.data.draft);
-  proof = stories.find((s: any) => s.slug === d.proofStory) || null;
+  proof = stories.find((s: any) => s.id === d.proofStory) || null;
 }
-const deProof = L === 'de' && proof ? testimonialsDe.find((t) => t.slug === proof.slug) : null;
-const nlProof = L === 'nl' && proof ? testimonialsNl.find((t) => t.slug === proof.slug) : null;
+const deProof = L === 'de' && proof ? testimonialsDe.find((t) => t.slug === proof.id) : null;
+const nlProof = L === 'nl' && proof ? testimonialsNl.find((t) => t.slug === proof.id) : null;
 const proofQuote = ((deProof?.quote ?? nlProof?.quote ?? proof?.data.testimonial) ?? '').replace(/^[\s"“”]+|[\s"“”]+$/g, '');
 const proofMetrics = (deProof?.results ?? nlProof?.results ?? proof?.data.results) ?? [];
 const proofRole = proof ? [proof.data.championTitle, proof.data.company].filter(Boolean).join(', ') : '';
-const championPhoto = proof ? TESTIMONIALS.find((t) => t.storySlug === proof.slug)?.photo : undefined;
+const championPhoto = proof ? TESTIMONIALS.find((t) => t.storySlug === proof.id)?.photo : undefined;
 
 // Strip = curated testimonials for this use case, from the locale-matched pool,
 // never repeating the proof champion.
@@ -54,14 +54,14 @@ const pool = L === 'de' ? TESTIMONIALS_DE : L === 'nl' ? TESTIMONIALS_NL : TESTI
 const stripQuotes = (d.quotes ?? [])
   .map((s: string) => pool.find((t) => t.slug === s))
   .filter(Boolean)
-  .filter((t: any) => t.storySlug !== proof?.slug);
+  .filter((t: any) => t.storySlug !== proof?.id);
 
 // Related: the explicit list, else the other use-cases in order.
 const others = items
-  .filter((u) => u.slug !== entry.slug)
+  .filter((u) => u.id !== entry.id)
   .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
 const related = (d.related && d.related.length
-  ? d.related.map((slug: string) => items.find((u) => u.slug === slug)).filter(Boolean)
+  ? d.related.map((slug: string) => items.find((u) => u.id === slug)).filter(Boolean)
   : others
 ).slice(0, 2);
 
@@ -136,7 +136,7 @@ const ctaText = d.ctaText || c.ctaTextDefault;
             <Avatar src={championPhoto} name={proof.data.champion} size={46} />
             <span class="uc-proof__bymeta">
               <span class="uc-proof__byname">{proof.data.champion}{proofRole ? `, ${proofRole}` : ''}</span>
-              <a class="link" href={localizedHref(L, `/customerstories/${proof.slug}`)}>{c.storyPre}{proof.data.company}{c.storyPost}</a>
+              <a class="link" href={localizedHref(L, `/customerstories/${proof.id}`)}>{c.storyPre}{proof.data.company}{c.storyPost}</a>
             </span>
           </div>
         </aside>
@@ -171,7 +171,7 @@ const ctaText = d.ctaText || c.ctaTextDefault;
         <p class="eyebrow is-accent">{c.relatedLabel}</p>
         <div class="uc-related__grid">
           {related.map((u: any) => (
-            <a class="uc-card" href={localizedHref(L, `/use-cases/${u.slug}`)}>
+            <a class="uc-card" href={localizedHref(L, `/use-cases/${u.id}`)}>
               <h3 class="uc-card__title">{u.data.label || u.data.title}</h3>
               {u.data.description && <p class="uc-card__desc">{u.data.description}</p>}
               <span class="uc-card__more">{c.explore}</span>

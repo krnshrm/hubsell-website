@@ -22,10 +22,10 @@ const quote = (testimonial || '').replace(/^[\s"“”]+|[\s"“”]+$/g, '');
 const role = [championTitle, company].filter(Boolean).join(', ');
 
 // Two other customer stories to read, rotating by slug so each story differs.
-const others = stories.filter((s) => s.slug !== story.slug);
-const off = others.length ? [...story.slug].reduce((a, c2) => a + c2.charCodeAt(0), 0) % others.length : 0;
+const others = stories.filter((s) => s.id !== story.id);
+const off = others.length ? [...story.id].reduce((a, c2) => a + c2.charCodeAt(0), 0) % others.length : 0;
 const related = others.length
-  ? [...new Map([others[off], others[(off + 1) % others.length]].filter(Boolean).map((s) => [s.slug, s])).values()]
+  ? [...new Map([others[off], others[(off + 1) % others.length]].filter(Boolean).map((s) => [s.id, s])).values()]
   : [];
 
 // Trial CTA copy: a per-story override (frontmatter `cta`) if set, otherwise a default.
@@ -77,7 +77,7 @@ const ctaText = cta || c.ctaTextDefault;
         <p class="eyebrow is-accent">{c.relatedLabel}</p>
         <div class="cs-related__grid">
           {related.map((s: any) => (
-            <a class="cs-card" href={localizedHref(L, `/customerstories/${s.slug}`)}>
+            <a class="cs-card" href={localizedHref(L, `/customerstories/${s.id}`)}>
               <div class="cs-card__top">
                 {s.data.championImage && (
                   <img class="cs-card__img" src={s.data.championImage} alt={s.data.champion} loading="lazy" width="40" height="40" />

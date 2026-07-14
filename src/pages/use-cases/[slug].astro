@@ -8,7 +8,7 @@ import { asLocale, localizeUrl } from '../../i18n/utils';
 
 export async function getStaticPaths() {
   const items = await getCollection('usecases', (u) => !u.data.draft);
-  return items.map((entry) => ({ params: { slug: entry.slug }, props: { entry, items } }));
+  return items.map((entry) => ({ params: { slug: entry.id }, props: { entry, items } }));
 }
 const { entry, items } = Astro.props;
 const d = entry.data;
@@ -17,7 +17,7 @@ const L = asLocale(Astro.currentLocale);
 const crumbs = breadcrumbSchema([
   { name: 'Home', url: localizeUrl(L, '/') },
   { name: 'Use cases', url: localizeUrl(L, '/use-cases') },
-  { name: d.title, url: localizeUrl(L, `/use-cases/${entry.slug}`) },
+  { name: d.title, url: localizeUrl(L, `/use-cases/${entry.id}`) },
 ]);
 ---
 <BaseLayout title={metaTitle} description={d.description}>

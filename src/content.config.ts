@@ -1,4 +1,6 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
 
 // Insights (blog) — migrated from the Webflow "Blog Posts" collection.
 // One .md per post at src/content/insights/<slug>.md: YAML frontmatter (metadata)
@@ -6,7 +8,7 @@ import { defineCollection, z } from 'astro:content';
 // also documents the Webflow-column -> field mapping. The post template renders the
 // body with set:html, so the HTML is never run through Markdown.
 const insights = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/insights' }),
   schema: z.object({
     title: z.string(),                         // Webflow: Name
     description: z.string().optional(),         // Webflow: Snippet  (meta + card excerpt)
@@ -43,13 +45,13 @@ const customerStorySchema = z.object({
     draft: z.boolean().default(false),
 });
 
-const customerstories = defineCollection({ type: 'content', schema: customerStorySchema });
+const customerstories = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/customerstories' }), schema: customerStorySchema });
 // German customer stories: same schema, parallel folder src/content/customerstoriesDe/<slug>.md,
 // same slugs as the English entries.
-const customerstoriesDe = defineCollection({ type: 'content', schema: customerStorySchema });
+const customerstoriesDe = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/customerstoriesDe' }), schema: customerStorySchema });
 // Dutch customer stories: same schema, parallel folder src/content/customerstoriesNl/<slug>.md,
 // same slugs as the English entries.
-const customerstoriesNl = defineCollection({ type: 'content', schema: customerStorySchema });
+const customerstoriesNl = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/customerstoriesNl' }), schema: customerStorySchema });
 
 // Comparisons (/vs pages) — migrated from the Webflow "Comparisons" collection.
 // One .md per competitor at src/content/comparisons/<slug>.md. Unlike the blog and
@@ -80,13 +82,13 @@ const comparisonSchema = z.object({
     draft: z.boolean().default(false),
 });
 
-const comparisons = defineCollection({ type: 'content', schema: comparisonSchema });
+const comparisons = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/comparisons' }), schema: comparisonSchema });
 // German comparisons: same schema, parallel folder src/content/comparisonsDe/<slug>.md,
 // same slugs as the English entries.
-const comparisonsDe = defineCollection({ type: 'content', schema: comparisonSchema });
+const comparisonsDe = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/comparisonsDe' }), schema: comparisonSchema });
 // Dutch comparisons: same schema, parallel folder src/content/comparisonsNl/<slug>.md,
 // same slugs as the English entries.
-const comparisonsNl = defineCollection({ type: 'content', schema: comparisonSchema });
+const comparisonsNl = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/comparisonsNl' }), schema: comparisonSchema });
 
 // Use-cases — authored in Astro (no Webflow source). One .md per use-case at
 // src/content/usecases/<slug>.md: frontmatter for the hero, the featured proof
@@ -113,13 +115,13 @@ const usecaseSchema = z.object({
   draft: z.boolean().default(false),
 });
 
-const usecases = defineCollection({ type: 'content', schema: usecaseSchema });
+const usecases = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/usecases' }), schema: usecaseSchema });
 // German use-cases: same schema, parallel folder. src/content/usecasesDe/<slug>.md
 // uses the SAME slug as its English counterpart so the two map one to one.
-const usecasesDe = defineCollection({ type: 'content', schema: usecaseSchema });
+const usecasesDe = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/usecasesDe' }), schema: usecaseSchema });
 // Dutch use-cases: same schema, parallel folder src/content/usecasesNl/<slug>.md,
 // same slugs as the English entries.
-const usecasesNl = defineCollection({ type: 'content', schema: usecaseSchema });
+const usecasesNl = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/usecasesNl' }), schema: usecaseSchema });
 
 
 // One .md per term at src/content/glossary/<slug>.md (+ glossaryDe / glossaryNl).
@@ -136,8 +138,8 @@ const glossarySchema = z.object({
     draft: z.boolean().default(false),
 });
 
-const glossary = defineCollection({ type: 'content', schema: glossarySchema });
-const glossaryDe = defineCollection({ type: 'content', schema: glossarySchema });
-const glossaryNl = defineCollection({ type: 'content', schema: glossarySchema });
+const glossary = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/glossary' }), schema: glossarySchema });
+const glossaryDe = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/glossaryDe' }), schema: glossarySchema });
+const glossaryNl = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/glossaryNl' }), schema: glossarySchema });
 
 export const collections = { insights, customerstories, customerstoriesDe, customerstoriesNl, comparisons, comparisonsDe, comparisonsNl, usecases, usecasesDe, usecasesNl, glossary, glossaryDe, glossaryNl };
