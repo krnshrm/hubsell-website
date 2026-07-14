@@ -20,7 +20,7 @@ Waar bedrijven de rollen splitsen, neigen BDR’s vaak naar outbound naar gloedn
 
 ## Veelgemaakte fouten
 
-Een veelgemaakte fout is bekvechten over de labels SDR en BDR in plaats van de daadwerkelijke verantwoordelijkheden van elke rol te definieren. Een andere is BDR’s beladen met slecht passende accounts, zodat prospecting-inzet wordt verspild. Een derde is geen heldere regel voor wanneer een kans klaar is om aan een closer over te dragen.
+Een veelgemaakte fout is bekvechten over de labels SDR en BDR in plaats van de daadwerkelijke verantwoordelijkheden van elke rol te definiëren. Een andere is BDR’s beladen met slecht passende accounts, zodat prospecting-inzet wordt verspild. Een derde is geen heldere regel voor wanneer een kans klaar is om aan een closer over te dragen.
 
 ## Hoe hubsell het aanpakt
 

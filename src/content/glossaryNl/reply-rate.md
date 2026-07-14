@@ -1,7 +1,7 @@
 ---
 term: "Reactiepercentage"
 category: "Outbound en e-mail"
-definition: "Het reactiepercentage is het aandeel bezorgde outreach dat een reactie krijgt, en het is een waardere maat voor berichtkwaliteit dan openingen."
+definition: "Het reactiepercentage is het aandeel bezorgde outreach dat een reactie krijgt, en het is een waardevollere maat voor berichtkwaliteit dan openingen."
 related:
   - open-rate
   - bounce-rate

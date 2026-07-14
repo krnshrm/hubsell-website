@@ -53,6 +53,7 @@ export interface SolutionDetailData {
   jobs?: string[];              // 3 to 4 concrete jobs to be done (omit when pains is used)
   howEyebrow?: string; howTitle?: string;
   how?: SolutionHow[];          // 3 blocks, each linking out (omit when pains is used)
+  painsEyebrow?: string; painsTitle?: string;
   pains?: SolutionPain[];       // problem/solution pairs, the alternative body to jobs+how
   proofEyebrow: string; proofTitle: string;
   quoteSlug: string;            // testimonial slug in the shared pool
@@ -245,15 +246,16 @@ export const solutions: SolutionsData = {
         { title: 'One flow across every channel', body: 'Email, LinkedIn, and phone in a single sequence with branching, so you follow up in the right place at the right time.', href: '/platform/multichannel-outreach', linkLabel: 'See multichannel outreach' },
         { title: 'No more manual logging', body: 'Every send, open, and reply lands in the CRM by itself, so you are not updating records at the end of the day.', href: '/platform/crm-sync', linkLabel: 'See CRM sync' },
       ],
+      painsEyebrow: 'The problems', painsTitle: 'Four ways your week disappears',
       pains: [
         {
           problemTitle: "The 72% Admin Tax", 
           problemBody: "You hired sellers. You are paying for data entry. SDRs spend just 28% of their week selling. The rest burns away in manual research, fragmented tools, and CRM upkeep.",
           solutionTitle: "Let Sellers Sell", solutionBody: "hubsell destroys operational friction, shifting time from backend admin directly to revenue-generating conversations.",
           points: [
-            { label: "Zero Research Burnout", body: "Start the day with a verified, ready-to-work pipeline." },
-            { label: "Zero Tool Fatigue", body: "Execute every touchpoint in one uninterrupted flow." },
-            { label: "Zero Admin Anxiety", body: "Never manually log a CRM update again." },
+            { label: "Research done before you sit down", body: "Start the day with a verified, ready-to-work pipeline." },
+            { label: "One flow, every touchpoint", body: "Execute every touchpoint in one uninterrupted flow." },
+            { label: "The CRM writes itself", body: "Never manually log a CRM update again." },
           ],
           href: '/platform/crm-sync', linkLabel: "See CRM sync",
         },
@@ -262,9 +264,9 @@ export const solutions: SolutionsData = {
           problemBody: "Volume or relevance. Pick one. To hit quota, SDRs need volume. To get replies, they need personalization. The result? Hours wasted drafting individual emails, or generic spam blasts that ruin your brand reputation.",
           solutionTitle: "Scale Without the Robot Voice", solutionBody: "hubsell breaks the compromise.",
           points: [
-            { label: "Zero Generic Outreach", body: "Automate deep account-level personalization." },
-            { label: "Zero Volume Drops", body: "Hit high-activity quotas without sacrificing message quality." },
-            { label: "Zero Wasted Touches", body: "Reach prospects with messages that read like a human wrote them." },
+            { label: "Personal at any volume", body: "Automate deep account-level personalization." },
+            { label: "Quota-level activity, kept up", body: "Hit high-activity quotas without sacrificing message quality." },
+            { label: "Messages that read human", body: "Reach prospects with messages that read like a human wrote them." },
           ],
           href: '/platform/personalization', linkLabel: "See personalization",
         },
@@ -274,8 +276,8 @@ export const solutions: SolutionsData = {
           solutionTitle: "Protected inbox placement", solutionBody: "hubsell protects your domain so your SDRs are actually heard.",
           points: [
             { label: "Verified before sending", body: "Only verified, active contacts enter the sequence." },
-            { label: "Zero Spam Triggers", body: "Automated pacing keeps sending behavior looking natural." },
-            { label: "Zero Wasted Effort", body: "Your outreach lands where it belongs: in front of the prospect." },
+            { label: "Sending that stays natural", body: "Automated pacing keeps sending behavior looking natural." },
+            { label: "Seen, not filtered", body: "Your outreach lands where it belongs: in front of the prospect." },
           ],
           href: '/platform/deliverability', linkLabel: "See deliverability",
         },
@@ -284,9 +286,9 @@ export const solutions: SolutionsData = {
           problemBody: "It takes three months to ramp a new SDR. The brutal truth? They aren\u2019t spending that time learning how to sell your product. They are learning how to navigate your bloated, multi-tool tech stack.",
           solutionTitle: "Day-One Productivity", solutionBody: "hubsell drastically shrinks the learning curve.",
           points: [
-            { label: "Zero Tool Bloat", body: "Train new hires on one unified workflow, not five disjointed apps." },
-            { label: "Zero Guesswork", body: "Pre-built sequences and automated workflows dictate the day." },
-            { label: "Zero Delay", body: "Turn new hires into active pipeline generators in days, not months." },
+            { label: "One workflow to learn", body: "Train new hires on one unified workflow, not five disjointed apps." },
+            { label: "The day plans itself", body: "Pre-built sequences and automated workflows dictate the day." },
+            { label: "Ramped in days", body: "Turn new hires into active pipeline generators in days, not months." },
           ],
           href: '/platform', linkLabel: "See the platform",
         },

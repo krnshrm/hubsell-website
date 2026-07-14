@@ -80,7 +80,7 @@ const EN: PricingPageData = {
     },
     {
       "q": "Can I pay monthly or annually?",
-      "a": "Start is billed monthly per seat. Grow and Scale are billed annually and start at 3 seats."
+      "a": "Start is billed monthly per seat. Grow and Scale are billed annually; Grow starts at 3 seats and Scale at 10."
     },
     {
       "q": "Which currencies can I pay in?",

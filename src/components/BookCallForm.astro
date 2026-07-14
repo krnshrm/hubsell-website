@@ -6,6 +6,12 @@
 import { asLocale } from '../i18n/utils';
 const L = asLocale(Astro.currentLocale);
 
+// compact: only the essentials (first name, last name, company, business email,
+// phone). Used inside the solution-page dialog so the modal fits without
+// scrolling. The full field set stays on /book-a-call.
+interface Props { compact?: boolean }
+const { compact = false } = Astro.props;
+
 // Submitted option VALUES stay English so Plunk reporting is consistent across
 // locales; only the visible LABELS are translated. English labels equal the
 // values, so the English render is unchanged.
@@ -129,7 +135,7 @@ const roles = opt('role');
 const heardAbout = opt('heard');
 const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(t.js) };
 ---
-<div class="bcf" {...i18nAttr}>
+<div class="bcf" data-compact={compact ? 'true' : undefined} {...i18nAttr}>
   <form class="bcf-form" novalidate>
     <div class="bcf-row">
       <div class="bcf-field">
@@ -158,6 +164,7 @@ const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(t.js) };
       </div>
     </div>
 
+    {!compact && (
     <div class="bcf-row">
       <div class="bcf-field">
         <label class="bcf-label" for="bcf-team">{t.teamSize}<span class="bcf-req">*</span></label>
@@ -211,6 +218,7 @@ const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(t.js) };
         {heardAbout.map((o) => (<option value={o.value}>{o.label}</option>))}
       </select>
     </div>
+    )}
 
     <p class="bcf-consent">{t.consentPre}<a class="link" href="/privacy">{t.consentLink}</a>{t.consentPost}</p>
     <button class="button is-large bcf-submit" type="submit">{t.submit}</button>
@@ -281,8 +289,9 @@ const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(t.js) };
       };
 
       const get = (name: string) => form.querySelector<HTMLInputElement | HTMLSelectElement>(`[name="${name}"]`)!;
+      const compact = root.dataset.compact === 'true';
       const textFields = ['firstName', 'lastName', 'company', 'email'];
-      const selectFields = ['teamSize', 'crm', 'acv', 'challenge', 'heardAbout'];
+      const selectFields = compact ? [] : ['teamSize', 'crm', 'acv', 'challenge', 'heardAbout'];
 
       function clearError() { errEl.textContent = ''; form.querySelectorAll('.is-error').forEach((el) => el.classList.remove('is-error')); }
       function fail(field: HTMLElement | null, msg: string) {
@@ -313,21 +322,25 @@ const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(t.js) };
           const el = get(n);
           if (!el.value) return fail(el, MSG.dropdowns);
         }
-        const role = form.querySelector<HTMLInputElement>('input[name="role"]:checked');
-        if (!role) return fail(form.querySelector<HTMLElement>('.bcf-radios'), MSG.role);
+        const role = compact ? null : form.querySelector<HTMLInputElement>('input[name="role"]:checked');
+        if (!compact && !role) return fail(form.querySelector<HTMLElement>('.bcf-radios'), MSG.role);
 
-        const fields = {
+        const fields: Record<string, string> = {
           firstName: (get('firstName').value || '').trim(),
           lastName: (get('lastName').value || '').trim(),
           company: (get('company').value || '').trim(),
           phone: (get('phone').value || '').trim(),
-          teamSize: get('teamSize').value,
-          crm: get('crm').value,
-          acv: get('acv').value,
-          challenge: get('challenge').value,
-          role: role.value,
-          heardAbout: get('heardAbout').value,
         };
+        if (compact) {
+          fields.page = location.pathname;
+        } else {
+          fields.teamSize = get('teamSize').value;
+          fields.crm = get('crm').value;
+          fields.acv = get('acv').value;
+          fields.challenge = get('challenge').value;
+          fields.role = role!.value;
+          fields.heardAbout = get('heardAbout').value;
+        }
 
         button.disabled = true;
         button.textContent = MSG.sending;

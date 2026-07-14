@@ -20,7 +20,7 @@ TAM wordt bepaald door de firmografische kenmerken die een passing beschrijven: 
 
 ## Veelgemaakte fouten
 
-Een veelgemaakte fout is de TAM opblazen door bedrijven mee te tellen die nooit zullen kopen, wat valse verwachtingen wekt. De omgekeerde fout is die zo smal definitëren dat echte vraag wegvalt. Een derde is de TAM als vast behandelen, terwijl die verschuift naarmate product, prijs en markt veranderen.
+Een veelgemaakte fout is de TAM opblazen door bedrijven mee te tellen die nooit zullen kopen, wat valse verwachtingen wekt. De omgekeerde fout is die zo smal definiëren dat echte vraag wegvalt. Een derde is de TAM als vast behandelen, terwijl die verschuift naarmate product, prijs en markt veranderen.
 
 ## Hoe hubsell het aanpakt
 

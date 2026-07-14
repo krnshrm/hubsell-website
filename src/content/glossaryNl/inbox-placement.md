@@ -12,7 +12,7 @@ updated: "juli 2026"
 
 ## Waarom het belangrijk is
 
-Bezorgd is niet hetzelfde als gezien. Een bericht kan door de server worden geaccepteerd maar in spam worden gearchiveerd, waar bijna niemand het leest. Inboxplaatsing meet de uitkomst die echt telt, een map bereiken waar de ontvanger naar kijkt. Het is een waardere gezondheidscheck dan een kaal bezorgpercentage, dat mail meetelt die ongezien in spam ligt.
+Bezorgd is niet hetzelfde als gezien. Een bericht kan door de server worden geaccepteerd maar in spam worden gearchiveerd, waar bijna niemand het leest. Inboxplaatsing meet de uitkomst die echt telt, een map bereiken waar de ontvanger naar kijkt. Het is een waardevollere gezondheidscheck dan een kaal bezorgpercentage, dat mail meetelt die ongezien in spam ligt.
 
 ## Hoe het in de praktijk werkt
 

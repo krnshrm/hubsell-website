@@ -154,7 +154,7 @@ export const platform: PlatformData = {
       blocks: [
         {
           title: 'Zero-day sourcing',
-          body: 'A bespoke database built at the moment of your request, not a shared list captured years ago. Fresh of that day, with 80 to 90% coverage of your target market.',
+          body: 'A bespoke database built at the moment of your request, not a shared list captured years ago. Fresh as of that day, with 80 to 90% coverage of your target market.',
         },
         {
           title: 'Matched to your ICP',

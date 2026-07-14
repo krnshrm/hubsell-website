@@ -16,7 +16,7 @@ Das ICP entscheidet, in wen Sie Zeit investieren. Ein scharfes ICP hält Reps au
 
 ## Wie es in der Praxis funktioniert
 
-Ein ICP wird aus den Merkmalen gebildet, die Ihre besten Kunden teilen. Firmenmerkmale umfassen Branche, Größe, Standort und eingesetzte Technologie. Käufermerkmale umfassen Rolle, Senggrad und das Problem, das die Person verantwortet. Teams schreiben diese als Filter und gleichen ihre Daten dagegen ab, sodass nur Kontakte im Profil in eine Sequenz gelangen. Das ICP wird mit der Zeit geschärft, wenn Sie lernen, welche Segmente tatsächlich abschließen und verlängern.
+Ein ICP wird aus den Merkmalen gebildet, die Ihre besten Kunden teilen. Firmenmerkmale umfassen Branche, Größe, Standort und eingesetzte Technologie. Käufermerkmale umfassen Rolle, Senioritätsgrad und das Problem, das die Person verantwortet. Teams schreiben diese als Filter und gleichen ihre Daten dagegen ab, sodass nur Kontakte im Profil in eine Sequenz gelangen. Das ICP wird mit der Zeit geschärft, wenn Sie lernen, welche Segmente tatsächlich abschließen und verlängern.
 
 ## Häufige Fehler
 

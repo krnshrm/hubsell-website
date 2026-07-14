@@ -20,7 +20,7 @@ Enrichment gleicht einen bestehenden Datensatz mit einer oder mehreren Datenquel
 
 ## Häufige Fehler
 
-Veraltete Datensätze anzureichern, ohne sie neu zu verifizieren, verbreitet nur alte Fehler. Ein weiterer Fehler ist Über-Anreicherung, also Dutzende Felder zu ziehen, die niemand nutzt, was das CRM überladt und Reps ausbremst. Ein dritter ist, einmal anzureichern und nie zu aktualisieren, wodurch die Daten still verfallen, bis eine Kampagne schwächelt und niemand weiß, warum.
+Veraltete Datensätze anzureichern, ohne sie neu zu verifizieren, verbreitet nur alte Fehler. Ein weiterer Fehler ist Über-Anreicherung, also Dutzende Felder zu ziehen, die niemand nutzt, was das CRM überlädt und Reps ausbremst. Ein dritter ist, einmal anzureichern und nie zu aktualisieren, wodurch die Daten still verfallen, bis eine Kampagne schwächelt und niemand weiß, warum.
 
 ## Wie hubsell es angeht
 

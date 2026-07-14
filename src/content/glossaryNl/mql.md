@@ -20,7 +20,7 @@ Een lead wordt een MQL wanneer die een drempel passeert die passing, hoe goed di
 
 ## Veelgemaakte fouten
 
-Een veelgemaakte fout is MQL’s definieren op betrokkenheid alleen, zodat slecht passende maar actieve leads sales overspoelen. Een andere is een drempel die één keer is ingesteld en nooit bijgesteld tegen wat daadwerkelijk sloot. Een derde is dat marketing en sales het nooit eens worden over de definitie, wat de overdracht breekt.
+Een veelgemaakte fout is MQL’s definiëren op betrokkenheid alleen, zodat slecht passende maar actieve leads sales overspoelen. Een andere is een drempel die één keer is ingesteld en nooit bijgesteld tegen wat daadwerkelijk sloot. Een derde is dat marketing en sales het nooit eens worden over de definitie, wat de overdracht breekt.
 
 ## Hoe hubsell het aanpakt
 

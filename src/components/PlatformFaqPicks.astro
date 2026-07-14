@@ -13,8 +13,9 @@ interface Props {
   slugs: string[];
   seeAll: string;
   tone?: 'sand' | 'paper';
+  accent?: boolean;   // false = muted eyebrow like the homepage hero
 }
-const { L, eyebrow, title, slugs, seeAll, tone = 'sand' } = Astro.props;
+const { L, eyebrow, title, slugs, seeAll, tone = 'sand', accent = true } = Astro.props;
 const all = getFaqs(L);
 const picks = slugs
   .map((s) => all.find((f) => f.slug === s))
@@ -23,7 +24,7 @@ const picks = slugs
 <section class={`sec sec--${tone}`} aria-label={title}>
   <div class="wrap" style="max-width:820px">
     <div class="sec-head">
-      <p class="eyebrow is-accent">{eyebrow}</p>
+      <p class={accent ? 'eyebrow is-accent' : 'eyebrow'}>{eyebrow}</p>
       <h2 class="heading_primary" style="margin-top:8px">{title}</h2>
     </div>
 

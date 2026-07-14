@@ -45,6 +45,7 @@ const { s } = getHome(L);
 const quote = getSolutionQuote(L, d.quoteSlug);
 const StepVisual = STEP_VISUALS[d.path];
 const HeroVisual = HERO_VISUALS[d.path];
+const hasPains = !!(d.pains && d.pains.length > 0);
 const quote2 = d.quoteSlug2 ? getSolutionQuote(L, d.quoteSlug2) : undefined;
 const proofItems = (d.storySlug ? 1 : 0) + (quote ? 1 : 0) + (quote2 ? 1 : 0);
 ---
@@ -53,7 +54,7 @@ const proofItems = (d.storySlug ? 1 : 0) + (quote ? 1 : 0) + (quote2 ? 1 : 0);
   <div class="wrap">
     <div class={HeroVisual ? 'sol-hero has-visual' : 'sol-hero'}>
       <div class="sec-head" style="margin-bottom:0">
-        <p class="eyebrow is-accent">{d.eyebrow}</p>
+        <p class="eyebrow">{d.eyebrow}</p>
         <h1 id="sol-title" class="heading_hero" style="margin-top:10px">{d.h1Pre}<span class="accent">{d.h1Accent}</span>{d.h1Post}</h1>
         <p class="subheading" style="margin-top:16px;max-width:62ch">{d.sub}</p>
         {!d.emailCta && (
@@ -71,8 +72,14 @@ const proofItems = (d.storySlug ? 1 : 0) + (quote ? 1 : 0) + (quote2 ? 1 : 0);
 
 <!-- 1b · Problem / solution pairs (paper), used instead of jobs+how when present -->
 {d.pains && d.pains.length > 0 && (
-  <section class="sec sec--paper" aria-label={d.eyebrow}>
+  <section class="sec sec--paper" aria-label={d.painsTitle ?? d.eyebrow}>
     <div class="wrap">
+      {d.painsTitle && (
+        <div class="sec-head">
+          {d.painsEyebrow && <p class="eyebrow">{d.painsEyebrow}</p>}
+          <h2 class="heading_primary" style="margin-top:8px">{d.painsTitle}</h2>
+        </div>
+      )}
       <div class="sol-pains">
         {d.pains.map((p, i) => (
           <div class="sol-pain">
@@ -100,12 +107,12 @@ const proofItems = (d.storySlug ? 1 : 0) + (quote ? 1 : 0) + (quote2 ? 1 : 0);
   </section>
 )}
 
-<!-- 2 · The jobs to be done (paper) -->
+<!-- 2 · The jobs to be done (navy on pain pages, paper elsewhere) -->
 {d.jobs && d.jobs.length > 0 && (
-<section class="sec sec--paper" aria-label={d.jobsTitle}>
+<section class={hasPains ? 'sec sec--navy' : 'sec sec--paper'} aria-label={d.jobsTitle}>
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow is-accent">{d.jobsEyebrow}</p>
+      <p class="eyebrow">{d.jobsEyebrow}</p>
       <h2 class="heading_primary" style="margin-top:8px">{d.jobsTitle}</h2>
     </div>
     <ol class="sol-jobs">
@@ -120,12 +127,12 @@ const proofItems = (d.storySlug ? 1 : 0) + (quote ? 1 : 0) + (quote2 ? 1 : 0);
 </section>
 )}
 
-<!-- 3 · How hubsell helps (navy) -->
+<!-- 3 · How hubsell helps (white on pain pages, navy elsewhere) -->
 {d.how && d.how.length > 0 && (
-<section class="sec sec--navy" aria-label={d.howTitle}>
+<section class={hasPains ? 'sec sec--sand' : 'sec sec--navy'} aria-label={d.howTitle}>
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow is-accent">{d.howEyebrow}</p>
+      <p class="eyebrow">{d.howEyebrow}</p>
       <h2 class="heading_primary" style="margin-top:8px">{d.howTitle}</h2>
     </div>
     {StepVisual
@@ -145,11 +152,11 @@ const proofItems = (d.storySlug ? 1 : 0) + (quote ? 1 : 0) + (quote2 ? 1 : 0);
 </section>
 )}
 
-<!-- 4 · Proof: story (optional) + quote (sand) -->
-<section class="sec sec--sand" aria-label={d.proofTitle}>
+<!-- 4 · Proof: story (optional) + quote (paper on pain pages, white elsewhere) -->
+<section class={hasPains ? 'sec sec--paper' : 'sec sec--sand'} aria-label={d.proofTitle}>
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow is-accent">{d.proofEyebrow}</p>
+      <p class="eyebrow">{d.proofEyebrow}</p>
       <h2 class="heading_primary" style="margin-top:8px">{d.proofTitle}</h2>
     </div>
     <div class={proofItems > 1 ? 'sol-proof' : 'sol-proof is-solo'}>
@@ -178,7 +185,7 @@ const proofItems = (d.storySlug ? 1 : 0) + (quote ? 1 : 0) + (quote2 ? 1 : 0);
 {d.emailCta && <SolutionEmailCta L={L} closing={d.closing} cta={d.emailCta} />}
 
 <!-- 6 · FAQ picks (paper) -->
-<PlatformFaqPicks L={L} eyebrow={d.faqEyebrow} title={d.faqTitle} slugs={d.faqSlugs} seeAll={s.faqSec.seeAll} tone="paper" />
+<PlatformFaqPicks L={L} eyebrow={d.faqEyebrow} title={d.faqTitle} slugs={d.faqSlugs} seeAll={s.faqSec.seeAll} tone="paper" accent={false} />
 
 <!-- 7 · Closing CTA (espresso), only when the page has no email CTA band -->
 {!d.emailCta && (
@@ -219,6 +226,9 @@ const proofItems = (d.storySlug ? 1 : 0) + (quote ? 1 : 0) + (quote2 ? 1 : 0);
 
   @media (min-width:760px){
     .sol-pain{ grid-template-columns:1fr 1fr; gap:36px }
+    /* Alternate sides: even blocks put the card left, the problem right. */
+    .sol-pain:nth-child(even) .sol-pain__problem{ order:2 }
+    .sol-pain:nth-child(even) .sol-pain__solution{ order:1 }
     .sol-how{ grid-template-columns:1fr 1fr 1fr }
     .sol-proof:not(.is-solo){ grid-template-columns:1fr 1fr }
   }
