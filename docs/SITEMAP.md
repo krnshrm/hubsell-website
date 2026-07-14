@@ -5,7 +5,7 @@ have) and the **migration plan** (moving the Webflow site onto Astro). The migra
 is COMPLETE: as of 2026-06-30 the DNS cutover is done and www.hubsell.com serves the
 Astro site on Cloudflare Pages. Webflow is legacy (rollback only).
 
-Last updated: 2026-07-11 (statuses refreshed against the repo; the GitHub repo and its git log are the source of truth)
+Last updated: 2026-07-14 (statuses refreshed against the repo; the GitHub repo and its git log are the source of truth)
 
 Status: **Live** = built in Astro and serving · **Not built** = standard for the market, candidate for the post-migration roadmap. (Nothing is "In migration" any more; the content move is finished.)
 
@@ -45,7 +45,7 @@ The use-cases overview and four detail pages are live (English, German, Dutch). 
 | `/use-cases/market-expansion` | Not built | Maps to the Staffbase story |
 | `/solutions` | Live | Overview of team and role pages (EN/DE/NL) |
 | `/solutions/team/sales-teams` | Live | Also: `/solutions/team/agencies`, `/solutions/team/revops`, `/solutions/team/founders` |
-| `/solutions/role/sdr` | Live | Under active revision (hero visual, single email CTA with modal, pains layout). Also: `/solutions/role/sales-leader`, `/solutions/role/sales-operations`, `/solutions/role/marketing` |
+| `/solutions/role/sdr` | Live | Reworked layout live (animated hero visual, pains with alternating layout, single email CTA with compact modal form); founder prune pass and meta rewrite pending, see docs/HANDOFF.md. Also: `/solutions/role/sales-leader`, `/solutions/role/sales-operations`, `/solutions/role/marketing` |
 
 ### Pricing
 | Path | Status | Notes |
