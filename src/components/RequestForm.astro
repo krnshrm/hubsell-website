@@ -134,6 +134,7 @@ const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(t.js) };
 
 <script>
   import { classifyEmailLight, EMAIL_DOMAIN_MESSAGES } from '../data/free-email-domains.ts';
+  import { guardForm } from '../scripts/form-guard.ts';
 
   const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
@@ -183,6 +184,7 @@ const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(t.js) };
         el.addEventListener('input', () => { if (el.classList.contains('is-error')) setError(null, null); })
       );
 
+      const guard = guardForm(form);
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const name = (nameEl.value || '').trim();
@@ -209,9 +211,11 @@ const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(t.js) };
               email,
               company: (companyEl.value || '').trim(),
               message: (messageEl.value || '').trim(),
+              ...(await guard.fields()),
             }),
           });
           const payload = await res.json().catch(() => ({}));
+          guard.reset();
           if (!res.ok || payload?.ok === false) {
             setError(emailEl, payload?.error || MSG.generic);
             button.disabled = false;

@@ -59,6 +59,7 @@ const {
 
 <script>
   import { classifyEmailLight, EMAIL_DOMAIN_MESSAGES } from '../data/free-email-domains.ts';
+  import { guardForm } from '../scripts/form-guard.ts';
 
   const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
@@ -89,6 +90,7 @@ const {
       // Clear the error as soon as the visitor edits the field again.
       input.addEventListener('input', () => { if (input.classList.contains('is-error')) setError(null); });
 
+      const guard = guardForm(form);
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const email = (input.value || '').trim();
@@ -109,9 +111,10 @@ const {
           const res = await fetch('/api/subscribe', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, form: root.dataset.form }),
+            body: JSON.stringify({ email, form: root.dataset.form, ...(await guard.fields()) }),
           });
           const payload = await res.json().catch(() => ({}));
+          guard.reset();
           if (!res.ok || payload?.ok === false) {
             // Surface the server's domain rule if it rejected where the client passed.
             setError(payload?.error || 'Something went wrong. Please try again.');

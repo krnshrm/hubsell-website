@@ -58,6 +58,7 @@ A new chat needs: this file, `docs/SITEMAP.md`, `docs/hubsell-style-guide.html`,
 - App at `app.hubsell.com` (login at `/`, signup at `/signup`). The signup page is NOT live yet, so `SIGNUP_URL` in `src/data/site.ts` is `/book-a-call` (revert when signup ships; one line restores every button).
 - CRM names in copy: only Salesforce, HubSpot, Pipedrive (Freshworks and ActiveCampaign were dropped site-wide).
 - Blocking email domains on the forms is self-service: `npm run block -- baddomain.com` for throwaways, `npm run block:competitor -- competitor.com` for competitors, then build, commit, push. Full guide: `docs/BLOCKING-DOMAINS.md`.
+- Bot protection: every form carries a honeypot + fill-time check (`src/scripts/form-guard.ts`, enforced in `functions/api/subscribe.ts`) and Cloudflare Turnstile (on once `TURNSTILE_SITE_KEY` in `site.ts` and the `TURNSTILE_SECRET_KEY` env are set; fail-open until then). Site-wide: Bot Fight Mode on, SEO-tool crawlers blocked via WAF, AI crawlers (Search/Agent/Training) deliberately ALLOWED for the AEO strategy; do not enable AI-blocking toggles (from 2026-09-15 a Training block also blocks Googlebot). Full guide: `docs/BOT-PROTECTION.md`.
 - Star ratings in search: `aggregateRating` uses real, verifiable numbers only (currently 4.8 from 35). Do not invent counts.
 
 ## Internationalisation (i18n) - en base, de and nl live

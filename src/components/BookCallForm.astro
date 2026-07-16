@@ -260,6 +260,7 @@ const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(t.js) };
 
 <script>
   import { classifyEmailLight, EMAIL_DOMAIN_MESSAGES } from '../data/free-email-domains.ts';
+  import { guardForm } from '../scripts/form-guard.ts';
 
   const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
@@ -305,6 +306,7 @@ const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(t.js) };
         if (t.classList?.contains('is-error')) t.classList.remove('is-error');
       });
 
+      const guard = guardForm(form);
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         clearError();
@@ -348,9 +350,10 @@ const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(t.js) };
           const res = await fetch('/api/subscribe', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ form: 'book-a-call', email, fields }),
+            body: JSON.stringify({ form: 'book-a-call', email, fields, ...(await guard.fields()) }),
           });
           const payload = await res.json().catch(() => ({}));
+          guard.reset();
           if (!res.ok || payload?.ok === false) {
             errEl.textContent = payload?.error || MSG.failed;
             button.disabled = false;

@@ -5,5 +5,12 @@
 // 'https://app.hubsell.com/signup' — every "Book a demo" button reads this
 // one constant, so that single edit restores the real flow everywhere.
 export const SIGNUP_URL = '/book-a-call';
+
+// Cloudflare Turnstile site key (public by design). Empty string = Turnstile
+// off; forms fall back to honeypot + fill-time checks only. Paste the site key
+// from the Cloudflare dashboard (Turnstile widget) to switch it on, and set
+// TURNSTILE_SECRET_KEY in the Pages env for server verification.
+// Guide: docs/BOT-PROTECTION.md
+export const TURNSTILE_SITE_KEY = '';
 export const LOGIN_URL = 'https://app.hubsell.com/';
 export const DEMO_URL = '/book-a-call';

@@ -114,6 +114,7 @@ const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(m) };
 
 <script>
   import { classifyEmailLight, EMAIL_DOMAIN_MESSAGES } from '../data/free-email-domains.ts';
+  import { guardForm } from '../scripts/form-guard.ts';
 
   const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
@@ -164,6 +165,7 @@ const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(m) };
         if (e.target === dialog) dialog.close();
       });
 
+      const guard = guardForm(form);
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         errEl.textContent = '';
@@ -181,10 +183,11 @@ const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(m) };
           const res = await fetch('/api/subscribe', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ form: 'sdr-partial', email, fields: { page: location.pathname } }),
+            body: JSON.stringify({ form: 'sdr-partial', email, fields: { page: location.pathname }, ...(await guard.fields()) }),
           });
           if (res.status === 422) {
             // The server-side email gate said no; surface it and stop.
+            guard.reset();
             const payload = await res.json().catch(() => ({}));
             button.disabled = false;
             button.textContent = label;

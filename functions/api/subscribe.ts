@@ -3,6 +3,7 @@
 import { classifyEmail, EMAIL_DOMAIN_MESSAGES } from '../../src/data/free-email-domains';
 
 interface Env {
+  TURNSTILE_SECRET_KEY?: string;  // Turnstile server verification; unset = Turnstile off
   PLUNK_PUBLIC_KEY?: string; // pk_ — records form events via /v1/track
   PLUNK_SECRET_KEY?: string; // sk_ — sends the internal alert email via /v1/send
   PLUNK_API_BASE?: string;
@@ -67,6 +68,9 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env, waitUnti
   let company = '';
   let message = '';
   let extraFields: Record<string, string> = {};
+  let guardWebsite = '';
+  let guardHpt = 0;
+  let guardToken = '';
   try {
     const ct = request.headers.get('content-type') || '';
     if (ct.includes('application/json')) {
@@ -77,6 +81,9 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env, waitUnti
       company = clip(body.company, 160);
       message = clip(body.message, 2000);
       extraFields = sanitizeFields(body.fields);
+      guardWebsite = clip(body.website, 200);
+      guardHpt = Number(body.hpt) || 0;
+      guardToken = clip(body.turnstileToken, 3000);
     } else {
       const data = await request.formData();
       email = clip(data.get('email'), 200);
@@ -87,6 +94,40 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env, waitUnti
     }
   } catch {
     return json({ ok: false, error: 'Invalid request body.' }, 400);
+  }
+
+  // ---- Bot guard (see src/scripts/form-guard.ts and docs/BOT-PROTECTION.md) ----
+  // 1) Honeypot filled: a bot. Pretend success so it learns nothing; send nothing.
+  if (guardWebsite) {
+    return json({ ok: true });
+  }
+  // 2) Submitted faster than a human can type (only when the client stamped it).
+  if (guardHpt > 0 && Date.now() - guardHpt < 2500) {
+    return json({ ok: true });
+  }
+  // 3) Turnstile: authoritative once TURNSTILE_SECRET_KEY is configured.
+  //    Verification-service outage fails open (a lost lead costs more than a bot).
+  if (env.TURNSTILE_SECRET_KEY) {
+    if (!guardToken) {
+      return json({ ok: false, error: 'Verification missing. Please refresh the page and try again.' }, 403);
+    }
+    try {
+      const vr = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          secret: env.TURNSTILE_SECRET_KEY,
+          response: guardToken,
+          remoteip: request.headers.get('CF-Connecting-IP') || undefined,
+        }),
+      });
+      const vd = (await vr.json().catch(() => ({}))) as { success?: boolean };
+      if (!vd.success) {
+        return json({ ok: false, error: 'Verification failed. Please refresh the page and try again.' }, 403);
+      }
+    } catch {
+      // siteverify unreachable: fail open
+    }
   }
 
   if (!EMAIL_RE.test(email)) {
