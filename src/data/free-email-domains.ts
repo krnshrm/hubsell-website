@@ -7,9 +7,61 @@
 
 import { BLOCKED_DOMAINS } from './blocked-domains';
 
-// Competitor domains we explicitly restrict (handoff blacklist).
+// Competitor domains we explicitly restrict on the forms (exact + subdomains).
+// Grouped by category; one per line so pruning and adding stays a one-line diff.
 // Ad-hoc blocks (throwaway domains etc.) live in blocked-domains.ts.
-export const COMPETITOR_DOMAINS: readonly string[] = ["lemlist.com","salesforge.io","apollo.io"];
+export const COMPETITOR_DOMAINS: readonly string[] = [
+  // B2B data providers
+  'apollo.io',
+  'zoominfo.com',
+  'cognism.com',
+  'lusha.com',
+  'seamless.ai',
+  'uplead.com',
+  'rocketreach.co',
+  'leadiq.com',
+  'kaspr.io',
+  'lead411.com',
+  'hunter.io',
+  'snov.io',
+  'wiza.co',
+  'dropcontact.com',
+  'findymail.com',
+  'prospeo.io',
+  'clearbit.com',
+  'dealfront.com',
+  // Sales engagement / cold email
+  'outreach.io',
+  'salesloft.com',
+  'reply.io',
+  'klenty.com',
+  'yesware.com',
+  'mixmax.com',
+  'mailshake.com',
+  'woodpecker.co',
+  'persistiq.com',
+  'overloop.com',
+  'lemlist.com',
+  'instantly.ai',
+  'smartlead.ai',
+  'amplemarket.com',
+  'salesforge.io',
+  // LinkedIn automation
+  'expandi.io',
+  'waalaxy.com',
+  'lagrowthmachine.com',
+  'phantombuster.com',
+  'dux-soup.com',
+  'meetalfred.com',
+  'linkedhelper.com',
+  // AI SDR
+  '11x.ai',
+  'artisan.co',
+  'aisdr.com',
+  'regie.ai',
+  // GTM data orchestration
+  'clay.com',
+];
 
 // Messages shown for each rejection reason. Single source of truth for client + server.
 export const EMAIL_DOMAIN_MESSAGES = {
