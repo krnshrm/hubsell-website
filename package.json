@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "assets:scan": "node scripts/migrate-assets.mjs --dry-run",
     "assets:sync": "node scripts/migrate-assets.mjs",
-    "assets:rewrite": "node scripts/migrate-assets.mjs --rewrite"
+    "assets:rewrite": "node scripts/migrate-assets.mjs --rewrite",
+    "block": "node scripts/block-domain.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

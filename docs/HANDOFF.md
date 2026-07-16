@@ -55,6 +55,7 @@ A new chat needs: this file, `docs/SITEMAP.md`, `docs/hubsell-style-guide.html`,
 - `astro.config.mjs` has `site: 'https://www.hubsell.com'`. URL paths match the old site exactly. Bundled GSAP plus self-hosted Lenis (no CDN). Reduced motion respected everywhere.
 - App at `app.hubsell.com` (login at `/`, signup at `/signup`). The signup page is NOT live yet, so `SIGNUP_URL` in `src/data/site.ts` is `/book-a-call` (revert when signup ships; one line restores every button).
 - CRM names in copy: only Salesforce, HubSpot, Pipedrive (Freshworks and ActiveCampaign were dropped site-wide).
+- Blocking a throwaway or spam email domain on the forms is self-service: `npm run block -- baddomain.com`, then `npm run build`, commit, push. The list lives in `src/data/blocked-domains.ts` (also editable by hand, one domain per line); both the client check and the server gate read it, subdomains included. Competitor blocks stay in `COMPETITOR_DOMAINS` in `free-email-domains.ts`.
 - Star ratings in search: `aggregateRating` uses real, verifiable numbers only (currently 4.8 from 35). Do not invent counts.
 
 ## Internationalisation (i18n) - en base, de and nl live

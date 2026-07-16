@@ -5,7 +5,10 @@
 // the small COMMON set is used client-side purely for instant UX feedback.
 // Regenerate by re-running the build-time fetch if the upstream list changes.
 
+import { BLOCKED_DOMAINS } from './blocked-domains';
+
 // Competitor domains we explicitly restrict (handoff blacklist).
+// Ad-hoc blocks (throwaway domains etc.) live in blocked-domains.ts.
 export const COMPETITOR_DOMAINS: readonly string[] = ["lemlist.com","salesforge.io","apollo.io"];
 
 // Messages shown for each rejection reason. Single source of truth for client + server.
@@ -23,9 +26,10 @@ export function emailDomain(email: string): string | null {
   return at[1];
 }
 
-/** Returns whether a domain matches a competitor (exact or sub-domain). */
-function isCompetitor(domain: string): boolean {
-  return COMPETITOR_DOMAINS.some((b) => domain === b || domain.endsWith("." + b));
+/** Returns whether a domain is restricted: competitor or manual block (exact or sub-domain). */
+function isBlockedDomain(domain: string): boolean {
+  const match = (b: string) => domain === b || domain.endsWith("." + b);
+  return COMPETITOR_DOMAINS.some(match) || BLOCKED_DOMAINS.some(match);
 }
 
 /** Small curated list for instant client-side feedback (UX only). */
@@ -41,7 +45,7 @@ export const FREE_EMAIL_DOMAINS: ReadonlySet<string> = new Set(["1033edge.com","
 export function classifyEmail(email: string, freeSet: ReadonlySet<string> = FREE_EMAIL_DOMAINS): EmailDomainVerdict {
   const domain = emailDomain(email);
   if (!domain) return "ok"; // shape errors are handled by the email regex elsewhere
-  if (isCompetitor(domain)) return "blocked";
+  if (isBlockedDomain(domain)) return "blocked";
   if (freeSet.has(domain)) return "free";
   return "ok";
 }
@@ -54,7 +58,7 @@ export function classifyEmail(email: string, freeSet: ReadonlySet<string> = FREE
 export function classifyEmailLight(email: string): EmailDomainVerdict {
   const domain = emailDomain(email);
   if (!domain) return "ok";
-  if (isCompetitor(domain)) return "blocked";
+  if (isBlockedDomain(domain)) return "blocked";
   if (COMMON_FREE_DOMAINS.has(domain)) return "free";
   return "ok";
 }
