@@ -10,7 +10,8 @@
     "assets:scan": "node scripts/migrate-assets.mjs --dry-run",
     "assets:sync": "node scripts/migrate-assets.mjs",
     "assets:rewrite": "node scripts/migrate-assets.mjs --rewrite",
-    "block": "node scripts/block-domain.mjs"
+    "block": "node scripts/block-domain.mjs",
+    "block:competitor": "node scripts/block-domain.mjs --competitor"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

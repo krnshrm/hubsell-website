@@ -14,7 +14,8 @@
 //   git add . && git commit -m "Block domain: baddomain.com" && git push
 //
 // Competitor domains live separately in free-email-domains.ts
-// (COMPETITOR_DOMAINS); this file is for ad-hoc blocks.
+// (COMPETITOR_DOMAINS, npm run block:competitor); this file is for ad-hoc
+// blocks. Full guide: docs/BLOCKING-DOMAINS.md
 export const BLOCKED_DOMAINS: readonly string[] = [
   'virgilian.com',
 ];
