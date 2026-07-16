@@ -11,6 +11,6 @@ export const SIGNUP_URL = '/book-a-call';
 // from the Cloudflare dashboard (Turnstile widget) to switch it on, and set
 // TURNSTILE_SECRET_KEY in the Pages env for server verification.
 // Guide: docs/BOT-PROTECTION.md
-export const TURNSTILE_SITE_KEY = '';
+export const TURNSTILE_SITE_KEY = '0x4AAAAAACIAXouVNUv0_MXY';
 export const LOGIN_URL = 'https://app.hubsell.com/';
 export const DEMO_URL = '/book-a-call';
