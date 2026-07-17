@@ -2,6 +2,25 @@
 
 How the site keeps bots out of the forms and off the pages, and the Cloudflare dashboard settings that go with the code. Companion to `docs/BLOCKING-DOMAINS.md` (which handles unwanted email domains from humans).
 
+## Status (2026-07-16)
+
+| Layer | State |
+| --- | --- |
+| Honeypot + fill-time on all forms | Live, no setup needed |
+| Turnstile widget + `TURNSTILE_SECRET_KEY` env | Done in the dashboard by the founder |
+| Turnstile `TURNSTILE_SITE_KEY` in `src/data/site.ts` | Set and live (commit `0233e12`). If it is ever emptied while the secret env is set, every submission fails with "Verification missing": see the check below. |
+| Bot Fight Mode | On |
+| SEO-tool crawler WAF rule | Not done yet, instructions below |
+| AI crawlers (Search/Agent/Training) | Allowed on purpose, do not change |
+
+If forms ever start rejecting every submission, check the site key first:
+
+```bash
+grep TURNSTILE_SITE_KEY src/data/site.ts
+```
+
+An empty string with the secret env set means the server demands a token the page never issues. Paste the key back, `npm run build`, commit, push.
+
 ## The stance, in one paragraph
 
 Humans and the crawlers that help hubsell get found are welcome: search engines (Googlebot, Bingbot) and AI crawlers from major companies (Search, Agent, and Training behaviors alike), because the AEO strategy (llms.txt, the AI information page, the glossary) exists so that AI systems know and cite hubsell. Everything else automated gets challenged or blocked: form spam bots, scrapers, and SEO-tool crawlers that mostly feed competitor research.
