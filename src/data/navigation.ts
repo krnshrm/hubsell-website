@@ -32,6 +32,7 @@ export const menuGroups: NavGroup[] = [
     key: 'nav.heading.learn',
     links: [
       { label: 'Insights', key: 'nav.insights', href: '/insights' },
+      { label: 'Knowledge center', href: '/knowledge' },
       { label: 'Customer stories', key: 'nav.customerstories', href: '/customerstories' },
       { label: 'Comparisons', key: 'nav.comparisons', href: '/comparisons' },
       { label: 'Glossary', key: 'nav.glossary', href: '/glossary' },
