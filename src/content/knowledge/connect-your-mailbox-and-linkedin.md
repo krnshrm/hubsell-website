@@ -9,6 +9,14 @@ seriesTotal: 6
 estMinutes: 4
 stepCount: 13
 walkthroughUrl: "https://scribehow.com/o/_VgKCJwkRbGYfCk3CnY0eA/viewer/How_to_connect_your_mailbox_and_LinkedIn_to_hubsell__YzKNLM-nQkiMA4MnJnAqdA"
+updated: 2026-07-18
+faqs:
+  - q: "Which mailboxes does hubsell support?"
+    a: "Google and Microsoft. The walkthrough shows Google. Microsoft follows the same path from the Mailbox tab, using your Microsoft sign-in."
+  - q: "How do I connect LinkedIn?"
+    a: "Through the hubsell Chrome extension. Install it from the LinkedIn tab in User Settings, then click Connect to LinkedIn in the plugin."
+  - q: "LinkedIn shows as disconnected or a search paused. What do I do?"
+    a: "Your LinkedIn session has gone out of sync. Open the hubsell plugin, disconnect, and connect to LinkedIn again to restore it."
 next:
   label: "Source data into hubsell"
   href: "/knowledge/sourcing-data-into-hubsell"

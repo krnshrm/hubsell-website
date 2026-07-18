@@ -49,13 +49,19 @@ const crumbs = breadcrumbSchema([
         <p class="subheading">Step-by-step help for setting up your account, connecting your channels, sourcing data, and launching your first campaign.</p>
       </div>
 
+      <div class="kbhub__search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input type="search" id="kbSearch" placeholder="Search the knowledge center" aria-label="Search the knowledge center" autocomplete="off" />
+      </div>
+      <p class="kbhub__empty" id="kbEmpty" hidden>No articles match that search yet.</p>
+
       <div class="kbhub">
         {groups.map((group) => (
           <section class="kbhub__group" aria-label={group.category}>
             <h2 class="kbhub__cat">{group.category}</h2>
             <ul class="kbhub__list">
               {group.articles.map((a) => (
-                <li>
+                <li class="kbhub__item" data-search={`${a.data.title} ${a.data.description ?? ''} ${a.data.category}`.toLowerCase()}>
                   <a class="kbhub__card" href={`/knowledge/${a.id}`}>
                     <div class="kbhub__txt">
                       <p class="kbhub__t">{a.data.title}</p>
@@ -78,11 +84,44 @@ const crumbs = breadcrumbSchema([
   </section>
 </BaseLayout>
 
+<script>
+  // Client-side filter for the knowledge hub. In-memory only, no storage.
+  const input = document.getElementById('kbSearch');
+  const empty = document.getElementById('kbEmpty');
+  if (input) {
+    const items = Array.from(document.querySelectorAll('.kbhub__item'));
+    const groups = Array.from(document.querySelectorAll('.kbhub__group'));
+    input.addEventListener('input', () => {
+      const q = input.value.trim().toLowerCase();
+      items.forEach((li) => {
+        const hit = !q || (li.getAttribute('data-search') || '').includes(q);
+        li.hidden = !hit;
+      });
+      let anyVisible = false;
+      groups.forEach((g) => {
+        const visible = g.querySelectorAll('.kbhub__item:not([hidden])').length > 0;
+        g.hidden = !visible;
+        if (visible) anyVisible = true;
+      });
+      empty.hidden = anyVisible;
+    });
+  }
+</script>
+
 <style is:global>
   :root { --kb-card:#FFFFFF; }
   [data-theme="dark"] { --kb-card:#211B15; }
 
-  .kbhub{display:flex;flex-direction:column;gap:44px;margin-top:40px}
+  .kbhub{display:flex;flex-direction:column;gap:44px;margin-top:28px}
+
+  .kbhub__search{display:flex;align-items:center;gap:10px;margin-top:32px;background:var(--kb-card);border:1px solid var(--border);border-radius:var(--radius);padding:0 14px;max-width:440px}
+  .kbhub__search:focus-within{border-color:var(--accent-on);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent-on) 20%,transparent)}
+  .kbhub__search svg{width:17px;height:17px;color:var(--text-3);flex:none}
+  .kbhub__search input{flex:1;border:0;background:transparent;color:var(--text);font-family:var(--font-body);font-size:.95rem;padding:12px 0;outline:none}
+  .kbhub__search input::placeholder{color:var(--text-3)}
+  .kbhub__empty{margin:20px 0 0;color:var(--text-2);font-size:15px}
+  .kbhub__group[hidden]{display:none}
+  .kbhub__item[hidden]{display:none}
   .kbhub__cat{font-family:var(--font-head);font-weight:600;font-size:1.15rem;color:var(--text);margin:0 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
   .kbhub__list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
   .kbhub__card{display:flex;align-items:center;gap:14px;text-decoration:none;background:var(--kb-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 22px;height:100%;transition:border-color .15s,transform .05s}

@@ -9,11 +9,14 @@ seriesTotal: 6
 estMinutes: 2
 stepCount: 8
 walkthroughUrl: "https://scribehow.com/o/_VgKCJwkRbGYfCk3CnY0eA/viewer/Set_up_your_personal_and_company_account__R63EJG4JQvuPLON0B13mAA"
+updated: 2026-07-18
 next:
   label: "Connect your mailbox and LinkedIn"
   href: "/knowledge/connect-your-mailbox-and-linkedin"
 draft: false
 ---
+<p>Your account details identify you across hubsell and show up in parts of your outreach, so filling them in now keeps your later campaigns looking right.</p>
+
 <div class="kb-callout">
   <p>Complete both profiles before you move on. The next articles in this series cover connecting your mailbox and sourcing data, and they assume your account details are already saved.</p>
 </div>

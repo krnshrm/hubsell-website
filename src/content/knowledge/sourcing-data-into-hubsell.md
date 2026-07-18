@@ -8,6 +8,14 @@ seriesStep: 3
 seriesTotal: 6
 estMinutes: 6
 walkthroughUrl: "https://scribehow.com/o/_VgKCJwkRbGYfCk3CnY0eA/viewer/Sourcing_data_into_hubsell__CXbz6BAISl-1cUrP5yxfCw"
+updated: 2026-07-18
+faqs:
+  - q: "How long does deduplication take?"
+    a: "It runs in the background and takes roughly 20 to 30 minutes for a few hundred contacts, and longer for bigger lists. Wait until the status reads Completed."
+  - q: "What does my CSV file need?"
+    a: "Every column needs a header, and each row needs either a LinkedIn URL or an email address. Save the file as CSV UTF-8 if any names contain accented characters."
+  - q: "Why do I have fewer contacts than my file had?"
+    a: "This is normal. hubsell skips duplicates that already exist in your account and rows with a broken LinkedIn URL or a missing required field."
 draft: false
 ---
 <div class="kb-callout">
@@ -18,7 +26,15 @@ draft: false
   <p>hubsell removes contacts that already exist in your account, so always add a <b>tag</b> when you import. The tag is how you find each new batch afterwards.</p>
 </div>
 
-<h2 class="kb-sub">Source from LinkedIn or Sales Navigator</h2>
+<nav class="kb-toc" aria-label="On this page">
+  <p>On this page</p>
+  <ul>
+    <li><a href="#linkedin">LinkedIn or Sales Navigator</a></li>
+    <li><a href="#csv">CSV file</a></li>
+  </ul>
+</nav>
+
+<h2 class="kb-sub" id="linkedin">Source from LinkedIn or Sales Navigator</h2>
 <ol class="kb-steps">
   <li>
     <p>Go to <span class="kb-kbd">Lists</span>, click <span class="kb-kbd">Add data</span>, and choose <span class="kb-kbd">LinkedIn</span>.</p>
@@ -31,7 +47,7 @@ draft: false
   <li><p>Choose the user these contacts should be assigned to.</p></li>
   <li><p>Copy the LinkedIn or Sales Navigator search URL that holds your target prospects, and paste it into the search URL field.</p></li>
   <li>
-    <p>Select the enrichment level you want.</p>
+    <p>Select the <a href="/knowledge/data-enrichment">enrichment</a> level you want.</p>
     <figure class="kb-figure" data-ph="Screenshot: choosing the enrichment level">
       <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-16/f060bcc6-2384-426c-8920-b403b31bacff/sps-redacted-7de4ee954f6a459c834afeff022ea26b_a734a9d6458841afb8f9cdcd06215195_text_export.jpeg" alt="Selecting the enrichment level for the import" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
       <figcaption>Choosing the enrichment level</figcaption>
@@ -60,7 +76,7 @@ draft: false
   <p>Deduplication runs in the background and takes roughly <b>20 to 30 minutes for a few hundred contacts</b>, longer for bigger lists. Check back until the status reads <b>Completed</b>. For Sales Navigator, email enrichment usually finishes by the next day.</p>
 </div>
 
-<h2 class="kb-sub">Import from a CSV file</h2>
+<h2 class="kb-sub" id="csv">Import from a CSV file</h2>
 <ol class="kb-steps" start="11">
   <li>
     <p>Go to <span class="kb-kbd">Lists</span>, click <span class="kb-kbd">Add data</span>, and choose <span class="kb-kbd">CSV</span>.</p>

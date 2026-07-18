@@ -12,10 +12,15 @@ export async function getStaticPaths() {
 const { article } = Astro.props;
 const {
   title, description, category, series, seriesStep, seriesTotal,
-  estMinutes, stepCount, walkthroughUrl, next,
+  estMinutes, stepCount, walkthroughUrl, updated, faqs, next,
 } = article.data;
 
 const articleUrl = `${SITE_URL}/knowledge/${article.id}`;
+
+// A readable "Last updated" string, e.g. "18 July 2026".
+const updatedLabel = updated
+  ? updated.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
+  : null;
 
 // Article + breadcrumb structured data (rich results + AI answers).
 const articleSchema = {
@@ -24,6 +29,7 @@ const articleSchema = {
   headline: title,
   description,
   articleSection: category,
+  ...(updated ? { dateModified: updated.toISOString().slice(0, 10) } : {}),
   author: { '@type': 'Organization', name: 'hubsell', url: SITE_URL },
   publisher: {
     '@type': 'Organization',
@@ -32,6 +38,20 @@ const articleSchema = {
   },
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
 };
+// FAQPage structured data, emitted only when the article carries FAQs. The same
+// questions are rendered visibly below, so the markup matches the page (required
+// for FAQ rich results).
+const faqSchema = faqs.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    }
+  : null;
 const crumbs = breadcrumbSchema([
   { name: 'Home', url: '/' },
   { name: 'Knowledge', url: '/knowledge' },
@@ -47,6 +67,7 @@ const segs = series && seriesTotal
 <BaseLayout title={`${title} | hubsell Knowledge center`} description={description}>
   <JsonLd schema={articleSchema} />
   <JsonLd schema={crumbs} />
+  {faqSchema && <JsonLd schema={faqSchema} />}
 
   <section class="sec sec--paper">
     <article class="kb-wrap">
@@ -70,6 +91,7 @@ const segs = series && seriesTotal
         {series && seriesStep && seriesTotal && (
           <><span class="mid">·</span><span class="pip">{series} · Step {seriesStep} of {seriesTotal}</span></>
         )}
+        {updatedLabel && <><span class="mid">·</span><span class="pip">Last updated {updatedLabel}</span></>}
       </div>
 
       {segs.length > 0 && (
@@ -98,11 +120,17 @@ const segs = series && seriesTotal
         </div>
       )}
 
-      <div class="kb-helpful">
-        <span>Was this helpful?</span>
-        <button class="kb-hbtn" type="button">Yes</button>
-        <button class="kb-hbtn" type="button">No</button>
-      </div>
+      {faqs.length > 0 && (
+        <section class="kb-faq" aria-label="Common questions">
+          <h2 class="kb-faq__h">Common questions</h2>
+          {faqs.map((f) => (
+            <details class="kb-faq__item">
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
+        </section>
+      )}
 
       {next && (
         <div class="kb-next">
@@ -181,6 +209,9 @@ const segs = series && seriesTotal
   .kb-callout__h{font-family:var(--font-head);font-weight:600;font-size:.95rem;color:var(--text);margin:0 0 8px}
 
   .kb-sub{font-family:var(--font-head);font-weight:600;font-size:1.15rem;color:var(--text);margin:44px 0 6px}
+  .kb-body>p{font-size:1rem;line-height:1.65;color:var(--text);margin:14px 0 0}
+  .kb-body>p a,.kb-callout a,.kb-steps a{color:var(--accent-on);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .15s}
+  .kb-body>p a:hover,.kb-callout a:hover,.kb-steps a:hover{border-bottom-color:var(--accent-on)}
 
   .kb-steps{list-style:none;counter-reset:step;margin:18px 0 0;padding:0}
   .kb-steps>li{counter-increment:step;position:relative;padding:0 0 26px 52px;margin:0}
@@ -217,9 +248,20 @@ const segs = series && seriesTotal
   .kb-button{font-family:var(--font-body);font-weight:500;font-size:.9375rem;line-height:1;cursor:pointer;display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:var(--radius);border:1px solid transparent;background:var(--accent-on);color:#FBF4EA;text-decoration:none;transition:filter .15s}
   .kb-button:hover{filter:brightness(.93)}
 
-  .kb-helpful{display:flex;flex-wrap:wrap;align-items:center;gap:12px;border-top:1px solid var(--border);margin-top:44px;padding-top:24px;font-size:14px;color:var(--text-2)}
-  .kb-hbtn{font-family:var(--font-body);font-weight:500;font-size:14px;cursor:pointer;background:transparent;color:var(--text);border:1px solid var(--border);border-radius:999px;padding:8px 16px;transition:border-color .15s,color .15s}
-  .kb-hbtn:hover{border-color:var(--accent-on);color:var(--accent-on)}
+  .kb-faq{border-top:1px solid var(--border);margin-top:44px;padding-top:28px}
+  .kb-faq__h{font-family:var(--font-head);font-weight:600;font-size:1.15rem;color:var(--text);margin:0 0 14px}
+  .kb-faq__item{border:1px solid var(--border);border-radius:var(--radius);background:var(--kb-card);margin:0 0 10px;overflow:hidden}
+  .kb-faq__item summary{cursor:pointer;list-style:none;padding:15px 18px;font-family:var(--font-head);font-weight:500;font-size:.98rem;color:var(--text);display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .kb-faq__item summary::-webkit-details-marker{display:none}
+  .kb-faq__item summary::after{content:"+";font-family:var(--font-head);font-weight:500;font-size:1.2rem;color:var(--accent-on);line-height:1}
+  .kb-faq__item[open] summary::after{content:"\2013"}
+  .kb-faq__item p{margin:0;padding:0 18px 16px;font-size:15px;line-height:1.6;color:var(--text-2)}
+
+  .kb-toc{background:var(--kb-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 20px;margin:26px 0}
+  .kb-toc p{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin:0 0 8px}
+  .kb-toc ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 20px}
+  .kb-toc a{font-size:14px;color:var(--accent-on);text-decoration:none}
+  .kb-toc a:hover{text-decoration:underline}
 
   .kb-next{margin-top:22px}
   .kb-next a{display:flex;align-items:center;gap:14px;text-decoration:none;background:var(--kb-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px 20px;transition:border-color .15s}
