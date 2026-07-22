@@ -13,6 +13,7 @@ const { article } = Astro.props;
 const {
   title, description, category, series, seriesStep, seriesTotal,
   estMinutes, stepCount, walkthroughUrl, updated, faqs, next,
+  appliesTo, prerequisites,
 } = article.data;
 
 const articleUrl = `${SITE_URL}/knowledge/${article.id}`;
@@ -102,6 +103,13 @@ const segs = series && seriesTotal
             ))}
           </span>
         </div>
+      )}
+
+      {(appliesTo || prerequisites) && (
+        <dl class="kb-facts">
+          {appliesTo && (<><dt>Applies to</dt><dd>{appliesTo}</dd></>)}
+          {prerequisites && (<><dt>Before you start</dt><dd>{prerequisites}</dd></>)}
+        </dl>
       )}
 
       <div class="kb-body" set:html={article.body}></div>
@@ -197,6 +205,11 @@ const segs = series && seriesTotal
   .kb-series__seg{height:5px;border-radius:999px;background:var(--border);flex:1}
   .kb-series__seg.is-done{background:var(--accent-on)}
   .kb-series__seg.is-current{background:var(--accent-on);opacity:.5}
+
+  .kb-facts{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin:26px 0 0;padding:16px 20px;background:var(--kb-card);border:1px solid var(--border);border-radius:var(--radius-lg)}
+  .kb-facts dt{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin:0;padding-top:2px;white-space:nowrap}
+  .kb-facts dd{margin:0;font-size:15px;line-height:1.55;color:var(--text-2)}
+  @media (max-width:520px){.kb-facts{grid-template-columns:1fr;gap:2px 0}.kb-facts dd{margin-bottom:10px}}
 
   .kb-callout{background:var(--kb-card);border:1px solid var(--border);border-left:3px solid var(--positive);border-radius:var(--radius-lg);padding:18px 22px;margin:30px 0}
   .kb-callout--tip{border-left-color:var(--accent-on)}

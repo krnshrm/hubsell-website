@@ -7,12 +7,16 @@ Live on `main`.
 ## What is live
 
 - `/knowledge` hub, grouped by category, with a client-side search box.
-- Four articles:
-  - Getting started series "First login to first campaign" (6 planned, 3 live):
+- Five articles:
+  - Getting started series "First login to first campaign" (5 steps, 4 live):
     1. `set-up-your-personal-and-company-account`
     2. `connect-your-mailbox-and-linkedin`
     3. `sourcing-data-into-hubsell`
+    4. `connect-your-crm`
   - Data: `data-enrichment` (a short conceptual stub, see open items).
+
+All four series articles were refreshed from Confluence on 2026-07-22 (fresh
+Scribe screenshots, fuller step lists, corrected timings).
 - Nav: a live "Knowledge center" link in the Learn group under Resources
   (`src/data/navigation.ts`).
 
@@ -23,6 +27,17 @@ Live on `main`.
   raw HTML, rendered with `set:html` (same approach as insights).
 - Hub page: `src/pages/knowledge/index.astro`.
 - Article template: `src/pages/knowledge/[slug].astro`.
+
+### Two gotchas that have each cost us a broken push
+
+Content lives in `src/content/knowledge/`, NOT `content/knowledge/` at the repo
+root. A commit on 2026-07-22 wrote four articles to the root path; Astro never
+read them, the build passed, and the live site silently kept serving the old
+articles. If an update seems to have no effect, check the path first.
+
+Article bodies are raw HTML using the `kb-*` classes below, rendered with
+`set:html`. Plain markdown in the body does NOT render; it shows as literal `##`
+and `1.` text.
 
 ### Gotcha that cost us a broken push
 
@@ -42,6 +57,8 @@ The templates use the Content Layer API: entries are keyed by `entry.id` (not
 - `order` (sort within a category on the hub)
 - `series`, `seriesStep`, `seriesTotal` (onboarding chain + progress strip)
 - `estMinutes`, `stepCount` (meta row)
+- `appliesTo`, `prerequisites` (the facts block above the body, from the
+  Confluence article template)
 - `walkthroughUrl` (Scribe viewer URL, click-to-load embed)
 - `updated` (date, shown as "Last updated", also emitted as `dateModified`)
 - `faqs` (array of `{ q, a }`, rendered as a visible accordion and matching
@@ -98,8 +115,15 @@ on the page until then.
 
 ## Open items
 
-- Series step 4 ("Create flow, add notes and content") is still a draft in
-  Confluence. Once it ships, set the `next` card on `sourcing-data-into-hubsell`.
+- Series step 5 ("Create flow, add notes and content") is still a draft in
+  Confluence and cannot be read through the connector until it is published.
+  Once it ships, set the `next` card on `connect-your-crm`.
+- `connect-your-crm` is tagged Integrations in Confluence but is filed in the
+  onboarding folder and ships as step 4 of the series, so it carries the
+  Getting started category. Revisit when more Integrations articles land.
+- Confluence lists no troubleshooting for `set-up-your-personal-and-company-account`
+  (point 3 of the raw input checklist is still open), so that article has no
+  troubleshooting block.
 - `data-enrichment` is conceptual only. It needs the team's hubsell-specific
   enrichment options and any credit cost. There is a TODO comment in the file;
   keep it conceptual until those facts are confirmed.

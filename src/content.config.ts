@@ -44,6 +44,8 @@ const knowledge = defineCollection({
     seriesTotal: z.number().optional(),         // total steps in the series
     estMinutes: z.number().optional(),          // time estimate shown in the meta row
     stepCount: z.number().optional(),           // number of steps, shown in the meta row
+    appliesTo: z.string().optional(),           // e.g. "All plans" (from the Confluence template)
+    prerequisites: z.string().optional(),       // what the reader needs before starting
     walkthroughUrl: z.string().optional(),      // Scribe viewer URL: click-to-load embed
     updated: z.coerce.date().optional(),        // "Last updated" date shown in the meta row
     faqs: z.array(z.object({ q: z.string(), a: z.string() })).default([]), // visible FAQ + FAQPage JSON-LD
