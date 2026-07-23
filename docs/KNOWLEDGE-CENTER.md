@@ -7,12 +7,13 @@ Live on `main`.
 ## What is live
 
 - `/knowledge` hub, grouped by category, with a client-side search box.
-- Five articles:
-  - Getting started series "First login to first campaign" (5 steps, 4 live):
+- Six articles:
+  - Getting started series "First login to first campaign" (complete, 5 of 5 live):
     1. `set-up-your-personal-and-company-account`
     2. `connect-your-mailbox-and-linkedin`
     3. `sourcing-data-into-hubsell`
     4. `connect-your-crm`
+    5. `create-a-flow`
   - Data: `data-enrichment` (a short conceptual stub, see open items).
 
 All four series articles were refreshed from Confluence on 2026-07-22 (fresh
@@ -115,12 +116,14 @@ on the page until then.
 
 ## Open items
 
-- Series step 5 ("Create flow, add notes and content") is still a draft in
-  Confluence and cannot be read through the connector until it is published.
-  Once it ships, set the `next` card on `connect-your-crm`.
 - `connect-your-crm` is tagged Integrations in Confluence but is filed in the
   onboarding folder and ships as step 4 of the series, so it carries the
   Getting started category. Revisit when more Integrations articles land.
+- 2026-07-23: Confluence pages were cleaned to raw-input-only and set to "Ready
+  to publish". Two facts were removed and the site was trimmed to match: the
+  Sales Navigator next-day email-enrichment line and the CSV flow-assignment
+  workaround (sourcing article), and both troubleshooting items on the connect
+  article (the Paused fix lives in sourcing only now).
 - Confluence lists no troubleshooting for `set-up-your-personal-and-company-account`
   (point 3 of the raw input checklist is still open), so that article has no
   troubleshooting block.

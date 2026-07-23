@@ -11,7 +11,7 @@ stepCount: 4
 appliesTo: "All plans"
 prerequisites: "A CRM account with permission to authorise a new integration."
 walkthroughUrl: "https://scribehow.com/o/_VgKCJwkRbGYfCk3CnY0eA/viewer/How_To_Connect_Your_CRM_Account_To_hubsell__0lj3A3LWTVWJqN7oDBYRXA"
-updated: 2026-07-22
+updated: 2026-07-23
 faqs:
   - q: "Which CRMs does hubsell support?"
     a: "HubSpot, Salesforce and Pipedrive. Once connected, the sync runs in real time."
@@ -19,6 +19,9 @@ faqs:
     a: "No. Pushing contacts to your CRM is a manual action. Connecting the account does not send anything on its own, you choose when to push."
   - q: "The Integrations page still shows my CRM as not connected. What do I do?"
     a: "Refresh the page. The status only updates on reload."
+next:
+  label: "Create a flow"
+  href: "/knowledge/create-a-flow"
 draft: false
 ---
 <div class="kb-callout kb-callout--tip">
@@ -66,6 +69,5 @@ draft: false
   <p class="kb-callout__h">Troubleshooting</p>
   <ul>
     <li><b>Contacts are not appearing in your CRM.</b> Pushing contacts to the CRM is a manual action. Connecting the account does not push anything by itself, you have to trigger it.</li>
-    <li><b>The Integrations page still shows the CRM as not connected.</b> Refresh the page. The status only updates on reload.</li>
   </ul>
 </div>

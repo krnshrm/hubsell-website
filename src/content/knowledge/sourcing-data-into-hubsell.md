@@ -11,10 +11,10 @@ stepCount: 20
 appliesTo: "All plans"
 prerequisites: "For LinkedIn sourcing, LinkedIn connected through the hubsell plugin. For CSV sourcing, a file with column headers and either a LinkedIn URL or an email address in every row."
 walkthroughUrl: "https://scribehow.com/o/_VgKCJwkRbGYfCk3CnY0eA/viewer/Sourcing_data_into_hubsell__CXbz6BAISl-1cUrP5yxfCw"
-updated: 2026-07-22
+updated: 2026-07-23
 faqs:
   - q: "How long does deduplication take?"
-    a: "Background deduplication on a LinkedIn or Sales Navigator search takes 15 to 20 minutes depending on list size. CSV deduplication takes roughly 20 to 30 minutes per few hundred contacts. Sales Navigator email enrichment finishes by the following day."
+    a: "Background deduplication on a LinkedIn or Sales Navigator search takes 15 to 20 minutes depending on list size. CSV deduplication takes roughly 20 to 30 minutes per few hundred contacts."
   - q: "What does my CSV file need?"
     a: "Every column needs a header, and every row needs either a LinkedIn URL or an email address. If any names contain characters such as é, á or ó, save the file as CSV UTF-8."
   - q: "Why did fewer contacts arrive than there were rows in my file?"
@@ -186,7 +186,6 @@ draft: false
   <ul>
     <li>Background deduplication on a LinkedIn or Sales Navigator search takes <b>15 to 20 minutes</b>, depending on list size.</li>
     <li>CSV deduplication takes roughly <b>20 to 30 minutes</b> per few hundred contacts.</li>
-    <li>Sales Navigator email enrichment finishes <b>by the following day</b>.</li>
   </ul>
 </div>
 
@@ -197,7 +196,6 @@ draft: false
     <li><b>You cannot tell which contacts came from this import.</b> Tag every import. Without a tag, deduplication makes a batch hard to identify afterwards.</li>
     <li><b>The CSV import failed.</b> Check that every column has a header and that every row has a LinkedIn URL or an email address.</li>
     <li><b>Names show as garbled characters.</b> Excel can strip the encoding. Save the file as CSV UTF-8 and import again. If the contacts are already in, run LinkedIn enrichment to overwrite the corrupted names with the correct profile data.</li>
-    <li><b>Flow assignment fails on the CSV import screen.</b> Skip flow assignment during the import. Wait about 30 minutes, filter <b>Contacts</b> by list or tag plus <b>Status = New</b>, select all, then use <b>Add to flow</b>.</li>
     <li><b>A search is stuck on Paused.</b> The LinkedIn or Sales Navigator session has gone out of sync. Disconnect and reconnect LinkedIn from the hubsell plugin.</li>
     <li><b>Contacts entered a flow before you had checked them.</b> Suppress contacts during LinkedIn or Sales Navigator sourcing so poor fits are removed before they reach a flow.</li>
   </ul>

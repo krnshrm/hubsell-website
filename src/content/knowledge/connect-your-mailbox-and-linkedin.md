@@ -11,14 +11,14 @@ stepCount: 14
 appliesTo: "All plans"
 prerequisites: "A hubsell account you can log in to, a Google or Microsoft mailbox, and Google Chrome for the LinkedIn plugin."
 walkthroughUrl: "https://scribehow.com/o/_VgKCJwkRbGYfCk3CnY0eA/viewer/How_to_connect_your_mailbox_and_LinkedIn_to_hubsell__YzKNLM-nQkiMA4MnJnAqdA"
-updated: 2026-07-22
+updated: 2026-07-23
 faqs:
   - q: "Which mailboxes does hubsell support?"
     a: "Google and Microsoft. The steps below show the Google flow. Microsoft follows the same path, with the Microsoft sign in screen instead."
   - q: "How does hubsell connect to LinkedIn?"
     a: "Through the hubsell Chrome extension. You install it from the LinkedIn tab in User Settings, then click Connect to LinkedIn in the plugin."
   - q: "LinkedIn still shows as not connected. What do I do?"
-    a: "Refresh the hubsell page. The status only updates on reload. If a search later gets stuck on Paused, disconnect and reconnect LinkedIn from the hubsell plugin."
+    a: "Refresh the hubsell page. The status only updates on reload."
 next:
   label: "Source data into hubsell"
   href: "/knowledge/sourcing-data-into-hubsell"
@@ -151,11 +151,3 @@ draft: false
   <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-20/95ee807f-433e-4759-b889-c017ed8cfacc/user_cropped_screenshot_0b346ce76a2b4d0daca1b46d67791c85_text_export.jpeg" alt="The LinkedIn tab showing a connected status" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
   <figcaption>LinkedIn connected</figcaption>
 </figure>
-
-<div class="kb-callout kb-callout--warn">
-  <p class="kb-callout__h">Troubleshooting</p>
-  <ul>
-    <li><b>LinkedIn still shows as not connected</b> after you click Connect to LinkedIn. Refresh the hubsell page. The status only updates on reload.</li>
-    <li><b>A search later gets stuck on Paused.</b> This usually means the LinkedIn session has gone out of sync. Disconnect and reconnect LinkedIn from the hubsell plugin.</li>
-  </ul>
-</div>
