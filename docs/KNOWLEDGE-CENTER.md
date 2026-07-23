@@ -1,5 +1,23 @@
 # Knowledge center (`/knowledge`) - build and content pipeline
 
+## Status at last session (2026-07-23)
+
+- The 5-step onboarding series is COMPLETE and live: set-up, mailbox+LinkedIn,
+  sourcing, CRM, create-a-flow. Plus the `data-enrichment` stub. Build: 429 pages.
+- All five series pages in Confluence (HKB) are marked "Ready to publish" and were
+  cleaned to raw-input-only. The repo is now the source of truth for all six live
+  articles.
+- Housekeeping still open on the Confluence side (founder/team, Claude cannot set
+  labels): add the `published` label plus the live URL to each shipped page, and
+  sync the Content inventory page. The inventory is STALE: it still shows the
+  original 14-article plan with everything at Planned, while reality is the
+  restructured series above.
+- Pull hygiene, learned the hard way: pages get trimmed during publish-cleanup,
+  and my pulls can race those edits. When pulling from Confluence, always diff
+  the facts (timings, limits, troubleshooting items) against the live articles,
+  not just the steps. Ask the team to leave a one-line version message when they
+  remove a fact.
+
 The product help and onboarding section. English only, same fallback pattern as
 insights and glossary (de/nl are noindex redirect stubs, kept out of the sitemap).
 Live on `main`.
