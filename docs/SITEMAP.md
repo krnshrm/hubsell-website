@@ -5,11 +5,34 @@ have) and the **migration plan** (moving the Webflow site onto Astro). The migra
 is COMPLETE: as of 2026-06-30 the DNS cutover is done and www.hubsell.com serves the
 Astro site on Cloudflare Pages. Webflow is legacy (rollback only).
 
-Last updated: 2026-07-14 (statuses refreshed against the repo; the GitHub repo and its git log are the source of truth)
+Last updated: 2026-07-24 (added the folder-level flow chart; statuses last refreshed 2026-07-14 against the repo; the GitHub repo and its git log are the source of truth)
 
 Status: **Live** = built in Astro and serving · **Not built** = standard for the market, candidate for the post-migration roadmap. (Nothing is "In migration" any more; the content move is finished.)
 
 Market reference for "complete site": Apollo, ZoomInfo, Cognism, Lusha, Seamless. The header was restructured (2026-06-28) toward that shape: a Resources mega-menu (Blog and Case studies live; Resource center, Events, AI sales coach, Free tools, GTM plays, Help center, About us, Careers, Partner program and Newsroom shown greyed as "Soon"), a Pricing link, a Start free trial button, and a slim top utility bar holding the language control, a light/dark toggle and Log in. Top-level Products, Solutions, Our Data and GTM Developers menus are a later pass. Most of the product, solutions, resources and company pages below are still gaps.
+
+---
+
+## Site structure flow chart (folders only)
+
+_Added 2026-07-24. URL sections, not individual pages; see the tables below for per-page status. `/de/...` and `/nl/...` mirror the same structure for the routes listed in `translatedRoutes` (src/i18n/ui.ts)._
+
+```mermaid
+flowchart TD
+    ROOT["/ (home + standalone pages:<br/>pricing, contact, book-a-call, faqs,<br/>reviews, integrations, legal)"]
+    ROOT --> PLATFORM["/platform<br/>capability pages"]
+    ROOT --> SOLUTIONS["/solutions"]
+    SOLUTIONS --> TEAM["/solutions/team"]
+    SOLUTIONS --> ROLE["/solutions/role"]
+    ROOT --> USECASES["/use-cases"]
+    ROOT --> INSIGHTS["/insights<br/>blog"]
+    ROOT --> KNOWLEDGE["/knowledge<br/>help center"]
+    ROOT --> GLOSSARY["/glossary"]
+    ROOT --> STORIES["/customerstories"]
+    ROOT --> VS["/vs<br/>comparisons (+ /comparisons hub)"]
+    ROOT --> DE["/de/...<br/>German mirror"]
+    ROOT --> NL["/nl/...<br/>Dutch mirror"]
+```
 
 ---
 
