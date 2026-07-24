@@ -1,4 +1,28 @@
 ---
+// ============================= LEARNING NOTES =============================
+// THE FORM EXEMPLAR. A static site cannot process a form by itself (there is
+// no server), so the flow is:
+//   browser <script> below  ->  fetch('/api/subscribe')  ->  Cloudflare
+//   Pages Function (functions/api/subscribe.ts)  ->  Plunk (email tool).
+// Read this file, then the function file; together they are the full story.
+//
+// In the template: `novalidate` turns off the browser's own validation
+// bubbles so the script can show nicer errors. `required`, `type=email`,
+// `autocomplete`, `aria-label` and `aria-describedby` are standard HTML
+// form and accessibility attributes worth learning.
+//
+// In the <script>: this is the most instructive browser code in the repo.
+// - e.preventDefault() stops the browser's default full-page form submit so
+//   JavaScript can take over.
+// - fetch() sends an HTTP request from the browser; `await` waits for the
+//   reply; try/catch handles the network failing entirely.
+// - JSON.stringify packs the data; the server replies with JSON too.
+// - The button doubles as the status display (Subscribing... / Subscribed).
+// - classifyEmailLight() gives instant feedback on free/blocked domains,
+//   but the SERVER re-checks with the full list: never trust the browser,
+//   anyone can bypass client-side checks with devtools.
+// - guardForm() (src/scripts/form-guard.ts) adds the anti-bot fields.
+// ==========================================================================
 // Reusable waitlist form. Posts JSON to the /api/subscribe Pages Function, which
 // talks to Plunk server-side. Carries the corporate-email rule from the live
 // site: free providers and competitor domains are blocked. The client check is

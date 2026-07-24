@@ -1,4 +1,19 @@
 ---
+// ============================= LEARNING NOTES =============================
+// CLIENT-SIDE SEARCH EXEMPLAR. Two halves:
+// 1. BUILD TIME (frontmatter): loads the right glossary collection for the
+//    locale, shapes each entry (note how `letter` is computed for the A-Z
+//    grouping), sorts with localeCompare (alphabet-aware, accent-aware
+//    comparison), then buckets terms by first letter with a plain loop.
+//    `typeof terms` reuses the shape of one array as the type of another.
+// 2. BROWSER (the <script> further down): the search box does NOT re-query
+//    anything. All terms are already in the HTML; the script just hides
+//    rows that do not match as you type. That is the cheapest way to add
+//    search to a static site, and worth studying before reaching for a
+//    search service.
+// This component receives its locale as a PROP (L) rather than reading
+// Astro.currentLocale, because the route file already resolved it.
+// ==========================================================================
 // Glossary index, A-to-Z dictionary style. One column of terms in alphabetical
 // order, grouped under sticky letter headings, each row showing term, one-line
 // definition, and category tag with a hairline between rows. A search box filters

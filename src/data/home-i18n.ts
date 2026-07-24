@@ -1,3 +1,15 @@
+// ============================= LEARNING NOTES =============================
+// Part of the DATA LAYER (src/data/). This repo separates CONTENT (strings,
+// lists, tables, in .ts files here) from PRESENTATION (components that render
+// it). Benefits: copy edits never risk breaking markup, TypeScript checks
+// that data and components agree on shape, and one dataset can serve every
+// locale and page that needs it. The file's own comment below says what this
+// particular file holds.
+// This is an ACCESSOR file, the pattern behind all *-i18n.ts files here:
+// English content lives in *-content.ts, German in *.de.ts, Dutch in *.nl.ts
+// (same TypeScript shapes), and getHome(locale) hands a component the right
+// one. Components never touch the raw language files directly.
+// ==========================================================================
 // Homepage copy, locale-aware. The English wrapper strings here are the exact
 // literals previously hardcoded in the section components, moved to one place so
 // each section can render in the active locale. Structured content (pipeline,

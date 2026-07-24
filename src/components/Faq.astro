@@ -1,4 +1,24 @@
 ---
+// ============================= LEARNING NOTES =============================
+// A COMPONENT WITH ALL FOUR PARTS a .astro component can have: frontmatter
+// (data), template (markup), <script> (browser behavior) and, in most
+// siblings, <style> (looks; this one leans on global.css instead). Study it
+// as the exemplar for "interactive section component":
+//
+// 1. DATA: no props here. It reads the locale from the URL
+//    (Astro.currentLocale) and pulls its copy from src/data/home-i18n.ts.
+//    That is the standard translation pattern in this repo.
+// 2. MARKUP: {faqs.map((f, idx) => ...)} loops the FAQ list; the second
+//    map argument idx is the position, used to open the first item. Note
+//    the conditional class: a template literal appends ' is-open' only for
+//    idx 0. aria-expanded is an ACCESSIBILITY attribute telling screen
+//    readers whether the accordion item is open.
+// 3. BEHAVIOR: the <script> at the bottom runs in the browser. It finds
+//    every [data-accordion], guards against double-binding with a
+//    data-ready flag, and toggles panels on click by animating max-height.
+//    The `!` after querySelector is TypeScript for "trust me, not null".
+//    It re-runs on astro:page-load so client-side navigation keeps working.
+// ==========================================================================
 // Section 13 — FAQ. Accordion of the homepage-flagged FAQs from the shared FAQ
 // source (src/data/faqs.ts); the full list lives at /faqs.
 import { getHome } from '../data/home-i18n';

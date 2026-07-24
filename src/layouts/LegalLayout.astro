@@ -1,4 +1,16 @@
 ---
+// ============================= LEARNING NOTES =============================
+// Second markdown layout, used by the legal pages. Same mechanics as
+// PageLayout.astro (read the notes there first): markdown pages point at it
+// with `layout:` and their converted body arrives via <slot />. Differences
+// worth noticing:
+// 1. It injects an extra font stylesheet into <head> using the NAMED slot
+//    (`slot="head"` on the <link> below), so the serif font loads only on
+//    legal pages, not site-wide.
+// 2. Its is:global style block defines local CSS VARIABLES (--legal-ink and
+//    friends) and overrides them under [data-theme="dark"], which is how the
+//    site's dark mode works everywhere: same rules, swapped variable values.
+// ==========================================================================
 // Layout for the trust/legal pages (Legal Notice, Privacy, DPA, Terms).
 // Markdown pages set `layout: ../layouts/LegalLayout.astro` and provide
 // `title`, `description`, and optional `lastUpdated` in frontmatter.

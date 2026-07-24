@@ -1,3 +1,15 @@
+// ============================= LEARNING NOTES =============================
+// Part of the DATA LAYER (src/data/). This repo separates CONTENT (strings,
+// lists, tables, in .ts files here) from PRESENTATION (components that render
+// it). Benefits: copy edits never risk breaking markup, TypeScript checks
+// that data and components agree on shape, and one dataset can serve every
+// locale and page that needs it. The file's own comment below says what this
+// particular file holds.
+// ENGLISH SOURCE CONTENT for the homepage sections, exported as typed arrays
+// and objects. Note the exported interfaces at the top: they are the contract
+// that home.de.ts and home.nl.ts must also satisfy, so a missing field in a
+// translation fails the build instead of rendering a hole.
+// ==========================================================================
 // Homepage content, pulled verbatim from the live Webflow site (DOM + CMS)
 // on 2026-06-25 via the read-only Webflow MCP connector.
 // Customer/post image URLs point at the current Webflow CDN; the asset

@@ -1,4 +1,14 @@
 ---
+// ============================= LEARNING NOTES =============================
+// SECTION component: one visual band, stacked by a page file. The pattern
+// (locale lookup, strings from src/data, semantic markup, scoped style) is
+// explained in src/components/Hero.astro; browser-script mechanics in
+// src/components/Faq.astro.
+// Receives props: L, slug, label. See Avatar.astro for how typed
+// props with defaults work.
+// The <style> block is scoped to this component (Astro hashes the
+// selectors), styled with the design tokens from src/styles/global.css.
+// ==========================================================================
 // Customer-story card for the /platform pages. Loads the story from the locale's
 // content collection so title, description, and metrics are already translated,
 // and links to the full story with a locale-aware href.

@@ -1,4 +1,14 @@
 ---
+// ============================= LEARNING NOTES =============================
+// SECTION component: one visual band, stacked by a page file. The pattern
+// (locale lookup, strings from src/data, semantic markup, scoped style) is
+// explained in src/components/Hero.astro; browser-script mechanics in
+// src/components/Faq.astro.
+// Receives props: quotes, heading. See Avatar.astro for how typed
+// props with defaults work.
+// The <style> block is scoped to this component (Astro hashes the
+// selectors), styled with the design tokens from src/styles/global.css.
+// ==========================================================================
 import Avatar from './Avatar.astro';
 import type { Testimonial } from '../data/testimonials';
 

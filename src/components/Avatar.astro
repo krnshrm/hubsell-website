@@ -1,4 +1,18 @@
 ---
+// ============================= LEARNING NOTES =============================
+// Exemplar for a SMALL PRESENTATIONAL COMPONENT with props and scoped style.
+// - Props with types and a default: size?: number, and `size = 44` in the
+//   destructuring supplies the default when the caller omits it.
+// - The initials line is a chain of array methods: split the name on
+//   whitespace (regex \s+), take first letters, keep at most 2, join,
+//   uppercase. Chaining small steps like this is idiomatic JavaScript.
+// - style={`--sz:${size}px`} sets a CSS VARIABLE from a prop; the <style>
+//   block then sizes everything with var(--sz). This is how props reach CSS.
+// - onerror on the <img> is a tiny inline browser handler: if the image
+//   fails, hide it and show the initials fallback instead.
+// - The <style> block is SCOPED: Astro adds a hash so .avatar here can never
+//   clash with a .avatar elsewhere.
+// ==========================================================================
 // Avatar — a round photo that falls back to initials if the image fails to load,
 // so a missing R2 file never shows a broken-image icon.
 interface Props { src?: string; name: string; size?: number; }

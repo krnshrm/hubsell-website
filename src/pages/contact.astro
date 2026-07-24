@@ -1,4 +1,12 @@
 ---
+// ============================= LEARNING NOTES =============================
+// The simplest page shape in the repo: import the layout, import one body
+// component, pass title and description as PROPS (component attributes),
+// done. /contact gets its URL from the filename. The real page lives in
+// src/components/ContactBody.astro; splitting it out lets the German and
+// Dutch pages (src/pages/de/contact.astro, src/pages/nl/contact.astro) reuse
+// the exact same body while it translates itself via Astro.currentLocale.
+// ==========================================================================
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactBody from '../components/ContactBody.astro';
 ---

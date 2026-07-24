@@ -1,4 +1,11 @@
 ---
+// ============================= LEARNING NOTES =============================
+// Dutch copy of src/pages/book-a-call.astro, serving the URL /nl/book-a-call .
+// LOCALE PAGE PATTERN: see the full explanation at the top of
+// src/pages/de/index.astro. In short: same components as the English page,
+// import paths one level deeper, translated meta text; the components
+// translate themselves because Astro.currentLocale is 'nl' under /nl/.
+// ==========================================================================
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BookCallBody from '../../components/BookCallBody.astro';
 import { getBookCall } from '../../i18n/pages';

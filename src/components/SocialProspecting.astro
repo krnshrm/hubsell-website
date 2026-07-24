@@ -1,4 +1,15 @@
 ---
+// ============================= LEARNING NOTES =============================
+// ANIMATED VISUAL component. The house recipe (markup with resting states,
+// theme-token CSS, GSAP init gated behind html.has-anim, astro:page-load
+// re-init) is explained once in src/components/HeroPipelineFlow.astro;
+// read that first, then this file is mostly scene-specific detail.
+// No props: it reads Astro.currentLocale and fetches its own strings
+// from src/data/ (embed-i18n).
+// Its styles use :global()/is:global because they must reach markup that
+// Astro's scoping cannot see (slotted or set:html content); the gotcha is
+// explained in src/layouts/PageLayout.astro.
+// ==========================================================================
 // Pipeline step 1 — social prospecting. Six live behavioural signals (people
 // following a company, engaging with a post, changing jobs, etc.) converge on
 // "Your true ICP". White cards pop on the espresso section; the connecting

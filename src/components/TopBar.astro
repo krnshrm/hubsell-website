@@ -1,4 +1,16 @@
 ---
+// ============================= LEARNING NOTES =============================
+// The slim bar above the nav: login link, language switcher, theme toggle.
+// Worth reading for two browser-side features:
+// 1. THEME TOGGLE: clicking stores 'light' or 'dark' in localStorage and
+//    sets data-theme on <html>. All colors in global.css are CSS variables
+//    redefined under [data-theme="dark"], so the whole site restyles with
+//    no further JavaScript. The early inline script in BaseLayout reads the
+//    stored value before paint to avoid a flash.
+// 2. LANGUAGE SWITCHER: built from switcherLocales and translatedRoutes in
+//    src/i18n/ui.ts; a language is only offered as a real link where the
+//    current page actually has a translation.
+// ==========================================================================
 // Top utility bar — visible only at the very top of the page; it sits above the
 // sticky nav in normal flow, so it scrolls away while the nav stays stuck (the
 // HubSpot pattern). Holds the language control, the light/dark theme toggle, and

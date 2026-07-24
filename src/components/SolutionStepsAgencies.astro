@@ -1,4 +1,14 @@
 ---
+// ============================= LEARNING NOTES =============================
+// One of the eight SolutionSteps* sibling visuals; the family is explained
+// in src/components/SolutionStepsSdr.astro. Same structure, different
+// hand-built mini scenes for its own solution page.
+// Receives props: L, how. See Avatar.astro for how typed
+// props with defaults work.
+// Its styles use :global()/is:global because they must reach markup that
+// Astro's scoping cannot see (slotted or set:html content); the gotcha is
+// explained in src/layouts/PageLayout.astro.
+// ==========================================================================
 // Stepped How-section visual for /solutions/team/agencies. Renders the page's three how blocks
 // (already translated) as detailed rows, each with a small self-contained visual.
 // Reuses the card / chip / node / green vocabulary from the platform visuals.

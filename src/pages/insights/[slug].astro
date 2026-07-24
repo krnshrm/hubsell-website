@@ -1,4 +1,28 @@
 ---
+// ============================= LEARNING NOTES =============================
+// A DYNAMIC ROUTE, the most important page pattern to learn. The [slug] in
+// the filename is a placeholder: this ONE file generates all 87 blog post
+// pages, /insights/<slug> each. Two pieces make that work:
+//
+// 1. getStaticPaths() below. At build time Astro calls it and expects back a
+//    list of { params, props }: one entry per page to create. `params.slug`
+//    fills the [slug] placeholder (the URL); `props` is data handed to that
+//    page's render. Here it loads the whole 'insights' content collection
+//    (see src/content.config.ts), drops drafts, sorts, and returns one entry
+//    per post, passing the post AND the full list (for related-post picks).
+//
+// 2. The rest of the frontmatter then runs ONCE PER PAGE with that entry's
+//    props. `const { post, posts } = Astro.props` receives them.
+//
+// `async`/`await`: getCollection reads files from disk, which JavaScript
+// treats as an operation you must wait for; `await` pauses until the result
+// is ready and `async` marks the function as allowed to await.
+//
+// Everything else in this frontmatter is ordinary data shaping in plain
+// JavaScript: .filter() keeps matching items, .map() transforms each item,
+// .sort() orders them, Set/Map deduplicate. It is worth reading slowly; this
+// is what "real" page logic usually looks like: gather, rank, slice.
+// ==========================================================================
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import JsonLd from '../../components/JsonLd.astro';
@@ -38,6 +62,9 @@ const related = [...new Map([...byTopic, ...rotation].filter(Boolean).map((p) =>
 
 // A few relevant hubsell pages for this post's topics. Kept in the template as
 // internal links to product pages, so the migrated post body stays untouched.
+// LEARNING: a plain object used as a lookup table, topic name -> list of
+// internal links. Data-as-object beats a chain of if/else and is a pattern
+// you will see across src/data/.
 const HUB_LINKS = {
   'Outbound sales': [{ label: 'Outbound sales', href: '/use-cases/outbound-sales' }],
   'Cold email': [{ label: 'Multichannel outreach', href: '/platform/multichannel-outreach' }, { label: 'Deliverability', href: '/platform/deliverability' }],
@@ -67,6 +94,10 @@ const ctaText = cta || `You just read "${title}". hubsell gives you the verified
 
 // Article + breadcrumb structured data for this post (rich results + AI answers).
 const postUrl = `${SITE_URL}/insights/${post.id}`;
+// LEARNING: structured data (schema.org) built as a JavaScript object and
+// rendered by <JsonLd> in the template. The three-dot `...` is the SPREAD
+// operator: `...(coverImage ? { image: [coverImage] } : {})` merges in the
+// image field only when a cover image exists, otherwise merges nothing.
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
@@ -89,6 +120,14 @@ const articleCrumbs = breadcrumbSchema([
 ]);
 ---
 <BaseLayout title={`${title} | hubsell`} description={description} ogImage={coverImage} ogType="article">
+{/* LEARNING: template for every post. Three things to study here:
+    1. <link slot="head"> loads the serif blog font only on posts.
+    2. set:html={bodyHtml} injects a string AS RAW HTML. Astro normally
+       escapes {values} so injected text cannot run code; set:html turns
+       that protection off, so only use it with content YOU control (here:
+       the migrated post bodies from our own repo).
+    3. {related.map(...)} renders a card per related post; a .map() that
+       returns markup is THE loop pattern in Astro templates. */}
   <link
     slot="head"
     rel="stylesheet"

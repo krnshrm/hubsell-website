@@ -1,3 +1,14 @@
+// ============================= LEARNING NOTES =============================
+// Part of the DATA LAYER (src/data/). This repo separates CONTENT (strings,
+// lists, tables, in .ts files here) from PRESENTATION (components that render
+// it). Benefits: copy edits never risk breaking markup, TypeScript checks
+// that data and components agree on shape, and one dataset can serve every
+// locale and page that needs it. The file's own comment below says what this
+// particular file holds.
+// Locale ACCESSOR file: merges the English source with the translated
+// siblings and exports get*(locale) functions for components. The pattern is
+// explained in src/data/home-i18n.ts.
+// ==========================================================================
 // Locale switch for the /solutions pages, mirroring platform-i18n. English copy in
 // solutions-content.ts, German in solutions.de.ts, Dutch in solutions.nl.ts. Also
 // re-exports the locale-aware testimonial lookup used by the detail pages.

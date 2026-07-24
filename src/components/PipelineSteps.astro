@@ -1,4 +1,15 @@
 ---
+// ============================= LEARNING NOTES =============================
+// ANIMATED VISUAL component. The house recipe (markup with resting states,
+// theme-token CSS, GSAP init gated behind html.has-anim, astro:page-load
+// re-init) is explained once in src/components/HeroPipelineFlow.astro;
+// read that first, then this file is mostly scene-specific detail.
+// No props: it reads Astro.currentLocale and fetches its own strings
+// from src/data/ (home-i18n, site).
+// Its styles use :global()/is:global because they must reach markup that
+// Astro's scoping cannot see (slotted or set:html content); the gotcha is
+// explained in src/layouts/PageLayout.astro.
+// ==========================================================================
 // Section 7 — From sign-up to meeting set, in three steps (Espresso).
 // Two-column rows: the text card beside its full product embed (~36% / ~64%),
 // sides alternating per step. Each embed has a fixed-width canvas, so the visual

@@ -1,3 +1,14 @@
+// ============================= LEARNING NOTES =============================
+// Part of the DATA LAYER (src/data/). This repo separates CONTENT (strings,
+// lists, tables, in .ts files here) from PRESENTATION (components that render
+// it). Benefits: copy edits never risk breaking markup, TypeScript checks
+// that data and components agree on shape, and one dataset can serve every
+// locale and page that needs it. The file's own comment below says what this
+// particular file holds.
+// Read the file's own comment below carefully; this is the best example of
+// "data drives the UI": one array feeds both Nav.astro and Footer.astro, and
+// a `soon` flag controls whether a link renders at all (liveLinks() filters).
+// ==========================================================================
 // Single source of truth for the site navigation.
 // Both Nav.astro and Footer.astro read this file, so adding a link or flipping a
 // `soon` flag to live updates the nav AND the footer in one edit. The footer shows

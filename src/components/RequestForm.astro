@@ -1,4 +1,16 @@
 ---
+// ============================= LEARNING NOTES =============================
+// FORM component. Submit mechanics (fetch to /api/subscribe, client checks,
+// bot guard, server enforcement) are explained in
+// src/components/WaitlistForm.astro; read that first.
+// Receives props: form, gate, buttonLabel, emailPlaceholder, emailHelp, messageLabel, messagePlaceholder, successTitle. See Avatar.astro for how typed
+// props with defaults work.
+// Has a browser <script>: runs in the visitor's browser, re-inits on
+// astro:page-load. Build-time frontmatter vs browser script is explained
+// in src/layouts/BaseLayout.astro.
+// The <style> block is scoped to this component (Astro hashes the
+// selectors), styled with the design tokens from src/styles/global.css.
+// ==========================================================================
 // Multi-field form (name, work email, company, message) that posts JSON to the
 // /api/subscribe Pages Function, which forwards to Plunk server-side. Used by the
 // book-a-call and contact pages. `gate` keeps the corporate-email rule for sales

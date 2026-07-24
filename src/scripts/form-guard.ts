@@ -1,3 +1,11 @@
+// ============================= LEARNING NOTES =============================
+// Shared BROWSER module (no HTML): imported by the form components' <script>
+// blocks. Astro bundles it once and reuses it. It implements the client half
+// of the bot protection described in docs/BOT-PROTECTION.md: a honeypot
+// field (hidden input real people never fill), a fill-time measurement (bots
+// submit instantly), and the optional Turnstile widget. The server half
+// lives in functions/api/subscribe.ts, which verifies these signals.
+// ==========================================================================
 // Shared bot guard for every form that posts to /api/subscribe.
 // Three layers, all verified server-side in functions/api/subscribe.ts:
 //   1. Honeypot: a visually hidden "website" field injected at bind time.

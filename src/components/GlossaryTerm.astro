@@ -1,4 +1,18 @@
 ---
+// ============================= LEARNING NOTES =============================
+// PAGE BODY component: a thin route file under src/pages/ owns the layout,
+// meta and structured data, and hands the actual rendering to this file.
+// The split exists so the de/ and nl/ route copies reuse this body and it
+// translates itself. Annotated exemplars for the pattern:
+// src/components/GlossaryIndex.astro and src/components/SolutionDetail.astro.
+// Receives props: L, entry. See Avatar.astro for how typed
+// props with defaults work.
+// Loads the 'a locale-dependent' content collection at build time (schema in
+// src/content.config.ts).
+// Its styles use :global()/is:global because they must reach markup that
+// Astro's scoping cannot see (slotted or set:html content); the gotcha is
+// explained in src/layouts/PageLayout.astro.
+// ==========================================================================
 // Glossary term body. Renders one term: category tag, H1, the one-line definition
 // (the quotable answer), then the markdown body (the 4 written H2 sections), then
 // an auto-built Related terms block, then a soft CTA. The route file owns

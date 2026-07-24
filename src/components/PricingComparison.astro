@@ -1,4 +1,17 @@
 ---
+// ============================= LEARNING NOTES =============================
+// PAGE BODY component: a thin route file under src/pages/ owns the layout,
+// meta and structured data, and hands the actual rendering to this file.
+// The split exists so the de/ and nl/ route copies reuse this body and it
+// translates itself. Annotated exemplars for the pattern:
+// src/components/GlossaryIndex.astro and src/components/SolutionDetail.astro.
+// Receives props: L, data. See Avatar.astro for how typed
+// props with defaults work.
+// Uses set:html to inject trusted HTML strings; see the warning about it
+// in src/pages/insights/[slug].astro.
+// The <style> block is scoped to this component (Astro hashes the
+// selectors), styled with the design tokens from src/styles/global.css.
+// ==========================================================================
 // Detailed comparison table for /pricing. One table across the Start/Grow/Scale
 // tiers, built from PRICING_FEATURES (the founder's approved sheet). All rows
 // render expanded: groups are static sub-headers, items sit indented beneath

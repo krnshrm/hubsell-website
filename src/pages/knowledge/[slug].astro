@@ -1,4 +1,18 @@
 ---
+// ============================= LEARNING NOTES =============================
+// DYNAMIC ROUTE: this one file builds every page under /knowledge/<slug> ,
+// one per entry in the 'knowledge' content collection (schema in
+// src/content.config.ts). getStaticPaths() returns the list of pages to
+// create; the pattern is explained line by line at the top of
+// src/pages/insights/[slug].astro, which is the exemplar to study first.
+// JsonLd emits schema.org structured data for search engines (breadcrumbs
+// and similar); see src/data/seo.ts for the schema builders.
+// The <style> block at the bottom is scoped: Astro rewrites its selectors
+// so they only apply to this file's own markup.
+// The <script> block is bundled and runs in the visitor's browser; the
+// frontmatter above the template ran at build time. See the notes in
+// src/layouts/BaseLayout.astro for the difference.
+// ==========================================================================
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import JsonLd from '../../components/JsonLd.astro';

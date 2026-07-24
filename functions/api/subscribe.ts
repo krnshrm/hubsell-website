@@ -1,3 +1,22 @@
+// ============================= LEARNING NOTES =============================
+// THE ONLY SERVER-SIDE CODE IN THE PROJECT. Everything under functions/
+// becomes a Cloudflare Pages Function: a small piece of code that runs on
+// Cloudflare's servers when a matching URL is requested. The file path sets
+// the URL, same idea as Astro pages: functions/api/subscribe.ts answers
+// POST requests to /api/subscribe. This is NOT part of the Astro build; it
+// deploys alongside the static files.
+//
+// Why it exists: the forms need to talk to Plunk (the email tool) with a
+// SECRET key. Secrets can never live in browser code, where anyone can read
+// them, so the browser posts here and this code calls Plunk with keys held
+// in Cloudflare environment variables (the Env interface below lists them).
+//
+// Reading guide: `onRequestPost` is the entry point Cloudflare calls; it
+// receives the request, validates and sanitizes every field (never trust
+// input from a browser), re-checks the email-domain rules server-side,
+// verifies the anti-bot signals, then forwards a clean event to Plunk.
+// The triple-slash line right below imports Cloudflare's type definitions.
+// ==========================================================================
 /// <reference types="@cloudflare/workers-types" />
 
 import { classifyEmail, EMAIL_DOMAIN_MESSAGES } from '../../src/data/free-email-domains';

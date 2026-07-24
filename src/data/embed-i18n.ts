@@ -1,3 +1,14 @@
+// ============================= LEARNING NOTES =============================
+// Part of the DATA LAYER (src/data/). This repo separates CONTENT (strings,
+// lists, tables, in .ts files here) from PRESENTATION (components that render
+// it). Benefits: copy edits never risk breaking markup, TypeScript checks
+// that data and components agree on shape, and one dataset can serve every
+// locale and page that needs it. The file's own comment below says what this
+// particular file holds.
+// The et() helper here is the translation path for the tiny labels INSIDE
+// the animated visuals, keyed by the English text itself instead of by
+// invented key names. Simple and effective for short fixed labels.
+// ==========================================================================
 // ─────────────────────────────────────────────────────────────────────────────
 // GERMAN STRINGS FOR THE PRODUCT VISUALS (the animated embeds + pricing table).
 // Keyed by the exact English text that appears inside each widget. et(locale, en)

@@ -1,4 +1,15 @@
 ---
+// ============================= LEARNING NOTES =============================
+// ANIMATED VISUAL component. The house recipe (markup with resting states,
+// theme-token CSS, GSAP init gated behind html.has-anim, astro:page-load
+// re-init) is explained once in src/components/HeroPipelineFlow.astro;
+// read that first, then this file is mostly scene-specific detail.
+// No props: it reads Astro.currentLocale and fetches its own strings
+// from src/data/ (embed-i18n).
+// Its styles use :global()/is:global because they must reach markup that
+// Astro's scoping cannot see (slotted or set:html content); the gotcha is
+// explained in src/layouts/PageLayout.astro.
+// ==========================================================================
 // Stepped detail visual for /platform/live-data. Expands the SocialProspecting
 // grid into a walked sequence: (1) six live signal sources, (2) they pool into
 // one ICP, (3) each contact is verified at the point of use, (4) the verified

@@ -1,4 +1,15 @@
 ---
+// ============================= LEARNING NOTES =============================
+// PAGE BODY component: a thin route file under src/pages/ owns the layout,
+// meta and structured data, and hands the actual rendering to this file.
+// The split exists so the de/ and nl/ route copies reuse this body and it
+// translates itself. Annotated exemplars for the pattern:
+// src/components/GlossaryIndex.astro and src/components/SolutionDetail.astro.
+// No props: it reads Astro.currentLocale and fetches its own strings
+// from src/data/ (site, testimonials, testimonials.de).
+// The <style> block is scoped to this component (Astro hashes the
+// selectors), styled with the design tokens from src/styles/global.css.
+// ==========================================================================
 // Reviews page body. Single source rendered by /hubsell-reviews (English) and
 // /de/hubsell-reviews (German); self-localizes from Astro.currentLocale. RatingsStrip
 // localizes itself via getHome; the testimonial wall takes the localized pool. The

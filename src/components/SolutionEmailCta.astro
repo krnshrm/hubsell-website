@@ -1,4 +1,17 @@
 ---
+// ============================= LEARNING NOTES =============================
+// SECTION component: one visual band, stacked by a page file. The pattern
+// (locale lookup, strings from src/data, semantic markup, scoped style) is
+// explained in src/components/Hero.astro; browser-script mechanics in
+// src/components/Faq.astro.
+// Receives props: L, closing, cta. See Avatar.astro for how typed
+// props with defaults work.
+// Has a browser <script>: runs in the visitor's browser, re-inits on
+// astro:page-load. Build-time frontmatter vs browser script is explained
+// in src/layouts/BaseLayout.astro.
+// The <style> block is scoped to this component (Astro hashes the
+// selectors), styled with the design tokens from src/styles/global.css.
+// ==========================================================================
 // Single CTA band for solution pages that opt in via `emailCta`: the closing
 // heading plus an email-only field. Submitting the email fires the
 // 'sdr-partial' form at /api/subscribe (Plunk event 'sdr-partial-request',

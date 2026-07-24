@@ -1,4 +1,11 @@
 ---
+# LEARNING (YAML comment, stripped at build): this is a MARKDOWN PAGE. Any .md
+# under src/pages/ becomes a URL, same as .astro files. The `layout:` line
+# below hands the converted body to that layout component as its <slot />;
+# the other keys here arrive there as Astro.props.frontmatter. Comments in
+# this frontmatter use # because the block is YAML, not JavaScript. The body
+# below the closing --- ships as written, so it carries no teaching comments
+# (an HTML comment there would be sent to every visitor).
 layout: ../layouts/LegalLayout.astro
 title: Terms & Conditions
 description: Read hubsell's Terms & Conditions governing the use of our B2B sales automation service. Last updated May 24, 2018. Understand your rights and obligations.

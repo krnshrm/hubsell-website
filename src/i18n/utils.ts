@@ -1,3 +1,20 @@
+// ============================= LEARNING NOTES =============================
+// SMALL HELPER FUNCTIONS for languages and URLs, imported by nearly every
+// component. Read them top to bottom; each is a few lines of plain
+// TypeScript. Concepts used:
+// - `export function` makes a function importable elsewhere.
+// - `string | undefined | null` is a UNION type: the value may be any of
+//   these. asLocale() narrows whatever it gets down to a valid Locale.
+// - /^(https?:|mailto:|tel:)/.test(path) uses a regex to spot external
+//   links, which must never get a /de prefix.
+// - `??` is "nullish coalescing": use the left side unless it is null or
+//   undefined, then use the right side. useTranslations() chains it to fall
+//   back from the locale string to English to the raw key.
+// - useTranslations() RETURNS A FUNCTION. Components do
+//   `const t = useTranslations(locale)` once, then call t('key') anywhere.
+//   A function that remembers variables from where it was created is called
+//   a closure; this one remembers the two dictionaries.
+// ==========================================================================
 // i18n helpers used by the chrome. Deliberately self-contained: URL building is
 // manual (prefix `/<locale>` for non-default locales), so behaviour is identical
 // in dev, build, and on Cloudflare, and does not depend on trailing-slash config.

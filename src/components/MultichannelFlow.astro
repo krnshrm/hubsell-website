@@ -1,4 +1,15 @@
 ---
+// ============================= LEARNING NOTES =============================
+// ANIMATED VISUAL component. The house recipe (markup with resting states,
+// theme-token CSS, GSAP init gated behind html.has-anim, astro:page-load
+// re-init) is explained once in src/components/HeroPipelineFlow.astro;
+// read that first, then this file is mostly scene-specific detail.
+// No props: it reads Astro.currentLocale and fetches its own strings
+// from src/data/ (embed-i18n).
+// Its styles use :global()/is:global because they must reach markup that
+// Astro's scoping cannot see (slotted or set:html content); the gotcha is
+// explained in src/layouts/PageLayout.astro.
+// ==========================================================================
 // Pipeline step 2 — multichannel flow. A LinkedIn + email sequence that branches
 // on whether the prospect accepts. White cards on espresso; the connecting
 // tracks light up green. Adapted: bundled GSAP, reduced-motion safe, purple

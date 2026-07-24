@@ -1,3 +1,18 @@
+// ============================= LEARNING NOTES =============================
+// THE TRANSLATION DICTIONARY for the shared chrome (nav, footer, buttons).
+// Three exports matter to the rest of the repo:
+// 1. `locales` / `defaultLocale`: the master list of language codes.
+//    `as const` freezes the array so TypeScript can build the `Locale` type
+//    from it (a type that only allows 'en' | 'de' | ... ).
+// 2. `ui`: a nested object, ui[locale][key] = string. Components never hard
+//    code chrome text; they call t('nav.platform') via useTranslations()
+//    (see i18n/utils.ts) so one component serves every language.
+// 3. `translatedRoutes`: the list of paths that REALLY exist per locale.
+//    The language switcher, hreflang tags and the sitemap all consult it,
+//    so adding a translated page means adding its path here too.
+// `Record<Locale, string>` is TypeScript for "an object with one string per
+// locale"; the compiler errors if a locale is missing a name.
+// ==========================================================================
 // Locale config and the shared-chrome string dictionary (nav, footer, top bar,
 // buttons). Page body copy lives with each page; this file is only the chrome.
 // English is the source and the fallback. Add a locale's strings here, then

@@ -1,4 +1,15 @@
 ---
+// ============================= LEARNING NOTES =============================
+// ANIMATED VISUAL component. The house recipe (markup with resting states,
+// theme-token CSS, GSAP init gated behind html.has-anim, astro:page-load
+// re-init) is explained once in src/components/HeroPipelineFlow.astro;
+// read that first, then this file is mostly scene-specific detail.
+// No props: it reads Astro.currentLocale and fetches its own strings
+// from src/data/ (embed-i18n).
+// Its styles use :global()/is:global because they must reach markup that
+// Astro's scoping cannot see (slotted or set:html content); the gotcha is
+// explained in src/layouts/PageLayout.astro.
+// ==========================================================================
 // Zero-day sourcing embed — a side-by-side timeline. Left: the slow database
 // model, where data is captured once then decays (coral, a red dot creeps down
 // over ~24s). Right: hubsell's zero-day sourcing, live and instant (green, a

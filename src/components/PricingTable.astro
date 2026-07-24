@@ -1,4 +1,16 @@
 ---
+// ============================= LEARNING NOTES =============================
+// ANIMATED VISUAL component. The house recipe (markup with resting states,
+// theme-token CSS, GSAP init gated behind html.has-anim, astro:page-load
+// re-init) is explained once in src/components/HeroPipelineFlow.astro;
+// read that first, then this file is mostly scene-specific detail.
+// No props: it reads Astro.currentLocale and fetches its own strings
+// from src/data/ (embed-i18n, pricing-feature-icons).
+// Uses set:html to inject trusted HTML strings; see the warning about it
+// in src/pages/insights/[slug].astro.
+// The <style> block is scoped to this component (Astro hashes the
+// selectors), styled with the design tokens from src/styles/global.css.
+// ==========================================================================
 // Pricing table — the verbatim Webflow `08-pricing-table` embed (currency
 // toggle + Platform/Data tabs + cards + credits popup), rebranded:
 //   • the embed's --accent-primary / --neutral-primary / --neutral-inverse are

@@ -1,4 +1,15 @@
 ---
+// ============================= LEARNING NOTES =============================
+// PAGE BODY component: a thin route file under src/pages/ owns the layout,
+// meta and structured data, and hands the actual rendering to this file.
+// The split exists so the de/ and nl/ route copies reuse this body and it
+// translates itself. Annotated exemplars for the pattern:
+// src/components/GlossaryIndex.astro and src/components/SolutionDetail.astro.
+// Receives props: L. See Avatar.astro for how typed
+// props with defaults work.
+// The <style> block is scoped to this component (Astro hashes the
+// selectors), styled with the design tokens from src/styles/global.css.
+// ==========================================================================
 // Body template for the /solutions hub. The route file owns BaseLayout and the
 // breadcrumb JSON-LD. Two labelled sections (By team, By role), each a grid of
 // cards linking to the leaf pages. Background rhythm: sand (hero), paper (team),

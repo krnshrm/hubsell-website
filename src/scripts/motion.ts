@@ -1,3 +1,11 @@
+// ============================= LEARNING NOTES =============================
+// Shared browser module loaded by BaseLayout on every page. Site-wide motion
+// behavior lives here. Note the has-anim gate: BaseLayout only adds the
+// html.has-anim class when the visitor does NOT ask for reduced motion, and
+// all animation CSS hides things only under that class, so animations are
+// an enhancement, never a requirement. This is the repo's standing
+// accessibility rule for anything that moves.
+// ==========================================================================
 // hubsell — site motion system.
 // Self-hosted Lenis smooth scroll + the GSAP/ScrollTrigger wiring the product
 // embeds rely on. The scroll-reveal tweens were removed (2026-07-02): content

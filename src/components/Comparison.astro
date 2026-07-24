@@ -1,4 +1,14 @@
 ---
+// ============================= LEARNING NOTES =============================
+// SECTION component: one visual band, stacked by a page file. The pattern
+// (locale lookup, strings from src/data, semantic markup, scoped style) is
+// explained in src/components/Hero.astro; browser-script mechanics in
+// src/components/Faq.astro.
+// No props: it reads Astro.currentLocale and fetches its own strings
+// from src/data/ (home-i18n).
+// The <style> block is scoped to this component (Astro hashes the
+// selectors), styled with the design tokens from src/styles/global.css.
+// ==========================================================================
 // Homepage — "Why hubsell" comparison. Sets the competitive narrative early and
 // tactfully: hubsell as the whole motion (live data + multichannel outreach +
 // CRM sync) versus the categories of point tools you'd otherwise stitch together.

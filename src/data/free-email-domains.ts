@@ -1,3 +1,15 @@
+// ============================= LEARNING NOTES =============================
+// Part of the DATA LAYER (src/data/). This repo separates CONTENT (strings,
+// lists, tables, in .ts files here) from PRESENTATION (components that render
+// it). Benefits: copy edits never risk breaking markup, TypeScript checks
+// that data and components agree on shape, and one dataset can serve every
+// locale and page that needs it. The file's own comment below says what this
+// particular file holds.
+// Interesting build technique: this list is GENERATED and committed, not
+// fetched at runtime, so validation works offline and cannot be bypassed by
+// blocking a request. classifyEmail()/classifyEmailLight() are shared by the
+// browser scripts and the server function, one rule set in one place.
+// ==========================================================================
 // AUTO-GENERATED — free email providers + competitor blacklist.
 // Source: github.com/willwhite/freemail (data/free.txt), bundled at build time
 // instead of fetched at runtime, so the block cannot be bypassed by blocking a

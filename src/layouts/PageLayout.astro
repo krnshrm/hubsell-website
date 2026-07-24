@@ -1,4 +1,14 @@
 ---
+// ============================= LEARNING NOTES =============================
+// LAYOUT FOR MARKDOWN PAGES. Astro lets a plain .md file become a page: any
+// .md under src/pages/ turns into a URL, and if its frontmatter says
+// `layout: ../layouts/PageLayout.astro` the converted HTML is handed to this
+// component as the default <slot />. The .md file's frontmatter arrives here
+// as `Astro.props.frontmatter`, which is why the destructuring below reads
+// title, description and so on from `frontmatter` instead of from props
+// directly. Layouts can nest: this one wraps everything in BaseLayout, so a
+// markdown page gets head tags + nav + footer for free.
+// ==========================================================================
 // Generic content page (sans-serif prose) for simple standalone pages like the
 // AI information page. Markdown pages set `layout: ../layouts/PageLayout.astro`
 // and provide `title`, `description`, and optionally `heading` (visible H1, falls
@@ -10,6 +20,10 @@ const { frontmatter } = Astro.props;
 const { title, description, heading, eyebrow, lastUpdated, noindex, ogImage, askAi } = frontmatter;
 ---
 <BaseLayout title={`${title} | hubsell`} description={description} noindex={noindex} ogImage={ogImage}>
+{/* LEARNING: `${title} | hubsell` is a TEMPLATE LITERAL: backtick strings
+    where ${...} splices a value in. The section/wrap classes come from
+    global.css: `sec` is a full-width colored band, `wrap` centers content at
+    the site's max width. `{eyebrow && <p>...}` renders only if set. */}
   <section class="sec sec--sand pg-head">
     <div class="wrap">
       {eyebrow && <p class="eyebrow is-accent">{eyebrow}</p>}
@@ -30,6 +44,13 @@ const { title, description, heading, eyebrow, lastUpdated, noindex, ogImage, ask
   </section>
 </BaseLayout>
 
+{/* LEARNING: a <style> block in a .astro file is normally SCOPED: Astro adds
+    a unique hash to every selector so the rules only hit this component's own
+    markup. Markdown injected through <slot /> does NOT get that hash, so
+    scoped rules would miss it. `is:global` opts out of scoping; to stay safe
+    the rules are all prefixed with .page-prose so they act like manual
+    scoping. This is the repo's standing gotcha: styles for set:html or
+    slotted markdown need :global() or is:global. */}
 <style is:global>
   .pg-head { padding-bottom:clamp(22px,3.5vw,34px); }
   .pg-title { margin-top:8px; }

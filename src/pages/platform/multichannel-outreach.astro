@@ -1,4 +1,14 @@
 ---
+// ============================= LEARNING NOTES =============================
+// Page for the URL /platform/multichannel-outreach . THIN-SHELL PATTERN (see src/pages/contact.astro
+// for the annotated exemplar): the page file only assembles imports, page
+// meta and structured data, then hands rendering to a body component.
+// Copy and data come from getPlatformDetail() from src/data/platform-i18n,
+// looked up by locale so the same body serves en/de/nl.
+// Body component(s): src/components/PlatformDetail.astro.
+// JsonLd emits schema.org structured data for search engines (breadcrumbs
+// and similar); see src/data/seo.ts for the schema builders.
+// ==========================================================================
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import PlatformDetail from '../../components/PlatformDetail.astro';

@@ -1,3 +1,11 @@
+// ============================= LEARNING NOTES =============================
+// Part of the DATA LAYER (src/data/). This repo separates CONTENT (strings,
+// lists, tables, in .ts files here) from PRESENTATION (components that render
+// it). Benefits: copy edits never risk breaking markup, TypeScript checks
+// that data and components agree on shape, and one dataset can serve every
+// locale and page that needs it. The file's own comment below says what this
+// particular file holds.
+// ==========================================================================
 // Auto-generated from the Webflow FAQs export by scripts/csv-to-faqs.mjs.
 // Single source for FAQs: the homepage section (Faq.astro) shows the `onHomepage`
 // entries; the /faqs page shows them all. Edit here or re-run the converter.

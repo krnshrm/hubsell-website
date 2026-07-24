@@ -1,4 +1,19 @@
 ---
+// ============================= LEARNING NOTES =============================
+// LIST PAGE OVER A COLLECTION. This file serves the English URL /glossary;
+// the /de and /nl versions are thin copies under src/pages/de/ and
+// src/pages/nl/ that reuse the same components. What to learn here:
+// 1. Astro.currentLocale + asLocale() gives the language for this URL; every
+//    string below is then LOOKED UP rather than hard coded, from
+//    src/data/glossary-i18n.ts, so the same body component serves en/de/nl.
+// 2. getCollection('glossary', filterFn) loads all glossary .md entries at
+//    build time; the second argument filters out drafts. Sorting by id gives
+//    a stable A-Z order (id = the filename slug).
+// 3. The heavy lifting (search box, grouped list) sits in the
+//    GlossaryIndex component, which receives the locale as a prop L={L}.
+// The `\u00fc` escapes in the title are just the letter u-umlaut written in
+// Unicode escape form so the file stays plain ASCII.
+// ==========================================================================
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import GlossaryIndex from '../../components/GlossaryIndex.astro';

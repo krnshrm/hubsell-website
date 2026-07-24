@@ -1,4 +1,18 @@
 ---
+// ============================= LEARNING NOTES =============================
+// THE HOMEPAGE. FILE-BASED ROUTING is Astro's core idea: the file path under
+// src/pages/ IS the URL. index.astro = "/", pricing.astro = "/pricing",
+// insights/[slug].astro = "/insights/<anything>" (see that file for dynamic
+// routes). Nothing to configure; create a file, get a page.
+//
+// Notice how thin this file is: the homepage is just a stack of section
+// COMPONENTS. Each import at the top brings in one .astro component, and the
+// template below simply lists them in order inside <BaseLayout>. All copy,
+// markup and styling live inside the components, which keeps this file a
+// readable table of contents for the page. To reorder the homepage you
+// reorder the tags; to hide a section you comment its tag out (see the
+// UseCases lines for exactly that).
+// ==========================================================================
 import BaseLayout from '../layouts/BaseLayout.astro';
 import JsonLd from '../components/JsonLd.astro';
 import { softwareApplicationSchema } from '../data/seo';
@@ -23,6 +37,9 @@ import Insights from '../components/Insights.astro';
 ---
 <BaseLayout title="hubsell | Live-Sourced Data, Email and LinkedIn Outreach, One Platform" description="hubsell sources B2B contacts live, runs email and LinkedIn from one flow, and syncs your CRM automatically. One platform to replace your outbound stack.">
   <JsonLd slot="head" schema={softwareApplicationSchema} />
+  {/* LEARNING: JsonLd renders a <script type="application/ld+json"> block of
+      structured data for search engines. slot="head" sends it into
+      BaseLayout's named head slot so it lands inside <head>, not the body. */}
   {/*  1 */}<Hero />
   {/*  2 */}<CustomerLogos />
   {/*  3 */}<Comparison />

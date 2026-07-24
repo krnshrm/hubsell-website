@@ -1,4 +1,14 @@
 ---
+// ============================= LEARNING NOTES =============================
+// 404.astro is a special filename: static hosts (Cloudflare Pages included)
+// serve dist/404.html for any URL that does not exist. `noindex={true}`
+// asks search engines not to index it; BaseLayout turns that prop into a
+// robots meta tag. In JSX-style templates, prop={true} passes a boolean,
+// while prop="true" would pass a string. The rest is plain HTML with class
+// names styled in the <style> block at the bottom of this file; those styles
+// are SCOPED, meaning Astro rewrites the selectors so they cannot leak out
+// and affect other pages.
+// ==========================================================================
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SIGNUP_URL } from '../data/site';
 ---

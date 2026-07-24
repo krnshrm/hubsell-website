@@ -1,3 +1,10 @@
+// ============================= LEARNING NOTES =============================
+// Per-page translated copy that is shared between the English page component
+// and its /de and /nl copies, keyed by locale. Keeping page strings in a .ts
+// file (instead of three diverging .astro files) means the German and Dutch
+// pages import the same component and just pass a different locale. See
+// src/data/*-i18n.ts for the same pattern applied to bigger page bodies.
+// ==========================================================================
 // Central copy for standalone marketing pages, English and German side by side.
 // Body components read the per-page accessor (e.g. getContact(locale)). This keeps
 // page-level German in one reviewable place. Per-form UI strings (field labels,

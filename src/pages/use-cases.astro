@@ -1,4 +1,11 @@
 ---
+// ============================= LEARNING NOTES =============================
+// Page for the URL /use-cases . THIN-SHELL PATTERN (see src/pages/contact.astro
+// for the annotated exemplar): the page file only assembles imports, page
+// meta and structured data, then hands rendering to a body component.
+// The <style> block at the bottom is scoped: Astro rewrites its selectors
+// so they only apply to this file's own markup.
+// ==========================================================================
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SIGNUP_URL } from '../data/site';

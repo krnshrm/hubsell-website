@@ -1,4 +1,18 @@
 ---
+// ============================= LEARNING NOTES =============================
+// PAGE BODY component: a thin route file under src/pages/ owns the layout,
+// meta and structured data, and hands the actual rendering to this file.
+// The split exists so the de/ and nl/ route copies reuse this body and it
+// translates itself. Annotated exemplars for the pattern:
+// src/components/GlossaryIndex.astro and src/components/SolutionDetail.astro.
+// Receives props: item, items. See Avatar.astro for how typed
+// props with defaults work.
+// Uses set:html to inject trusted HTML strings; see the warning about it
+// in src/pages/insights/[slug].astro.
+// Its styles use :global()/is:global because they must reach markup that
+// Astro's scoping cannot see (slotted or set:html content); the gotcha is
+// explained in src/layouts/PageLayout.astro.
+// ==========================================================================
 // Shared comparison body, rendered by /vs/[slug] (English, `comparisons`
 // collection) and /de/vs/[slug] (German, `comparisonsDe`). Self-localizes UI
 // strings from Astro.currentLocale; the HTML content fields (tldr, feature table,

@@ -1,3 +1,17 @@
+/* ============================= LEARNING NOTES =============================
+   THE DESIGN SYSTEM. Imported once by BaseLayout, so it applies site-wide.
+   The most important idea is CSS CUSTOM PROPERTIES (variables): near the top,
+   :root defines tokens like --font-head, --radius and the per-section color
+   sets (--sec-bg, --sec-tx, --sec-bd...). Components never hard code colors;
+   they use var(--token). Dark mode simply redefines the tokens under
+   [data-theme="dark"], and section flavors (.sec--sand, .sec--navy, ...)
+   redefine them per band, so one set of component styles works everywhere.
+   Also defined here: the shared building blocks used across components
+   (.sec, .wrap, .button, .eyebrow, heading classes) and responsive behavior
+   via @media queries and clamp() (fluid values between a min and max).
+   CSS comments use this slash-star form; they are stripped from the built
+   CSS bundle.
+   ========================================================================== */
 /* ==========================================================================
    hubsell — global design system
    Ported from the finalised brand/style guide (hubsell-style-guide.html).

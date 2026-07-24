@@ -1,4 +1,14 @@
 ---
+// ============================= LEARNING NOTES =============================
+// DYNAMIC ROUTE: this one file builds every page under /use-cases/<slug> ,
+// one per entry in the 'usecases' content collection (schema in
+// src/content.config.ts). getStaticPaths() returns the list of pages to
+// create; the pattern is explained line by line at the top of
+// src/pages/insights/[slug].astro, which is the exemplar to study first.
+// Body component(s): src/components/UseCaseDetail.astro.
+// JsonLd emits schema.org structured data for search engines (breadcrumbs
+// and similar); see src/data/seo.ts for the schema builders.
+// ==========================================================================
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import UseCaseDetail from '../../components/UseCaseDetail.astro';

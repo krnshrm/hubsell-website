@@ -1,4 +1,20 @@
 ---
+// ============================= LEARNING NOTES =============================
+// PAGE BODY component: a thin route file under src/pages/ owns the layout,
+// meta and structured data, and hands the actual rendering to this file.
+// The split exists so the de/ and nl/ route copies reuse this body and it
+// translates itself. Annotated exemplars for the pattern:
+// src/components/GlossaryIndex.astro and src/components/SolutionDetail.astro.
+// No props: it reads Astro.currentLocale and fetches its own strings
+// from src/data/ (faqs-i18n, site).
+// Uses set:html to inject trusted HTML strings; see the warning about it
+// in src/pages/insights/[slug].astro.
+// Has a browser <script>: runs in the visitor's browser, re-inits on
+// astro:page-load. Build-time frontmatter vs browser script is explained
+// in src/layouts/BaseLayout.astro.
+// The <style> block is scoped to this component (Astro hashes the
+// selectors), styled with the design tokens from src/styles/global.css.
+// ==========================================================================
 // FAQs page body. Single source rendered by /faqs (English) and /de/faqs (German);
 // self-localizes from Astro.currentLocale. The FAQPage JSON-LD is built in the
 // route files (so its slot="head" reaches BaseLayout); this renders the visible

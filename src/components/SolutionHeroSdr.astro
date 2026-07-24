@@ -1,4 +1,20 @@
 ---
+// ============================= LEARNING NOTES =============================
+// SECTION component: one visual band, stacked by a page file. The pattern
+// (locale lookup, strings from src/data, semantic markup, scoped style) is
+// explained in src/components/Hero.astro; browser-script mechanics in
+// src/components/Faq.astro.
+// No props: it reads Astro.currentLocale and fetches its own strings
+// from src/data/ (embed-i18n).
+// Uses set:html to inject trusted HTML strings; see the warning about it
+// in src/pages/insights/[slug].astro.
+// Has a browser <script>: runs in the visitor's browser, re-inits on
+// astro:page-load. Build-time frontmatter vs browser script is explained
+// in src/layouts/BaseLayout.astro.
+// Its styles use :global()/is:global because they must reach markup that
+// Astro's scoping cannot see (slotted or set:html content); the gotcha is
+// explained in src/layouts/PageLayout.astro.
+// ==========================================================================
 // Hero visual for /solutions/role/sdr: four capability cards that light up in
 // sequence, with a rotating "no more" line underneath that lands the message.
 // Repurposes the homepage pipeline card vocabulary (white cards, palette icon

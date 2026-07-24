@@ -1,4 +1,26 @@
 ---
+// ============================= LEARNING NOTES =============================
+// THE .ASTRO FILE FORMAT, explained once here because every other .astro
+// file in the repo works the same way:
+//
+//   ---            <- opening "frontmatter" fence
+//   (JavaScript/TypeScript that runs AT BUILD TIME, on your machine,
+//    never in the visitor's browser)
+//   ---            <- closing fence
+//   (HTML template. Curly braces {like this} print a value from the
+//    frontmatter. {/* this is a comment */} and it is stripped from the
+//    built HTML. <!-- an HTML comment --> would ship to visitors.)
+//
+// THIS FILE IS A LAYOUT: the shared shell around every page. A page wraps
+// itself in <BaseLayout> and its content is injected where the <slot />
+// element sits below. Layouts are how you avoid repeating <head>, nav and
+// footer on all 429 pages.
+//
+// The `import` lines pull in the components used in the template. Importing
+// a .astro file gives you a TAG you can use like HTML: <Nav />. Importing a
+// .css file (last import) tells Astro to include that stylesheet on every
+// page that uses this layout; global.css carries the site-wide design system.
+// ==========================================================================
 import TopBar from '../components/TopBar.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
@@ -8,6 +30,11 @@ import { locales, defaultLocale } from '../i18n/ui';
 import { asLocale, basePath, hasTranslation, localizeUrl } from '../i18n/utils';
 import '../styles/global.css';
 
+// LEARNING: `Props` describes the "attributes" a page may pass to this
+// layout, like <BaseLayout title="Pricing" noindex>. It is a TypeScript
+// interface: names on the left, types on the right, `?` meaning optional.
+// Astro looks for an exported type called exactly `Props` and uses it to
+// warn you at build time if a page passes something wrong.
 export interface Props {
   title?: string;
   description?: string;
@@ -17,6 +44,12 @@ export interface Props {
   noindex?: boolean;
 }
 
+// LEARNING: `Astro.props` holds whatever the page passed in. The curly-brace
+// syntax on the left is "destructuring": pull named fields out of the object
+// into local variables in one go. `= value` after a name supplies a default
+// used when the page did not pass that prop. `Astro.url` is the URL of the
+// page currently being built; `Astro.site` is the `site` from
+// astro.config.mjs; `new URL(path, base)` joins them into a full address.
 const {
   title = 'hubsell | Replace Your Outbound Stack with One Platform',
   description = 'hubsell replaces your outreach stack with one platform: live-sourced data, email and LinkedIn sequences, and automatic CRM sync.',
@@ -43,6 +76,17 @@ const altHref = (l: string) => new URL(localizeUrl(l, base), Astro.site).href;
 ---
 <!doctype html>
 <html lang={locale}>
+{/* LEARNING: everything below the closing --- is the template. Standard HTML
+    plus three Astro powers used in this file:
+    1. {expression} prints a value: <title>{fullTitle}</title>.
+    2. attribute={value} sets an attribute from code, and
+       {condition && <tag/>} renders the tag only when the condition is true.
+    3. .map() loops: {list.map((item) => <tag>...</tag>)} repeats a fragment
+       once per list item (used for the hreflang links).
+    The <head> block is standard SEO plumbing: title and description show in
+    search results, canonical declares the one true URL for this page,
+    hreflang points search engines at translations, and the og:/twitter:
+    tags control the preview card when a link is shared. */}
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -83,6 +127,12 @@ const altHref = (l: string) => new URL(localizeUrl(l, base), Astro.site).href;
 
     <!-- Pre-paint guard: only opt into scroll-reveal hiding when motion is allowed,
          so reduced-motion users (and the no-JS case) never see hidden content. -->
+    {/* LEARNING: `is:inline` tells Astro "put this script in the HTML exactly as
+        written, do not bundle or defer it". Needed here because it must run
+        BEFORE the page paints: it sets the dark/light theme attribute so there
+        is no flash of the wrong theme. localStorage is the browser's tiny
+        key-value store that survives reloads. try/catch guards against browsers
+        that block storage. */}
     <script is:inline>
       // Use the saved choice if there is one, otherwise follow the OS setting. Set
       // before paint so there is no flash.
@@ -98,9 +148,15 @@ const altHref = (l: string) => new URL(localizeUrl(l, base), Astro.site).href;
       }
     </script>
 
+    {/* LEARNING: a NAMED slot. A page can inject extra tags into the <head> by
+        marking an element with slot="head", like the JSON-LD schema block on the
+        homepage: <JsonLd slot="head" .../>. Unmarked page content goes to the
+        default <slot /> inside <main> below. */}
     <slot name="head" />
   </head>
   <body>
+  {/* LEARNING: the visible page: shared top bar and nav, then <main> where the
+      page's own content lands via the default slot, then the shared footer. */}
     <TopBar />
     <Nav />
     <main>
@@ -111,6 +167,11 @@ const altHref = (l: string) => new URL(localizeUrl(l, base), Astro.site).href;
     <div class="scroll-progress" aria-hidden="true"><span class="scroll-progress__fill"></span></div>
 
     <script>
+      // LEARNING: a <script> WITHOUT is:inline is different: Astro treats it as a
+      // module, bundles it (imports allowed, TypeScript allowed), deduplicates it
+      // across pages and loads it deferred after the HTML. This is where
+      // browser-side interactivity lives. Everything in the --- fence ran at build
+      // time; everything here runs in the visitor's browser.
       import '../scripts/motion.ts';
 
       // Scroll progress bar pinned to the bottom edge. Listeners are bound once on
@@ -136,6 +197,10 @@ const altHref = (l: string) => new URL(localizeUrl(l, base), Astro.site).href;
         }
       }
       setupScrollProgress();
+      // LEARNING: 'astro:page-load' fires after every client-side navigation as
+      // well as the first load, so re-running the setup keeps the feature working
+      // when the visitor moves between pages. Plain `window.addEventListener`
+      // binds a function to a browser event.
       document.addEventListener('astro:page-load', setupScrollProgress);
     </script>
   </body>

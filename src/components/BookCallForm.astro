@@ -1,4 +1,16 @@
 ---
+// ============================= LEARNING NOTES =============================
+// The big multi-field form. Same submit mechanics as WaitlistForm.astro
+// (read the notes there first); what this file adds on top:
+// 1. A `compact` boolean prop switches between the full page form and the
+//    short modal version, one component serving both uses. In the template
+//    you will see {!compact && (...)} hiding whole field groups.
+// 2. Translation INSIDE the component: the BCF object below holds en/de/nl
+//    copies of every label, and the render picks BCF[L]. Bigger shared copy
+//    lives in src/data/, but a self-contained widget can keep its own.
+// 3. VALUES vs labels: what gets SUBMITTED stays English for consistent
+//    reporting; only what is DISPLAYED translates. A useful data lesson.
+// ==========================================================================
 // Book-a-call form. Mirrors the fields collected on the live site and posts JSON
 // to /api/subscribe, which forwards to Plunk server-side under the
 // 'book-a-call-request' event. Business email is corporate-only (the server

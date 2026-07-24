@@ -1,4 +1,23 @@
 ---
+// ============================= LEARNING NOTES =============================
+// EXEMPLAR FOR THE SolutionSteps* SIBLING FAMILY. Eight nearly identical
+// components (SalesTeams, Agencies, Revops, Founders, Sdr, SalesLeader,
+// Marketing, SalesOperations) render the "how" section visual for one
+// solution page each; SolutionDetail.astro picks the right one by path.
+// They differ only in their hand-built mini visuals, so the notes live here
+// once and the siblings carry a short pointer.
+// What to study:
+// - Props carry ALREADY TRANSLATED text (how: SolutionHow[]) from the data
+//   layer; tiny visual labels translate separately via et() from
+//   src/data/embed-i18n.ts.
+// - The visuals are plain HTML chips/cards plus small inline <svg> paths.
+//   viewBox defines an SVG's own coordinate system; preserveAspectRatio
+//   "none" lets it stretch; aria-hidden keeps decoration out of screen
+//   readers.
+// - Scroll animation follows the house GSAP recipe described in
+//   HeroPipelineFlow.astro: init function, astro:page-load re-run, and all
+//   hidden states gated behind html.has-anim for reduced-motion safety.
+// ==========================================================================
 // Stepped How-section visual for /solutions/role/sdr. Renders the page's three how blocks
 // (already translated) as detailed rows, each with a small self-contained visual.
 // Reuses the card / chip / node / green vocabulary from the platform visuals.

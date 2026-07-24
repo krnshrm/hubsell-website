@@ -1,4 +1,12 @@
 ---
+// ============================= LEARNING NOTES =============================
+// The site footer, rendered on every page by BaseLayout. Same lessons as
+// Nav.astro (read that first): link columns are data from
+// src/data/navigation.ts rendered with .map(), labels resolve through
+// t('key') so one footer serves every language, and liveLinks() filters out
+// pages that are not built yet. Notice the plain semantic HTML: <footer>,
+// <nav aria-label>, address details as text. Nothing clever is needed.
+// ==========================================================================
 // Footer — fixed navy chrome. The columns are the expanded navigation: the small
 // collections (customer stories, comparisons) are listed in full and pulled from the
 // content collections, so new entries appear here automatically. The remaining live

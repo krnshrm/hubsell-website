@@ -1,3 +1,11 @@
+// ============================= LEARNING NOTES =============================
+// Part of the DATA LAYER (src/data/). This repo separates CONTENT (strings,
+// lists, tables, in .ts files here) from PRESENTATION (components that render
+// it). Benefits: copy edits never risk breaking markup, TypeScript checks
+// that data and components agree on shape, and one dataset can serve every
+// locale and page that needs it. The file's own comment below says what this
+// particular file holds.
+// ==========================================================================
 // Manually blocked email domains: throwaways, spam senders, and anything else
 // we refuse on the book-a-call, demo, and contact forms. Checked on the client
 // (instant feedback) and on the server (authoritative), exact match plus all

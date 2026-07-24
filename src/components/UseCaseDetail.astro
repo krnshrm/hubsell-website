@@ -1,4 +1,18 @@
 ---
+// ============================= LEARNING NOTES =============================
+// PAGE BODY component: a thin route file under src/pages/ owns the layout,
+// meta and structured data, and hands the actual rendering to this file.
+// The split exists so the de/ and nl/ route copies reuse this body and it
+// translates itself. Annotated exemplars for the pattern:
+// src/components/GlossaryIndex.astro and src/components/SolutionDetail.astro.
+// Receives props: entry, items. See Avatar.astro for how typed
+// props with defaults work.
+// Loads the 'customerstories' content collection at build time (schema in
+// src/content.config.ts).
+// Its styles use :global()/is:global because they must reach markup that
+// Astro's scoping cannot see (slotted or set:html content); the gotcha is
+// explained in src/layouts/PageLayout.astro.
+// ==========================================================================
 // Shared use-case detail body, rendered by /use-cases/[slug] (English, from the
 // `usecases` collection) and /de/use-cases/[slug] (German, from `usecasesDe`).
 // Self-localizes UI strings from Astro.currentLocale; the route passes the entry

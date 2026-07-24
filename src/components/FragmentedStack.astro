@@ -1,4 +1,14 @@
 ---
+// ============================= LEARNING NOTES =============================
+// ANIMATED VISUAL component. The house recipe (markup with resting states,
+// theme-token CSS, GSAP init gated behind html.has-anim, astro:page-load
+// re-init) is explained once in src/components/HeroPipelineFlow.astro;
+// read that first, then this file is mostly scene-specific detail.
+// No props: it reads Astro.currentLocale and fetches its own strings
+// from src/data/ (home-i18n, site).
+// The <style> block is scoped to this component (Astro hashes the
+// selectors), styled with the design tokens from src/styles/global.css.
+// ==========================================================================
 // Section 4 — The fragmented stack problem (Navy). Before/after: a loose pile of
 // six disconnected tools (FragmentedPile) gives way to the same six jobs wired
 // into one platform (UnifiedGrid). Both animated embeds run on the navy section.

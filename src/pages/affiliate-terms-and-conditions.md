@@ -1,4 +1,7 @@
 ---
+# LEARNING: markdown page; the mechanics are explained in src/pages/privacy.md.
+# `layout:` picks the wrapping layout, the rest of this YAML becomes
+# Astro.props.frontmatter there. The body ships as written (no comments there).
 layout: ../layouts/LegalLayout.astro
 title: Affiliate Program Terms and Conditions
 description: "Review hubsell's affiliate program terms: commission structure, payment terms, responsibilities, and legal guidelines for partners."

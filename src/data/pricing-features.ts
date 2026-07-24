@@ -1,3 +1,11 @@
+// ============================= LEARNING NOTES =============================
+// Part of the DATA LAYER (src/data/). This repo separates CONTENT (strings,
+// lists, tables, in .ts files here) from PRESENTATION (components that render
+// it). Benefits: copy edits never risk breaking markup, TypeScript checks
+// that data and components agree on shape, and one dataset can serve every
+// locale and page that needs it. The file's own comment below says what this
+// particular file holds.
+// ==========================================================================
 // Feature availability matrix for the /pricing comparison table. Source: the
 // founder's Pricing_features_list sheet (2026-07-09) plus the 2026-07-09 update
 // round: sentence case throughout (only the first word and names capitalized),

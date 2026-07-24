@@ -1,3 +1,15 @@
+// ============================= LEARNING NOTES =============================
+// Part of the DATA LAYER (src/data/). This repo separates CONTENT (strings,
+// lists, tables, in .ts files here) from PRESENTATION (components that render
+// it). Benefits: copy edits never risk breaking markup, TypeScript checks
+// that data and components agree on shape, and one dataset can serve every
+// locale and page that needs it. The file's own comment below says what this
+// particular file holds.
+// German translation file: mirrors the shapes of testimonials-content.ts or its
+// English sibling exactly (TypeScript enforces it); the matching *-i18n.ts
+// accessor picks this file when the locale asks for it. See the pattern
+// notes in src/data/home-i18n.ts.
+// ==========================================================================
 // German quotes for the shared testimonials pool, mapped onto TESTIMONIALS by slug
 // so the shared shape (photo, slug, storySlug) is preserved. The six customer-story
 // champions are already translated for the homepage (home.de.ts) and reused here by

@@ -1,4 +1,17 @@
 ---
+// ============================= LEARNING NOTES =============================
+// SECTION component: one visual band, stacked by a page file. The pattern
+// (locale lookup, strings from src/data, semantic markup, scoped style) is
+// explained in src/components/Hero.astro; browser-script mechanics in
+// src/components/Faq.astro.
+// Receives props: L, eyebrow, title, slugs, seeAll, tone, accent. See Avatar.astro for how typed
+// props with defaults work.
+// Uses set:html to inject trusted HTML strings; see the warning about it
+// in src/pages/insights/[slug].astro.
+// Has a browser <script>: runs in the visitor's browser, re-inits on
+// astro:page-load. Build-time frontmatter vs browser script is explained
+// in src/layouts/BaseLayout.astro.
+// ==========================================================================
 // A small FAQ accordion for the /platform pages: renders a hand-picked subset of
 // the shared FAQ source by slug, in the given order, using the global .acc styles
 // and the same guarded init pattern as the homepage Faq section.

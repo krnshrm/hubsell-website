@@ -3,6 +3,7 @@
 _Last updated: 2026-07-16. This file lives at `docs/HANDOFF.md` and is the entry point for any new or parallel chat. The GitHub repo and its git log are the source of truth; when this file and the code disagree, the code wins. Companion docs: `docs/SITEMAP.md` (full site map with per-page status) and `docs/hubsell-style-guide.html` (visual reference). This supersedes the v4 handoff of 2026-07-01._
 
 ## Status
+- IN FLIGHT on branch `learning-comments` (2026-07-24): a teaching-comments pass. Every source file now carries `LEARNING NOTES` comment blocks that explain Astro and web basics, so the founder can learn to build Astro sites from this repo without AI. Comments only; the built output is checksum-identical (verified across all 678 dist files). Guide and reading order: `docs/20260724-1100-LEARNING-ASTRO.md`. Merge like any branch.
 - The site is LIVE on Astro (Cloudflare Pages). www.hubsell.com serves the Astro site. Webflow is legacy (rollback only). Never write to Webflow.
 - Locales live on `main`: English (base, no prefix), German (`/de/`), Dutch (`/nl/`). The switcher offers en/de/nl. French, Spanish, Portuguese are not built and hidden from the switcher.
 - Full build is 429 pages.
@@ -16,6 +17,8 @@ _Last updated: 2026-07-16. This file lives at `docs/HANDOFF.md` and is the entry
 This work is done by editing a local Astro project and handing the founder changed files plus a `git push` command. It needs the sandbox code/file tools (bash, file read/write, file delivery). A session that only exposes connectors with no file/code tools CANNOT do this work.
 
 A new chat needs: this file, `docs/SITEMAP.md`, `docs/hubsell-style-guide.html`, `docs/KNOWLEDGE-CENTER.md` (if touching `/knowledge`), and repo access. The repo is currently PUBLIC (flipped 2026-07-18 for a working session), so a new chat can clone it directly, no upload needed: `git clone https://github.com/krnshrm/hubsell-website.git`. If the founder flips it back to private, use the bundle flow instead (the founder runs `git bundle create ~/Downloads/YYYYMMDD-hubsell-repo.bundle --all` and uploads it to the chat). The bundle carries full git history, which past sessions have needed for content recovery. A shallow public clone (`--depth 1`) is fine for normal page work.
+
+A chat whose task is LEARNING or explaining the codebase should start from `docs/20260724-1100-LEARNING-ASTRO.md` (teaching-comment map and reading order).
 
 ## Parallel chats - coordination rules
 - Each parallel chat works on its OWN branch, never directly on `main` (a push to `main` is a live deploy).
@@ -38,6 +41,7 @@ A new chat needs: this file, `docs/SITEMAP.md`, `docs/hubsell-style-guide.html`,
 - Merge-to-main procedure: pre-flight on the feature branch (`git status` clean, `npm run build` green at the expected page count, eyeball the branch preview), then `git checkout main`, `git pull`, `git merge <branch>`, `npm run build` again, `git push origin main`. Rollback: Cloudflare Pages "Rollback to this deployment" (fastest), or `git revert -m 1 <merge-sha> && git push`.
 
 ## Standing rules (apply to ALL future work)
+- LEARNING COMMENTS: the `LEARNING NOTES` blocks and `LEARNING:` inline comments across the repo (added 2026-07-24, see `docs/20260724-1100-LEARNING-ASTRO.md`) are the founder's Astro textbook. PRESERVE them in any file you edit; never strip or reflow them. When your edit makes a neighbouring LEARNING comment factually wrong, update that comment's facts minimally. New files do not need them.
 - COPY STYLE for anything Claude writes in English: no em dashes, no AI-sounding words (seamless, elevate, leverage, robust, streamline, unlock, end-to-end, etc.), plain clear language, spell out ranges ("3 to 6"). Em dashes inside code comments are fine.
 - COPY STYLE for translations: the "no AI-sounding words" rule applies in the target language too. Do NOT carry an English buzzword across as a loanword. Render it in plain target-language wording (Dutch examples: "seamless/naadloos" became "soepel"; "end-to-end" became "voor het hele traject" or "van begin tot eind").
 - Migrated content (blog bodies, legal text, testimonials, customer-story bodies): the ENGLISH stays verbatim, including its punctuation. When TRANSLATING that content into a locale, translate faithfully but still apply the no-buzzword rule and the locale's formatting rules.

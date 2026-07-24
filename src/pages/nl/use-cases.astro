@@ -1,4 +1,13 @@
 ---
+// ============================= LEARNING NOTES =============================
+// Dutch copy of src/pages/use-cases.astro, serving the URL /nl/use-cases .
+// LOCALE PAGE PATTERN: see the full explanation at the top of
+// src/pages/de/index.astro. In short: same components as the English page,
+// import paths one level deeper, translated meta text; the components
+// translate themselves because Astro.currentLocale is 'nl' under /nl/.
+// The <style> block at the bottom is scoped: Astro rewrites its selectors
+// so they only apply to this file's own markup.
+// ==========================================================================
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getUseCasesPage } from '../../i18n/pages';

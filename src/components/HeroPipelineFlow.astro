@@ -1,4 +1,24 @@
 ---
+// ============================= LEARNING NOTES =============================
+// THE ANIMATED VISUAL EXEMPLAR. The homepage hero graphic, originally a
+// Webflow embed (see src/embeds/ for the raw exports), rebuilt as a proper
+// Astro component. Every other animated widget in this folder
+// (FragmentedStack, UnifiedGrid, ZeroDayTimeline, CrmSyncTracker,
+// SocialProspecting, MultichannelFlow, PricingTable) follows the same
+// recipe, so learn it here once:
+// 1. Markup in the template; every animated element also has a resting
+//    state, and anything decorative carries aria-hidden="true" so screen
+//    readers skip it.
+// 2. Layout and the simpler motion are pure CSS in the <style> block
+//    (keyframes, transitions), driven by the design-token variables so the
+//    visual adapts to light and dark themes.
+// 3. Richer motion lives in the <script> using GSAP (an animation library),
+//    always wrapped in an init function that is called once at load AND on
+//    astro:page-load, and always gated behind html.has-anim so visitors who
+//    prefer reduced motion simply see the finished layout at rest. That
+//    gate is the repo's standing rule for animation.
+// The et() calls translate the tiny labels via src/data/embed-i18n.ts.
+// ==========================================================================
 // Hero pipeline flow — the signature visual.
 // REWRITTEN: the connecting line + return loop are now pure CSS, positioned
 // relative to the real cards (top/bottom: half a card-height), so they always

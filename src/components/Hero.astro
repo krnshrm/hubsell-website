@@ -1,4 +1,18 @@
 ---
+// ============================= LEARNING NOTES =============================
+// A SECTION COMPONENT: one visual band of a page. The homepage (and its de/nl
+// copies) is a stack of these. The pattern to internalize, because most of
+// the 60+ components in this folder repeat it:
+//   1. Read the locale, fetch this section's strings from a src/data/*-i18n
+//      accessor (here getHome(L), giving `s`).
+//   2. Render semantic HTML with those strings in {curly braces}.
+//   3. Style it in a scoped <style> block using the design tokens
+//      (CSS variables like --sec-tx) defined in src/styles/global.css.
+// Also note: components can use other components (HeroPipelineFlow, the
+// animated visual, and AskAiWidget are nested here), and class names follow
+// the BEM-ish `block__element` convention (hero__grid, hero__copy) so you
+// can tell from a class which component owns it.
+// ==========================================================================
 // Homepage hero — section 1, Sand.
 // Decluttered: headline + subhead + two CTAs (sign-up first), a quiet ratings
 // line, and the discreet "Ask AI" row. The pipeline flow sits to the right.

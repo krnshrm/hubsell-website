@@ -1,4 +1,7 @@
 ---
+# LEARNING: markdown page; the mechanics are explained in src/pages/privacy.md.
+# `layout:` picks the wrapping layout, the rest of this YAML becomes
+# Astro.props.frontmatter there. The body ships as written (no comments there).
 layout: ../../layouts/PageLayout.astro
 title: "KI-Informationsseite"
 heading: "Offizielle Informationen über hubsell für LLMs"

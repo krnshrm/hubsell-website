@@ -1,4 +1,11 @@
 ---
+// ============================= LEARNING NOTES =============================
+// Dutch copy of src/pages/platform/personalization.astro, serving the URL /nl/platform/personalization .
+// LOCALE PAGE PATTERN: see the full explanation at the top of
+// src/pages/de/index.astro. In short: same components as the English page,
+// import paths one level deeper, translated meta text; the components
+// translate themselves because Astro.currentLocale is 'nl' under /nl/.
+// ==========================================================================
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import JsonLd from '../../../components/JsonLd.astro';
 import PlatformDetail from '../../../components/PlatformDetail.astro';

@@ -1,4 +1,22 @@
 ---
+// ============================= LEARNING NOTES =============================
+// The site navigation, rendered on every page via BaseLayout. Concepts here:
+// 1. DATA-DRIVEN MENUS: the menu structure is NOT written as HTML. It lives
+//    as arrays of objects in src/data/navigation.ts and the template loops
+//    over them with .map(). Add a link to the data file and the nav (and the
+//    footer, which reads the same file) update together.
+// 2. TRANSLATIONS: `const t = useTranslations(locale)` returns a lookup
+//    function; every label is t('some.key') resolved from src/i18n/ui.ts.
+//    Fixed labels never appear in this file, so one nav serves en/de/nl.
+// 3. `l.href!` : the TypeScript non-null assertion, "this link definitely
+//    has an href". liveLinks() (from navigation.ts) has already filtered
+//    out entries whose pages are not built yet.
+// 4. aria-haspopup / aria-expanded on the triggers, plus the <script> lower
+//    in the file, make the mega-menus keyboard and screen-reader friendly.
+//    The dropdown open/close and the color sampling of the section under
+//    the bar all happen in that browser script; scan it after reading the
+//    accordion script in Faq.astro, which is the simpler warm-up.
+// ==========================================================================
 // Main navigation. Colour-aware: the bar samples the background of the section
 // currently under it, then flips between a light and dark treatment (text, logo,
 // hairline) and tints a frosted bar to match. Keys off the section's *computed*

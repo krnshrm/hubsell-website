@@ -1,4 +1,19 @@
 ---
+// ============================= LEARNING NOTES =============================
+// SHARED BODY TEMPLATE serving all 8 solution pages (4 team + 4 role) in
+// every language: one component, many pages. Two techniques to learn:
+// 1. DYNAMIC COMPONENT CHOICE: STEP_VISUALS below maps a page path to a
+//    COMPONENT (components are values in JavaScript, so they can sit in an
+//    object). The template later picks one and renders it via a capitalized
+//    variable, e.g. `const Steps = STEP_VISUALS[path]` then `<Steps ... />`.
+//    That is how you swap a section per page without if/else in the markup.
+// 2. TYPED CONTENT: `import type { SolutionDetailData }` pulls in only a
+//    TYPE (erased at build), so the component and the data files in
+//    src/data/solutions*.ts agree on the exact shape of a solution page.
+//    Change the shape in one place and TypeScript flags every mismatch.
+// The route files (src/pages/solutions/**) stay thin; they resolve the data
+// for their path and pass it here as props.
+// ==========================================================================
 // Shared body template for the /solutions leaf pages (team + role). The route file
 // owns BaseLayout, title/description, and breadcrumb JSON-LD; this renders the
 // sections. Jobs-to-be-done framing: hero, the jobs, how hubsell helps (each block

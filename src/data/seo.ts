@@ -1,3 +1,14 @@
+// ============================= LEARNING NOTES =============================
+// Part of the DATA LAYER (src/data/). This repo separates CONTENT (strings,
+// lists, tables, in .ts files here) from PRESENTATION (components that render
+// it). Benefits: copy edits never risk breaking markup, TypeScript checks
+// that data and components agree on shape, and one dataset can serve every
+// locale and page that needs it. The file's own comment below says what this
+// particular file holds.
+// Also home to the SCHEMA BUILDER functions (breadcrumbSchema and friends):
+// small functions that return schema.org JSON objects, called by page files
+// and rendered through the JsonLd component.
+// ==========================================================================
 // Central SEO / structured-data values. Keep brand facts here so JSON-LD, Open
 // Graph images, and titles stay consistent everywhere. Plain language only — no
 // marketing filler — because this text feeds search engines and AI answers.
