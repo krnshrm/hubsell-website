@@ -36,3 +36,20 @@
 # Post that was not migrated -> insights index.
 /insights/must-have-sales-tools-for-2019     /insights   301
 /insights/must-have-sales-tools-for-2019/    /insights   301
+
+# --- GSC cleanup (2026-07-24): 404s reported by Search Console, old Webflow-era URLs ---
+# See docs/20260724-1520-SEARCH-CONSOLE.md for the full analysis.
+/home                              /                                        301
+/home/                             /                                        301
+/customers                         /customerstories/                        301
+/customers/                        /customerstories/                        301
+/engagement-orchestration          /platform/multichannel-outreach/         301
+/engagement-orchestration/         /platform/multichannel-outreach/         301
+/integrations-tutorials/hubspot    /integrations/                          301
+/integrations-tutorials/hubspot/   /integrations/                          301
+# Old Webflow author archives (any author) -> blog index.
+/insights/author/*                 /insights/                               301
+# Truncated link to the blacklist post seen in the wild.
+/insights/how-to-avoid-email-domain-blacklist-and-   /insights/how-to-avoid-email-domain-blacklist-and-remove-ip/   301
+# Intentionally NOT redirected (correct 404s): /cdn-cgi/* (Cloudflare-reserved),
+# /free-tools-for-b2b-sales (no equivalent yet; reclaim when Free tools ships).
