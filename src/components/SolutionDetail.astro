@@ -62,7 +62,7 @@ const StepVisual = STEP_VISUALS[d.path];
 const HeroVisual = HERO_VISUALS[d.path];
 const hasPains = !!(d.pains && d.pains.length > 0);
 const quote2 = d.quoteSlug2 ? getSolutionQuote(L, d.quoteSlug2) : undefined;
-const proofItems = (d.storySlug ? 1 : 0) + (quote ? 1 : 0) + (quote2 ? 1 : 0) + (d.outcomeStats?.length ?? 0);
+const proofItems = (d.storySlug ? 1 : 0) + (quote ? 1 : 0) + (quote2 ? 1 : 0);
 ---
 <!-- 1 · Hero (sand). Two columns when the page has a hero visual. -->
 <section class="sec sec--sand" aria-labelledby="sol-title">
@@ -174,7 +174,31 @@ const proofItems = (d.storySlug ? 1 : 0) + (quote ? 1 : 0) + (quote2 ? 1 : 0) + 
       <p class="eyebrow">{d.proofEyebrow}</p>
       <h2 class="heading_primary" style="margin-top:8px">{d.proofTitle}</h2>
     </div>
-    <div class={proofItems > 1 ? 'sol-proof' : 'sol-proof is-solo'}>
+    {d.outcomeStats && (
+      <div class="sol-stats">
+        {d.outcomeStats && d.outcomeStats.map((st) => {
+          const person = st.personSlug ? getSolutionQuote(L, st.personSlug) : undefined;
+          return (
+          <div class="card sol-quote sol-stat">
+            <p class="heading_primary sol-stat__metric">{st.metric}</p>
+            <p class="paragraph_small sol-stat__label"><b>{st.label}</b></p>
+            {st.context && <p class="paragraph_small sol-stat__context">{st.context}</p>}
+            {person && (
+              <div class="sol-person">
+                {person.photo && <img class="sol-person__img" src={person.photo} alt={person.name} width="52" height="52" loading="lazy" />}
+                <span>
+                  <b class="sol-person__name">{person.name}</b>
+                  <span class="paragraph_small sol-person__meta">{person.title}{person.company && ` \u00b7 ${person.company}`}</span>
+                </span>
+              </div>
+            )}
+            <a href={localizedHref(L, st.href)} class="link sol-stat__link">{st.linkLabel} &rarr;</a>
+          </div>
+          );
+        })}
+      </div>
+    )}
+    <div class={d.outcomeStats ? 'sol-proof sol-proof--below' : (proofItems > 1 ? 'sol-proof' : 'sol-proof is-solo')}>
       {d.storySlug && <PlatformStoryCard L={L} slug={d.storySlug} label={d.storyLabel ?? ''} />}
       {quote && (
         <figure class="card sol-quote">
@@ -196,26 +220,6 @@ const proofItems = (d.storySlug ? 1 : 0) + (quote ? 1 : 0) + (quote2 ? 1 : 0) + 
           </figcaption>
         </figure>
       )}
-      {d.outcomeStats && d.outcomeStats.map((st) => {
-        const person = st.personSlug ? getSolutionQuote(L, st.personSlug) : undefined;
-        return (
-        <div class="card sol-quote sol-stat">
-          <p class="heading_primary sol-stat__metric">{st.metric}</p>
-          <p class="paragraph_small sol-stat__label"><b>{st.label}</b></p>
-          {st.context && <p class="paragraph_small sol-stat__context">{st.context}</p>}
-          {person && (
-            <div class="sol-person">
-              {person.photo && <img class="sol-person__img" src={person.photo} alt={person.name} width="52" height="52" loading="lazy" />}
-              <span>
-                <b class="sol-person__name">{person.name}</b>
-                <span class="paragraph_small sol-person__meta">{person.title}{person.company && ` \u00b7 ${person.company}`}</span>
-              </span>
-            </div>
-          )}
-          <a href={localizedHref(L, st.href)} class="link sol-stat__link">{st.linkLabel} &rarr;</a>
-        </div>
-        );
-      })}
     </div>
     {d.proofNote && <p class="paragraph_small sol-proofnote">{d.proofNote}</p>}
   </div>
@@ -272,6 +276,10 @@ const proofItems = (d.storySlug ? 1 : 0) + (quote ? 1 : 0) + (quote2 ? 1 : 0) + 
   .sol-howcard{ display:flex; flex-direction:column }
 
   .sol-proof{ display:grid; grid-template-columns:1fr; gap:20px; align-items:stretch }
+  /* Outcome stat cards: their own row, side by side on wide screens,
+     with the testimonial below them at full width */
+  .sol-stats{ display:grid; grid-template-columns:1fr; gap:20px; align-items:stretch }
+  .sol-proof--below{ margin-top:20px }
   /* Outcome stat cards in the proof grid (optional, data-driven) */
   .sol-stat{ justify-content:flex-start }
   .sol-stat__metric{ margin:0 }
@@ -307,6 +315,7 @@ const proofItems = (d.storySlug ? 1 : 0) + (quote ? 1 : 0) + (quote2 ? 1 : 0) + 
     .sol-pain:nth-child(even) .sol-pain__problem{ order:2 }
     .sol-pain:nth-child(even) .sol-pain__solution{ order:1 }
     .sol-how{ grid-template-columns:1fr 1fr 1fr }
-    .sol-proof:not(.is-solo){ grid-template-columns:1fr 1fr }
+    .sol-proof:not(.is-solo):not(.sol-proof--below){ grid-template-columns:1fr 1fr }
+    .sol-stats{ grid-template-columns:1fr 1fr }
   }
 </style>
