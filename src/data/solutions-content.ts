@@ -32,6 +32,8 @@ export interface SolutionEmailCta {
   modalSub: string;
   secondaryHref?: string;  // optional secondary link under the form (e.g. book a demo)
   secondaryLabel?: string;
+  priceLine?: string;      // optional pricing line folded into this band (replaces a separate strip)
+  priceLinkLabel?: string; // label for the /pricing link shown after priceLine
 }
 
 export interface SolutionCard {
@@ -50,9 +52,8 @@ export interface SolutionPain {
   href?: string; linkLabel?: string;   // optional platform link per block
 }
 
-export interface SolutionStat { metric: string; label: string; context?: string; href: string; linkLabel: string }
+export interface SolutionStat { metric: string; label: string; context?: string; personSlug?: string; href: string; linkLabel: string }
 export interface SolutionManagerBand { title: string; body: string; links: { href: string; label: string }[] }
-export interface SolutionPricingStrip { text: string; href: string; linkLabel: string }
 
 export interface SolutionDetailData {
   path: string;                 // English-root path, e.g. '/solutions/team/sales-teams'
@@ -76,8 +77,7 @@ export interface SolutionDetailData {
   storyLabel?: string;
   outcomeStats?: SolutionStat[]; // named outcome numbers shown as cards in the proof band
   proofNote?: string;            // small trust line under the proof grid
-  managerBand?: SolutionManagerBand;   // optional band aimed at the hiring manager
-  pricingStrip?: SolutionPricingStrip; // optional compact pricing band before the CTA
+  managerBand?: SolutionManagerBand;   // optional compact callout aimed at the hiring manager
   faqEyebrow: string; faqTitle: string; faqSlugs: string[];
   closing: SolutionClosing;
   closingCta: string;
@@ -314,8 +314,8 @@ export const solutions: SolutionsData = {
       proofEyebrow: 'Proof', proofTitle: 'What reps say',
       quoteSlug: 'cibt',
       outcomeStats: [
-        { metric: '3x', label: 'increase in opportunity generation', context: 'Verhaert, a 30-person firm with five people across sales and marketing.', href: '/customerstories/verhaert', linkLabel: 'Read the Verhaert story' },
-        { metric: '33%', label: 'reduction in customer acquisition costs', context: 'Workspace 365.', href: '/customerstories/workspace365', linkLabel: 'Read the Workspace 365 story' },
+        { metric: '3x', label: 'increase in opportunity generation', context: 'Verhaert, a 30-person firm with five people across sales and marketing.', personSlug: 'verhaert', href: '/customerstories/verhaert', linkLabel: 'Read the Verhaert story' },
+        { metric: '33%', label: 'reduction in customer acquisition costs', context: 'Workspace 365.', personSlug: 'workspace365', href: '/customerstories/workspace365', linkLabel: 'Read the Workspace 365 story' },
       ],
       proofNote: 'References available on request, so you can hear the feedback from users directly.',
       faqEyebrow: 'FAQ', faqTitle: 'Common questions',
@@ -328,10 +328,6 @@ export const solutions: SolutionsData = {
           { href: '#sample-offer', label: 'Get sample data' },
         ],
       },
-      pricingStrip: {
-        text: '\u20ac120 per seat, per month, plus data as you use it. No database subscription, no annual data contract, no upfront investment. All pay as you go.',
-        href: '/pricing', linkLabel: 'See pricing',
-      },
       closing: { titlePre: 'Sample data before the demo. ', titleAccent: 'Free trial', titlePost: ' before the deal.', sub: 'Tell us who you target and we\u2019ll send live-sourced sample contacts on that exact profile before any call. If the data holds up, you get a free trial with real outreach and real replies before you commit to anything.' },
       closingCta: 'Book a demo',
       emailCta: {
@@ -342,6 +338,8 @@ export const solutions: SolutionsData = {
         modalSub: 'Tell us a little about who you target so we can source the right sample contacts.',
         secondaryHref: '/book-a-call',
         secondaryLabel: 'Or book a demo',
+        priceLine: '\u20ac120 per seat, per month, plus data as you use it. No database subscription, no annual data contract, no upfront investment. All pay as you go.',
+        priceLinkLabel: 'See pricing',
       },
     },
     {

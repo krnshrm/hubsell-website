@@ -179,8 +179,12 @@ const proofItems = (d.storySlug ? 1 : 0) + (quote ? 1 : 0) + (quote2 ? 1 : 0) + 
       {quote && (
         <figure class="card sol-quote">
           <blockquote class="quote" style="margin:0">&ldquo;{quote.quote}&rdquo;</blockquote>
-          <figcaption class="paragraph_small" style="margin-top:16px">
-            <b>{quote.name}</b>{quote.title && `, ${quote.title}`}{quote.company && ` \u00b7 ${quote.company}`}
+          <figcaption class="sol-person">
+            {quote.photo && <img class="sol-person__img" src={quote.photo} alt={quote.name} width="52" height="52" loading="lazy" />}
+            <span>
+              <b class="sol-person__name">{quote.name}</b>
+              <span class="paragraph_small sol-person__meta">{quote.title}{quote.company && ` \u00b7 ${quote.company}`}</span>
+            </span>
           </figcaption>
         </figure>
       )}
@@ -192,14 +196,26 @@ const proofItems = (d.storySlug ? 1 : 0) + (quote ? 1 : 0) + (quote2 ? 1 : 0) + 
           </figcaption>
         </figure>
       )}
-      {d.outcomeStats && d.outcomeStats.map((st) => (
+      {d.outcomeStats && d.outcomeStats.map((st) => {
+        const person = st.personSlug ? getSolutionQuote(L, st.personSlug) : undefined;
+        return (
         <div class="card sol-quote sol-stat">
           <p class="heading_primary sol-stat__metric">{st.metric}</p>
           <p class="paragraph_small sol-stat__label"><b>{st.label}</b></p>
           {st.context && <p class="paragraph_small sol-stat__context">{st.context}</p>}
+          {person && (
+            <div class="sol-person">
+              {person.photo && <img class="sol-person__img" src={person.photo} alt={person.name} width="52" height="52" loading="lazy" />}
+              <span>
+                <b class="sol-person__name">{person.name}</b>
+                <span class="paragraph_small sol-person__meta">{person.title}{person.company && ` \u00b7 ${person.company}`}</span>
+              </span>
+            </div>
+          )}
           <a href={localizedHref(L, st.href)} class="link sol-stat__link">{st.linkLabel} &rarr;</a>
         </div>
-      ))}
+        );
+      })}
     </div>
     {d.proofNote && <p class="paragraph_small sol-proofnote">{d.proofNote}</p>}
   </div>
@@ -207,28 +223,21 @@ const proofItems = (d.storySlug ? 1 : 0) + (quote ? 1 : 0) + (quote2 ? 1 : 0) + 
 
 <!-- 4b · Manager band (optional, data-driven): one deliberate message to the hiring manager -->
 {d.managerBand && (
-<section class="sec sec--sand sol-manager" aria-label={d.managerBand.title}>
+<section class="sec sec--paper sol-manager" aria-label={d.managerBand.title}>
   <div class="wrap">
-    <h2 class="heading_secondary">{d.managerBand.title}</h2>
-    <p class="subheading sol-manager__body">{d.managerBand.body}</p>
-    <p class="sol-manager__links">
-      {d.managerBand.links.map((l) => (
-        <a href={l.href.startsWith('#') ? l.href : localizedHref(L, l.href)} class="link">{l.label} &rarr;</a>
-      ))}
-    </p>
+    <div class="card sol-manager__card">
+      <h2 class="heading_small">{d.managerBand.title}</h2>
+      <p class="paragraph_small sol-manager__body">{d.managerBand.body}</p>
+      <p class="sol-manager__links">
+        {d.managerBand.links.map((l) => (
+          <a href={l.href.startsWith('#') ? l.href : localizedHref(L, l.href)} class="link">{l.label} &rarr;</a>
+        ))}
+      </p>
+    </div>
   </div>
 </section>
 )}
 
-<!-- 4c · Pricing strip (optional, data-driven): one compact band linking to /pricing -->
-{d.pricingStrip && (
-<section class="sec sec--paper sol-pricestrip" aria-label="Pricing">
-  <div class="wrap">
-    <p class="subheading sol-pricestrip__text">{d.pricingStrip.text}</p>
-    <p class="sol-pricestrip__cta"><a href={localizedHref(L, d.pricingStrip.href)} class="button is-secondary">{d.pricingStrip.linkLabel}</a></p>
-  </div>
-</section>
-)}
 
 <!-- 5 · Single email CTA band (espresso), above the FAQ, on pages that opt in -->
 {d.emailCta && <SolutionEmailCta L={L} closing={d.closing} cta={d.emailCta} />}
@@ -270,13 +279,18 @@ const proofItems = (d.storySlug ? 1 : 0) + (quote ? 1 : 0) + (quote2 ? 1 : 0) + 
   .sol-stat__context{ margin-top:6px }
   .sol-stat__link{ margin-top:auto; padding-top:16px; display:inline-block }
   .sol-proofnote{ margin-top:22px; text-align:center; opacity:.75 }
-  /* Manager band and pricing strip (optional, data-driven) */
-  .sol-manager .wrap, .sol-pricestrip .wrap{ text-align:center }
-  .sol-manager__body{ margin:14px auto 0; max-width:60ch }
-  .sol-manager__links{ margin:22px 0 0 }
+  /* Person attribution row on quotes and stat cards */
+  .sol-person{ display:flex; align-items:center; gap:14px; margin-top:16px }
+  .sol-person__img{ width:52px; height:52px; border-radius:50%; object-fit:cover;
+    background:color-mix(in srgb,var(--sec-tx) 10%,transparent) }
+  .sol-person__name{ display:block; font-family:var(--font-head) }
+  .sol-person__meta{ display:block; margin:0; opacity:.7 }
+  /* Manager callout: compact card, not a full CTA band */
+  .sol-manager.sec{ padding-top:34px; padding-bottom:34px }
+  .sol-manager__card{ max-width:720px; margin:0 auto; text-align:center }
+  .sol-manager__body{ margin:10px auto 0; max-width:60ch }
+  .sol-manager__links{ margin:16px 0 0 }
   .sol-manager__links .link{ margin:0 12px }
-  .sol-pricestrip__text{ max-width:64ch; margin:0 auto }
-  .sol-pricestrip__cta{ margin:18px 0 0 }
   .sol-proof.is-solo{ max-width:720px }
   .sol-quote{ display:flex; flex-direction:column; justify-content:center }
 

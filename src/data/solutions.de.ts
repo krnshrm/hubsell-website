@@ -229,8 +229,8 @@ export const solutionsDe: SolutionsData = {
       proofEyebrow: 'Beleg', proofTitle: 'Was Reps sagen',
       quoteSlug: 'cibt',
       outcomeStats: [
-        { metric: '3x', label: 'mehr generierte Opportunities', context: 'Verhaert, ein 30-Personen-Unternehmen mit f\u00fcnf Personen in Vertrieb und Marketing.', href: '/customerstories/verhaert', linkLabel: 'Zur Verhaert-Story' },
-        { metric: '33%', label: 'niedrigere Kundenakquisitionskosten', context: 'Workspace 365.', href: '/customerstories/workspace365', linkLabel: 'Zur Workspace-365-Story' },
+        { metric: '3x', label: 'mehr generierte Opportunities', context: 'Verhaert, ein 30-Personen-Unternehmen mit f\u00fcnf Personen in Vertrieb und Marketing.', personSlug: 'verhaert', href: '/customerstories/verhaert', linkLabel: 'Zur Verhaert-Story' },
+        { metric: '33%', label: 'niedrigere Kundenakquisitionskosten', context: 'Workspace 365.', personSlug: 'workspace365', href: '/customerstories/workspace365', linkLabel: 'Zur Workspace-365-Story' },
       ],
       proofNote: 'Referenzen auf Anfrage, damit Sie das Feedback direkt von Nutzern h\u00f6ren k\u00f6nnen.',
       managerBand: {
@@ -240,10 +240,6 @@ export const solutionsDe: SolutionsData = {
           { href: '/solutions/role/sales-leader', label: 'F\u00fcr die Vertriebsleitung' },
           { href: '#sample-offer', label: 'Beispieldaten erhalten' },
         ],
-      },
-      pricingStrip: {
-        text: '120 \u20ac pro Seat und Monat, plus Daten nach Verbrauch. Kein Datenbank-Abo, kein Jahresvertrag f\u00fcr Daten, keine Vorabinvestition. Alles Pay as you go.',
-        href: '/pricing', linkLabel: 'Zu den Preisen',
       },
       faqEyebrow: 'FAQ', faqTitle: 'H\u00e4ufige Fragen',
       faqSlugs: ['personalize-outreach-at-scale', 'sdr-vs-executive-linkedin-outreach', 'stop-sales-email-bounces', 'sdr-first-meetings-week-one', 'hubsell-setup-before-first-sdr'],
@@ -257,6 +253,8 @@ export const solutionsDe: SolutionsData = {
         modalSub: 'Erz\u00e4hlen Sie uns kurz, wen Sie ansprechen, damit wir die passenden Beispielkontakte recherchieren k\u00f6nnen.',
         secondaryHref: '/book-a-call',
         secondaryLabel: 'Oder eine Demo buchen',
+        priceLine: '120 \u20ac pro Seat und Monat, plus Daten nach Verbrauch. Kein Datenbank-Abo, kein Jahresvertrag f\u00fcr Daten, keine Vorabinvestition. Alles Pay as you go.',
+        priceLinkLabel: 'Zu den Preisen',
       },
     },
     {

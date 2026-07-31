@@ -229,8 +229,8 @@ export const solutionsNl: SolutionsData = {
       proofEyebrow: 'Bewijs', proofTitle: 'Wat reps zeggen',
       quoteSlug: 'cibt',
       outcomeStats: [
-        { metric: '3x', label: 'meer gegenereerde opportunities', context: 'Verhaert, een bedrijf van 30 mensen met vijf mensen in sales en marketing.', href: '/customerstories/verhaert', linkLabel: 'Lees het Verhaert-verhaal' },
-        { metric: '33%', label: 'lagere klantacquisitiekosten', context: 'Workspace 365.', href: '/customerstories/workspace365', linkLabel: 'Lees het Workspace 365-verhaal' },
+        { metric: '3x', label: 'meer gegenereerde opportunities', context: 'Verhaert, een bedrijf van 30 mensen met vijf mensen in sales en marketing.', personSlug: 'verhaert', href: '/customerstories/verhaert', linkLabel: 'Lees het Verhaert-verhaal' },
+        { metric: '33%', label: 'lagere klantacquisitiekosten', context: 'Workspace 365.', personSlug: 'workspace365', href: '/customerstories/workspace365', linkLabel: 'Lees het Workspace 365-verhaal' },
       ],
       proofNote: 'Referenties op aanvraag, zodat u de feedback rechtstreeks van gebruikers hoort.',
       managerBand: {
@@ -240,10 +240,6 @@ export const solutionsNl: SolutionsData = {
           { href: '/solutions/role/sales-leader', label: 'Voor salesleiders' },
           { href: '#sample-offer', label: 'Ontvang voorbeelddata' },
         ],
-      },
-      pricingStrip: {
-        text: '\u20ac120 per gebruiker per maand, plus data naar gebruik. Geen database-abonnement, geen jaarcontract voor data, geen investering vooraf. Alles pay as you go.',
-        href: '/pricing', linkLabel: 'Bekijk prijzen',
       },
       faqEyebrow: 'FAQ', faqTitle: 'Veelgestelde vragen',
       faqSlugs: ['personalize-outreach-at-scale', 'sdr-vs-executive-linkedin-outreach', 'stop-sales-email-bounces', 'sdr-first-meetings-week-one', 'hubsell-setup-before-first-sdr'],
@@ -257,6 +253,8 @@ export const solutionsNl: SolutionsData = {
         modalSub: 'Vertel ons kort wie u target, zodat we de juiste voorbeeldcontacten kunnen verzamelen.',
         secondaryHref: '/book-a-call',
         secondaryLabel: 'Of plan een demo',
+        priceLine: '\u20ac120 per gebruiker per maand, plus data naar gebruik. Geen database-abonnement, geen jaarcontract voor data, geen investering vooraf. Alles pay as you go.',
+        priceLinkLabel: 'Bekijk prijzen',
       },
     },
     {
