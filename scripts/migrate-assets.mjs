@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // ============================= LEARNING NOTES =============================
 // A NODE UTILITY SCRIPT, not part of the website build. Files in scripts/
 // are run by hand via the package.json "scripts" entries (npm run <name>)
@@ -5,7 +6,6 @@
 // package.json to see which command runs which file. Safe to study, but
 // nothing on the site imports them.
 // ==========================================================================
-#!/usr/bin/env node
 /**
  * migrate-assets.mjs — Webflow CDN  ->  Cloudflare R2 asset migrator.
  *

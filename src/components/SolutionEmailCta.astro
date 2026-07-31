@@ -23,6 +23,7 @@
 import BookCallForm from './BookCallForm.astro';
 import type { SolutionClosing, SolutionEmailCta } from '../data/solutions-content';
 import type { Locale } from '../i18n/ui';
+import { localizedHref } from '../i18n/utils';
 
 interface Props { L: Locale; closing: SolutionClosing; cta: SolutionEmailCta }
 const { L, closing, cta } = Astro.props;
@@ -54,7 +55,7 @@ const MSGS = {
 const m = (MSGS as Record<string, typeof MSGS.en>)[L] ?? MSGS.en;
 const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(m) };
 ---
-<section class="sec sec--esp" aria-label={closing.titlePre + closing.titleAccent + closing.titlePost}>
+<section id="sample-offer" class="sec sec--esp" aria-label={closing.titlePre + closing.titleAccent + closing.titlePost}>
   <div class="wrap secta" style="text-align:center" {...i18nAttr}>
     <h2 class="heading_primary">{closing.titlePre}<span class="accent">{closing.titleAccent}</span>{closing.titlePost}</h2>
     <p class="subheading" style="margin:16px auto 0;max-width:56ch">{closing.sub}</p>
@@ -66,6 +67,9 @@ const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(m) };
     </form>
     <p class="secta-note">{cta.note}</p>
     <p class="secta-error" role="alert" aria-live="polite"></p>
+    {cta.secondaryLabel && (
+      <p class="secta-secondary"><a class="link" href={localizedHref(L, cta.secondaryHref ?? '/book-a-call')}>{cta.secondaryLabel}</a></p>
+    )}
 
     <dialog class="secta-dialog">
       <div class="secta-modal sec--paper">
@@ -86,6 +90,7 @@ const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(m) };
     max-width:520px; margin:30px auto 0;
   }
   .secta-input{ flex:1; min-width:220px; width:auto }
+  .secta-secondary{ margin-top:14px }
   .input{
     font-family:var(--font-body); font-size:1rem; padding:13px 16px;
     color:var(--sec-tx); background:var(--sec-card); border:1px solid var(--sec-bd);

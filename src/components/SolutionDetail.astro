@@ -62,7 +62,7 @@ const StepVisual = STEP_VISUALS[d.path];
 const HeroVisual = HERO_VISUALS[d.path];
 const hasPains = !!(d.pains && d.pains.length > 0);
 const quote2 = d.quoteSlug2 ? getSolutionQuote(L, d.quoteSlug2) : undefined;
-const proofItems = (d.storySlug ? 1 : 0) + (quote ? 1 : 0) + (quote2 ? 1 : 0);
+const proofItems = (d.storySlug ? 1 : 0) + (quote ? 1 : 0) + (quote2 ? 1 : 0) + (d.outcomeStats?.length ?? 0);
 ---
 <!-- 1 · Hero (sand). Two columns when the page has a hero visual. -->
 <section class="sec sec--sand" aria-labelledby="sol-title">
@@ -192,9 +192,43 @@ const proofItems = (d.storySlug ? 1 : 0) + (quote ? 1 : 0) + (quote2 ? 1 : 0);
           </figcaption>
         </figure>
       )}
+      {d.outcomeStats && d.outcomeStats.map((st) => (
+        <div class="card sol-quote sol-stat">
+          <p class="heading_primary sol-stat__metric">{st.metric}</p>
+          <p class="paragraph_small sol-stat__label"><b>{st.label}</b></p>
+          {st.context && <p class="paragraph_small sol-stat__context">{st.context}</p>}
+          <a href={localizedHref(L, st.href)} class="link sol-stat__link">{st.linkLabel} &rarr;</a>
+        </div>
+      ))}
     </div>
+    {d.proofNote && <p class="paragraph_small sol-proofnote">{d.proofNote}</p>}
   </div>
 </section>
+
+<!-- 4b · Manager band (optional, data-driven): one deliberate message to the hiring manager -->
+{d.managerBand && (
+<section class="sec sec--sand sol-manager" aria-label={d.managerBand.title}>
+  <div class="wrap">
+    <h2 class="heading_secondary">{d.managerBand.title}</h2>
+    <p class="subheading sol-manager__body">{d.managerBand.body}</p>
+    <p class="sol-manager__links">
+      {d.managerBand.links.map((l) => (
+        <a href={l.href.startsWith('#') ? l.href : localizedHref(L, l.href)} class="link">{l.label} &rarr;</a>
+      ))}
+    </p>
+  </div>
+</section>
+)}
+
+<!-- 4c · Pricing strip (optional, data-driven): one compact band linking to /pricing -->
+{d.pricingStrip && (
+<section class="sec sec--paper sol-pricestrip" aria-label="Pricing">
+  <div class="wrap">
+    <p class="subheading sol-pricestrip__text">{d.pricingStrip.text}</p>
+    <p class="sol-pricestrip__cta"><a href={localizedHref(L, d.pricingStrip.href)} class="button is-secondary">{d.pricingStrip.linkLabel}</a></p>
+  </div>
+</section>
+)}
 
 <!-- 5 · Single email CTA band (espresso), above the FAQ, on pages that opt in -->
 {d.emailCta && <SolutionEmailCta L={L} closing={d.closing} cta={d.emailCta} />}
@@ -229,6 +263,20 @@ const proofItems = (d.storySlug ? 1 : 0) + (quote ? 1 : 0) + (quote2 ? 1 : 0);
   .sol-howcard{ display:flex; flex-direction:column }
 
   .sol-proof{ display:grid; grid-template-columns:1fr; gap:20px; align-items:stretch }
+  /* Outcome stat cards in the proof grid (optional, data-driven) */
+  .sol-stat{ justify-content:flex-start }
+  .sol-stat__metric{ margin:0 }
+  .sol-stat__label{ margin-top:8px }
+  .sol-stat__context{ margin-top:6px }
+  .sol-stat__link{ margin-top:auto; padding-top:16px; display:inline-block }
+  .sol-proofnote{ margin-top:22px; text-align:center; opacity:.75 }
+  /* Manager band and pricing strip (optional, data-driven) */
+  .sol-manager .wrap, .sol-pricestrip .wrap{ text-align:center }
+  .sol-manager__body{ margin:14px auto 0; max-width:60ch }
+  .sol-manager__links{ margin:22px 0 0 }
+  .sol-manager__links .link{ margin:0 12px }
+  .sol-pricestrip__text{ max-width:64ch; margin:0 auto }
+  .sol-pricestrip__cta{ margin:18px 0 0 }
   .sol-proof.is-solo{ max-width:720px }
   .sol-quote{ display:flex; flex-direction:column; justify-content:center }
 

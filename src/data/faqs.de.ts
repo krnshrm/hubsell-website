@@ -61,4 +61,14 @@ export const faqsDeExtra: Record<string, { question: string; answer: string }> =
     answer:
       '<p>Klassischer „Spray and Pray“-Outreach scheitert aus zwei strukturellen Gründen. Erstens bedeuten strenge neue Spam-Schwellen (0,3 Prozent Beschwerderate) von Google und Yahoo, dass Massenversand Ihre Domain-Reputation aktiv schädigt. Zweitens erkennen Käufer automatisierte KI-Personalisierung sofort. Sie wirkt persönlich, fühlt sich aber hohl an und löst eine innere Abwehrhaltung aus.</p>',
   },
+  'sdr-first-meetings-week-one': {
+    question: 'Kann ein neuer SDR wirklich in der ersten Woche Meetings buchen?',
+    answer:
+      '<p>Ja, wenn drei Dinge stimmen: Das Angebot passt zum Markt, den Sie angehen. Das Targeting stimmt, also die richtigen Titel in den richtigen Organisationen. Und die Umsetzung stockt nicht, also Targeting abgestimmt und Copy freigegeben in den ersten Tagen. hubsell r\u00e4umt die \u00fcblichen Ramp-Blocker aus dem Weg, Listenbau, Tool-Setup und Datenbereinigung, damit die erste Woche in den Outreach gehen kann statt in Admin.</p>',
+  },
+  'hubsell-setup-before-first-sdr': {
+    question: 'Wir stellen unseren ersten SDR ein. Wann sollten wir hubsell einrichten?',
+    answer:
+      '<p>Vor Tag eins, damit die erste Woche dem Verkaufen geh\u00f6rt statt dem Tooling. Targeting und der erste Flow k\u00f6nnen bereitstehen, wenn der SDR anf\u00e4ngt, und weil Kontakte live recherchiert werden, veraltet nichts, w\u00e4hrend Sie einstellen.</p>',
+  },
 };

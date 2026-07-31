@@ -131,6 +131,18 @@ export const faqs: Faq[] = [
     answer: "<p>Traditional \"spray and pray\" outreach is failing for two structural reasons. First, strict new spam thresholds (0.3% complaint rates) from Google and Yahoo mean high-volume email blasts are actively damaging your domain reputation. Second, buyers instantly recognize automated AI personalization. It looks personal but feels hollow, triggering a mental firewall.</p>",
     onHomepage: false,
   },
+  {
+    question: "Can a new SDR really book meetings in week one?",
+    slug: "sdr-first-meetings-week-one",
+    answer: "<p>Yes, when three things hold: the offer fits the market you go after, the targeting is right (the right titles at the right organisations), and execution does not stall (targeting agreed and copy approved in the first days). hubsell removes the usual ramp blockers, list building, tool setup, and data cleaning, so the first week can go to outreach instead of admin.</p>",
+    onHomepage: false,
+  },
+  {
+    question: "We\u2019re hiring our first SDR. When should we set hubsell up?",
+    slug: "hubsell-setup-before-first-sdr",
+    answer: "<p>Before day one, so week one is spent selling instead of tooling. Targeting and the first flow can be ready when the SDR walks in, and because contacts are sourced live, nothing goes stale while you hire.</p>",
+    onHomepage: false,
+  },
 ];
 
 export const homeFaqs = faqs.filter((f) => f.onHomepage);

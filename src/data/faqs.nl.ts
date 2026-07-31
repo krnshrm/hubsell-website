@@ -61,4 +61,14 @@ export const faqsNlExtra: Record<string, { question: string; answer: string }> =
     answer:
       '<p>Klassieke „spray and pray”-outreach faalt om twee structurele redenen. Ten eerste betekenen strenge nieuwe spamdrempels (0,3% klachtenratio) van Google en Yahoo dat massale verzending uw domeinreputatie actief schaadt. Ten tweede herkennen kopers geautomatiseerde AI-personalisatie meteen. Het oogt persoonlijk maar voelt hol, en roept een innerlijke weerstand op.</p>',
   },
+  'sdr-first-meetings-week-one': {
+    question: 'Kan een nieuwe SDR echt in week \u00e9\u00e9n meetings boeken?',
+    answer:
+      '<p>Ja, als drie dingen kloppen: het aanbod past bij de markt die u benadert. De targeting klopt, dus de juiste titels bij de juiste organisaties. En de uitvoering loopt niet vast, dus targeting afgestemd en copy goedgekeurd in de eerste dagen. hubsell haalt de gebruikelijke opstartblokkades weg, lijsten bouwen, tools opzetten en data opschonen, zodat de eerste week naar outreach kan gaan in plaats van naar admin.</p>',
+  },
+  'hubsell-setup-before-first-sdr': {
+    question: 'We nemen onze eerste SDR aan. Wanneer moeten we hubsell opzetten?',
+    answer:
+      '<p>V\u00f3\u00f3r dag \u00e9\u00e9n, zodat week \u00e9\u00e9n naar verkopen gaat in plaats van naar tooling. De targeting en de eerste flow kunnen klaarstaan wanneer de SDR binnenkomt, en omdat contacten live worden verzameld, veroudert er niets terwijl u werft.</p>',
+  },
 };

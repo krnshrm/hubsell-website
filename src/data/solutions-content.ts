@@ -30,6 +30,8 @@ export interface SolutionEmailCta {
   note: string;         // small line under the field
   modalTitle: string;   // heading inside the full-form dialog
   modalSub: string;
+  secondaryHref?: string;  // optional secondary link under the form (e.g. book a demo)
+  secondaryLabel?: string;
 }
 
 export interface SolutionCard {
@@ -47,6 +49,10 @@ export interface SolutionPain {
   points: SolutionPainPoint[];
   href?: string; linkLabel?: string;   // optional platform link per block
 }
+
+export interface SolutionStat { metric: string; label: string; context?: string; href: string; linkLabel: string }
+export interface SolutionManagerBand { title: string; body: string; links: { href: string; label: string }[] }
+export interface SolutionPricingStrip { text: string; href: string; linkLabel: string }
 
 export interface SolutionDetailData {
   path: string;                 // English-root path, e.g. '/solutions/team/sales-teams'
@@ -68,6 +74,10 @@ export interface SolutionDetailData {
   quoteSlug2?: string;          // optional second quote shown beside the first
   storySlug?: string;           // customer story slug (omitted = testimonial only)
   storyLabel?: string;
+  outcomeStats?: SolutionStat[]; // named outcome numbers shown as cards in the proof band
+  proofNote?: string;            // small trust line under the proof grid
+  managerBand?: SolutionManagerBand;   // optional band aimed at the hiring manager
+  pricingStrip?: SolutionPricingStrip; // optional compact pricing band before the CTA
   faqEyebrow: string; faqTitle: string; faqSlugs: string[];
   closing: SolutionClosing;
   closingCta: string;
@@ -110,7 +120,7 @@ export const solutions: SolutionsData = {
     roleEyebrow: 'By role',
     roleTitle: 'Find your role',
     role: [
-      { eyebrow: 'SDRs', title: 'More conversations, less list building', body: 'Fresh data, multichannel sequences, and automatic logging, so your day goes to selling.', href: '/solutions/role/sdr', linkLabel: 'For SDRs' },
+      { eyebrow: 'SDRs', title: 'More conversations, less list building', body: 'Fresh data, multichannel flows, and automatic logging, so your day goes to selling.', href: '/solutions/role/sdr', linkLabel: 'For SDRs' },
       { eyebrow: 'Sales leaders', title: 'A pipeline number you can stand behind', body: 'One platform for the team and reporting that reflects reality, not hand-typed guesses.', href: '/solutions/role/sales-leader', linkLabel: 'For sales leaders' },
       { eyebrow: 'Marketing', title: 'An audience that compounds', body: 'Live data and a first-degree LinkedIn audience that travels with your team as people move.', href: '/solutions/role/marketing', linkLabel: 'For marketing' },
       { eyebrow: 'Sales operations', title: 'Clean data, without the manual work', body: 'Verified data and automatic activity logging, so the CRM stays accurate on its own.', href: '/solutions/role/sales-operations', linkLabel: 'For sales operations' },
@@ -141,7 +151,7 @@ export const solutions: SolutionsData = {
       howEyebrow: 'How hubsell helps', howTitle: 'How hubsell gets it done',
       how: [
         { title: 'Live data, matched to your ICP', body: 'Contacts sourced the day you ask and verified at the point of use, so reps work a fresh list instead of a stale one.', href: '/platform/live-data', linkLabel: 'See live data' },
-        { title: 'Every channel in one sequence', body: 'Email, LinkedIn, and phone run as one coordinated flow that reacts to what each contact does.', href: '/platform/multichannel-outreach', linkLabel: 'See multichannel outreach' },
+        { title: 'Every channel in one flow', body: 'Email, LinkedIn, and phone run as one coordinated flow that reacts to what each contact does.', href: '/platform/multichannel-outreach', linkLabel: 'See multichannel outreach' },
         { title: 'Logged to the CRM automatically', body: 'Every send, open, and reply lands in Salesforce, HubSpot, or Pipedrive on its own, so reporting stays honest.', href: '/platform/crm-sync', linkLabel: 'See CRM sync' },
       ],
       proofEyebrow: 'Proof', proofTitle: 'A team that made the switch',
@@ -237,7 +247,7 @@ export const solutions: SolutionsData = {
     {
       path: '/solutions/role/sdr', axis: 'role',
       title: 'hubsell for SDRs: hit quota without the busywork | hubsell',
-      metaDescription: 'Give SDRs fresh data, multichannel sequences, and automatic CRM logging so they spend their day selling, not building lists.',
+      metaDescription: 'Give SDRs fresh data, multichannel flows, and automatic CRM logging so they spend their day selling, not building lists.',
       eyebrow: 'For SDRs',
       h1Pre: 'Get your selling time ', h1Accent: 'back', h1Post: '.',
       sub: 'SDRs spend just 28% of their week actually selling. The rest goes to research, tool switching, and CRM upkeep. hubsell takes that work off your plate, so your hours go to the conversations that hit quota.',
@@ -251,15 +261,15 @@ export const solutions: SolutionsData = {
       howEyebrow: 'How hubsell helps', howTitle: 'How hubsell gets it done',
       how: [
         { title: 'A ready list, not hours of research', body: 'Live-sourced contacts matched to your ICP and verified, so you start the day with people worth calling.', href: '/platform/live-data', linkLabel: 'See live data' },
-        { title: 'One flow across every channel', body: 'Email, LinkedIn, and phone in a single sequence with branching, so you follow up in the right place at the right time.', href: '/platform/multichannel-outreach', linkLabel: 'See multichannel outreach' },
+        { title: 'One flow across every channel', body: 'Email, LinkedIn, and phone in a single flow with branching, so you follow up in the right place at the right time.', href: '/platform/multichannel-outreach', linkLabel: 'See multichannel outreach' },
         { title: 'No more manual logging', body: 'Every send, open, and reply lands in the CRM by itself, so you are not updating records at the end of the day.', href: '/platform/crm-sync', linkLabel: 'See CRM sync' },
       ],
       painsEyebrow: 'The problems', painsTitle: 'Four ways your week disappears',
       pains: [
         {
-          problemTitle: "The 72% Admin Tax", 
-          problemBody: "You hired sellers. You are paying for data entry. SDRs spend just 28% of their week selling. The rest burns away in manual research, fragmented tools, and CRM upkeep.",
-          solutionTitle: "Let Sellers Sell", solutionBody: "hubsell destroys operational friction, shifting time from backend admin directly to revenue-generating conversations.",
+          problemTitle: "The 72% admin tax", 
+          problemBody: "You were hired to sell. You spend the day on data entry. Just 28% of your week goes to selling. The rest burns away in manual research, fragmented tools, and CRM upkeep.",
+          solutionTitle: "Let sellers sell", solutionBody: "hubsell removes the operational friction, shifting time from admin to revenue-generating conversations.",
           points: [
             { label: "Research done before you sit down", body: "Start the day with a verified, ready-to-work pipeline." },
             { label: "One flow, every touchpoint", body: "Execute every touchpoint in one uninterrupted flow." },
@@ -268,52 +278,70 @@ export const solutions: SolutionsData = {
           href: '/platform/crm-sync', linkLabel: "See CRM sync",
         },
         {
-          problemTitle: "The Spam Compromise", 
-          problemBody: "Volume or relevance. Pick one. To hit quota, SDRs need volume. To get replies, they need personalization. The result? Hours wasted drafting individual emails, or generic spam blasts that ruin your brand reputation.",
-          solutionTitle: "Scale Without the Robot Voice", solutionBody: "hubsell breaks the compromise.",
+          problemTitle: "The spam compromise", 
+          problemBody: "Volume or relevance. Pick one. To hit quota, SDRs need volume. To get replies, they need personalisation. The result? Hours wasted drafting individual emails, or generic spam blasts that ruin your brand reputation.",
+          solutionTitle: "Scale without the robot voice", solutionBody: "hubsell breaks the compromise.",
           points: [
-            { label: "Personal at any volume", body: "Automate deep account-level personalization." },
+            { label: "Personal at any volume", body: "Automate deep account-level personalisation." },
             { label: "Quota-level activity, kept up", body: "Hit high-activity quotas without sacrificing message quality." },
             { label: "Messages that read human", body: "Reach prospects with messages that read like a human wrote them." },
           ],
-          href: '/platform/personalization', linkLabel: "See personalization",
+          href: '/platform/personalization', linkLabel: "See personalisation",
         },
         {
-          problemTitle: "The Deliverability Black Hole", 
-          problemBody: "The invisible SDR. 20% of B2B emails never see the primary inbox. Your team spends hours crafting sequences that die in spam filters because bounced emails and bad data ruined your domain health.",
-          solutionTitle: "Protected inbox placement", solutionBody: "hubsell protects your domain so your SDRs are actually heard.",
+          problemTitle: "The deliverability black hole", 
+          problemBody: "The invisible SDR. 20% of B2B emails never see the primary inbox. You spend hours crafting flows that die in spam filters because bounced emails and bad data ruined your domain health.",
+          solutionTitle: "Protected inbox placement", solutionBody: "hubsell protects your domain so your outreach is actually heard.",
           points: [
-            { label: "Verified before sending", body: "Only verified, active contacts enter the sequence." },
-            { label: "Sending that stays natural", body: "Automated pacing keeps sending behavior looking natural." },
+            { label: "Verified before sending", body: "Only verified, active contacts enter the flow." },
+            { label: "Sending that stays natural", body: "Automated pacing keeps sending behaviour looking natural." },
             { label: "Seen, not filtered", body: "Your outreach lands where it belongs: in front of the prospect." },
           ],
           href: '/platform/deliverability', linkLabel: "See deliverability",
         },
         {
-          problemTitle: "The 90-Day Dead Zone", 
-          problemBody: "It takes three months to ramp a new SDR. The brutal truth? They aren\u2019t spending that time learning how to sell your product. They are learning how to navigate your bloated, multi-tool tech stack.",
-          solutionTitle: "Day-One Productivity", solutionBody: "hubsell drastically shrinks the learning curve.",
+          problemTitle: "The 90-day dead zone", 
+          problemBody: "Three months to ramp is the accepted norm. The catch? Your first weeks do not go to learning how to sell the product. They go to learning a stack of disconnected tools.",
+          solutionTitle: "Day-one productivity", solutionBody: "hubsell removes list building, tool setup, and data cleaning, so first meetings can land in week one when three things hold.",
           points: [
-            { label: "One workflow to learn", body: "Train new hires on one unified workflow, not five disjointed apps." },
-            { label: "The day plans itself", body: "Pre-built sequences and automated workflows dictate the day." },
-            { label: "Ramped in days", body: "Turn new hires into active pipeline generators in days, not months." },
+            { label: "The offer fits", body: "You are selling something the market you go after actually wants." },
+            { label: "The targeting is right", body: "The right titles at the right organisations." },
+            { label: "Execution does not stall", body: "Targeting agreed and copy approved in the first days, then the first flow goes live." },
           ],
           href: '/platform', linkLabel: "See the platform",
         },
       ],
       proofEyebrow: 'Proof', proofTitle: 'What reps say',
-      quoteSlug: 'aspire',
-      quoteSlug2: 'cibt',
+      quoteSlug: 'cibt',
+      outcomeStats: [
+        { metric: '3x', label: 'increase in opportunity generation', context: 'Verhaert, a 30-person firm with five people across sales and marketing.', href: '/customerstories/verhaert', linkLabel: 'Read the Verhaert story' },
+        { metric: '33%', label: 'reduction in customer acquisition costs', context: 'Workspace 365.', href: '/customerstories/workspace365', linkLabel: 'Read the Workspace 365 story' },
+      ],
+      proofNote: 'References available on request, so you can hear the feedback from users directly.',
       faqEyebrow: 'FAQ', faqTitle: 'Common questions',
-      faqSlugs: ['personalize-outreach-at-scale', 'sdr-vs-executive-linkedin-outreach', 'stop-sales-email-bounces'],
-      closing: { titlePre: 'Spend your day ', titleAccent: 'selling', titlePost: '.', sub: 'Book a demo and we will show you an SDR\u2019s day in hubsell.' },
+      faqSlugs: ['personalize-outreach-at-scale', 'sdr-vs-executive-linkedin-outreach', 'stop-sales-email-bounces', 'sdr-first-meetings-week-one', 'hubsell-setup-before-first-sdr'],
+      managerBand: {
+        title: 'Hiring an SDR? They can be selling in week one.',
+        body: 'hubsell removes list building, data hunting and CRM admin, so the salary hours go into conversations from the start.',
+        links: [
+          { href: '/solutions/role/sales-leader', label: 'For sales leaders' },
+          { href: '#sample-offer', label: 'Get sample data' },
+        ],
+      },
+      pricingStrip: {
+        text: '\u20ac120 per seat, per month, plus data as you use it. No database subscription, no annual data contract, no upfront investment. All pay as you go.',
+        href: '/pricing', linkLabel: 'See pricing',
+      },
+      closing: { titlePre: 'Sample data before the demo. ', titleAccent: 'Free trial', titlePost: ' before the deal.', sub: 'Tell us who you target and we\u2019ll send live-sourced sample contacts on that exact profile before any call. If the data holds up, you get a free trial with real outreach and real replies before you commit to anything.' },
       closingCta: 'Book a demo',
       emailCta: {
         placeholder: 'email@yourcompany.com',
-        button: 'Book a demo',
-        note: 'Enter your work email and we will take it from there.',
+        button: 'Get sample data',
+        note: 'Tell us who you target and we\u2019ll take it from there.',
         modalTitle: 'Almost there.',
-        modalSub: 'Tell us a little about your setup so we can prepare the right demo.',
+        modalSub: 'Tell us a little about who you target so we can source the right sample contacts.',
+        secondaryHref: '/book-a-call',
+        secondaryLabel: 'Or book a demo',
       },
     },
     {
