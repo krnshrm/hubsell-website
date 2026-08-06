@@ -141,6 +141,7 @@ const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(m) };
 <script>
   import { classifyEmailLight, EMAIL_DOMAIN_MESSAGES } from '../data/free-email-domains.ts';
   import { guardForm } from '../scripts/form-guard.ts';
+  import { track } from '../scripts/track.ts';
 
   const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
@@ -170,6 +171,7 @@ const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(m) };
         input.classList.add('is-error');
         errEl.textContent = msg;
         input.focus();
+        track('form_error', { form_id: 'sdr-partial', field: 'email', page_path: location.pathname });
       }
       input.addEventListener('input', () => {
         input.classList.remove('is-error');
@@ -226,6 +228,7 @@ const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(m) };
         }
         button.disabled = false;
         button.textContent = label;
+        track('form_submit_success', { form_id: 'sdr-partial', page_path: location.pathname });
         openModal(email);
       });
     });

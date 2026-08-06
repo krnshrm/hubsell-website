@@ -173,6 +173,7 @@ const altHref = (l: string) => new URL(localizeUrl(l, base), Astro.site).href;
       // browser-side interactivity lives. Everything in the --- fence ran at build
       // time; everything here runs in the visitor's browser.
       import '../scripts/motion.ts';
+      import '../scripts/track.ts'; // GTM dataLayer events (cta_click, form_start)
 
       // Scroll progress bar pinned to the bottom edge. Listeners are bound once on
       // the window; the updater is re-cached on each client navigation so it always

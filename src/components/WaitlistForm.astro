@@ -84,6 +84,7 @@ const {
 <script>
   import { classifyEmailLight, EMAIL_DOMAIN_MESSAGES } from '../data/free-email-domains.ts';
   import { guardForm } from '../scripts/form-guard.ts';
+  import { track } from '../scripts/track.ts';
 
   const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
@@ -104,6 +105,7 @@ const {
           input.classList.add('is-error');
           help.classList.add('is-error');
           help.textContent = message;
+          track('form_error', { form_id: root.dataset.form || 'waitlist', field: 'email', page_path: location.pathname });
         } else {
           input.classList.remove('is-error');
           help.classList.remove('is-error');
@@ -149,6 +151,7 @@ const {
           // Confirm on the button itself — no trailing message.
           button.textContent = 'Subscribed';
           input.disabled = true;
+          track('form_submit_success', { form_id: root.dataset.form || 'waitlist', page_path: location.pathname });
         } catch {
           setError('Could not reach the server. Please try again.');
           button.disabled = false;

@@ -147,6 +147,7 @@ const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(t.js) };
 <script>
   import { classifyEmailLight, EMAIL_DOMAIN_MESSAGES } from '../data/free-email-domains.ts';
   import { guardForm } from '../scripts/form-guard.ts';
+  import { track } from '../scripts/track.ts';
 
   const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
@@ -186,6 +187,7 @@ const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(t.js) };
           field?.classList.add('is-error');
           err.classList.add('is-error');
           err.textContent = message;
+          track('form_error', { form_id: root.dataset.form || 'request', field: field?.getAttribute('name') || 'form', page_path: location.pathname });
         } else {
           err.classList.remove('is-error');
           err.textContent = defaultHelp;
@@ -236,6 +238,7 @@ const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(t.js) };
           }
           form.hidden = true;
           done.hidden = false;
+          track('form_submit_success', { form_id: root.dataset.form || 'request', page_path: location.pathname });
         } catch {
           setError(emailEl, MSG.network);
           button.disabled = false;
