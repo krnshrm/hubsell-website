@@ -85,18 +85,30 @@ const t = useTranslations(locale);
   </div>
 
   <div class="nav__mobile" hidden>
-    {megaMenus.map((menu) => (
-      <>
-        <p class="nav__mobhead">{t(menu.triggerKey)}</p>
-        {menu.columns.flatMap((col) => liveLinks(col.links)).map((l) => (
+    {megaMenus.map((menu, i) => (
+      <div class="nav__mobgroup">
+        <button type="button" class="nav__mobtoggle" aria-expanded="false" aria-controls={`nav-mobpanel-${i}`}>
+          <span>{t(menu.triggerKey)}</span>
+          <svg class="nav__mobchev" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="nav__mobpanel" id={`nav-mobpanel-${i}`} hidden>
+          {menu.columns.flatMap((col) => liveLinks(col.links)).map((l) => (
+            <a class="nav__moblink" href={localizedHref(locale, l.href!)}>{l.key ? t(l.key) : l.label}</a>
+          ))}
+        </div>
+      </div>
+    ))}
+    <div class="nav__mobgroup">
+      <button type="button" class="nav__mobtoggle" aria-expanded="false" aria-controls="nav-mobpanel-resources">
+        <span>{t('nav.resources')}</span>
+        <svg class="nav__mobchev" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="nav__mobpanel" id="nav-mobpanel-resources" hidden>
+        {menuGroups.flatMap((g) => liveLinks(g.links)).map((l) => (
           <a class="nav__moblink" href={localizedHref(locale, l.href!)}>{l.key ? t(l.key) : l.label}</a>
         ))}
-      </>
-    ))}
-    <p class="nav__mobhead">{t('nav.resources')}</p>
-    {menuGroups.flatMap((g) => liveLinks(g.links)).map((l) => (
-      <a class="nav__moblink" href={localizedHref(locale, l.href!)}>{l.key ? t(l.key) : l.label}</a>
-    ))}
+      </div>
+    </div>
     <hr class="nav__mobrule" />
     {topLinks.map((l) => (<a class="nav__moblink" href={localizedHref(locale, l.href!)}>{l.key ? t(l.key) : l.label}</a>))}
     <a class="button nav__mobcta" href={localizedHref(locale, SIGNUP_URL)}>{t('cta.trial')}</a>
@@ -196,10 +208,34 @@ const t = useTranslations(locale);
 
   .nav__mobile{
     display:none; flex-direction:column; gap:2px;
-    padding:10px clamp(20px,5vw,56px) 20px;
+    padding:10px clamp(20px,5vw,56px) max(20px, env(safe-area-inset-bottom));
     border-top:1px solid var(--nav-bd);
     background:color-mix(in srgb, var(--nav-bg) 96%, transparent);
+    /* Safety net: the panel sits inside a position:sticky header, so if it ever
+       grows past the screen the part below the fold cannot be reached by page
+       scroll. --nav-mob-max is measured by the script; the dvh value covers the
+       first frame. With the groups collapsed this cap is rarely hit. */
+    max-height:var(--nav-mob-max, calc(100dvh - 60px));
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    scrollbar-width:thin;
   }
+  .nav__mobile > *{ flex:0 0 auto; }
+  .nav__mobgroup{ display:flex; flex-direction:column; }
+  .nav__mobtoggle{
+    display:flex; align-items:center; justify-content:space-between; width:100%;
+    padding:12px 8px; margin:0; background:transparent; border:0; cursor:pointer;
+    border-radius:8px; text-align:left;
+    font:600 11px/1 var(--font-body); letter-spacing:.08em; text-transform:uppercase;
+    color:var(--nav-tx-dim);
+  }
+  .nav__mobtoggle:hover{ background:var(--nav-hover); color:var(--nav-tx); }
+  .nav__mobchev{ transition:transform .18s ease; opacity:.8; }
+  .nav__mobtoggle[aria-expanded="true"]{ color:var(--nav-tx); }
+  .nav__mobtoggle[aria-expanded="true"] .nav__mobchev{ transform:rotate(180deg); }
+  .nav__mobpanel{ display:flex; flex-direction:column; gap:2px; padding-bottom:6px; }
+  .nav__mobpanel[hidden]{ display:none; }
+  @media (prefers-reduced-motion:reduce){ .nav__mobchev{ transition:none; } }
   .nav__mobhead{ font:600 11px/1 var(--font-body); letter-spacing:.08em; text-transform:uppercase; color:var(--nav-tx-dim); opacity:.7; margin:8px 8px 4px; }
   .nav__moblink{ display:flex; align-items:center; padding:11px 8px; border-radius:8px; font-size:15px; font-weight:500; color:var(--nav-tx); text-decoration:none; }
   .nav__moblink:hover{ background:var(--nav-hover); }
@@ -240,12 +276,69 @@ const t = useTranslations(locale);
     const panel = document.querySelector<HTMLElement>('.nav__mobile');
     if (!burger || !panel || burger.dataset.bound) return;
     burger.dataset.bound = 'true';
-    const close = () => { burger.setAttribute('aria-expanded', 'false'); panel.setAttribute('hidden', ''); };
+
+    // The panel hangs off a stuck bar, so its usable height is the space between
+    // its own top edge and the bottom of the visible viewport. Measured rather
+    // than hard-coded because the top bar scrolls away and mobile browser chrome
+    // changes the viewport height.
+    const fit = () => {
+      const top = panel.getBoundingClientRect().top;
+      const vh = window.visualViewport?.height ?? window.innerHeight;
+      panel.style.setProperty('--nav-mob-max', `${Math.max(200, Math.round(vh - top))}px`);
+    };
+
+    const isOpen = () => burger.getAttribute('aria-expanded') === 'true';
+    const groups = Array.from(panel.querySelectorAll<HTMLButtonElement>('.nav__mobtoggle'));
+
+    const collapseAll = () => {
+      groups.forEach((btn) => {
+        btn.setAttribute('aria-expanded', 'false');
+        document.getElementById(btn.getAttribute('aria-controls')!)?.setAttribute('hidden', '');
+      });
+    };
+
+    const close = () => {
+      burger.setAttribute('aria-expanded', 'false');
+      panel.setAttribute('hidden', '');
+      collapseAll();
+    };
+
     burger.addEventListener('click', () => {
-      const open = burger.getAttribute('aria-expanded') === 'true';
-      if (open) { close(); } else { burger.setAttribute('aria-expanded', 'true'); panel.removeAttribute('hidden'); }
+      if (isOpen()) { close(); return; }
+      burger.setAttribute('aria-expanded', 'true');
+      panel.removeAttribute('hidden');
+      fit();
     });
+
+    // One group open at a time: opening a group closes whichever was open.
+    groups.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const wasOpen = btn.getAttribute('aria-expanded') === 'true';
+        collapseAll();
+        if (!wasOpen) {
+          btn.setAttribute('aria-expanded', 'true');
+          document.getElementById(btn.getAttribute('aria-controls')!)?.removeAttribute('hidden');
+          fit();
+          btn.scrollIntoView({ block: 'nearest' });
+        }
+      });
+    });
+
     panel.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && isOpen()) close(); });
+
+    // Scrolling moves the top bar out of the way, rotation and browser chrome
+    // change the viewport. Re-measure on all of them, throttled to a frame.
+    let queued = false;
+    const refit = () => {
+      if (!isOpen() || queued) return;
+      queued = true;
+      requestAnimationFrame(() => { queued = false; fit(); });
+    };
+    window.addEventListener('scroll', refit, { passive: true });
+    window.addEventListener('resize', refit);
+    window.addEventListener('orientationchange', refit);
+    window.visualViewport?.addEventListener('resize', refit);
   }
 
   // ---- Colour-aware bar: sample the section under the nav, flip tone + tint ----
@@ -277,7 +370,10 @@ const t = useTranslations(locale);
       return parse(getComputedStyle(document.body).backgroundColor) || { r: 255, g: 255, b: 255, a: 1 };
     };
 
-    let navH = nav.offsetHeight || 60;
+    // Measure the bar row only. nav.offsetHeight would include the open mobile
+    // panel, which pushes the colour probe far down the page.
+    const bar = nav.querySelector<HTMLElement>('.nav__inner');
+    let navH = bar?.offsetHeight || nav.offsetHeight || 60;
     let ticking = false;
 
     const update = () => {
@@ -296,7 +392,7 @@ const t = useTranslations(locale);
 
     const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', () => { navH = nav.offsetHeight || navH; update(); });
+    window.addEventListener('resize', () => { navH = bar?.offsetHeight || navH; update(); });
 
     // The switch suppresses transitions, so one re-sample reads the settled colour.
     window.addEventListener('hubsell:themechange', update);
