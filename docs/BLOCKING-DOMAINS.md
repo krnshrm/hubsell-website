@@ -1,59 +1,59 @@
-# Blocking domains
+# Blocking email domains
 
-How to stop an email domain from getting through the site forms (book-a-call, the SDR page modal, contact, newsletter). For throwaway domains, spam senders, and competitors.
+The domain lists no longer live in this repo. They live in **[hs-block](https://github.com/krnshrm/hs-block)**, which is the single source of truth for both this website and the app.
 
-## Quick reference
+## To block a domain
 
-Block a throwaway or spam domain:
+Do it in `hs-block`, not here:
 
 ```bash
+git clone https://github.com/krnshrm/hs-block.git
+cd hs-block
 npm run block -- baddomain.com
-npm run build
-git add . && git commit -m "Block domain: baddomain.com" && git push
+# or, for a competitor:
+npm run block:competitor -- newcompetitor.com
+git add data generated && git commit -m "Block: baddomain.com" && git push
 ```
 
-Block a competitor:
+The app enforces the change within minutes, no deploy. This website enforces it from its next deploy onwards.
+
+Full instructions, including removals, live in the `hs-block` README.
+
+## How this repo uses it
+
+| Where | Import | Role |
+|---|---|---|
+| `functions/api/subscribe.ts` | `hs-block` | Authoritative. Full free list, runs server-side on every submit. |
+| `src/components/WaitlistForm.astro` | `hs-block/light` | Instant UX feedback only. |
+| `src/components/BookCallForm.astro` | `hs-block/light` | Same. |
+| `src/components/RequestForm.astro` | `hs-block/light` | Same. |
+| `src/components/SolutionEmailCta.astro` | `hs-block/light` | Same. |
+
+The split matters. `hs-block/light` carries the competitor and manual block lists plus 33 common free providers, a few hundred bytes. Importing plain `hs-block` into a component would ship 4,462 domains to every visitor's browser.
+
+Client-side checks are advisory and can be bypassed with devtools. The server function re-checks every submission with the full list, which is why the gate holds regardless.
+
+## The rules
+
+An email is rejected if:
+
+1. It fails the shape check `EMAIL_RE`
+2. Its domain is a competitor, exact match or any sub-domain
+3. Its domain is on the manual block list, exact match or any sub-domain
+4. Its domain is a free provider, exact match only
+
+Messages come from `EMAIL_DOMAIN_MESSAGES`, also in `hs-block`, so the website and the app say the same thing.
+
+`UNGATED_FORMS` in `functions/api/subscribe.ts` exempts specific forms from rules 2 to 4. Today that is the general contact form only.
+
+## Picking up list changes in this repo
+
+The pinned tag controls the copy bundled into this site:
 
 ```bash
-npm run block:competitor -- competitor.com
+npm install github:krnshrm/hs-block#v1.1.0
 npm run build
-git add . && git commit -m "Block competitor: competitor.com" && git push
+git add package.json package-lock.json && git commit -m "hs-block v1.1.0" && git push
 ```
 
-Both commands accept several domains at once, separated by spaces. The push deploys the change; nothing else is needed.
-
-## What happens to a blocked submitter
-
-The form shows "This domain is restricted." (localized on de/nl pages). The check runs twice:
-
-1. In the browser, for instant feedback while typing.
-2. On the server at `/api/subscribe`, which is the authoritative gate. Disabling JavaScript does not get around it.
-
-Subdomains are blocked automatically: blocking `virgilian.com` also blocks `mail.virgilian.com`.
-
-Blocking is silent toward Plunk: a blocked submission never creates a contact or fires an event.
-
-## The two lists
-
-| List | File | For | Kept how |
-| --- | --- | --- | --- |
-| Ad-hoc blocks | `src/data/blocked-domains.ts` | Throwaways, spam, one-off junk | Alphabetical, one per line |
-| Competitors | `COMPETITOR_DOMAINS` in `src/data/free-email-domains.ts` | Competitor companies | Grouped by category (data providers, engagement, LinkedIn automation, AI SDR); CLI additions land under an "Added via" marker at the end |
-
-There is a third list in `free-email-domains.ts`, the ~4,000 free email providers (gmail, yahoo, and so on). That one is auto-generated from an upstream source and shows a different message ("Please use your corporate work email."). Do not edit it by hand.
-
-## Editing by hand
-
-Both lists are plain arrays, one quoted domain per line with a trailing comma. Adding or removing a line in the file does exactly what the commands do. To unblock a domain, delete its line, then build, commit, push.
-
-## Rules the commands enforce
-
-1. Domain shape is validated (`baddomain.com` works, `not a domain` is rejected).
-2. Everything is lowercased.
-3. Duplicates are skipped, including across the two lists, with a message saying where the domain already sits.
-
-## Things to know
-
-1. Blocking a competitor also blocks their employees who might genuinely want a demo. That is the intended trade-off; if it ever needs to change, the alternative is tagging instead of blocking (a Plunk event marking the lead as a competitor), which is a small build.
-2. Blocking does not remove contacts that already reached Plunk. Delete those in the Plunk dashboard.
-3. Integration partners (hubspot.com, salesforce.com, pipedrive.com) are deliberately NOT blocked, even where they have competing products. People on those domains are buyers.
+Bumping is optional maintenance. Blocks are already live in the app without it.

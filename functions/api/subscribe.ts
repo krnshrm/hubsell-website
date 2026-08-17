@@ -19,7 +19,7 @@
 // ==========================================================================
 /// <reference types="@cloudflare/workers-types" />
 
-import { classifyEmail, EMAIL_DOMAIN_MESSAGES } from '../../src/data/free-email-domains';
+import { EMAIL_RE, classifyEmail, EMAIL_DOMAIN_MESSAGES } from 'hs-block';
 
 interface Env {
   TURNSTILE_SECRET_KEY?: string;  // Turnstile server verification; unset = Turnstile off
@@ -51,8 +51,6 @@ const UNGATED_FORMS = new Set<string>(['contact']);
 // subscribed after they click the confirm link in the Plunk opt-in email. A Plunk
 // action on the form's event ('newsletter-signup') sends that email.
 const DOUBLE_OPTIN_FORMS = new Set<string>(['newsletter']);
-
-const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
 // Keep free-text fields short so a form can't push large payloads into Plunk.
 const clip = (v: unknown, max: number) => String(v ?? '').trim().slice(0, max);
