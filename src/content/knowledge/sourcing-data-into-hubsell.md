@@ -24,14 +24,6 @@ next:
   href: "/knowledge/connect-your-crm"
 draft: false
 ---
-<nav class="kb-toc" aria-label="On this page">
-  <p>On this page</p>
-  <ul>
-    <li><a href="#linkedin">LinkedIn or Sales Navigator</a></li>
-    <li><a href="#csv">CSV import</a></li>
-  </ul>
-</nav>
-
 <p>You can source data into hubsell from a LinkedIn search, a Sales Navigator search, or a CSV import. hubsell removes contacts you already have, so add a tag on every import to keep track of what came in when.</p>
 
 <h2 class="kb-sub" id="linkedin">Source from a LinkedIn or Sales Navigator search</h2>

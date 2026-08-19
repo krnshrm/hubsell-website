@@ -24,14 +24,6 @@ next:
   href: "/knowledge/sourcing-data-into-hubsell"
 draft: false
 ---
-<nav class="kb-toc" aria-label="On this page">
-  <p>On this page</p>
-  <ul>
-    <li><a href="#mailbox">Connect your mailbox</a></li>
-    <li><a href="#linkedin">Connect LinkedIn</a></li>
-  </ul>
-</nav>
-
 <div class="kb-callout kb-callout--tip">
   <p>Supported mailbox providers are <b>Google</b> and <b>Microsoft</b>. The steps below show the Google flow. Microsoft follows the same path, with the Microsoft sign in screen instead.</p>
 </div>

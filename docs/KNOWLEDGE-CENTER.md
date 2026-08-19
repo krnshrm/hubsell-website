@@ -1,6 +1,12 @@
 # Knowledge center (`/knowledge`) - build and content pipeline
 
-## Status at last session (2026-07-23)
+## Status at last session (2026-08-19)
+
+- LAYOUT REBUILD shipped: the knowledge center now uses a docs-style three-column
+  layout modelled on support.claude.com. Colours, fonts and tokens are unchanged;
+  this was structure only. See "Layout" below.
+
+## Earlier status (2026-07-23)
 
 - The 5-step onboarding series is COMPLETE and live: set-up, mailbox+LinkedIn,
   sourcing, CRM, create-a-flow. Plus the `data-enrichment` stub. Build: 429 pages.
@@ -38,6 +44,42 @@ All four series articles were refreshed from Confluence on 2026-07-22 (fresh
 Scribe screenshots, fuller step lists, corrected timings).
 - Nav: a live "Knowledge center" link in the Learn group under Resources
   (`src/data/navigation.ts`).
+
+## Layout
+
+Docs-style chrome, separate from the marketing site:
+
+- `src/layouts/KnowledgeLayout.astro` - the shell. Grid is
+  `[sidebar] [content] [contents rail]`; the third column only renders when a
+  page sets `hasAside`, so the hub and category pages are two-column and
+  articles are three. Also owns the mobile drawer script.
+- `src/layouts/BaseLayout.astro` gained a `chrome` prop (`'site'` default,
+  `'docs'` for knowledge). `'docs'` skips TopBar, Nav and Footer; `<head>`, SEO,
+  hreflang and the theme script are identical either way. Every other page is
+  untouched because the default is `'site'`.
+- `src/components/knowledge/KnowledgeHeader.astro` - logo, section label, back
+  link, "Log in" CTA, theme toggle, mobile burger. The toggle reuses the existing
+  `js-theme-toggle` class, so no extra JavaScript. The CTA is log in rather than
+  book a demo because knowledge center readers are existing customers; wording
+  matches the `cta.login` key the TopBar uses, and it points at `LOGIN_URL`.
+- `src/components/knowledge/KnowledgeSidebar.astro` - every category and article,
+  active item highlighted. Fetches its own articles.
+- `src/components/knowledge/KnowledgeFooter.astro` - one slim line.
+- `src/data/knowledge.ts` - the single list of categories (slug, name,
+  description) plus the popular-articles list. `name` MUST match an article's
+  frontmatter `category` exactly. Renaming a category is a one-line edit here.
+
+Behaviour worth knowing:
+
+- The "On this page" rail is GENERATED from the article's `<h2>` tags at build
+  time, and ids are injected for headings that lack them. Do NOT hand-write a
+  contents list into an article body; the old `kb-toc` blocks were removed when
+  this landed. Below 1280px the rail is replaced by an inline version.
+- Related articles are computed from category and series, capped at four.
+- Category pages live at `/knowledge/category/<slug>` and are only built for
+  categories that actually have articles. They sit under `/category/` because
+  `/knowledge/[slug]` already claims that level for articles.
+- Hub search filters in memory and swaps the category grid for a result list.
 
 ## Files
 
@@ -150,5 +192,11 @@ on the page until then.
   keep it conceptual until those facts are confirmed.
 - The set-up article "why it matters" line is generic. Sharpen it once the exact
   fields that appear in outreach (sender name, signature, and so on) are confirmed.
-- Remaining planned categories (Campaigns, Integrations, Deliverability, Account and
-  billing) are not started.
+- Remaining planned categories (Flows, Integrations, Deliverability, Account and
+  billing) are not started. Confluence renamed "Campaigns" to "Flows" on
+  2026-07-28; `src/data/knowledge.ts` already reflects that.
+- Article screenshots have no width/height attributes, so they shift layout as
+  they load. Pre-existing, not introduced by the layout rebuild. Worth fixing
+  when the images move to R2, since dimensions will be known then.
+- Optional, not built: a "Copy for LLM" button on articles (support.claude.com
+  has one). Cheap to add and a good fit with the llms.txt work.

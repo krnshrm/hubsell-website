@@ -1,22 +1,15 @@
 ---
-// ============================= LEARNING NOTES =============================
-// DYNAMIC ROUTE: this one file builds every page under /knowledge/<slug> ,
-// one per entry in the 'knowledge' content collection (schema in
-// src/content.config.ts). getStaticPaths() returns the list of pages to
-// create; the pattern is explained line by line at the top of
-// src/pages/insights/[slug].astro, which is the exemplar to study first.
-// JsonLd emits schema.org structured data for search engines (breadcrumbs
-// and similar); see src/data/seo.ts for the schema builders.
-// The <style> block at the bottom is scoped: Astro rewrites its selectors
-// so they only apply to this file's own markup.
-// The <script> block is bundled and runs in the visitor's browser; the
-// frontmatter above the template ran at build time. See the notes in
-// src/layouts/BaseLayout.astro for the difference.
-// ==========================================================================
+// LEARNING NOTES: a knowledge center article
+// ------------------------------------------
+// Docs-style three-column page: sidebar (from KnowledgeLayout), the article,
+// and an "On this page" rail built automatically from the article's own h2
+// headings. Nothing about the article CONTENT changed when this layout landed;
+// only the frame around it.
 import { getCollection } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import KnowledgeLayout from '../../layouts/KnowledgeLayout.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import { SITE_URL, breadcrumbSchema } from '../../data/seo';
+import { categoryHref, categoryByName } from '../../data/knowledge';
 
 export async function getStaticPaths() {
   const articles = await getCollection('knowledge', (a) => !a.data.draft);
@@ -31,13 +24,44 @@ const {
 } = article.data;
 
 const articleUrl = `${SITE_URL}/knowledge/${article.id}`;
+const cat = categoryByName(category);
 
-// A readable "Last updated" string, e.g. "18 July 2026".
-const updatedLabel = updated
-  ? updated.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
-  : null;
+// --- Contents rail, generated from the body ---------------------------------
+// The body is raw HTML, so we walk its h2 tags: record each heading's text and
+// give it an id when it does not already have one. Doing it here means the rail
+// can never drift from the article, which is what happened when the list was
+// hand-written into the markdown.
+const headings: { id: string; text: string }[] = [];
+const slugify = (s: string) =>
+  s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
-// Article + breadcrumb structured data (rich results + AI answers).
+const bodyHtml = article.body.replace(
+  /<h2([^>]*)>([\s\S]*?)<\/h2>/g,
+  (match: string, attrs: string, inner: string) => {
+    const text = inner.replace(/<[^>]+>/g, '').trim();
+    const existing = attrs.match(/id="([^"]+)"/);
+    const id = existing ? existing[1] : slugify(text);
+    headings.push({ id, text });
+    return existing ? match : `<h2${attrs} id="${id}">${inner}</h2>`;
+  },
+);
+
+// --- Related articles --------------------------------------------------------
+// Same category first (that is the strongest signal of relevance), then anything
+// else from the same series, never the article itself, capped at four.
+const all = await getCollection('knowledge', (a) => !a.data.draft);
+const related = all
+  .filter((a) => a.id !== article.id)
+  .map((a) => ({
+    a,
+    score: (a.data.category === category ? 2 : 0) + (series && a.data.series === series ? 1 : 0),
+  }))
+  .filter((r) => r.score > 0)
+  .sort((x, y) => y.score - x.score || x.a.data.order - y.a.data.order)
+  .slice(0, 4)
+  .map((r) => r.a);
+
+// --- Structured data ---------------------------------------------------------
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'TechArticle',
@@ -53,9 +77,12 @@ const articleSchema = {
   },
   mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
 };
-// FAQPage structured data, emitted only when the article carries FAQs. The same
-// questions are rendered visibly below, so the markup matches the page (required
-// for FAQ rich results).
+const crumbs = breadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Knowledge', url: '/knowledge' },
+  { name: category, url: categoryHref(category) },
+  { name: title, url: `/knowledge/${article.id}` },
+]);
 const faqSchema = faqs.length
   ? {
       '@context': 'https://schema.org',
@@ -67,114 +94,149 @@ const faqSchema = faqs.length
       })),
     }
   : null;
-const crumbs = breadcrumbSchema([
-  { name: 'Home', url: '/' },
-  { name: 'Knowledge', url: '/knowledge' },
-  { name: category, url: '/knowledge' },
-  { name: title, url: `/knowledge/${article.id}` },
-]);
 
-// Series progress: build the segment list once, marking the current step.
 const segs = series && seriesTotal
   ? Array.from({ length: seriesTotal }, (_, i) => i + 1 === seriesStep)
   : [];
+const updatedLabel = updated
+  ? updated.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
+  : null;
 ---
-<BaseLayout title={`${title} | hubsell Knowledge center`} description={description}>
-  <JsonLd schema={articleSchema} />
-  <JsonLd schema={crumbs} />
-  {faqSchema && <JsonLd schema={faqSchema} />}
+<KnowledgeLayout
+  title={`${title} | hubsell Knowledge center`}
+  description={description}
+  activeSlug={article.id}
+  activeCategory={category}
+  hasAside={true}
+>
+  <JsonLd slot="head" schema={articleSchema} />
+  <JsonLd slot="head" schema={crumbs} />
+  {faqSchema && <JsonLd slot="head" schema={faqSchema} />}
 
-  <section class="sec sec--paper">
-    <article class="kb-wrap">
+  {/* Right-hand contents rail. Hidden below 1280px by the shell. */}
+  <nav slot="aside" class="kbtoc" aria-label="On this page">
+    <p class="kbtoc__h">On this page</p>
+    <ul class="kbtoc__list">
+      {headings.map((h) => (
+        <li><a href={`#${h.id}`}>{h.text}</a></li>
+      ))}
+    </ul>
+  </nav>
 
-      <nav class="kb-crumbs" aria-label="Breadcrumb">
-        <a href="/">Home</a><span class="sep">/</span>
-        <a href="/knowledge">Knowledge</a><span class="sep">/</span>
-        <a href="/knowledge">{category}</a><span class="sep">/</span>
-        <span class="here">{title}</span>
-      </nav>
+  <article class="kbart">
 
-      <p class="kb-eyebrow">{category}</p>
-      <h1 class="kb-title">{title}</h1>
-      {description && <p class="kb-summary">{description}</p>}
+    <nav class="kb-crumbs" aria-label="Breadcrumb">
+      <a href="/knowledge">All articles</a><span class="sep">/</span>
+      <a href={categoryHref(category)}>{category}</a><span class="sep">/</span>
+      <span class="here">{title}</span>
+    </nav>
 
-      <div class="kb-meta">
-        {estMinutes && (
-          <span class="pip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>About {estMinutes} min</span>
-        )}
-        {stepCount && <><span class="mid">·</span><span class="pip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>{stepCount} steps</span></>}
-        {series && seriesStep && seriesTotal && (
-          <><span class="mid">·</span><span class="pip">{series} · Step {seriesStep} of {seriesTotal}</span></>
-        )}
-        {updatedLabel && <><span class="mid">·</span><span class="pip">Last updated {updatedLabel}</span></>}
-      </div>
+    <h1 class="kb-title">{title}</h1>
+    {description && <p class="kb-summary">{description}</p>}
 
-      {segs.length > 0 && (
-        <div class="kb-series" aria-label={`Series progress, step ${seriesStep} of ${seriesTotal}`}>
-          <span class="kb-series__track">
-            {segs.map((isCurrent, i) => (
-              <span class={`kb-series__seg${i + 1 < (seriesStep ?? 0) ? ' is-done' : ''}${isCurrent ? ' is-current' : ''}`}></span>
-            ))}
-          </span>
-        </div>
+    <div class="kb-meta">
+      {estMinutes && (
+        <span class="pip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>About {estMinutes} min</span>
       )}
-
-      {(appliesTo || prerequisites) && (
-        <dl class="kb-facts">
-          {appliesTo && (<><dt>Applies to</dt><dd>{appliesTo}</dd></>)}
-          {prerequisites && (<><dt>Before you start</dt><dd>{prerequisites}</dd></>)}
-        </dl>
+      {stepCount && <><span class="mid">·</span><span class="pip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>{stepCount} steps</span></>}
+      {series && seriesStep && seriesTotal && (
+        <><span class="mid">·</span><span class="pip">{series} · Step {seriesStep} of {seriesTotal}</span></>
       )}
+      {updatedLabel && <><span class="mid">·</span><span class="pip">Last updated {updatedLabel}</span></>}
+    </div>
 
-      <div class="kb-body" set:html={article.body}></div>
-
-      {walkthroughUrl && (
-        <div class="kb-walk" id="kb-walk" data-url={walkthroughUrl}>
-          <div class="kb-walk__head">
-            <span class="kb-walk__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
-            <div>
-              <p class="kb-walk__t">Interactive walkthrough</p>
-              <p class="kb-walk__d">Click through every step at your own pace.</p>
-            </div>
-            <span class="kb-walk__btn"><button class="kb-button" type="button" id="kb-walk-start">Start walkthrough</button></span>
-          </div>
-          <p class="kb-walk__note">The walkthrough loads from Scribe only after you click, so nothing third party runs on the page until then.</p>
-        </div>
-      )}
-
-      {faqs.length > 0 && (
-        <section class="kb-faq" aria-label="Common questions">
-          <h2 class="kb-faq__h">Common questions</h2>
-          {faqs.map((f) => (
-            <details class="kb-faq__item">
-              <summary>{f.q}</summary>
-              <p>{f.a}</p>
-            </details>
+    {segs.length > 0 && (
+      <div class="kb-series" aria-label={`Series progress, step ${seriesStep} of ${seriesTotal}`}>
+        <span class="kb-series__track">
+          {segs.map((isCurrent, i) => (
+            <span class={`kb-series__seg${i + 1 < (seriesStep ?? 0) ? ' is-done' : ''}${isCurrent ? ' is-current' : ''}`}></span>
           ))}
-        </section>
-      )}
+        </span>
+      </div>
+    )}
 
-      {next && (
-        <div class="kb-next">
-          <a href={next.href}>
-            <div>
-              <p class="lbl">Next in this series</p>
-              <p class="nt">{next.label}</p>
-            </div>
-            <span class="arw"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-          </a>
+    {(appliesTo || prerequisites) && (
+      <dl class="kb-facts">
+        {appliesTo && (<><dt>Applies to</dt><dd>{appliesTo}</dd></>)}
+        {prerequisites && (<><dt>Before you start</dt><dd>{prerequisites}</dd></>)}
+      </dl>
+    )}
+
+    {/* Contents inline, shown only when the right rail is hidden. */}
+    {headings.length > 1 && (
+      <nav class="kbtoc kbtoc--inline" aria-label="On this page">
+        <p class="kbtoc__h">On this page</p>
+        <ul class="kbtoc__list">
+          {headings.map((h) => (<li><a href={`#${h.id}`}>{h.text}</a></li>))}
+        </ul>
+      </nav>
+    )}
+
+    <div class="kb-body" set:html={bodyHtml}></div>
+
+    {walkthroughUrl && (
+      <div class="kb-walk" id="kb-walk" data-url={walkthroughUrl}>
+        <div class="kb-walk__head">
+          <span class="kb-walk__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
+          <div>
+            <p class="kb-walk__t">Interactive walkthrough</p>
+            <p class="kb-walk__d">Click through every step at your own pace.</p>
+          </div>
+          <span class="kb-walk__btn"><button class="kb-button" type="button" id="kb-walk-start">Start walkthrough</button></span>
         </div>
-      )}
+        <p class="kb-walk__note">The walkthrough loads from Scribe only after you click, so nothing third party runs on the page until then.</p>
+      </div>
+    )}
 
-    </article>
-  </section>
-</BaseLayout>
+    {faqs.length > 0 && (
+      <section class="kb-faq" aria-label="Common questions">
+        <h2 class="kb-faq__h">Common questions</h2>
+        {faqs.map((f) => (
+          <details class="kb-faq__item">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </section>
+    )}
+
+    {next && (
+      <div class="kb-next">
+        <a href={next.href}>
+          <div>
+            <p class="lbl">Next in this series</p>
+            <p class="nt">{next.label}</p>
+          </div>
+          <span class="arw"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+      </div>
+    )}
+
+    {related.length > 0 && (
+      <section class="kbrel" aria-label="Related articles">
+        <h2 class="kbrel__h">Related articles</h2>
+        <ul class="kbrel__list">
+          {related.map((r) => (
+            <li>
+              <a href={`/knowledge/${r.id}`}>
+                <span class="kbrel__t">{r.data.title}</span>
+                {r.data.description && <span class="kbrel__d">{r.data.description}</span>}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+  </article>
+</KnowledgeLayout>
 
 <script>
   // Click-to-load Scribe walkthrough: no third-party request until the reader asks.
-  const host = document.getElementById('kb-walk');
-  const start = document.getElementById('kb-walk-start');
-  if (host && start) {
+  function initWalk() {
+    const host = document.getElementById('kb-walk');
+    const start = document.getElementById('kb-walk-start');
+    if (!host || !start) return;
     start.addEventListener('click', () => {
       const url = host.getAttribute('data-url');
       const frame = document.createElement('iframe');
@@ -189,6 +251,34 @@ const segs = series && seriesTotal
       start.closest('.kb-walk__btn').remove();
     });
   }
+
+  // Highlight the contents entry for the section currently on screen.
+  function initTocSpy() {
+    const links = Array.from(document.querySelectorAll('.kbtoc__list a'));
+    if (!links.length) return;
+    const targets = links
+      .map((l) => document.getElementById(l.getAttribute('href').slice(1)))
+      .filter(Boolean);
+    if (!targets.length) return;
+
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          links.forEach((l) => l.classList.toggle(
+            'is-current',
+            l.getAttribute('href') === '#' + entry.target.id,
+          ));
+        });
+      },
+      { rootMargin: '-72px 0px -70% 0px' },
+    );
+    targets.forEach((t) => obs.observe(t));
+  }
+
+  initWalk();
+  initTocSpy();
+  document.addEventListener('astro:page-load', () => { initWalk(); initTocSpy(); });
 </script>
 
 <style is:global>
@@ -197,15 +287,36 @@ const segs = series && seriesTotal
   :root { --kb-card:#FFFFFF; }
   [data-theme="dark"] { --kb-card:#211B15; }
 
-  .kb-wrap{max-width:820px;margin:0 auto;padding:0 clamp(20px,5vw,56px)}
+  /* The shell owns page width now; the article caps its own reading measure so
+     line length stays comfortable in the wider docs grid. */
+  .kbart{max-width:760px}
 
-  .kb-crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:13px;color:var(--text-3);margin:0 0 26px}
+  /* Contents rail (right column) and its inline fallback below 1280px. */
+  .kbtoc__h{font-family:var(--font-body);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin:0 0 10px}
+  .kbtoc__list{list-style:none;margin:0;padding:0}
+  .kbtoc__list a{display:block;font-size:13.5px;line-height:1.4;color:var(--text-2);text-decoration:none;padding:6px 0 6px 12px;border-left:2px solid var(--border)}
+  .kbtoc__list a:hover{color:var(--text);border-left-color:var(--text-3)}
+  .kbtoc__list a.is-current{color:var(--accent-on);border-left-color:var(--accent-on)}
+  .kbtoc--inline{display:none;background:var(--kb-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 20px;margin:26px 0 0}
+  .kbtoc--inline .kbtoc__list{display:flex;flex-wrap:wrap;gap:2px 20px}
+  .kbtoc--inline .kbtoc__list a{border-left:0;padding:4px 0;color:var(--accent-on)}
+  @media (max-width:1279px){ .kbtoc--inline{display:block} }
+
+  /* Related articles */
+  .kbrel{border-top:1px solid var(--border);margin-top:44px;padding-top:26px}
+  .kbrel__h{font-family:var(--font-head);font-weight:600;font-size:1.15rem;color:var(--text);margin:0 0 14px}
+  .kbrel__list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+  .kbrel__list a{display:block;height:100%;text-decoration:none;background:var(--kb-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 18px;transition:border-color .15s}
+  .kbrel__list a:hover{border-color:var(--accent-on)}
+  .kbrel__t{display:block;font-family:var(--font-head);font-weight:600;font-size:.98rem;color:var(--text);line-height:1.3;margin-bottom:5px}
+  .kbrel__d{display:block;font-size:13.5px;line-height:1.5;color:var(--text-2)}
+
+  .kb-crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:13px;color:var(--text-3);margin:0 0 18px}
   .kb-crumbs a{text-decoration:none;color:var(--text-3)}
   .kb-crumbs a:hover{color:var(--accent-on)}
   .kb-crumbs .sep{opacity:.5}
   .kb-crumbs .here{color:var(--text-2)}
 
-  .kb-eyebrow{font-family:var(--font-body);font-weight:500;font-size:.8125rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent-on);margin:0 0 12px}
   .kb-title{font-family:var(--font-head);font-weight:600;font-size:clamp(2rem,4vw,2.5rem);line-height:1.12;letter-spacing:-.02em;color:var(--text);margin:0 0 16px}
   .kb-summary{font-family:var(--font-body);font-weight:400;font-size:1.125rem;line-height:1.6;color:var(--text-2);margin:0 0 22px;max-width:60ch}
 
@@ -235,7 +346,7 @@ const segs = series && seriesTotal
   .kb-callout li:last-child{margin-bottom:0}
   .kb-callout__h{font-family:var(--font-head);font-weight:600;font-size:.95rem;color:var(--text);margin:0 0 8px}
 
-  .kb-sub{font-family:var(--font-head);font-weight:600;font-size:1.15rem;color:var(--text);margin:44px 0 6px}
+  .kb-sub{font-family:var(--font-head);font-weight:600;font-size:1.15rem;color:var(--text);margin:44px 0 6px;scroll-margin-top:76px}
   .kb-body>p{font-size:1rem;line-height:1.65;color:var(--text);margin:14px 0 0}
   .kb-body>p a,.kb-callout a,.kb-steps a{color:var(--accent-on);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .15s}
   .kb-body>p a:hover,.kb-callout a:hover,.kb-steps a:hover{border-bottom-color:var(--accent-on)}

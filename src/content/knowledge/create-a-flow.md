@@ -20,17 +20,6 @@ faqs:
     a: "Filter them out before importing, or put them into a LinkedIn-only sequence. A contact without an email address cannot move through an email step."
 draft: false
 ---
-<nav class="kb-toc" aria-label="On this page">
-  <p>On this page</p>
-  <ul>
-    <li><a href="#create">Create the flow</a></li>
-    <li><a href="#logic">Build the branching logic</a></li>
-    <li><a href="#outreach">Add outreach steps</a></li>
-    <li><a href="#content">Write content and set rules</a></li>
-    <li><a href="#launch">Set limits and launch</a></li>
-  </ul>
-</nav>
-
 <p>A flow is your automated outreach sequence. It defines which channels reach a contact, in what order, and under what conditions. This article builds a sample flow with a LinkedIn connection request, conditional branches, and follow-up steps by LinkedIn message and email.</p>
 
 <div class="kb-callout kb-callout--tip">

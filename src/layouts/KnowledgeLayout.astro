@@ -1,0 +1,154 @@
+---
+// LEARNING NOTES: the knowledge center shell
+// ------------------------------------------
+// Wraps BaseLayout with chrome="docs" and lays out the docs grid:
+//
+//   [ sidebar ] [ content ] [ optional "on this page" rail ]
+//
+// The third column only exists when a page fills the named slot "aside", so the
+// hub and category pages get a two-column grid and articles get three. Pages
+// pass their own content through the default slot.
+//
+// Everything here is layout only: colours, fonts and radii all come from the
+// existing global tokens.
+import BaseLayout from './BaseLayout.astro';
+import KnowledgeHeader from '../components/knowledge/KnowledgeHeader.astro';
+import KnowledgeFooter from '../components/knowledge/KnowledgeFooter.astro';
+import KnowledgeSidebar from '../components/knowledge/KnowledgeSidebar.astro';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+  activeSlug?: string;
+  activeCategory?: string;
+  /** true on article pages, which render the right-hand contents rail. */
+  hasAside?: boolean;
+}
+const { title, description, noindex, activeSlug, activeCategory, hasAside = false } = Astro.props;
+---
+<BaseLayout title={title} description={description} noindex={noindex} chrome="docs">
+  <slot name="head" slot="head" />
+
+  <KnowledgeHeader />
+
+  <div class:list={['kbshell', { 'has-aside': hasAside }]}>
+    {/* Sidebar: a sticky column on desktop, a slide-in drawer on mobile. */}
+    <aside class="kbshell__nav" id="kbDrawer">
+      <KnowledgeSidebar activeSlug={activeSlug} activeCategory={activeCategory} />
+    </aside>
+    <div class="kbshell__scrim" id="kbScrim" hidden></div>
+
+    <div class="kbshell__main">
+      <slot />
+    </div>
+
+    {hasAside && (
+      <aside class="kbshell__aside">
+        <slot name="aside" />
+      </aside>
+    )}
+  </div>
+
+  <KnowledgeFooter />
+</BaseLayout>
+
+<style is:global>
+  /* Grid. Two columns by default, three when the page provides an aside.
+     The content column is capped so line length stays in the comfortable
+     reading range we already use, even on very wide screens. */
+  .kbshell{
+    display:grid;
+    grid-template-columns:264px minmax(0,1fr);
+    gap:0 44px;
+    max-width:1440px;
+    margin:0 auto;
+    padding:0 clamp(16px,3vw,32px);
+    align-items:start;
+  }
+  .kbshell.has-aside{ grid-template-columns:264px minmax(0,1fr) 232px; }
+
+  .kbshell__nav{
+    position:sticky; top:57px;             /* header height */
+    max-height:calc(100vh - 57px);
+    overflow-y:auto; overscroll-behavior:contain;
+    padding:28px 0 40px;
+  }
+
+  .kbshell__main{ min-width:0; padding:36px 0 8px; }
+
+  .kbshell__aside{
+    position:sticky; top:57px;
+    max-height:calc(100vh - 57px);
+    overflow-y:auto; overscroll-behavior:contain;
+    padding:44px 0 40px;
+  }
+
+  .kbshell__scrim{ display:none; }
+
+  /* Tablet: drop the contents rail, keep the sidebar. */
+  @media (max-width:1279px){
+    .kbshell.has-aside{ grid-template-columns:250px minmax(0,1fr); }
+    .kbshell__aside{ display:none; }
+  }
+
+  /* Mobile: sidebar becomes an off-canvas drawer opened from the header. */
+  @media (max-width:1023px){
+    .kbshell, .kbshell.has-aside{ grid-template-columns:minmax(0,1fr); gap:0; }
+
+    .kbshell__nav{
+      position:fixed; top:0; left:0; bottom:0; z-index:60;
+      width:min(310px, 84vw); max-height:none;
+      background:var(--bg); border-right:1px solid var(--border);
+      padding:20px 16px 40px;
+      transform:translateX(-100%);
+      transition:transform .22s ease;
+    }
+    body.kb-drawer-open .kbshell__nav{ transform:translateX(0); }
+
+    .kbshell__scrim{
+      display:block; position:fixed; inset:0; z-index:50;
+      background:rgba(0,0,0,.42);
+      opacity:0; pointer-events:none; transition:opacity .22s ease;
+    }
+    body.kb-drawer-open .kbshell__scrim{ opacity:1; pointer-events:auto; }
+
+    .kbshell__main{ padding-top:26px; }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .kbshell__nav, .kbshell__scrim{ transition:none; }
+  }
+</style>
+
+<script>
+  // Mobile drawer. The button lives in the header, the drawer and scrim in this
+  // layout, so the wiring happens here where both are guaranteed to exist.
+  function initKbDrawer() {
+    const burger = document.getElementById('kbBurger');
+    const scrim = document.getElementById('kbScrim');
+    const drawer = document.getElementById('kbDrawer');
+    if (!burger || !scrim || !drawer) return;
+
+    const setOpen = (open: boolean) => {
+      document.body.classList.toggle('kb-drawer-open', open);
+      burger.setAttribute('aria-expanded', String(open));
+      scrim.hidden = !open;
+    };
+
+    burger.addEventListener('click', () => {
+      setOpen(!document.body.classList.contains('kb-drawer-open'));
+    });
+    scrim.addEventListener('click', () => setOpen(false));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setOpen(false);
+    });
+    // Following a link should close the drawer, not leave it hanging open.
+    drawer.addEventListener('click', (e) => {
+      if ((e.target as HTMLElement).closest('a')) setOpen(false);
+    });
+  }
+
+  initKbDrawer();
+  document.addEventListener('astro:page-load', initKbDrawer);
+</script>

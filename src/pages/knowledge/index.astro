@@ -1,146 +1,178 @@
 ---
-// ============================= LEARNING NOTES =============================
-// Page for the URL /knowledge/ . THIN-SHELL PATTERN (see src/pages/contact.astro
-// for the annotated exemplar): the page file only assembles imports, page
-// meta and structured data, then hands rendering to a body component.
-// JsonLd emits schema.org structured data for search engines (breadcrumbs
-// and similar); see src/data/seo.ts for the schema builders.
-// The <style> block at the bottom is scoped: Astro rewrites its selectors
-// so they only apply to this file's own markup.
-// The <script> block is bundled and runs in the visitor's browser; the
-// frontmatter above the template ran at build time. See the notes in
-// src/layouts/BaseLayout.astro for the difference.
-// ==========================================================================
+// LEARNING NOTES: the knowledge center hub
+// ----------------------------------------
+// Search first, because most people arrive with a question rather than a wish
+// to browse. Under it: a row of the most-wanted articles, then a card per
+// category. Typing in the search box swaps the category grid for a flat list
+// of matching articles.
 import { getCollection } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import KnowledgeLayout from '../../layouts/KnowledgeLayout.astro';
 import JsonLd from '../../components/JsonLd.astro';
-import { SITE_URL, breadcrumbSchema } from '../../data/seo';
+import { breadcrumbSchema } from '../../data/seo';
+import { KNOWLEDGE_CATEGORIES, POPULAR_ARTICLES } from '../../data/knowledge';
 
-// All non-draft articles, grouped by category. Within a category we sort by the
-// `order` field, then title, so the onboarding path reads top to bottom.
 const articles = await getCollection('knowledge', (a) => !a.data.draft);
 
-// Category display order. Anything not listed here falls to the end, alphabetically.
-const CATEGORY_ORDER = [
-  'Getting started', 'Data', 'Campaigns', 'Integrations', 'Deliverability', 'Account and billing',
-];
-const rank = (c) => {
-  const i = CATEGORY_ORDER.indexOf(c);
-  return i === -1 ? CATEGORY_ORDER.length : i;
-};
+// Category cards, in the order defined in data/knowledge.ts. Empty categories
+// are dropped so the hub never advertises a category with nothing behind it.
+const groups = KNOWLEDGE_CATEGORIES.map((cat) => ({
+  ...cat,
+  count: articles.filter((a) => a.data.category === cat.name).length,
+})).filter((g) => g.count > 0);
 
-const byCategory = new Map();
-for (const a of articles) {
-  const list = byCategory.get(a.data.category) ?? [];
-  list.push(a);
-  byCategory.set(a.data.category, list);
-}
-const groups = [...byCategory.entries()]
-  .sort((a, b) => rank(a[0]) - rank(b[0]) || a[0].localeCompare(b[0]))
-  .map(([category, list]) => ({
-    category,
-    articles: list.sort((x, y) => (x.data.order - y.data.order) || x.data.title.localeCompare(y.data.title)),
-  }));
+// Popular row: named slugs, in order, skipping any that do not exist.
+const popular = POPULAR_ARTICLES
+  .map((slug) => articles.find((a) => a.id === slug))
+  .filter(Boolean)
+  .slice(0, 6);
+
+// Flat list used by the search filter.
+const searchable = articles
+  .map((a) => ({
+    id: a.id,
+    title: a.data.title,
+    description: a.data.description ?? '',
+    category: a.data.category,
+    haystack: `${a.data.title} ${a.data.description ?? ''} ${a.data.category}`.toLowerCase(),
+  }))
+  .sort((x, y) => x.title.localeCompare(y.title));
 
 const crumbs = breadcrumbSchema([
   { name: 'Home', url: '/' },
   { name: 'Knowledge', url: '/knowledge' },
 ]);
 ---
-<BaseLayout
+<KnowledgeLayout
   title="Knowledge center | hubsell"
-  description="Guides and step-by-step help for getting started with hubsell: set up your account, connect your channels, source data, and launch your first campaign."
+  description="Guides and step-by-step help for hubsell: set up your account, connect your channels, source data, and launch your first flow."
 >
-  <JsonLd schema={crumbs} />
+  <JsonLd slot="head" schema={crumbs} />
 
-  <section class="sec sec--paper" aria-labelledby="kb-title">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow is-accent">Knowledge center</p>
-        <h1 id="kb-title" class="heading_primary" style="margin-top:8px">Get up and running with hubsell</h1>
-        <p class="subheading">Step-by-step help for setting up your account, connecting your channels, sourcing data, and launching your first campaign.</p>
-      </div>
+  <div class="kbhub">
+    <section class="kbhub__hero">
+      <h1 class="kbhub__h1">How can we help?</h1>
+      <p class="kbhub__sub">Search for an answer, or browse by topic.</p>
 
       <div class="kbhub__search">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-        <input type="search" id="kbSearch" placeholder="Search the knowledge center" aria-label="Search the knowledge center" autocomplete="off" />
+        <input type="search" id="kbSearch" placeholder="Search articles" aria-label="Search the knowledge center" autocomplete="off" />
       </div>
-      <p class="kbhub__empty" id="kbEmpty" hidden>No articles match that search yet.</p>
 
-      <div class="kbhub">
-        {groups.map((group) => (
-          <section class="kbhub__group" aria-label={group.category}>
-            <h2 class="kbhub__cat">{group.category}</h2>
-            <ul class="kbhub__list">
-              {group.articles.map((a) => (
-                <li class="kbhub__item" data-search={`${a.data.title} ${a.data.description ?? ''} ${a.data.category}`.toLowerCase()}>
-                  <a class="kbhub__card" href={`/knowledge/${a.id}`}>
-                    <div class="kbhub__txt">
-                      <p class="kbhub__t">{a.data.title}</p>
-                      {a.data.description && <p class="kbhub__d">{a.data.description}</p>}
-                      <p class="kbhub__meta">
-                        {a.data.series && a.data.seriesStep && a.data.seriesTotal
-                          ? `Step ${a.data.seriesStep} of ${a.data.seriesTotal}` : a.data.category}
-                        {a.data.estMinutes ? ` · ${a.data.estMinutes} min` : ''}
-                      </p>
-                    </div>
-                    <span class="kbhub__arw"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </section>
+      {popular.length > 0 && (
+        <div class="kbhub__pop">
+          <span class="kbhub__poplabel">Popular</span>
+          {popular.map((a) => (
+            <a href={`/knowledge/${a.id}`}>{a.data.title}</a>
+          ))}
+        </div>
+      )}
+    </section>
+
+    {/* Search results. Hidden until the reader types. */}
+    <section class="kbhub__results" id="kbResults" hidden aria-label="Search results">
+      <ul class="kbhub__rlist">
+        {searchable.map((a) => (
+          <li class="kbhub__ritem" data-search={a.haystack}>
+            <a href={`/knowledge/${a.id}`}>
+              <span class="kbhub__rt">{a.title}</span>
+              {a.description && <span class="kbhub__rd">{a.description}</span>}
+              <span class="kbhub__rc">{a.category}</span>
+            </a>
+          </li>
         ))}
-      </div>
-    </div>
-  </section>
-</BaseLayout>
+      </ul>
+      <p class="kbhub__empty" id="kbEmpty" hidden>No articles match that search yet.</p>
+    </section>
 
-<script>
-  // Client-side filter for the knowledge hub. In-memory only, no storage.
-  const input = document.getElementById('kbSearch');
-  const empty = document.getElementById('kbEmpty');
-  if (input) {
-    const items = Array.from(document.querySelectorAll('.kbhub__item'));
-    const groups = Array.from(document.querySelectorAll('.kbhub__group'));
-    input.addEventListener('input', () => {
-      const q = input.value.trim().toLowerCase();
-      items.forEach((li) => {
-        const hit = !q || (li.getAttribute('data-search') || '').includes(q);
-        li.hidden = !hit;
-      });
-      let anyVisible = false;
-      groups.forEach((g) => {
-        const visible = g.querySelectorAll('.kbhub__item:not([hidden])').length > 0;
-        g.hidden = !visible;
-        if (visible) anyVisible = true;
-      });
-      empty.hidden = anyVisible;
-    });
-  }
-</script>
+    {/* Browse by category. Hidden while a search is active. */}
+    <section class="kbhub__browse" id="kbBrowse" aria-label="Browse by topic">
+      <h2 class="kbhub__h2">Browse by topic</h2>
+      <ul class="kbhub__cards">
+        {groups.map((g) => (
+          <li>
+            <a href={`/knowledge/category/${g.slug}`}>
+              <span class="kbhub__ct">{g.name}</span>
+              <span class="kbhub__cd">{g.description}</span>
+              <span class="kbhub__cc">{g.count} {g.count === 1 ? 'article' : 'articles'}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </div>
+</KnowledgeLayout>
 
 <style is:global>
-  :root { --kb-card:#FFFFFF; }
-  [data-theme="dark"] { --kb-card:#211B15; }
+  .kbhub{max-width:920px}
 
-  .kbhub{display:flex;flex-direction:column;gap:44px;margin-top:28px}
+  .kbhub__hero{padding:14px 0 6px}
+  .kbhub__h1{font-family:var(--font-head);font-weight:600;font-size:clamp(1.9rem,3.4vw,2.4rem);line-height:1.15;letter-spacing:-.02em;color:var(--text);margin:0 0 8px}
+  .kbhub__sub{font-size:1.05rem;line-height:1.55;color:var(--text-2);margin:0 0 22px}
 
-  .kbhub__search{display:flex;align-items:center;gap:10px;margin-top:32px;background:var(--kb-card);border:1px solid var(--border);border-radius:var(--radius);padding:0 14px;max-width:440px}
-  .kbhub__search:focus-within{border-color:var(--accent-on);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent-on) 20%,transparent)}
-  .kbhub__search svg{width:17px;height:17px;color:var(--text-3);flex:none}
-  .kbhub__search input{flex:1;border:0;background:transparent;color:var(--text);font-family:var(--font-body);font-size:.95rem;padding:12px 0;outline:none}
+  .kbhub__search{display:flex;align-items:center;gap:11px;background:var(--kb-card);border:1px solid var(--border);border-radius:var(--radius);padding:0 16px;max-width:560px}
+  .kbhub__search:focus-within{border-color:var(--accent-on);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent-on) 18%,transparent)}
+  .kbhub__search svg{width:18px;height:18px;color:var(--text-3);flex:none}
+  .kbhub__search input{flex:1;border:0;background:transparent;color:var(--text);font-family:var(--font-body);font-size:1rem;padding:14px 0;outline:none}
   .kbhub__search input::placeholder{color:var(--text-3)}
-  .kbhub__empty{margin:20px 0 0;color:var(--text-2);font-size:15px}
-  .kbhub__group[hidden]{display:none}
-  .kbhub__item[hidden]{display:none}
-  .kbhub__cat{font-family:var(--font-head);font-weight:600;font-size:1.15rem;color:var(--text);margin:0 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
-  .kbhub__list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
-  .kbhub__card{display:flex;align-items:center;gap:14px;text-decoration:none;background:var(--kb-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 22px;height:100%;transition:border-color .15s,transform .05s}
-  .kbhub__card:hover{border-color:var(--accent-on)}
-  .kbhub__t{font-family:var(--font-head);font-weight:600;font-size:1.02rem;color:var(--text);margin:0 0 6px;line-height:1.3}
-  .kbhub__d{font-size:14px;line-height:1.55;color:var(--text-2);margin:0 0 10px}
-  .kbhub__meta{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--text-3);margin:0}
-  .kbhub__arw{flex:none;color:var(--accent-on);opacity:0;transform:translateX(-4px);transition:opacity .15s,transform .15s}
-  .kbhub__card:hover .kbhub__arw{opacity:1;transform:translateX(0)}
+
+  .kbhub__pop{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-top:16px}
+  .kbhub__poplabel{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3)}
+  .kbhub__pop a{font-size:13.5px;color:var(--text-2);text-decoration:none;background:var(--kb-card);border:1px solid var(--border);border-radius:999px;padding:6px 13px;transition:border-color .15s,color .15s}
+  .kbhub__pop a:hover{color:var(--accent-on);border-color:var(--accent-on)}
+
+  .kbhub__h2{font-family:var(--font-head);font-weight:600;font-size:1.15rem;color:var(--text);margin:44px 0 16px}
+
+  .kbhub__cards{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px}
+  .kbhub__cards a{display:flex;flex-direction:column;height:100%;text-decoration:none;background:var(--kb-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 22px;transition:border-color .15s}
+  .kbhub__cards a:hover{border-color:var(--accent-on)}
+  .kbhub__ct{font-family:var(--font-head);font-weight:600;font-size:1.02rem;color:var(--text);margin-bottom:6px}
+  .kbhub__cd{font-size:14px;line-height:1.55;color:var(--text-2);margin-bottom:12px}
+  .kbhub__cc{margin-top:auto;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--text-3)}
+
+  .kbhub__results{margin-top:30px}
+  .kbhub__rlist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+  .kbhub__rlist a{display:block;text-decoration:none;background:var(--kb-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 18px;transition:border-color .15s}
+  .kbhub__rlist a:hover{border-color:var(--accent-on)}
+  .kbhub__rt{display:block;font-family:var(--font-head);font-weight:600;font-size:.98rem;color:var(--text);line-height:1.3;margin-bottom:5px}
+  .kbhub__rd{display:block;font-size:13.5px;line-height:1.5;color:var(--text-2);margin-bottom:8px}
+  .kbhub__rc{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--text-3)}
+  .kbhub__ritem[hidden]{display:none}
+  .kbhub__empty{margin:18px 0 0;color:var(--text-2);font-size:15px}
 </style>
+
+<script>
+  // Hub search: filter in memory, swap the category grid for a result list.
+  function initHubSearch() {
+    const input = document.getElementById('kbSearch') as HTMLInputElement | null;
+    const results = document.getElementById('kbResults');
+    const browse = document.getElementById('kbBrowse');
+    const empty = document.getElementById('kbEmpty');
+    if (!input || !results || !browse || !empty) return;
+
+    const items = Array.from(document.querySelectorAll<HTMLElement>('.kbhub__ritem'));
+
+    input.addEventListener('input', () => {
+      const q = input.value.trim().toLowerCase();
+
+      if (!q) {
+        results.hidden = true;
+        browse.hidden = false;
+        return;
+      }
+
+      results.hidden = false;
+      browse.hidden = true;
+
+      let hits = 0;
+      items.forEach((li) => {
+        const hit = (li.getAttribute('data-search') || '').includes(q);
+        li.hidden = !hit;
+        if (hit) hits++;
+      });
+      empty.hidden = hits > 0;
+    });
+  }
+
+  initHubSearch();
+  document.addEventListener('astro:page-load', initHubSearch);
+</script>

@@ -1,0 +1,32 @@
+---
+// LEARNING NOTES: the knowledge center footer
+// -------------------------------------------
+// A single slim line rather than the marketing footer's link columns. A reader
+// looking for help does not need the full sitemap; the few links that do matter
+// (support, main site, legal) are here.
+const year = new Date().getFullYear();
+---
+<footer class="kbfoot">
+  <div class="kbfoot__in">
+    <p class="kbfoot__copy">&copy; {year} hubsell UG. Knowledge center.</p>
+    <nav class="kbfoot__links" aria-label="Knowledge center footer">
+      <a href="/knowledge">All articles</a>
+      <a href="/contact">Contact support</a>
+      <a href="/">hubsell.com</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+    </nav>
+  </div>
+</footer>
+
+<style>
+  .kbfoot{ border-top:1px solid var(--border); margin-top:64px; }
+  .kbfoot__in{
+    display:flex; flex-wrap:wrap; gap:10px 24px; align-items:center; justify-content:space-between;
+    max-width:1440px; margin:0 auto; padding:20px clamp(16px,3vw,32px);
+  }
+  .kbfoot__copy{ margin:0; font-size:13px; color:var(--text-3); }
+  .kbfoot__links{ display:flex; flex-wrap:wrap; gap:6px 18px; }
+  .kbfoot__links a{ font-size:13px; color:var(--text-3); text-decoration:none; }
+  .kbfoot__links a:hover{ color:var(--accent-on); }
+</style>

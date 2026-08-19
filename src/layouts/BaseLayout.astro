@@ -42,6 +42,16 @@ export interface Props {
   ogImage?: string;
   ogType?: string;
   noindex?: boolean;
+  /**
+   * Which shell to render around the page.
+   *  'site' (default) = marketing TopBar + Nav + Footer, used by every page.
+   *  'docs'           = no site chrome at all; the page supplies its own
+   *                     header and footer. Used by the knowledge center so a
+   *                     reader in help mode is not pulled back into the
+   *                     marketing mega-menu. The <head>, theme script, SEO and
+   *                     hreflang handling are identical either way.
+   */
+  chrome?: 'site' | 'docs';
 }
 
 // LEARNING: `Astro.props` holds whatever the page passed in. The curly-brace
@@ -57,6 +67,7 @@ const {
   ogImage = OG_IMAGE,
   ogType = 'website',
   noindex = false,
+  chrome = 'site',
 } = Astro.props;
 
 // Append the brand to any title that doesn't already include it, so every tab
@@ -157,12 +168,12 @@ const altHref = (l: string) => new URL(localizeUrl(l, base), Astro.site).href;
   <body>
   {/* LEARNING: the visible page: shared top bar and nav, then <main> where the
       page's own content lands via the default slot, then the shared footer. */}
-    <TopBar />
-    <Nav />
+    {chrome === 'site' && <TopBar />}
+    {chrome === 'site' && <Nav />}
     <main>
       <slot />
     </main>
-    <Footer />
+    {chrome === 'site' && <Footer />}
 
     <div class="scroll-progress" aria-hidden="true"><span class="scroll-progress__fill"></span></div>
 
