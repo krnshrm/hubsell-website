@@ -5,7 +5,7 @@ category: "Getting started"
 order: 4
 series: "First login to first campaign"
 seriesStep: 4
-seriesTotal: 5
+seriesTotal: 8
 estMinutes: 3
 stepCount: 4
 appliesTo: "All plans"

@@ -1,6 +1,20 @@
 # Knowledge center (`/knowledge`) - build and content pipeline
 
-## Status at last session (2026-08-19)
+## Status at last session (2026-09-01)
+
+- 14 articles live across three categories. The "First login to first campaign"
+  series is now 8 steps (was 5). Build: 440 pages.
+- Content pulled from Confluence on 2026-09-01: eight new articles, all marked
+  "Ready to publish" in HKB.
+- Confluence pages now carry an "Embed url" field with a ready-made Scribe
+  iframe (as=video). We deliberately do NOT use it: the site keeps its own
+  click-to-load embed built from the viewer URL, so nothing third party loads
+  until the reader asks.
+- The CRM article's "pushing contacts is manual" fact was removed from the
+  Confluence page on 2026-08-25 but is KEPT on the site by decision, because it
+  is still true and useful. Do not "sync" it away.
+
+## Earlier status (2026-08-19)
 
 - LAYOUT REBUILD shipped: the knowledge center now uses a docs-style three-column
   layout modelled on support.claude.com. Colours, fonts and tokens are unchanged;
@@ -192,9 +206,9 @@ on the page until then.
   keep it conceptual until those facts are confirmed.
 - The set-up article "why it matters" line is generic. Sharpen it once the exact
   fields that appear in outreach (sender name, signature, and so on) are confirmed.
-- Remaining planned categories (Flows, Integrations, Deliverability, Account and
-  billing) are not started. Confluence renamed "Campaigns" to "Flows" on
-  2026-07-28; `src/data/knowledge.ts` already reflects that.
+- Flows has one article (clone a flow). Integrations, Deliverability and
+  Account and billing are still empty, so no card or sidebar group renders for
+  them yet; they appear automatically once an article carries that category.
 - Article screenshots have no width/height attributes, so they shift layout as
   they load. Pre-existing, not introduced by the layout rebuild. Worth fixing
   when the images move to R2, since dimensions will be known then.

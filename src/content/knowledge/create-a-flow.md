@@ -5,7 +5,7 @@ category: "Getting started"
 order: 5
 series: "First login to first campaign"
 seriesStep: 5
-seriesTotal: 5
+seriesTotal: 8
 estMinutes: 12
 stepCount: 26
 prerequisites: "Contacts in a hubsell list, and your mailbox and LinkedIn connected."
@@ -18,6 +18,9 @@ faqs:
     a: "A contact without rules defining how it moves stays where it is. Click the conditional branch in the flow builder and set explicit rules for each track, for example accepted and not accepted."
   - q: "Can I add contacts without an email address to a flow with email steps?"
     a: "Filter them out before importing, or put them into a LinkedIn-only sequence. A contact without an email address cannot move through an email step."
+next:
+  label: "Add unwanted emails and domains to the suppression list"
+  href: "/knowledge/suppression-list"
 draft: false
 ---
 <p>A flow is your automated outreach sequence. It defines which channels reach a contact, in what order, and under what conditions. This article builds a sample flow with a LinkedIn connection request, conditional branches, and follow-up steps by LinkedIn message and email.</p>

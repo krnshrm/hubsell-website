@@ -73,5 +73,6 @@ export const POPULAR_ARTICLES: string[] = [
   'connect-your-mailbox-and-linkedin',
   'sourcing-data-into-hubsell',
   'create-a-flow',
-  'connect-your-crm',
+  'adding-contacts-to-a-flow',
+  'update-contact-status',
 ];

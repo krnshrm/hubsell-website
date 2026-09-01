@@ -92,9 +92,9 @@ The use-cases overview and four detail pages are live (English, German, Dutch). 
 | `/ai-information-page` | Live | Plain-language overview written for AI assistants (AEO) |
 | `/guides` | Not built | Playbooks and ebooks |
 | `/templates` | Not built | Outreach email and sequence templates |
-| `/knowledge/category/<slug>` | Live | Category landing pages, one per category that has articles (currently getting-started, data). Built from `src/data/knowledge.ts` |
+| `/knowledge/category/<slug>` | Live | Category landing pages, one per category that has articles (currently getting-started, data, flows). Built from `src/data/knowledge.ts` |
 | `/knowledge` | Live | Knowledge center hub (product help / onboarding). Docs-style layout with persistent sidebar; search hero, popular row, category cards. English only, de/nl via fallback stubs. Client-side search, grouped by category. Linked in the nav Learn menu. See `docs/KNOWLEDGE-CENTER.md` |
-| `/knowledge/<slug>` | Live | 6 articles: the complete 5-step "First login to first campaign" series (set-up, mailbox+LinkedIn, sourcing, CRM, create-a-flow) plus data-enrichment (Data). TechArticle + BreadcrumbList + FAQPage schema, click-to-load Scribe walkthrough, "Last updated" date |
+| `/knowledge/<slug>` | Live | 14 articles: the 8-step "First login to first campaign" series (Getting started), 5 Data articles, 1 Flows article. TechArticle + BreadcrumbList + FAQPage schema, click-to-load Scribe walkthrough, "Last updated" date |
 | `/glossary` | Live | A-to-Z dictionary, 66 terms (EN/DE/NL), built in 5 batches |
 | `/tools` | Not built | Free tools, for example email verifier or ROI calculator |
 | `help.hubsell.com` | Not built | Help center or docs subdomain. Interim product help now lives at `/knowledge` (see above) |
