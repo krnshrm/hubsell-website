@@ -51,6 +51,31 @@ Messages come from `EMAIL_DOMAIN_MESSAGES`, also in `hs-block`, so the website a
 
 The disposable list is server-side only, so the browser does not flag a throwaway address as you type. The person sees the error on submit.
 
+## The build guard
+
+`scripts/check-email-rules.mjs` runs automatically before every build, via the `prebuild` script. It loads the real `hs-block` and checks that a corporate address passes, a free provider is rejected, a competitor is rejected, a disposable address is rejected, sub-domain matching works, and the lists are plausibly sized.
+
+```bash
+npm run check:email     # run it on its own
+```
+
+If it fails, the build stops before Astro starts and Cloudflare marks the deploy Failed, which means **the previous deploy keeps serving**. That is deliberate: a slightly stale site beats a site whose signup gate has quietly stopped working.
+
+This exists because on 2 Sep 2026 `package.json` asked for hs-block v1.1.0 while `package-lock.json` still pinned v1.0.0. Cloudflare builds with `npm ci`, which installs from the lockfile, so the live site had no disposable rule at all and accepted every throwaway address. Nothing failed and nothing logged. We found out by testing a form by hand.
+
+**When it fails, do this:**
+
+```bash
+npm install "github:krnshrm/hs-block#vX.Y.Z"
+grep -A2 '"node_modules/hs-block"' package-lock.json   # confirm the new commit hash
+npm run check:email
+git add package-lock.json && git commit -m "Lockfile: hs-block vX.Y.Z" && git push
+```
+
+Note that plain `npm install` will **not** re-resolve a git dependency when a lock entry already exists. It prints "up to date" and changes nothing. The explicit form above is required.
+
+Turn on deploy notifications in Cloudflare Pages, Settings, Notifications. Otherwise a failed build is only loud if somebody happens to look.
+
 ## Picking up list changes in this repo
 
 The pinned tag controls the copy bundled into this site:
