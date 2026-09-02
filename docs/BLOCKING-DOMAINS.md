@@ -40,11 +40,16 @@ An email is rejected if:
 1. It fails the shape check `EMAIL_RE`
 2. Its domain is a competitor, exact match or any sub-domain
 3. Its domain is on the manual block list, exact match or any sub-domain
-4. Its domain is a free provider, exact match only
+4. Its domain is disposable, exact match or any sub-domain
+5. Its domain is a free provider, exact match only
+
+Disposable domains come from an upstream list of around 8,700 throwaway providers, synced weekly in `hs-block`. Nobody needs to maintain them by hand.
 
 Messages come from `EMAIL_DOMAIN_MESSAGES`, also in `hs-block`, so the website and the app say the same thing.
 
-`UNGATED_FORMS` in `functions/api/subscribe.ts` exempts specific forms from rules 2 to 4. Today that is the general contact form only.
+`UNGATED_FORMS` in `functions/api/subscribe.ts` exempts specific forms from the competitor and free-provider rules. Today that is the general contact form only. Disposable addresses are rejected on **every** form, ungated included.
+
+The disposable list is server-side only, so the browser does not flag a throwaway address as you type. The person sees the error on submit.
 
 ## Picking up list changes in this repo
 

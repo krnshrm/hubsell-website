@@ -151,11 +151,19 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env, waitUnti
     return json({ ok: false, error: 'Please provide a valid email address.' }, 422);
   }
 
-  // Authoritative corporate-email gate (the client check is UX only and can be
-  // bypassed). Blocks competitor domains and free providers using the full list.
-  // Skipped for ungated forms like the general contact form.
+  // Authoritative domain gate (the client check is UX only and can be bypassed).
+  // Uses the full lists from hs-block.
+  const verdict = classifyEmail(email);
+
+  // Disposable addresses are rejected on every form, including ungated ones:
+  // a throwaway address is no use to us even on the contact form.
+  if (verdict === 'disposable') {
+    return json({ ok: false, error: EMAIL_DOMAIN_MESSAGES.disposable }, 422);
+  }
+
+  // Competitors and free providers are the corporate-email gate, which ungated
+  // forms like the general contact form skip.
   if (!UNGATED_FORMS.has(form)) {
-    const verdict = classifyEmail(email);
     if (verdict === 'blocked') {
       return json({ ok: false, error: EMAIL_DOMAIN_MESSAGES.blocked }, 422);
     }
