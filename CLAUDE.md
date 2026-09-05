@@ -45,8 +45,20 @@ In GA4, `src/scripts/track.ts` pushes `cta_click`, `form_start`, `form_error`, a
 `form_submit_success` into dataLayer. `form_submit_success` on the relevant form is
 the completion event. `form_error` is worth watching on its own: a spike there means
 the corporate-email gate or Turnstile is rejecting real people.
-[TODO: confirm which of these are marked as key events in the GA4 property, and the
-GTM container id. GTM is injected at the edge, not from this repo.]
+
+**Confirmed 2026-09-05:** GTM container is `GTM-T6ZR38R` (account "hubsell"
+`2965906746`, container `8854037`). The live container (version 45) had no Custom
+Event trigger and no GA4 event tag for any of `cta_click`, `form_start`,
+`form_error`, or `form_submit_success` — the dataLayer pushes from `track.ts` were
+not forwarded to GA4 at all. The fix (4 Custom Event triggers + 4 GA4 event tags)
+is built in the default workspace but **not yet published** — until someone
+publishes it, GA4 still receives none of these four events; do not read GA4
+reports on them as real data yet. `track.ts` also no longer hardcodes
+`/book-a-call`: `cta_click` now matches against `SIGNUP_URL`/`DEMO_URL` from
+`src/data/site.ts` and reports which one (`cta_destination`), so it keeps working
+unchanged the day `SIGNUP_URL` switches to the real trial URL. See
+`docs/20260905-1015-GTM-ANALYSIS.md` for the full tag/trigger inventory and what's
+still open before publish.
 
 ## What a good visitor looks like
 

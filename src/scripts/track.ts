@@ -6,14 +6,28 @@
 // /api/subscribe flow; tracking is a read-only side channel.
 //
 // Events produced:
-//   cta_click            automatic, any link to /book-a-call (any locale)
+//   cta_click            automatic, any link to SIGNUP_URL or DEMO_URL (see
+//                         src/data/site.ts), any locale. Carries
+//                         cta_destination, the matched constant's resolved
+//                         URL, so GA4 can tell the two apart even while they
+//                         point at the same place. Today both are
+//                         '/book-a-call'; the day SIGNUP_URL is switched to
+//                         the real trial signup URL (see the comment on that
+//                         constant), clicks on it start reporting the new
+//                         destination automatically, no code change needed
+//                         here. Note: that switch only covers the *click* on
+//                         the CTA. If the trial signup itself happens on
+//                         app.hubsell.com, completing it is outside this
+//                         repo's dataLayer entirely.
 //   form_start           automatic, first keystroke in any <form>
 //   form_error           pushed by the form components via track()
 //   form_submit_success  pushed by the form components via track()
 //
 // GTM picks these up with Custom Event triggers and forwards them to GA4.
-// See docs in the GTM setup guide delivered alongside this change.
+// See docs/20260905-1015-GTM-ANALYSIS.md for the container inventory.
 // ==========================================================================
+
+import { SIGNUP_URL, DEMO_URL } from '../data/site';
 
 type Params = Record<string, string | number | undefined>;
 
@@ -25,11 +39,33 @@ export function track(event: string, params: Params = {}): void {
 }
 
 // ------------------------- automatic cta_click ----------------------------
-// Every primary CTA on the site is a link ending in /book-a-call (also the
-// locale variants like /de/book-a-call). One delegated listener on the
-// document catches them all, so new CTAs are tracked without code changes.
+// One delegated listener on the document catches every CTA site-wide, so new
+// CTAs are tracked without code changes as long as they point at SIGNUP_URL
+// or DEMO_URL. Matching against those constants (instead of a hardcoded
+// path) is what keeps this working across the SIGNUP_URL switch: a
+// same-origin destination matches locale variants (/de/book-a-call), and a
+// future cross-origin destination (e.g. https://app.hubsell.com/signup) is
+// matched by exact origin + path instead.
 
-const CTA_PATH = '/book-a-call';
+const CTA_DESTINATIONS = [SIGNUP_URL, DEMO_URL];
+
+function localeStrippedPath(pathname: string): string {
+  return pathname.replace(/^\/(de|nl)(?=\/|$)/, '') || '/';
+}
+
+function matchedCtaDestination(a: HTMLAnchorElement): string | null {
+  let hrefUrl: URL;
+  try { hrefUrl = new URL(a.href, location.origin); } catch { return null; }
+  for (const dest of CTA_DESTINATIONS) {
+    let destUrl: URL;
+    try { destUrl = new URL(dest, location.origin); } catch { continue; }
+    if (hrefUrl.origin !== destUrl.origin) continue;
+    const sameSite = destUrl.origin === location.origin;
+    const hrefPath = sameSite ? localeStrippedPath(hrefUrl.pathname) : hrefUrl.pathname;
+    if (hrefPath === destUrl.pathname) return sameSite ? destUrl.pathname : destUrl.origin + destUrl.pathname;
+  }
+  return null;
+}
 
 function ctaLocation(a: HTMLElement): string {
   // Optional explicit override: wrap any area in data-cta-location="...".
@@ -46,10 +82,10 @@ function onDocumentClick(e: MouseEvent): void {
   const target = e.target as HTMLElement | null;
   const a = target?.closest?.('a[href]') as HTMLAnchorElement | null;
   if (!a) return;
-  let path = '';
-  try { path = new URL(a.href, location.origin).pathname; } catch { return; }
-  if (!path.endsWith(CTA_PATH)) return;
+  const destination = matchedCtaDestination(a);
+  if (!destination) return;
   track('cta_click', {
+    cta_destination: destination,
     cta_location: ctaLocation(a),
     cta_text: (a.textContent || '').trim().slice(0, 80),
     page_path: location.pathname,
