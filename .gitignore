@@ -7,3 +7,9 @@ dist/
 .DS_Store
 asset-map.json
 .env
+
+# credentials and mcp config
+.mcp.json
+*client_secret*.json
+application_default_credentials.json
+.env
