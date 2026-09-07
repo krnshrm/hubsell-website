@@ -47,18 +47,28 @@ the completion event. `form_error` is worth watching on its own: a spike there m
 the corporate-email gate or Turnstile is rejecting real people.
 
 **Confirmed 2026-09-05:** GTM container is `GTM-T6ZR38R` (account "hubsell"
-`2965906746`, container `8854037`). The live container (version 45) had no Custom
-Event trigger and no GA4 event tag for any of `cta_click`, `form_start`,
-`form_error`, or `form_submit_success` — the dataLayer pushes from `track.ts` were
-not forwarded to GA4 at all. The fix (4 Custom Event triggers + 4 GA4 event tags)
-is built in the default workspace but **not yet published** — until someone
-publishes it, GA4 still receives none of these four events; do not read GA4
-reports on them as real data yet. `track.ts` also no longer hardcodes
-`/book-a-call`: `cta_click` now matches against `SIGNUP_URL`/`DEMO_URL` from
-`src/data/site.ts` and reports which one (`cta_destination`), so it keeps working
-unchanged the day `SIGNUP_URL` switches to the real trial URL. See
-`docs/20260905-1015-GTM-ANALYSIS.md` for the full tag/trigger inventory and what's
-still open before publish.
+`2965906746`, container `8854037`). Version 45 (then live) had no Custom Event
+trigger and no GA4 event tag for any of `cta_click`, `form_start`, `form_error`,
+or `form_submit_success` — the dataLayer pushes from `track.ts` were not
+forwarded to GA4 at all.
+
+**Updated 2026-09-06:** the fix (4 Custom Event triggers `CE - *` + 4 GA4 event
+tags `GA4 - *`, all targeting measurement ID `G-5NPVYW5V3R`, plus the supporting
+`DLV - *` variables) is **published and live as version 46**. GA4 now receives
+`cta_click`, `form_start`, `form_error`, and `form_submit_success`. Data before
+the 2026-09-06 publish does not exist for these events; treat only data from that
+date forward as real. Known leftovers in the container, harmless but worth a
+cleanup: the native `Form Submission - Book a Call` trigger (id 55, Form ID
+`wf-form-Book-a-call`) is orphaned — no tag fires on it; the UA tag `GA-universal`
+(id 7) is dead; the `DLV - form_error_field` variable actually reads dataLayer key
+`field`; and the GA4 tags map `page_path` to the built-in `{{Page Path}}` rather
+than the pushed `page_path` value (same result, pushed value ignored).
+
+`track.ts` also no longer hardcodes `/book-a-call`: `cta_click` now matches
+against `SIGNUP_URL`/`DEMO_URL` from `src/data/site.ts` and reports which one
+(`cta_destination`), so it keeps working unchanged the day `SIGNUP_URL` switches
+to the real trial URL. See `docs/20260905-1015-GTM-ANALYSIS.md` for the full
+tag/trigger inventory.
 
 ## What a good visitor looks like
 
