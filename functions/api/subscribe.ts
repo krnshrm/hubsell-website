@@ -55,6 +55,21 @@ const DOUBLE_OPTIN_FORMS = new Set<string>(['newsletter']);
 // Keep free-text fields short so a form can't push large payloads into Plunk.
 const clip = (v: unknown, max: number) => String(v ?? '').trim().slice(0, max);
 
+// Everything after the last @ in an email address, lowercased. We log this and
+// NEVER the full address: the site sells GDPR-compliant outreach, so a visitor's
+// personal data must not land in Cloudflare's logs. Returns '' when there is no @.
+const domainOf = (v: string) => {
+  const at = v.lastIndexOf('@');
+  return at >= 0 ? v.slice(at + 1).toLowerCase() : '';
+};
+
+// One structured line per request outcome, for Cloudflare Workers Logs. Query it
+// with the observability tools: filter event = "form_reject", group by reason.
+// `event` is "form_reject" or "form_accept"; `reason` is "ok" on accept.
+// This is additive only: it never changes the response body, status, or timing.
+const logOutcome = (event: string, form: string, reason: string, domain: string) =>
+  console.log(JSON.stringify({ event, form, reason, domain }));
+
 // Sanitize an arbitrary { key: value } map of extra form fields (book-a-call etc.):
 // cap the number of keys, clip each value, and drop empties.
 function sanitizeFields(input: unknown): Record<string, string> {
@@ -116,16 +131,19 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env, waitUnti
   // ---- Bot guard (see src/scripts/form-guard.ts and docs/BOT-PROTECTION.md) ----
   // 1) Honeypot filled: a bot. Pretend success so it learns nothing; send nothing.
   if (guardWebsite) {
+    logOutcome('form_reject', form, 'honeypot', domainOf(email));
     return json({ ok: true });
   }
   // 2) Submitted faster than a human can type (only when the client stamped it).
   if (guardHpt > 0 && Date.now() - guardHpt < 2500) {
+    logOutcome('form_reject', form, 'too_fast', domainOf(email));
     return json({ ok: true });
   }
   // 3) Turnstile: authoritative once TURNSTILE_SECRET_KEY is configured.
   //    Verification-service outage fails open (a lost lead costs more than a bot).
   if (env.TURNSTILE_SECRET_KEY) {
     if (!guardToken) {
+      logOutcome('form_reject', form, 'turnstile_missing', domainOf(email));
       return json({ ok: false, error: 'Verification missing. Please refresh the page and try again.' }, 403);
     }
     try {
@@ -140,6 +158,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env, waitUnti
       });
       const vd = (await vr.json().catch(() => ({}))) as { success?: boolean };
       if (!vd.success) {
+        logOutcome('form_reject', form, 'turnstile_failed', domainOf(email));
         return json({ ok: false, error: 'Verification failed. Please refresh the page and try again.' }, 403);
       }
     } catch {
@@ -148,6 +167,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env, waitUnti
   }
 
   if (!EMAIL_RE.test(email)) {
+    logOutcome('form_reject', form, 'invalid_email', domainOf(email));
     return json({ ok: false, error: 'Please provide a valid email address.' }, 422);
   }
 
@@ -158,6 +178,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env, waitUnti
   // Disposable addresses are rejected on every form, including ungated ones:
   // a throwaway address is no use to us even on the contact form.
   if (verdict === 'disposable') {
+    logOutcome('form_reject', form, 'disposable_domain', domainOf(email));
     return json({ ok: false, error: EMAIL_DOMAIN_MESSAGES.disposable }, 422);
   }
 
@@ -165,9 +186,11 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env, waitUnti
   // forms like the general contact form skip.
   if (!UNGATED_FORMS.has(form)) {
     if (verdict === 'blocked') {
+      logOutcome('form_reject', form, 'blocked_domain', domainOf(email));
       return json({ ok: false, error: EMAIL_DOMAIN_MESSAGES.blocked }, 422);
     }
     if (verdict === 'free') {
+      logOutcome('form_reject', form, 'free_provider', domainOf(email));
       return json({ ok: false, error: EMAIL_DOMAIN_MESSAGES.free }, 422);
     }
   }
@@ -201,10 +224,12 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env, waitUnti
     // Any non-2xx is a failure. Plunk's success envelope differs across API
     // versions, so we check `success` only when present and never rely on shape.
     if (!res.ok) {
+      logOutcome('form_reject', form, 'upstream_error', domainOf(email));
       return json({ ok: false, error: 'Subscription service error.' }, 502);
     }
     const payload = (await res.json().catch(() => ({}))) as { success?: boolean };
     if (payload && payload.success === false) {
+      logOutcome('form_reject', form, 'upstream_error', domainOf(email));
       return json({ ok: false, error: 'Subscription was rejected.' }, 502);
     }
 
@@ -216,8 +241,10 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env, waitUnti
       await notifyTeam(env, base, form, email, data);
     }
 
+    logOutcome('form_accept', form, 'ok', domainOf(email));
     return json({ ok: true });
   } catch {
+    logOutcome('form_reject', form, 'upstream_error', domainOf(email));
     return json({ ok: false, error: 'Could not reach subscription service.' }, 502);
   }
 };
