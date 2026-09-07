@@ -25,7 +25,7 @@ A new chat needs: this file, `docs/SITEMAP.md`, `docs/hubsell-style-guide.html`,
 A chat whose task is LEARNING or explaining the codebase should start from `docs/20260724-1100-LEARNING-ASTRO.md` (teaching-comment map and reading order).
 
 ## Parallel chats - coordination rules
-- Each parallel chat works on its OWN branch, never directly on `main` (a push to `main` is a live deploy).
+- Each parallel chat works on its OWN branch, never directly on `main` (merging to `main` is the go-live path; the deploy itself is triggered by hand, see Deploy safety).
 - Keep parallel chats on disjoint file sets where possible. High-collision files to watch: `src/data/embed-i18n.ts`, `src/data/navigation.ts`, `src/styles/global.css`, `src/i18n/ui.ts`, the three `solutions*` data files, and `src/components/SolutionDetail.astro` / `BookCallForm.astro` (all touched by the in-review SDR work).
 - Tell each chat which other work is in flight so it does not undo or double-apply it.
 - Merge one branch at a time into `main`, build between merges.
@@ -34,15 +34,15 @@ A chat whose task is LEARNING or explaining the codebase should start from `docs
 ## Working model (unchanged)
 - The founder (Karan / `krnshrm`, git author `ks@hubsell.com`) runs everything on a Mac. Claude provides files plus step-by-step instructions. He does NOT use Claude Code.
 - Local folder `~/Coding/hubsell-website`. Repo `github.com/krnshrm/hubsell-website` (HTTPS + PAT). Local Node 20.
-- Do NOT put `cd` in commands. He runs them from the repo root. Delivered bash commands end with `git push` so Cloudflare redeploys.
-- Delivery loop: Claude edits files in the sandbox, runs `npm run build` to verify, hands over the changed file(s), he drops them in and runs `git add . && git commit && git push`, Cloudflare auto-rebuilds.
+- Do NOT put `cd` in commands. He runs them from the repo root. Delivered bash commands end with `git push`; Cloudflare does NOT rebuild on push, so a deploy must then be started by hand in the Pages dashboard.
+- Delivery loop: Claude edits files in the sandbox, runs `npm run build` to verify, hands over the changed file(s), he drops them in and runs `git add . && git commit && git push`, then triggers the build in the Cloudflare Pages dashboard.
 - Delivery styles that work: (a) small surgical edits as a short `perl` one-liner (portable on macOS, never `sed -i`); (b) new or multi-file changes as a timestamped tarball he extracts from `~/Downloads` with `tar -xzf`. Tarball is preferred for bracket-named route files like `[slug].astro` and for anything with tricky quoting.
 - Files arrive in his `~/Downloads`.
 
 ## Deploy safety (IMPORTANT)
-- Cloudflare auto-deploys PRODUCTION only on a push to `main`. So a push to `main` is a live deploy.
-- Do all larger or in-progress work on a branch. Go-live is a deliberate merge into `main`.
-- Merge-to-main procedure: pre-flight on the feature branch (`git status` clean, `npm run build` green at the expected page count, eyeball the branch preview), then `git checkout main`, `git pull`, `git merge <branch>`, `npm run build` again, `git push origin main`. Rollback: Cloudflare Pages "Rollback to this deployment" (fastest), or `git revert -m 1 <merge-sha> && git push`.
+- Cloudflare Pages does NOT auto-deploy. Pushing `main` publishes nothing on its own; a production deploy is started by hand in the Pages dashboard (**hubsell-website, Deployments, Create deployment**, branch `main`), then wait for the build to go green.
+- Do all larger or in-progress work on a branch. Go-live is a deliberate merge into `main` followed by that manual deploy.
+- Merge-to-main procedure: pre-flight on the feature branch (`git status` clean, `npm run build` green at the expected page count, eyeball the branch preview), then `git checkout main`, `git pull`, `git merge <branch>`, `npm run build` again, `git push origin main`, then start the deploy in the Cloudflare Pages dashboard and wait for it to finish. Rollback: Cloudflare Pages "Rollback to this deployment" (fastest), or `git revert -m 1 <merge-sha> && git push` followed by another manual deploy.
 
 ## Standing rules (apply to ALL future work)
 - LEARNING COMMENTS: the `LEARNING NOTES` blocks and `LEARNING:` inline comments across the repo (added 2026-07-24, see `docs/20260724-1100-LEARNING-ASTRO.md`) are the founder's Astro textbook. PRESERVE them in any file you edit; never strip or reflow them. When your edit makes a neighbouring LEARNING comment factually wrong, update that comment's facts minimally. New files do not need them.

@@ -139,7 +139,10 @@ decided against, so it does not get suggested again.]
   Canonical URLs and the sitemap use trailing slashes.
 - **Node 22** required (Astro 6+ needs an even major). Cloudflare Pages builds with
   `npm ci`, build command `npm run build`, output dir `dist`, `NODE_VERSION=22`.
-- **Hosting:** Cloudflare Pages. A push to `main` is a live production deploy.
+- **Hosting:** Cloudflare Pages. Production does **not** auto-deploy on push.
+  After pushing `main`, start the deploy by hand in the Cloudflare Pages
+  dashboard (**hubsell-website, Deployments, Create deployment**, branch `main`);
+  a push on its own changes nothing live.
 - **Forms:** one Cloudflare Pages Function, `functions/api/subscribe.ts`, which calls
   Plunk. No SSR adapter. Do not add `@astrojs/cloudflare` unless a page genuinely
   needs server rendering.
@@ -282,10 +285,13 @@ Full system in `src/styles/global.css`; reference doc `docs/hubsell-style-guide.
 
 ## Deploy safety
 
-- A push to `main` deploys production. Do in-progress work on a branch.
+- Merging to `main` is how work reaches production, but the deploy is **manual**:
+  Cloudflare Pages does not build on push. Do in-progress work on a branch.
 - Merge procedure: on the branch, `git status` clean, `npm run build` green at the
   expected page count, eyeball the branch preview. Then `git checkout main`,
-  `git pull`, `git merge <branch>`, `npm run build` again, `git push origin main`.
+  `git pull`, `git merge <branch>`, `npm run build` again, `git push origin main`,
+  then start the deploy in the Cloudflare Pages dashboard (**Deployments, Create
+  deployment**, branch `main`) and wait for the build to go green.
 - Rollback: Cloudflare Pages "Rollback to this deployment", or
   `git revert -m 1 <merge-sha> && git push`.
 - Run `git status` before committing; `git add .` sweeps up unrelated working-tree
