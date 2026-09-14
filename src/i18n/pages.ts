@@ -124,6 +124,8 @@ export interface BookCallCopy {
   coversHeading: string;
   covers: string[];
   note: string;
+  /** Heading above the row of team photos on /book-a-call. */
+  teamHeading: string;
 }
 
 const bookCall = byLocale<BookCallCopy>(
@@ -142,6 +144,7 @@ const bookCall = byLocale<BookCallCopy>(
       'A clear answer on fit, pricing, and onboarding for your team.',
     ],
     note: 'Our team handles your first campaign setup, so most teams run their first outbound within the first week.',
+    teamHeading: 'Meet our customer team',
   },
   {
     metaTitle: 'Gespräch buchen | hubsell',
@@ -158,6 +161,7 @@ const bookCall = byLocale<BookCallCopy>(
       'Eine klare Antwort zu Eignung, Preis und Onboarding für Ihr Team.',
     ],
     note: 'Unser Team übernimmt die Einrichtung Ihrer ersten Kampagne, sodass die meisten Teams ihren ersten Outbound schon in der ersten Woche starten.',
+    teamHeading: 'Lernen Sie unser Kundenteam kennen',
   },
   {
     metaTitle: 'Plan een gesprek | hubsell',
@@ -174,6 +178,7 @@ const bookCall = byLocale<BookCallCopy>(
       'Een helder antwoord over fit, prijs en onboarding voor uw team.',
     ],
     note: 'Ons team verzorgt de inrichting van uw eerste campagne, zodat de meeste teams hun eerste outbound al in de eerste week draaien.',
+    teamHeading: 'Maak kennis met ons klantenteam',
   },
 );
 

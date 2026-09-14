@@ -25,17 +25,26 @@ export const TURNSTILE_SITE_KEY = '0x4AAAAAACIAXouVNUv0_MXY';
 export const LOGIN_URL = 'https://app.hubsell.com/';
 export const DEMO_URL = '/book-a-call';
 
-// The person a visitor actually meets when they book a call. Rendered on
-// /book-a-call above the form. Leave `photo` empty and the block does not
-// render at all, so nothing breaks before the image is uploaded.
+// The people a visitor actually meets when they book a call. Rendered on
+// /book-a-call (which is also where "request a demo" points) above the form.
 //
-// TO ACTIVATE: upload the headshot to the R2 bucket under avatars/ and paste
-// the full URL below, e.g. 'https://assets.hubsell.com/avatars/karan-sharma.jpg'.
-// Square crop, at least 320x320, face centred.
-export const CALL_HOST = {
-  photo: 'https://assets.hubsell.com/avatars/karan-sharma.jpg',
-  name: 'Karan Sharma',
-  title: 'Founder, hubsell',
-  /** Optional: LinkedIn or similar. Empty means the name is not a link. */
-  url: '',
-};
+// Photos live on R2 alongside the customer avatars. Remove an entry to drop
+// that person; empty the array and the block stops rendering entirely, so
+// nothing breaks either way.
+export const CALL_HOSTS = [
+  {
+    photo: 'https://assets.hubsell.com/avatars/karan-sharma.jpg',
+    name: 'Karan Sharma',
+    title: 'Founder, hubsell',
+  },
+  {
+    photo: 'https://assets.hubsell.com/avatars/mukul-thakur.jpg',
+    name: 'Mukul Thakur',
+    title: '',
+  },
+  {
+    photo: 'https://assets.hubsell.com/avatars/maria-r.jpg',
+    name: 'Maria R',
+    title: '',
+  },
+];
