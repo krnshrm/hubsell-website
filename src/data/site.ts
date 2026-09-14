@@ -33,7 +33,7 @@ export const DEMO_URL = '/book-a-call';
 // the full URL below, e.g. 'https://assets.hubsell.com/avatars/karan-sharma.jpg'.
 // Square crop, at least 320x320, face centred.
 export const CALL_HOST = {
-  photo: '',
+  photo: 'https://assets.hubsell.com/avatars/karan-sharma.jpg',
   name: 'Karan Sharma',
   title: 'Founder, hubsell',
   /** Optional: LinkedIn or similar. Empty means the name is not a link. */
