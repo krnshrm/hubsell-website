@@ -262,7 +262,7 @@ export const stringsDe: HomeStrings = {
     titlePre: 'Ersetzen Sie Ihren ', titleAccent: 'Outbound', titlePost: '-Stack durch eine Plattform.',
     sub: 'Ihr Team sollte Zeit mit Verkaufen verbringen, nicht mit dem Wechseln von Tabs. hubsell bringt Ihre Daten, Ihren Outreach und Ihre CRM-Synchronisierung an einen Ort, damit genau das gelingt.',
     ctaPrimary: 'Demo buchen', ctaSecondary: 'In Aktion sehen',
-    ratingsPre: 'Bewertet mit ', ratingsScore: '4,8/5,0', ratingsPost: ' bei Capterra, GetApp und SoftwareAdvice.',
+    ratingsPre: 'Bewertet mit ', ratingsScore: '4,6+', ratingsPost: ' bei Capterra, G2, GetApp und SoftwareAdvice.',
   },
   logos: {
     eyebrow: 'Vertraut von B2B-Revenue-Teams in ganz Europa',

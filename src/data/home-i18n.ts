@@ -94,7 +94,7 @@ const stringsEn: HomeStrings = {
     titlePre: 'Replace your ', titleAccent: 'outbound', titlePost: ' stack with one platform.',
     sub: 'Your team should spend time selling, not switching tabs. hubsell brings your data, outreach, and CRM sync into one place so they can.',
     ctaPrimary: 'Book a demo', ctaSecondary: 'See it in action',
-    ratingsPre: 'Rated ', ratingsScore: '4.8/5.0', ratingsPost: ' across Capterra, GetApp, and SoftwareAdvice.',
+    ratingsPre: 'Rated ', ratingsScore: '4.6+', ratingsPost: ' on Capterra, G2, GetApp, and SoftwareAdvice.',
   },
   logos: {
     eyebrow: 'Trusted by B2B revenue teams across Europe',

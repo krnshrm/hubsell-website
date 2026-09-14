@@ -262,7 +262,7 @@ export const stringsNl: HomeStrings = {
     titlePre: 'Vervang uw ', titleAccent: 'outbound', titlePost: '-stack door één platform.',
     sub: 'Uw team hoort tijd te besteden aan verkopen, niet aan het wisselen van tabs. hubsell brengt uw data, uw outreach en uw CRM-synchronisatie samen op één plek, zodat dat lukt.',
     ctaPrimary: 'Demo plannen', ctaSecondary: 'In actie zien',
-    ratingsPre: 'Beoordeeld met ', ratingsScore: '4,8/5,0', ratingsPost: ' op Capterra, GetApp en SoftwareAdvice.',
+    ratingsPre: 'Beoordeeld met ', ratingsScore: '4,6+', ratingsPost: ' op Capterra, G2, GetApp en SoftwareAdvice.',
   },
   logos: {
     eyebrow: 'Vertrouwd door B2B-revenue-teams in heel Europa',
