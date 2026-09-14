@@ -171,7 +171,8 @@ Landed 2026-06-30, outside the content phases: a full SEO and AEO/GEO pass (JSON
 
 Landed 2026-07-01, outside the content phases:
 - Dutch (`/nl/`) locale built across all page types (see the i18n section). Full build 166 pages. Go-live is a merge of branch `i18n-nl` into `main`; confirm it has been done and Dutch is live on production.
-- Homepage logo section changed from an auto-scrolling marquee (about 66 logos) to a static, hand-picked "shelf" (styled after salesforge.ai): a bordered strip of divided cells. The 5 companies with a published customer story sit on the top row, each linked to its story with a small corner-arrow indicator; 5 more logos sit plain on the bottom row (GLS, FABs, ipushpull, Kapturall, Monotype). One self-localising component (`CustomerLogos.astro`) used on all three homepage locales. Delivered as a tarball; confirm it is applied.
+- Homepage logo section changed from an auto-scrolling marquee (about 66 logos) to a static, hand-picked "shelf" (styled after salesforge.ai): a bordered strip of divided cells. The 5 companies with a published customer story sit on the top row, each linked to its story with a small corner-arrow indicator; 5 more logos sit plain on the bottom row (GLS, FABs, ipushpull, Kapturall, Monotype). One self-localising component (`CustomerLogos.astro`) used on all three homepage locales. Live.
+- Updated 2026-09-14: hovering a top-row logo lifts a floating card out of the strip with the company name, the headline result metric, a trimmed quote and "Read the story", pulled from the per-locale `customerstories` collections so DE and NL translate themselves. Keyboard focus opens it too; disabled below 820px and on touch. Live.
 
 ### Open migration actions
 - [x] Export the Webflow "Comparisons" collection as CSV, then build the 5 `/vs` pages (Phase 4)

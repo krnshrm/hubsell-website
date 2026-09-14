@@ -58,8 +58,8 @@ flowchart LR
 ```mermaid
 flowchart LR
     FORMC["Form components<br/>WaitlistForm / BookCallForm /<br/>RequestForm"] --> GUARD["src/scripts/form-guard.ts<br/>honeypot, fill time, Turnstile"]
-    FORMC --> CHECK["src/data/free-email-domains.ts<br/>instant client check"]
-    FORMC -- "fetch POST /api/subscribe" --> FN["functions/api/subscribe.ts<br/>validates + re-checks everything<br/>server-side"]
+    FORMC --> CHECK["hs-block/light<br/>instant client check, UX only"]
+    FORMC -- "fetch POST /api/subscribe" --> FN["functions/api/subscribe.ts<br/>re-checks everything server-side<br/>with the full hs-block lists"]
     FN --> PLUNK["Plunk<br/>events, alerts, opt-in emails"]
 ```
 
