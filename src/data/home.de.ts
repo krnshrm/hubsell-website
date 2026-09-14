@@ -286,7 +286,7 @@ export const stringsDe: HomeStrings = {
     cta: 'So machen wir das',
   },
   ratings: {
-    titlePre: 'Bewertet mit ', titleAccent: '4,8+', titlePost: ' bei G2, Capterra und GetApp',
+    titlePre: 'Bewertet mit ', titleAccent: '4,6+', titlePost: ' bei G2, Capterra und GetApp',
     cue: 'Bewertungen lesen →',
     aria: (platform, score, out) => `hubsell-Bewertungen auf ${platform} lesen (bewertet mit ${score}${out})`,
   },

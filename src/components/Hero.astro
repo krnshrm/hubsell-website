@@ -18,6 +18,7 @@
 // line, and the discreet "Ask AI" row. The pipeline flow sits to the right.
 import HeroPipelineFlow from './HeroPipelineFlow.astro';
 import AskAiWidget from './AskAiWidget.astro';
+import AvatarStack from './AvatarStack.astro';
 import { SIGNUP_URL } from '../data/site';
 import { getHome } from '../data/home-i18n';
 import { asLocale, localizedHref } from '../i18n/utils';
@@ -36,7 +37,12 @@ const { s } = getHome(L);
           <a class="button is-large" href={localizedHref(L, SIGNUP_URL)}>{s.hero.ctaPrimary}</a>
         </div>
 
-        <p class="hero__ratings">{s.hero.ratingsPre}<strong>{s.hero.ratingsScore}</strong>{s.hero.ratingsPost}</p>
+        {/* Real customer faces sit beside the rating so the first screen has
+            people in it, not just numbers. Copy is unchanged. */}
+        <div class="hero__proof">
+          <AvatarStack size={36} />
+          <p class="hero__ratings">{s.hero.ratingsPre}<strong>{s.hero.ratingsScore}</strong>{s.hero.ratingsPost}</p>
+        </div>
 
         <div class="hero__askai"><AskAiWidget /></div>
       </div>
@@ -66,7 +72,8 @@ const { s } = getHome(L);
 
   .hero__cta{display:flex; flex-wrap:wrap; gap:14px; align-items:center}
 
-  .hero__ratings{margin:28px 0 0; font-size:.9375rem; color:var(--accent-on); font-weight:500}
+  .hero__proof{display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin:28px 0 0}
+  .hero__ratings{margin:0; font-size:.9375rem; color:var(--accent-on); font-weight:500}
   .hero__ratings strong{font-weight:700}
 
   .hero__askai{margin-top:40px}

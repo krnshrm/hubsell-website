@@ -39,7 +39,7 @@ const unquote = (t: string) => String(t ?? '').trim().replace(/^["“”„'']+|
 // Cut at a word boundary so the quote ends cleanly instead of mid-word where
 // the CSS clamp would chop it. German runs longer than English, so the limit is
 // deliberately conservative.
-function clip(t: string, max = 150) {
+function clip(t: string, max = 120) {
   if (t.length <= max) return t;
   const cut = t.slice(0, max);
   const at = cut.lastIndexOf(' ');
@@ -52,7 +52,16 @@ function panelFor(slug: string) {
   const top = (d.results ?? [])[0];
   const quote = clip(unquote(d.testimonial));
   if (!top && !quote) return null;
-  return { metric: top?.metric ?? '', label: top?.label ?? '', quote };
+  return {
+    metric: top?.metric ?? '',
+    label: top?.label ?? '',
+    quote,
+    // The person who said it. A quote with a face behind it lands differently
+    // from an anonymous one.
+    champion: d.champion ?? '',
+    championTitle: d.championTitle ?? '',
+    championImage: d.championImage ?? '',
+  };
 }
 
 // Row 1 — companies with a published customer story: linked + corner-arrow indicator.
@@ -98,6 +107,17 @@ const moreLogos = [
                     </span>
                   )}
                   {p.quote && <span class="logo-panel__quote">{p.quote}</span>}
+                  {p.champion && (
+                    <span class="logo-panel__who">
+                      {p.championImage && (
+                        <img class="logo-panel__face" src={p.championImage} alt="" width="34" height="34" loading="lazy" decoding="async" />
+                      )}
+                      <span class="logo-panel__whotx">
+                        <b>{p.champion}</b>
+                        {p.championTitle && <i>{p.championTitle}</i>}
+                      </span>
+                    </span>
+                  )}
                   <span class="logo-panel__cta">{cs.readStory}</span>
                 </span>
               )}
@@ -223,9 +243,18 @@ const moreLogos = [
   }
   .logo-panel__quote{
     font-size:12.5px; line-height:1.5; color:#4A443E;
-    display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical;
+    display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical;
     overflow:hidden;
   }
+  .logo-panel__who{ display:flex; align-items:center; gap:9px; }
+  .logo-panel__face{
+    width:34px; height:34px; border-radius:50%; object-fit:cover;
+    background:#EFEAE3; flex-shrink:0;
+  }
+  .logo-panel__whotx{ display:flex; flex-direction:column; gap:2px; min-width:0; }
+  .logo-panel__whotx b{ font:600 12px/1.2 var(--font-body); color:#2A2420; }
+  .logo-panel__whotx i{ font-style:normal; font-size:10.5px; line-height:1.2; color:#8B8279; }
+
   .logo-panel__cta{
     font:600 10.5px/1 var(--font-body);
     letter-spacing:.06em; text-transform:uppercase; color:var(--brand);

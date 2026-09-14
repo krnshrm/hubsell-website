@@ -68,7 +68,7 @@ export const platformDe: PlatformData = {
     ],
     proofEyebrow: 'Beleg',
     proofTitle: 'Teams, die gewechselt haben',
-    ratingsLine: 'Bewertet mit 4,8+ auf G2, Capterra und GetApp.',
+    ratingsLine: 'Bewertet mit 4,6+ auf G2, Capterra und GetApp.',
     quoteSlug: 'cibt',
     faqEyebrow: 'FAQ',
     faqTitle: 'H\u00e4ufige Fragen',

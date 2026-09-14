@@ -24,3 +24,18 @@ export const SIGNUP_URL = '/book-a-call';
 export const TURNSTILE_SITE_KEY = '0x4AAAAAACIAXouVNUv0_MXY';
 export const LOGIN_URL = 'https://app.hubsell.com/';
 export const DEMO_URL = '/book-a-call';
+
+// The person a visitor actually meets when they book a call. Rendered on
+// /book-a-call above the form. Leave `photo` empty and the block does not
+// render at all, so nothing breaks before the image is uploaded.
+//
+// TO ACTIVATE: upload the headshot to the R2 bucket under avatars/ and paste
+// the full URL below, e.g. 'https://assets.hubsell.com/avatars/karan-sharma.jpg'.
+// Square crop, at least 320x320, face centred.
+export const CALL_HOST = {
+  photo: '',
+  name: 'Karan Sharma',
+  title: 'Founder, hubsell',
+  /** Optional: LinkedIn or similar. Empty means the name is not a link. */
+  url: '',
+};

@@ -13,12 +13,13 @@
 // to hubsell's review page on that platform.
 const ratings = [
   { platform: 'GetApp', score: '4.8', out: '/5.0', url: 'https://www.getapp.com/sales-software/a/hubsell/' },
-  { platform: 'G2', score: '4.5', out: '/5.0', url: 'https://www.g2.com/products/hubsell/reviews' },
+  { platform: 'G2', score: '4.6', out: '/5.0', url: 'https://www.g2.com/products/hubsell/reviews' },
   { platform: 'Capterra', score: '4.8', out: '/5.0', url: 'https://www.capterra.com/p/172232/hubsell/reviews/' },
   { platform: 'OMR', score: '5.0', out: '/5.0', url: 'https://omr.com/en/reviews/product/hubsell' },
   { platform: 'TrustRadius', score: '10', out: '/10', url: 'https://www.trustradius.com/products/hubsell/reviews' },
 ];
 import { getHome } from '../data/home-i18n';
+import AvatarStack from './AvatarStack.astro';
 import { asLocale, localizedHref } from '../i18n/utils';
 const L = asLocale(Astro.currentLocale);
 const { s } = getHome(L);
@@ -27,6 +28,8 @@ const { s } = getHome(L);
   <div class="wrap">
     <div class="sec-head reveal">
       <h2 class="heading_primary">{s.ratings.titlePre}<span class="accent">{s.ratings.titleAccent}</span>{s.ratings.titlePost}</h2>
+      {/* Faces under the heading: the scores are abstract, the people are not. */}
+      <div class="ratings__faces"><AvatarStack size={40} slugs={['safran','verhaert','staffbase','elium','workspace365','sensolus']} /></div>
     </div>
     <div class="grid reveal-stagger" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px">
       {ratings.map((r) => (
@@ -53,6 +56,9 @@ const { s } = getHome(L);
 </section>
 
 <style>
+  /* Left-aligned to sit under the heading. Centring it orphaned the row in the
+     middle of the section with nothing above or below to anchor it. */
+  .ratings__faces{display:flex; justify-content:flex-start; margin:16px 0 0}
   .rating-card{
     display:block; text-decoration:none; color:inherit;
     transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;

@@ -13,6 +13,7 @@
 // Book-a-call page body. Single source rendered by both /book-a-call (English)
 // and /de/book-a-call (German); self-localizes from Astro.currentLocale.
 import BookCallForm from './BookCallForm.astro';
+import { CALL_HOST } from '../data/site';
 import { asLocale } from '../i18n/utils';
 import { getBookCall } from '../i18n/pages';
 
@@ -36,6 +37,18 @@ const c = getBookCall(L);
           {c.covers.map((item) => (<li>{item}</li>))}
         </ul>
         <p class="bc-note">{c.note}</p>
+
+        {/* Who you will actually be talking to. Renders only once CALL_HOST.photo
+            is set in src/data/site.ts, so an empty config changes nothing. */}
+        {CALL_HOST.photo && (
+          <div class="bc-host">
+            <img class="bc-host__face" src={CALL_HOST.photo} alt={CALL_HOST.name} width="64" height="64" loading="lazy" decoding="async" />
+            <p class="bc-host__tx">
+              <b>{CALL_HOST.name}</b>
+              <span>{CALL_HOST.title}</span>
+            </p>
+          </div>
+        )}
       </div>
       <div class="bc-formcard">
         <BookCallForm />
@@ -45,6 +58,11 @@ const c = getBookCall(L);
 </section>
 
 <style>
+  .bc-host{ display:flex; align-items:center; gap:14px; margin-top:22px; padding-top:20px; border-top:1px solid var(--sec-bd); }
+  .bc-host__face{ width:64px; height:64px; border-radius:50%; object-fit:cover; flex-shrink:0; background:color-mix(in srgb,var(--sec-tx) 10%,transparent); }
+  .bc-host__tx{ margin:0; display:flex; flex-direction:column; gap:3px; }
+  .bc-host__tx b{ font-family:var(--font-head); font-weight:600; font-size:1rem; color:var(--sec-tx); }
+  .bc-host__tx span{ font-size:13.5px; color:var(--sec-tx); opacity:.7; }
   .bc-hero { padding-bottom: clamp(24px,3vw,36px); }
   .bc-title { font-family:var(--font-head); font-weight:600; font-size:clamp(2rem,4.4vw,2.75rem); line-height:1.1; letter-spacing:-.02em; color:var(--sec-tx); margin:8px 0 0; }
   .bc-sub { margin-top:14px; max-width:60ch; }

@@ -29,15 +29,17 @@ const { testimonials, s } = getHome(L);
           {testimonials.map((t) => (
             <div class="carousel__slide">
               <div class="card" style="display:grid;grid-template-columns:1fr;gap:22px">
-                <p class="quote">“{t.quote}”</p>
-                <div style="display:flex;align-items:center;gap:14px">
-                  <img src={t.image} alt={`${t.name}, ${t.title} at ${t.company}`} width="52" height="52" loading="lazy"
-                       style="width:52px;height:52px;border-radius:50%;object-fit:cover;background:color-mix(in srgb,var(--sec-tx) 10%,transparent)" />
+                {/* Person first, quote second. Leading with the face makes the
+                    card read as somebody talking rather than as pull-quote
+                    decoration, and the photo is big enough to be a person. */}
+                <div class="tst-who">
+                  <img src={t.image} alt={`${t.name}, ${t.title} at ${t.company}`} width="72" height="72" loading="lazy" decoding="async" class="tst-who__face" />
                   <div>
-                    <p style="margin:0;font-weight:600;font-family:var(--font-head)">{t.name}</p>
-                    <p class="paragraph_small" style="margin:0;opacity:.7">{t.title}, {t.company}</p>
+                    <p class="tst-who__name">{t.name}</p>
+                    <p class="paragraph_small tst-who__role">{t.title}, {t.company}</p>
                   </div>
                 </div>
+                <p class="quote">“{t.quote}”</p>
                 <div class="grid grid-3" style="gap:14px;border-top:1px solid var(--sec-bd);padding-top:18px">
                   {t.results.map((r) => (
                     <div>
@@ -64,6 +66,20 @@ const { testimonials, s } = getHome(L);
     </div>
   </div>
 </section>
+
+
+<style>
+  .tst-who{ display:flex; align-items:center; gap:16px; }
+  .tst-who__face{
+    width:72px; height:72px; border-radius:50%; object-fit:cover; flex-shrink:0;
+    background:color-mix(in srgb,var(--sec-tx) 10%,transparent);
+    border:2px solid var(--sec-card);
+    box-shadow:0 2px 8px rgba(0,0,0,.10);
+  }
+  .tst-who__name{ margin:0; font-weight:600; font-family:var(--font-head); font-size:1.05rem; }
+  .tst-who__role{ margin:0; opacity:.7; }
+  @media (max-width:520px){ .tst-who__face{ width:60px; height:60px; } }
+</style>
 
 <script>
   function initCarousels() {

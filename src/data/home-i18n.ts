@@ -118,7 +118,7 @@ const stringsEn: HomeStrings = {
     cta: 'See how we do it',
   },
   ratings: {
-    titlePre: 'Rated ', titleAccent: '4.8+', titlePost: ' across G2, Capterra, and GetApp',
+    titlePre: 'Rated ', titleAccent: '4.6+', titlePost: ' across G2, Capterra, and GetApp',
     cue: 'Read reviews →',
     aria: (platform, score, out) => `Read hubsell reviews on ${platform} (rated ${score}${out})`,
   },

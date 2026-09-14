@@ -1,0 +1,67 @@
+---
+// Overlapping row of real customer faces. Every photo here is a real person who
+// gave us a quote, pulled from the shared TESTIMONIALS pool, so this never
+// drifts from the people quoted elsewhere on the site.
+//
+// Deliberately no stock photography anywhere in this component. A visitor who
+// spots one stock face stops believing the real ones.
+import { TESTIMONIALS } from '../data/testimonials';
+
+interface Props {
+  /** Which testimonial slugs to show, in order. Defaults to the story champions. */
+  slugs?: string[];
+  /** Circle diameter in px. */
+  size?: number;
+  /** Extra class on the wrapper. */
+  class?: string;
+}
+
+const {
+  slugs = ['safran', 'verhaert', 'staffbase', 'elium', 'workspace365'],
+  size = 34,
+  class: extraClass = '',
+} = Astro.props;
+
+const people = slugs
+  .map((s) => TESTIMONIALS.find((t) => t.slug === s))
+  .filter((t): t is NonNullable<typeof t> => Boolean(t?.photo));
+
+// Overlap by roughly a third of the circle.
+const overlap = Math.round(size / 3);
+---
+
+{people.length > 0 && (
+  <span class:list={['avstack', extraClass]} style={`--av-size:${size}px; --av-overlap:${overlap}px`}>
+    {people.map((p) => (
+      <img
+        class="avstack__face"
+        src={p.photo}
+        alt={p.company ? `${p.name}, ${p.company}` : p.name}
+        title={p.company ? `${p.name} — ${p.company}` : p.name}
+        width={size}
+        height={size}
+        loading="lazy"
+        decoding="async"
+      />
+    ))}
+  </span>
+)}
+
+<style>
+  .avstack{ display:inline-flex; align-items:center; flex-shrink:0; }
+  .avstack__face{
+    width:var(--av-size); height:var(--av-size);
+    border-radius:50%;
+    object-fit:cover;
+    background:var(--sec-card, #EFEAE3);   /* shows while the photo loads */
+    border:2px solid var(--sec-bg);        /* separates the overlapping circles */
+    box-shadow:0 1px 3px rgba(0,0,0,.12);
+  }
+  .avstack__face + .avstack__face{ margin-left:calc(var(--av-overlap) * -1); }
+  /* Later faces sit under earlier ones, so the row reads left to right. */
+  .avstack__face:nth-child(1){ z-index:5; }
+  .avstack__face:nth-child(2){ z-index:4; }
+  .avstack__face:nth-child(3){ z-index:3; }
+  .avstack__face:nth-child(4){ z-index:2; }
+  .avstack__face:nth-child(5){ z-index:1; }
+</style>

@@ -69,7 +69,7 @@ export const platformNl: PlatformData = {
     ],
     proofEyebrow: 'Bewijs',
     proofTitle: 'Teams die zijn overgestapt',
-    ratingsLine: 'Beoordeeld met 4,8+ op G2, Capterra en GetApp.',
+    ratingsLine: 'Beoordeeld met 4,6+ op G2, Capterra en GetApp.',
     quoteSlug: 'cibt',
     faqEyebrow: 'FAQ',
     faqTitle: 'Veelgestelde vragen',

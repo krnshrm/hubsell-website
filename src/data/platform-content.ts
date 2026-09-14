@@ -125,7 +125,7 @@ export const platform: PlatformData = {
     ],
     proofEyebrow: 'Proof',
     proofTitle: 'Teams that made the switch',
-    ratingsLine: 'Rated 4.8+ across G2, Capterra, and GetApp.',
+    ratingsLine: 'Rated 4.6+ across G2, Capterra, and GetApp.',
     quoteSlug: 'cibt',
     faqEyebrow: 'FAQ',
     faqTitle: 'Common questions',

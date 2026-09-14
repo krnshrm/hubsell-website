@@ -36,7 +36,14 @@ const stories = (await getCollection('customerstories', (s) => !s.data.draft))
               {s.data.championImage && (
                 <img class="cs-card__img" src={s.data.championImage} alt={s.data.champion} loading="lazy" width="40" height="40" />
               )}
-              <span class="cs-card__co">{s.data.company}</span>
+              {/* Name the face. An unlabelled photo next to a logo reads as
+                  decoration; with a name it reads as a person who vouched. */}
+              <span class="cs-card__who">
+                <span class="cs-card__co">{s.data.company}</span>
+                {s.data.champion && (
+                  <span class="cs-card__name">{s.data.champion}{s.data.championTitle ? `, ${s.data.championTitle}` : ''}</span>
+                )}
+              </span>
             </div>
             <h2 class="cs-card__title">{s.data.title}</h2>
             {s.data.results && s.data.results.length > 0 && (
@@ -66,7 +73,9 @@ const stories = (await getCollection('customerstories', (s) => !s.data.draft))
 
   .cs-card__top { display:flex; align-items:center; gap:10px; margin-bottom:14px; }
   .cs-card__img { width:40px; height:40px; border-radius:50%; object-fit:cover; border:1px solid var(--sec-bd); background:color-mix(in srgb,var(--sec-tx) 6%,transparent); }
+  .cs-card__who { display:flex; flex-direction:column; gap:3px; min-width:0; }
   .cs-card__co { font-family:var(--font-body); font-weight:500; font-size:13px; letter-spacing:.04em; text-transform:uppercase; color:var(--sec-tx); opacity:.7; }
+  .cs-card__name { font-family:var(--font-body); font-size:12.5px; line-height:1.25; color:var(--sec-tx); opacity:.6; }
 
   .cs-card__title { font-family:var(--font-head); font-weight:600; font-size:1.2rem; line-height:1.25; letter-spacing:-.01em; color:var(--sec-tx); margin:0 0 16px; }
 
