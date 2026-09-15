@@ -190,6 +190,45 @@ const articleCrumbs = breadcrumbSchema([
               <div class="post-sources__body" set:html={sources} />
             </aside>
           )}
+
+          {postAuthor && (
+            <aside class="post-author">
+              <p class="eyebrow is-accent">More about the author</p>
+              <div class="post-author__card">
+                <img
+                  class="post-author__photo"
+                  src={postAuthor.photo}
+                  alt={postAuthor.name}
+                  width="72"
+                  height="72"
+                  loading="lazy"
+                />
+                <div class="post-author__body">
+                  <p class="post-author__name">{postAuthor.name}</p>
+                  <p class="post-author__role">{postAuthor.title}</p>
+                  <p class="post-author__bio">{postAuthor.bio}</p>
+                  <a
+                    class="post-author__link"
+                    href={postAuthor.url}
+                    rel="author noopener"
+                    target="_blank"
+                  >
+                    <svg
+                      class="post-author__icon"
+                      viewBox="0 0 24 24"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/>
+                    </svg>
+                    <span>Connect on LinkedIn</span>
+                  </a>
+                </div>
+              </div>
+            </aside>
+          )}
         </div>
 
         <aside class="post-page__aside">
@@ -322,6 +361,25 @@ const articleCrumbs = breadcrumbSchema([
   .prose pre code { background:none; padding:0; }
 
   .post-sources { max-width:none; margin:40px 0 0; padding-top:20px; border-top:1px solid var(--sec-bd); }
+  .post-author { max-width:none; margin:40px 0 0; padding-top:20px; border-top:1px solid var(--sec-bd); }
+  .post-author__card { display:flex; gap:16px; align-items:flex-start; margin-top:14px; }
+  .post-author__photo {
+    width:72px; height:72px; border-radius:50%; object-fit:cover; flex:none;
+    border:1px solid var(--sec-bd); background:color-mix(in srgb,var(--sec-tx) 6%,transparent);
+  }
+  .post-author__body { font-family:var(--font-body); }
+  .post-author__name { font-size:16px; font-weight:600; color:var(--sec-tx); margin:0; }
+  .post-author__role { font-size:14px; color:var(--sec-tx); opacity:.6; margin:2px 0 0; }
+  .post-author__bio { font-size:14px; line-height:1.6; color:var(--sec-tx); opacity:.85; margin:10px 0 0; }
+  .post-author__link {
+    display:inline-flex; align-items:center; gap:7px; margin-top:12px;
+    font-size:14px; font-weight:500; color:var(--accent-on); text-decoration:none;
+  }
+  .post-author__link:hover { text-decoration:underline; }
+  .post-author__icon { flex:none; }
+  @media (max-width:560px) {
+    .post-author__card { flex-direction:column; gap:12px; }
+  }
   .post-sources__body { font-family:var(--font-body); font-size:13.5px; line-height:1.6; color:var(--sec-tx); opacity:.7; }
   .post-sources__body p { margin:0 0 .5em; }
   .post-sources__body a { color:var(--accent-on); text-decoration:none; overflow-wrap:anywhere; }

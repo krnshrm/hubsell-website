@@ -57,8 +57,13 @@ Update the stats, kill the dead links, make it current.
 A name, a role, and a face that stands behind the claims.
 - Set `author: "karan"` in frontmatter. The key indexes `AUTHORS` in
   `src/data/site.ts`, which carries name, title, R2 photo, and LinkedIn URL.
-- This renders a byline under the title AND upgrades the Article schema `author`
-  from an Organization to a Person with `url`, `image`, `jobTitle`, and `worksFor`.
+- This renders three things: a compact byline (photo, name, role) under the title, a
+  "More about the author" box at the end of the post (larger photo, name, role, bio,
+  and a LinkedIn link with icon), and a Person author in the Article schema with
+  `url`, `image`, `jobTitle`, and `worksFor` instead of the Organization fallback.
+- To add a second author, add an entry to `AUTHORS` with the same five fields (name,
+  title, photo, url, bio) and reference its key. Photos go on R2 next to the
+  call-host avatars.
 - Posts with NO `author` field render no byline and keep the Organization fallback.
   That is deliberate: the 87 posts migrated from Webflow were not written by a named
   person, and putting someone's name on them would be false attribution. Only byline
@@ -155,9 +160,31 @@ Read `docs/20260905-0934-GA4-GSC-ANALYSIS-RECAP.md` before planning topics. Head
   field in the insights schema, byline in the post template, Person author in the
   Article schema. Applied to post 1 only.
 
+### Description audit, run 2026-09-15 (all collections)
+The Sept 5 suspicion was right, and it is worse than the 14 pages that happened to
+clear 500 impressions. Measured across every content collection:
+
+| Collection | Over 160 chars | Total | Longest |
+| --- | --- | --- | --- |
+| insights | **74** | 88 | 300 |
+| comparisons (de) | 5 | 5 | 214 |
+| usecases (de) | 4 | 4 | 220 |
+| comparisons (nl) | 4 | 5 | 181 |
+| usecases (nl) | 3 | 4 | 192 |
+| comparisons (en) | 2 | 5 | 167 |
+| customerstories (en/de/nl) | 2 each | 6 each | 192 |
+| knowledge | 0 | 14 | clean |
+| glossary | n/a | 66 x3 | uses `definition`, not `description` |
+
+- **The blog is the real problem: 74 posts still over, 224 to 300 chars, median 294.**
+  Every one truncates mid-clause in a Google snippet. Same mechanical cause as the 14
+  already fixed.
+- The de/nl overages are mild (161 to 220) and lower priority.
+- Rewriting the remaining 74 well means reading each post, so it is a sizeable job,
+  not a find-and-replace. Do it in batches and keep one post per commit where it
+  overlaps with new posts.
+
 ### Still open
-- A full audit of every `description` in `src/content/` and `src/data/` outside
-  insights. The 283-to-300-character pattern is likely site-wide.
 - `sales-movies` is the best control to watch: it had real traffic (15 clicks, 0.52%
   CTR, position 11.8) before the rewrite. If CTR rises and position holds, the fix
   works before judging the other 13.
