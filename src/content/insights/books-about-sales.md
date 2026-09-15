@@ -1,7 +1,7 @@
 ---
 title: "22 of the best sales books to read this year"
 topics: ["Sales skills"]
-description: "Explore our curated list of the greatest sales books to master prospecting, negotiation, and the psychology of persuasion. Featuring timeless classics and modern guides from experts like Robert Cialdini and Chris Voss, these reads will help you build mindset and skills to close more deals."
+description: "22 of the best sales books to read this year, covering prospecting, negotiation, and persuasion, from Cialdini to Voss."
 summary: "Whether you are a business owner, a long time sales leader or a first-time sales rep, these sales books will cover sales methodologies, mindset, entrepreneurship, negotiation and much more that will benefit you in becoming the best salesperson you can be."
 publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69d4dd6e1b262e8462c04aec_How-to-follow-up-after-a-prospect-replies-to-a-cold-sales-email-in-B2B-9.png"

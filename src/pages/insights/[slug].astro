@@ -28,7 +28,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import WaitlistForm from '../../components/WaitlistForm.astro';
 import { SITE_URL, breadcrumbSchema } from '../../data/seo';
-import { SIGNUP_URL } from '../../data/site';
+import { SIGNUP_URL, AUTHORS } from '../../data/site';
 
 export async function getStaticPaths() {
   const posts = (await getCollection('insights', (p) => !p.data.draft)).sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
@@ -36,7 +36,13 @@ export async function getStaticPaths() {
 }
 
 const { post, posts } = Astro.props;
-const { title, description, coverImage, thumbnail, sources, readTime, summary, cta, publishedAt, topics } = post.data;
+const { title, description, coverImage, thumbnail, sources, readTime, summary, cta, publishedAt, topics, author } = post.data;
+
+// Look the byline up in the AUTHORS registry (src/data/site.ts). An unknown or
+// missing key resolves to undefined, in which case no byline renders and the
+// Article schema falls back to the Organization author. That keeps the 87
+// migrated Webflow posts unattributed, which is correct: nobody here wrote them.
+const postAuthor = author ? AUTHORS[author as keyof typeof AUTHORS] : undefined;
 
 // post.body is the raw Webflow HTML (already image- and link-rewritten by the
 // converter). If a post had an empty body in the export, fall back to its summary
@@ -105,7 +111,16 @@ const articleSchema = {
   description,
   ...(coverImage ? { image: [coverImage] } : {}),
   ...(publishedAt ? { datePublished: publishedAt.toISOString().slice(0, 10) } : {}),
-  author: { '@type': 'Organization', name: 'hubsell', url: SITE_URL },
+  author: postAuthor
+    ? {
+        '@type': 'Person',
+        name: postAuthor.name,
+        url: postAuthor.url,
+        image: postAuthor.photo,
+        jobTitle: postAuthor.title,
+        worksFor: { '@type': 'Organization', name: 'hubsell', url: SITE_URL },
+      }
+    : { '@type': 'Organization', name: 'hubsell', url: SITE_URL },
   publisher: {
     '@type': 'Organization',
     name: 'hubsell',
@@ -145,6 +160,22 @@ const articleCrumbs = breadcrumbSchema([
             <p class="eyebrow is-accent">B2B sales</p>
             <h1 class="post-page__title">{title}</h1>
             {readTime && <p class="post-page__meta">{readTime}</p>}
+            {postAuthor && (
+              <div class="post-page__byline">
+                <img
+                  class="post-page__byline-photo"
+                  src={postAuthor.photo}
+                  alt={postAuthor.name}
+                  width="40"
+                  height="40"
+                  loading="lazy"
+                />
+                <p class="post-page__byline-text">
+                  <a href={postAuthor.url} rel="author noopener" target="_blank">{postAuthor.name}</a>
+                  <span class="post-page__byline-role">{postAuthor.title}</span>
+                </p>
+              </div>
+            )}
           </header>
 
           {heroImage && (
@@ -229,6 +260,15 @@ const articleCrumbs = breadcrumbSchema([
     color:var(--sec-tx); margin:10px 0 0;
   }
   .post-page__meta { font-family:var(--font-body); font-size:14px; color:var(--sec-tx); opacity:.6; margin:12px 0 0; }
+  .post-page__byline { display:flex; align-items:center; gap:10px; margin:16px 0 0; }
+  .post-page__byline-photo {
+    width:40px; height:40px; border-radius:50%; object-fit:cover; flex:none;
+    border:1px solid var(--sec-bd); background:color-mix(in srgb,var(--sec-tx) 6%,transparent);
+  }
+  .post-page__byline-text { font-family:var(--font-body); font-size:14px; color:var(--sec-tx); margin:0; line-height:1.35; }
+  .post-page__byline-text a { color:inherit; text-decoration:none; font-weight:600; }
+  .post-page__byline-text a:hover { text-decoration:underline; }
+  .post-page__byline-role { display:block; opacity:.6; }
   .post-page__cover {
     display:block; width:100%; max-width:100%; margin:0 0 8px;
     height:auto; border-radius:var(--radius-lg);

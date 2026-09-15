@@ -1,7 +1,7 @@
 ---
 title: "9 proven cold email templates for B2B lead generation"
 topics: ["Cold email", "Lead generation"]
-description: "Master your B2B outreach with these nine proven cold email templates. From AIDA and PAS to storytelling with the SAS formula, this comprehensive guide covers everything you need to know. Learn best practices for subject lines, personalization, and using quality data to increase your reply rates."
+description: "9 proven B2B cold email templates using AIDA, PAS, and SAS, plus subject line and personalization tips to lift reply rates."
 summary: "When you are building or refining your own email prospecting strategy, it helps to see first-hand how others have done it successfully. That is why I compiled this list of tried and tested B2B cold email templates that have proved successful for a lot of our customers. At the end of this blog, you will also find a winning formula for writing that perfect cold email regardless of which template you go with."
 publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69dded4abd69dd0e5374e7cb_9-tried-and-tested-cold-email-templates-to-generate-B2B-leads.png"

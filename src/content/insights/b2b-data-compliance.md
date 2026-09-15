@@ -1,7 +1,7 @@
 ---
 title: "B2B data compliance for cold outreach: a complete guide"
 topics: ["Prospect data"]
-description: "Ensure your B2B data protection is rock-solid and your cold outreach remains fully compliant with local laws. This guide covers essential definitions of data compliance and provides actionable steps to align your outbound sales strategy with current regulations and safety standards."
+description: "How to run GDPR-compliant cold outreach using business data instead of personal data, plus the cold email laws for the EU, US, and beyond."
 summary: "In today’s era of big data, data has become central to marketing and strategy. This data-filled world of marketing comes with a caveat, there are issues such as data compliance, consent, and intent that come with data. If you are wondering what data protection is and how to do it, you have come to the right place."
 publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69cf9caa0dd3ee3a61659632_A-complete-guide-to-B2B-data-compliance-and-cold-outreach.avif"

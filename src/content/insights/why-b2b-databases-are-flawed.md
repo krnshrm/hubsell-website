@@ -7,6 +7,7 @@ publishedAt: 2026-07-18
 coverImage: "https://assets.hubsell.com/insights/c7d962815c5c4ee5f292b492_Why-every-B2B-database-is-flawed-and-what-to-measure-instead.png"
 thumbnail: "https://assets.hubsell.com/insights/66ce74fa449eaa3218c23a94_Thumbnail-Why-every-B2B-database-is-flawed-and-what-to-measure-instead.png"
 readTime: "5 min read"
+author: "karan"
 cta: "You just read why database size is a vanity metric. hubsell sources verified B2B contacts for your specific market at the moment you need them, not off a stale shelf. Book a demo and we will run it on your own pipeline."
 featured: false
 draft: false

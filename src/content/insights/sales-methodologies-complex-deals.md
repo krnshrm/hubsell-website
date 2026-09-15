@@ -1,7 +1,7 @@
 ---
 title: "13 B2B sales methodologies for complex deals"
 topics: ["Sales skills", "Sales operations"]
-description: "Explore thirteen powerful B2B sales methodologies designed to close complex deals and drive revenue. From SPIN Selling and The Challenger Sale to modern signal-based approaches, this guide reviews the core principles, unique benefits, and practical applications of each strategy to help your team suc"
+description: "13 B2B sales methodologies for complex deals, from SPIN Selling to signal-based selling, compared side by side."
 summary: "A sales methodology is an essential ingredient if your B2B sales team wants to close large, complex deals, manage your opportunities and challenges, and coach your sales reps through the sales process."
 publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69d4dc260e035c0d58d3ca8f_How-to-follow-up-after-a-prospect-replies-to-a-cold-sales-email-in-B2B-5.png"

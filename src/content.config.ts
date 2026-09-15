@@ -51,6 +51,7 @@ const insights = defineCollection({
     featured: z.boolean().default(false),      // Webflow: Featured?
     readTime: z.string().optional(),           // computed, e.g. "8 min read"
     cta: z.string().optional(),                // optional custom trial-CTA line (overrides the default)
+    author: z.string().optional(),             // key into AUTHORS in src/data/site.ts; omit for no byline
     topics: z.array(z.string()).default([]),   // topic tags: related posts + hub links
     draft: z.boolean().default(false),
   }),

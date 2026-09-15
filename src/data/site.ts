@@ -48,3 +48,27 @@ export const CALL_HOSTS = [
     title: '',
   },
 ];
+
+// ---------------------------------------------------------------------------
+// Blog authors (bylines on /insights posts)
+//
+// A post opts in by setting `author: 'karan'` in its frontmatter; the key must
+// match an entry below. Posts with NO author field render no byline, which is
+// deliberate: the 87 posts migrated from Webflow were not written by a named
+// person, and putting someone's name on them would be false attribution.
+//
+// The byline is a trust signal (a real name, role, and face behind the claims)
+// and it also feeds the Article schema author as a Person instead of the
+// Organization fallback. Photos live on R2 next to the call-host avatars.
+// ---------------------------------------------------------------------------
+export const AUTHORS = {
+  karan: {
+    name: 'Karan Sharma',
+    title: 'Founder, hubsell',
+    photo: 'https://assets.hubsell.com/avatars/karan-sharma.jpg',
+    url: 'https://www.linkedin.com/in/krnshrm/',
+    bio: 'Founder of hubsell. Writes about outbound, GTM, and the data behind it, mostly from campaigns he runs himself.',
+  },
+} as const;
+
+export type AuthorKey = keyof typeof AUTHORS;
