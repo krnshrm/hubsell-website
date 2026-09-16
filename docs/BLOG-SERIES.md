@@ -101,6 +101,13 @@ see it and should not try to reproduce this work.
   `description` (under 160 chars, see gate step 3), `summary`, `publishedAt`,
   `coverImage`, `thumbnail`, `readTime`, `author`, `featured: false`, `draft: false`,
   optional `cta`.
+- `toc`: optional boolean. A contents list renders in the left column on posts with
+  4 or more `h2` headings. It is suppressed automatically when more than half the
+  headings are numbered ("1. ...", "2. ..."), because on a listicle every heading is
+  an item rather than a section and the contents list just duplicates the article.
+  Catalogue posts whose headings are names or titles with no numbering (podcasts,
+  books, courses, CRMs, templates, landing pages, movies, channels) set `toc: false`
+  explicitly. `toc: true` forces it on. 48 of 88 posts show one.
 - Body is raw HTML rendered with `set:html` into `.prose`: plain `<h2>`, `<p>`,
   `<ol>/<ul><li>`, `<strong>`, `<blockquote>`. The empty `id=""` attributes in
   migrated posts are a Webflow artifact and are not needed on new posts.
@@ -192,6 +199,65 @@ clear 500 impressions. Measured across every content collection:
 - Rewriting the remaining 74 well means reading each post, so it is a sizeable job,
   not a find-and-replace. Do it in batches and keep one post per commit where it
   overlaps with new posts.
+
+## TODO — agreed plan, not yet started (as of 2026-09-15)
+
+Work through the 5-step editing gate across the back catalogue. Ordered by value.
+
+### 1. Batch pass over the 73 remaining posts (steps 3 and 4)
+Batches of 15 to 20, ONE commit per batch, four or five rounds. Each post gets all
+three of these in a single edit so the file is touched once:
+- Rewrite `description` to a complete sentence UNDER 160 characters. 73 of 88 are
+  still over, running 224 to 300 characters, median 294. Every one truncates
+  mid-clause in a Google snippet.
+- Cut filler from the intro and tighten hedged claims. 19 posts contain stock
+  phrases; scan for "in today's fast-paced", "in the ever-changing", "delve into",
+  "seamless", "leverage", "robust", "comprehensive guide", "in conclusion".
+- Add 2 or 3 internal links to related posts, hyperlinking text that is already in
+  the copy rather than bolting on a "related reading" line.
+Order the batches by GSC impressions (the founder has the GSC/GA connector), not
+alphabetically, so the pages that already get traffic are fixed first.
+
+### 2. Flag and refresh stale facts (step 4)
+19 posts reference a year between 2010 and 2023. `ultimate-list-best-crm-software-for-b2b`
+cites six different years up to 2021 and is almost certainly out of date. Claude
+cannot check external links from the sandbox (network is limited to package
+registries), so dead external links need a link checker or a manual pass.
+
+### 3. Audit all 88 for proprietary content (step 2)
+Produce a ranked table: which posts contain a named customer, a real number from the
+business, a first-person campaign account, or an original framework, and which are
+generic enough to sit on a competitor's site. Output is a triage list, not a fix.
+Roughly 200,000 words, so this is a sampling plus heuristics pass, not a full read.
+
+### 4. Firsthand experience blocks (step 1)
+Add a dedicated, visually distinct block that renders only when a post has something
+real behind it. Proposed shape, so it stays out of the body HTML and is easy to audit:
+
+```yaml
+experience:
+  text: "We ran this across 269 contacts. 10 bounced, 8 replied positively, 5 booked calls."
+  author: "karan"
+```
+
+IMPORTANT: this needs the founder's own material. Claude must not invent a client
+story or a dashboard number to fill the block. Realistically this applies to 10 to 20
+posts, not all 88. Never name a customer.
+
+### 5. Not a content task, but it outranks more content
+Conversion tracking is broken: `form_submit_success` and `cta_click` have never fired
+in 90 days and no marketing page shows a tracked conversion. Until that is fixed,
+none of the work above can be proven to have worked.
+
+### Also queued
+- Post 2 of the series (cold outreach reply rates) is drafted and unpublished. The
+  2-posts-per-week cadence has not started.
+- Confirm the four author photos are on R2: `riya-uppal.jpg`, `sebastian-schlimme.jpg`,
+  `guido-croce.jpg`, `kylie-naude.jpg`. These bylines are LIVE across 60 posts.
+- The de/nl `comparisons`, `usecases`, and `customerstories` descriptions are mildly
+  over (161 to 220 chars). Lower priority than the blog.
+
+---
 
 ### Still open
 - `sales-movies` is the best control to watch: it had real traffic (15 clicks, 0.52%

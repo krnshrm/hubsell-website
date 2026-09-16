@@ -7,6 +7,7 @@ publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69dded4abd69dd0e5374e7cb_9-tried-and-tested-cold-email-templates-to-generate-B2B-leads.png"
 thumbnail: "https://assets.hubsell.com/insights/69dded435d3ee52bd9fe6a57_Thumbnail-9-tried-and-tested-cold-email-templates-to-generate-B2B-leads.png"
 readTime: "18 min read"
+toc: false
 author: "guido"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:https://unsplash.com/photos/white-papers-and-keyboard-on-blue-background-OaPI3qNwQ0k</p>"

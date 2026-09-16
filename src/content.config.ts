@@ -53,6 +53,7 @@ const insights = defineCollection({
     cta: z.string().optional(),                // optional custom trial-CTA line (overrides the default)
     author: z.string().optional(),             // key into AUTHORS in src/data/site.ts; omit for no byline
     coAuthors: z.array(z.string()).default([]), // additional contributors, same keys
+    toc: z.boolean().optional(),               // force the contents list on/off; omit to auto-detect
     topics: z.array(z.string()).default([]),   // topic tags: related posts + hub links
     draft: z.boolean().default(false),
   }),

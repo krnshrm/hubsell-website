@@ -5,6 +5,7 @@ description: "Discover the best online sales and marketing courses to advance yo
 summary: "As the gap between sales and marketing bridges ever closer to each other, learning new skills in each department is becoming very useful when tackling the challenges of opportunity generation."
 publishedAt: 2026-03-31
 readTime: "13 min read"
+toc: false
 author: "riya"
 featured: false
 draft: false

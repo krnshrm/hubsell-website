@@ -36,7 +36,7 @@ export async function getStaticPaths() {
 }
 
 const { post, posts } = Astro.props;
-const { title, description, coverImage, thumbnail, sources, readTime, summary, cta, publishedAt, topics, author, coAuthors } = post.data;
+const { title, description, coverImage, thumbnail, sources, readTime, summary, cta, publishedAt, topics, author, coAuthors, toc: tocSetting } = post.data;
 
 // Resolve the byline: main author first, then any co-authors, in that order.
 // Unknown keys are dropped rather than throwing, so a typo in frontmatter costs
@@ -84,7 +84,14 @@ const bodyWithAnchors = bodyHtml.replace(
     return `<h2 id="${id}">${inner}</h2>`;
   },
 );
-const showToc = toc.length >= 4;
+// A contents list helps on a post built from sections. It is noise on a listicle,
+// where every heading is an item rather than a section, and a 27-entry list just
+// duplicates the article. Posts whose headings are mostly numbered ("1. ...") are
+// detected automatically; catalogue posts, where the headings are names or titles
+// with no numbering, set `toc: false` in frontmatter. `toc: true` forces it on.
+const numberedHeadings = toc.filter((h) => /^\d+[.)]\s/.test(h.text)).length;
+const looksLikeList = toc.length > 0 && numberedHeadings / toc.length > 0.5;
+const showToc = tocSetting ?? (toc.length >= 4 && !looksLikeList);
 const heroImage = coverImage || thumbnail;
 
 // Two related posts: prefer ones that share a topic with this post (and have an
