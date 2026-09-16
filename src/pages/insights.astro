@@ -27,6 +27,14 @@ const cardImage = (p) => p.data.coverImage || p.data.thumbnail;
 // posts tagged with it even when the word is not in the title.
 const haystack = (p) =>
   `${p.data.title} ${p.data.description ?? ''} ${(p.data.topics ?? []).join(' ')}`.toLowerCase();
+
+// Topic chips, ordered by how many posts carry each topic so the biggest
+// categories come first. The card eyebrow shows a post's first topic, so the chip
+// labels and the card labels always read the same.
+const topicCounts = new Map();
+for (const p of posts) for (const tp of p.data.topics ?? []) topicCounts.set(tp, (topicCounts.get(tp) ?? 0) + 1);
+const topics = [...topicCounts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+const cardTopic = (p) => (p.data.topics ?? [])[0] ?? 'B2B sales';
 ---
 <BaseLayout
   title="Insights | hubsell"
@@ -40,20 +48,13 @@ const haystack = (p) =>
         <p class="subheading">Field notes on prospecting, deliverability, and building pipeline that converts.</p>
       </div>
 
-      <div class="ins-search">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-        <input type="search" id="insSearch" placeholder="Search posts" aria-label="Search insights" autocomplete="off" />
-      </div>
-
-      <p class="ins-empty" id="insEmpty" hidden>No posts match that search.</p>
-
       {lead && (
-        <a class="post post--lead reveal" href={`/insights/${lead.id}`} data-search={haystack(lead)}>
+        <a class="post post--lead reveal" href={`/insights/${lead.id}`} data-search={haystack(lead)} data-topics={(lead.data.topics ?? []).join('|').toLowerCase()}>
           {cardImage(lead) && (
             <img class="post__img" src={cardImage(lead)} alt={lead.data.title} loading="lazy" width="800" height="450" />
           )}
           <div class="post__body">
-            <p class="eyebrow is-accent" style="font-size:.72rem">B2B sales</p>
+            <p class="eyebrow is-accent" style="font-size:.72rem">{cardTopic(lead)}</p>
             <h2 class="post__title post__title--lead">{lead.data.title}</h2>
             {lead.data.description && <p class="post__excerpt">{lead.data.description}</p>}
             {lead.data.readTime && <p class="post__meta">{lead.data.readTime}</p>}
@@ -61,14 +62,29 @@ const haystack = (p) =>
         </a>
       )}
 
+      <div class="ins-filter">
+        <div class="ins-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <input type="search" id="insSearch" placeholder="Search posts" aria-label="Search insights" autocomplete="off" />
+        </div>
+        <div class="ins-topics" role="group" aria-label="Filter by topic">
+          <button class="ins-chip is-on" type="button" data-topic="">All<span>{posts.length}</span></button>
+          {topics.map(([name, count]) => (
+            <button class="ins-chip" type="button" data-topic={name.toLowerCase()}>{name}<span>{count}</span></button>
+          ))}
+        </div>
+      </div>
+
+      <p class="ins-empty" id="insEmpty" hidden>No posts match that search.</p>
+
       <div class="grid grid-3 reveal-stagger" style="margin-top:24px">
         {rest.map((post) => (
-          <a class="post" href={`/insights/${post.id}`} data-search={haystack(post)}>
+          <a class="post" href={`/insights/${post.id}`} data-search={haystack(post)} data-topics={(post.data.topics ?? []).join('|').toLowerCase()}>
             {cardImage(post) && (
               <img class="post__img" src={cardImage(post)} alt={post.data.title} loading="lazy" width="400" height="225" />
             )}
             <div class="post__body">
-              <p class="eyebrow is-accent" style="font-size:.72rem">B2B sales</p>
+              <p class="eyebrow is-accent" style="font-size:.72rem">{cardTopic(post)}</p>
               <h3 class="post__title">{post.data.title}</h3>
               {post.data.description && <p class="post__excerpt">{post.data.description}</p>}
               {post.data.readTime && <p class="post__meta">{post.data.readTime}</p>}
@@ -81,11 +97,29 @@ const haystack = (p) =>
 </BaseLayout>
 
 <style>
-  /* Search box, same shape as the knowledge centre one but on this page's tokens. */
+  /* Filter bar: search plus topic chips, sitting between the featured post and
+     the grid it filters. */
+  .ins-filter{ margin:40px 0 0; }
   .ins-search{
-    display:flex; align-items:center; gap:11px; max-width:560px; margin:22px 0 0;
-    background:var(--sec-card); border:1px solid var(--sec-bd); border-radius:var(--radius); padding:0 16px;
+    display:flex; align-items:center; gap:11px; max-width:560px; margin:0;
+    background:transparent; border:1px solid var(--sec-bd); border-radius:var(--radius); padding:0 16px;
   }
+  .ins-topics{ display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 0; }
+  .ins-chip{
+    display:inline-flex; align-items:center; gap:7px;
+    font-family:var(--font-body); font-size:13.5px; color:var(--sec-tx);
+    background:transparent; border:1px solid var(--sec-bd); border-radius:999px;
+    padding:7px 14px; cursor:pointer; transition:border-color .15s, background .15s;
+  }
+  .ins-chip span{ opacity:.45; font-size:12px; }
+  .ins-chip:hover{ border-color:var(--accent-on); }
+  .ins-chip.is-on{
+    border-color:var(--accent-on);
+    background:color-mix(in srgb,var(--accent-on) 10%,transparent);
+  }
+  /* .post sets display:flex, which beats the [hidden] attribute's display:none
+     from the UA stylesheet. Filtering therefore has to use its own class. */
+  .post.is-filtered{ display:none !important; }
   .ins-search:focus-within{
     border-color:var(--accent-on);
     box-shadow:0 0 0 3px color-mix(in srgb,var(--accent-on) 18%,transparent);
@@ -114,36 +148,43 @@ const haystack = (p) =>
 </style>
 
 <script>
-  // Filter the cards already on the page rather than rendering a second copy of
-  // all 88. Hiding a card with [hidden] also takes it out of the grid flow, so the
-  // remaining results close up instead of leaving holes.
+  // Two filters that combine: a text query and a selected topic. A card shows only
+  // when it passes both. The featured post takes part too, so a search never leaves
+  // a stale card pinned at the top.
   function initInsightsSearch() {
     const input = document.getElementById('insSearch');
     const empty = document.getElementById('insEmpty');
     if (!input || !empty) return;
 
     const cards = Array.from(document.querySelectorAll('[data-search]'));
+    const chips = Array.from(document.querySelectorAll('.ins-chip'));
+    let topic = '';
 
     const apply = () => {
       const q = input.value.trim().toLowerCase();
-      if (!q) {
-        cards.forEach((c) => { c.hidden = false; });
-        empty.hidden = true;
-        return;
-      }
       let hits = 0;
       cards.forEach((c) => {
-        const hit = (c.getAttribute('data-search') || '').includes(q);
-        c.hidden = !hit;
-        if (hit) hits++;
+        const matchesText = !q || (c.getAttribute('data-search') || '').includes(q);
+        const matchesTopic =
+          !topic || (c.getAttribute('data-topics') || '').split('|').includes(topic);
+        const show = matchesText && matchesTopic;
+        c.classList.toggle('is-filtered', !show);
+        if (show) hits++;
       });
       empty.hidden = hits > 0;
     };
 
     input.addEventListener('input', apply);
-    // Escape clears the field and restores the full list.
     input.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') { input.value = ''; apply(); }
+    });
+
+    chips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        topic = chip.getAttribute('data-topic') || '';
+        chips.forEach((c) => c.classList.toggle('is-on', c === chip));
+        apply();
+      });
     });
   }
 
