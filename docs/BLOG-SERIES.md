@@ -108,6 +108,10 @@ see it and should not try to reproduce this work.
   Catalogue posts whose headings are names or titles with no numbering (podcasts,
   books, courses, CRMs, templates, landing pages, movies, channels) set `toc: false`
   explicitly. `toc: true` forces it on. 48 of 88 posts show one.
+- The `/insights` overview has a search box that filters the post cards in the
+  browser with no index file or network call. It matches on title, description, and
+  topics, so a tag like "Email deliverability" is findable even when the word is not
+  in the title. Nothing to maintain: a new post is searchable as soon as it builds.
 - Body is raw HTML rendered with `set:html` into `.prose`: plain `<h2>`, `<p>`,
   `<ol>/<ul><li>`, `<strong>`, `<blockquote>`. The empty `id=""` attributes in
   migrated posts are a Webflow artifact and are not needed on new posts.

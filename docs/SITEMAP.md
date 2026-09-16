@@ -86,7 +86,7 @@ The use-cases overview and four detail pages are live (English, German, Dutch). 
 ### Resources
 | Path | Status | Notes |
 | --- | --- | --- |
-| `/insights` | Live | Blog overview. English only (served to de/nl via fallback; nav/footer label it "Insights (EN)" in non-English). The 87 post titles were rewritten for search keywords, with topic tags and related-post links |
+| `/insights` | Live | Blog overview, with a client-side search box filtering on title, description, and topics. English only (served to de/nl via fallback; nav/footer label it "Insights (EN)" in non-English). The 87 post titles were rewritten for search keywords, with topic tags and related-post links |
 | `/insights/<slug>` | Live | 88 posts, one shared template. English only. Optional `author` byline (registry in `src/data/site.ts`) renders a name, role, photo, and a Person author in the Article schema; posts without it stay unattributed. New posts follow the 5-step editing gate in `docs/BLOG-SERIES.md` |
 | `/faqs` | Live | Full FAQ page (also feeds the homepage FAQ section); carries FAQPage schema |
 | `/ai-information-page` | Live | Plain-language overview written for AI assistants (AEO) |

@@ -21,6 +21,12 @@ const posts = (await getCollection('insights', (p) => !p.data.draft)).sort((a, b
 
 const [lead, ...rest] = posts;
 const cardImage = (p) => p.data.coverImage || p.data.thumbnail;
+
+// Everything the search box matches against, lowercased once at build time so the
+// browser only does a substring test. Topics are included so "deliverability" finds
+// posts tagged with it even when the word is not in the title.
+const haystack = (p) =>
+  `${p.data.title} ${p.data.description ?? ''} ${(p.data.topics ?? []).join(' ')}`.toLowerCase();
 ---
 <BaseLayout
   title="Insights | hubsell"
@@ -34,8 +40,15 @@ const cardImage = (p) => p.data.coverImage || p.data.thumbnail;
         <p class="subheading">Field notes on prospecting, deliverability, and building pipeline that converts.</p>
       </div>
 
+      <div class="ins-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input type="search" id="insSearch" placeholder="Search posts" aria-label="Search insights" autocomplete="off" />
+      </div>
+
+      <p class="ins-empty" id="insEmpty" hidden>No posts match that search.</p>
+
       {lead && (
-        <a class="post post--lead reveal" href={`/insights/${lead.id}`}>
+        <a class="post post--lead reveal" href={`/insights/${lead.id}`} data-search={haystack(lead)}>
           {cardImage(lead) && (
             <img class="post__img" src={cardImage(lead)} alt={lead.data.title} loading="lazy" width="800" height="450" />
           )}
@@ -50,7 +63,7 @@ const cardImage = (p) => p.data.coverImage || p.data.thumbnail;
 
       <div class="grid grid-3 reveal-stagger" style="margin-top:24px">
         {rest.map((post) => (
-          <a class="post" href={`/insights/${post.id}`}>
+          <a class="post" href={`/insights/${post.id}`} data-search={haystack(post)}>
             {cardImage(post) && (
               <img class="post__img" src={cardImage(post)} alt={post.data.title} loading="lazy" width="400" height="225" />
             )}
@@ -68,6 +81,22 @@ const cardImage = (p) => p.data.coverImage || p.data.thumbnail;
 </BaseLayout>
 
 <style>
+  /* Search box, same shape as the knowledge centre one but on this page's tokens. */
+  .ins-search{
+    display:flex; align-items:center; gap:11px; max-width:560px; margin:22px 0 0;
+    background:var(--sec-card); border:1px solid var(--sec-bd); border-radius:var(--radius); padding:0 16px;
+  }
+  .ins-search:focus-within{
+    border-color:var(--accent-on);
+    box-shadow:0 0 0 3px color-mix(in srgb,var(--accent-on) 18%,transparent);
+  }
+  .ins-search svg{width:18px;height:18px;color:var(--sec-tx);opacity:.5;flex:none}
+  .ins-search input{
+    flex:1; border:0; background:transparent; color:var(--sec-tx);
+    font-family:var(--font-body); font-size:1rem; padding:14px 0; outline:none;
+  }
+  .ins-search input::placeholder{color:var(--sec-tx);opacity:.45}
+  .ins-empty{font-family:var(--font-body);color:var(--sec-tx);opacity:.7;margin:22px 0 0}
   .post__meta { font-family:var(--font-body); font-size:12.5px; color:var(--sec-tx); opacity:.55; margin:10px 0 0; }
   /* text-only cards (no image): a touch more top padding so they do not look empty */
   .post:not(:has(.post__img)) .post__body { padding-top:24px; }
@@ -83,3 +112,41 @@ const cardImage = (p) => p.data.coverImage || p.data.thumbnail;
     .post--lead .post__excerpt { font-size:15px; margin-top:4px; }
   }
 </style>
+
+<script>
+  // Filter the cards already on the page rather than rendering a second copy of
+  // all 88. Hiding a card with [hidden] also takes it out of the grid flow, so the
+  // remaining results close up instead of leaving holes.
+  function initInsightsSearch() {
+    const input = document.getElementById('insSearch');
+    const empty = document.getElementById('insEmpty');
+    if (!input || !empty) return;
+
+    const cards = Array.from(document.querySelectorAll('[data-search]'));
+
+    const apply = () => {
+      const q = input.value.trim().toLowerCase();
+      if (!q) {
+        cards.forEach((c) => { c.hidden = false; });
+        empty.hidden = true;
+        return;
+      }
+      let hits = 0;
+      cards.forEach((c) => {
+        const hit = (c.getAttribute('data-search') || '').includes(q);
+        c.hidden = !hit;
+        if (hit) hits++;
+      });
+      empty.hidden = hits > 0;
+    };
+
+    input.addEventListener('input', apply);
+    // Escape clears the field and restores the full list.
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { input.value = ''; apply(); }
+    });
+  }
+
+  initInsightsSearch();
+  document.addEventListener('astro:page-load', initInsightsSearch);
+</script>
