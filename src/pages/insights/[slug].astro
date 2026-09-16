@@ -289,11 +289,11 @@ const articleCrumbs = breadcrumbSchema([
           <aside class="post-page__toc-col">
             <nav class="post-toc" aria-label="On this page">
               <p class="post-toc__title">On this page</p>
-              <ol class="post-toc__list">
+              <ul class="post-toc__list">
                 {toc.map((h) => (
                   <li><a href={`#${h.id}`}>{h.text}</a></li>
                 ))}
-              </ol>
+              </ul>
             </nav>
           </aside>
         )}
@@ -456,7 +456,7 @@ const articleCrumbs = breadcrumbSchema([
   .prose pre code { background:none; padding:0; }
 
   .post-toc {
-    position:sticky; top:92px; margin:0; padding:18px 20px;
+    position:sticky; top:92px; margin:0; padding:16px 18px;
     border:1px solid var(--sec-bd); border-radius:var(--radius-lg);
     background:color-mix(in srgb,var(--sec-tx) 4%,transparent);
   }
@@ -464,16 +464,21 @@ const articleCrumbs = breadcrumbSchema([
     font-family:var(--font-body); font-size:12px; font-weight:600; letter-spacing:.06em;
     text-transform:uppercase; color:var(--sec-tx); opacity:.55; margin:0 0 10px;
   }
-  .post-toc__list { list-style:none; margin:0; padding:0; counter-reset:toc; max-height:46vh; overflow-y:auto; }
-  .post-toc__list li { counter-increment:toc; margin:0 0 7px; line-height:1.4; }
-  .post-toc__list li::before {
-    content:counter(toc) ". "; font-size:13px; color:var(--sec-tx); opacity:.4;
+  /* No numbers, no bullets: plain stacked links. The box is capped to the
+     viewport rather than a fixed fraction, so a long contents list shows every
+     item wherever there is room and only scrolls internally when there is not. */
+  .post-toc__list {
+    list-style:none; margin:0; padding:0;
+    max-height:calc(100vh - 150px); overflow-y:auto;
+    overscroll-behavior:contain; scrollbar-width:thin;
   }
+  .post-toc__list li { margin:0; line-height:1.35; }
   .post-toc__list a {
-    font-family:var(--font-body); font-size:14px; color:var(--sec-tx);
-    opacity:.8; text-decoration:none;
+    display:block; padding:5px 0;
+    font-family:var(--font-body); font-size:13.5px; color:var(--sec-tx);
+    opacity:.75; text-decoration:none; transition:opacity .15s;
   }
-  .post-toc__list a:hover { opacity:1; text-decoration:underline; }
+  .post-toc__list a:hover { opacity:1; }
   .prose h2 { scroll-margin-top:96px; }
   .post-sources { max-width:none; margin:40px 0 0; padding-top:20px; border-top:1px solid var(--sec-bd); }
   .post-author { max-width:none; margin:40px 0 0; padding-top:20px; border-top:1px solid var(--sec-bd); }
