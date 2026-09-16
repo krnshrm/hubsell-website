@@ -52,22 +52,78 @@ export const CALL_HOSTS = [
 // ---------------------------------------------------------------------------
 // Blog authors (bylines on /insights posts)
 //
-// A post opts in by setting `author: 'karan'` in its frontmatter; the key must
-// match an entry below. Posts with NO author field render no byline, which is
-// deliberate: the 87 posts migrated from Webflow were not written by a named
-// person, and putting someone's name on them would be false attribution.
+// A post opts in by setting `author: 'karan'` in its frontmatter, and may add
+// `coAuthors: ['riya']` for people who contributed. Keys must match an entry
+// below. Posts with NO author field render no byline, which is deliberate: some
+// migrated Webflow posts have no known writer, and putting someone's name on
+// them would be false attribution.
 //
 // The byline is a trust signal (a real name, role, and face behind the claims)
-// and it also feeds the Article schema author as a Person instead of the
-// Organization fallback. Photos live on R2 next to the call-host avatars.
+// and it also feeds the Article schema author as one or more Person entries
+// instead of the Organization fallback.
+//
+// `company` is where the person works NOW, which for former colleagues is not
+// hubsell. That is intentional: an accurate current affiliation is a stronger
+// signal than a stale one, and the hubsell connection lives in the bio.
+// Source of truth for these entries is the founder's author directory sheet.
+// Photos live on R2 alongside the call-host avatars.
 // ---------------------------------------------------------------------------
 export const AUTHORS = {
   karan: {
     name: 'Karan Sharma',
-    title: 'Founder, hubsell',
+    title: 'Founder',
+    company: 'hubsell',
     photo: 'https://assets.hubsell.com/avatars/karan-sharma.jpg',
     url: 'https://www.linkedin.com/in/krnshrm/',
     bio: 'Founder of hubsell. Writes about outbound, GTM, and the data behind it, mostly from campaigns he runs himself.',
+  },
+  riya: {
+    name: 'Riya Uppal',
+    title: 'Narrative Analyst',
+    company: 'Storied, Inc',
+    photo: 'https://assets.hubsell.com/avatars/riya-uppal.jpg',
+    url: 'https://www.linkedin.com/in/riya-uppal01/',
+    bio: 'Led marketing communications and content at hubsell from 2021 to 2023. Now works on communications and narrative strategy for global enterprises, after 8 years building brand campaigns across North America, Europe and Asia.',
+  },
+  sebastian: {
+    name: 'Sebastian Schlimme',
+    title: 'B2B Sales',
+    company: 'GLS Sprachenzentrum',
+    photo: 'https://assets.hubsell.com/avatars/sebastian-schlimme.jpg',
+    url: 'https://www.linkedin.com/in/sebastian-schlimme/',
+    bio: 'Spent five years at hubsell from 2018 to 2023, starting in customer success and finishing as Sales Director for DACH. Worked directly with the customers running outbound campaigns, then led the team selling to them.',
+  },
+  guido: {
+    name: 'Guido Croce',
+    title: 'Co-Founder',
+    company: 'E&G Consulting',
+    photo: 'https://assets.hubsell.com/avatars/guido-croce.jpg',
+    url: 'https://www.linkedin.com/in/guido-c-croce/',
+    bio: 'Growth hacker at hubsell from 2018 to 2019, where he set up outbound campaigns and wrote much of the blog. Now co-founder of E&G Consulting and Director of Sales Marketing at Featurely, both in Berlin.',
+  },
+  kylie: {
+    name: 'Kylie Naude',
+    title: 'Senior PR Account Manager',
+    company: 'Hook, Line & Sinker',
+    photo: 'https://assets.hubsell.com/avatars/kylie-naude.jpg',
+    url: 'https://www.linkedin.com/in/kylie-naude-0280ab198/',
+    bio: 'Wrote content for hubsell in 2021 and 2022, focused on the complex conversations that happen in B2B sales. Now a senior PR account manager at Hook, Line & Sinker in Cape Town, after three years in tech and fintech press.',
+  },
+  mukul: {
+    name: 'Mukul Thakur',
+    title: 'GTM & Product Operations',
+    company: 'hubsell',
+    photo: 'https://assets.hubsell.com/avatars/mukul-thakur.jpg',
+    url: 'https://www.linkedin.com/in/mukul-thakur-01b227b8/',
+    bio: 'Works alongside the founder at hubsell, helping revenue teams move from high-volume outreach to fewer, better-targeted conversations. Spends his time on the practical side of that shift: which signals are worth acting on, and how to stay in front of buyers who are not ready yet.',
+  },
+  maria: {
+    name: 'Maria R.',
+    title: 'Fractional CPO',
+    company: 'hubsell',
+    photo: 'https://assets.hubsell.com/avatars/maria-r.jpg',
+    url: 'https://www.linkedin.com/in/miarichter/',
+    bio: 'Fractional CPO at hubsell, after seven years running product management there from 2018. Shaped much of how the platform works today, from the sales workflow to the parts users touch every day.',
   },
 } as const;
 

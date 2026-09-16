@@ -55,12 +55,21 @@ Update the stats, kill the dead links, make it current.
 
 ### 5. Put a real author on it
 A name, a role, and a face that stands behind the claims.
-- Set `author: "karan"` in frontmatter. The key indexes `AUTHORS` in
-  `src/data/site.ts`, which carries name, title, R2 photo, and LinkedIn URL.
-- This renders three things: a compact byline (photo, name, role) under the title, a
-  "More about the author" box at the end of the post (larger photo, name, role, bio,
-  and a LinkedIn link with icon), and a Person author in the Article schema with
-  `url`, `image`, `jobTitle`, and `worksFor` instead of the Organization fallback.
+- Set `author: "karan"` in frontmatter, and `coAuthors: ["riya"]` for anyone who
+  contributed. Keys index `AUTHORS` in `src/data/site.ts`, which carries name,
+  title, company, R2 photo, LinkedIn URL, and bio. Registered: `karan`, `riya`,
+  `sebastian`, `guido`, `kylie`. An unknown key is dropped rather than throwing,
+  so a frontmatter typo costs a missing name, not a failed build.
+- `company` is where the person works NOW, not where they worked when they wrote
+  the post. For former colleagues that is another company, which is intentional:
+  an accurate current affiliation is a stronger trust signal than a stale one.
+  The hubsell connection belongs in the bio, which is how all five are written.
+- This renders three things: a compact byline under the title (stacked photos, names
+  joined with "and"), a "More about the author" box at the end of the post with one
+  card per author (larger photo, name, role, company, bio, LinkedIn link with icon),
+  and one Person entry per author in the Article schema with `url`, `image`,
+  `jobTitle`, and `worksFor`, instead of the Organization fallback. The heading
+  pluralises automatically when there is more than one author.
 - To add a second author, add an entry to `AUTHORS` with the same five fields (name,
   title, photo, url, bio) and reference its key. Photos go on R2 next to the
   call-host avatars.
