@@ -7,6 +7,7 @@ publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69ddeb9c86f8f87080908351_AI-prompts-for-outbound-sales-to-setup-calls-in-2024.png"
 thumbnail: "https://assets.hubsell.com/insights/69ddeb97df588a95891b51f8_Thumbnail-AI-prompts-for-outbound-sales-to-setup-calls-in-2024.png"
 readTime: "17 min read"
+author: "karan"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/a-laptop-computer-sitting-on-top-of-a-table-jsuv3zadcFE\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/a-laptop-computer-sitting-on-top-of-a-table-jsuv3zadcFE</a></p>"
 draft: false

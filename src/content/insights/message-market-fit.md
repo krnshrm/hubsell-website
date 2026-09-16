@@ -7,6 +7,7 @@ publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69cf9d9002f141c0d30528d2_What-is-message-market-fit-and-why-do-you-need-to-achieve-it-to-scale-outbound-sales_.avif"
 thumbnail: "https://assets.hubsell.com/insights/69cf9db779bbf8949751d7c6_Thumbnail-What-is-message-market-fit-and-why-do-you-need-to-achieve-it-to-scale-outbound-sales.avif"
 readTime: "11 min read"
+author: "karan"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/smart-phone-using-online-messaging-connection-concept-sqdEDQ9wfUU\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/smart-phone-using-online-messaging-connection-concept-sqdEDQ9wfUU</a></p>"
 draft: false

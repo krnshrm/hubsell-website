@@ -7,6 +7,7 @@ publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69ddeb5d395b42344c32d675_Acquire-these-sales-skills-to-become-a-top-salesperson-in-your-industry.png"
 thumbnail: "https://assets.hubsell.com/insights/69ddeb596bffa6642932f4ee_Thumbnail-Acquire-these-sales-skills-to-become-a-top-salesperson-in-your-industry.png"
 readTime: "6 min read"
+author: "riya"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/two-men-in-suit-sitting-on-sofa-jpHw8ndwJ_Q\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/two-men-in-suit-sitting-on-sofa-jpHw8ndwJ_Q</a></p>"
 draft: false

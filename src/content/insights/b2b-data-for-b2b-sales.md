@@ -7,6 +7,7 @@ publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69ddea76c9a857a2d450a639_B2B-Data-and-everything-you-need-to-know-about-it-for-B2B-Sales-in-2023.png"
 thumbnail: "https://assets.hubsell.com/insights/69ddea72e335b338617c55ce_Thumbnail-B2B-Data-and-everything-you-need-to-know-about-it-for-B2B-Sales-in-2023.png"
 readTime: "24 min read"
+author: "karan"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/a-group-of-people-standing-in-a-circle-xTUo0t77_9U\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/a-group-of-people-standing-in-a-circle-xTUo0t77_9U</a></p>"
 draft: false

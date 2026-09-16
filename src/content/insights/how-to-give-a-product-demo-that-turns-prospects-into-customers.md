@@ -5,6 +5,7 @@ description: "Master the art of B2B sales demos with this comprehensive guide. L
 summary: "The skill of giving a demo is one of the most important to have in the process of closing a deal. If the salesperson fails to present the product correctly and handle the objections, then the demo to close ratio will be much lower. We have given many demos at hubsell and made a lot of mistakes along the way. In this post I share our demo structure and why it is so powerful in B2B sales."
 publishedAt: 2026-04-02
 readTime: "9 min read"
+author: "karan"
 featured: false
 draft: false
 ---

@@ -5,6 +5,7 @@ description: "Discover how the financial services industry is evolving through A
 summary: "The rate at which the Financial Services industry adopted new digital technologies has been faster than ever before. Although the industry was already heading in this direction, the coronavirus pandemic has accelerated these efforts simply out of necessity."
 publishedAt: 2026-03-31
 readTime: "21 min read"
+author: "riya"
 featured: false
 draft: false
 ---

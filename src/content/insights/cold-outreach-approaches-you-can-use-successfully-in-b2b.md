@@ -7,6 +7,7 @@ publishedAt: 2026-04-23
 coverImage: "https://assets.hubsell.com/insights/69e9edd0657e53429c7f3ca4_Three-cold-outreach-approaches-you-can-use-successfully-in-B2B.png"
 thumbnail: "https://assets.hubsell.com/insights/69e9edc4f6d7ff15f848c3d0_Thumbnail-Three-cold-outreach-approaches-you-can-use-successfully-in-B2B.png"
 readTime: "5 min read"
+author: "riya"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/a-cell-phone-with-a-blue-case-on-a-green-background-uK4aQ8P8kFo\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/a-cell-phone-with-a-blue-case-on-a-green-background-uK4aQ8P8kFo</a></p>"
 draft: false

@@ -7,6 +7,7 @@ publishedAt: 2026-04-23
 coverImage: "https://assets.hubsell.com/insights/69e9ee13dba23d1e3cb114b2_The-why-and-how-of-outbound-sales.png"
 thumbnail: "https://assets.hubsell.com/insights/69e9ee101385d508e139ed29_Thumbnail-The-why-and-how-of-outbound-sales.png"
 readTime: "15 min read"
+author: "karan"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/a-symbolic-representation-of-a-digital-or-social-network-featuring-small-human-models-positioned-at-intersection-points-on-a-web-like-structure-UlL5AESOA3M\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/a-symbolic-representation-of-a-digital-or-social-network-featuring-small-human-models-positioned-at-intersection-points-on-a-web-like-structure-UlL5AESOA3M</a></p>"
 draft: false

@@ -7,6 +7,7 @@ publishedAt: 2026-04-23
 coverImage: "https://assets.hubsell.com/insights/69e9ecd4c06a1e78ac40da8d_The-top-CTA-mistakes-to-avoid-in-B2B-cold-outreach-messages.png"
 thumbnail: "https://assets.hubsell.com/insights/69e9eccd77fa2b75c44705f8_Thumbnail-The-top-CTA-mistakes-to-avoid-in-B2B-cold-outreach-messages.png"
 readTime: "5 min read"
+author: "riya"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/a-red-and-black-background-with-white-letters-6t74SJYHDYo\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/a-red-and-black-background-with-white-letters-6t74SJYHDYo</a></p>"
 draft: false

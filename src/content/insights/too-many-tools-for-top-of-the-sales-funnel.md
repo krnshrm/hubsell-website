@@ -7,6 +7,7 @@ publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69ddeaac862e14a41d480e0b_Are-you-using-too-many-sales-tools-for-top-of-the-sales-funnel_.png"
 thumbnail: "https://assets.hubsell.com/insights/69ddeaa740349f48ad6797df_Thumbnail-Are-you-using-too-many-sales-tools-for-top-of-the-sales-funnel_.png"
 readTime: "3 min read"
+author: "riya"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/illustrations/a-man-is-stressed-after-a-computer-crash-GkhIAa1h2us\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/illustrations/a-man-is-stressed-after-a-computer-crash-GkhIAa1h2us</a></p>"
 draft: false

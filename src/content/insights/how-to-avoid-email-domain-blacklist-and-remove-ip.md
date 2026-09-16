@@ -7,6 +7,8 @@ publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69cf9af20b11b293ba38dbcd_How-to-avoid-an-email-domain-blacklist-and-remove-your-IP-from-one-in-2026.avif"
 thumbnail: "https://assets.hubsell.com/insights/69cf9aed4ecc3616c51407c7_Thumbnail-How-to-avoid-an-email-domain-blacklist-and-remove-your-IP-from-one-in-2026.avif"
 readTime: "15 min read"
+author: "karan"
+coAuthors: ["sebastian", "guido"]
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/hackers-hand-holding-envelope-with-spam-message-icon-mailing-email-hack-online-scam-malware-or-error-alerts-3d-render-illustration-rPkTOjgCalI\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/hackers-hand-holding-envelope-with-spam-message-icon-mailing-email-hack-online-scam-malware-or-error-alerts-3d-render-illustration-rPkTOjgCalI</a></p><p></p>"
 draft: false

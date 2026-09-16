@@ -7,6 +7,7 @@ publishedAt: 2026-04-23
 coverImage: "https://assets.hubsell.com/insights/69e9eedefdbe4b23331ec624_Why-copy-matters-in-outbound-lead-generation-and-how-to-do-it-right.png"
 thumbnail: "https://assets.hubsell.com/insights/69e9eed8b33bce450b57f947_Thumbnail-Why-copy-matters-in-outbound-lead-generation-and-how-to-do-it-right.png"
 readTime: "6 min read"
+author: "karan"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/closeup-young-hipster-female-college-taking-note-do-homework-on-tablet-female-architect-sketching-new-building-plan-on-notepads-4UJAb_sGw-4\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/closeup-young-hipster-female-college-taking-note-do-homework-on-tablet-female-architect-sketching-new-building-plan-on-notepads-4UJAb_sGw-4</a></p>"
 draft: false

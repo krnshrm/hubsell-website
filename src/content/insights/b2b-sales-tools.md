@@ -7,6 +7,8 @@ publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69ddec5aa74be0e400e2749a_A-long-list-of-sales-tools-for-your-B2B-sales-stack-routinely-updated.png"
 thumbnail: "https://assets.hubsell.com/insights/69ddec550ddeac9dc13ec052_Thumbnail-A-long-list-of-sales-tools-for-your-B2B-sales-stack-routinely-updated.png"
 readTime: "28 min read"
+author: "karan"
+coAuthors: ["sebastian"]
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/abstract-purple-and-white-3d-icons-arranged-in-a-grid-pXrR7-tzJuU\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/abstract-purple-and-white-3d-icons-arranged-in-a-grid-pXrR7-tzJuU</a></p>"
 draft: false

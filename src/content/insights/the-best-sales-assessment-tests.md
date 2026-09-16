@@ -7,6 +7,7 @@ publishedAt: 2026-04-23
 coverImage: "https://assets.hubsell.com/insights/69e9ec2fcda7276ff863c21d_The-best-sales-assessment-tests-you-need-when-building-your-team.png"
 thumbnail: "https://assets.hubsell.com/insights/69e9ec2b07f016a02c39d677_Thumbnail-The-best-sales-assessment-tests-you-need-when-building-your-team.png"
 readTime: "16 min read"
+author: "riya"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/person-writing-on-white-paper-qDgTQOYk6B8\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/person-writing-on-white-paper-qDgTQOYk6B8</a></p>"
 draft: false

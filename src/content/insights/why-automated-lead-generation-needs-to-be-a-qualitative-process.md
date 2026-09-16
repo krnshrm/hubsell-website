@@ -7,6 +7,7 @@ publishedAt: 2026-04-23
 coverImage: "https://assets.hubsell.com/insights/69e9ef673cfc8231e90e0c88_Why-lead-generation-needs-to-be-a-qualitative-process.png"
 thumbnail: "https://assets.hubsell.com/insights/69e9ef6291a191221bc032dc_Thumbnail-Why-lead-generation-needs-to-be-a-qualitative-process.png"
 readTime: "9 min read"
+author: "karan"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/a-blue-plaque-with-five-stars-on-it-UTr-x5GolAE\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/a-blue-plaque-with-five-stars-on-it-UTr-x5GolAE</a></p>"
 draft: false

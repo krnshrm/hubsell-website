@@ -5,6 +5,7 @@ description: "Discover 50 impactful quotes from B2B sales experts like Mark Hunt
 summary: "There is a reason we idolise certain people in our industries. They have accomplished far more than the average person and have guided many people along the years. So, I wanted to write a blog post that would pay homage to the sales influencers of our industry, B2B sales."
 publishedAt: 2026-04-02
 readTime: "13 min read"
+author: "karan"
 featured: false
 draft: false
 ---

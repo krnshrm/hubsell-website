@@ -5,6 +5,7 @@ description: "Optimize your B2B cold outreach with nine essential subject line t
 summary: "Writing successful subject lines can be a challenge for businesses because it requires a mixture of ongoing testing and a certain expertise in the field. At hubsell we’ve seen the best and worst subject lines and committed almost all of the mistakes possible. This article consists of our top nine insider tips to help your subject line game go to the next level."
 publishedAt: 2026-03-31
 readTime: "9 min read"
+author: "kylie"
 featured: false
 draft: false
 ---

@@ -7,6 +7,7 @@ publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69dded76104f52848c8465e9_6-ways-to-reimagine-your-sales-strategy-with-video.png"
 thumbnail: "https://assets.hubsell.com/insights/69dded700278d26b2a71e087_Thumbnail-6-ways-to-reimagine-your-sales-strategy-with-video.png"
 readTime: "8 min read"
+author: "kylie"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/young-asian-woman-having-video-conference-with-her-colleagues-on-laptop-computer-1ULAhyrsP2M\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/young-asian-woman-having-video-conference-with-her-colleagues-on-laptop-computer-1ULAhyrsP2M</a></p>"
 draft: false

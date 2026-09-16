@@ -7,6 +7,7 @@ publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69cf9caa0dd3ee3a61659632_A-complete-guide-to-B2B-data-compliance-and-cold-outreach.avif"
 thumbnail: "https://assets.hubsell.com/insights/69cf9ca0419432880336058a_Thumbnail-A-complete-guide-to-B2B-data-compliance-and-cold-outreach.avif"
 readTime: "29 min read"
+author: "karan"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/futuristic-earth-map-technology-abstract-background-represent-global-connection-concept-m2pxgGc1Yas\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/futuristic-earth-map-technology-abstract-background-represent-global-connection-concept-m2pxgGc1Yas</a></p>"
 draft: false

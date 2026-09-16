@@ -7,6 +7,7 @@ publishedAt: 2026-04-23
 coverImage: "https://assets.hubsell.com/insights/69e9ef40202e5f01ae130b3a_Why-SaaS-companies-should-focus-on-low-customer-acquisition-activities.png"
 thumbnail: "https://assets.hubsell.com/insights/69e9ef3bc85333ef241c906e_Thumbnail-Why-SaaS-companies-should-focus-on-low-customer-acquisition-activities.png"
 readTime: "11 min read"
+author: "karan"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License: </p><p><a href=\"https://unsplash.com/photos/a-basket-with-a-target-and-a-target-in-it-zk2sfqaJgdU\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/a-basket-with-a-target-and-a-target-in-it-zk2sfqaJgdU</a></p>"
 draft: false

@@ -5,6 +5,7 @@ description: "Master the art of handling sales rejection with eight effective st
 summary: "Let us face it, no matter how good you are, rejection and failure will always be part of the sales process. Whether it’s the actual rejection or the fear of it that gets you trembling, you can never escape it. So how do you overcome the nasty rejection and/or the fear of it? Here are eight easy tips to help you handle rejection with confidence—and meet your goals despite it."
 publishedAt: 2026-03-31
 readTime: "12 min read"
+author: "kylie"
 featured: false
 draft: false
 ---

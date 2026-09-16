@@ -7,6 +7,7 @@ publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69ddeccf9797eb3c7efa0c89_A-closer-look-at-sales-automation-and-its-key-strong-points.png"
 thumbnail: "https://assets.hubsell.com/insights/69ddecc9b50f1770f50f2676_Thumbnail-A-closer-look-at-sales-automation-and-its-key-strong-points.png"
 readTime: "8 min read"
+author: "riya"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/illustrations/a-computer-screen-with-a-brain-on-it-HAze_fMQ4-k\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/illustrations/a-computer-screen-with-a-brain-on-it-HAze_fMQ4-k</a></p>"
 draft: false

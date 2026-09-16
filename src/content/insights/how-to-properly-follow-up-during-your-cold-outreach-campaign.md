@@ -5,6 +5,7 @@ description: "Master the art of cold outreach follow-ups with this comprehensive
 summary: "Having a successful follow-up strategy when doing cold outreach is a hard task to accomplish, because the structure and content of your outreach campaign, including the follow-up, is impacted by many factors. In this post, I want to address some of the key factors, why you should follow-up and how to do it right in order to maximize your opportunities with prospects."
 publishedAt: 2026-03-31
 readTime: "17 min read"
+author: "riya"
 featured: false
 draft: false
 ---

@@ -5,6 +5,7 @@ description: "How to sell to pharmaceutical companies: the regulations, buying c
 summary: "The only way to stay ahead of the curve when it comes to selling into the pharmaceutical industry is through in-depth research and proactive outbound sales. This blog post will define a step by step guide of how to get pharmaceutical companies as customers using the same strategy."
 publishedAt: 2026-04-02
 readTime: "22 min read"
+author: "riya"
 featured: false
 draft: false
 ---

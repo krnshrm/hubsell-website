@@ -5,6 +5,7 @@ description: "Discover why multi-channel cold outreach outperforms single-channe
 summary: "Multi-channel outreach is outperforming single-channel outreach. That is why only two percent of sales teams are using just email to reach out to prospects. Multi-channel is a rather new method in the B2B world so there are misconceptions about it. So, in this post, I will explain why a multi-channel approach is better and how to do it the right way."
 publishedAt: 2026-03-31
 readTime: "6 min read"
+author: "riya"
 featured: false
 draft: false
 ---

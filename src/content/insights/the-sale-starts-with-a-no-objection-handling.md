@@ -7,6 +7,7 @@ publishedAt: 2026-05-14
 coverImage: "https://assets.hubsell.com/insights/69e9ecabe295593bd20c44a9_The-sale-starts-with-a-no-a-lesson-on-objection-handling.png"
 thumbnail: "https://assets.hubsell.com/insights/69e9eca8af016789641b1d18_Thumbnail-The-sale-starts-with-a-no-a-lesson-on-objection-handling.png"
 readTime: "5 min read"
+author: "karan"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/closeup-photo-of-street-go-and-stop-signage-displaying-stop-1k3vsv7iIIc\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/closeup-photo-of-street-go-and-stop-signage-displaying-stop-1k3vsv7iIIc</a></p>"
 draft: false

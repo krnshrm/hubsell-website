@@ -5,6 +5,7 @@ description: "Master the bottom of the funnel to close more B2B deals. This guid
 summary: "If you do not get good at closing deals, then all your hard work of getting leads and moving them down to the BOFU will be for nothing. So, in this post, I am going to show you how to close a deal by learning the top skills necessary in the bottom of the funnel."
 publishedAt: 2026-04-02
 readTime: "3 min read"
+author: "riya"
 featured: false
 draft: false
 ---

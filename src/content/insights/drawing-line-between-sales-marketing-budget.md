@@ -5,6 +5,7 @@ description: "Optimize your sales and marketing budget by understanding key fact
 summary: "Knowing where to draw the line between sales and marketing is a key strategic decision which heavily influences a company’s growth. This article discusses some of the key considerations related to that decision."
 publishedAt: 2026-03-31
 readTime: "5 min read"
+author: "karan"
 featured: false
 draft: false
 ---

@@ -7,6 +7,7 @@ publishedAt: 2026-04-23
 coverImage: "https://assets.hubsell.com/insights/69e9ef0c83cc356c075cdd21_Why-does-B2B-buyers-anxiety-exist-and-how-to-deal-with-it.png"
 thumbnail: "https://assets.hubsell.com/insights/69e9ef0782510a967503ae65_Thumbnail-Why-does-B2B-buyers-anxiety-exist-and-how-to-deal-with-it.png"
 readTime: "5 min read"
+author: "karan"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/person-waving-from-behind-shopping-bags-Mc9Fe-JIXus\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/person-waving-from-behind-shopping-bags-Mc9Fe-JIXus</a></p>"
 draft: false

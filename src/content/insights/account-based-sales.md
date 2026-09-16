@@ -7,6 +7,7 @@ publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69ddec279dc2be5f33386e7b_A-quick-guide-to-account-based-sales.png"
 thumbnail: "https://assets.hubsell.com/insights/69ddec22fad4d17eb095d6f9_Thumbnail-A-quick-guide-to-account-based-sales.png"
 readTime: "9 min read"
+author: "karan"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/black-smartphone-near-person-5QgIuuBxKwM\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/black-smartphone-near-person-5QgIuuBxKwM</a></p>"
 draft: false

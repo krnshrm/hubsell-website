@@ -5,6 +5,7 @@ description: "How to sell to manufacturing companies: the buyers, sales cycle, a
 summary: "Since the pandemic hit, we saw companies in the manufacturing industry face severe challenges which uncovered new risks as well as highlighting areas that exposed them to major disruptions. Depending on how they were affected, a wide range of tasks is at hand for many manufacturing companies to fulfil from recovering lost revenue to streamlining their supply chain."
 publishedAt: 2026-04-02
 readTime: "23 min read"
+author: "riya"
 featured: false
 draft: false
 ---

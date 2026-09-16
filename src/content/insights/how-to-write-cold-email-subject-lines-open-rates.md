@@ -5,6 +5,7 @@ description: "Boost your cold email open rates by mastering subject lines. This 
 summary: "The journey of a prospect starts with the subject line. A bad one will bring lower open rates. So, in this post, I will explain what makes good cold email subject lines to get high open rates. And a few important rules to keep in mind."
 publishedAt: 2026-03-31
 readTime: "4 min read"
+author: "riya"
 featured: false
 draft: false
 ---

@@ -7,6 +7,7 @@ publishedAt: 2026-04-02
 coverImage: "https://assets.hubsell.com/insights/69ce266c4e7ef7982c0be64d_Featured-Sales-Navigator-Masterclass.png"
 thumbnail: "https://assets.hubsell.com/insights/69ce26721dd39eb0aed3310c_Thumbnail-Sales-Navigator-Masterclass.png"
 readTime: "9 min read"
+author: "karan"
 featured: true
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/a-person-holding-a-cell-phone-in-their-hand-IHRuNvG1Apo\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/a-person-holding-a-cell-phone-in-their-hand-IHRuNvG1Apo</a></p>"
 draft: false

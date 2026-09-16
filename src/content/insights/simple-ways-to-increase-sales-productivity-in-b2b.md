@@ -5,6 +5,7 @@ description: "Boost B2B sales productivity with these five essential strategies.
 summary: "In B2B sales is what makes the machine keep going. The more deals the sales team closes the better off the company will be. But, there are usually productivity mistakes that sales team commit. Or even parts of the process that can be improved. So, in this post, I will show you how to increase sales productivity and the benefits of doing so."
 publishedAt: 2026-04-02
 readTime: "5 min read"
+author: "riya"
 featured: false
 draft: false
 ---

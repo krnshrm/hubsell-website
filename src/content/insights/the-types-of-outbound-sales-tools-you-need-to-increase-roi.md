@@ -7,6 +7,7 @@ publishedAt: 2026-04-23
 coverImage: "https://assets.hubsell.com/insights/69e9ed7eb65b4aa9086c0510_The-types-of-outbound-sales-tools-you-need-to-increase-ROI.png"
 thumbnail: "https://assets.hubsell.com/insights/69e9ed7aa3163af41a907fbb_Thumbnail-The-types-of-outbound-sales-tools-you-need-to-increase-ROI.png"
 readTime: "4 min read"
+author: "riya"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/man-writing-xEMsS6Vqryc\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/man-writing-xEMsS6Vqryc</a></p>"
 draft: false

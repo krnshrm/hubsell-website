@@ -7,6 +7,7 @@ publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69cf9bdb356328fc7c7ce625_31-buying-signals-that-indicate-your-prospect-is-still-interested.avif"
 thumbnail: "https://assets.hubsell.com/insights/69cf9bd66270cdaf52abdba0_Thumbnail-31-buying-signals-that-indicate-your-prospect-is-still-interested.avif"
 readTime: "20 min read"
+author: "karan"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/a-green-traffic-light-sitting-next-to-a-white-wall-9cnf9CXfWrw&nbsp;\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/a-green-traffic-light-sitting-next-to-a-white-wall-9cnf9CXfWrw&nbsp;</a></p><p></p>"
 draft: false

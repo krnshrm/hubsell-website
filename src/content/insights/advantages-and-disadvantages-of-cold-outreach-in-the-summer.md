@@ -7,6 +7,7 @@ publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69ddeb34f6d783bfd774e4e1_Advantages-and-disadvantages-of-cold-outreach-in-the-summer.png"
 thumbnail: "https://assets.hubsell.com/insights/69ddeb2f707f90135009e187_Thumbnail-Advantages-and-disadvantages-of-cold-outreach-in-the-summer.png"
 readTime: "4 min read"
+author: "guido"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/a-contemporary-artistic-collage-time-is-flying-by-a-hand-is-attempting-to-catch-time-represented-by-a-clock-with-wings-the-concept-is-about-time-Gz6XFLk4xwk\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/a-contemporary-artistic-collage-time-is-flying-by-a-hand-is-attempting-to-catch-time-represented-by-a-clock-with-wings-the-concept-is-about-time-Gz6XFLk4xwk</a></p>"
 draft: false

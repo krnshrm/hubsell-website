@@ -7,6 +7,7 @@ publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69dded1ee9877e3065c340bf_9-ways-to-lower-your-B2B-Customer-Acquisition-Costs-CAC.png"
 thumbnail: "https://assets.hubsell.com/insights/69dded18c03120cff1ccdf03_Thumbnail-9-ways-to-lower-your-B2B-Customer-Acquisition-Costs-CAC.png"
 readTime: "11 min read"
+author: "karan"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/data-analysis-business-information-facts-chart-concept-VJF9_bwX9L0\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/data-analysis-business-information-facts-chart-concept-VJF9_bwX9L0</a></p>"
 draft: false

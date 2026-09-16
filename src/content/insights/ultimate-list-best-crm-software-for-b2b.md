@@ -7,6 +7,7 @@ publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69cf9f10630f150a940fbd8b_The-ultimate-list-of-the-best-B2B-CRMs-to-choose-from-in-2025.avif"
 thumbnail: "https://assets.hubsell.com/insights/69cf9f0d7574457657179df3_Thumbnail-The-ultimate-list-of-the-best-B2B-CRMs-to-choose-from-in-2025.avif"
 readTime: "26 min read"
+author: "karan"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/black-and-silver-laptop-computer-tR0jvlsmCuQ\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/black-and-silver-laptop-computer-tR0jvlsmCuQ</a></p><p></p>"
 draft: false

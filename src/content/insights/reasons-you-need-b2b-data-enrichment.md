@@ -7,6 +7,7 @@ publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69ddedcf2ea64d908649ea68_6-reasons-why-you-need-a-B2B-data-enrichment-process.png"
 thumbnail: "https://assets.hubsell.com/insights/69ddedcb61249a8df8b8c1c7_Thumbnail-6-reasons-why-you-need-a-B2B-data-enrichment-process.png"
 readTime: "15 min read"
+author: "riya"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/a-virtual-social-network-features-connected-3d-low-poly-avatars-WSkHOzSbLdE\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/a-virtual-social-network-features-connected-3d-low-poly-avatars-WSkHOzSbLdE</a></p>"
 draft: false

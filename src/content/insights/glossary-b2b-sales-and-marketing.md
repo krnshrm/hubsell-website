@@ -7,6 +7,8 @@ publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69cf9a0dc5f1e06d6b376381_A-complete-glossary-of-B2B-sales-and-marketing-terms.avif"
 thumbnail: "https://assets.hubsell.com/insights/69cf9a12e94af49e84c605f5_Thumbnail-A-complete-glossary-of-B2B-sales-and-marketing-terms.avif"
 readTime: "33 min read"
+author: "karan"
+coAuthors: ["sebastian", "riya"]
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/a-magnifying-glass-sitting-on-top-of-an-open-book--LgSTma8GJs\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/a-magnifying-glass-sitting-on-top-of-an-open-book--LgSTma8GJs</a></p><p></p>"
 draft: false

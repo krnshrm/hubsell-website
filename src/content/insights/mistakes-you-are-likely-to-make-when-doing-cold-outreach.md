@@ -7,6 +7,7 @@ publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69d4dc8b5a379fe8234ef236_How-to-follow-up-after-a-prospect-replies-to-a-cold-sales-email-in-B2B-6.png"
 thumbnail: "https://assets.hubsell.com/insights/69d4dc87034a10068afb20e0_Thumbnail-How-to-follow-up-after-a-prospect-replies-to-a-cold-sales-email-in-B2B-6.png"
 readTime: "17 min read"
+author: "riya"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/egg-balancing-on-the-edge-of-a-table-about-to-fall-down-and-break-due-to-domino-tiles-falling-fe0tQrcFTI8\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/egg-balancing-on-the-edge-of-a-table-about-to-fall-down-and-break-due-to-domino-tiles-falling-fe0tQrcFTI8</a></p><p></p>"
 draft: false

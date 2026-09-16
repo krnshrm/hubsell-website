@@ -7,6 +7,7 @@ publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69d4dd6e1b262e8462c04aec_How-to-follow-up-after-a-prospect-replies-to-a-cold-sales-email-in-B2B-9.png"
 thumbnail: "https://assets.hubsell.com/insights/69d4dd6ac1a8a80bf9f349dc_Thumbnail-How-to-follow-up-after-a-prospect-replies-to-a-cold-sales-email-in-B2B-9.png"
 readTime: "12 min read"
+author: "riya"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/pile-of-books-beside-white-printer-paper-and-black-ballpoint-pen-asviIGR3CPE\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/pile-of-books-beside-white-printer-paper-and-black-ballpoint-pen-asviIGR3CPE</a></p><p></p>"
 draft: false

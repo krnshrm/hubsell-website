@@ -7,6 +7,7 @@ publishedAt: 2026-04-23
 coverImage: "https://assets.hubsell.com/insights/69e9ebca765b8a66d82f138e_Sales-call-best-practices_-7-things-you-should-and-should-not-do-in-a-sales-call.png"
 thumbnail: "https://assets.hubsell.com/insights/69e9ebc7f37d0340ee529bbf_Thumbnail-Sales-call-best-practices_-7-things-you-should-and-should-not-do-in-a-sales-call.png"
 readTime: "11 min read"
+author: "karan"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/black-ip-desk-phone-on-black-wooden-table-Dkn8-zPIbwo\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/black-ip-desk-phone-on-black-wooden-table-Dkn8-zPIbwo</a></p>"
 draft: false

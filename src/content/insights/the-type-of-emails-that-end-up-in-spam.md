@@ -7,6 +7,8 @@ publishedAt: 2026-04-23
 coverImage: "https://assets.hubsell.com/insights/69e9ed3e822500f47b82b1b7_The-type-of-cold-emails-that-end-up-in-the-spam-folder.png"
 thumbnail: "https://assets.hubsell.com/insights/69e9ed372d347d5d50b1abd8_Thumbnail-The-type-of-cold-emails-that-end-up-in-the-spam-folder.png"
 readTime: "15 min read"
+author: "karan"
+coAuthors: ["sebastian"]
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/a-paper-airplane-with-the-word-spam-written-on-it-XUDseoo1IHc\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/a-paper-airplane-with-the-word-spam-written-on-it-XUDseoo1IHc</a></p>"
 draft: false

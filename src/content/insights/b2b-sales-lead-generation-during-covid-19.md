@@ -7,6 +7,7 @@ publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69dde9f8395b42344c329e01_B2B-lead-generation-and-sales-during-COVID-19-Updated.png"
 thumbnail: "https://assets.hubsell.com/insights/69dde9e138ee947ca3288aa9_Thumbnail-B2B-lead-generation-and-sales-during-COVID-19-Updated.png"
 readTime: "11 min read"
+author: "karan"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License: </p><p><a href=\"https://unsplash.com/illustrations/a-computer-screen-with-a-bunch-of-icons-on-it-1exeS6ukSEM\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/illustrations/a-computer-screen-with-a-bunch-of-icons-on-it-1exeS6ukSEM</a></p>"
 draft: false

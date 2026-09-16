@@ -7,6 +7,7 @@ publishedAt: 2026-04-23
 coverImage: "https://assets.hubsell.com/insights/69e9ebfcbe38ec52a11b4d1e_The-best-B2B-lead-generation-channels-to-boost-your-growth.png"
 thumbnail: "https://assets.hubsell.com/insights/69e9ebf9e17a62a712a137c3_Thumbnail-The-best-B2B-lead-generation-channels-to-boost-your-growth.png"
 readTime: "15 min read"
+author: "karan"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/illustrations/man-standing-near-a-digital-interface-with-charts-0KgJaDiOS7c\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/illustrations/man-standing-near-a-digital-interface-with-charts-0KgJaDiOS7c</a></p>"
 draft: false

@@ -7,6 +7,7 @@ publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69ddeda23fb3785cba4c2ef2_6-types-of-B2B-data-you-need-to-shorten-your-B2B-sales-cycle.png"
 thumbnail: "https://assets.hubsell.com/insights/69dded9dbc7cdf7a2c7b42bd_Thumbnail-6-types-of-B2B-data-you-need-to-shorten-your-B2B-sales-cycle.png"
 readTime: "9 min read"
+author: "riya"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/a-picture-of-a-computer-network-with-many-different-icons-2IZ9r2pgJjQ\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/a-picture-of-a-computer-network-with-many-different-icons-2IZ9r2pgJjQ</a></p>"
 draft: false

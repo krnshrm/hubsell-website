@@ -7,6 +7,7 @@ publishedAt: 2026-04-23
 coverImage: "https://assets.hubsell.com/insights/69e9eeb17417cbe38c33e798_What-is-digital-body-language-and-how-to-use-it-to-engage-your-buyers_.png"
 thumbnail: "https://assets.hubsell.com/insights/69e9eea47353fb5b9947bc90_Thumbnail-What-is-digital-body-language-and-how-to-use-it-to-engage-your-buyers_.png"
 readTime: "16 min read"
+author: "riya"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License: </p><p><a href=\"https://unsplash.com/photos/a-person-with-a-blue-background--u_WspWoO2A\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/a-person-with-a-blue-background--u_WspWoO2A</a></p>"
 draft: false

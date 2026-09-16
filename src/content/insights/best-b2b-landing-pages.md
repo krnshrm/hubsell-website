@@ -7,6 +7,7 @@ publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69ddec911adeb7c2d74bdda0_A-curated-list-of-the-best-B2B-landing-pages.png"
 thumbnail: "https://assets.hubsell.com/insights/69ddec8bd503113458fdd67b_Thumbnail-A-curated-list-of-the-best-B2B-landing-pages.png"
 readTime: "16 min read"
+author: "riya"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/a-computer-on-a-desk-FQ3lFA4Zi58\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/a-computer-on-a-desk-FQ3lFA4Zi58</a></p>"
 draft: false

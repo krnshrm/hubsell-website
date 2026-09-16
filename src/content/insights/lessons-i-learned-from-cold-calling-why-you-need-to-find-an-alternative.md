@@ -5,6 +5,7 @@ description: "Explore why traditional cold-calling is failing in modern sales an
 summary: "The rules for outbound sales used to be quite simple: the more calls you made, the more opportunities you generated and the more deals you closed. This worked for a while until cold-calling became the norm and synonymous with prospects feeling pressured, stressed and in need of finding excuses to end the call before the salesperson could even say what it was all about."
 publishedAt: 2026-03-31
 readTime: "7 min read"
+author: "karan"
 featured: false
 draft: false
 ---

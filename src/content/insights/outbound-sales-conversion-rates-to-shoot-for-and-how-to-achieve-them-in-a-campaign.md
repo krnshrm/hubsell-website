@@ -5,6 +5,7 @@ description: "Learn how to measure and optimize key B2B cold outreach metrics to
 summary: "In sales, measuring the effectiveness of cold outreach is paramount. Why is it important to have all those metrics measured? To prove the effectiveness of your cold outreach, to analyse what works and adjust accordingly, and to predict the path to the periodical goals. So, I want to share with you the campaign results our customers have achieved and give you an estimate of conversion metrics that you should shoot for."
 publishedAt: 2026-03-31
 readTime: "4 min read"
+author: "riya"
 featured: false
 draft: false
 ---

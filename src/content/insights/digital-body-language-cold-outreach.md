@@ -7,6 +7,7 @@ publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69ddecf251abe403b566838f_9-ways-to-use-digital-body-language-in-your-cold-outreach-to-win-over-your-prospects.png"
 thumbnail: "https://assets.hubsell.com/insights/69ddecedd1f5302740094a9b_Thumbnail-9-ways-to-use-digital-body-language-in-your-cold-outreach-to-win-over-your-prospects.png"
 readTime: "10 min read"
+author: "riya"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/a-man-in-a-black-shirt-using-a-cell-phone-v2Wz7CBaA9k\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/a-man-in-a-black-shirt-using-a-cell-phone-v2Wz7CBaA9k</a></p>"
 draft: false

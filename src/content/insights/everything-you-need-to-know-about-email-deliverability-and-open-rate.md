@@ -10,6 +10,8 @@ featured: true
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/black-laptop-computer-3Mhgvrk4tjM\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/black-laptop-computer-3Mhgvrk4tjM</a></p><p></p>"
 draft: false
 readTime: "4 min read"
+author: "karan"
+coAuthors: ["sebastian", "guido"]
 ---
 
 <p>Most outbound starts with one assumption: the email reaches the inbox. If it does not, nothing else in your campaign matters. An email that lands in spam is never opened, and a prospect who never sees your message is not part of your campaign at all.</p>

@@ -7,6 +7,7 @@ publishedAt: 2026-04-23
 coverImage: "https://assets.hubsell.com/insights/69e9ec5ddd3cae42b3151f5c_The-growing-list-of-tried-and-tested-B2B-lead-generation-ideas.png"
 thumbnail: "https://assets.hubsell.com/insights/69e9ec59c2b9f79fd1d49dd7_Thumbnail-The-growing-list-of-tried-and-tested-B2B-lead-generation-ideas.png"
 readTime: "31 min read"
+author: "riya"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/two-people-discuss-a-plan-on-a-chalkboard-wall-gHfYpBmW4-M\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/two-people-discuss-a-plan-on-a-chalkboard-wall-gHfYpBmW4-M</a></p>"
 draft: false

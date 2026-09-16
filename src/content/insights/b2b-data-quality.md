@@ -7,6 +7,7 @@ publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69ddead7bc7cdf7a2c7acc67_An-uncompromising-analysis-of-B2B-data-and-why-it-needs-to-be-qualitative.png"
 thumbnail: "https://assets.hubsell.com/insights/69ddead33b5c3a873e1b5c90_Thumbnail-An-uncompromising-analysis-of-B2B-data-and-why-it-needs-to-be-qualitative.png"
 readTime: "21 min read"
+author: "karan"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/a-group-of-folders-with-different-symbols-on-them-vSSJA3pWnc4\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/a-group-of-folders-with-different-symbols-on-them-vSSJA3pWnc4</a></p>"
 draft: false

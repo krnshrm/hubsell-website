@@ -5,6 +5,7 @@ description: "Master the post-demo follow-up stage with these five essential gui
 summary: "Following up after a demo to close a B2B deal can be quite frustrating for companies. That is because SQLs are so close to becoming customers. But, if the process goes awry, then all the time and effort invested will go to waste. So, in this post, I want to share our guidelines for following up after the demo, as well as common pitfalls to avoid."
 publishedAt: 2026-04-02
 readTime: "5 min read"
+author: "riya"
 featured: false
 draft: false
 ---

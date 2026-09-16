@@ -5,6 +5,7 @@ description: "Learn how outbound sales can revolutionize your printing business.
 summary: "Effective outbound sales strategies for selling printing services. Learn how to research, target, and engage potential clients to boost your printing business."
 publishedAt: 2026-03-31
 readTime: "3 min read"
+author: "riya"
 featured: false
 draft: false
 ---

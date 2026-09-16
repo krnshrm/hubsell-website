@@ -7,6 +7,7 @@ publishedAt: 2026-04-23
 coverImage: "https://assets.hubsell.com/insights/69e9ef98e17a62a712a2539d_Why-you-need-omnichannel-outreach-to-drive-your-outbound-sales.png"
 thumbnail: "https://assets.hubsell.com/insights/69e9ef8f00be7af576533c50_Thumbnail-Why-you-need-omnichannel-outreach-to-drive-your-outbound-sales.png"
 readTime: "10 min read"
+author: "riya"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/a-stack-of-televisions-sitting-on-top-of-each-other-6UdE-dWz8Wc\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/a-stack-of-televisions-sitting-on-top-of-each-other-6UdE-dWz8Wc</a></p>"
 draft: false

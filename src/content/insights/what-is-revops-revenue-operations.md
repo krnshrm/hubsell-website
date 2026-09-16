@@ -7,6 +7,7 @@ publishedAt: 2026-04-23
 coverImage: "https://assets.hubsell.com/insights/69ea0209db48829ab20e1977_What-is-Revenue-Operations-and-how-to-set-it-up-in-your-company.png"
 thumbnail: "https://assets.hubsell.com/insights/69e9ee76dd82a87405a32855_Thumbnail-What-is-Revenue-Operations-and-how-to-set-it-up-in-your-company.png"
 readTime: "15 min read"
+author: "karan"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/calculator-magnifying-glass-and-chart-with-gears-on-paper-njiadDwbgaM\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/calculator-magnifying-glass-and-chart-with-gears-on-paper-njiadDwbgaM</a></p>"
 draft: false

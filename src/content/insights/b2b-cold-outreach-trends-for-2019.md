@@ -7,6 +7,8 @@ publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69ddea2d2941fbaacb0a3459_B2B-cold-outreach-trends-for-2019-with-insights-by-Litmus.png"
 thumbnail: "https://assets.hubsell.com/insights/69ddea294b24fb0932e1924a_Thumbnail-B2B-cold-outreach-trends-for-2019-with-insights-by-Litmus.png"
 readTime: "11 min read"
+author: "karan"
+coAuthors: ["sebastian", "guido"]
 featured: false
 sources: "<p>Featured image licensed under Unsplash License: </p><p><a href=\"https://unsplash.com/illustrations/audit-research-of-business-documents-by-accountant-analyst-hands-of-office-worker-analyzing-report-charts-studying-with-laptop-flat-vector-illustration-paperwork-analytic-technology-concept-UCO8-xDUOYE\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/illustrations/audit-research-of-business-documents-by-accountant-analyst-hands-of-office-worker-analyzing-report-charts-studying-with-laptop-flat-vector-illustration-paperwork-analytic-technology-concept-UCO8-xDUOYE</a></p>"
 draft: false

@@ -7,6 +7,7 @@ publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69d4dadb90d793b56ebf2bf5_How-to-follow-up-after-a-prospect-replies-to-a-cold-sales-email-in-B2B-2.png"
 thumbnail: "https://assets.hubsell.com/insights/69d4dad3dfdbc957923a0f3f_Thumbnail-How-to-follow-up-after-a-prospect-replies-to-a-cold-sales-email-in-B2B-2.png"
 readTime: "13 min read"
+author: "kylie"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/business-people-shaking-hands-businessman-wearing-black-gloves-deception-investment-fraud-illegal-financial-business-corruption-corruption-3d-render-illustration-uspkiADhMkI\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/business-people-shaking-hands-businessman-wearing-black-gloves-deception-investment-fraud-illegal-financial-business-corruption-corruption-3d-render-illustration-uspkiADhMkI</a></p>"
 draft: false

@@ -5,6 +5,7 @@ description: "Millennials are redefining B2B sales with their tech-savvy prefere
 summary: "The impact millennials have had on B2B sales and digital marketing is critical now more than ever. The time has come for B2B businesses to shift priorities and look into elements of your business that have until now seemed less impactful on sales."
 publishedAt: 2026-03-31
 readTime: "8 min read"
+author: "kylie"
 featured: false
 draft: false
 ---

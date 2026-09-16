@@ -7,6 +7,7 @@ publishedAt: 2026-04-23
 coverImage: "https://assets.hubsell.com/insights/69e9eb3a46bda75fd5db76f5_Seven-methods-to-increase-the-productivity-of-your-salespeople.png"
 thumbnail: "https://assets.hubsell.com/insights/69e9eb2fa14f17a0ca9cd88c_Thumbnail-Seven-methods-to-increase-the-productivity-of-your-salespeople.png"
 readTime: "10 min read"
+author: "riya"
 featured: false
 sources: "<p>Entrepreneur.com<br><a href=\"https://www.entrepreneur.com/article/244075\" target=\"_blank\" rel=\"noopener\">https://www.entrepreneur.com/article/244075</a></p><p><br>Hubspot.com<br><a href=\"https://blog.hubspot.com/sales/motivate-your-sales-team\" target=\"_blank\" rel=\"noopener\">https://blog.hubspot.com/sales/motivate-your-sales-team</a></p><p><br>Salesforce.com<br><a href=\"https://www.salesforce.com/quotable/articles/ideal-sales-day/\" target=\"_blank\" rel=\"noopener\">https://www.salesforce.com/quotable/articles/ideal-sales-day/</a></p><p><br>Close.com<br><a href=\"https://blog.close.com/setting-sales-goals\" target=\"_blank\" rel=\"noopener\">https://blog.close.com/setting-sales-goals</a><br><br>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/business-team-meeting-connection-digital-technology-concept-aobd479hi4g\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/business-team-meeting-connection-digital-technology-concept-aobd479hi4g</a></p>"
 draft: false

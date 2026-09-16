@@ -5,6 +5,7 @@ description: "Discover how Salesforce and Udemy used outbound lead generation to
 summary: "In this blog post, I want to show you how outbound lead generation and sales development can be used to boost key growth metrics in ways that are not as easily possible through other methods. I will do that by focusing on the above-mentioned case studies that are extremely relevant not only for sales but also for expanding your supply-side stakeholders."
 publishedAt: 2026-03-31
 readTime: "3 min read"
+author: "karan"
 featured: false
 draft: false
 ---

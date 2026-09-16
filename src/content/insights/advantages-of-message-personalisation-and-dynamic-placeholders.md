@@ -7,6 +7,7 @@ publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69ddeb08a76dee08b686356c_Advantages-of-message-personalisation-and-dynamic-placeholders.png"
 thumbnail: "https://assets.hubsell.com/insights/69ddeb04c73cf8ece642b922_Advantages-of-message-personalisation-and-dynamic-placeholders-1.png"
 readTime: "6 min read"
+author: "riya"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/a-group-of-people-standing-next-to-each-other-e9iuIfJORd4\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/a-group-of-people-standing-next-to-each-other-e9iuIfJORd4</a></p>"
 draft: false

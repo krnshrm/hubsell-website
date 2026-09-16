@@ -7,6 +7,7 @@ publishedAt: 2026-04-23
 coverImage: "https://assets.hubsell.com/insights/69e9ed0520c1fe2094cea3ba_The-only-list-you-will-need-for-the-latest-and-greatest-sales-podcasts.png"
 thumbnail: "https://assets.hubsell.com/insights/69e9ecfe8473c3433a4a5f0c_Thumbnail-The-only-list-you-will-need-for-the-latest-and-greatest-sales-podcasts.png"
 readTime: "20 min read"
+author: "riya"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/vertical-background-image-of-podcast-recording-studio-with-two-chairs-copy-space-SlAZ45OZhRc\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/vertical-background-image-of-podcast-recording-studio-with-two-chairs-copy-space-SlAZ45OZhRc</a></p>"
 draft: false

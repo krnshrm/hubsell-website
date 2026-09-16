@@ -5,6 +5,7 @@ description: "Discover 8 powerful use cases for cold outreach beyond outbound sa
 summary: "Gone are the days when cold outreach was only used for outbound sales. There are now much more nuanced ways of using cold outreach to your advantage. Collated below in this blog post are 8 use cases where cold outreach will be your number one tactic to use and apply."
 publishedAt: 2026-03-31
 readTime: "16 min read"
+author: "riya"
 featured: false
 draft: false
 ---

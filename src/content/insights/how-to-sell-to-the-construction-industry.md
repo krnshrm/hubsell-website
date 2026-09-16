@@ -5,6 +5,7 @@ description: "Explore the rapid expansion of the global construction industry, w
 summary: "The scale of the world construction industry has been on the rise in recent years, and it is now growing at an ever-increasing rate. The construction industry’s market was valued at USD 11.4 trillion in 2019 according to market survey data. Moreover, it is expected that the growth will continue upwards, despite the obvious challenges post 2020. If you are looking to target the construction industry and get construction companies as customers for your products or solutions, this post is for you. In this post, I will outline some of the current trends in the construction industry, and then show you why and how to use outbound sales to target these companies online."
 publishedAt: 2026-03-31
 readTime: "24 min read"
+author: "riya"
 featured: false
 draft: false
 ---

@@ -7,6 +7,7 @@ publishedAt: 2026-04-23
 coverImage: "https://assets.hubsell.com/insights/69e9eb9bd5e850debd43e207_How-we-generated-18-opportunities-at-WebSummit-and-how-you-can-do-it-too.png"
 thumbnail: "https://assets.hubsell.com/insights/69e9eb97e470b6e01406288d_Thumbnail-How-we-generated-18-opportunities-at-WebSummit-and-how-you-can-do-it-too.png"
 readTime: "10 min read"
+author: "karan"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/people-raising-hands-with-bokeh-lights-0RDBOAdnbWM\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/people-raising-hands-with-bokeh-lights-0RDBOAdnbWM</a></p>"
 draft: false

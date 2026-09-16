@@ -5,6 +5,7 @@ description: "Streamline your B2B outbound sales by automating repetitive tasks.
 summary: "B2B salespeople are busy, so any time-saving automation is welcome. Unfortunately, a lot of their time is spent on tasks that could be automated. At hubsell, we have gone through the process of automating sales to free up time for more relevant tasks. So, in this post, I want to share seven steps of outbound sales that you can automate."
 publishedAt: 2026-03-31
 readTime: "5 min read"
+author: "riya"
 featured: false
 draft: false
 ---

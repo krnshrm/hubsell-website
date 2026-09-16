@@ -5,6 +5,7 @@ description: "Stop drowning in tool madness. SDRs often juggle multiple platform
 summary: "Streamline your outbound sales by consolidating tools. Learn how hubsell can enhance productivity and improve sales outcomes by reducing tool chaos and context switching."
 publishedAt: 2026-03-31
 readTime: "2 min read"
+author: "riya"
 featured: false
 draft: false
 ---

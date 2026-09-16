@@ -7,6 +7,7 @@ publishedAt: 2026-04-14
 coverImage: "https://assets.hubsell.com/insights/69cf9e824f59695cd02757fd_What-is-intent-data-and-how-to-use-it-in-your-B2B-sales-and-marketing-efforts.avif"
 thumbnail: "https://assets.hubsell.com/insights/69cf9e7c00b8c9f4a9f231aa_Thumbnail-What-is-intent-data-and-how-to-use-it-in-your-B2B-sales-and-marketing-efforts.avif"
 readTime: "13 min read"
+author: "kylie"
 featured: false
 sources: "<p>Featured image licensed under Unsplash License:</p><p><a href=\"https://unsplash.com/photos/turned-on-monitoring-screen-qwtCeJ5cLYs\" target=\"_blank\" rel=\"noopener\">https://unsplash.com/photos/turned-on-monitoring-screen-qwtCeJ5cLYs</a></p><p></p>"
 draft: false
