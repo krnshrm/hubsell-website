@@ -138,22 +138,19 @@ decided against, so it does not get suggested again.]
 
 These are not theoretical. Each one distorted a real pull on 2026-09-17.
 
-1. **Normalising is mandatory; the property choice only helps.** An earlier version of
-   this note told you to use a `https://www.hubsell.com/` URL-prefix property instead
-   of `sc-domain:hubsell.com`. That was wrong twice over. First, the URL-prefix
-   property does not currently exist: on 2026-09-17 the account held only
-   `sc-domain:hubsell.com` and an unrelated `sc-domain:kadanco.com`. Second, and more
-   importantly, it would not have prevented the problem. The 2026-06-10 to 07-07
-   baseline pull was 100% `www` with no apex rows at all, and **33 pages were still
-   split across multiple rows** by trailing slashes, for example
-   `/insights/b2b-data-compliance` at 13,528 impressions and
-   `/insights/b2b-data-compliance/` at 482. Always normalise (rule 2), whatever
-   property you pull from.
-   Re-adding the URL-prefix property is still worth doing, because it excludes `app.`
-   and `staging.` at source: GSC Settings, add property, URL prefix,
-   `https://www.hubsell.com/`. DNS verification from the domain property should cover
-   it, and GSC normally backfills history on verification, though confirm that when
-   you add it. Since the apex 301 was restored on 2026-09-17, apex rows in the domain
+1. **Normalising is mandatory; the property choice only helps.** Pull day-to-day
+   marketing questions from the URL-prefix property `https://www.hubsell.com/`, which
+   excludes `app.` and `staging.` at source. Keep `sc-domain:hubsell.com` too: it is
+   the longer historical record and the only view that shows subdomain problems.
+   Do NOT treat the property choice as the fix. The 2026-06-10 to 07-07 baseline pull
+   was 100% `www` with no apex rows at all, and **33 pages were still split across
+   multiple rows** by trailing slashes, for example `/insights/b2b-data-compliance` at
+   13,528 impressions and `/insights/b2b-data-compliance/` at 482. A URL-prefix
+   property removes only the apex cause; trailing slashes and query strings such as
+   `?fbclid=` survive inside `www`. Always normalise (rule 2), whatever property you
+   pull from.
+   History: the URL-prefix property was found missing on 2026-09-17 and re-added the
+   same day. Since the apex 301 was restored on 2026-09-17, apex rows in the domain
    property should decay on their own as Google recrawls.
 
 2. **Normalise page URLs before ranking anything.** One post can appear as four rows:
