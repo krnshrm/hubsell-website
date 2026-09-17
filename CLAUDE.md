@@ -128,10 +128,40 @@ decided against, so it does not get suggested again.]
 - After pulling data, read the actual page source in `src/pages` or `src/data` before
   proposing a change. A recommendation that does not reference the real content is
   not useful.
-- Propose changes as a diff on a branch. `main` deploys to production on push.
+- Propose changes as a diff on a branch. Merging to `main` is how work reaches
+  production, but the Cloudflare deploy is manual (see "Deploy safety").
 - Say when the data does not support a conclusion. "This is noise" is a better answer
   than a confident story about a 3 percent movement.
 - GSC lags roughly two days. Do not read the last two days as a drop.
+
+### Three data traps that have already produced a wrong analysis
+
+These are not theoretical. Each one distorted a real pull on 2026-09-17.
+
+1. **Use the URL-prefix property, not the domain property, for marketing questions.**
+   `sc-domain:hubsell.com` covers every subdomain and protocol by design, so apex,
+   `app.` and `staging.` rows land in the same table. Use
+   `https://www.hubsell.com/` for day-to-day work. A 2026-09-17 pull from the domain
+   property returned 78 rows that collapsed to 37 real pages.
+
+2. **Normalise page URLs before ranking anything.** One post can appear as four rows:
+   apex and `www`, each with and without a trailing slash, plus query-string variants
+   such as `?fbclid=`. Ranking an un-normalised table is simply wrong. Strip the host,
+   the query string and the trailing slash, then aggregate clicks and impressions and
+   take an impression-weighted average position:
+
+   ```python
+   def norm(url):
+       p = re.sub(r'^https?://(www\.)?hubsell\.com', '', url.strip())
+       return p.split('?')[0].rstrip('/') or '/'
+   ```
+
+3. **Filter GA4 by `hostName`.** Property `338895211` receives both the marketing site
+   and `app.hubsell.com`, because the app carries the marketing GA tag. In an 11-day
+   export, 114 of 119 events were app pages. Any unfiltered GA4 number about "the
+   site" is really a number about the app. Filter to `www.hubsell.com`, or move the
+   app to its own property, which is the real fix. GA4 sub-properties are not an
+   option here; they need GA4 360 and this property is Standard.
 
 ## Stack and locked decisions
 
