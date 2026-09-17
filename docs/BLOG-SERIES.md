@@ -1,6 +1,6 @@
 # Blog-content series and editing standard (/insights)
 
-_Last updated: 2026-09-15. Companion to `docs/HANDOFF.md`. Covers two things: the
+_Last updated: 2026-09-17. Companion to `docs/HANDOFF.md`. Covers two things: the
 workstream that turns the founder's LinkedIn posts into blog posts, and the editing
 gate every new or updated post must pass before it ships. Owned by ONE dedicated chat
 at a time._
@@ -167,10 +167,11 @@ Read `docs/20260905-0934-GA4-GSC-ANALYSIS-RECAP.md` before planning topics. Head
    That is a low-intent audience, so this is a TOPIC SELECTION problem. The editing
    gate raises the quality of each page; it does not change which pages we publish.
    Choose topics with buying intent.
-3. **Measurement is broken.** `form_submit_success` and `cta_click` have never fired
-   in 90 days, and no marketing page produced a single tracked conversion. Until that
-   is fixed, no content change here can be proven to work. This is the highest-value
-   open item and it is not a content task.
+3. ~~**Measurement is broken.**~~ FIXED on 2026-09-06 (GTM version 46). At the time of
+   the analysis `form_submit_success` and `cta_click` had never fired and no marketing
+   page had produced a tracked conversion, which is why the analysis could not judge
+   any page by conversion. That is no longer true. Real conversion data starts
+   2026-09-06.
 
 ### Done on 2026-09-15
 - All 14 over-length post descriptions rewritten (was 283 to 316 chars, now 102 to
@@ -214,8 +215,8 @@ three of these in a single edit so the file is touched once:
 - Rewrite `description` to a complete sentence UNDER 160 characters. 73 of 88 are
   still over, running 224 to 300 characters, median 294. Every one truncates
   mid-clause in a Google snippet.
-- Cut filler from the intro and tighten hedged claims. 19 posts contain stock
-  phrases; scan for "in today's fast-paced", "in the ever-changing", "delve into",
+- Cut filler from the intro and tighten hedged claims. 21 posts contain stock
+  phrases (re-measured 2026-09-17); scan for "in today's fast-paced", "in the ever-changing", "delve into",
   "seamless", "leverage", "robust", "comprehensive guide", "in conclusion".
 - Add 2 or 3 internal links to related posts, hyperlinking text that is already in
   the copy rather than bolting on a "related reading" line.
@@ -223,7 +224,8 @@ Order the batches by GSC impressions (the founder has the GSC/GA connector), not
 alphabetically, so the pages that already get traffic are fixed first.
 
 ### 2. Flag and refresh stale facts (step 4)
-19 posts reference a year between 2010 and 2023. `ultimate-list-best-crm-software-for-b2b`
+22 posts reference a year between 2010 and 2023 (re-measured 2026-09-17; the 19 quoted
+on 2026-09-15 was a slight undercount). `ultimate-list-best-crm-software-for-b2b`
 cites six different years up to 2021 and is almost certainly out of date. Claude
 cannot check external links from the sandbox (network is limited to package
 registries), so dead external links need a link checker or a manual pass.
@@ -248,16 +250,27 @@ IMPORTANT: this needs the founder's own material. Claude must not invent a clien
 story or a dashboard number to fill the block. Realistically this applies to 10 to 20
 posts, not all 88. Never name a customer.
 
-### 5. Not a content task, but it outranks more content
-Conversion tracking is broken: `form_submit_success` and `cta_click` have never fired
-in 90 days and no marketing page shows a tracked conversion. Until that is fixed,
-none of the work above can be proven to have worked.
+### 5. RESOLVED 2026-09-06, was the blocker on everything above
+Conversion tracking is fixed. The 2026-09-15 version of this file said it was broken
+and that it outranked all content work. That was already out of date when written: the
+GTM container was republished as version 46 on 2026-09-06 with 4 custom event triggers
+and 4 GA4 event tags, so `cta_click`, `form_start`, `form_error` and
+`form_submit_success` have reached GA4 since that date. See CLAUDE.md for the tag
+inventory and the known harmless leftovers.
+
+Two things follow from this:
+- Data before 2026-09-06 does not exist for these events. Never compare across that
+  date and report the jump as a real movement.
+- The batch order below no longer has to use GSC impressions as a proxy for value.
+  Order by what actually converts once there is enough data to read.
 
 ### Also queued
 - Post 2 of the series (cold outreach reply rates) is drafted and unpublished. The
-  2-posts-per-week cadence has not started.
-- Confirm the four author photos are on R2: `riya-uppal.jpg`, `sebastian-schlimme.jpg`,
-  `guido-croce.jpg`, `kylie-naude.jpg`. These bylines are LIVE across 60 posts.
+  2-posts-per-week cadence has not started. PAUSED by the founder on 2026-09-17 until
+  the batch pass below is done.
+- ~~Confirm the four author photos are on R2.~~ DONE 2026-09-17: all four avatars and
+  the post-1 cover image were verified live via `web_fetch` (method recorded in
+  `docs/HANDOFF.md`). No broken author images.
 - The de/nl `comparisons`, `usecases`, and `customerstories` descriptions are mildly
   over (161 to 220 chars). Lower priority than the blog.
 
