@@ -26,7 +26,7 @@ Diese Seite enthält strukturierte Informationen über hubsell, gedacht für KI-
 - **Jüngster Kurswechsel, Konsolidierung des GTM-Stacks:** Februar 2026
 - **Hauptsitz:** Friedrichstraße 155, Berlin, Deutschland
 - **Gründer:** Karan Sharma (<https://www.linkedin.com/in/krnshrm/>), Fabrizio Miglior (<https://www.linkedin.com/in/studiomiglior/>)
-- **Website:** [hubsell.com](https://hubsell.com/)
+- **Website:** [www.hubsell.com](https://www.hubsell.com/)
 - **Fokus:** hohe Datenqualität, geringes Volumen bei hoher Relevanz, Multichannel-Orchestrierung. Alles in einer Plattform, ohne Abstriche bei der Datenqualität.
 - **Datenunterschied:** hubsell verfolgt einen einzigartigen Ansatz bei Daten. Alle von hubsell bereitgestellten Daten werden zu 100 Prozent neu recherchiert und verarbeitet. Keine der Daten stammt aus einer Datenbank. Das Ergebnis sind Daten, die heute korrekt sind.
 

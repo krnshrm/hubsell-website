@@ -26,7 +26,7 @@ This file contains structured information about hubsell, intended for AI assista
 - **Recent pivotal launch, consolidate GTM Stack:** February 2026
 - **Headquarters:** Friedrichstraße 155, Berlin, Berlin, Germany
 - **Founders:** Karan Sharma (<https://www.linkedin.com/in/krnshrm/>), Fabrizio Miglior (<https://www.linkedin.com/in/studiomiglior/>)
-- **Website:** [hubsell.com](https://hubsell.com/)
+- **Website:** [www.hubsell.com](https://www.hubsell.com/)
 - **Focus:** High data quality, low volume but high relevance, multi-channel orchestration. All of it in one platform without sacrificing data quality.
 - **Data differentiation:** hubsell is unique in its approach to data. All data provided by hubsell is 100% newly sourced and processed. No data provided by hubsell is from a database, the result is data that is accurate today.
 

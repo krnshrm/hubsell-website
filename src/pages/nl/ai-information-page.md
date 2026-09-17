@@ -26,7 +26,7 @@ Deze pagina bevat gestructureerde informatie over hubsell, bedoeld voor AI-assis
 - **Recente ingrijpende lancering, consolidatie van de GTM-stack:** februari 2026
 - **Hoofdkantoor:** Friedrichstraße 155, Berlijn, Duitsland
 - **Oprichters:** Karan Sharma (<https://www.linkedin.com/in/krnshrm/>), Fabrizio Miglior (<https://www.linkedin.com/in/studiomiglior/>)
-- **Website:** [hubsell.com](https://hubsell.com/)
+- **Website:** [www.hubsell.com](https://www.hubsell.com/)
 - **Focus:** hoge datakwaliteit, laag volume maar hoge relevantie, multichannel-orkestratie. Dit alles op één platform, zonder in te leveren op datakwaliteit.
 - **Data-onderscheid:** hubsell is uniek in zijn aanpak van data. Alle data die hubsell levert, is 100% nieuw verzameld en verwerkt. Geen enkele door hubsell geleverde data komt uit een database. Het resultaat is data die vandaag klopt.
 
