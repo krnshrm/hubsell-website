@@ -441,6 +441,7 @@ export interface ComparisonsCopy {
   dataQualityH2: string;
   pricingH2: string;
   chooseH2: string;
+  faqH2: string;
   chooseHub: string;
   chooseCompPre: string;
   chooseCompPost: string;
@@ -466,7 +467,7 @@ const comparisonsPage = byLocale<ComparisonsCopy>(
     ovEyebrow: 'Comparisons',
     ovH1: 'hubsell vs the alternatives',
     ovSub:
-      'Most outbound stacks bolt a database to a sequencer to a sync tool. hubsell sources contacts live, runs email and LinkedIn as one flow, and syncs every touch to your CRM. Here is how it compares, including where the other tools are the better fit.',
+      'Most outbound stacks bolt a database to a sequencer to a sync tool. hubsell sources contacts live, runs email, LinkedIn, and phone as one flow, and syncs every touch to your CRM. Here is how it compares, including where the other tools are the better fit.',
     back: 'All comparisons',
     eyebrowPrefix: 'Comparison',
     ctaPrimary: 'Book a demo',
@@ -476,6 +477,7 @@ const comparisonsPage = byLocale<ComparisonsCopy>(
     dataQualityH2: 'Data quality',
     pricingH2: 'Pricing',
     chooseH2: 'Which should you choose?',
+    faqH2: 'Frequently asked questions',
     chooseHub: 'Choose hubsell if',
     chooseCompPre: 'Choose ',
     chooseCompPost: ' if',
@@ -499,7 +501,7 @@ const comparisonsPage = byLocale<ComparisonsCopy>(
     ovEyebrow: 'Vergleiche',
     ovH1: 'hubsell vs. die Alternativen',
     ovSub:
-      'Die meisten Outbound-Stacks schrauben eine Datenbank an einen Sequencer an ein Sync-Tool. hubsell recherchiert Kontakte live, betreibt E-Mail und LinkedIn als einen Ablauf und synchronisiert jeden Kontaktpunkt mit Ihrem CRM. So schneidet es im Vergleich ab, samt der Fälle, in denen die anderen Tools besser passen.',
+      'Die meisten Outbound-Stacks schrauben eine Datenbank an einen Sequencer an ein Sync-Tool. hubsell recherchiert Kontakte live, betreibt E-Mail, LinkedIn und Telefon als einen Ablauf und synchronisiert jeden Kontaktpunkt mit Ihrem CRM. So schneidet es im Vergleich ab, samt der Fälle, in denen die anderen Tools besser passen.',
     back: 'Alle Vergleiche',
     eyebrowPrefix: 'Vergleich',
     ctaPrimary: 'Demo buchen',
@@ -509,6 +511,7 @@ const comparisonsPage = byLocale<ComparisonsCopy>(
     dataQualityH2: 'Datenqualität',
     pricingH2: 'Preise',
     chooseH2: 'Was sollten Sie wählen?',
+    faqH2: 'Häufig gestellte Fragen',
     chooseHub: 'hubsell wählen, wenn',
     chooseCompPre: '',
     chooseCompPost: ' wählen, wenn',
@@ -532,7 +535,7 @@ const comparisonsPage = byLocale<ComparisonsCopy>(
     ovEyebrow: 'Vergelijkingen',
     ovH1: 'hubsell vs de alternatieven',
     ovSub:
-      'De meeste outbound-stacks schroeven een database aan een sequencer aan een sync-tool. hubsell verzamelt contacten live, draait e-mail en LinkedIn als één flow, en synchroniseert elk contactmoment met uw CRM. Zo verhoudt het zich, inclusief waar de andere tools de betere keuze zijn.',
+      'De meeste outbound-stacks schroeven een database aan een sequencer aan een sync-tool. hubsell verzamelt contacten live, draait e-mail, LinkedIn en telefoon als één flow, en synchroniseert elk contactmoment met uw CRM. Zo verhoudt het zich, inclusief waar de andere tools de betere keuze zijn.',
     back: 'Alle vergelijkingen',
     eyebrowPrefix: 'Vergelijking',
     ctaPrimary: 'Demo plannen',
@@ -542,6 +545,7 @@ const comparisonsPage = byLocale<ComparisonsCopy>(
     dataQualityH2: 'Datakwaliteit',
     pricingH2: 'Prijzen',
     chooseH2: 'Wat moet u kiezen?',
+    faqH2: 'Veelgestelde vragen',
     chooseHub: 'Kies hubsell als',
     chooseCompPre: 'Kies ',
     chooseCompPost: ' als',

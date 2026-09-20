@@ -113,6 +113,24 @@ const vsQuotes = ['matterway', 'spryker', 'cibt'].map((s) => pool.find((t) => t.
       </section>
     )}
 
+    {d.faqs && d.faqs.length > 0 && (
+      <section class="vs-section" aria-labelledby="vs-faq-title">
+        <h2 id="vs-faq-title" class="vs-h2">{c.faqH2}</h2>
+        <div class="acc" data-accordion>
+          {d.faqs.map((f: { question: string; answer: string }, idx: number) => (
+            <div class={`acc__item${idx === 0 ? ' is-open' : ''}`}>
+              <h3 style="margin:0">
+                <button class="acc__btn" type="button" aria-expanded={idx === 0 ? 'true' : 'false'}>
+                  {f.question}
+                </button>
+              </h3>
+              <div class="acc__panel" style={idx === 0 ? 'max-height:400px' : ''} set:html={f.answer}></div>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
     {vsQuotes.length > 0 && (
       <section class="vs-section vs-voices">
         <TestimonialStrip quotes={vsQuotes} heading={c.stripHeading} />
@@ -274,3 +292,25 @@ const vsQuotes = ['matterway', 'spryker', 'cibt'].map((s) => pool.find((t) => t.
   .vs-card__more { margin-top:auto; font-family:var(--font-body); font-weight:500; font-size:14px; color:var(--accent-on); }
   @media (max-width:600px){ .vs-related__grid { grid-template-columns:1fr; } }
 </style>
+
+<script>
+  // Same accordion behavior as Faq.astro / FaqsBody.astro — duplicated rather than
+  // shared because neither of those extracted it into a standalone component.
+  function initAccordions() {
+    document.querySelectorAll<HTMLElement>('[data-accordion]').forEach((acc) => {
+      if (acc.dataset.ready) return;
+      acc.dataset.ready = '1';
+      acc.querySelectorAll<HTMLElement>('.acc__item').forEach((item) => {
+        const btn = item.querySelector<HTMLButtonElement>('.acc__btn')!;
+        const panel = item.querySelector<HTMLElement>('.acc__panel')!;
+        btn.addEventListener('click', () => {
+          const open = item.classList.toggle('is-open');
+          btn.setAttribute('aria-expanded', String(open));
+          panel.style.maxHeight = open ? panel.scrollHeight + 'px' : '';
+        });
+      });
+    });
+  }
+  initAccordions();
+  document.addEventListener('astro:page-load', initAccordions);
+</script>

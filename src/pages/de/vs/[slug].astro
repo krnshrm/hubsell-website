@@ -31,8 +31,24 @@ const crumbs = breadcrumbSchema([
   { name: c.crumbComparisons, url: localizeUrl(L, '/comparisons') },
   { name: `${competitor} vs hubsell`, url: localizeUrl(L, `/vs/${item.id}`) },
 ]);
+// LEARNING: mirrors src/pages/vs/[slug].astro. comparisonsDe has no faqs yet
+// (see src/content.config.ts), so this is a no-op today; once German FAQs are
+// backfilled it starts emitting the schema automatically, matching whatever
+// ComparisonDetail renders as the visible accordion.
+const stripHtml = (s: string) => s.replace(/<[^>]+>/g, '').trim();
+const schemas = d.faqs && d.faqs.length > 0
+  ? [crumbs, {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: d.faqs.map((f: { question: string; answer: string }) => ({
+        '@type': 'Question',
+        name: f.question,
+        acceptedAnswer: { '@type': 'Answer', text: stripHtml(f.answer) },
+      })),
+    }]
+  : crumbs;
 ---
 <BaseLayout title={seoTitle} description={seoDescFinal}>
-  <JsonLd slot="head" schema={crumbs} />
+  <JsonLd slot="head" schema={schemas} />
   <ComparisonDetail item={item} items={items} />
 </BaseLayout>

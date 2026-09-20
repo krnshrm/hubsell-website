@@ -16,4 +16,13 @@ ctaButtonText: "Book a 20-minute demo"
 ctaLink: "/book-a-call"
 lastFactChecked: "June 13, 2026"
 sources: "<p>Competitor details verified June 2026. Key sources:</p><ul><li>Pricing and credit model: Apollo pricing page and 2026 third-party breakdowns.</li><li>Data model and monthly checks: apollo.io and knowledge.apollo.io.</li><li>LinkedIn tasks completed manually: Apollo help documentation. Automated LinkedIn actions removed January 2026.</li><li>97 percent email accuracy: Apollo's own published claim.</li></ul>"
+faqs:
+  - question: "Does Apollo run LinkedIn outreach automatically?"
+    answer: "<p>No. Apollo's LinkedIn steps are manual task reminders that a rep completes by hand, and Apollo removed automated LinkedIn actions from the platform entirely in January 2026. hubsell runs email and LinkedIn as one automated sequence, including connection requests, profile visits, DMs, and InMail.</p>"
+  - question: "Is Apollo's contact data live-sourced?"
+    answer: "<p>No. Apollo draws from a pre-built database of around 275 million contacts, compiled before you search and checked on a monthly cycle, so a share of it has already aged by the time you send. hubsell sources and validates each contact at the moment you search, so the record is current when you use it.</p>"
+  - question: "How does Apollo's pricing compare to hubsell?"
+    answer: "<p>Apollo charges per seat plus credits that are spent on every unlock, export, or enrichment and do not roll over, with paid plans from $49 to $119 per user per month. hubsell is €120 per user per month plus data as you use it, €0.10 per LinkedIn contact and €0.50 per fully enriched and validated contact, so nothing is forfeited at renewal.</p>"
+  - question: "When does Apollo make more sense than hubsell?"
+    answer: "<p>Apollo is the stronger pick if you want a large database to browse across dozens of filters, need a built-in dialer for cold calling, or want a free plan to start, as long as you have the people to work around records that have gone stale since the last refresh.</p>"
 ---

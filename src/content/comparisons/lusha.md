@@ -16,4 +16,13 @@ ctaButtonText: "Book a 20-minute demo"
 ctaLink: "/book-a-call"
 lastFactChecked: "June 13, 2026"
 sources: "<p>Competitor details verified June 2026. Key sources:</p><ul><li>Pricing and credit model: pipeline.zoominfo, cleanlist, prospeo, syncgtm, sera.</li><li>Database, coverage, accuracy, no outreach layer: cleanlist, prospeo, syncgtm, sera.</li></ul>"
+faqs:
+  - question: "Does Lusha include email or LinkedIn sequencing?"
+    answer: "<p>No. Lusha is a contact-lookup tool, a Chrome extension for finding emails and phone numbers, with no outreach layer at all. hubsell sources contacts live for your search and runs email and LinkedIn as one automated flow.</p>"
+  - question: "How accurate is Lusha's data?"
+    answer: "<p>Lusha markets 98 percent email deliverability and around 85 percent phone accuracy, but independent tests and user reports put usable coverage well below that, with one March 2026 test returning emails for about 31 percent of lookups, and accuracy dropping further outside North America. hubsell sources and validates each contact at the point of use.</p>"
+  - question: "How is Lusha priced compared to hubsell?"
+    answer: "<p>Lusha is credit-based and per seat: a free tier of 40 to 70 credits a month, Pro about $29 to $30 per user per month on annual billing, and a phone reveal costs about ten times an email. hubsell is €120 per user per month plus €0.10 per LinkedIn contact and €0.50 per enriched and validated contact.</p>"
+  - question: "When is Lusha the better choice over hubsell?"
+    answer: "<p>Lusha suits smaller teams or individuals who want a fast, low-cost Chrome extension for occasional, US-centric contact lookups and do not need outreach, and who can accept thinner coverage outside North America.</p>"
 ---

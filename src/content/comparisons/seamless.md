@@ -16,4 +16,13 @@ ctaButtonText: "Book a 20-minute demo"
 ctaLink: "/book-a-call"
 lastFactChecked: "June 13, 2026"
 sources: "<p>Competitor details verified June 2026. Pricing is partly published, partly reported. Accuracy figures are user-reported. Key sources:</p><ul><li>Pricing and credit model: cleanlist, syncgtm, enrich.so, marketbetter.</li><li>Real-time model, accuracy, auto-renewal terms: enrich.so, syncgtm, cleanlist, sybill, smarte.</li></ul>"
+faqs:
+  - question: "Is Seamless.AI's data actually real-time?"
+    answer: "<p>Seamless markets itself as a real-time AI search engine with 98 percent accuracy, but independent and user reports put email accuracy around 60 to 75 percent with 20 to 30 percent bounce, and a credit is charged on every search including failed results. hubsell also sources live, but validates at the point of use and bills only per verified contact.</p>"
+  - question: "Does Seamless.AI run email and LinkedIn sequences?"
+    answer: "<p>No. Seamless offers an AI writer but no automated email sequencing and no LinkedIn outreach — it stops at lookup. hubsell runs email and LinkedIn as one coordinated flow.</p>"
+  - question: "Is Seamless.AI hard to cancel?"
+    answer: "<p>Seamless is widely flagged in reviews for aggressive auto-renewal and a 60-day non-renewal window that reviewers describe as hard to escape. hubsell is billed month to month with no renewal lock-in.</p>"
+  - question: "How does Seamless.AI pricing compare to hubsell?"
+    answer: "<p>Seamless charges a flat credit per contact per search, roughly $0.59 per contact on its Basic plan, charged whether or not the result is valid, with Pro reported between $147 and $299 per user per month. hubsell is €120 per user per month plus €0.10 per LinkedIn contact and €0.50 per verified contact, and you only pay for contacts that come back verified.</p>"
 ---

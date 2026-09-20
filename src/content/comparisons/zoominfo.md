@@ -16,4 +16,13 @@ ctaButtonText: "Book a 20-minute demo"
 ctaLink: "/book-a-call"
 lastFactChecked: "June 13, 2026"
 sources: "<p>Competitor details verified June 2026. ZoomInfo does not publish full pricing, so figures are reported or third-party. Key sources:</p><ul><li>Pricing and contract terms: pin.com, factors.ai, enrich.so, zoominfopricing, derrick.</li><li>Database size and accuracy: cleanlist, competitor-reported.</li><li>Auto-renewal, credits, data-destruction clause: pin.com, enrich.so, zoominfopricing.</li></ul>"
+faqs:
+  - question: "Does ZoomInfo include outreach, or just data?"
+    answer: "<p>ZoomInfo is data first — its outreach tool, Engage, is a separate paid add-on, not a coordinated multichannel flow, and it has no automated LinkedIn outreach. hubsell sources live and runs email and LinkedIn together in one flow, billed per contact.</p>"
+  - question: "What happens to your data if you cancel ZoomInfo?"
+    answer: "<p>ZoomInfo contracts include a data-destruction clause that wipes the contacts you exported once the contract ends, and auto-renew on a 60 to 90 day cancellation window with renewals commonly rising 10 to 20 percent. hubsell is month to month, and there is no database to hand back because nothing is stored between searches.</p>"
+  - question: "How much does ZoomInfo cost compared to hubsell?"
+    answer: "<p>ZoomInfo is sold on annual contracts starting around $15,000 a year for three seats, with most teams landing between $30,000 and $60,000 once seats and add-ons are included. hubsell is €120 per user per month plus €0.10 per LinkedIn contact and €0.50 per fully enriched and validated contact, month to month.</p>"
+  - question: "When does ZoomInfo make more sense than hubsell?"
+    answer: "<p>ZoomInfo fits enterprise teams that need the largest US database, intent data, and Chorus conversation intelligence, and have the budget and appetite for a five-figure annual contract with auto-renewal and a data-destruction clause on exit.</p>"
 ---

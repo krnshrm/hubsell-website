@@ -35,8 +35,24 @@ const crumbs = breadcrumbSchema([
   { name: c.crumbComparisons, url: localizeUrl(L, '/comparisons') },
   { name: `${competitor} vs hubsell`, url: localizeUrl(L, `/vs/${item.id}`) },
 ]);
+// LEARNING: built from d.faqs, the same array ComparisonDetail renders as the
+// visible accordion, so the schema can never drift from what a visitor sees —
+// same rule as the homepage FAQPage schema in src/pages/index.astro. d.faqs is
+// optional (see src/content.config.ts), so pages without it just skip the schema.
+const stripHtml = (s: string) => s.replace(/<[^>]+>/g, '').trim();
+const schemas = d.faqs && d.faqs.length > 0
+  ? [crumbs, {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: d.faqs.map((f: { question: string; answer: string }) => ({
+        '@type': 'Question',
+        name: f.question,
+        acceptedAnswer: { '@type': 'Answer', text: stripHtml(f.answer) },
+      })),
+    }]
+  : crumbs;
 ---
 <BaseLayout title={seoTitle} description={seoDescFinal}>
-  <JsonLd slot="head" schema={crumbs} />
+  <JsonLd slot="head" schema={schemas} />
   <ComparisonDetail item={item} items={items} />
 </BaseLayout>

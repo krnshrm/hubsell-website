@@ -142,6 +142,14 @@ const comparisonSchema = z.object({
     ctaLink: z.string().optional(),             // Webflow: CTA link (e.g. /book-a-call)
     lastFactChecked: z.string().optional(),     // Webflow: Last fact-checked (formatted date)
     sources: z.string().optional(),             // Webflow: Sources (HTML)
+    // Not from Webflow — authored directly in the .md. Feeds both the visible FAQ
+    // accordion and the page's FAQPage JSON-LD (built in src/pages/vs/[slug].astro),
+    // so answers must restate facts already covered elsewhere on the page (tldr,
+    // coreDifference, dataQuality, pricing, chooseCompetitor/chooseHubsell), never
+    // add a new claim. Optional so comparisonsDe/comparisonsNl (not yet backfilled)
+    // still validate; every new English comparison page should include it — see
+    // docs/HANDOFF.md.
+    faqs: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
     draft: z.boolean().default(false),
 });
 

@@ -16,4 +16,13 @@ ctaButtonText: "Book a 20-minute demo"
 ctaLink: "/book-a-call"
 lastFactChecked: "June 13, 2026"
 sources: "<p>Competitor details verified June 2026. Cognism does not publish pricing, so figures are reported or third-party. Key sources:</p><ul><li>Pricing and contract terms: enrich.so, marketbetter, derrick, cleanlist, salesmotion.</li><li>Diamond Data, coverage, no native outreach: docket.io, syncgtm, smarte, enrich.so.</li></ul>"
+faqs:
+  - question: "How does Cognism source and verify its data?"
+    answer: "<p>Cognism's differentiator is Diamond Data, a human phone-verified subset of its EU mobile numbers, with a claimed 98 percent accuracy that applies to that verified subset, not the whole database. Standard records, like any pre-built database, are refreshed on a cycle rather than sourced at the moment you search. hubsell sources and validates every contact at the point of use.</p>"
+  - question: "Does Cognism include email and LinkedIn outreach?"
+    answer: "<p>No. Cognism is a data source, not an execution tool — there is no native outreach, so teams pair it with a separate platform such as Outreach or SalesLoft and pay for both. hubsell sources live and runs email and LinkedIn as one flow in the same tool.</p>"
+  - question: "Is Cognism or hubsell better for teams that need verified mobile numbers in Europe?"
+    answer: "<p>Cognism is the stronger choice for EU and EMEA teams doing phone-heavy outbound: Diamond Data's human-verified mobile numbers and formal GDPR, ISO, and SOC controls are best in class for European cold calling. hubsell is the better fit if you want that kind of live-sourced data paired with coordinated email and LinkedIn outreach in one platform, billed per contact instead of a five-figure annual contract.</p>"
+  - question: "How much does Cognism cost compared to hubsell?"
+    answer: "<p>Cognism is sold on annual contracts, reported from about $15,000 a year plus roughly $1,500 per seat, with Diamond Data adding 20 to 70 percent; real contracts commonly run $15,000 to $60,000 or more. hubsell is €120 per user per month plus €0.10 per LinkedIn contact and €0.50 per verified contact, month to month, with no annual commitment.</p>"
 ---

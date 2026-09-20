@@ -110,6 +110,8 @@ The use-cases overview and four detail pages are live (English, German, Dutch). 
 | `/vs/seamless` | Live | |
 | `/alternatives` | Not built | Comparison hub, optional |
 
+Every `/vs/*` page needs an `faqs` array in its content frontmatter (English pages all have it as of 2026-09-20) — it drives both the visible FAQ accordion and the page's FAQPage JSON-LD. See the standing rule in `docs/HANDOFF.md` for why (an AI Mode fan-out signature was already showing up in GSC on `/vs/cognism` with no structured answer to serve it) and what a new comparison page's `faqs` entries must be built from.
+
 ### Company
 | Path | Status | Notes |
 | --- | --- | --- |
