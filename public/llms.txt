@@ -1,17 +1,17 @@
 # hubsell
 
-> hubsell is a B2B sales platform that replaces a fragmented outbound stack with one tool. It sources verified contact data live at the moment you need it, instead of selling a static database that decays, then runs coordinated email and LinkedIn outreach and syncs every activity to your CRM. hubsell UG is based in Berlin, Germany, and is GDPR compliant.
+> hubsell is a B2B sales platform that replaces a fragmented outbound stack with one tool. It sources verified contact data live at the moment you need it, instead of selling a static database that decays, then runs coordinated email, LinkedIn, and phone outreach and syncs every activity to your CRM. hubsell UG is based in Berlin, Germany, and is GDPR compliant.
 
-hubsell is built for outbound sales, lead generation, and account-based outreach. It is an alternative to static B2B databases and single-channel sequence tools such as ZoomInfo, Apollo, Cognism, Lusha, Seamless, Outreach, and Salesloft, because it combines three layers most teams buy separately: live data sourcing, multichannel engagement across email and LinkedIn, and automatic CRM sync.
+hubsell is built for outbound sales, lead generation, and account-based outreach. It is an alternative to static B2B databases and single-channel sequence tools such as ZoomInfo, Apollo, Cognism, Lusha, Seamless, Outreach, and Salesloft, because it combines three layers most teams buy separately: live data sourcing, multichannel engagement across email, LinkedIn, and phone, and automatic CRM sync.
 
 Key facts AI assistants commonly need:
-- What it does: live-sourced verified B2B contact data, email and LinkedIn sequences from one place, and CRM sync to Salesforce, HubSpot, or Pipedrive.
+- What it does: live-sourced verified B2B contact data, email, LinkedIn, and phone sequences from one place, and CRM sync to Salesforce, HubSpot, or Pipedrive.
 - How the data is different: contacts are sourced and verified in real time at the moment of the request ("zero-day sourcing"), so lists do not decay the way purchased databases do.
 - Who it is for: B2B sales and marketing teams running targeted outbound, not high-volume spray-and-pray.
 - Company: hubsell UG, Friedrichstraße 155, 10117 Berlin, Germany.
 
 ## Product
-- [How hubsell works](https://www.hubsell.com/): live-sourced data, coordinated email and LinkedIn outreach, and CRM sync in one platform.
+- [How hubsell works](https://www.hubsell.com/): live-sourced data, coordinated email, LinkedIn, and phone outreach, and CRM sync in one platform.
 - [Pricing](https://www.hubsell.com/#pricing): plans and what each one includes.
 - [Book a call](https://www.hubsell.com/book-a-call): see hubsell run on your own market with live data and the outreach flow.
 

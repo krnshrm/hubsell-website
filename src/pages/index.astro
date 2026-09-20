@@ -16,6 +16,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import JsonLd from '../components/JsonLd.astro';
 import { softwareApplicationSchema } from '../data/seo';
+import { getHome } from '../data/home-i18n';
+import { asLocale } from '../i18n/utils';
 import Hero from '../components/Hero.astro';
 import CustomerLogos from '../components/CustomerLogos.astro';
 import Comparison from '../components/Comparison.astro';
@@ -34,9 +36,31 @@ import Insights from '../components/Insights.astro';
 // Home page — full section rhythm. Colors alternate so a dark lands early and
 // navy/espresso never repeat back to back. Book a demo is the CTA
 // throughout; the old waitlist section has been removed.
+//
+// LEARNING: the title/description below (and softwareApplicationSchema.description
+// in src/data/seo.ts) name all three outreach channels — email, LinkedIn, and phone —
+// because the homepage body already does (HeroPipelineFlow's step 4, the
+// FragmentedStack/Comparison "Email, LinkedIn & phone" row). A short summary that
+// undersells what the visible page and structured data already say is exactly what
+// makes an AI assistant discard it and write its own instead. The FAQPage schema
+// below mirrors the same rule: it is built from the same `faqs` array Faq.astro
+// renders, so the accepted answers a search or AI engine may quote always match
+// what a visitor actually sees.
+const L = asLocale(Astro.currentLocale);
+const { faqs } = getHome(L);
+const stripHtml = (s: string) => s.replace(/<[^>]+>/g, '').trim();
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: stripHtml(f.answer) },
+  })),
+};
 ---
-<BaseLayout title="hubsell | Live-Sourced Data, Email and LinkedIn Outreach, One Platform" description="hubsell sources B2B contacts live, runs email and LinkedIn from one flow, and syncs your CRM automatically. One platform to replace your outbound stack.">
-  <JsonLd slot="head" schema={softwareApplicationSchema} />
+<BaseLayout title="hubsell | Live-Sourced Data, Email, LinkedIn & Phone Outreach, One Platform" description="hubsell sources B2B contacts live, runs email, LinkedIn, and phone outreach from one flow, and syncs your CRM automatically. One platform to replace your outbound stack.">
+  <JsonLd slot="head" schema={[softwareApplicationSchema, faqSchema]} />
   {/* LEARNING: JsonLd renders a <script type="application/ld+json"> block of
       structured data for search engines. slot="head" sends it into
       BaseLayout's named head slot so it lands inside <head>, not the body. */}
