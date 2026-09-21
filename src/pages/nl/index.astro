@@ -12,6 +12,7 @@ import { softwareApplicationSchema } from '../../data/seo';
 import { getHome } from '../../data/home-i18n';
 import Hero from '../../components/Hero.astro';
 import CustomerLogos from '../../components/CustomerLogos.astro';
+import VolumeVsPrecision from '../../components/VolumeVsPrecision.astro';
 import Comparison from '../../components/Comparison.astro';
 import FragmentedStack from '../../components/FragmentedStack.astro';
 import ZeroDaySourcing from '../../components/ZeroDaySourcing.astro';
@@ -50,16 +51,17 @@ const faqSchema = {
   <JsonLd slot="head" schema={[softwareApplicationSchema, faqSchema]} />
   {/*  1 */}<Hero />
   {/*  2 */}<CustomerLogos />
-  {/*  3 */}<Comparison />
-  {/*  4 */}<FragmentedStack />
-  {/*  5 */}<ZeroDaySourcing />
-  {/*  6 */}<RatingsStrip />
-  {/*  7 */}<PipelineSteps />
-  {/*  8 */}<Pricing />
-  {/*  9 <UseCases /> hidden until its pages ship */}
-  {/* 10 <Features /> hidden until its pages ship */}
-  {/* 11 */}<Testimonials />
-  {/* 12 <PublishTrackBeta /> hidden until its pages ship */}
-  {/* 13 */}<Faq />
-  {/* 14 */}<Insights />
+  {/*  3 */}<VolumeVsPrecision />
+  {/*  4 */}<Comparison />
+  {/*  5 */}<FragmentedStack />
+  {/*  6 */}<ZeroDaySourcing />
+  {/*  7 */}<RatingsStrip />
+  {/*  8 */}<PipelineSteps />
+  {/*  9 */}<Pricing />
+  {/* 10 <UseCases /> hidden until its pages ship */}
+  {/* 11 <Features /> hidden until its pages ship */}
+  {/* 12 */}<Testimonials />
+  {/* 13 <PublishTrackBeta /> hidden until its pages ship */}
+  {/* 14 */}<Faq />
+  {/* 15 */}<Insights />
 </BaseLayout>

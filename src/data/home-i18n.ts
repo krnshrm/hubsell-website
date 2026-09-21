@@ -47,6 +47,19 @@ export interface HomeStrings {
     ratingsPre: string; ratingsScore: string; ratingsPost: string;
   };
   logos: { eyebrow: string; aria: string };
+  vvp: {
+    eyebrow: string;
+    titlePre: string; titleAccent: string; titlePost: string;
+    lede: string;
+    volTag: string; volTitle: string; volSub: string; volAria: string;
+    preTag: string; preTitle: string; preSub: string; preAria: string;
+    dotCaption: string;
+    contactsLabel: string; oppsLabel: string;
+    volChain: string; preChain: string;
+    volAfter: string; preAfter: string;
+    kickerLabel: string; vs: string; kickerXPost: string;
+    note: string;
+  };
   frag: {
     eyebrow: string;
     titlePre: string; titleAccent: string; titlePost: string;
@@ -99,6 +112,32 @@ const stringsEn: HomeStrings = {
   logos: {
     eyebrow: 'Trusted by B2B revenue teams across Europe',
     aria: 'Logos of companies that use hubsell, including Safran, Staffbase, Verhaert, Personio, Telenor and many more',
+  },
+  vvp: {
+    eyebrow: 'Volume vs precision',
+    titlePre: 'Same 42 opportunities. ',
+    titleAccent: 'One motion costs your whole market.',
+    titlePost: '',
+    lede: 'Both quarters end with the same pipeline. The difference is how many people you had to burn to get there, and whether anyone is left to talk to in Q2.',
+    volTag: 'High volume',
+    volTitle: 'Send to the entire TAM',
+    volSub: 'Bought list, throwaway domains, email only, every contact in the market, every quarter.',
+    volAria: 'A grid representing 100,000 prospects. Every dot turns red as the whole market is contacted.',
+    preTag: 'Targeted, low volume',
+    preTitle: 'Send to 2% of the TAM',
+    preSub: 'Live sourced on buying signals, real domain, email and LinkedIn in one flow.',
+    preAria: 'The same grid of 100,000 prospects. Only a handful of dots turn green, showing 2,000 prospects reached.',
+    dotCaption: '1 dot = 100 prospects',
+    contactsLabel: 'prospects contacted',
+    oppsLabel: 'opportunities',
+    volChain: '100,000 sent \u00b7 80,000 delivered \u00b7 64,000 right person \u00b7 25,600 opens \u00b7 768 in market \u00b7 77 positive \u00b7 42 opportunities',
+    preChain: '2,000 sourced \u00b7 1,960 delivered \u00b7 1,921 right person \u00b7 1,537 reached \u00b7 307 in market \u00b7 77 positive \u00b7 42 opportunities',
+    volAfter: '0% of your market left. Q2 hits the same inboxes again.',
+    preAfter: '98% of your market still fresh. Enough runway for years, not one quarter.',
+    kickerLabel: 'Prospects burned per opportunity',
+    vs: 'vs',
+    kickerXPost: 'x fewer',
+    note: 'High volume: 20% bounce, 20% wrong person, 40% open, 3% of any market is in-cycle at a given time, 10% of those trust an unknown sender enough to reply, 55% of positive replies become opportunities. Targeted: 98% valid at point of use, 80% reached across email and LinkedIn, 20% in market because the list is sourced on buying signals, 25% reply, same 55% to opportunity.',
   },
   frag: {
     eyebrow: 'The fragmented stack problem',
