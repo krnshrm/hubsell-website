@@ -9,7 +9,7 @@
 // The <style> block is scoped to this component (Astro hashes the
 // selectors), styled with the design tokens from src/styles/global.css.
 // ==========================================================================
-// Section 3 — Volume vs precision (Paper). Two panels running the same funnel
+// Section 3 — Volume vs precision (Espresso). Two panels running the same funnel
 // to the same 42 opportunities: one burns the entire addressable market to get
 // there, the other burns 2% of it. A looping animation sweeps each dot field
 // left to right while the contact counters climb, then the kicker lands.
@@ -60,7 +60,7 @@ const precisionBurn = Math.round(PRECISION_CONTACTS / OPPORTUNITIES);
 const ratio = Math.round(volumeBurn / precisionBurn);
 ---
 
-<section class="sec sec--paper vvp" aria-labelledby="vvp-title" data-vvp data-num-locale={NUM_LOCALE}>
+<section class="sec sec--esp vvp" aria-labelledby="vvp-title" data-vvp data-num-locale={NUM_LOCALE}>
   <div class="wrap">
     <div class="sec-head reveal">
       <p class="eyebrow is-accent">{c.eyebrow}</p>
@@ -167,7 +167,11 @@ const ratio = Math.round(volumeBurn / precisionBurn);
       <span class="vvp-kicker__x">{ratio}{c.kickerXPost}</span>
     </div>
 
-    <p class="vvp-note">{c.note}</p>
+    {/* The two motion names are bolded so the assumptions can be scanned as
+        two blocks rather than one run-on paragraph. */}
+    <p class="vvp-note">
+      <b>{c.noteVolLabel}</b> {c.noteVolBody} <b>{c.notePreLabel}</b> {c.notePreBody}
+    </p>
   </div>
 </section>
 
@@ -175,6 +179,13 @@ const ratio = Math.round(volumeBurn / precisionBurn);
   /* Colours come from the section role tokens (--sec-bg/-tx/-bd/-card), so this
      band flips with the rest of the page under [data-theme="dark"]. Semantic
      green and red are the global --positive / --error tokens. */
+  /* The section sits on a dark espresso fill, between the paper logo strip
+     above and the white Comparison below, so it breaks cleanly against both.
+     --error and --positive are tuned for light surfaces and go muddy here, so
+     the panels use brighter variants. These are the same two values the kicker
+     already used when IT was the dark element. */
+  .vvp{ --vvp-bad:#FF7A66; --vvp-good:#5FD39C; }
+
   .vvp__lede{ margin-top:14px; max-width:58ch; }
 
   .vvp__panels{ display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:32px; }
@@ -192,8 +203,8 @@ const ratio = Math.round(volumeBurn / precisionBurn);
     margin-bottom:14px;
   }
   .vvp-tag__dot{ width:6px; height:6px; border-radius:50%; background:currentColor; }
-  .vvp-tag--danger{ color:var(--error); background:color-mix(in srgb, var(--error) 12%, transparent); }
-  .vvp-tag--success{ color:var(--positive); background:color-mix(in srgb, var(--positive) 14%, transparent); }
+  .vvp-tag--danger{ color:var(--vvp-bad); background:color-mix(in srgb, var(--vvp-bad) 14%, transparent); }
+  .vvp-tag--success{ color:var(--vvp-good); background:color-mix(in srgb, var(--vvp-good) 14%, transparent); }
 
   .vvp-panel__title{ margin:0 0 5px; }
   .vvp-panel__sub{
@@ -208,8 +219,8 @@ const ratio = Math.round(volumeBurn / precisionBurn);
   }
   .vvp-field__svg{ display:block; width:100%; height:auto; }
   .vvp-dot--base{ fill:color-mix(in srgb, var(--sec-tx) 22%, transparent); }
-  .vvp-dot--danger{ fill:var(--error); }
-  .vvp-dot--success{ fill:var(--positive); }
+  .vvp-dot--danger{ fill:var(--vvp-bad); }
+  .vvp-dot--success{ fill:var(--vvp-good); }
   /* Hidden until the sweep uncovers it, left to right. */
   .vvp-field__hit{ clip-path:inset(0 100% 0 0); }
 
@@ -239,8 +250,8 @@ const ratio = Math.round(volumeBurn / precisionBurn);
     display:block; font-family:var(--font-head); font-size:34px; line-height:1.05;
     font-weight:700; letter-spacing:-.02em; font-variant-numeric:tabular-nums;
   }
-  .vvp-panel--volume .vvp-metric__value{ color:var(--error); }
-  .vvp-panel--precision .vvp-metric__value{ color:var(--positive); }
+  .vvp-panel--volume .vvp-metric__value{ color:var(--vvp-bad); }
+  .vvp-panel--precision .vvp-metric__value{ color:var(--vvp-good); }
   .vvp-metric__label{ display:block; font-size:12.5px; color:var(--sec-tx); opacity:.72; margin-top:5px; }
 
   .vvp-metric--out{ flex:0 0 auto; text-align:right; opacity:0; }
@@ -255,35 +266,39 @@ const ratio = Math.round(volumeBurn / precisionBurn);
     font-size:13.5px; line-height:1.5; font-weight:500;
     margin:12px 0 0; padding:10px 12px; border-radius:7px;
   }
-  .vvp-after--bad{ color:var(--error); background:color-mix(in srgb, var(--error) 10%, transparent); }
-  .vvp-after--good{ color:var(--positive); background:color-mix(in srgb, var(--positive) 12%, transparent); }
+  .vvp-after--bad{ color:var(--vvp-bad); background:color-mix(in srgb, var(--vvp-bad) 12%, transparent); }
+  .vvp-after--good{ color:var(--vvp-good); background:color-mix(in srgb, var(--vvp-good) 14%, transparent); }
 
-  /* The kicker keeps a fixed espresso fill in both themes: it is the one
-     moment in the section that should read as a stamped conclusion. */
+  /* The kicker is the stamped conclusion, so it inverts against whatever the
+     section is. The section is dark, so this is a cream slab; on it the normal
+     light-surface --error / --positive read correctly again. */
   .vvp-kicker{
-    margin-top:20px; background:#2B1E17; border-radius:var(--radius-lg);
+    margin-top:20px; background:#FBF4EA; border-radius:var(--radius-lg);
     padding:26px 28px; display:flex; flex-wrap:wrap;
     align-items:center; justify-content:space-between; gap:20px;
   }
   .vvp-kicker__label{
     font:700 12px/1.3 var(--font-body); letter-spacing:.1em;
-    text-transform:uppercase; color:#C9B9A8;
+    text-transform:uppercase; color:#6B5D52;   /* 5.8:1 on the cream slab */
   }
   .vvp-kicker__pair{
     display:flex; align-items:baseline; gap:14px;
     font-family:var(--font-head); font-size:clamp(30px,5vw,46px);
     font-weight:700; letter-spacing:-.02em; font-variant-numeric:tabular-nums;
   }
-  .vvp-kicker__bad{ color:#FF7A66; }
-  .vvp-kicker__vs{ font-family:var(--font-body); font-size:15px; font-weight:400; color:#8E8078; }
-  .vvp-kicker__good{ color:#5FD39C; }
+  /* Darker than --error / --positive, which only reach ~3:1 on cream and
+     would pass for the big numerals but not for anything smaller. */
+  .vvp-kicker__bad{ color:#C93A2D; }
+  .vvp-kicker__vs{ font-family:var(--font-body); font-size:15px; font-weight:400; color:#6B5D52; }
+  .vvp-kicker__good{ color:#1E7A52; }
   .vvp-kicker__x{
-    font:600 15px/1 var(--font-head); color:#FBF4EA;
-    background:rgba(251,244,234,.1); border:1px solid rgba(251,244,234,.18);
+    font:600 15px/1 var(--font-head); color:#2B1E17;
+    background:rgba(43,30,23,.07); border:1px solid rgba(43,30,23,.16);
     padding:9px 16px; border-radius:999px;
   }
 
   .vvp-note{ font-size:12px; line-height:1.6; color:var(--sec-tx); opacity:.5; margin:18px 0 0; }
+  .vvp-note b{ font-weight:600; opacity:.85; }
 
   /* ---- Motion. Driven by .is-playing, which the script adds only while the
      section is on screen, so nothing animates off-screen. ---- */
