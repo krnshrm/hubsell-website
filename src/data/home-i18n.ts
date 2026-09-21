@@ -43,8 +43,12 @@ export interface HomeStrings {
     eyebrow: string;
     titlePre: string; titleAccent: string; titlePost: string;
     sub: string;
-    ctaPrimary: string; ctaSecondary: string;
-    ratingsPre: string; ratingsScore: string; ratingsPost: string;
+    ctaPrimary: string;
+    /** Measured customer outcomes, each attributed. Attribution is what stops
+        these reading as a typical-results claim: three named customers, not an
+        average. The 4.6+ ratings claim lives in the RatingsStrip section only,
+        so it is no longer made twice on the page. */
+    stats: { value: string; label: string; company: string }[];
   };
   logos: { eyebrow: string; aria: string };
   vvp: {
@@ -104,15 +108,19 @@ export interface HomeStrings {
 
 const stringsEn: HomeStrings = {
   hero: {
-    eyebrow: 'For VPs of Sales tired of paying for 6+ tools',
-    titlePre: 'Replace your ', titleAccent: 'outbound', titlePost: ' stack with one platform.',
-    sub: 'Your team should spend time selling, not switching tabs. hubsell brings your data, outreach, and CRM sync into one place so they can.',
-    ctaPrimary: 'Book a demo', ctaSecondary: 'See it in action',
-    ratingsPre: 'Rated ', ratingsScore: '4.6+', ratingsPost: ' on Capterra, G2, GetApp, and SoftwareAdvice.',
+    eyebrow: 'For founders and heads of sales with 6+ tools',
+    titlePre: 'Book the same pipeline using ', titleAccent: '50 times fewer', titlePost: ' prospects.',
+    sub: 'hubsell sources contacts live on buying signals, then runs email, LinkedIn and phone in one flow that syncs to your CRM. Fewer people contacted, the same meetings booked.',
+    ctaPrimary: 'Book a demo',
+    stats: [
+      { value: '30%', label: 'lower acquisition cost', company: 'Safran' },
+      { value: '3x', label: 'more opportunities', company: 'Verhaert' },
+      { value: '25%', label: 'more leads', company: 'Elium' },
+    ],
   },
   logos: {
-    eyebrow: 'Trusted by B2B revenue teams across Europe',
-    aria: 'Logos of companies that use hubsell, including Safran, Staffbase, Verhaert, Personio, Telenor and many more',
+    eyebrow: 'Three of these teams cut customer acquisition cost by 30% or more',
+    aria: 'Logos of companies that use hubsell: Safran, Staffbase, Verhaert, Workspace 365, Sensolus, GLS, FABs, ipushpull, Kapturall and Monotype',
   },
   vvp: {
     eyebrow: 'Volume vs precision',
@@ -166,7 +174,7 @@ const stringsEn: HomeStrings = {
     aria: (platform, score, out) => `Read hubsell reviews on ${platform} (rated ${score}${out})`,
   },
   pipeline: { eyebrow: 'The three-step pipeline motion', titlePre: 'From ', titleAccent: 'sign-up to meeting', titlePost: ' set in three steps.' },
-  pricing: { eyebrow: 'Pricing', titlePre: 'Plans for ', titleAccent: 'Solopreneurs & GTM Teams', titlePost: '' },
+  pricing: { eyebrow: 'Pricing', titlePre: 'Plans for ', titleAccent: 'founders and sales teams', titlePost: '' },
   usecases: {
     eyebrow: 'Use-cases', titlePre: '', titleAccent: 'One platform', titlePost: ' for GTM',
     sub: 'Whatever your seat at the revenue table, hubsell replaces the tool sprawl with one coordinated motion.',
@@ -176,7 +184,7 @@ const stringsEn: HomeStrings = {
     beta: 'Beta', comingSoon: 'Coming soon',
   },
   testimonialsSec: {
-    eyebrow: 'Customer stories', titlePre: 'What ', titleAccent: 'B2B teams', titlePost: ' say about hubsell',
+    eyebrow: 'Customer stories', titlePre: 'What happens when ', titleAccent: 'B2B teams', titlePost: ' replace the stack',
     readPre: 'Read the ', readPost: ' story →',
   },
   loop: {
@@ -189,7 +197,7 @@ const stringsEn: HomeStrings = {
     beta: ['Publish directly from hubsell', 'Track every engagement as it happens', 'Auto-enrol each person into a warm sequence', 'No exporting lists, no switching tabs'],
   },
   insightsSec: {
-    newsTitle: 'Stay ahead in B2B sales and marketing',
+    newsTitle: 'What is working in outbound right now',
     newsSub: 'Playbooks, deliverability, and outbound strategy, straight to your inbox.',
     subscribeLabel: 'Subscribe', emailPlaceholder: 'Your email',
     eyebrow: 'Insights', title: 'B2B outbound sales playbooks and insights',

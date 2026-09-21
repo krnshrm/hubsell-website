@@ -258,15 +258,19 @@ export const faqsNl: Faq[] = [
 
 export const stringsNl: HomeStrings = {
   hero: {
-    eyebrow: 'Voor VP’s Sales die genoeg hebben van betalen voor 6+ tools',
-    titlePre: 'Vervang uw ', titleAccent: 'outbound', titlePost: '-stack door één platform.',
-    sub: 'Uw team hoort tijd te besteden aan verkopen, niet aan het wisselen van tabs. hubsell brengt uw data, uw outreach en uw CRM-synchronisatie samen op één plek, zodat dat lukt.',
-    ctaPrimary: 'Demo plannen', ctaSecondary: 'In actie zien',
-    ratingsPre: 'Beoordeeld met ', ratingsScore: '4,6+', ratingsPost: ' op Capterra, G2, GetApp en SoftwareAdvice.',
+    eyebrow: 'Voor oprichters en salesmanagers met 6+ tools',
+    titlePre: 'Boek dezelfde pipeline met ', titleAccent: '50 keer minder', titlePost: ' prospects.',
+    sub: 'hubsell sourcet contacten live op koopsignalen en brengt e-mail, LinkedIn en telefoon samen in één flow die met uw CRM synchroniseert. Minder mensen benaderd, evenveel afspraken geboekt.',
+    ctaPrimary: 'Demo plannen',
+    stats: [
+      { value: '30%', label: 'lagere acquisitiekosten', company: 'Safran' },
+      { value: '3x', label: 'meer opportunities', company: 'Verhaert' },
+      { value: '25%', label: 'meer leads', company: 'Elium' },
+    ],
   },
   logos: {
-    eyebrow: 'Vertrouwd door B2B-revenue-teams in heel Europa',
-    aria: 'Logo’s van bedrijven die hubsell gebruiken, waaronder Safran, Staffbase, Verhaert, Personio, Telenor en vele andere',
+    eyebrow: 'Drie van deze teams verlaagden hun klantacquisitiekosten met 30% of meer',
+    aria: 'Logo’s van bedrijven die hubsell gebruiken: Safran, Staffbase, Verhaert, Workspace 365, Sensolus, GLS, FABs, ipushpull, Kapturall en Monotype',
   },
   vvp: {
     eyebrow: 'Volume vs. precisie',
@@ -320,7 +324,7 @@ export const stringsNl: HomeStrings = {
     aria: (platform, score, out) => `hubsell-beoordelingen op ${platform} lezen (beoordeeld met ${score}${out})`,
   },
   pipeline: { eyebrow: 'De driestaps pipelinebeweging', titlePre: 'Van ', titleAccent: 'aanmelding tot afspraak', titlePost: ' in drie stappen.' },
-  pricing: { eyebrow: 'Prijzen', titlePre: 'Plannen voor ', titleAccent: 'Solopreneurs & GTM-teams', titlePost: '' },
+  pricing: { eyebrow: 'Prijzen', titlePre: 'Plannen voor ', titleAccent: 'oprichters en salesteams', titlePost: '' },
   usecases: {
     eyebrow: 'Toepassingen', titlePre: '', titleAccent: 'Eén platform', titlePost: ' voor GTM',
     sub: 'Welke plek u ook aan de revenue-tafel hebt, hubsell vervangt de wildgroei aan tools door één gecoördineerde beweging.',
@@ -330,7 +334,7 @@ export const stringsNl: HomeStrings = {
     beta: 'Beta', comingSoon: 'Binnenkort',
   },
   testimonialsSec: {
-    eyebrow: 'Klantverhalen', titlePre: 'Wat ', titleAccent: 'B2B-teams', titlePost: ' over hubsell zeggen',
+    eyebrow: 'Klantverhalen', titlePre: 'Wat er gebeurt als ', titleAccent: 'B2B-teams', titlePost: ' de stack vervangen',
     readPre: 'Lees het verhaal van ', readPost: ' →',
   },
   loop: {
@@ -343,7 +347,7 @@ export const stringsNl: HomeStrings = {
     beta: ['Publiceer rechtstreeks vanuit hubsell', 'Volg elke interactie in realtime', 'Neem elke persoon automatisch op in een warme sequentie', 'Geen lijsten exporteren, geen tabs wisselen'],
   },
   insightsSec: {
-    newsTitle: 'Blijf voorop in B2B-sales en -marketing',
+    newsTitle: 'Wat er nu werkt in outbound',
     newsSub: 'Playbooks, deliverability en outbound-strategie, rechtstreeks in uw inbox.',
     subscribeLabel: 'Abonneren', emailPlaceholder: 'Uw e-mail',
     eyebrow: 'Insights', title: 'B2B-outbound-playbooks en insights',

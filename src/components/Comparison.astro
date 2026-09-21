@@ -41,22 +41,22 @@ const last = rows.length - 1;
     <p class="subheading cmp__sub reveal">{s.cmp.sub}</p>
 
     <div class="cmp__matrixwrap reveal">
-      <div class="cmp__matrix">
+      <div class="cmp__matrix" data-cmp-matrix>
         <div class="cmp__corner"></div>
         {cols.map((c) => (
           heads[c].href
-            ? <a class="cmp__head cmp__col-link" href={localizedHref(L, heads[c].href)}>{heads[c].label} <span aria-hidden="true">→</span></a>
-            : <div class="cmp__head cmp__head--hub"><img class="cmp__hublogo" src={HUB_LOGO} alt="hubsell" /></div>
+            ? <a class="cmp__head cmp__col-link" data-col={c} href={localizedHref(L, heads[c].href)}>{heads[c].label} <span aria-hidden="true">→</span></a>
+            : <div class="cmp__head cmp__head--hub" data-col={c}><img class="cmp__hublogo" src={HUB_LOGO} alt="hubsell" /></div>
         ))}
 
         {rows.map((r, i) => (
           <>
-            <div class:list={["cmp__rowlabel", i === last && "is-lastrow"]}>{r.label}</div>
+            <div class:list={["cmp__rowlabel", i === last && "is-lastrow"]} style={`--row:${i}`}><span>{r.label}</span></div>
             {cols.map((c) => {
               const [mark, text] = r.cells[c];
               const isHub = c === 'hub';
               return (
-                <div class:list={["cmp__cell", isHub && "cmp__cell--hub", i === last && "is-lastrow"]}>
+                <div class:list={["cmp__cell", isHub && "cmp__cell--hub", i === last && "is-lastrow"]} style={`--row:${i}`} data-col={c}>
                   <span class={`mk mk--${mark}`}>
                     <span class="sr-only">{mark === 'yes' ? s.cmp.srYes : mark === 'part' ? s.cmp.srPart : s.cmp.srNo}</span>
                     {mark === 'yes'
@@ -146,6 +146,87 @@ const last = rows.length - 1;
   .cmp__links a{ font-size:13.5px; font-weight:500; color:var(--accent-on); text-decoration:none; border-bottom:1px solid transparent; transition:border-color .15s }
   .cmp__links a:hover{ border-bottom-color:var(--accent-on) }
 
+  /* ---- Motion -------------------------------------------------------------
+     Two behaviours, both added by the script so the table is fully visible
+     when JavaScript does not run.
+
+     1. ROW CASCADE. Rows resolve top to bottom as the section scrolls in,
+        once, then it is the static table again. Only cell CONTENTS animate,
+        never the cells: the hubsell column is one contiguous dark block, and
+        fading the cells themselves would break it into flickering pieces.
+        The hubsell tick also draws itself along its own stroke, so the eye
+        follows a column of accent building down the left while the rest of
+        the grid settles grey.
+
+     2. COLUMN SPOTLIGHT. Hovering or keyboard-focusing a column header dims
+        the other columns' contents, so one tool can be read at a time. Again
+        contents only, so the grid lines and the dark column stay put. */
+  .cmp__matrix.is-anim .cmp__rowlabel > span,
+  .cmp__matrix.is-anim .cmp__cell > .mk,
+  .cmp__matrix.is-anim .cmp__cell > p{
+    opacity:0; transform:translateY(7px);
+  }
+  .cmp__matrix.is-anim.is-in .cmp__rowlabel > span,
+  .cmp__matrix.is-anim.is-in .cmp__cell > .mk,
+  .cmp__matrix.is-anim.is-in .cmp__cell > p{
+    opacity:1; transform:none;
+    transition:opacity .42s ease, transform .42s cubic-bezier(.22,.61,.36,1);
+    transition-delay:calc(var(--row, 0) * 110ms);
+  }
+  /* p keeps its resting opacity rather than snapping to 1 */
+  .cmp__matrix.is-anim.is-in .cmp__cell > p{ opacity:.66; }
+  .cmp__matrix.is-anim.is-in .cmp__cell--hub > p{ opacity:.84; }
+
+  /* The tick draws itself. 12 comfortably exceeds the path's ~10 units. */
+  .cmp__matrix.is-anim .mk--yes svg path{ stroke-dasharray:12; stroke-dashoffset:12; }
+  .cmp__matrix.is-anim.is-in .mk--yes svg path{
+    stroke-dashoffset:0;
+    transition:stroke-dashoffset .38s ease;
+    transition-delay:calc(var(--row, 0) * 110ms + 160ms);
+  }
+
+  /* Spotlight. One rule per column: an attribute selector cannot compare the
+     focused key against each cell's own key. Contents only, so the grid lines
+     and the dark hubsell block never move. The extra .is-anim in the selector
+     is there to out-specify the cascade's resting opacities without !important.
+
+     The hubsell column is NEVER dimmed. It is the reference every other column
+     is being read against, so fading it defeats the point of the comparison.
+     Hovering a competitor dims that competitor's rivals and leaves hubsell at
+     full strength; hovering hubsell dims all three competitors. */
+  .cmp__matrix[data-focus] .cmp__cell > .mk,
+  .cmp__matrix[data-focus] .cmp__cell > p,
+  .cmp__matrix[data-focus] .cmp__col-link{ transition:opacity .18s ease; }
+
+  .cmp__matrix.is-anim[data-focus="hub"]    [data-col]:not([data-col="hub"])                             > .mk,
+  .cmp__matrix.is-anim[data-focus="hub"]    [data-col]:not([data-col="hub"])                             > p,
+  .cmp__matrix.is-anim[data-focus="aio"]    [data-col]:not([data-col="aio"]):not([data-col="hub"])       > .mk,
+  .cmp__matrix.is-anim[data-focus="aio"]    [data-col]:not([data-col="aio"]):not([data-col="hub"])       > p,
+  .cmp__matrix.is-anim[data-focus="data"]   [data-col]:not([data-col="data"]):not([data-col="hub"])      > .mk,
+  .cmp__matrix.is-anim[data-focus="data"]   [data-col]:not([data-col="data"]):not([data-col="hub"])      > p,
+  .cmp__matrix.is-anim[data-focus="lookup"] [data-col]:not([data-col="lookup"]):not([data-col="hub"])    > .mk,
+  .cmp__matrix.is-anim[data-focus="lookup"] [data-col]:not([data-col="lookup"]):not([data-col="hub"])    > p{
+    opacity:.2;
+  }
+
+  /* Competitor headers dim with their columns. The hubsell header is a dark
+     block with the wordmark in it and stays untouched. */
+  .cmp__matrix[data-focus="hub"]    .cmp__col-link,
+  .cmp__matrix[data-focus="aio"]    .cmp__col-link:not([data-col="aio"]),
+  .cmp__matrix[data-focus="data"]   .cmp__col-link:not([data-col="data"]),
+  .cmp__matrix[data-focus="lookup"] .cmp__col-link:not([data-col="lookup"]){ opacity:.2; }
+
+  /* Reduced motion: the finished table, no cascade, no draw-on. The spotlight
+     stays because it is a reading aid, not decoration. */
+  @media (prefers-reduced-motion:reduce){
+    .cmp__matrix.is-anim .cmp__rowlabel > span,
+    .cmp__matrix.is-anim .cmp__cell > .mk,
+    .cmp__matrix.is-anim .cmp__cell > p{ opacity:1; transform:none; transition:none; }
+    .cmp__matrix.is-anim .cmp__cell > p{ opacity:.66; }
+    .cmp__matrix.is-anim .cmp__cell--hub > p{ opacity:.84; }
+    .cmp__matrix.is-anim .mk--yes svg path{ stroke-dasharray:none; stroke-dashoffset:0; transition:none; }
+  }
+
   @media (max-width:680px){
     .cmp__matrixwrap{
       margin-left:calc(-1 * clamp(20px,5vw,56px)); margin-right:calc(-1 * clamp(20px,5vw,56px));
@@ -153,3 +234,41 @@ const last = rows.length - 1;
     }
   }
 </style>
+
+<script>
+  // Progressive enhancement: the matrix ships fully visible, and only gets the
+  // cascade once this runs. If the script never runs, nothing is hidden.
+  function initComparison() {
+    document.querySelectorAll<HTMLElement>('[data-cmp-matrix]').forEach((m) => {
+      if (m.dataset.bound) return;
+      m.dataset.bound = 'true';
+
+      // ---- 1. row cascade, once ----
+      m.classList.add('is-anim');
+      const io = new IntersectionObserver((entries) => {
+        if (!entries[0].isIntersecting) return;
+        m.classList.add('is-in');
+        io.disconnect();          // plays once, then it is a static table
+      }, { threshold: 0.15 });
+      io.observe(m);
+
+      // ---- 2. column spotlight ----
+      const setFocus = (col: string | null) => {
+        if (col) m.dataset.focus = col;
+        else delete m.dataset.focus;
+      };
+      m.querySelectorAll<HTMLElement>('[data-col]').forEach((el) => {
+        const col = el.dataset.col!;
+        el.addEventListener('mouseenter', () => setFocus(col));
+        el.addEventListener('focusin', () => setFocus(col));
+      });
+      m.addEventListener('mouseleave', () => setFocus(null));
+      m.addEventListener('focusout', (e) => {
+        if (!m.contains(e.relatedTarget as Node)) setFocus(null);
+      });
+    });
+  }
+
+  initComparison();
+  document.addEventListener('astro:page-load', initComparison);
+</script>

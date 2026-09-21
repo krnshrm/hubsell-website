@@ -37,11 +37,22 @@ const { s } = getHome(L);
           <a class="button is-large" href={localizedHref(L, SIGNUP_URL)}>{s.hero.ctaPrimary}</a>
         </div>
 
-        {/* Real customer faces sit beside the rating so the first screen has
-            people in it, not just numbers. Copy is unchanged. */}
+        {/* Measured customer outcomes, each attributed to the customer it came
+            from. Attribution is the point: three named companies read as
+            evidence, three bare percentages read as a typical-results claim.
+            The 4.6+ ratings line used to sit here and now lives only in the
+            RatingsStrip section, so the claim is no longer made twice. */}
         <div class="hero__proof">
-          <AvatarStack size={36} />
-          <p class="hero__ratings">{s.hero.ratingsPre}<strong>{s.hero.ratingsScore}</strong>{s.hero.ratingsPost}</p>
+          <AvatarStack size={34} />
+          <ul class="hero__stats">
+            {s.hero.stats.map((st) => (
+              <li>
+                <b>{st.value}</b>
+                <span>{st.label}</span>
+                <i>{st.company}</i>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div class="hero__askai"><AskAiWidget /></div>
@@ -66,15 +77,31 @@ const { s } = getHome(L);
     gap:clamp(32px,5vw,72px); align-items:center;
   }
   .hero__copy{max-width:34rem}
-  .hero__copy .eyebrow{margin-bottom:20px}
+  .hero__copy .eyebrow{margin-bottom:20px; text-wrap:balance}
   .hero__copy .heading_hero{margin-bottom:22px}
   .hero__sub{margin-bottom:34px; max-width:31rem}
 
   .hero__cta{display:flex; flex-wrap:wrap; gap:14px; align-items:center}
 
-  .hero__proof{display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin:28px 0 0}
-  .hero__ratings{margin:0; font-size:.9375rem; color:var(--accent-on); font-weight:500}
-  .hero__ratings strong{font-weight:700}
+  .hero__proof{display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin:28px 0 0}
+  .hero__stats{
+    list-style:none; margin:0; padding:0;
+    display:flex; flex-wrap:wrap; gap:14px 28px;
+  }
+  .hero__stats li{ display:flex; flex-direction:column; gap:2px; }
+  .hero__stats b{
+    font:700 22px/1 var(--font-head); color:var(--accent-on); letter-spacing:-.01em;
+    font-variant-numeric:tabular-nums;
+  }
+  .hero__stats span{ font-size:13px; line-height:1.3; color:var(--sec-tx); opacity:.78 }
+  .hero__stats i{
+    font-style:normal; font-size:10.5px; letter-spacing:.07em; text-transform:uppercase;
+    color:var(--sec-tx); opacity:.5;
+  }
+  @media (max-width:520px){
+    .hero__stats{ gap:12px 20px }
+    .hero__stats b{ font-size:19px }
+  }
 
   .hero__askai{margin-top:40px}
 
