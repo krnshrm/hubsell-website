@@ -468,3 +468,4 @@ Notes:
 | `docs/BLOCKING-DOMAINS.md` | how to block an email domain, the build guard |
 | `docs/KNOWLEDGE-CENTER.md` | knowledge-center build and Confluence/Scribe content pipeline |
 | `docs/hubsell-style-guide.html` | visual style reference (partly superseded by code) |
+| `docs/20260922-1415-SESSION-HANDOFF.md` | state at the close of the 2026-09-22 session: what is unpushed, what is open, why the fragmented stack is built the way it is |
