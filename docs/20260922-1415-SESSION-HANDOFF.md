@@ -7,7 +7,7 @@ chat can pick up without re-reading the transcript.
 
 ## 1. The one thing to do first
 
-**Five commits are not on `main`.** They exist only as tarballs in the repo
+**Seven commits are not on `main`.** They exist only as tarballs in the repo
 owner's Downloads folder, because push from the Claude container was blocked all
 session (see section 5).
 
@@ -20,6 +20,8 @@ Ahead of `origin/main`, oldest first:
 | `0b2b485` | Two candidate treatments plus the heading alignment fix (superseded) |
 | `6c1d65e` | Fragmented stack rebuilt as one connected scene |
 | `8b16ea2` | That scene wired into the live section |
+| `8f93107` | This handoff doc, plus its row in the CLAUDE.md docs index |
+| `62966cb` | Teaching comments removed repo-wide (see section 6) |
 
 The last three are cumulative on the same file, so applying only the final state
 is enough. The tarballs that matter:
@@ -29,14 +31,21 @@ cd ~/Coding/hubsell-website
 git checkout main && git pull
 tar -xzvf ~/Downloads/mobile-logo-and-matrix-20260922-1253.tar.gz
 tar -xzvf ~/Downloads/frag-live-20260922-1358.tar.gz
+tar -xzvf ~/Downloads/session-handoff-20260922-1415.tar.gz
+tar -xzvf ~/Downloads/remove-learning-comments-20260922-1443.tar.gz
 rm -f src/components/FragmentedPile.astro \
       src/components/FragmentedFlow.astro \
       src/components/FragmentedInvoices.astro \
       src/components/FragmentedConverge.astro \
-      src/pages/preview-frag.astro
+      src/pages/preview-frag.astro \
+      docs/20260724-1100-LEARNING-ASTRO.md
 npm run build        # expect 440 pages
 npm run dev          # check the homepage, then 375px wide
 ```
+
+Extract the comment-removal tarball **last**: it rewrites 229 files and must land
+on top of the other two. The `rm` of the Astro primer matters, because a tarball
+can add and replace files but cannot express a deletion.
 
 Then push and start the Cloudflare deploy by hand (**hubsell-website,
 Deployments, Create deployment, branch `main`**). A push on its own changes
@@ -166,3 +175,33 @@ nothing is side by side there for a curve to join.
   Disposable domains were accepted live as a result. Always
   `npm install "github:krnshrm/hs-block#vX.Y.Z"` explicitly and check the commit
   hash in the lockfile. The `prebuild` guard now catches this.
+
+---
+
+## 6. Teaching comments were removed, 2026-09-22
+
+The `LEARNING NOTES` banner blocks and `LEARNING:` inline notes added on
+2026-07-24 are gone repo-wide: 208 banners in `.astro`, `.ts` and `.mjs`, 8
+one-line variants in the knowledge center, the banner in `global.css`, the one in
+`astro.config.mjs`, and 27 inline notes. `docs/20260724-1100-LEARNING-ASTRO.md`,
+the primer that indexed them, is deleted.
+
+**What was deliberately kept.** The file-specific description that sat directly
+under each banner is real documentation and is untouched in all 208 files. Nine
+inline notes carried reasoning rather than teaching and survive as ordinary
+comments with the label dropped:
+
+- why the homepage title and description name all three outreach channels
+- why the FAQ schema is built from the same array the accordion renders, in the
+  English, German and Dutch route files
+- the `is:global` and `set:html` scoping gotcha in `PageLayout.astro`
+- the `astro:page-load` re-init pattern in `BaseLayout.astro`
+- why the theme script is `is:inline`
+- how `trailingSlash` and the i18n fallback are configured
+
+**The rule changed too.** `CLAUDE.md` and `docs/HANDOFF.md` used to say preserve
+these comments. Both now say comments explain why a thing is the way it is, not
+how Astro or JavaScript works, and not to reintroduce the teaching style.
+
+**Verification.** All 712 built files are checksum-identical to the build taken
+immediately before the removal, so nothing that reaches a visitor moved.

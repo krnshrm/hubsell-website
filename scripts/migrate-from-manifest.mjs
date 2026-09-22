@@ -1,11 +1,4 @@
 #!/usr/bin/env node
-// ============================= LEARNING NOTES =============================
-// A NODE UTILITY SCRIPT, not part of the website build. Files in scripts/
-// are run by hand via the package.json "scripts" entries (npm run <name>)
-// for one-off jobs like migrating assets or converting exports. Read
-// package.json to see which command runs which file. Safe to study, but
-// nothing on the site imports them.
-// ==========================================================================
 /**
  * migrate-from-manifest.mjs — upload the full Webflow asset library to R2, foldered.
  *

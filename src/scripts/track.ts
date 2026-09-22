@@ -1,32 +1,3 @@
-// ============================= LEARNING NOTES =============================
-// Marketing event tracking. This module pushes events into the Google Tag
-// Manager `dataLayer`. GTM is injected OUTSIDE this repo (at the edge), so
-// this file never loads GTM itself. If GTM is absent the pushes are harmless:
-// they just sit in an array nobody reads. Nothing here touches the
-// /api/subscribe flow; tracking is a read-only side channel.
-//
-// Events produced:
-//   cta_click            automatic, any link to SIGNUP_URL or DEMO_URL (see
-//                         src/data/site.ts), any locale. Carries
-//                         cta_destination, the matched constant's resolved
-//                         URL, so GA4 can tell the two apart even while they
-//                         point at the same place. Today both are
-//                         '/book-a-call'; the day SIGNUP_URL is switched to
-//                         the real trial signup URL (see the comment on that
-//                         constant), clicks on it start reporting the new
-//                         destination automatically, no code change needed
-//                         here. Note: that switch only covers the *click* on
-//                         the CTA. If the trial signup itself happens on
-//                         app.hubsell.com, completing it is outside this
-//                         repo's dataLayer entirely.
-//   form_start           automatic, first keystroke in any <form>
-//   form_error           pushed by the form components via track()
-//   form_submit_success  pushed by the form components via track()
-//
-// GTM picks these up with Custom Event triggers and forwards them to GA4.
-// See docs/20260905-1015-GTM-ANALYSIS.md for the container inventory.
-// ==========================================================================
-
 import { SIGNUP_URL, DEMO_URL } from '../data/site';
 
 type Params = Record<string, string | number | undefined>;

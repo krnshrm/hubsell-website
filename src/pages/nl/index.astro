@@ -1,11 +1,4 @@
 ---
-// ============================= LEARNING NOTES =============================
-// Dutch copy of src/pages/index.astro, serving the URL /nl/ .
-// LOCALE PAGE PATTERN: see the full explanation at the top of
-// src/pages/de/index.astro. In short: same components as the English page,
-// import paths one level deeper, translated meta text; the components
-// translate themselves because Astro.currentLocale is 'nl' under /nl/.
-// ==========================================================================
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import { softwareApplicationSchema } from '../../data/seo';
@@ -31,7 +24,7 @@ import Insights from '../../components/Insights.astro';
 // src/data/home-i18n.ts. The pricing table and animated product embeds pull
 // their Dutch labels from src/data/embed-i18n.ts.
 //
-// LEARNING: title/description name all three channels (e-mail, LinkedIn,
+// Title and description name all three channels (e-mail, LinkedIn,
 // telefoon) because the page body does too — see the matching note in
 // src/pages/index.astro. The FAQPage schema is built from the same Dutch
 // `faqs` the Faq component renders on this route, so it always matches what

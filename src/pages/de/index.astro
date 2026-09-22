@@ -1,18 +1,4 @@
 ---
-// ============================= LEARNING NOTES =============================
-// THE LOCALE PAGE PATTERN, explained once here for every file under
-// src/pages/de/ and src/pages/nl/. Because routing is file-based, a file at
-// src/pages/de/index.astro creates the URL /de/. The trick: it imports THE
-// SAME components as the English page. Inside each component,
-// `Astro.currentLocale` reports 'de' (Astro derives it from the /de/ URL
-// prefix configured in astro.config.mjs), and the component looks up its
-// German strings in the src/data/*-i18n.ts dictionaries. So a locale page is
-// mostly a copy of the English page file with:
-//   1. import paths one folder deeper (../../ instead of ../), and
-//   2. its own translated <BaseLayout title description> meta text.
-// Pages NOT copied into de/ still get a /de/ URL from the i18n fallback in
-// astro.config.mjs, but that stub just redirects to English.
-// ==========================================================================
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import { softwareApplicationSchema } from '../../data/seo';
@@ -38,7 +24,7 @@ import Insights from '../../components/Insights.astro';
 // src/data/home-i18n.ts. The pricing table and the animated product embeds still
 // render English until PR 2b.
 //
-// LEARNING: title/description name all three channels (E-Mail, LinkedIn, Telefon)
+// Title and description name all three channels (E-Mail, LinkedIn, Telefon)
 // because the page body does too — see the matching note in src/pages/index.astro.
 // The FAQPage schema is built from the same German `faqs` the Faq component
 // renders on this route, so it always matches what a visitor actually sees.

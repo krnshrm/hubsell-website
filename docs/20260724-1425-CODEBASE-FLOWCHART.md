@@ -1,6 +1,6 @@
 # Codebase flow chart
 
-_Created 2026-07-24. A visual map of how the pieces of this repo fit together, from a request to a built page. Companion to `docs/20260724-1100-LEARNING-ASTRO.md` (reading order) and `docs/HANDOFF.md`. Renders on GitHub and in any Mermaid-capable markdown viewer._
+_Created 2026-07-24. A visual map of how the pieces of this repo fit together, from a request to a built page. Companion to `docs/HANDOFF.md`. Renders on GitHub and in any Mermaid-capable markdown viewer._
 
 ## 1. The build: from source to live site
 

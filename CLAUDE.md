@@ -345,9 +345,9 @@ Full system in `src/styles/global.css`; reference doc `docs/hubsell-style-guide.
   an English buzzword across as a loanword.
 - Migrated content (blog bodies, legal text, testimonials): the English stays
   verbatim, punctuation included.
-- Preserve the `LEARNING NOTES` and `LEARNING:` comments in any file you edit. If an
-  edit makes a neighbouring LEARNING comment wrong, correct that comment minimally.
-  New files do not need them.
+- Comments explain why a thing is the way it is, not how the language or framework
+  works. Assume the reader knows Astro, TypeScript and CSS. The teaching comments
+  that used to head every file were removed on 2026-09-22; do not reintroduce them.
 - Explain concepts before commands. One action per step. No assumed knowledge of
   git, npm, or the terminal.
 - Every new file Claude creates in this repo, including a `docs/` reference meant to
@@ -461,7 +461,6 @@ Notes:
 |---|---|
 | `docs/HANDOFF.md` | status, backlog, standing rules, locked decisions. The most complete single reference. |
 | `docs/SITEMAP.md` | per-page site map, migration history, full i18n term lists |
-| `docs/20260724-1100-LEARNING-ASTRO.md` | Astro primer, intended reading order |
 | `docs/20260724-1425-CODEBASE-FLOWCHART.md` | Mermaid maps of the build and render flow |
 | `docs/20260724-1520-SEARCH-CONSOLE.md` | GSC state, the 403 incident, indexing reports |
 | `docs/BOT-PROTECTION.md` | honeypot, fill time, Turnstile, Cloudflare bot settings |
