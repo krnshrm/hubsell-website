@@ -304,11 +304,17 @@ export const stringsNl: HomeStrings = {
   frag: {
     eyebrow: 'Het probleem van de gefragmenteerde stack',
     titlePre: 'Zes tools in uw stack. Zes facturen. ', titleAccent: 'Geen ervan praat met elkaar.', titlePost: '',
-    badTag: 'Losgekoppeld',
-    badLine: 'Een gemiddeld revenue-team draait zes tools voor één taak. Elk in een silo, geen ervan praat met elkaar. Beweeg over een tool om te zien waar het u kwetsbaar maakt.',
-    join: 'hubsell verenigt alle zes',
-    goodTag: 'Verbonden',
-    goodLine: 'Eén platform. Eén login. Eén flow. Eén factuur. Diezelfde zes taken aan elkaar gekoppeld, zodat een signaal outreach wordt en outreach in uw CRM belandt. Beweeg over een functie om te zien wat die doet.',
+    lede: 'Een gemiddeld revenue-team koopt zes tools voor één taak. Dit is wat elk ervan u kost, en wat hubsell in plaats daarvan doet.',
+    colTool: 'Wat u koopt',
+    colHub: 'Wat hubsell doet',
+    pairs: [
+      { tool: 'Leaddatabases', cost: 'Data veroudert 30% per jaar. Gaten in uw ICP.', cap: 'Live sourcing', capDesc: 'Opgebouwd rond uw ICP op de dag dat u het nodig hebt.' },
+      { tool: 'E-mailfinders', cost: 'Meerdere aanbieders te beheren. Handmatig stapelen, geen flow.', cap: 'Gevalideerd op het moment van gebruik', capDesc: 'AI-opgeschoond, menselijk geverifieerd.' },
+      { tool: 'Buyer-intent-tools', cost: 'Geen actielaag. Signalen leiden nooit tot outreach.', cap: 'Signaallagen', capDesc: 'Kopers in de markt uit functiewissels en events.' },
+      { tool: 'Cold-e-mailtools', cost: 'E-mail draait op zichzelf. LinkedIn is een aparte tool.', cap: 'E-mail en LinkedIn in één flow', capDesc: 'Eén gecoördineerde sequentie.' },
+      { tool: 'LinkedIn-outreach', cost: 'Alleen een puntoplossing. Geen link met e-mailsequenties.', cap: 'Elke stakeholder, één campagne', capDesc: 'De hele buying group, niet één persoon.' },
+      { tool: 'CRM-beheer', cost: 'Reps loggen handmatig, of helemaal niet. CRM altijd verouderd.', cap: 'Gesynchroniseerd CRM', capDesc: 'Automatisch naar Salesforce, HubSpot en Pipedrive.' },
+    ],
     cta: 'Verenig uw stack vandaag nog',
   },
   zds: {

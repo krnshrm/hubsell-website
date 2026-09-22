@@ -304,11 +304,17 @@ export const stringsDe: HomeStrings = {
   frag: {
     eyebrow: 'Das Problem des fragmentierten Stacks',
     titlePre: 'Sechs Tools in Ihrem Stack. Sechs Rechnungen. ', titleAccent: 'Keines spricht mit dem anderen.', titlePost: '',
-    badTag: 'Getrennt',
-    badLine: 'Ein durchschnittliches Revenue-Team betreibt sechs Tools für eine Aufgabe. Jedes isoliert, keines spricht mit dem anderen. Fahren Sie über ein Tool, um zu sehen, wo es Sie angreifbar macht.',
-    join: 'hubsell vereint alle sechs',
-    goodTag: 'Verbunden',
-    goodLine: 'Eine Plattform. Ein Login. Ein Flow. Eine Rechnung. Dieselben sechs Aufgaben miteinander verbunden, sodass aus einem Signal Outreach wird und Outreach in Ihrem CRM landet. Fahren Sie über eine Funktion, um zu sehen, was sie tut.',
+    lede: 'Ein durchschnittliches Revenue-Team kauft sechs Tools für eine Aufgabe. Hier steht, was jedes davon kostet und was hubsell stattdessen tut.',
+    colTool: 'Was Sie kaufen',
+    colHub: 'Was hubsell tut',
+    pairs: [
+      { tool: 'Lead-Datenbanken', cost: 'Daten veralten um 30 % pro Jahr. Lücken in Ihrem ICP.', cap: 'Live-Beschaffung', capDesc: 'Auf Ihr ICP zugeschnitten, am Tag der Nutzung.' },
+      { tool: 'E-Mail-Finder', cost: 'Mehrere Anbieter zu verwalten. Manuelles Stapeln, kein Flow.', cap: 'Zum Zeitpunkt der Nutzung geprüft', capDesc: 'KI-bereinigt, menschlich verifiziert.' },
+      { tool: 'Buyer-Intent-Tools', cost: 'Keine Aktionsebene. Signale lösen nie Outreach aus.', cap: 'Signal-Layering', capDesc: 'Kaufbereite Kontakte aus Jobwechseln und Events.' },
+      { tool: 'Cold-E-Mail-Tools', cost: 'E-Mail läuft für sich. LinkedIn ist ein eigenes Tool.', cap: 'E-Mail und LinkedIn in einem Flow', capDesc: 'Eine abgestimmte Sequenz.' },
+      { tool: 'LinkedIn-Outreach', cost: 'Nur Punktlösung. Keine Verbindung zu E-Mail-Sequenzen.', cap: 'Alle Beteiligten, eine Kampagne', capDesc: 'Das gesamte Buying Center, nicht eine Person.' },
+      { tool: 'CRM-Pflege', cost: 'Reps pflegen von Hand, oder gar nicht. CRM immer veraltet.', cap: 'Synchronisiertes CRM', capDesc: 'Automatisch in Salesforce, HubSpot und Pipedrive.' },
+    ],
     cta: 'Vereinen Sie Ihren Stack noch heute',
   },
   zds: {

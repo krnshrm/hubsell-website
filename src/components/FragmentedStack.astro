@@ -1,70 +1,417 @@
 ---
 // ============================= LEARNING NOTES =============================
-// ANIMATED VISUAL component. The house recipe (markup with resting states,
-// theme-token CSS, GSAP init gated behind html.has-anim, astro:page-load
-// re-init) is explained once in src/components/HeroPipelineFlow.astro;
-// read that first, then this file is mostly scene-specific detail.
+// SECTION component: one visual band, stacked by a page file. The pattern
+// (locale lookup, strings from src/data, semantic markup, scoped style) is
+// explained in src/components/Hero.astro.
 // No props: it reads Astro.currentLocale and fetches its own strings
 // from src/data/ (home-i18n, site).
 // The <style> block is scoped to this component (Astro hashes the
 // selectors), styled with the design tokens from src/styles/global.css.
 // ==========================================================================
-// Section 4 — The fragmented stack problem (Navy). Before/after: a loose pile of
-// six disconnected tools (FragmentedPile) gives way to the same six jobs wired
-// into one platform (UnifiedGrid). Both animated embeds run on the navy section.
-import FragmentedPile from './FragmentedPile.astro';
-import UnifiedGrid from './UnifiedGrid.astro';
+// Section 5 — the fragmented stack, drawn as one connected scene.
+//
+// Imported by src/pages/index.astro and its de and nl copies.
+//
+// Six tools you already pay for sit on the left. A curve leaves each one and
+// all six converge on a single point: the edge of the one hubsell platform.
+// Light travels down every curve into that point, continuously. The six
+// capabilities are inside the platform, not beside it, because the argument is
+// that they stop being six purchases and become one.
+//
+// Two earlier attempts put the two halves in two columns of cards. Both read
+// as a table however they were styled, because nothing physically joined the
+// halves. The curves are the fix: they are the only element that touches both
+// sides, so the eye reads one object rather than two lists.
+//
+// WHY THE CURVES ARE DRAWN BY SCRIPT AND NOT WRITTEN INTO THE MARKUP.
+// A curve has to start at a chip's right edge and end on the platform's edge,
+// and neither position is knowable ahead of time: chip heights change with how
+// the tool name and cost line wrap, which differs in English, German and
+// Dutch, and again at every viewport width. So the SVG covers the whole block
+// and wire() measures the real boxes and writes the path data. A
+// ResizeObserver redraws on any reflow, and document.fonts.ready covers the
+// case where the web font lands after first paint and every box shifts.
+//
+// The lines carry pathLength="1", which renumbers the path's length to 1 for
+// dash purposes. That is what lets the draw-on and the travelling light use
+// plain fractions instead of a measured stroke length.
 import { SIGNUP_URL } from '../data/site';
 import { getHome } from '../data/home-i18n';
 import { asLocale, localizedHref } from '../i18n/utils';
 const L = asLocale(Astro.currentLocale);
 const { s } = getHome(L);
+const pairs = s.frag.pairs;
+
+// Lucide outlines, inner markup only, drawn inside a 24x24 box with
+// stroke="currentColor". Same convention as src/data/pricing-feature-icons.ts,
+// which is why there is no icon package in package.json. Order matches
+// s.frag.pairs, so the arrays are indexed together with the copy.
+const TOOL_ICONS = [
+  // database
+  '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/>',
+  // search
+  '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+  // activity
+  '<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>',
+  // mail
+  '<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>',
+  // linkedin
+  '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>',
+  // clipboard-list
+  '<rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/>',
+];
+const CAP_ICONS = [
+  // target
+  '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+  // shield-check
+  '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>',
+  // layers
+  '<path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/>',
+  // git-merge
+  '<circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/>',
+  // users
+  '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  // refresh-cw
+  '<path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21v-5h5"/>',
+];
 ---
 <section class="sec sec--navy frag" aria-labelledby="frag-title">
   <div class="wrap">
-    <div class="sec-head reveal" style="text-align:center">
+    <div class="sec-head is-center reveal">
       <p class="eyebrow">{s.frag.eyebrow}</p>
       <h2 id="frag-title" class="heading_primary" style="margin-top:8px">{s.frag.titlePre}<span class="accent">{s.frag.titleAccent}</span>{s.frag.titlePost}</h2>
+      <p class="subheading frag-lede">{s.frag.lede}</p>
     </div>
 
-    <div class="frag-block">
-      <div class="frag-block__head reveal">
-        <span class="frag-tag frag-tag--bad">{s.frag.badTag}</span>
-        <p class="frag-line">{s.frag.badLine}</p>
+    <div class="fw" data-fw>
+      {/* One SVG behind everything. Its paths are written by wire(). */}
+      <svg class="fw-wires" aria-hidden="true" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        {/* One horizontal gradient shared by all six curves, so every line is
+            faint where it leaves the tool and accent where it reaches the
+            platform. That is what makes the picture read as flow in a
+            direction rather than as six pipes. userSpaceOnUse means the stops
+            are placed in the SVG's own coordinates, so wire() sets x1/x2 to
+            the block's real width. */}
+        <defs>
+          <linearGradient id="fw-grad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="900" y2="0">
+            <stop class="fw-g0" offset="0" />
+            <stop class="fw-g1" offset="0.62" />
+            <stop class="fw-g2" offset="1" />
+          </linearGradient>
+        </defs>
+        {pairs.map((_, i) => (
+          <path class="fw-line" data-wire={i} style={`--i:${i}`} pathLength="1" fill="none" />
+        ))}
+        {pairs.map((_, i) => (
+          <path class="fw-spark" data-wire={i} style={`--i:${i}`} pathLength="1" fill="none" />
+        ))}
+        <circle class="fw-halo" r="17" />
+        <circle class="fw-node" r="3.5" />
+      </svg>
+
+      <div class="fw-side">
+        <p class="fw-label">{s.frag.colTool}</p>
+        <ul class="fw-chips">
+          {pairs.map((row, i) => (
+            <li class="fw-chip" data-i={i} style={`--i:${i}`}>
+              <span class="fw-ico fw-ico--tool" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" set:html={TOOL_ICONS[i]} />
+              </span>
+              <span class="fw-chip__body">
+                <span class="fw-chip__name">{row.tool}</span>
+                <span class="fw-chip__cost">{row.cost}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
-      <FragmentedPile />
-    </div>
 
-    <div class="frag-join reveal" aria-hidden="true">
-      <span class="frag-join__line"></span>
-      <span class="frag-join__label">{s.frag.join}</span>
-      <span class="frag-join__line"></span>
-    </div>
-
-    <div class="frag-block">
-      <div class="frag-block__head reveal">
-        <span class="frag-tag frag-tag--good">{s.frag.goodTag}</span>
-        <p class="frag-line">{s.frag.goodLine}</p>
+      <div class="fw-side fw-side--hub">
+        <p class="fw-label fw-label--hub">{s.frag.colHub}</p>
+        <div class="fw-panel">
+          <p class="fw-panel__name">hubsell</p>
+          <ul class="fw-caps">
+            {pairs.map((row, i) => (
+              <li class="fw-cap" data-i={i} style={`--i:${i}`}>
+                <span class="fw-ico fw-ico--cap" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" set:html={CAP_ICONS[i]} />
+                </span>
+                <span class="fw-cap__name">{row.cap}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-      <UnifiedGrid />
     </div>
 
-    <div class="reveal" style="display:flex;justify-content:center;margin-top:36px">
+    <div class="reveal" style="display:flex;justify-content:center;margin-top:40px">
       <a href={localizedHref(L, SIGNUP_URL)} class="button is-large">{s.frag.cta}</a>
     </div>
   </div>
 </section>
 
 <style>
-  .frag .sec-head{ max-width:46ch; margin-left:auto; margin-right:auto }
-  .frag-block{ margin-top:40px }
-  .frag-block__head{ max-width:60ch; margin:0 auto 14px; text-align:center }
-  .frag-tag{ display:inline-block; font-family:var(--font-body); font-weight:600; font-size:12px; letter-spacing:.08em; text-transform:uppercase; padding:5px 12px; border-radius:999px; margin-bottom:10px }
-  .frag-tag--bad{ color:#FFD9D2; background:rgba(232,98,80,.18); border:1px solid rgba(232,98,80,.5) }
-  .frag-tag--good{ color:#CFEFDD; background:rgba(47,160,110,.20); border:1px solid rgba(47,160,110,.5) }
-  .frag-line{ font-family:var(--font-body); font-size:16px; line-height:1.6; color:var(--sec-tx); opacity:.82; margin:0 }
+  /* .sec-head is max-width:60ch with margin:0, so text-align:center on its own
+     centres the words inside a box that still hugs the left edge, which reads
+     as a misalignment against the section. .is-center sets the auto margins
+     too. balance stops three sentences breaking into a ragged wedge. */
+  .frag .sec-head{ max-width:760px }
+  .frag .heading_primary{ text-wrap:balance }
+  .frag-lede{ max-width:50ch; margin:14px auto 0 }
 
-  .frag-join{ display:flex; align-items:center; gap:16px; max-width:520px; margin:34px auto 0 }
-  .frag-join__line{ flex:1; height:1px; background:linear-gradient(90deg, transparent, var(--sec-bd), transparent) }
-  .frag-join__label{ font-family:var(--font-body); font-weight:500; font-size:13px; letter-spacing:.04em; color:var(--sec-tx); opacity:.7; white-space:nowrap }
+  .fw{
+    --fw-line:color-mix(in srgb, var(--sec-tx) 26%, transparent);
+    position:relative;
+    display:grid; grid-template-columns:minmax(0,1fr) minmax(252px,300px);
+    gap:0 104px;                   /* the span the curves cross */
+    max-width:900px; margin:46px auto 0;
+  }
+  .fw-side{ display:flex; flex-direction:column; min-width:0; position:relative; z-index:1 }
+
+  /* Both labels share type and margin so the two sides start at the same y. */
+  .fw-label{
+    margin:0 0 14px; font:600 11px/1 var(--font-body);
+    letter-spacing:.09em; text-transform:uppercase;
+    color:var(--sec-tx); opacity:.5;
+  }
+  .fw-label--hub{ color:var(--accent-on); opacity:1 }
+
+  /* ---- the wires ---- */
+  .fw-wires{
+    position:absolute; inset:0; width:100%; height:100%;
+    overflow:visible; pointer-events:none; z-index:0;
+  }
+  .fw-g0{ stop-color:var(--sec-tx); stop-opacity:.16 }
+  .fw-g1{ stop-color:color-mix(in srgb, var(--accent-on) 55%, var(--sec-tx)); stop-opacity:.42 }
+  .fw-g2{ stop-color:var(--accent-on); stop-opacity:.9 }
+
+  .fw-line{
+    stroke:url(#fw-grad); stroke-width:1.4; vector-effect:non-scaling-stroke;
+    transition:stroke .2s;
+  }
+  /* The travelling light. One short dash on a path renumbered to length 1, so
+     a dasharray of "0.055 0.945" is a dash covering 5.5% of the curve and a gap
+     covering the rest. Sliding the offset walks that dash along the curve. */
+  .fw-spark{
+    stroke:var(--accent-on); stroke-width:2; stroke-linecap:round;
+    vector-effect:non-scaling-stroke;
+    stroke-dasharray:.055 .945; stroke-dashoffset:1; opacity:0;
+    filter:drop-shadow(0 0 4px color-mix(in srgb, var(--accent-on) 80%, transparent));
+  }
+  /* The point every curve arrives at, on the platform's edge. */
+  .fw-node{ fill:var(--accent-on); opacity:0 }
+  .fw-halo{ fill:color-mix(in srgb, var(--accent-on) 20%, transparent); opacity:0 }
+
+  /* ---- the six you pay for ---- */
+  .fw-chips{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px }
+  .fw-chip{
+    display:flex; align-items:flex-start; gap:11px;
+    padding:11px 14px;
+    background:var(--sec-card); border:1px solid var(--sec-bd);
+    border-radius:var(--radius);
+    transition:border-color .18s, background .18s, transform .18s;
+  }
+  .fw-chip__body{ display:flex; flex-direction:column; min-width:0 }
+  .fw-chip__name{ font:600 14.5px/1.3 var(--font-head); color:var(--sec-tx) }
+  .fw-chip__cost{ margin-top:3px; font-size:12px; line-height:1.45; color:var(--sec-tx); opacity:.56 }
+
+  .fw-ico{ flex:none; display:grid; place-items:center; border-radius:7px }
+  .fw-ico svg{ width:16px; height:16px }
+  .fw-ico--tool{
+    width:28px; height:28px; margin-top:1px;
+    color:var(--sec-tx); opacity:.55;
+    background:color-mix(in srgb, var(--sec-tx) 7%, transparent);
+    transition:color .18s, opacity .18s, background .18s;
+  }
+  .fw-ico--cap{ width:20px; height:20px; color:var(--accent-on) }
+  .fw-ico--cap svg{ width:15px; height:15px }
+
+  .fw-chip:hover{
+    border-color:color-mix(in srgb, var(--accent-on) 55%, transparent);
+    background:color-mix(in srgb, var(--accent-on) 7%, var(--sec-card));
+    transform:translateX(2px);
+  }
+  .fw-chip:hover .fw-ico--tool{
+    color:var(--accent-on); opacity:1;
+    background:color-mix(in srgb, var(--accent-on) 14%, transparent);
+  }
+
+  /* ---- the one you keep ---- */
+  /* Not stretched to the height of the six. It is centred, which is what puts
+     its edge midpoint level with the middle of the stack, and a smaller object
+     opposite a taller one is the shape of the argument. */
+  .fw-panel{
+    position:relative;
+    margin-block:auto; padding:20px 20px 22px;
+    background:var(--sec-card);
+    border:1px solid color-mix(in srgb, var(--accent-on) 38%, var(--sec-bd));
+    border-radius:var(--radius-lg);
+    box-shadow:0 0 0 1px color-mix(in srgb, var(--accent-on) 8%, transparent),
+               0 20px 48px -28px rgba(0,0,0,.85);
+  }
+  /* The intake: a short bright segment of the panel's own edge, exactly where
+     the six curves land. Drawn here rather than in the SVG so it cannot drift
+     out of alignment with the border it sits on. */
+  .fw-panel::before{
+    content:''; position:absolute; left:-1px; top:50%;
+    width:2px; height:52px; margin-top:-26px; border-radius:2px;
+    background:var(--accent-on);
+    box-shadow:0 0 12px 1px color-mix(in srgb, var(--accent-on) 55%, transparent);
+  }
+  @media (max-width:840px){ .fw-panel::before{ display:none } }
+
+  .fw-panel__name{
+    margin:0 0 14px; font:600 19px/1 var(--font-head);
+    color:var(--sec-tx); letter-spacing:-.01em;
+  }
+  .fw-caps{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px }
+  .fw-cap{
+    display:flex; align-items:center; gap:10px;
+    font:500 13.5px/1.3 var(--font-body); color:var(--sec-tx); opacity:.84;
+    transition:opacity .18s, color .18s;
+  }
+
+  /* Hovering a tool lights the capability that replaces it and the curve that
+     joins them. :has() lets the three talk without any script. */
+  .fw:has(.fw-chip[data-i="0"]:hover) .fw-cap[data-i="0"],
+  .fw:has(.fw-chip[data-i="1"]:hover) .fw-cap[data-i="1"],
+  .fw:has(.fw-chip[data-i="2"]:hover) .fw-cap[data-i="2"],
+  .fw:has(.fw-chip[data-i="3"]:hover) .fw-cap[data-i="3"],
+  .fw:has(.fw-chip[data-i="4"]:hover) .fw-cap[data-i="4"],
+  .fw:has(.fw-chip[data-i="5"]:hover) .fw-cap[data-i="5"]{
+    opacity:1; color:var(--accent-on);
+  }
+  .fw:has(.fw-chip[data-i="0"]:hover) .fw-line[data-wire="0"],
+  .fw:has(.fw-chip[data-i="1"]:hover) .fw-line[data-wire="1"],
+  .fw:has(.fw-chip[data-i="2"]:hover) .fw-line[data-wire="2"],
+  .fw:has(.fw-chip[data-i="3"]:hover) .fw-line[data-wire="3"],
+  .fw:has(.fw-chip[data-i="4"]:hover) .fw-line[data-wire="4"],
+  .fw:has(.fw-chip[data-i="5"]:hover) .fw-line[data-wire="5"]{
+    stroke:var(--accent-on);
+  }
+
+  /* ---- motion ----
+     Gated behind html.has-anim, which BaseLayout adds only when the visitor has
+     not asked for reduced motion. Without the class the finished scene renders
+     with no animation, so nothing depends on movement to be readable. */
+  html.has-anim .fw-line{ stroke-dasharray:1 1; stroke-dashoffset:1 }
+  html.has-anim .fw-chip{ opacity:0; transform:translateX(-10px) }
+  html.has-anim .fw-panel{ opacity:0; transform:translateY(10px) }
+
+  html.has-anim .fw.is-in .fw-chip{
+    opacity:1; transform:none;
+    transition:opacity .42s ease, transform .42s ease, border-color .18s, background .18s;
+    transition-delay:calc(var(--i) * 70ms);
+  }
+  html.has-anim .fw.is-in .fw-panel{
+    opacity:1; transform:none; transition:opacity .5s ease .5s, transform .5s ease .5s;
+  }
+  html.has-anim .fw.is-in .fw-line{
+    stroke-dashoffset:0; transition:stroke-dashoffset .62s ease, stroke .2s;
+    transition-delay:calc(260ms + var(--i) * 70ms);
+  }
+  html.has-anim .fw.is-in .fw-node{ opacity:1; transition:opacity .4s ease .95s }
+
+  /* The loop. Starts once the scene has drawn itself: light leaves each tool
+     in turn and runs into the platform, then the arrival point pulses. */
+  html.has-anim .fw.is-in .fw-spark{
+    animation:fw-run 3.6s linear infinite;
+    animation-delay:calc(1.1s + var(--i) * 300ms);
+  }
+  @keyframes fw-run{
+    0%      { stroke-dashoffset:1; opacity:0 }
+    8%      { opacity:1 }
+    72%     { opacity:1 }
+    80%,100%{ stroke-dashoffset:0; opacity:0 }
+  }
+  html.has-anim .fw.is-in .fw-halo{
+    animation:fw-pulse 1.8s ease-out infinite;
+    animation-delay:1.9s;
+  }
+  @keyframes fw-pulse{
+    0%      { opacity:.5; transform:scale(.4) }
+    70%,100%{ opacity:0;  transform:scale(1) }
+  }
+  /* transform on an SVG circle scales from the origin, so it has to be told to
+     scale about its own centre instead. */
+  .fw-halo{ transform-box:fill-box; transform-origin:center }
+
+  /* ---- phone ----
+     The curves are dropped. They only exist to join two things sitting side by
+     side, and below this width nothing is side by side. */
+  @media (max-width:840px){
+    .fw{ grid-template-columns:1fr; gap:0 }
+    .fw-wires{ display:none }
+    .fw-side--hub{ margin-top:30px }
+    .fw-panel{ margin-block:0 }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .fw-spark, .fw-halo{ display:none }
+  }
 </style>
+
+<script>
+  // Measures the real boxes and writes the curve for each tool. Every curve
+  // ends at the same point, the midpoint of the platform's left edge, which is
+  // what makes six things read as arriving at one.
+  function wire(root: HTMLElement) {
+    const svg = root.querySelector<SVGSVGElement>('.fw-wires');
+    const panel = root.querySelector<HTMLElement>('.fw-panel');
+    if (!svg || !panel) return;
+    if (getComputedStyle(svg).display === 'none') return;   // stacked layout
+
+    const r = root.getBoundingClientRect();
+    if (!r.width || !r.height) return;
+    svg.setAttribute('viewBox', `0 0 ${r.width.toFixed(1)} ${r.height.toFixed(1)}`);
+
+    // The gradient is in user space, so its end has to follow the real width or
+    // the accent end of every curve lands in the wrong place.
+    const grad = svg.querySelector('#fw-grad');
+    if (grad) grad.setAttribute('x2', r.width.toFixed(1));
+
+    const p = panel.getBoundingClientRect();
+    const hx = p.left - r.left;
+    const hy = p.top - r.top + p.height / 2;
+
+    root.querySelectorAll<HTMLElement>('.fw-chip').forEach((chip, i) => {
+      const c = chip.getBoundingClientRect();
+      const x1 = c.right - r.left;
+      const y1 = c.top - r.top + c.height / 2;
+      // Control points pushed along x only, so every curve leaves the chip and
+      // arrives at the platform horizontally. That is what stops the fan
+      // looking like six straight lines pinned to a point.
+      const k = Math.max(34, (hx - x1) * 0.52);
+      const d = `M${x1.toFixed(1)},${y1.toFixed(1)} C${(x1 + k).toFixed(1)},${y1.toFixed(1)} ${(hx - k).toFixed(1)},${hy.toFixed(1)} ${hx.toFixed(1)},${hy.toFixed(1)}`;
+      svg.querySelectorAll(`[data-wire="${i}"]`).forEach((el) => el.setAttribute('d', d));
+    });
+
+    svg.querySelectorAll<SVGCircleElement>('.fw-node, .fw-halo').forEach((n) => {
+      n.setAttribute('cx', hx.toFixed(1));
+      n.setAttribute('cy', hy.toFixed(1));
+    });
+  }
+
+  function initConverge() {
+    document.querySelectorAll<HTMLElement>('[data-fw]').forEach((el) => {
+      if (el.dataset.fwReady) return;
+      el.dataset.fwReady = '1';
+
+      wire(el);
+      // The web font usually lands after first paint and moves every box.
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => wire(el));
+      // Any reflow at all: width change, locale text wrapping differently.
+      new ResizeObserver(() => wire(el)).observe(el);
+
+      const io = new IntersectionObserver((entries) => {
+        if (!entries[0].isIntersecting) return;
+        wire(el);                  // measure once more, then play
+        el.classList.add('is-in');
+        io.disconnect();           // draws once; the loop keeps running after
+      }, { threshold: 0.2 });
+      io.observe(el);
+    });
+  }
+  initConverge();
+  document.addEventListener('astro:page-load', initConverge);
+</script>

@@ -68,9 +68,12 @@ export interface HomeStrings {
   frag: {
     eyebrow: string;
     titlePre: string; titleAccent: string; titlePost: string;
-    badTag: string; badLine: string;
-    join: string;
-    goodTag: string; goodLine: string;
+    lede: string;
+    colTool: string; colHub: string;
+    /** Six rows: the tool you buy, what it costs you, and what hubsell does
+        instead. One capability per tool, so the mapping is explicit rather
+        than left for the visitor to infer from two separate lists. */
+    pairs: { tool: string; cost: string; cap: string; capDesc: string }[];
     cta: string;
   };
   zds: {
@@ -154,11 +157,17 @@ const stringsEn: HomeStrings = {
   frag: {
     eyebrow: 'The fragmented stack problem',
     titlePre: 'Six tools in your stack. Six invoices. ', titleAccent: 'None of them talking to each other.', titlePost: '',
-    badTag: 'Disconnected',
-    badLine: 'The average revenue team runs six tools to do one job. Each one siloed, none of them talking. Hover any tool to see where it leaves you exposed.',
-    join: 'hubsell unifies all six',
-    goodTag: 'Connected',
-    goodLine: 'One platform. One login. One flow. One invoice. The same six jobs wired together, so a signal becomes outreach and outreach lands in your CRM. Hover any capability to see what it does.',
+    lede: 'The average revenue team buys six tools to do one job. Here is what each one costs you, and what hubsell does instead.',
+    colTool: 'What you buy',
+    colHub: 'What hubsell does',
+    pairs: [
+      { tool: 'Lead databases', cost: 'Data decays 30% a year. Coverage gaps in your ICP.', cap: 'Live sourcing', capDesc: 'Built against your ICP the day you need it.' },
+      { tool: 'Email finders', cost: 'Multiple providers to manage. Manual stacking, no flow.', cap: 'Validated at point of use', capDesc: 'AI-cleaned, human-verified.' },
+      { tool: 'Buyer intent tools', cost: 'No native action layer. Signals never trigger outreach.', cap: 'Signal layering', capDesc: 'In-market buyers from job changes and events.' },
+      { tool: 'Cold email tools', cost: 'Email runs on its own. LinkedIn is a separate tool.', cap: 'Email and LinkedIn in one flow', capDesc: 'One coordinated sequence.' },
+      { tool: 'LinkedIn outreach', cost: 'Point solution only. No link to email sequences.', cap: 'Every stakeholder, one campaign', capDesc: 'The whole buying group, not one person.' },
+      { tool: 'CRM admin', cost: 'Reps log by hand, or not at all. CRM always out of date.', cap: 'Synced CRM', capDesc: 'Auto-logged to Salesforce, HubSpot and Pipedrive.' },
+    ],
     cta: 'Unify your stack today',
   },
   zds: {

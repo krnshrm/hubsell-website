@@ -170,7 +170,10 @@ const moreLogos = [
   .logo-cell:nth-child(10){ border-bottom-right-radius:calc(var(--radius-lg) - 1px); }
 
   .logo-cell__img{
-    max-height:30px; max-width:150px; width:auto; height:auto;
+    /* max-width is relative to the cell, not a fixed 150px. At two columns on a
+       375px phone the content box is only ~135px, so a fixed cap let wide logos
+       run past the cell edge. Whichever of the two limits binds first wins. */
+    max-height:30px; max-width:100%; width:auto; height:auto;
     object-fit:contain; display:block;
   }
 

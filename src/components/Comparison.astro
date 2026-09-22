@@ -50,13 +50,16 @@ const last = rows.length - 1;
         ))}
 
         {rows.map((r, i) => (
-          <>
-            <div class:list={["cmp__rowlabel", i === last && "is-lastrow"]} style={`--row:${i}`}><span>{r.label}</span></div>
+          /* display:contents on desktop, so these stay direct grid items and the
+             matrix is unchanged. Below 680px the wrapper becomes a card, which
+             is the only way to escape a 780px-wide table on a phone. */
+          <div class="cmp__row" style={`--row:${i}`}>
+            <div class:list={["cmp__rowlabel", i === last && "is-lastrow"]}><span>{r.label}</span></div>
             {cols.map((c) => {
               const [mark, text] = r.cells[c];
               const isHub = c === 'hub';
               return (
-                <div class:list={["cmp__cell", isHub && "cmp__cell--hub", i === last && "is-lastrow"]} style={`--row:${i}`} data-col={c}>
+                <div class:list={["cmp__cell", isHub && "cmp__cell--hub", i === last && "is-lastrow"]} data-col={c} data-collabel={heads[c].label}>
                   <span class={`mk mk--${mark}`}>
                     <span class="sr-only">{mark === 'yes' ? s.cmp.srYes : mark === 'part' ? s.cmp.srPart : s.cmp.srNo}</span>
                     {mark === 'yes'
@@ -67,7 +70,7 @@ const last = rows.length - 1;
                 </div>
               );
             })}
-          </>
+          </div>
         ))}
       </div>
     </div>
@@ -101,7 +104,12 @@ const last = rows.length - 1;
     grid-template-columns:1.3fr 1.2fr repeat(3, 1fr);
     align-items:stretch;
   }
-  .cmp__matrix > *{ padding:15px 14px }
+  /* The row wrapper has no box of its own on desktop, so its children remain
+     direct grid items and the 5-column layout is untouched. */
+  .cmp__row{ display:contents }
+  /* Named explicitly rather than a descendant wildcard: `> * > *` would also
+     catch the wordmark inside the hubsell header and pad it. */
+  .cmp__corner, .cmp__head, .cmp__rowlabel, .cmp__cell{ padding:15px 14px }
 
   .cmp__corner{ border-bottom:1px solid var(--sec-bd) }
   .cmp__head{
@@ -227,11 +235,48 @@ const last = rows.length - 1;
     .cmp__matrix.is-anim .mk--yes svg path{ stroke-dasharray:none; stroke-dashoffset:0; transition:none; }
   }
 
+  /* ---- Phone layout -------------------------------------------------------
+     A 780px-wide table on a 375px screen means horizontal scrolling, and most
+     visitors never discover it, so the comparison simply does not get read.
+     Below 680px the matrix stops being a grid: each capability becomes a card
+     with four labelled rows inside it, hubsell first and still on its dark
+     fill. Nothing is dropped and nothing needs scrolling sideways. */
   @media (max-width:680px){
-    .cmp__matrixwrap{
-      margin-left:calc(-1 * clamp(20px,5vw,56px)); margin-right:calc(-1 * clamp(20px,5vw,56px));
-      padding:0 clamp(20px,5vw,56px);
+    .cmp__matrixwrap{ overflow-x:visible; contain:none; }
+    .cmp__matrix{ display:block; min-width:0; }
+
+    /* The column headers become per-cell labels instead, via data-collabel. */
+    .cmp__corner, .cmp__head{ display:none }
+
+    .cmp__row{
+      display:block; margin-top:14px;
+      border:1px solid var(--sec-bd); border-radius:var(--radius-lg); overflow:hidden;
     }
+    .cmp__rowlabel{
+      display:block; border-bottom:1px solid var(--sec-bd);
+      padding:13px 14px; font-size:14px;
+      background:color-mix(in srgb, var(--sec-tx) 4%, transparent);
+    }
+
+    /* Each cell turns into one labelled line: who, the mark, the detail. */
+    .cmp__matrix > * > .cmp__cell{
+      display:grid; grid-template-columns:86px 24px 1fr;
+      align-items:center; gap:10px; text-align:left;
+      padding:11px 14px;
+    }
+    .cmp__cell::before{
+      content:attr(data-collabel);
+      font:600 10.5px/1.25 var(--font-body); letter-spacing:.05em; text-transform:uppercase;
+      opacity:.62;
+    }
+    .cmp__cell p{ max-width:none; font-size:12.5px }
+    .cmp__cell:not(.cmp__cell--hub){ border-bottom:1px solid var(--sec-bd) }
+    .cmp__row .cmp__cell:last-child{ border-bottom:0 }
+    /* hubsell already sits first in the DOM, so it leads each card, and it
+       keeps its dark fill. */
+    .cmp__cell--hub::before{ color:var(--hub-tx); opacity:.72 }
+    .is-lastrow{ border-bottom:0 }
+    .cmp__head--hub, .cmp__cell--hub.is-lastrow{ border-radius:0 }
   }
 </style>
 
