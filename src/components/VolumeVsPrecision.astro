@@ -211,8 +211,10 @@ const ratio = Math.round(volumeBurn / precisionBurn);
   .vvp-dot--base{ fill:color-mix(in srgb, var(--sec-tx) 22%, transparent); }
   .vvp-dot--danger{ fill:var(--vvp-bad); }
   .vvp-dot--success{ fill:var(--vvp-good); }
-  /* Hidden until the sweep uncovers it, left to right. */
-  .vvp-field__hit{ clip-path:inset(0 100% 0 0); }
+  /* Hidden until the sweep uncovers it, left to right, but only when motion
+     is on. Unconditionally hiding it meant a failed script left the dots
+     blank for good. */
+  html.has-anim .vvp-field__hit{ clip-path:inset(0 100% 0 0); }
 
   .vvp-sweep{
     position:absolute; top:0; bottom:0; left:0;
@@ -244,7 +246,8 @@ const ratio = Math.round(volumeBurn / precisionBurn);
   .vvp-panel--precision .vvp-metric__value{ color:var(--vvp-good); }
   .vvp-metric__label{ display:block; font-size:12.5px; color:var(--sec-tx); opacity:.72; margin-top:5px; }
 
-  .vvp-metric--out{ flex:0 0 auto; text-align:right; opacity:0; }
+  .vvp-metric--out{ flex:0 0 auto; text-align:right; }
+  html.has-anim .vvp-metric--out{ opacity:0; }
   .vvp-metric--out .vvp-metric__value{ color:var(--sec-tx); }
   .vvp-metric--out .vvp-metric__label{ opacity:.55; }
 
@@ -290,39 +293,34 @@ const ratio = Math.round(volumeBurn / precisionBurn);
   .vvp-note{ font-size:12px; line-height:1.6; color:var(--sec-tx); opacity:.5; margin:18px 0 0; }
   .vvp-note b{ font-weight:600; opacity:.85; }
 
-  /* ---- Motion. Driven by .is-playing, which the script adds only while the
-     section is on screen, so nothing animates off-screen. ---- */
-  .vvp.is-playing .vvp-field__hit{ animation:vvp-reveal var(--vvp-cycle,9000ms) linear infinite; }
-  .vvp.is-playing .vvp-sweep{ animation:vvp-sweep var(--vvp-cycle,9000ms) linear infinite; }
-  .vvp.is-playing .vvp-metric--out{ animation:vvp-pop var(--vvp-cycle,9000ms) ease-out infinite; }
-  .vvp.is-playing .vvp-kicker__pair > span{ animation:vvp-pop-late var(--vvp-cycle,9000ms) ease-out infinite; }
+  /* ---- Motion. The scene builds itself ONCE when the section is first seen,
+     then holds. It used to loop on a 9 second cycle, which meant every number
+     on screen faded to nothing for roughly four seconds out of every nine and
+     then climbed again, so a reader who paused on the figures watched them
+     disappear. Every animation now ends on the resolved state and keeps it with
+     animation-fill-mode: forwards. ---- */
+  .vvp.is-playing .vvp-field__hit{ animation:vvp-reveal 2800ms linear forwards; }
+  .vvp.is-playing .vvp-sweep{ animation:vvp-sweep 2800ms linear forwards; }
+  .vvp.is-playing .vvp-metric--out{ animation:vvp-pop 460ms ease-out 2650ms forwards; }
+  .vvp.is-playing .vvp-kicker__pair > span{ animation:vvp-pop-late 460ms ease-out 3050ms forwards; }
 
   @keyframes vvp-reveal{
-    0%   { clip-path:inset(0 100% 0 0); opacity:1; }
-    3%   { clip-path:inset(0 100% 0 0); opacity:1; }
-    37%  { clip-path:inset(0 0 0 0);    opacity:1; }
-    93%  { clip-path:inset(0 0 0 0);    opacity:1; }
-    99%  { clip-path:inset(0 0 0 0);    opacity:0; }
-    100% { clip-path:inset(0 100% 0 0); opacity:0; }
+    from { clip-path:inset(0 100% 0 0); }
+    to   { clip-path:inset(0 0 0 0); }
   }
   @keyframes vvp-sweep{
     0%   { left:0%;   opacity:0; }
-    4%   { left:4%;   opacity:.95; }
-    34%  { opacity:.95; }
-    37%  { left:100%; opacity:0; }
+    6%   { opacity:.95; }
+    94%  { opacity:.95; }
     100% { left:100%; opacity:0; }
   }
   @keyframes vvp-pop{
-    0%, 38%   { opacity:0; transform:translateY(7px); }
-    45%       { opacity:1; transform:translateY(0); }
-    93%       { opacity:1; transform:translateY(0); }
-    99%, 100% { opacity:0; transform:translateY(0); }
+    from { opacity:0; transform:translateY(7px); }
+    to   { opacity:1; transform:translateY(0); }
   }
   @keyframes vvp-pop-late{
-    0%, 48%   { opacity:0; transform:translateY(9px); }
-    56%       { opacity:1; transform:translateY(0); }
-    93%       { opacity:1; transform:translateY(0); }
-    99%, 100% { opacity:0; transform:translateY(0); }
+    from { opacity:0; transform:translateY(9px); }
+    to   { opacity:1; transform:translateY(0); }
   }
 
   /* Everything resolved, nothing moving. */
@@ -331,8 +329,9 @@ const ratio = Math.round(volumeBurn / precisionBurn);
     .vvp.is-playing .vvp-sweep,
     .vvp.is-playing .vvp-metric--out,
     .vvp.is-playing .vvp-kicker__pair > span{ animation:none; }
-    .vvp-field__hit{ clip-path:inset(0 0 0 0); }
-    .vvp-metric--out, .vvp-kicker__pair > span{ opacity:1; }
+    html.has-anim .vvp-field__hit{ clip-path:inset(0 0 0 0); }
+    html.has-anim .vvp-metric--out{ opacity:1; }
+    .vvp-kicker__pair > span{ opacity:1; }
     .vvp-sweep{ display:none; }
   }
 </style>
@@ -341,9 +340,14 @@ const ratio = Math.round(volumeBurn / precisionBurn);
   // Counts the two contact figures up in step with the CSS reveal. The CSS owns
   // the timeline; this only reads the same clock, so the numbers and the sweep
   // can never drift apart.
-  const CYCLE = 9000;
-  const T_START = 0.03;   // matches the keyframe where the sweep starts
-  const T_END = 0.37;     // and where it finishes
+  //
+  // This runs ONCE. It used to loop forever on a 9 second cycle and stop when
+  // the section left the viewport, which had two bad effects: the figures blanked
+  // for part of every cycle while someone was reading them, and scrolling down
+  // far enough tore the whole scene back down to its hidden resting state. Now
+  // the count runs once, lands on the real number, and stays there whatever the
+  // reader does next.
+  const REVEAL = 2800;    // matches the CSS reveal duration
   const ease = (x: number) => 1 - Math.pow(1 - x, 3);
 
   function initVvp() {
@@ -366,39 +370,26 @@ const ratio = Math.round(volumeBurn / precisionBurn);
       }
 
       let t0 = 0;
-      let raf = 0;
-      let running = false;
 
       const frame = (now: number) => {
-        if (!running) return;
-        const t = ((now - t0) % CYCLE) / CYCLE;
-        const p = Math.min(1, Math.max(0, (t - T_START) / (T_END - T_START)));
+        const p = Math.min(1, (now - t0) / REVEAL);
         counters.forEach((c) => (c.el.textContent = fmt(Math.round(c.to * ease(p)))));
-        raf = requestAnimationFrame(frame);
+        // Land exactly on the real figure, then stop. No further frames, so the
+        // numbers cannot be repainted or cleared by anything later.
+        if (p < 1) requestAnimationFrame(frame);
+        else counters.forEach((c) => (c.el.textContent = fmt(c.to)));
       };
 
-      const start = () => {
-        if (running) return;
-        running = true;
+      // Plays the first time the section is seen, then the observer is dropped.
+      // Nothing listens for it leaving, because there is nothing left to undo.
+      const io = new IntersectionObserver((entries) => {
+        if (!entries[0].isIntersecting) return;
+        io.disconnect();
         t0 = performance.now();
         root.classList.add('is-playing');
-        raf = requestAnimationFrame(frame);
-      };
-      const stop = () => {
-        running = false;
-        cancelAnimationFrame(raf);
-        root.classList.remove('is-playing');
-      };
-
-      // Re-sync on every CSS loop so the counters cannot drift over time.
-      root.querySelector('.vvp-field__hit')
-        ?.addEventListener('animationiteration', () => { t0 = performance.now(); });
-
-      // Only animate while the section is actually on screen.
-      new IntersectionObserver(
-        (entries) => (entries[0].isIntersecting ? start() : stop()),
-        { threshold: 0.2 },
-      ).observe(root);
+        requestAnimationFrame(frame);
+      }, { threshold: 0.2 });
+      io.observe(root);
     });
   }
 
