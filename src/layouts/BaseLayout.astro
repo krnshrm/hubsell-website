@@ -3,7 +3,7 @@ import TopBar from '../components/TopBar.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import JsonLd from '../components/JsonLd.astro';
-import CookieConsent from '../components/20260930-1326-CookieConsent.astro';
+import { GTM_ID } from '../data/site';
 import { OG_IMAGE, organizationSchema, websiteSchema } from '../data/seo';
 import { locales, defaultLocale } from '../i18n/ui';
 import { asLocale, basePath, hasTranslation, localizeUrl } from '../i18n/utils';
@@ -59,6 +59,19 @@ const altHref = (l: string) => new URL(localizeUrl(l, base), Astro.site).href;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="referrer" content="same-origin" />
+    {/* GTM loads on every page. Consent lives inside the container: the CookieYes
+        tag shows the banner and sets consent defaults to denied, and every other
+        tag waits on it. Nothing here may fire a tag directly. */}
+    <script is:inline define:vars={{ gtmId: GTM_ID }}>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s);
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', gtmId);
+    </script>
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
@@ -125,7 +138,6 @@ const altHref = (l: string) => new URL(localizeUrl(l, base), Astro.site).href;
       <slot />
     </main>
     {chrome === 'site' && <Footer />}
-    <CookieConsent />
 
     <div class="scroll-progress" aria-hidden="true"><span class="scroll-progress__fill"></span></div>
 

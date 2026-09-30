@@ -91,7 +91,8 @@ const columns = [
 
     <nav class="site-footer__legal" aria-label="Legal">
       {legalLinks.map((l) => (<a href={localizedHref(locale, l.href!)}>{l.key ? t(l.key) : l.label}</a>))}
-      <a href="#cookie-settings" data-consent-open>{t('legal.cookies')}</a>
+      {/* CookieYes (loaded through GTM) opens its preference center from any element with this class. */}
+      <a href="#cookie-settings" class="cky-banner-element">{t('legal.cookies')}</a>
     </nav>
 
     <div class="site-footer__bottom">

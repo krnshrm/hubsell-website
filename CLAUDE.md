@@ -61,12 +61,14 @@ tags `GA4 - *`, all targeting measurement ID `G-5NPVYW5V3R`, plus the supporting
 **Correction 2026-09-30:** publishing the container was not enough. The site itself
 never loaded GTM: no `gtm.js` snippet in the live HTML, the built bundle, or any
 commit of this repo. So the `track.ts` pushes went nowhere and GA4 did **not**
-receive these events after 2026-09-06 either. The fix is a consent banner (GDPR
-option "load only after Accept", matching privacy policy section 6.5.2):
-`src/components/20260930-1326-CookieConsent.astro`, which loads `GTM_ID` from
-`src/data/site.ts` only after the visitor accepts. Treat event data as real only
-from the production deploy that puts that banner live, and remember it covers only
-visitors who click Accept, so counts are lower than true traffic. Known leftovers
+receive these events after 2026-09-06 either. The Webflow site carried the GTM
+snippet; the Astro rebuild dropped it. Fixed 2026-09-30: `BaseLayout.astro` loads
+`GTM_ID` (`src/data/site.ts`) on every page. Consent is handled **inside the
+container** by the `CookieYes` tag (id 58, website key `f0478460196d57ee6ada1565`,
+consent defaults denied for all regions); do not add a separate site-side banner.
+The footer "Cookie settings" link reopens CookieYes via the `cky-banner-element`
+class. Treat event data as real only from the production deploy that puts the
+snippet live, and it covers only visitors who allow analytics. Known leftovers
 in the container, harmless but worth a
 cleanup: the native `Form Submission - Book a Call` trigger (id 55, Form ID
 `wf-form-Book-a-call`) is orphaned — no tag fires on it; the UA tag `GA-universal`
