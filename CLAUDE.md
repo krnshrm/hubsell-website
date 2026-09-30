@@ -67,7 +67,12 @@ snippet; the Astro rebuild dropped it. Fixed 2026-09-30: `BaseLayout.astro` load
 container** by the `CookieYes` tag (id 58, website key `f0478460196d57ee6ada1565`,
 consent defaults denied for all regions); do not add a separate site-side banner.
 The footer "Cookie settings" link reopens CookieYes via the `cky-banner-element`
-class. Treat event data as real only from the production deploy that puts the
+class. Live container is **version 48** (2026-09-30): every tag requires a consent
+type (`analytics_storage`: Google Tag, the 4 GA4 event tags, HotJar; `ad_storage`:
+GADs-remarketing, Conversion Linker, LinkedIn Insight Tag), except CookieYes and
+the `hubsell` chat widget, which load without consent by decision. `GA-universal`
+was deleted. Privacy policy section 6.5.5 lists these services; keep it in step
+with the container. Treat event data as real only from the production deploy that puts the
 snippet live, and it covers only visitors who allow analytics. Known leftovers
 in the container, harmless but worth a
 cleanup: the native `Form Submission - Book a Call` trigger (id 55, Form ID

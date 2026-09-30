@@ -299,36 +299,73 @@ This Website utilizes advertising Cookies, which enable us to personalize advert
 
 Marketing and Tracking Cookies are Cookies or any other form of local storage used to create user profiles, display advertising, or track the user on this Website or across multiple websites for similar marketing purposes. Since these Cookies are marked as tracking Cookies, we require your consent to place them.
 
-HubSpot (Marketing/Tracking, Preferences)  
-Usage: We use HubSpot for marketing automation (automatic email marketing).  
-Data Sharing: For more information, please read the [HubSpot Privacy Policy](https://legal.hubspot.com/privacy-policy).
+#### 6.5.5 Services We Use
 
-Google Analytics (Statistics)  
-Usage: We use Google Analytics 4 to count visits and to see which pages visitors use, for example which pages lead to a demo request. It runs only after you allow Analytics cookies in our cookie banner (CookieYes). If you do not allow them, Google Analytics does not run. Google Tag Manager loads on every page to show the cookie banner; it does not set cookies itself.  
+Our Website loads these services through Google Tag Manager. Google Tag Manager loads on every page so it can show the cookie banner and start the services below; it does not set cookies itself. Each service is listed under the cookie banner category that controls it.
+
+**Necessary (always on)**
+
+CookieYes  
+Usage: Shows the cookie banner and remembers your choice, so we do not ask again on every page.  
+Provider: CookieYes Limited, United Kingdom.  
+Legal basis: Our legitimate interest in recording and respecting your consent (Art. 6(1)(f) GDPR).  
+Data Sharing: For more information, please read the [CookieYes Privacy Policy](https://www.cookieyes.com/privacy-policy/).
+
+hubsell chat  
+Usage: The chat window on our Website, so you can ask us questions directly. It loads for every visitor and is not used for advertising.  
+Provider: hubsell UG, Friedrichstraße 155, 10117 Berlin, Germany.  
+Legal basis: Our legitimate interest in answering questions from visitors (Art. 6(1)(f) GDPR).
+
+CloudFlare  
+Usage: We use CloudFlare for security and for spam prevention, including the Turnstile check on our forms.  
+Data Sharing: For more information, please read the [CloudFlare Privacy Policy](https://www.cloudflare.com/en-gb/privacypolicy/).
+
+**Analytics (only with your consent)**
+
+Google Analytics  
+Usage: We use Google Analytics 4 to count visits and to see which pages visitors use, for example which pages lead to a demo request. It runs only after you allow Analytics cookies in our cookie banner. If you do not allow them, Google Analytics does not run.  
 Cookies: `_ga` and `_ga_<ID>`, which by default expire after 2 years.  
 Provider: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland. Data may be transferred to Google LLC in the United States, which is certified under the EU-US Data Privacy Framework.  
 Legal basis: Your consent (Art. 6(1)(a) GDPR). You can change or withdraw it at any time through "Cookie settings" at the bottom of every page.  
 Data Sharing: For more information, please read the [Google Privacy Policy](https://policies.google.com/privacy).
 
-Darkrise - Webflow Themes (Functional)  
-Usage: We use Darkrise for website design.  
-Data Sharing: This data is not shared with third parties.
+Hotjar  
+Usage: Heatmaps and session recordings (text you type is hidden by default) that show how visitors move through a page, so we can find what is confusing. It runs only after you allow Analytics cookies.  
+Provider: Hotjar Ltd, Malta.  
+Legal basis: Your consent (Art. 6(1)(a) GDPR).  
+Data Sharing: For more information, please read the [Hotjar Privacy Policy](https://www.hotjar.com/legal/policies/privacy/).
 
-CloudFlare  
-Usage: We use CloudFlare for security and for spam prevention.  
-Data Sharing: For more information, please read the [CloudFlare Privacy Policy](https://www.cloudflare.com/en-gb/privacypolicy/).
+**Advertisement (only with your consent)**
+
+Google Ads  
+Usage: Measures which of our Google Ads led to a visit or a demo request, and lets us show our ads again to people who visited the Website. It runs only after you allow Advertisement cookies.  
+Provider: Google Ireland Limited, Dublin, Ireland, with possible transfer to Google LLC in the United States under the EU-US Data Privacy Framework.  
+Legal basis: Your consent (Art. 6(1)(a) GDPR).  
+Data Sharing: For more information, please read the [Google Privacy Policy](https://policies.google.com/privacy).
+
+LinkedIn Insight Tag  
+Usage: Measures which of our LinkedIn campaigns led to a visit or a demo request, and lets us show our ads again on LinkedIn to people who visited the Website. It runs only after you allow Advertisement cookies.  
+Provider: LinkedIn Ireland Unlimited Company, Dublin, Ireland.  
+Legal basis: Your consent (Art. 6(1)(a) GDPR).  
+Data Sharing: For more information, please read the [LinkedIn Privacy Policy](https://www.linkedin.com/legal/privacy-policy).
+
+**Email marketing**
+
+HubSpot (Marketing/Tracking, Preferences)  
+Usage: We use HubSpot for marketing automation (automatic email marketing).  
+Data Sharing: For more information, please read the [HubSpot Privacy Policy](https://legal.hubspot.com/privacy-policy).
 
 ### 6.6 Consent
 
-When you visit our Website for the first time, we will show you a pop-up explaining about Cookies. Once you click on "Save preferences," you consent to us using the selected categories of Cookies and plugins as described in this Cookie Policy. You can disable the use of Cookies via your browser, but please be aware that our Website may not function properly if all Cookies are disabled.
+When you visit our Website for the first time, our cookie banner (CookieYes) asks for your consent. You can accept all categories, reject all of them, or choose categories one by one. Until you choose, only the Necessary services run. You can change or withdraw your choice at any time through "Cookie settings" at the bottom of every page. You can also disable Cookies in your browser, but please be aware that our Website may not function properly if all Cookies are disabled.
 
 #### 6.6.1 Manage Your Consent Settings
 
-Functional: Access or technical storage is strictly necessary for the legitimate purpose of enabling the use of a specific service explicitly requested by the subscriber or user, or for the sole purpose of transmitting a communication over an electronic communications network.
+Necessary: Storage or access that is strictly needed to run the Website, keep it secure, remember your cookie choice, or provide a service you use on it, such as the chat. Always on.
 
-Statistics: Technical storage or access that is used exclusively for statistical purposes.
+Analytics: Storage or access used only to measure how the Website is used, so we can improve it. Only with your consent.
 
-Marketing: Technical storage or access is required to create user profiles, send advertising, or track the user on a website or across several websites for similar marketing purposes.
+Advertisement: Storage or access used to measure our advertising and to show our ads to people who visited the Website. Only with your consent.
 
 ### 6.7 Enabling/Disabling and Deleting Cookies
 
