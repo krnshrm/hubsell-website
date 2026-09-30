@@ -263,7 +263,7 @@ You can unsubscribe from our customers’ communications by clicking on the “u
 
 ## 6. Cookies
 
-This Cookie Policy was last updated on 10 October, 2024, and applies to citizens and permanent residents of the European Economic Area and Switzerland.
+This Cookie Policy was last updated on 30 September, 2026, and applies to citizens and permanent residents of the European Economic Area and Switzerland.
 
 ### 6.1 Introduction
 
@@ -289,7 +289,7 @@ Some Cookies ensure that parts of our Website function correctly and that your u
 
 #### 6.5.2 Analytical Cookies
 
-We use analytical Cookies to optimize the experience on our Website for our users. With these analytical Cookies, we gain insight into the usage of our Website. We request your permission to place analytical Cookies.
+We use analytical Cookies to optimize the experience on our Website for our users. With these analytical Cookies, we gain insight into the usage of our Website. We request your permission to place analytical Cookies. We use Google Analytics for this, and only after you click "Accept" in our cookie banner. See the Google Analytics entry below.
 
 #### 6.5.3 Advertising Cookies
 
@@ -302,6 +302,13 @@ Marketing and Tracking Cookies are Cookies or any other form of local storage us
 HubSpot (Marketing/Tracking, Preferences)  
 Usage: We use HubSpot for marketing automation (automatic email marketing).  
 Data Sharing: For more information, please read the [HubSpot Privacy Policy](https://legal.hubspot.com/privacy-policy).
+
+Google Analytics (Statistics)  
+Usage: We use Google Analytics 4, loaded through Google Tag Manager, to count visits and to see which pages visitors use, for example which pages lead to a demo request. Both are loaded only after you click "Accept" in our cookie banner. If you click "Decline", neither is loaded.  
+Cookies: `_ga` and `_ga_<ID>`, which by default expire after 2 years.  
+Provider: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland. Data may be transferred to Google LLC in the United States, which is certified under the EU-US Data Privacy Framework.  
+Legal basis: Your consent (Art. 6(1)(a) GDPR). You can withdraw it at any time through "Cookie settings" at the bottom of every page, and we then delete the Google Analytics cookies.  
+Data Sharing: For more information, please read the [Google Privacy Policy](https://policies.google.com/privacy).
 
 Darkrise - Webflow Themes (Functional)  
 Usage: We use Darkrise for website design.  
