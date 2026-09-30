@@ -91,6 +91,7 @@ const columns = [
 
     <nav class="site-footer__legal" aria-label="Legal">
       {legalLinks.map((l) => (<a href={localizedHref(locale, l.href!)}>{l.key ? t(l.key) : l.label}</a>))}
+      <a href="#cookie-settings" data-consent-open>{t('legal.cookies')}</a>
     </nav>
 
     <div class="site-footer__bottom">

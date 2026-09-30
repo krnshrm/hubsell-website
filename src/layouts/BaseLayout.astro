@@ -3,6 +3,7 @@ import TopBar from '../components/TopBar.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import JsonLd from '../components/JsonLd.astro';
+import CookieConsent from '../components/20260930-1326-CookieConsent.astro';
 import { OG_IMAGE, organizationSchema, websiteSchema } from '../data/seo';
 import { locales, defaultLocale } from '../i18n/ui';
 import { asLocale, basePath, hasTranslation, localizeUrl } from '../i18n/utils';
@@ -124,6 +125,7 @@ const altHref = (l: string) => new URL(localizeUrl(l, base), Astro.site).href;
       <slot />
     </main>
     {chrome === 'site' && <Footer />}
+    <CookieConsent />
 
     <div class="scroll-progress" aria-hidden="true"><span class="scroll-progress__fill"></span></div>
 

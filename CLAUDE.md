@@ -24,9 +24,11 @@ Buyer: VPs of Sales, sales leaders, founders, and RevOps at B2B companies.
 Users: SDRs and sales teams. Agencies are a distinct segment.
 
 Berlin based, GDPR is a real selling point, and customers are concentrated in Europe.
-Pricing is in EUR: Start from €120/seat/month, Grow from €4,320/year, Scale from
-€12,000/year, plus a separate Sales Intelligence data product. This is a considered
-purchase, not an impulse signup.
+Pricing is EUR only on the site (the USD/GBP toggle was removed 2026-09-30; larger
+contracts can be quoted in other currencies in the offer): Start from €120/seat/month,
+Grow from €4,320/year, Scale is custom and priced only in the offer (from 10 seats),
+plus a separate Sales Intelligence data product. Never publish a Scale price. This is
+a considered purchase, not an impulse signup.
 
 ## What counts as a conversion
 
@@ -54,10 +56,18 @@ forwarded to GA4 at all.
 
 **Updated 2026-09-06:** the fix (4 Custom Event triggers `CE - *` + 4 GA4 event
 tags `GA4 - *`, all targeting measurement ID `G-5NPVYW5V3R`, plus the supporting
-`DLV - *` variables) is **published and live as version 46**. GA4 now receives
-`cta_click`, `form_start`, `form_error`, and `form_submit_success`. Data before
-the 2026-09-06 publish does not exist for these events; treat only data from that
-date forward as real. Known leftovers in the container, harmless but worth a
+`DLV - *` variables) is **published as version 46**.
+
+**Correction 2026-09-30:** publishing the container was not enough. The site itself
+never loaded GTM: no `gtm.js` snippet in the live HTML, the built bundle, or any
+commit of this repo. So the `track.ts` pushes went nowhere and GA4 did **not**
+receive these events after 2026-09-06 either. The fix is a consent banner (GDPR
+option "load only after Accept", matching privacy policy section 6.5.2):
+`src/components/20260930-1326-CookieConsent.astro`, which loads `GTM_ID` from
+`src/data/site.ts` only after the visitor accepts. Treat event data as real only
+from the production deploy that puts that banner live, and remember it covers only
+visitors who click Accept, so counts are lower than true traffic. Known leftovers
+in the container, harmless but worth a
 cleanup: the native `Form Submission - Book a Call` trigger (id 55, Form ID
 `wf-form-Book-a-call`) is orphaned — no tag fires on it; the UA tag `GA-universal`
 (id 7) is dead; the `DLV - form_error_field` variable actually reads dataLayer key

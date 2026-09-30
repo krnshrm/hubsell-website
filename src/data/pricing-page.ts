@@ -12,6 +12,7 @@ export interface PricingPageData {
   compareEyebrow: string; compareTitle: string;
   platformName: string; platformSub: string; dataName: string; dataSub: string;
   colStart: string; colGrow: string; colScale: string; colPayg: string; colSub: string;
+  scalePrice: string;
   cat: Record<string, string>;
   groups: Record<string, string>;
   creditsNote: string;
@@ -27,12 +28,12 @@ export interface PricingPageData {
 
 const EN: PricingPageData = {
   "title": "Pricing | hubsell",
-  "metaDescription": "hubsell pricing: the Start, Grow, and Scale platform plans, plus the Sales Intelligence data add-on. Compare every feature, in EUR, USD, or GBP.",
+  "metaDescription": "hubsell pricing: the Start, Grow, and Scale platform plans, plus the Sales Intelligence data add-on. Compare every feature, with prices in EUR.",
   "eyebrow": "Pricing",
   "h1Pre": "Simple pricing for ",
   "h1Accent": "your whole GTM motion",
   "h1Post": "",
-  "sub": "One platform plan for outreach and CRM sync, and a data add-on for live-sourced contacts. Pick the plan that fits, in EUR, USD, or GBP.",
+  "sub": "One platform plan for outreach and CRM sync, and a data add-on for live-sourced contacts. Pick the plan that fits your team.",
   "demoCta": "Book a demo",
   "compareEyebrow": "Compare",
   "compareTitle": "Every feature, plan by plan",
@@ -45,6 +46,7 @@ const EN: PricingPageData = {
   "colScale": "Scale",
   "colPayg": "Pay as you go",
   "colSub": "Subscription",
+  "scalePrice": "Custom",
   "cat": {
     "plan": "Plan",
     "nodes": "Workflow nodes",
@@ -57,7 +59,7 @@ const EN: PricingPageData = {
   "planRow": "Starting price",
   "seatsRow": "Seats",
   "billingRow": "Billing",
-  "priceNote": "Prices shown in EUR. Use the toggle above for USD and GBP.",
+  "priceNote": "Prices shown in EUR.",
   "monthly": "Monthly",
   "annual": "Annual",
   "perCredit": "/credit",
@@ -72,7 +74,7 @@ const EN: PricingPageData = {
   "faq": [
     {
       "q": "How much does hubsell cost?",
-      "a": "The Platform starts at 120 per seat per month on Start. Grow is 4,320 per year for 3 seats, and Scale is 12,000 per year for 10 seats. You can view every price in EUR, USD, or GBP. The Sales Intelligence data add-on is priced separately."
+      "a": "The Platform starts at 120 per seat per month on Start. Grow is 4,320 per year for 3 seats. Scale starts at 10 seats and is priced in your offer. All prices are in EUR. The Sales Intelligence data add-on is priced separately."
     },
     {
       "q": "What is the difference between Start, Grow, and Scale?",
@@ -84,7 +86,7 @@ const EN: PricingPageData = {
     },
     {
       "q": "Which currencies can I pay in?",
-      "a": "EUR, USD, and GBP. Use the toggle at the top of the pricing table to switch."
+      "a": "Prices are in EUR. For larger annual contracts we can quote in another currency; ask during your demo."
     },
     {
       "q": "What is the Data add-on and how do credits work?",
@@ -115,12 +117,12 @@ const EN: PricingPageData = {
 
 const DE: PricingPageData = {
   "title": "Preise | hubsell",
-  "metaDescription": "hubsell Preise: die Platform-Pl\u00e4ne Start, Grow und Scale sowie das Sales-Intelligence-Datenpaket. Vergleichen Sie jedes Feature, in EUR, USD oder GBP.",
+  "metaDescription": "hubsell Preise: die Platform-Pl\u00e4ne Start, Grow und Scale sowie das Sales-Intelligence-Datenpaket. Vergleichen Sie jedes Feature, mit Preisen in EUR.",
   "eyebrow": "Preise",
   "h1Pre": "Klare Preise f\u00fcr ",
   "h1Accent": "Ihre gesamte GTM-Motion",
   "h1Post": "",
-  "sub": "Ein Platform-Plan f\u00fcr Outreach und CRM-Sync, dazu ein Datenpaket f\u00fcr live gesourcte Kontakte. W\u00e4hlen Sie den passenden Plan, in EUR, USD oder GBP.",
+  "sub": "Ein Platform-Plan f\u00fcr Outreach und CRM-Sync, dazu ein Datenpaket f\u00fcr live gesourcte Kontakte. W\u00e4hlen Sie den Plan, der zu Ihrem Team passt.",
   "demoCta": "Demo buchen",
   "compareEyebrow": "Vergleich",
   "compareTitle": "Jedes Feature, Plan f\u00fcr Plan",
@@ -133,6 +135,7 @@ const DE: PricingPageData = {
   "colScale": "Scale",
   "colPayg": "Pay as you go",
   "colSub": "Subscription",
+  "scalePrice": "Individuell",
   "cat": {
     "plan": "Tarif",
     "nodes": "Workflow-Nodes",
@@ -145,7 +148,7 @@ const DE: PricingPageData = {
   "planRow": "Startpreis",
   "seatsRow": "Seats",
   "billingRow": "Abrechnung",
-  "priceNote": "Preise in EUR. Nutzen Sie den Umschalter oben f\u00fcr USD und GBP.",
+  "priceNote": "Preise in EUR.",
   "monthly": "Monatlich",
   "annual": "J\u00e4hrlich",
   "perCredit": "/Credit",
@@ -160,7 +163,7 @@ const DE: PricingPageData = {
   "faq": [
     {
       "q": "Was kostet hubsell?",
-      "a": "Die Platform startet bei 120 pro Seat und Monat mit Start. Grow kostet 4.320 pro Jahr f\u00fcr 3 Seats, und Scale 12.000 pro Jahr f\u00fcr 10 Seats. Alle Preise lassen sich in EUR, USD oder GBP anzeigen. Das Sales-Intelligence-Datenpaket wird separat berechnet."
+      "a": "Die Platform startet bei 120 pro Seat und Monat mit Start. Grow kostet 4.320 pro Jahr f\u00fcr 3 Seats. Scale beginnt bei 10 Seats, den Preis erhalten Sie mit Ihrem Angebot. Alle Preise sind in EUR. Das Sales-Intelligence-Datenpaket wird separat berechnet."
     },
     {
       "q": "Was ist der Unterschied zwischen Start, Grow und Scale?",
@@ -172,7 +175,7 @@ const DE: PricingPageData = {
     },
     {
       "q": "In welchen W\u00e4hrungen kann ich zahlen?",
-      "a": "EUR, USD und GBP. Nutzen Sie den Umschalter oben in der Preistabelle."
+      "a": "Die Preise sind in EUR. F\u00fcr gr\u00f6\u00dfere Jahresvertr\u00e4ge k\u00f6nnen wir auch in einer anderen W\u00e4hrung anbieten; sprechen Sie uns in der Demo darauf an."
     },
     {
       "q": "Was ist das Datenpaket und wie funktionieren Credits?",
@@ -203,12 +206,12 @@ const DE: PricingPageData = {
 
 const NL: PricingPageData = {
   "title": "Prijzen | hubsell",
-  "metaDescription": "hubsell prijzen: de Platform-abonnementen Start, Grow en Scale, plus het Sales Intelligence-datapakket. Vergelijk elk onderdeel, in EUR, USD of GBP.",
+  "metaDescription": "hubsell prijzen: de Platform-abonnementen Start, Grow en Scale, plus het Sales Intelligence-datapakket. Vergelijk elk onderdeel, met prijzen in EUR.",
   "eyebrow": "Prijzen",
   "h1Pre": "Heldere prijzen voor ",
   "h1Accent": "uw hele GTM-motion",
   "h1Post": "",
-  "sub": "E\u00e9n Platform-abonnement voor outreach en CRM-sync, plus een datapakket voor live gesourcete contacten. Kies het abonnement dat past, in EUR, USD of GBP.",
+  "sub": "E\u00e9n Platform-abonnement voor outreach en CRM-sync, plus een datapakket voor live gesourcete contacten. Kies het abonnement dat bij uw team past.",
   "demoCta": "Demo plannen",
   "compareEyebrow": "Vergelijken",
   "compareTitle": "Elk onderdeel, abonnement voor abonnement",
@@ -221,6 +224,7 @@ const NL: PricingPageData = {
   "colScale": "Scale",
   "colPayg": "Pay as you go",
   "colSub": "Subscription",
+  "scalePrice": "Op maat",
   "cat": {
     "plan": "Abonnement",
     "nodes": "Workflow-nodes",
@@ -233,7 +237,7 @@ const NL: PricingPageData = {
   "planRow": "Startprijs",
   "seatsRow": "Gebruikers",
   "billingRow": "Facturering",
-  "priceNote": "Prijzen in EUR. Gebruik de schakelaar hierboven voor USD en GBP.",
+  "priceNote": "Prijzen in EUR.",
   "monthly": "Maandelijks",
   "annual": "Jaarlijks",
   "perCredit": "/credit",
@@ -248,7 +252,7 @@ const NL: PricingPageData = {
   "faq": [
     {
       "q": "Wat kost hubsell?",
-      "a": "Het Platform begint bij 120 per gebruiker per maand met Start. Grow kost 4.320 per jaar voor 3 gebruikers, en Scale 12.000 per jaar voor 10 gebruikers. U kunt elke prijs in EUR, USD of GBP bekijken. Het Sales Intelligence-datapakket wordt apart gefactureerd."
+      "a": "Het Platform begint bij 120 per gebruiker per maand met Start. Grow kost 4.320 per jaar voor 3 gebruikers. Scale begint bij 10 gebruikers en de prijs staat in uw offerte. Alle prijzen zijn in EUR. Het Sales Intelligence-datapakket wordt apart gefactureerd."
     },
     {
       "q": "Wat is het verschil tussen Start, Grow en Scale?",
@@ -260,7 +264,7 @@ const NL: PricingPageData = {
     },
     {
       "q": "In welke valuta kan ik betalen?",
-      "a": "EUR, USD en GBP. Gebruik de schakelaar boven in de prijstabel."
+      "a": "De prijzen zijn in EUR. Voor grotere jaarcontracten kunnen we een offerte in een andere valuta maken; vraag ernaar tijdens uw demo."
     },
     {
       "q": "Wat is het datapakket en hoe werken credits?",

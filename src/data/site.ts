@@ -12,6 +12,9 @@ export const SIGNUP_URL = '/book-a-call';
 // TURNSTILE_SECRET_KEY in the Pages env for server verification.
 // Guide: docs/BOT-PROTECTION.md
 export const TURNSTILE_SITE_KEY = '0x4AAAAAACIAXouVNUv0_MXY';
+// Google Tag Manager container. Loaded only after the visitor accepts analytics
+// in the cookie banner (components/20260930-1326-CookieConsent.astro).
+export const GTM_ID = 'GTM-T6ZR38R';
 export const LOGIN_URL = 'https://app.hubsell.com/';
 export const DEMO_URL = '/book-a-call';
 

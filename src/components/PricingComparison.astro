@@ -14,7 +14,8 @@ import type { PricingPageData } from '../data/pricing-page';
 import type { Locale } from '../i18n/ui';
 
 interface Props { L: Locale; data: PricingPageData }
-const { data: d } = Astro.props;
+const { L, data: d } = Astro.props;
+const nf = new Intl.NumberFormat(L === 'de' ? 'de-DE' : L === 'nl' ? 'nl-NL' : 'en-US');
 ---
 <section id="feature-list" class="sec sec--paper" aria-labelledby="pc-title">
   <div class="wrap">
@@ -30,7 +31,7 @@ const { data: d } = Astro.props;
         </thead>
         <tbody>
           <tr class="pc-cat"><td colspan="4">{d.cat.plan}</td></tr>
-          <tr><th class="pc-feat">{d.planRow}</th><td>&euro;120</td><td>&euro;4,320</td><td>&euro;12,000</td></tr>
+          <tr><th class="pc-feat">{d.planRow}</th><td>&euro;{nf.format(120)}</td><td>&euro;{nf.format(4320)}</td><td>{d.scalePrice}</td></tr>
           <tr><th class="pc-feat">{d.seatsRow}</th><td>{d.seatsStart}</td><td>{d.seatsGrow}</td><td>{d.seatsScale}</td></tr>
           <tr><th class="pc-feat">{d.billingRow}</th><td>{d.monthly}</td><td>{d.annual}</td><td>{d.annual}</td></tr>
 
