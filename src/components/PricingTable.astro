@@ -160,7 +160,8 @@ const eur = (n: number) => `€${nf.format(n)}`;
   <div class="pricing-panel" data-panel="data">
     <div class="pricing-grid-2">
 
-      <div class="pricing-card">
+      <div class="pricing-card is-popular">
+        <div class="pricing-card-badge">{et(L, "Most popular")}</div>
         <div class="pricing-card-name">Sales Intelligence | Pay as you go</div>
         <div class="pricing-card-price-prefix">{et(L, "Starting at")}</div>
         <div class="pricing-card-price">{eur(1.25)}<span class="pricing-card-price-period">{et(L, "/credit")}</span></div>
