@@ -116,9 +116,10 @@ a page is performing:
   businesses.
 - **Markets we do not sell into.** Customers are concentrated in Europe, the site is
   localised for de and nl, and pricing is EUR-denominated at European B2B SaaS levels.
-  [TODO: list the specific countries or regions that count as target markets, and the
-  ones to exclude from analysis. Naming actual markets is more useful than a broad
-  category, and it makes GA4 country filters unambiguous.]
+  **Target markets:** the 27 EU member states, plus the United Kingdom, Switzerland,
+  Norway, the United States and Canada. Everything else is out of market: report it
+  as one total and exclude it when judging a page. The GA4 (`countryId`) and GSC
+  (`country`) code lists are in `docs/20261009-1447-SITE-ANALYSIS-PLAYBOOK.md`.
 
 When a page has high impressions or sessions but the audience is one of the above,
 the correct recommendation is usually to leave it alone or deprioritise it, not to
@@ -136,6 +137,11 @@ volume, which already draws the wrong audience.
 decided against, so it does not get suggested again.]
 
 ## How to analyse this site
+
+Standard analyses run from `docs/20261009-1447-SITE-ANALYSIS-PLAYBOOK.md` through
+the `/site-analysis` skill (`weekly`, `biweekly`, `monthly`, or one analysis number).
+Reports go to `docs/analyses/`, and tasks are tracked in the task ledger there.
+The rules below apply to ad hoc questions too.
 
 - Always pull real GSC and GA4 data before making a recommendation. Do not estimate.
 - Default to the last 28 days and 20 rows unless told otherwise. Wider pulls waste
@@ -484,4 +490,6 @@ Notes:
 | `docs/BLOCKING-DOMAINS.md` | how to block an email domain, the build guard |
 | `docs/KNOWLEDGE-CENTER.md` | knowledge-center build and Confluence/Scribe content pipeline |
 | `docs/hubsell-style-guide.html` | visual style reference (partly superseded by code) |
+| `docs/20261009-1447-SITE-ANALYSIS-PLAYBOOK.md` | standard analysis recipes (health check, search visibility, conversion, lead quality), task format, report template |
+| `docs/analyses/` | analysis reports and the task ledger |
 | `docs/20260922-1415-SESSION-HANDOFF.md` | state at the close of the 2026-09-22 session: what is unpushed, what is open, why the fragmented stack is built the way it is |
