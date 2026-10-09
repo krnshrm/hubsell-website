@@ -60,7 +60,7 @@ const {
 <script>
   import { classifyEmailLight, EMAIL_DOMAIN_MESSAGES } from 'hs-block/light';
   import { guardForm } from '../scripts/form-guard.ts';
-  import { track } from '../scripts/track.ts';
+  import { track, attribution } from '../scripts/track.ts';
 
   const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
@@ -113,7 +113,7 @@ const {
           const res = await fetch('/api/subscribe', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, form: root.dataset.form, ...(await guard.fields()) }),
+            body: JSON.stringify({ email, form: root.dataset.form, attribution: attribution(), ...(await guard.fields()) }),
           });
           const payload = await res.json().catch(() => ({}));
           guard.reset();

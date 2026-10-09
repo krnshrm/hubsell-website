@@ -81,6 +81,8 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env, waitUnti
   let company = '';
   let message = '';
   let extraFields: Record<string, string> = {};
+  let landingPage = '';
+  let firstSource = '';
   let guardWebsite = '';
   let guardHpt = 0;
   let guardToken = '';
@@ -94,6 +96,12 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env, waitUnti
       company = clip(body.company, 160);
       message = clip(body.message, 2000);
       extraFields = sanitizeFields(body.fields);
+      // First touch from track.ts. Kept apart from `fields` so it gets fixed
+      // key names in Plunk and a path-only landing page.
+      const touch = (body.attribution ?? {}) as Record<string, unknown>;
+      landingPage = clip(touch.landing, 200);
+      if (!landingPage.startsWith('/')) landingPage = '';
+      firstSource = clip(touch.source, 160);
       guardWebsite = clip(body.website, 200);
       guardHpt = Number(body.hpt) || 0;
       guardToken = clip(body.turnstileToken, 3000);
@@ -186,6 +194,8 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env, waitUnti
   if (name) data.name = name;
   if (company) data.company = company;
   if (message) data.message = message;
+  if (landingPage) data.landing_page = landingPage;
+  if (firstSource) data.first_source = firstSource;
 
   try {
     const res = await fetch(`${base}/v1/track`, {

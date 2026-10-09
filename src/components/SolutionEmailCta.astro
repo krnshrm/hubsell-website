@@ -128,7 +128,7 @@ const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(m) };
 <script>
   import { classifyEmailLight, EMAIL_DOMAIN_MESSAGES } from 'hs-block/light';
   import { guardForm } from '../scripts/form-guard.ts';
-  import { track } from '../scripts/track.ts';
+  import { track, attribution } from '../scripts/track.ts';
 
   const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
@@ -198,7 +198,7 @@ const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(m) };
           const res = await fetch('/api/subscribe', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ form: 'sdr-partial', email, fields: { page: location.pathname }, ...(await guard.fields()) }),
+            body: JSON.stringify({ form: 'sdr-partial', email, fields: { page: location.pathname }, attribution: attribution(), ...(await guard.fields()) }),
           });
           if (res.status === 422) {
             // The server-side email gate said no; surface it and stop.

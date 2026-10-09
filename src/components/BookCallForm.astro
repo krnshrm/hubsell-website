@@ -261,7 +261,7 @@ const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(t.js) };
 <script>
   import { classifyEmailLight, EMAIL_DOMAIN_MESSAGES } from 'hs-block/light';
   import { guardForm } from '../scripts/form-guard.ts';
-  import { track } from '../scripts/track.ts';
+  import { track, attribution } from '../scripts/track.ts';
 
   const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
@@ -352,7 +352,7 @@ const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(t.js) };
           const res = await fetch('/api/subscribe', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ form: 'book-a-call', email, fields, ...(await guard.fields()) }),
+            body: JSON.stringify({ form: 'book-a-call', email, fields, attribution: attribution(), ...(await guard.fields()) }),
           });
           const payload = await res.json().catch(() => ({}));
           guard.reset();

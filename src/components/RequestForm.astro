@@ -135,7 +135,7 @@ const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(t.js) };
 <script>
   import { classifyEmailLight, EMAIL_DOMAIN_MESSAGES } from 'hs-block/light';
   import { guardForm } from '../scripts/form-guard.ts';
-  import { track } from '../scripts/track.ts';
+  import { track, attribution } from '../scripts/track.ts';
 
   const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
@@ -213,6 +213,7 @@ const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(t.js) };
               email,
               company: (companyEl.value || '').trim(),
               message: (messageEl.value || '').trim(),
+              attribution: attribution(),
               ...(await guard.fields()),
             }),
           });

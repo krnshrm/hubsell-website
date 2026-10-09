@@ -20,6 +20,13 @@ export function track(event: string, params: Params = {}): void {
 
 const CTA_DESTINATIONS = [SIGNUP_URL, DEMO_URL];
 
+// The build hook in astro.config.mjs rewrites internal hrefs to the
+// trailing-slash form (/book-a-call/), while the constants in site.ts have no
+// slash. Compare both sides without it, or no CTA ever matches.
+function withoutTrailingSlash(pathname: string): string {
+  return pathname.replace(/\/+$/, '') || '/';
+}
+
 function localeStrippedPath(pathname: string): string {
   return pathname.replace(/^\/(de|nl)(?=\/|$)/, '') || '/';
 }
@@ -32,8 +39,9 @@ function matchedCtaDestination(a: HTMLAnchorElement): string | null {
     try { destUrl = new URL(dest, location.origin); } catch { continue; }
     if (hrefUrl.origin !== destUrl.origin) continue;
     const sameSite = destUrl.origin === location.origin;
-    const hrefPath = sameSite ? localeStrippedPath(hrefUrl.pathname) : hrefUrl.pathname;
-    if (hrefPath === destUrl.pathname) return sameSite ? destUrl.pathname : destUrl.origin + destUrl.pathname;
+    const hrefPath = withoutTrailingSlash(sameSite ? localeStrippedPath(hrefUrl.pathname) : hrefUrl.pathname);
+    const destPath = withoutTrailingSlash(destUrl.pathname);
+    if (hrefPath === destPath) return sameSite ? destPath : destUrl.origin + destPath;
   }
   return null;
 }
@@ -91,3 +99,90 @@ function onFirstInput(e: Event): void {
 // bound exactly once. Capture phase so no component can swallow the events.
 document.addEventListener('click', onDocumentClick, true);
 document.addEventListener('input', onFirstInput, true);
+
+// ------------------------- first-touch attribution ------------------------
+// Landing page and source sent with every form submission, so a lead in Plunk
+// can be traced to the page and channel that brought the visitor in.
+// The site has no client router, so remembering the landing page across page
+// loads needs sessionStorage. That counts as analytics storage, so it is only
+// written once the visitor has accepted analytics in CookieYes. Without that
+// consent, a submission still carries this page's values when this page is
+// clearly the entry page (external referrer or campaign parameters), and empty
+// values otherwise, never a guess.
+
+const FIRST_TOUCH_KEY = 'hs_first_touch';
+
+export interface FirstTouch {
+  landing: string;
+  source: string;
+}
+
+declare global {
+  interface Window {
+    getCkyConsent?: () => { categories?: { analytics?: boolean } };
+  }
+}
+
+function analyticsAllowed(): boolean {
+  try {
+    return window.getCkyConsent?.().categories?.analytics === true;
+  } catch {
+    return false;
+  }
+}
+
+function readFirstTouch(): FirstTouch | null {
+  try {
+    const raw = sessionStorage.getItem(FIRST_TOUCH_KEY);
+    return raw ? (JSON.parse(raw) as FirstTouch) : null;
+  } catch {
+    return null;
+  }
+}
+
+function writeFirstTouch(t: FirstTouch): void {
+  try {
+    sessionStorage.setItem(FIRST_TOUCH_KEY, JSON.stringify(t));
+  } catch {
+    // storage blocked: the submission falls back to this page's values
+  }
+}
+
+// Campaign parameters win over the referrer; an external referrer wins over
+// "direct". Null means the visitor came from another page of this site, so this
+// page is not the landing page.
+function sourceOfThisPage(): string | null {
+  const q = new URLSearchParams(location.search);
+  const utm = ['utm_source', 'utm_medium', 'utm_campaign']
+    .map((k) => (q.get(k) || '').trim())
+    .filter(Boolean);
+  if (utm.length) return utm.join(' / ').slice(0, 160);
+  if (q.has('gclid')) return 'google / cpc';
+  if (!document.referrer) return 'direct';
+  try {
+    const ref = new URL(document.referrer);
+    if (ref.origin === location.origin) return null;
+    return ref.hostname.replace(/^www\./, '');
+  } catch {
+    return null;
+  }
+}
+
+const thisPageSource = sourceOfThisPage();
+const thisPage: FirstTouch | null =
+  thisPageSource === null ? null : { landing: location.pathname, source: thisPageSource };
+
+function persist(): void {
+  if (thisPage && !readFirstTouch() && analyticsAllowed()) writeFirstTouch(thisPage);
+}
+
+persist();
+// CookieYes loads inside GTM, after this script, and the visitor usually
+// answers the banner on the landing page itself.
+document.addEventListener('cookieyes_consent_update', persist);
+document.addEventListener('cookieyes_banner_load', persist);
+
+/** The first touch of this visit, for the /api/subscribe payload. */
+export function attribution(): FirstTouch {
+  return (analyticsAllowed() && readFirstTouch()) || thisPage || { landing: '', source: '' };
+}
