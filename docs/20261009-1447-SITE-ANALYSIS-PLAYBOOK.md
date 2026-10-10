@@ -63,7 +63,7 @@ report a change across a break as a real movement.
 | 2026-09-30 | GTM starts loading on the site. Before this, GA4 has no `cta_click` or `form_*` events from www. Event data counts only from the production deploy that put the snippet live, and only for visitors who allow analytics. |
 | 2026-09-30 | USD/GBP pricing toggle removed; pricing EUR only. |
 | not yet set | Free trial launches and `SIGNUP_URL` switches. Trial start becomes the primary conversion. Record the date here and in CLAUDE.md when it ships. |
-| not yet set | GA4 custom dimensions for the event parameters registered (task T-001). Breakdowns by form, field or CTA location exist only from that date. |
+| 2026-10-10 | GA4 custom dimensions `form_id`, `field`, `cta_location`, `cta_destination`, `cta_text` registered (task T-001). Breakdowns by form, field or CTA exist only from this date; registration does not apply backwards. |
 
 ### Normalisation and filters
 
