@@ -50,7 +50,8 @@ function ctaLocation(a: HTMLElement): string {
   // Optional explicit override: wrap any area in data-cta-location="...".
   const tagged = a.closest<HTMLElement>('[data-cta-location]');
   if (tagged?.dataset.ctaLocation) return tagged.dataset.ctaLocation;
-  if (a.closest('nav')) return 'nav';
+  // The nav CTAs sit in the site <header class="nav">, outside its <nav> element.
+  if (a.closest('header.nav, nav')) return 'nav';
   if (a.closest('footer')) return 'footer';
   if (a.closest('[class*="hero"]')) return 'hero';
   if (a.closest('[class*="pricing"]')) return 'pricing';
