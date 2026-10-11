@@ -52,7 +52,7 @@ const DOWN = '<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>';
   <svg class="hs__scene" viewBox="0 0 1440 460" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
     <defs>
       <radialGradient id="hs-sunglow">
-        <stop offset=".55" style="stop-color:var(--sun-halo);stop-opacity:.9" />
+        <stop offset=".55" style="stop-color:var(--sun-halo);stop-opacity:.45" />
         <stop offset="1" style="stop-color:var(--sun-halo);stop-opacity:0" />
       </radialGradient>
     </defs>
@@ -71,23 +71,23 @@ const DOWN = '<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>';
 </section>
 
 <style>
-  /* Scene palette. The dunes are the logo's funnel colours, back to front,
-     so the brand mark and the landscape are the same three bands. */
+  /* Scene palette, from the style guide tokens. The sky is the app's cool
+     blue-grey; the dunes are the logo's funnel fills, back to front (yellow,
+     orange, coral), which the tokens file keeps fixed in both themes. */
   .hs{
-    --sky1:#FFF4E6; --sky2:#FCDDB8; --sky3:#F8B884;
-    --d1:#FEC65D; --d2:#FF9300; --d3:#FF5C34;
-    --ground:var(--sec-paper); --sun:#FFFAF1; --sun-halo:#FFF0D6;
-    --ink:#192341; --ink-2:#54596B; --accent:#BE3F22;
+    --sky1:var(--hs-tint); --sky2:#E7EAF2; --sky3:var(--hs-light-blue);
+    --d1:var(--hs-logo-yellow); --d2:var(--hs-logo-orange); --d3:var(--hs-logo-coral);
+    --ground:var(--sec-paper); --sun:var(--hs-brand-muted); --sun-halo:var(--hs-yellow);
+    --ink:var(--hs-foreground); --ink-2:var(--hs-muted-foreground); --accent:var(--hs-brand-strong);
     position:relative; overflow:hidden;
     padding-top:clamp(40px,6vw,76px);
     color:var(--ink);
     background:linear-gradient(180deg, var(--sky1) 0, var(--sky2) 45%, var(--sky3) 100%);
   }
   :global([data-theme="dark"]) .hs{
-    --sky1:#1A120C; --sky2:#3A2418; --sky3:#6E3420;
-    --d1:#B9772E; --d2:#B5591D; --d3:#A8402A;
-    --sun:#C9803F; --sun-halo:#7A4426;
-    --ink:#F3EAE0; --ink-2:#C8BDAE; --accent:#F2694E;
+    --sky1:var(--hs-navy-deep); --sky2:var(--hs-navy); --sky3:var(--hs-dark-blue);
+    --sun:var(--hs-light-blue); --sun-halo:var(--hs-selected);
+    --accent:var(--hs-orange);
   }
 
   /* ---- copy ---- */
@@ -143,7 +143,7 @@ const DOWN = '<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>';
     content:''; position:absolute; z-index:-1; left:0; right:0; bottom:0;
     top:calc(clamp(260px,32vw,460px) * 0.6 - 1px); background:var(--ground);
   }
-  .hs__stage :global(.fd__app){ box-shadow:0 40px 80px -40px rgba(80,24,8,.55), 0 2px 8px rgba(80,24,8,.08) }
+  .hs__stage :global(.fd__app){ box-shadow:0 40px 80px -40px rgba(25,35,65,.5), 0 2px 8px rgba(25,35,65,.08) }
 
 
   @media (max-width:900px){

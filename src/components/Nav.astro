@@ -116,17 +116,17 @@ const t = useTranslations(locale);
     --nav-card:#FFFFFF; --nav-card-bd:rgba(25,35,65,.10);
   }
   .nav[data-tone="dark"]{
-    --nav-tx:#FBF4EA; --nav-tx-dim:rgba(251,244,234,.72);
-    --nav-bd:rgba(255,255,255,.12); --nav-hover:rgba(251,244,234,.10);
-    --nav-card:#222E4C; --nav-card-bd:rgba(255,255,255,.12);
+    --nav-tx:#FEFEFE; --nav-tx-dim:rgba(254,254,254,.72);
+    --nav-bd:rgba(255,255,255,.12); --nav-hover:rgba(254,254,254,.10);
+    --nav-card:#37415A; --nav-card-bd:rgba(255,255,255,.12);
   }
   /* Before the colour script runs the bar still reads data-tone="light"; in dark
      mode that would flash a light bar for a frame. Paint the dark treatment for
      that initial state straight away (the script then takes over via inline style). */
   :global([data-theme="dark"]) .nav[data-tone="light"]{
-    --nav-tx:#FBF4EA; --nav-tx-dim:rgba(251,244,234,.72);
-    --nav-bd:rgba(255,255,255,.12); --nav-hover:rgba(251,244,234,.10);
-    --nav-card:#222E4C; --nav-card-bd:rgba(255,255,255,.12);
+    --nav-tx:#FEFEFE; --nav-tx-dim:rgba(254,254,254,.72);
+    --nav-bd:rgba(255,255,255,.12); --nav-hover:rgba(254,254,254,.10);
+    --nav-card:#37415A; --nav-card-bd:rgba(255,255,255,.12);
     --nav-bg:#1E1712;
   }
 

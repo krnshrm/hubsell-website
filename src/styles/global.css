@@ -1,52 +1,70 @@
 /* ==========================================================================
-   hubsell — global design system
-   Ported from the finalised brand/style guide (hubsell-style-guide.html).
-   Fixed palette tokens + theme-aware semantic + per-section role tokens, the
-   section rhythm system, the type scale (live-site class names), and buttons.
-   Components consume these tokens; they should rarely hard-code a hex.
+   hubsell — global design system (website)
+   Colours come from the hubsell style guide: src/styles/20261011-2350-hubsell-tokens.css is a
+   copy of hubsell-styleguide/tokens/hubsell-tokens.css (2022 app palette).
+   Don't edit the tokens copy — change it in the style guide and copy it over.
+   This file maps the website's role names (sections, chrome, CTA) onto those
+   tokens. Components consume the role names; they should rarely hard-code a hex.
+
+   Rules carried over from the app:
+   - The CTA is the app's primary button: navy with white text on light
+     surfaces, white with navy text on navy surfaces and in dark mode.
+   - Orange is the highlight (dots, bars, badges) and carries navy text when
+     it is a fill. Orange TEXT on a light surface uses brand-strong.
    ========================================================================== */
+@import "./20261011-2350-hubsell-tokens.css";
 
 :root {
   /* ---- PALETTE (fixed brand values) ---- */
-  --brand:#E0533A; --brand-hover:#BE3F22;
-  --amber:#F4A93C; --amber-soft:#FAE7C9; --amber-ink:#8A5208; --coral:#E86250;
-  --positive:#2FA06E; --positive-soft:#E4F2EA; --positive-ink:#155C3F; --error:#D8483B;
+  --brand:var(--hs-orange); --brand-hover:var(--hs-brand-hover);
+  --amber:var(--hs-yellow); --amber-soft:var(--hs-warning-muted); --amber-ink:var(--hs-brand-strong); --coral:var(--hs-coral);
+  --positive:var(--hs-green); --positive-soft:var(--hs-success-muted); --positive-ink:var(--hs-success-strong); --error:var(--hs-coral);
 
-  /* Logo dot fills (never themed) */
-  --logo-orange:#FF9300; --logo-coral:#E86250; --logo-amber:#FEC65D;
+  /* Logo funnel fills (never themed) */
+  --logo-orange:var(--hs-logo-orange); --logo-coral:var(--hs-logo-coral); --logo-amber:var(--hs-logo-yellow);
+
+  /* ---- CTA = the style guide's primary button: navy fill, white text,
+     Dark Blue on hover. Flips to white with navy text on dark surfaces. ---- */
+  --cta-bg:var(--hs-navy); --cta-bg-hover:var(--hs-dark-blue); --cta-tx:#FFFFFF;
 
   /* ---- GLOBAL SEMANTIC (flip in dark) — nav, body, chrome ---- */
-  --bg:#FBF7F1; --text:#192341; --text-2:#54596B; --text-3:#978E84;
-  --border:#ECE1D4; --border-strong:#DDCDB9; --accent-on:#E0533A;
-  --on-dark:#FBF4EA;
+  --bg:var(--hs-tint); --text:#192341; --text-2:#555A73; --text-3:#6B7089;
+  --border:#D3D8E5; --border-strong:#B9C0D3;
+  --accent-on:var(--hs-brand-strong);      /* accent text, links, metrics on light */
+  --on-dark:#FEFEFE;
 
   /* ---- SECTION ROLE TOKENS (theme-aware) ---- */
-  --sec-paper:#FBF7F1; --sec-paper-tx:#192341; --sec-paper-bd:#ECE1D4; --sec-paper-card:#FFFFFF;
-  --sec-sand:#FFFFFF;  --sec-sand-tx:#192341;  --sec-sand-bd:#ECE1D4;  --sec-sand-card:#FBF7F1;
-  --sec-navy:#192341;  --sec-navy-tx:#FBF4EA;  --sec-navy-bd:rgba(255,255,255,.16); --sec-navy-card:#222E4C;
-  --sec-esp:#2B1E17;   --sec-esp-tx:#FBF4EA;   --sec-esp-bd:rgba(255,255,255,.16);  --sec-esp-card:#3A2A20;
+  --sec-paper:var(--hs-tint); --sec-paper-tx:#192341; --sec-paper-bd:#D3D8E5; --sec-paper-card:#FFFFFF;
+  --sec-sand:#FFFFFF;  --sec-sand-tx:#192341;  --sec-sand-bd:#D3D8E5;  --sec-sand-card:var(--hs-tint);
+  --sec-navy:#192341;  --sec-navy-tx:#FEFEFE;  --sec-navy-bd:rgba(255,255,255,.16); --sec-navy-card:#37415A;
+  --sec-esp:#37415A;   --sec-esp-tx:#FEFEFE;   --sec-esp-bd:rgba(255,255,255,.14);  --sec-esp-card:#192341;
 
-  --font-head:'Lexend',system-ui,sans-serif;
-  --font-body:'Instrument Sans',system-ui,sans-serif;
-  --font-read:'Newsreader',Georgia,'Times New Roman',serif;
+  --font-head:var(--hs-font-heading);
+  --font-body:var(--hs-font-body);
+  --font-read:var(--hs-font-reading);
   --radius:10px; --radius-lg:16px;
 
   --maxw:1100px;
 
   /* ---- CHROME (nav + footer): a fixed dark bar, identical in light & dark so
      the two always match. Not overridden in [data-theme="dark"] on purpose. ---- */
-  --chrome-bg:#192341; --chrome-tx:#FBF4EA; --chrome-tx-dim:rgba(251,244,234,.70);
-  --chrome-bd:rgba(255,255,255,.12); --chrome-hover:rgba(251,244,234,.10); --chrome-card:#222E4C;
+  --chrome-bg:#192341; --chrome-tx:#FEFEFE; --chrome-tx-dim:rgba(254,254,254,.72);
+  --chrome-bd:rgba(255,255,255,.12); --chrome-hover:rgba(254,254,254,.10); --chrome-card:#37415A;
 }
 
 [data-theme="dark"] {
-  --bg:#14110D; --text:#F0EAE0; --text-2:#B7AFA2; --text-3:#8A8276;
-  --border:#322A22; --border-strong:#3D332A; --accent-on:#F2694E;
-  --sec-paper:#14110D; --sec-paper-tx:#F0EAE0; --sec-paper-bd:#2A231C; --sec-paper-card:#211B15;
-  --sec-sand:#1E1712;  --sec-sand-tx:#F0EAE0;  --sec-sand-bd:#352A20;  --sec-sand-card:#291F17;
-  --sec-navy:#0E1422;  --sec-navy-tx:#E9ECF4;  --sec-navy-bd:rgba(255,255,255,.12); --sec-navy-card:#1A2540;
-  --sec-esp:#1E140D;   --sec-esp-tx:#F3EAE0;   --sec-esp-bd:rgba(255,255,255,.12);  --sec-esp-card:#2C1F15;
+  --bg:#192341; --text:#FEFEFE; --text-2:#D3D8E5; --text-3:#A3AABD;
+  --border:#37415A; --border-strong:#555A73; --accent-on:var(--hs-orange);
+  --cta-bg:#FEFEFE; --cta-bg-hover:#D3D8E5; --cta-tx:#192341;
+  --sec-paper:#192341; --sec-paper-tx:#FEFEFE; --sec-paper-bd:#37415A; --sec-paper-card:#222D4D;
+  --sec-sand:#131B33;  --sec-sand-tx:#FEFEFE;  --sec-sand-bd:#2C3654;  --sec-sand-card:#192341;
+  --sec-navy:#0E1528;  --sec-navy-tx:#FEFEFE;  --sec-navy-bd:rgba(255,255,255,.12); --sec-navy-card:#222D4D;
+  --sec-esp:#37415A;   --sec-esp-tx:#FEFEFE;   --sec-esp-bd:rgba(255,255,255,.14);  --sec-esp-card:#192341;
 }
+
+/* Dark sections: orange text reads on navy, so accents switch to plain orange,
+   and the CTA flips to the style guide's dark-mode primary (white, navy text). */
+.sec--navy,.sec--esp{--accent-on:var(--hs-orange); --cta-bg:#FEFEFE; --cta-bg-hover:#D3D8E5; --cta-tx:#192341}
 
 /* ---- reset / base ---- */
 *{box-sizing:border-box}
@@ -65,7 +83,7 @@ body{
 }
 img,svg{display:block; max-width:100%}
 a{color:inherit}
-:focus-visible{outline:2px solid var(--accent-on); outline-offset:2px; border-radius:3px}
+:focus-visible{outline:2px solid var(--hs-ring); outline-offset:2px; border-radius:3px}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -104,10 +122,10 @@ a{color:inherit}
   font-family:var(--font-body);font-weight:500;font-size:1rem;line-height:1;cursor:pointer;
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
   padding:14px 24px;border-radius:var(--radius);border:1px solid transparent;
-  background:var(--accent-on);color:#FBF4EA;text-decoration:none;
+  background:var(--cta-bg);color:var(--cta-tx);text-decoration:none;
   transition:filter .15s,background .15s,color .15s,border-color .15s,transform .05s;
 }
-.button:not(.is-secondary):not(.is-ghost):hover{filter:brightness(.93)}
+.button:not(.is-secondary):not(.is-ghost):hover{background:var(--cta-bg-hover)}
 .button:active{transform:translateY(1px)}
 .button.is-secondary{background:transparent;color:var(--sec-tx);border-color:var(--sec-tx)}
 .button.is-secondary:hover{background:var(--sec-tx);color:var(--sec-bg)}
@@ -178,14 +196,14 @@ html.has-anim .marquee__track{animation:marquee 32s linear infinite}
 .carousel__btn:hover{border-color:var(--accent-on)}
 .carousel__dots{display:flex;gap:7px;margin-left:auto}
 .carousel__dot{width:8px;height:8px;border-radius:50%;border:0;background:var(--sec-bd);cursor:pointer;padding:0}
-.carousel__dot.is-active{background:var(--accent-on)}
+.carousel__dot.is-active{background:var(--hs-orange)}
 .metric{font-family:var(--font-head);font-weight:600;font-size:1.75rem;line-height:1;color:var(--accent-on)}
 .metric-label{font-size:13px;line-height:1.4;color:var(--sec-tx);opacity:.7;margin-top:6px}
 
 /* currency segmented toggle (pricing) */
 .seg{display:inline-flex;background:var(--sec-card);border:1px solid var(--sec-bd);border-radius:999px;padding:4px}
 .seg button{border:0;background:none;cursor:pointer;font-family:var(--font-body);font-weight:500;font-size:14px;color:var(--sec-tx);opacity:.65;padding:7px 16px;border-radius:999px;transition:background .15s,color .15s,opacity .15s}
-.seg button.is-active{background:var(--accent-on);color:#FBF4EA;opacity:1}
+.seg button.is-active{background:var(--cta-bg);color:var(--cta-tx);opacity:1}
 
 /* article card */
 .post{display:flex;flex-direction:column;background:var(--sec-card);border:1px solid var(--sec-bd);border-radius:var(--radius-lg);overflow:hidden;text-decoration:none;color:var(--sec-tx);transition:transform .15s,border-color .15s}
@@ -198,7 +216,7 @@ html.has-anim .marquee__track{animation:marquee 32s linear infinite}
 /* Scroll progress bar — pinned to the bottom edge of the viewport, fills left to
    right as the page scrolls. Shown on every page (lives in BaseLayout). */
 .scroll-progress{position:fixed;left:0;right:0;bottom:0;height:3px;z-index:60;pointer-events:none;background:transparent}
-.scroll-progress__fill{display:block;height:100%;width:100%;transform:scaleX(0);transform-origin:left center;background:var(--accent-on)}
+.scroll-progress__fill{display:block;height:100%;width:100%;transform:scaleX(0);transform-origin:left center;background:var(--hs-orange)}
 
 /* i18n: localized text for the "Soon" badges (Nav mega-menu items + the locale
    switcher). The badges are CSS ::after content, so the label is driven by a

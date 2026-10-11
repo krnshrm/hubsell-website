@@ -16,7 +16,13 @@ import { join, relative, sep } from 'node:path';
 // fallback stubs (noindex + redirect to English) and stay out of the sitemap.
 // fr/es/pt have no translatedRoutes yet, so all their URLs stay out.
 const LOCALE_URL = /^https:\/\/www\.hubsell\.com\/(de|nl|fr|es|pt)(\/.*)?$/;
+// Internal prototypes carry noindex. Listing a noindex URL in the sitemap earns
+// a "Submitted URL marked noindex" warning in Search Console, so they are kept
+// out of it here as well.
+const INTERNAL = /\/preview-[^/]*\/?$/;
+
 function inSitemap(page) {
+  if (INTERNAL.test(page)) return false;
   const m = page.match(LOCALE_URL);
   if (!m) return true; // English URL
   const routes = translatedRoutes[m[1]];

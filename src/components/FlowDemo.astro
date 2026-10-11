@@ -569,14 +569,13 @@ const GRAPHS = [
      fits without scrolling on a laptop. */
   .fd__bleed{ max-width:1360px; margin:36px auto 0; padding:0 24px }
 
-  /* Light app palette on the navy band, so it reads as the product itself.
-     Values are the app's tokens from app/globals.css on the styleguide branch. */
+  /* The app's own tokens, from hubsell-styleguide (tokens/hubsell-tokens.css,
+     copied into src/styles). They flip in dark mode, as the app does. */
   .fd__app{
-    --ink:#192341; --mut:#54596B; --faint:#978E84;
-    --bd:#ECE1D4; --bd2:#DDCDB9; --paper:#FBF7F1;
-    --terra:#E0533A; --terra-deep:#BE3F22; --amber-soft:#FAE7C9;
-    --green:#2FA06E; --green-soft:#E4F2EA; --red:#D8483B;
-    background:#fff; color:var(--ink);
+    --ink:var(--hs-foreground); --mut:var(--hs-muted-foreground); --faint:var(--hs-subtle-foreground);
+    --bd:var(--hs-border); --bd2:var(--hs-border-strong); --paper:var(--hs-tint); --card:var(--hs-card);
+    --primary:var(--hs-primary); --hi:var(--hs-brand); --ring:var(--hs-ring);
+    background:var(--card); color:var(--ink);
     border-radius:var(--radius-lg); overflow:hidden;
     box-shadow:0 30px 70px -36px rgba(0,0,0,.75);
   }
@@ -590,7 +589,7 @@ const GRAPHS = [
   .fd__crumb b{ color:var(--ink); font-weight:600 }
   .fd__tag{
     margin-left:auto; white-space:nowrap; font-size:11.5px; font-weight:600; color:var(--mut);
-    background:var(--amber-soft); border-radius:999px; padding:4px 10px;
+    background:var(--hs-warning-muted); color:var(--hs-warning-strong); border-radius:999px; padding:4px 10px;
   }
 
   /* ---- controls ---- */
@@ -600,22 +599,22 @@ const GRAPHS = [
   .fd__tab span{
     display:inline-flex; align-items:center; gap:7px;
     font:500 13px/1 var(--font-body); color:var(--mut); white-space:nowrap;
-    padding:8px 12px; border-radius:7px; border:1px solid var(--bd); background:#fff; cursor:pointer;
+    padding:8px 12px; border-radius:7px; border:1px solid var(--bd); background:var(--card); cursor:pointer;
     transition:border-color .2s, color .2s, background .2s;
   }
   .fd__tab svg{ width:15px; height:15px }
   .fd__tab span:hover{ border-color:var(--bd2); color:var(--ink) }
-  .fd__tab input:checked + span{ color:var(--terra-deep); background:#FDF1EC; border-color:var(--terra) }
-  .fd__tab input:focus-visible + span{ outline:2px solid var(--terra); outline-offset:2px }
+  .fd__tab input:checked + span{ color:var(--ink); background:var(--hs-muted); border-color:var(--primary) }
+  .fd__tab input:focus-visible + span{ outline:2px solid var(--ring); outline-offset:2px }
 
   .fd__row{ display:flex; flex-wrap:wrap; align-items:center; gap:10px 16px }
   .fd__in{ flex:1 1 340px; min-width:0; display:flex; align-items:center }
   .fd__in[hidden]{ display:none }
   .fd__in input{
     width:100%; font:400 13px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;
-    color:var(--ink); background:#fff; border:1px solid var(--bd2); border-radius:7px; padding:10px 12px;
+    color:var(--ink); background:var(--card); border:1px solid var(--bd); border-radius:var(--hs-radius-sm); padding:10px 12px;
   }
-  .fd__in input:focus{ outline:2px solid var(--terra); outline-offset:1px; border-color:transparent }
+  .fd__in input:focus{ outline:2px solid var(--ring); outline-offset:1px; border-color:transparent }
   .fd__in--text input{ font-family:var(--font-body); font-size:14px; border-radius:0 7px 7px 0 }
   .fd__pre{
     flex:none; font-size:13px; font-weight:600; color:var(--mut); background:var(--paper);
@@ -625,11 +624,11 @@ const GRAPHS = [
     gap:10px; font-size:13px; color:var(--mut);
     border:1px dashed var(--bd2); border-radius:7px; padding:9px 12px; background:var(--paper);
   }
-  .fd__file svg{ width:18px; height:18px; flex:none; color:var(--green) }
+  .fd__file svg{ width:18px; height:18px; flex:none; color:var(--hs-success-strong) }
   .fd__file b{ color:var(--ink); font-weight:600; margin-right:4px }
   .fd__opts{ display:flex; gap:14px }
   .fd__chk{ display:inline-flex; align-items:center; gap:7px; font-size:13px; color:var(--ink); cursor:pointer; white-space:nowrap }
-  .fd__chk input{ width:16px; height:16px; accent-color:var(--terra) }
+  .fd__chk input{ width:16px; height:16px; accent-color:var(--primary) }
   .fd__chk small{ color:var(--faint); font-size:12px }
   .fd__go{ white-space:nowrap }
   .is-running .fd__go{ opacity:.55; pointer-events:none }
@@ -641,8 +640,8 @@ const GRAPHS = [
   .fd__vp{
     position:relative; height:clamp(560px, 82vh, 880px);
     overflow:auto;
-    background-color:#fff;
-    background-image:radial-gradient(#d3d8e0 1.25px, transparent 1.25px);
+    background-color:var(--card);
+    background-image:radial-gradient(var(--bd) 1.25px, transparent 1.25px);
     background-size:18px 18px; background-attachment:local;
   }
   .fd__world{ position:relative; margin:0 auto; transition:height .45s cubic-bezier(.22,.7,.2,1) }
@@ -650,11 +649,11 @@ const GRAPHS = [
 
   .fd__edges{ position:absolute; inset:0; overflow:visible; pointer-events:none }
   .fd__e{ stroke:var(--bd2); stroke-width:1.75; opacity:0; transition:opacity .3s, stroke .3s }
-  .fd__e.is-in{ opacity:1; stroke:#B9AB9A }
+  .fd__e.is-in{ opacity:1; stroke:var(--faint) }
   .fd__e--loop{ stroke-dasharray:6 6 }
-  .fd__e--loop.is-in{ stroke:var(--terra) }
+  .fd__e--loop.is-in{ stroke:var(--hi) }
   .fd__p{
-    stroke:var(--terra); stroke-width:3; stroke-linecap:round;
+    stroke:var(--hi); stroke-width:3; stroke-linecap:round;
     stroke-dasharray:.22 .78; stroke-dashoffset:1; opacity:0;
   }
   .fd__p--loop{ stroke-dasharray:.06 .94 }
@@ -664,8 +663,8 @@ const GRAPHS = [
 
   .fd__el{
     position:absolute; z-index:2; transform:translate(-50%,-50%);
-    font:600 12px/1 var(--font-body); color:var(--terra); white-space:nowrap;
-    background:#fff; border:1px solid var(--bd); border-radius:999px; padding:6px 11px;
+    font:600 12px/1 var(--font-body); color:var(--hs-brand-strong); white-space:nowrap;
+    background:var(--card); border:1px solid var(--bd); border-radius:999px; padding:6px 11px;
     opacity:0; transition:opacity .4s;
   }
   .fd__el.is-in{ opacity:1 }
@@ -678,24 +677,23 @@ const GRAPHS = [
   /* ---- nodes, per WorkflowNode.tsx ---- */
   .wn{
     display:flex; flex-direction:column;
-    background:#fff; border:1px solid var(--bd); border-radius:8px;
+    background:var(--card); border:1px solid var(--bd); border-radius:8px;
     box-shadow:0 1px 2px rgba(2,6,23,.06);
   }
   .wn:hover{ box-shadow:0 4px 12px rgba(2,6,23,.08),0 2px 4px rgba(2,6,23,.04) }
-  /* The style guide's selected ring is #f3e8ff, a purple left over from the old
-     palette. A terracotta tint is used here until the app settles it. */
+  /* Selected, per the style guide: primary border with a brand-muted ring. */
   .wn.is-active{
-    border-color:var(--terra);
-    box-shadow:0 0 0 3px rgba(224,83,58,.16),0 4px 12px rgba(2,6,23,.08);
+    border-color:var(--primary);
+    box-shadow:0 0 0 3px var(--hs-brand-muted),0 4px 12px rgba(2,6,23,.08);
   }
   .wn__h{
     position:absolute; left:50%; width:12px; height:12px; margin-left:-6px;
-    background:#fff; border:2px solid var(--bd2); border-radius:50%; z-index:1;
+    background:var(--card); border:2px solid var(--bd); border-radius:50%; z-index:1;
   }
   .wn__h--in{ top:-6px }
   .wn__h--out{ bottom:-6px }
   .wn__h--side{ left:-6px; top:50%; margin:-6px 0 0 }
-  .wn.is-done .wn__h, .wn.is-active .wn__h{ border-color:#978E84 }
+  .wn.is-done .wn__h, .wn.is-active .wn__h{ border-color:var(--faint) }
 
   .wn__hd{ display:flex; align-items:center; gap:12px; padding:14px 16px }
   .wn--chip .wn__hd{ padding:11px 14px }
@@ -709,34 +707,34 @@ const GRAPHS = [
   .wb--md svg{ width:19px; height:19px }
   .wb--lg{ width:40px; height:40px }
   .wb--lg svg{ width:20px; height:20px }
-  .wb--blue  { background:var(--green-soft); color:var(--terra-deep) }
-  .wb--violet{ background:var(--amber-soft); color:var(--terra) }
-  .wb--green { background:var(--green-soft); color:var(--green) }
+  .wb--blue  { background:var(--hs-info-muted); color:var(--hs-info-strong) }
+  .wb--violet{ background:var(--hs-brand-muted); color:var(--hs-brand-strong) }
+  .wb--green { background:var(--hs-success-muted); color:var(--hs-success-strong) }
 
   .wp{
     flex:none; align-self:flex-start; display:inline-flex; align-items:center; gap:6px;
     height:22px; padding:0 9px; border-radius:999px;
     font:600 11px/1 var(--font-body);
-    background:var(--amber-soft); color:var(--mut);
+    background:var(--hs-muted); color:var(--mut);
     transition:background .25s, color .25s;
   }
   .wp i{ width:6px; height:6px; border-radius:50%; background:currentColor }
-  .wp[data-pill="on"]{ background:var(--green-soft); color:var(--green) }
-  .wp[data-pill="skip"]{ background:var(--amber-soft); color:#b8350a }
+  .wp[data-pill="on"]{ background:var(--hs-success-muted); color:var(--hs-success-strong) }
+  .wp[data-pill="skip"]{ background:var(--hs-warning-muted); color:var(--hs-warning-strong) }
 
-  .wn__st{ display:grid; margin:auto 0 0; border-top:1px solid var(--bd2) }
+  .wn__st{ display:grid; margin:auto 0 0; border-top:1px solid var(--bd) }
   .wn__st > div{ padding:11px 16px; min-width:0 }
   .wn__st > div:nth-last-child(3), .wn__st > div:nth-last-child(3) ~ div{ padding-inline:12px }
   .wn__st > div:nth-last-child(3) dt, .wn__st > div:nth-last-child(3) ~ div dt{ letter-spacing:.01em }
-  .wn__st > div + div{ border-left:1px solid var(--bd2) }
+  .wn__st > div + div{ border-left:1px solid var(--bd) }
   .wn__st dt{
     font:600 10.5px/1 var(--font-body); letter-spacing:.04em; text-transform:uppercase;
-    color:var(--faint); margin-bottom:5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    color:var(--mut); margin-bottom:5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
   }
   .wn__st dd{ margin:0; display:flex; align-items:center; gap:5px; white-space:nowrap }
   .ws{ width:14px; height:14px; flex:none }
-  .ws--ok{ color:var(--green) }
-  .ws--no{ color:var(--red) }
+  .ws--ok{ color:var(--hs-success-strong) }
+  .ws--no{ color:var(--hs-destructive-strong) }
   .ws--neutral{ color:var(--mut) }
   .wn__st b{ font:700 16px/1.2 var(--font-body); font-variant-numeric:tabular-nums; color:var(--ink) }
   .wn__st b.is-off{ font-size:13px; font-weight:600; color:var(--faint) }
@@ -747,15 +745,15 @@ const GRAPHS = [
     display:flex; align-items:center; justify-content:center; gap:7px;
     border-radius:999px; font:600 12.5px/1 var(--font-body); white-space:nowrap;
   }
-  .wt{ background:#fff; border:1px solid var(--bd2); color:var(--ink) }
+  .wt{ background:var(--card); border:1px solid var(--bd); color:var(--ink) }
   .wt svg{ width:14px; height:14px; color:var(--mut) }
-  .wt.is-active{ border-color:var(--terra); box-shadow:0 0 0 3px rgba(224,83,58,.16) }
+  .wt.is-active{ border-color:var(--primary); box-shadow:0 0 0 3px var(--hs-brand-muted) }
   .wl{ border:1px solid transparent }
   .wl b{ font-weight:700; font-variant-numeric:tabular-nums }
   .wl b:empty{ display:none }
-  .wl--ok{ background:var(--green-soft); color:var(--green) }
-  .wl--no{ background:var(--bd); color:var(--red) }
-  .wl--neutral{ background:var(--paper); border-color:var(--bd2); color:var(--mut) }
+  .wl--ok{ background:var(--hs-success-muted); color:var(--hs-success-strong) }
+  .wl--no{ background:var(--hs-destructive-muted); color:var(--hs-destructive-strong) }
+  .wl--neutral{ background:var(--hs-muted); border-color:var(--bd); color:var(--mut) }
 
 
   @media (max-width:720px){

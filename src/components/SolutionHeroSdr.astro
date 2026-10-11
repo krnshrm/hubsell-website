@@ -10,10 +10,10 @@ import { asLocale } from '../i18n/utils';
 const L = asLocale(Astro.currentLocale);
 
 const BEATS = [
-  { title: 'Source live data on multiple signals', sub: 'Job changes, hiring, post engagement, and more', color: '#E0533A' },
-  { title: 'Get accurate contact data you can rely on', sub: 'Verified at the source, catch-all safe', color: '#F4A93C' },
+  { title: 'Source live data on multiple signals', sub: 'Job changes, hiring, post engagement, and more', color: '#FF9300' },
+  { title: 'Get accurate contact data you can rely on', sub: 'Verified at the source, catch-all safe', color: '#FEC65D' },
   { title: 'Reach out across email, LinkedIn, and phone', sub: 'One coordinated flow', color: '#192341' },
-  { title: 'Log every activity to your CRM', sub: 'Automatically, in real time', color: '#2FA06E' },
+  { title: 'Log every activity to your CRM', sub: 'Automatically, in real time', color: '#289B9B' },
 ];
 
 const NO_MORES = [
@@ -63,16 +63,16 @@ const ICONS = [
   /* White cards in both themes (product-screenshot look), like the homepage flow. */
   .shs-card{
     display:flex; align-items:center; gap:14px; padding:14px 16px;
-    background:#FFFFFF; border:1px solid #ECE1D4; border-radius:10px;
+    background:#FFFFFF; border:1px solid #D3D8E5; border-radius:10px;
     box-shadow:0 4px 12px rgba(0,0,0,.04);
   }
   .shs-icon{
-    width:39px; height:39px; flex:none; border:1px solid #ECE1D4; border-radius:6px;
+    width:39px; height:39px; flex:none; border:1px solid #D3D8E5; border-radius:6px;
     display:flex; align-items:center; justify-content:center;
-    color:var(--color); background:#FBF7F1;
+    color:var(--color); background:#FEFEFE;
   }
   .shs-title{ font-family:var(--font-head); font-weight:600; font-size:14px; line-height:1.3; color:#192341; margin:0 }
-  .shs-sub{ font-size:11.5px; line-height:1.35; color:#54596B; margin:2px 0 0 }
+  .shs-sub{ font-size:11.5px; line-height:1.35; color:#555A73; margin:2px 0 0 }
 
   /* The "no more" lines. At rest (no-JS / reduced motion) they render as a
      static list; once .is-playing lands they collapse into one rotating slot. */
@@ -85,11 +85,11 @@ const ICONS = [
 
   /* Card glow cycle: 12s loop, one card lit at a time (delays 0/3/6/9s). */
   @keyframes shs-card-lit{
-    0%, 25%, 100%{ transform:translateY(0); box-shadow:0 4px 12px rgba(0,0,0,.04); border-color:#ECE1D4 }
+    0%, 25%, 100%{ transform:translateY(0); box-shadow:0 4px 12px rgba(0,0,0,.04); border-color:#D3D8E5 }
     6%{ transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,.08); border-color:var(--color) }
   }
   @keyframes shs-icon-lit{
-    0%, 25%, 100%{ border-color:#ECE1D4; background-color:#FBF7F1 }
+    0%, 25%, 100%{ border-color:#D3D8E5; background-color:#FEFEFE }
     6%{ border-color:var(--color); background-color:color-mix(in srgb, var(--color) 8%, transparent) }
   }
   /* Line rotation: 15s loop, each line visible for its 3s slot with a crossfade. */

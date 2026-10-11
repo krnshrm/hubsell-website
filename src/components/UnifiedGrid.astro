@@ -176,15 +176,15 @@ const L = asLocale(Astro.currentLocale);
     border-radius:12px; padding:20px; display:flex; flex-direction:column;
     align-items:center; justify-content:center; text-align:center; gap:12px;
   }
-  .ut-card-front{ background:#FFFFFF; border:1px solid #ECE1D4; box-shadow:0 6px 18px rgba(0,0,0,.16) }
-  .ut-card-back{ background:#E4F2EA; border:1px solid #2FA06E; box-shadow:0 16px 32px rgba(47,160,110,.20); transform:rotateY(180deg) }
+  .ut-card-front{ background:#FFFFFF; border:1px solid #D3D8E5; box-shadow:0 6px 18px rgba(0,0,0,.16) }
+  .ut-card-back{ background:#DFF0F0; border:1px solid #289B9B; box-shadow:0 16px 32px rgba(40,155,155,.20); transform:rotateY(180deg) }
 
-  .ut-icon-box{ width:44px; height:44px; border-radius:10px; background:rgba(47,160,110,.12); color:#2FA06E; display:flex; align-items:center; justify-content:center; flex-shrink:0 }
+  .ut-icon-box{ width:44px; height:44px; border-radius:10px; background:rgba(40,155,155,.12); color:#289B9B; display:flex; align-items:center; justify-content:center; flex-shrink:0 }
   .ut-icon-box svg{ width:22px; height:22px }
   .ut-title{ font-family:'Lexend', sans-serif; font-size:16px; font-weight:600; color:#192341; line-height:1.2; margin:0 ; overflow-wrap:break-word; hyphens:auto; }
-  .ut-desc{ font-size:14px; color:#155C3F; font-weight:500; line-height:1.4; margin:0 ; overflow-wrap:break-word; hyphens:auto; }
+  .ut-desc{ font-size:14px; color:#23757E; font-weight:500; line-height:1.4; margin:0 ; overflow-wrap:break-word; hyphens:auto; }
 
-  .ut-line-h, .ut-line-v{ position:relative; z-index:1; display:flex; align-items:center; justify-content:center; color:#2FA06E }
+  .ut-line-h, .ut-line-v{ position:relative; z-index:1; display:flex; align-items:center; justify-content:center; color:#289B9B }
   :global(html.has-anim) .ut-line-h, :global(html.has-anim) .ut-line-v{ opacity:0; transform:scale(0.8) }
 
   .ut-line-h{ justify-self:center; width:42px; height:24px; margin:0 -9px }
@@ -192,7 +192,7 @@ const L = asLocale(Astro.currentLocale);
   .ut-line-v{ align-self:center; justify-self:center; width:24px; height:58px; margin:-17px 0 }
   .ut-line-v svg{ width:6px; height:100%; overflow:visible }
 
-  .ut-zap{ position:absolute; background:#ffffff; box-shadow:0 0 12px 4px rgba(47,160,110,.9), 0 0 24px 8px rgba(47,160,110,.55); border-radius:4px; opacity:0; pointer-events:none; z-index:10 }
+  .ut-zap{ position:absolute; background:#ffffff; box-shadow:0 0 12px 4px rgba(40,155,155,.9), 0 0 24px 8px rgba(40,155,155,.55); border-radius:4px; opacity:0; pointer-events:none; z-index:10 }
   .ut-zap-h{ height:2px; width:40px; top:50%; margin-top:-1px }
   .ut-zap-v{ width:2px; height:40px; left:50%; margin-left:-1px }
 
@@ -261,7 +261,7 @@ const L = asLocale(Astro.currentLocale);
         { opacity: 1, duration: 0.1 },
       ], stagger: 0.05 }, 'unify');
     tl.to(dashLines, { opacity: 0, duration: 0.2, stagger: 0.05 }, 'unify');
-    tl.to(lines, { opacity: 1, filter: 'drop-shadow(0px 0px 8px rgba(47,160,110,0.9))', duration: 0.3, stagger: 0.05 }, 'unify');
+    tl.to(lines, { opacity: 1, filter: 'drop-shadow(0px 0px 8px rgba(40,155,155,0.9))', duration: 0.3, stagger: 0.05 }, 'unify');
 
     // Wave: flip the cards to reveal the solution, hold, flip back.
     tl.addLabel('wave', '+=0.1');
