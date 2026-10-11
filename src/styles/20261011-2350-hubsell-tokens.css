@@ -1,0 +1,136 @@
+/* ==========================================================================
+   hubsell tokens — plain CSS, no framework
+   ──────────────────────────────────────────────────────────────────────────
+   Source of truth: hubsell-styleguide (app/globals.css holds the same values
+   under shadcn/Tailwind names). Copy this file as-is into any project that
+   isn't the Next/Tailwind app — e.g. hubsell-website/src/styles/ — and map
+   your own variable names onto these. Don't edit the copy; edit here and
+   re-copy.
+
+   Palette: 2022 hubsell (Figma › hubsell-components › 220530-hs-styles).
+   "derived" = not in that frame; a tint or shade added for contrast.
+
+   Rules
+   - Colour fills (orange, yellow, teal, blue, error) carry NAVY text.
+     White on them is 2.2–3.4:1.
+   - Coloured TEXT on a light surface uses the *-strong token.
+   - Dark mode: add class "dark" or data-theme="dark" on <html>.
+   ========================================================================== */
+
+:root {
+  /* ---- palette (fixed, never themed) ---- */
+  --hs-navy: #192341;          /* Text */
+  --hs-dark-blue: #37415a;     /* Dark Blue */
+  --hs-selected: #555a73;      /* Selected */
+  --hs-light-blue: #d3d8e5;    /* Light Blue */
+  --hs-light-grey: #f1f1f1;    /* Light Grey */
+  --hs-light-bg: #fefefe;      /* Light BG */
+  --hs-white: #ffffff;
+  --hs-orange: #ff9300;        /* Orange */
+  --hs-yellow: #fec65d;        /* Yellow */
+  --hs-teal: #64b4b4;          /* Teal */
+  --hs-green: #289b9b;         /* Success */
+  --hs-green-hover: #0a8c82;   /* SelectGr */
+  --hs-blue: #00b2c5;          /* Blue */
+  --hs-coral: #e86250;         /* Error */
+  --hs-coral-hover: #ff5c34;   /* SelectRed */
+  --hs-navy-deep: #131b33;     /* derived: a step below navy */
+
+  /* Logo funnel fills — exactly as on hubsell.com, never themed */
+  --hs-logo-orange: #ff9300;
+  --hs-logo-coral: #e86250;
+  --hs-logo-yellow: #fec65d;
+
+  /* ---- semantic (flip in dark) ---- */
+  --hs-background: #ffffff;
+  --hs-surface: #fefefe;
+  --hs-tint: #f6f7fa;                  /* derived: Light Blue at 20%, alternate section / page tint */
+  --hs-foreground: #192341;
+  --hs-muted: #f1f1f1;
+  --hs-muted-foreground: #555a73;
+  --hs-subtle-foreground: #6b7089;     /* derived: meta text, 4.9:1 on white */
+  --hs-card: #ffffff;
+  --hs-popover: #ffffff;
+  --hs-border: #d3d8e5;
+  --hs-border-strong: #b9c0d3;         /* derived */
+  --hs-ring: #37415a;
+
+  --hs-primary: #192341;               /* main action in the app */
+  --hs-primary-foreground: #ffffff;
+  --hs-primary-hover: #37415a;
+
+  --hs-brand: #ff9300;                 /* orange highlight / marketing CTA fill */
+  --hs-brand-foreground: #192341;
+  --hs-brand-hover: #f08a00;           /* derived */
+  --hs-brand-muted: #ffefd9;           /* derived tint */
+  --hs-brand-strong: #955f1e;          /* derived: orange text on light, 5.3:1 */
+
+  --hs-success: #289b9b;
+  --hs-success-foreground: #192341;
+  --hs-success-muted: #dff0f0;
+  --hs-success-strong: #23757e;
+  --hs-warning: #fec65d;
+  --hs-warning-foreground: #192341;
+  --hs-warning-muted: #fff6e7;
+  --hs-warning-strong: #955f1e;
+  --hs-info: #00b2c5;
+  --hs-info-foreground: #192341;
+  --hs-info-muted: #d9f3f6;
+  --hs-info-strong: #0a768e;
+  --hs-destructive: #e86250;
+  --hs-destructive-foreground: #192341;
+  --hs-destructive-muted: #fce7e5;
+  --hs-destructive-strong: #aa4f4c;
+
+  /* Always-dark surfaces (nav, footer, navy sections): same in both themes */
+  --hs-inverse: #192341;
+  --hs-inverse-foreground: #fefefe;
+  --hs-inverse-muted-foreground: #d3d8e5;
+  --hs-inverse-card: #37415a;
+  --hs-inverse-border: rgba(255, 255, 255, 0.16);
+  --hs-inverse-accent: #ff9300;        /* orange text on navy: 6.9:1 */
+
+  /* ---- type ---- */
+  --hs-font-heading: "Lexend", ui-sans-serif, system-ui, sans-serif;
+  --hs-font-body: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --hs-font-reading: "Newsreader", Georgia, "Times New Roman", serif;
+
+  /* ---- shape ---- */
+  --hs-radius-sm: 4px;                 /* inputs, small buttons */
+  --hs-radius: 8px;                    /* buttons, cards in the app */
+  --hs-radius-lg: 12px;
+}
+
+.dark,
+[data-theme="dark"] {
+  --hs-background: #192341;
+  --hs-surface: #131b33;
+  --hs-tint: #131b33;
+  --hs-foreground: #fefefe;
+  --hs-muted: #37415a;
+  --hs-muted-foreground: #d3d8e5;
+  --hs-subtle-foreground: #a3aabd;     /* derived */
+  --hs-card: #192341;
+  --hs-popover: #37415a;
+  --hs-border: #37415a;
+  --hs-border-strong: #555a73;
+  --hs-ring: #d3d8e5;
+
+  --hs-primary: #fefefe;
+  --hs-primary-foreground: #192341;
+  --hs-primary-hover: #d3d8e5;
+
+  --hs-brand-muted: #523f31;
+  --hs-brand-strong: #ff980d;
+  --hs-success-muted: #1d4158;
+  --hs-success-strong: #72bbbb;
+  --hs-warning-muted: #524c48;
+  --hs-warning-strong: #fec65d;
+  --hs-info-muted: #134762;
+  --hs-info-strong: #33c1d1;
+  --hs-destructive-muted: #4d3345;
+  --hs-destructive-strong: #f0978c;
+
+  --hs-inverse: #131b33;
+  --hs-inverse-card: #37415a;
+}

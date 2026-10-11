@@ -331,13 +331,25 @@ counterparts, in a parallel folder.
 
 ## Design system
 
-Full system in `src/styles/global.css`; reference doc `docs/hubsell-style-guide.html`
-(predates the palette change in commit `6546bdb`, so trust the code for section fills).
+Full system in `src/styles/global.css`. Colours come from the hubsell style guide
+(`~/Coding/hubsell-styleguide`): `src/styles/20261011-2350-hubsell-tokens.css` is a
+verbatim copy of `hubsell-styleguide/tokens/hubsell-tokens.css`, the 2022 app palette.
+Do not edit the copy; change the style guide and copy the file over again.
+`docs/hubsell-style-guide.html` predates the 2026-10-11 switch to the app palette.
 
-- Section classes: `.sec--paper`, `.sec--sand` (now white), `.sec--navy`, `.sec--esp`.
-  Theme-aware via role tokens `--sec-bg/-tx/-bd/-card`.
-- Action color: `--brand:#E0533A` (terracotta), the single CTA color. One primary
-  "Book a demo" button; secondary buttons were removed site-wide.
+- Section classes: `.sec--paper` (light blue-grey tint), `.sec--sand` (white),
+  `.sec--navy`, `.sec--esp` (Dark Blue `#37415A`). Theme-aware via role tokens
+  `--sec-bg/-tx/-bd/-card`.
+- CTA (`--cta-bg`, `--cta-tx`): the style guide's primary button. Navy `#192341`
+  with white text on light sections, white with navy text on navy and Dark Blue
+  sections and in dark mode. One primary "Book a demo" button; secondary buttons
+  were removed site-wide.
+- Orange `#FF9300` is the highlight (dots, bars, the "Most popular" badge), never a
+  button, and never carries white text (2.2:1).
+- Accent text (`--accent-on`): `brand-strong` `#955F1E` on light sections, plain
+  orange on navy and Dark Blue sections and in dark mode.
+- Status: success `#289B9B`, warning `#FEC65D`, error `#E86250`, with `-muted`
+  fills and `-strong` text from the tokens file.
 - Fonts: Lexend (headings), Instrument Sans (body), Newsreader (serif) on blog and
   legal only.
 - Layout wrapper: `.wrap` (max-width 1100px default).

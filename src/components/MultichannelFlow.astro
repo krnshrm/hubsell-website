@@ -77,11 +77,11 @@ const L = asLocale(Astro.currentLocale);
 
   .ht-canvas{ position:relative; width:740px; height:520px; flex-shrink:0; display:block }
   .ht-svg-layer{ position:absolute; top:0; left:0; width:100%; height:100%; z-index:1; overflow:visible }
-  .ht-svg-layer path.ht-base-track{ stroke:#2FA06E; stroke-width:2; stroke-opacity:.6; transition:stroke-opacity .8s cubic-bezier(0.16,1,0.3,1) }
+  .ht-svg-layer path.ht-base-track{ stroke:#289B9B; stroke-width:2; stroke-opacity:.6; transition:stroke-opacity .8s cubic-bezier(0.16,1,0.3,1) }
   .is-flowing .ht-svg-layer path.ht-base-track{ stroke-opacity:1 }
 
   .ht-zap-line{ fill:none; stroke:#FFFFFF; stroke-width:2.5; stroke-linecap:round; stroke-dasharray:40 1000; stroke-dashoffset:40; opacity:0;
-    -webkit-filter:drop-shadow(0 0 4px rgba(47,160,110,1)) drop-shadow(0 0 8px rgba(47,160,110,.8)); filter:drop-shadow(0 0 4px rgba(47,160,110,1)) drop-shadow(0 0 8px rgba(47,160,110,.8)); will-change:stroke-dashoffset, opacity }
+    -webkit-filter:drop-shadow(0 0 4px rgba(40,155,155,1)) drop-shadow(0 0 8px rgba(40,155,155,.8)); filter:drop-shadow(0 0 4px rgba(40,155,155,1)) drop-shadow(0 0 8px rgba(40,155,155,.8)); will-change:stroke-dashoffset, opacity }
   .is-flowing .zap-l{ animation:ht-zap-long 3.5s linear infinite 0s }
   .is-flowing .zap-m{ animation:ht-zap-short 2.2s linear infinite 1.2s }
   .is-flowing .zap-r{ animation:ht-zap-long 3.5s linear infinite 1.8s }
@@ -89,11 +89,11 @@ const L = asLocale(Astro.currentLocale);
   @keyframes ht-zap-short{ 0%{ stroke-dashoffset:40; opacity:0 } 8%{ opacity:1 } 92%{ opacity:1 } 100%{ stroke-dashoffset:-390; opacity:0 } }
 
   .ht-card{ position:absolute; width:210px; background:#FFFFFF; border:1px solid #E5E7EB; border-radius:10px; padding:12px; display:flex; align-items:center; box-shadow:0 6px 18px rgba(0,0,0,.18); z-index:3; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease }
-  .ht-card:hover{ transform:translateY(-3px) !important; box-shadow:0 10px 28px rgba(0,0,0,.24); border-color:#2FA06E; cursor:default; z-index:10 }
+  .ht-card:hover{ transform:translateY(-3px) !important; box-shadow:0 10px 28px rgba(0,0,0,.24); border-color:#289B9B; cursor:default; z-index:10 }
 
   .ht-condition{ position:absolute; width:200px; background:#FFFFFF; border:1px solid #E5E7EB; border-radius:24px; padding:8px 16px; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 18px rgba(0,0,0,.18); z-index:3; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease }
-  .ht-condition:hover{ transform:translateY(-3px) !important; box-shadow:0 10px 28px rgba(0,0,0,.24); border-color:#2FA06E; cursor:default; z-index:10 }
-  .ht-icon-cond{ background:#E4F2EA; color:#2FA06E; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0 }
+  .ht-condition:hover{ transform:translateY(-3px) !important; box-shadow:0 10px 28px rgba(0,0,0,.24); border-color:#289B9B; cursor:default; z-index:10 }
+  .ht-icon-cond{ background:#DFF0F0; color:#289B9B; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0 }
 
   .ht-pill{ position:absolute; height:26px; background:#FFFFFF; border:1px solid #D1D5DB; border-radius:13px; padding:0 14px; font-size:11px; font-weight:600; color:#111827; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 6px rgba(0,0,0,.12); z-index:3; white-space:nowrap; transition:transform .2s ease, box-shadow .2s ease }
   .ht-pill:hover{ transform:scale(1.05) !important; box-shadow:0 4px 12px rgba(0,0,0,.18); cursor:default; z-index:10 }

@@ -103,33 +103,33 @@ const SOURCES = [
   .lds-sources{ display:grid; grid-template-columns:1fr 1fr; gap:8px; width:100% }
   .lds-chip{ display:flex; align-items:center; gap:8px; background:#FFFFFF; color:#192341; border:1px solid #E5E7EB;
     border-radius:10px; padding:9px 12px; font:500 12.5px/1.2 var(--font-body); box-shadow:0 4px 12px rgba(0,0,0,.10) }
-  .lds-dot{ width:8px; height:8px; border-radius:50%; background:#2FA06E; flex:none; box-shadow:0 0 0 3px rgba(47,160,110,.18) }
+  .lds-dot{ width:8px; height:8px; border-radius:50%; background:#289B9B; flex:none; box-shadow:0 0 0 3px rgba(40,155,155,.18) }
 
   /* step 2 — pool into node */
   .lds-pool{ display:flex; align-items:center; gap:10px; width:100% }
   .lds-pool-in{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:6px; flex:none }
   .lds-pool-in span{ width:16px; height:16px; border-radius:50%; background:#FFFFFF; border:1px solid #E5E7EB; box-shadow:0 3px 8px rgba(0,0,0,.12) }
-  .lds-pool-svg{ flex:1; height:40px; color:#2FA06E }
-  .lds-node{ flex:none; display:flex; align-items:center; gap:6px; background:#FFFFFF; color:#155C3F; border:2px solid #2FA06E;
-    border-radius:20px; padding:9px 14px; font:600 12px/1 var(--font-head); box-shadow:0 6px 16px rgba(47,160,110,.18) }
+  .lds-pool-svg{ flex:1; height:40px; color:#289B9B }
+  .lds-node{ flex:none; display:flex; align-items:center; gap:6px; background:#FFFFFF; color:#23757E; border:2px solid #289B9B;
+    border-radius:20px; padding:9px 14px; font:600 12px/1 var(--font-head); box-shadow:0 6px 16px rgba(40,155,155,.18) }
 
   /* step 3 — verify card */
   .lds-verify{ width:100%; max-width:340px; padding:16px 18px }
   .lds-vrow{ display:flex; align-items:center; justify-content:space-between; padding:9px 0; border-top:1px solid var(--sec-bd) }
   .lds-vrow:first-child{ border-top:0 }
   .lds-vname{ font:500 14px/1 var(--font-body); color:var(--sec-tx) }
-  .lds-vok{ display:inline-flex; align-items:center; gap:6px; font:600 12px/1 var(--font-body); color:#155C3F;
-    background:#E4F2EA; border-radius:999px; padding:5px 10px }
+  .lds-vok{ display:inline-flex; align-items:center; gap:6px; font:600 12px/1 var(--font-body); color:#23757E;
+    background:#DFF0F0; border-radius:999px; padding:5px 10px }
   .lds-vok::before{ content:'\2713'; font-weight:700 }
 
   /* step 4 — deliver */
   .lds-deliver{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:center }
   .lds-pill{ background:#FFFFFF; color:#192341; border:1px solid #E5E7EB; border-radius:10px; padding:10px 14px; font:500 13px/1 var(--font-body); box-shadow:0 4px 12px rgba(0,0,0,.10) }
-  .lds-pill.is-green{ border-color:#2FA06E; color:#155C3F }
-  .lds-arrow{ width:60px; height:24px; color:#2FA06E; flex:none }
+  .lds-pill.is-green{ border-color:#289B9B; color:#23757E }
+  .lds-arrow{ width:60px; height:24px; color:#289B9B; flex:none }
   .lds-arrow path{ stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; fill:none }
 
-  .lds-flow{ stroke:#2FA06E; stroke-width:2; fill:none }
+  .lds-flow{ stroke:#289B9B; stroke-width:2; fill:none }
 
   @media (min-width:760px){
     .lds-step{ grid-template-columns:0.9fr 1.1fr; gap:28px; padding:26px 30px }
