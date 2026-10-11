@@ -22,7 +22,6 @@
 // Geometry is computed here at build time from fixed node sizes, so nothing is
 // measured in the browser. The script only reveals and fills in numbers.
 import { SOURCES, RATES } from '../data/flow-demo';
-import { SIGNUP_URL } from '../data/site';
 
 const payload = JSON.stringify({ SOURCES, RATES });
 
@@ -319,15 +318,6 @@ const GRAPHS = [
         ))}
       </div>
 
-      <div class="fd__out" data-fd-out hidden aria-live="polite">
-        <p class="fd__big"><b data-o="M">-</b> meetings from <b data-o="F">-</b> people <span data-o="who"></span>.</p>
-        <p class="fd__vs">A bought list would need about <b data-o="bulk">-</b> contacts to book the same meetings, and that part of your market would be gone for next quarter.</p>
-        <div class="fd__act">
-          <a class="button is-large" href={SIGNUP_URL}>Book a demo</a>
-          <span>We run it on your own source. Then you repeat it with the next post, event or search.</span>
-        </div>
-        <p class="fd__fine">Sample data. Rates are illustrative.</p>
-      </div>
       </div>
     </div>
   </div>
@@ -414,12 +404,21 @@ const GRAPHS = [
 
       const form = root.querySelector('[data-fd-form]');
       const url = root.querySelector('[data-fd-url]');
-      const out = root.querySelector('[data-fd-out]');
       const vp = root.querySelector('[data-fd-vp]');
       const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
       let running = false;
       let src = D.SOURCES[0];
       let world = root.querySelector('[data-graph="li"]');
+
+      // The site's smooth scrolling (Lenis) takes every wheel event for the
+      // page unless the element opts out. Opt out only while the canvas has
+      // something to scroll, so an empty canvas never traps the page.
+      const scrollable = () => {
+        const v = vp.scrollHeight > vp.clientHeight + 2 || vp.scrollWidth > vp.clientWidth + 2;
+        vp.toggleAttribute('data-lenis-prevent', v);
+      };
+      new ResizeObserver(scrollable).observe(vp);
+      root.querySelectorAll('[data-graph]').forEach((g) => g.addEventListener('transitionend', (e) => { if (e.target === g) scrollable(); }));
 
       // The canvas is only as tall as what has been revealed, so it grows
       // downward as the run reaches each card.
@@ -428,12 +427,12 @@ const GRAPHS = [
         world.querySelectorAll('.fd__it.is-in').forEach((n) => (b = Math.max(b, +n.dataset.bottom)));
         const full = world.style.getPropertyValue('--h');
         world.style.height = world.classList.contains('is-complete')
-          ? `calc(${full} + var(--extra, 0px))` : (b + 40) + 'px';
+          ? full : (b + 40) + 'px';
+        scrollable();
       };
 
       const reset = () => {
         world.classList.remove('is-complete');
-        world.style.setProperty('--extra', '0px');
         world.querySelectorAll('.fd__it').forEach((n) => {
           n.classList.remove('is-in', 'is-active', 'is-done');
           const pill = n.querySelector('[data-pill]');
@@ -447,7 +446,6 @@ const GRAPHS = [
         if (sub) sub.textContent = src.flow === 'csv' ? src.sample : src.tab;
         const ico = world.querySelector('[data-ico="src"]');
         if (ico) ico.innerHTML = I[SRC_ICON[src.id]];
-        out.hidden = true;
         fitHeight();
       };
 
@@ -536,16 +534,8 @@ const GRAPHS = [
         world.querySelectorAll(`[data-step="${steps}"]`).forEach((p) => p.classList.add('is-in', 'is-run'));
         fitHeight();
 
-        root.querySelector('[data-o="M"]').textContent = fmt(v.M);
-        root.querySelector('[data-o="F"]').textContent = fmt(v.F);
-        root.querySelector('[data-o="who"]').textContent = src.who;
-        root.querySelector('[data-o="bulk"]').textContent = fmt(v.bulk);
-        // The result sits over the bottom of the window. Room is added under
-        // the flow so the last cards can scroll clear of it.
-        out.hidden = false;
-        world.style.setProperty('--extra', (out.offsetHeight + 24) + 'px');
-        fitHeight();
         if (!reduce) await sleep(480);                 // let the height transition finish first
+        scrollable();
         vp.scrollTo({ top: vp.scrollHeight, behavior: reduce ? 'auto' : 'smooth' });
         root.classList.remove('is-running');
         running = false;
@@ -758,22 +748,6 @@ const GRAPHS = [
   .wl--no{ background:var(--bd); color:var(--red) }
   .wl--neutral{ background:var(--paper); border-color:var(--bd2); color:var(--mut) }
 
-  /* ---- result ---- */
-  .fd__stage{ position:relative }
-  .fd__out{
-    position:absolute; left:16px; bottom:16px; z-index:6; max-width:640px;
-    padding:18px 20px 18px; background:#fff; border:1px solid var(--bd2); border-radius:10px;
-    box-shadow:0 18px 40px -18px rgba(2,6,23,.35), 0 2px 6px rgba(2,6,23,.06);
-    animation:fd-up .4s cubic-bezier(.22,.7,.2,1);
-  }
-  @keyframes fd-up{ from{ opacity:0; transform:translateY(12px) } }
-  .fd__big{ margin:0; font:500 20px/1.4 var(--font-head); color:var(--ink); max-width:62ch }
-  .fd__big b{ font-weight:700 }
-  .fd__vs{ margin:8px 0 0; font-size:14.5px; line-height:1.55; color:var(--mut); max-width:70ch }
-  .fd__vs b{ color:var(--ink) }
-  .fd__act{ display:flex; align-items:center; flex-wrap:wrap; gap:12px 18px; margin-top:16px }
-  .fd__act span{ font-size:13.5px; color:var(--mut); max-width:46ch }
-  .fd__fine{ margin:14px 0 0; font-size:12px; color:var(--faint) }
 
   @media (max-width:720px){
     .fd__bleed{ padding:0 16px }
@@ -782,9 +756,6 @@ const GRAPHS = [
     .fd__go{ width:100% }
     .fd__world{ margin:0 }
     .fd__vp{ height:clamp(480px, 74vh, 680px) }
-    .fd__out{ left:10px; right:10px; bottom:10px; padding:14px 16px }
-    .fd__big{ font-size:17px }
-    .fd__vs{ font-size:13.5px }
   }
 
   @media (prefers-reduced-motion:reduce){
