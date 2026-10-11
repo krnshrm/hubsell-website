@@ -26,6 +26,10 @@ import { SIGNUP_URL } from '../data/site';
 
 const payload = JSON.stringify({ SOURCES, RATES });
 
+// embed: render only the app window, for a hero that brings its own heading.
+const { embed = false } = Astro.props as { embed?: boolean };
+const Tag = embed ? 'div' : 'section';
+
 // Lucide outlines, inner markup only, same convention as pricing-feature-icons.
 const I: Record<string, string> = {
   link:    '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>',
@@ -205,8 +209,8 @@ const GRAPHS = [
   { id: 'csv', g: layout(FLOW_CSV) },
 ];
 ---
-<section class="sec sec--navy fd" aria-labelledby="fd-title">
-  <div class="wrap">
+<Tag class:list={[!embed && 'sec sec--navy', 'fd', embed && 'fd--embed']} aria-labelledby={embed ? undefined : 'fd-title'}>
+  {!embed && <div class="wrap">
     <div class="fd__head">
       <h1 id="fd-title" class="heading_primary">Book the same pipeline using 50 times fewer prospects.</h1>
       <p class="subheading fd__lede">
@@ -215,7 +219,7 @@ const GRAPHS = [
         people get an email instead. Every reply lands in your CRM. Run it below.
       </p>
     </div>
-  </div>
+  </div>}
 
   <div class="fd__bleed">
     <div class="fd__app" data-fd>
@@ -327,7 +331,7 @@ const GRAPHS = [
       </div>
     </div>
   </div>
-</section>
+</Tag>
 
 <script define:vars={{ payload, I, SRC_ICON }}>
   const D = JSON.parse(payload);
@@ -556,7 +560,8 @@ const GRAPHS = [
 </script>
 
 <style>
-  .fd{ padding-top:clamp(48px,6vw,84px) }
+  .fd:not(.fd--embed){ padding-top:clamp(48px,6vw,84px) }
+  .fd--embed .fd__bleed{ margin-top:0 }
   .fd__head{ max-width:800px }
   .fd .heading_primary{ text-wrap:balance }
   .fd__lede{ margin-top:16px; max-width:68ch }

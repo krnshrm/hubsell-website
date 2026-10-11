@@ -1,0 +1,246 @@
+---
+// Homepage hero, prototype. A landscape drawn from the logo's three funnel
+// colours, with one hub on the ridge: small outposts for each channel and
+// data step (LinkedIn, email, phone, CRM, qualification, events) send light
+// along lines into it. The working flow demo rises out of the ground below
+// the hub, so the picture says "everything runs through one place" and the
+// window right under it lets the visitor check that claim.
+//
+// Every shape here is hand-written SVG. No photography, no generated imagery
+// (see the NO AI-GENERATED IMAGES rule in CLAUDE.md).
+//
+// Layout is three stacked layers rather than absolute positioning, so it
+// holds at any width: copy, then the scene pulled up under the copy, then the
+// demo pulled up over the scene's lower ground.
+import FlowDemo from './FlowDemo.astro';
+import AvatarStack from './AvatarStack.astro';
+import { SIGNUP_URL } from '../data/site';
+import { getHome } from '../data/home-i18n';
+import { asLocale, localizedHref } from '../i18n/utils';
+const L = asLocale(Astro.currentLocale);
+const { s } = getHome(L);
+
+// Lucide outlines, inner markup only.
+const I: Record<string, string> = {
+  plus:  '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/>',
+  mail:  '<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>',
+  phone: '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>',
+  db:    '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/>',
+  spark: '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>',
+  cal:   '<path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/>',
+  down:  '<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>',
+};
+
+// Outposts sit on the dune ridges. x, y is the foot of the pole in scene units
+// (viewBox 1440 x 460); s scales distant ones down.
+const HUB = { x: 720, y: 312 };
+const POSTS = [
+  { x: 112,  y: 182, s: 0.62, ico: 'cal',   d: 0.0 },
+  { x: 236,  y: 236, s: 0.8,  ico: 'plus',  d: 0.6 },
+  { x: 448,  y: 300, s: 1,    ico: 'mail',  d: 1.2 },
+  { x: 1000, y: 296, s: 1,    ico: 'phone', d: 0.3 },
+  { x: 1226, y: 228, s: 0.8,  ico: 'db',    d: 0.9 },
+  { x: 1336, y: 176, s: 0.62, ico: 'spark', d: 1.5 },
+];
+// Lines sag between the outpost and the hub, the way a cable would.
+const line = (p: typeof POSTS[number]) =>
+  `M${p.x},${p.y} Q${(p.x + HUB.x) / 2},${Math.max(p.y, HUB.y) + 34} ${HUB.x},${HUB.y}`;
+
+// The real funnel mark, from the app's public/hubsell-funnel-original.svg.
+const FUNNEL = [
+  ['#FEC65D', 'M735.041 100H63.9761C0.906464 100 33.3356 151.162 33.3356 151.162L85.6494 233.686H713.707L765.778 151.217C798.11 100 735.041 100 735.041 100Z'],
+  ['#FF9300', 'M233.974 467.611H565.986L650.405 333.934H149.223L233.974 467.611Z'],
+  ['#FF5C34', 'M367.88 678.827C400.325 729.989 432.657 678.764 432.657 678.764L502.687 567.871H297.543L367.88 678.827Z'],
+];
+
+// Channel bubbles that float at the window's edges.
+const BUBBLES = [
+  { ico: 'plus',  cls: 'l1' }, { ico: 'mail', cls: 'l2' },
+  { ico: 'phone', cls: 'r1' }, { ico: 'db',   cls: 'r2' },
+];
+---
+<section class="hs" aria-labelledby="hs-title">
+  <div class="wrap hs__copy">
+    <h1 id="hs-title" class="hs__title">Fewer prospects.<br />More pipeline.</h1>
+    <div class="hs__side">
+      <p class="hs__sub">
+        hubsell books the same meetings from 50 times fewer people. Start from a LinkedIn post, an event, a search
+        or your own list. hubsell qualifies them, finds verified contact data and runs LinkedIn, email and call
+        tasks in one flow that writes back to your CRM.
+      </p>
+      <div class="hs__cta">
+        <a class="button is-large" href={localizedHref(L, SIGNUP_URL)}>Book a demo</a>
+        <a class="hs__try" href="#demo">
+          Run the demo below
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={I.down} />
+        </a>
+      </div>
+      <div class="hs__proof">
+        <AvatarStack size={32} />
+        <ul>
+          {s.hero.stats.map((st) => (
+            <li><b>{st.value}</b> {st.label} <i>{st.company}</i></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <svg class="hs__scene" viewBox="0 0 1440 460" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <radialGradient id="hs-glow">
+        <stop offset="0" stop-color="#FFF6E8" stop-opacity=".9" />
+        <stop offset="1" stop-color="#FFF6E8" stop-opacity="0" />
+      </radialGradient>
+    </defs>
+    <circle class="hs__sun" cx="1250" cy="168" r="92" />
+    <path class="hs__d1" d="M0 200 C240 150,420 170,640 185 S1060 130,1440 170 V460H0Z" />
+    <path class="hs__d2" d="M0 258 C200 218,380 228,560 248 S960 228,1180 220 S1360 228,1440 238 V460H0Z" />
+    <path class="hs__d3" d="M0 318 C260 282,520 300,720 312 S1160 282,1440 300 V460H0Z" />
+
+    {POSTS.map((p) => <path class="hs__wire" d={line(p)} />)}
+    {POSTS.map((p) => <path class="hs__pulse" d={line(p)} pathLength="1" style={`animation-delay:${p.d}s`} />)}
+
+    {POSTS.map((p) => (
+      <g transform={`translate(${p.x} ${p.y}) scale(${p.s})`}>
+        <line class="hs__pole" x1="0" y1="0" x2="0" y2="-20" />
+        <rect class="hs__tile" x="-19" y="-58" width="38" height="38" rx="9" />
+        <svg x="-10" y="-49" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hs__ico" set:html={I[p.ico]} />
+      </g>
+    ))}
+
+    <g transform={`translate(${HUB.x} ${HUB.y})`}>
+      <circle cx="0" cy="-40" r="104" fill="url(#hs-glow)" class="hs__halo" />
+      <ellipse class="hs__shadow" cx="0" cy="2" rx="72" ry="8" />
+      <line class="hs__pole" x1="0" y1="-74" x2="0" y2="-98" />
+      <circle class="hs__beacon" cx="0" cy="-102" r="5" />
+      <rect class="hs__hub" x="-58" y="-76" width="116" height="76" rx="16" />
+      <svg x="-27" y="-66" width="54" height="54" viewBox="0 0 800 800">
+        {FUNNEL.map(([c, d]) => <path fill={c} d={d} />)}
+      </svg>
+    </g>
+
+    <path class="hs__d4" d="M0 380 C300 350,600 370,760 366 S1200 340,1440 370 V460H0Z" />
+    <path class="hs__ground" d="M0 428 C400 404,1040 404,1440 428 V460H0Z" />
+  </svg>
+
+  <div class="hs__stage" id="demo">
+    {BUBBLES.map((b) => (
+      <span class={`hs__bub hs__bub--${b.cls}`} aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={I[b.ico]} />
+      </span>
+    ))}
+    <FlowDemo embed />
+  </div>
+</section>
+
+<style>
+  /* Scene palette. The dunes are the logo's funnel colours, back to front,
+     so the brand mark and the landscape are the same three bands. */
+  .hs{
+    --sky1:#FFF4E6; --sky2:#FCDDB8; --sky3:#F8B884;
+    --d1:#FEC65D; --d2:#FF9300; --d3:#FF5C34; --d4:#E0533A;
+    --ground:var(--sec-paper); --sun:#FFE7BE;
+    --tile:#FFF8EE; --tile-ink:#BE3F22; --wire:#FFF6E8; --pole:#FFF1DE;
+    --ink:#192341; --ink-2:#54596B; --accent:#BE3F22;
+    position:relative; overflow:hidden;
+    padding-top:clamp(40px,6vw,76px);
+    color:var(--ink);
+    background:linear-gradient(180deg, var(--sky1) 0, var(--sky2) 45%, var(--sky3) 100%);
+  }
+  :global([data-theme="dark"]) .hs{
+    --sky1:#1A120C; --sky2:#3A2418; --sky3:#6E3420;
+    --d1:#B9772E; --d2:#B5591D; --d3:#A8402A; --d4:#8E3222;
+    --sun:#C9803F;
+    --tile:#2C1F15; --tile-ink:#F2694E; --wire:#FFD9A8; --pole:#5A4030;
+    --ink:#F3EAE0; --ink-2:#C8BDAE; --accent:#F2694E;
+  }
+
+  /* ---- copy ---- */
+  .hs__copy{
+    position:relative; z-index:2;
+    display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);
+    gap:clamp(24px,4vw,64px); align-items:end;
+  }
+  .hs__title{
+    margin:0; font:400 clamp(44px,6.4vw,88px)/.98 var(--font-head);
+    letter-spacing:-.035em; color:var(--ink);
+  }
+  .hs__side{ padding-bottom:6px }
+  .hs__sub{ margin:0; font-size:clamp(16px,1.3vw,18px); line-height:1.55; color:var(--ink-2); max-width:34rem }
+  .hs__cta{ display:flex; align-items:center; flex-wrap:wrap; gap:14px 22px; margin-top:24px }
+  .hs__try{
+    display:inline-flex; align-items:center; gap:8px;
+    font:600 15px/1 var(--font-body); color:var(--ink); text-decoration:none;
+    border-bottom:1.5px solid currentColor; padding-bottom:3px;
+  }
+  .hs__try svg{ width:16px; height:16px; transition:transform .2s }
+  .hs__try:hover svg{ transform:translateY(2px) }
+  .hs__proof{ display:flex; align-items:center; gap:14px; margin-top:26px; flex-wrap:wrap }
+  .hs__proof ul{ list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:4px 16px; font-size:13px; color:var(--ink-2) }
+  .hs__proof b{ font:700 14px/1 var(--font-head); color:var(--accent) }
+  .hs__proof i{ font-style:normal; font-weight:600; color:var(--ink) }
+
+  /* ---- scene ---- */
+  .hs__scene{
+    position:relative; z-index:1; display:block; width:100%;
+    height:clamp(260px,32vw,460px);
+    margin-top:calc(clamp(260px,32vw,460px) * -0.3);
+  }
+  .hs__sun{ fill:var(--sun) }
+  .hs__d1{ fill:var(--d1) } .hs__d2{ fill:var(--d2) } .hs__d3{ fill:var(--d3) } .hs__d4{ fill:var(--d4) }
+  .hs__ground{ fill:var(--ground) }
+  .hs__wire{ fill:none; stroke:var(--wire); stroke-width:2.5; stroke-linecap:round; opacity:.75 }
+  .hs__pulse{
+    fill:none; stroke:#FFFFFF; stroke-width:4; stroke-linecap:round;
+    stroke-dasharray:.08 .92; stroke-dashoffset:1; opacity:0;
+    animation:hs-flow 3.2s cubic-bezier(.4,0,.6,1) infinite;
+  }
+  @keyframes hs-flow{ 0%{ stroke-dashoffset:1; opacity:0 } 10%{ opacity:1 } 80%{ opacity:1 } 100%{ stroke-dashoffset:.08; opacity:0 } }
+  .hs__pole{ stroke:var(--pole); stroke-width:3; stroke-linecap:round }
+  .hs__tile{ fill:var(--tile); filter:drop-shadow(0 3px 4px rgba(120,40,10,.22)) }
+  .hs__ico{ stroke:var(--tile-ink) }
+  .hs__hub{ fill:#FFF8EE; filter:drop-shadow(0 6px 10px rgba(120,40,10,.28)) }
+  .hs__shadow{ fill:#7A2412; opacity:.22 }
+  .hs__beacon{ fill:#FFFFFF; animation:hs-blink 2.4s ease-in-out infinite }
+  @keyframes hs-blink{ 0%,100%{ opacity:.35 } 50%{ opacity:1 } }
+  .hs__halo{ animation:hs-breathe 4s ease-in-out infinite; transform-origin:0 -40px }
+  @keyframes hs-breathe{ 0%,100%{ opacity:.7 } 50%{ opacity:1 } }
+
+  /* ---- demo window, pulled up onto the ground under the hub ---- */
+  .hs__stage{
+    position:relative; z-index:3;
+    margin-top:calc(clamp(260px,32vw,460px) * -0.3);
+    padding-bottom:clamp(48px,6vw,80px);
+  }
+  /* Ground colour from the scene's lower edge down, so the window stands on
+     the page colour the next section starts with. */
+  .hs__stage::before{
+    content:''; position:absolute; z-index:-1; left:0; right:0; bottom:0;
+    top:calc(clamp(260px,32vw,460px) * 0.3 - 1px); background:var(--ground);
+  }
+  .hs__stage :global(.fd__app){ box-shadow:0 40px 80px -40px rgba(80,24,8,.55), 0 2px 8px rgba(80,24,8,.08) }
+
+  .hs__bub{
+    position:absolute; z-index:4; width:48px; height:48px; border-radius:50%;
+    display:grid; place-items:center; background:#fff; color:var(--accent);
+    box-shadow:0 10px 24px -10px rgba(80,24,8,.45), 0 0 0 1px rgba(80,24,8,.06);
+    animation:hs-float 5s ease-in-out infinite;
+  }
+  .hs__bub svg{ width:21px; height:21px }
+  .hs__bub--l1{ left:max(6px, calc(50% - 700px)); top:150px }
+  .hs__bub--l2{ left:max(28px, calc(50% - 676px)); top:250px; animation-delay:-1.6s }
+  .hs__bub--r1{ right:max(6px, calc(50% - 700px)); top:120px; animation-delay:-2.4s }
+  .hs__bub--r2{ right:max(28px, calc(50% - 676px)); top:230px; animation-delay:-.8s }
+  @keyframes hs-float{ 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-8px) } }
+
+  @media (max-width:900px){
+    .hs__copy{ grid-template-columns:1fr; align-items:start }
+    .hs__bub{ display:none }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .hs__pulse{ display:none }
+    .hs__beacon, .hs__halo, .hs__bub{ animation:none }
+  }
+</style>
