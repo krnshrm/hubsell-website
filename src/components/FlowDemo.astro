@@ -67,11 +67,15 @@ type Node =
   | { type: 'card'; id: string; badge: string; ico: string; t: string; s: string; stats: Stat[]; call?: boolean }
   | { type: 'chip'; id: string; badge: string; ico: string; t: string; s: string }
   | { type: 'wait'; id: string; t: string }
+  | { type: 'gap'; id: string }
   | { type: 'label'; id: string; t: string; tone: Tone; k?: string };
 type Item = Node | { branch: Item[][] };
 
 let uid = 0;
 const wait = (t: string): Node => ({ type: 'wait', id: `w${uid++}`, t });
+// An empty row the size of a wait. It keeps parallel tracks on the same rows,
+// so matching steps (the two emails, the two call tasks) line up across.
+const gap = (): Node => ({ type: 'gap', id: `g${uid++}` });
 const callTask = (key: string): Node => ({ type: 'card', id: `call-${key}`, badge: 'violet', ico: 'task', t: 'Call task', s: 'Created in your CRM', call: true,
   stats: [['Tasks created', key, 'phone', 'ok']] });
 const emailStep = (p: string, s = 'Everyone without a reply'): Node => ({ type: 'card', id: `email-${p}`, badge: 'violet', ico: 'mail', t: 'Send email', s,
@@ -99,6 +103,7 @@ const linkedinTracks = (): Item[] => [
       wait('Wait 7 days'),
       { type: 'card', id: 'withdraw', badge: 'blue', ico: 'minus', t: 'Withdraw connection', s: 'Cancel the pending invite',
         stats: [['Withdrawn', 'WD', 'minus', 'neutral']] },
+      gap(),
       emailStep('N'),
       wait('Wait 2 days'),
       callTask('NC'),
@@ -137,7 +142,7 @@ const FLOW_CSV: Item[] = [
 
 // ---- layout ----
 // Fixed sizes so geometry needs no measuring. Cards are the style guide's 344.
-const SIZE = { card: [344, 128], chip: [252, 64], wait: [168, 34], label: [156, 30] } as const;
+const SIZE = { card: [344, 128], chip: [252, 64], wait: [168, 34], gap: [168, 34], label: [156, 30] } as const;
 const GX = 56, GY = 44, PAD = 40, LANE = 34;
 
 type Placed = Node & { x: number; y: number; w: number; h: number; cx: number; step: number };
@@ -183,6 +188,7 @@ function layout(flow: Item[]) {
         continue;
       }
       const [w, h] = SIZE[it.type];
+      if (it.type === 'gap') { y += h + GY; step++; continue; }   // the incoming edge just runs longer
       nodes.push({ ...it, x: cx - w / 2, y, w, h, cx, step });
       for (const e of exits) {
         const turn = e.split ? e.y + GY / 2 : y - GY / 2;
@@ -458,7 +464,10 @@ const GRAPHS = [
         root.querySelectorAll('[data-graph]').forEach((g) => (g.hidden = g.dataset.graph !== src.flow));
         world = root.querySelector(`[data-graph="${src.flow}"]`);
         reset();
-        vp.scrollTo({ left: 0, top: 0 });
+        // Start centred on the source card, which matters when the flow is
+        // wider than the window, as it is on a phone.
+        const first = world.querySelector('[data-step="0"].fd__it');
+        vp.scrollTo({ left: Math.max(0, +first.dataset.cx + world.offsetLeft - vp.clientWidth / 2), top: 0 });
       };
 
       form.querySelectorAll('input[name="src"]').forEach((el) =>
