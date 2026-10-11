@@ -1,0 +1,689 @@
+---
+// Homepage hero as a working copy of the hubsell flow canvas.
+//
+// The visitor picks a source (or pastes a link), chooses enrichment, and runs.
+// The run walks a real flow left to right: source, profile visit, connection
+// request, then a follow-up condition. Accepted within 7 days gets a LinkedIn
+// message. Still pending after 7 days gets the invite withdrawn. Both tracks
+// meet at one email step, sync to the CRM, and the loop edge returns to the
+// source.
+//
+// The founder's note on demos is that people lean in once they see the whole
+// thing come together. So the camera follows the run at full size, then zooms
+// out to the whole flow when it ends.
+//
+// Node visuals follow the app's style guide (linkedin-post-client, branch
+// styleguide: lib/styleGuide/workflowNode.ts, WorkflowNode.tsx, app/globals.css).
+// Every card node is 344px, as in the app, so the flow is wider than any screen.
+// That is why the canvas pans and zooms instead of shrinking the nodes.
+//
+// Geometry is fixed in canvas units and the whole world is scaled by one
+// transform, so edges are computed here at build time and never measured.
+import { SOURCES, URL_RULE, RATES } from '../data/flow-demo';
+import { SIGNUP_URL } from '../data/site';
+
+const payload = JSON.stringify({ SOURCES, URL_RULE, RATES });
+
+// Lucide outlines, inner markup only, same convention as pricing-feature-icons.
+const I: Record<string, string> = {
+  link:   '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>',
+  users:  '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  mailOk: '<path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h8"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/><path d="m16 19 2 2 4-4"/>',
+  phone:  '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>',
+  eye:    '<path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/>',
+  plus:   '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/>',
+  minus:  '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="22" x2="16" y1="11" y2="11"/>',
+  send:   '<path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/>',
+  ok:     '<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>',
+  ban:    '<circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/>',
+  branch: '<line x1="6" x2="6" y1="3" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/>',
+  msg:    '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+  reply:  '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>',
+  mail:   '<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>',
+  open:   '<path d="M21.2 8.4c.5.38.8.97.8 1.6v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V10a2 2 0 0 1 .8-1.6l8-6a2 2 0 0 1 2.4 0l8 6Z"/><path d="m22 10-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 10"/>',
+  sync:   '<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/>',
+  cal:    '<path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/>',
+  zin:    '<path d="M5 12h14"/><path d="M12 5v14"/>',
+  zout:   '<path d="M5 12h14"/>',
+  fit:    '<path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/>',
+};
+
+// Canvas units. Rows are handle heights: every node is centred on its row, so
+// an edge can join two nodes without knowing how tall either one is.
+const COL = 344, CHIP = 252;
+const TOP = 104, MID = 204, BOT = 304, LANE = 420, H = 464;
+const X = { source: 56, visit: 488, connect: 920, cond: 1336, track: 1800, email: 2314, sync: 2746 };
+const W = X.sync + COL + 56;
+
+type Stat = [label: string, key: string, icon: string, tone: 'ok' | 'no' | 'neutral'];
+type N = { id: string; kind: 'card' | 'chip'; x: number; y: number; w: number; badge: string; ico: string; t: string; s: string; stats?: Stat[]; step: number };
+
+// LinkedIn steps blue, email and automation violet, goals green: the style
+// guide's colour rule. Its badge names, not their hues, are what carry over.
+const NODES: N[] = [
+  { id: 'source',   kind: 'card', x: X.source,  y: MID, w: COL,  badge: 'violet', ico: 'link',   t: 'Source',               s: SOURCES[0].tab, step: 0,
+    stats: [['Found', 'F', 'users', 'neutral'], ['Emails', 'E', 'mailOk', 'ok'], ['Phones', 'P', 'phone', 'ok']] },
+  { id: 'visit',    kind: 'card', x: X.visit,   y: MID, w: COL,  badge: 'blue',   ico: 'eye',    t: 'Profile visit',        s: 'Visit before you connect', step: 1,
+    stats: [['Visited', 'V', 'eye', 'ok']] },
+  { id: 'connect',  kind: 'card', x: X.connect, y: MID, w: COL,  badge: 'blue',   ico: 'plus',   t: 'Connection request',   s: 'Invite without a note', step: 2,
+    stats: [['Sent', 'CS', 'send', 'ok'], ['Accepted', 'CA', 'ok', 'ok'], ['Not accepted', 'CN', 'ban', 'no']] },
+  { id: 'cond',     kind: 'chip', x: X.cond,    y: MID, w: CHIP, badge: 'violet', ico: 'branch', t: 'Follow-up conditions', s: 'Accepted within 7 days?', step: 3 },
+  { id: 'message',  kind: 'card', x: X.track,   y: TOP, w: COL,  badge: 'blue',   ico: 'msg',    t: 'Direct message',       s: 'Everyone who accepted', step: 4,
+    stats: [['Sent', 'MS', 'send', 'ok'], ['Replied', 'MR', 'reply', 'ok']] },
+  { id: 'withdraw', kind: 'card', x: X.track,   y: BOT, w: COL,  badge: 'blue',   ico: 'minus',  t: 'Withdraw connection',  s: 'Cancel a pending invite', step: 4,
+    stats: [['Withdrawn', 'WD', 'minus', 'neutral']] },
+  { id: 'email',    kind: 'card', x: X.email,   y: MID, w: COL,  badge: 'violet', ico: 'mail',   t: 'Send email',           s: 'Everyone without a reply', step: 5,
+    stats: [['Sent', 'ES', 'send', 'ok'], ['Opened', 'EO', 'open', 'ok'], ['Replied', 'ER', 'reply', 'ok']] },
+  { id: 'sync',     kind: 'card', x: X.sync,    y: MID, w: COL,  badge: 'green',  ico: 'sync',   t: 'CRM sync',             s: 'HubSpot, Salesforce or Pipedrive', step: 6,
+    stats: [['Synced', 'SY', 'sync', 'neutral'], ['Replies', 'R', 'reply', 'ok'], ['Meetings', 'M', 'cal', 'ok']] },
+];
+
+const right = (id: string) => { const n = NODES.find((m) => m.id === id)!; return n.x + n.w; };
+
+// Orthogonal polyline with rounded corners, the look of a smoothstep edge.
+function path(pts: number[][], r = 14) {
+  let d = `M${pts[0][0]},${pts[0][1]}`;
+  for (let i = 1; i < pts.length - 1; i++) {
+    const [px, py] = pts[i - 1], [cx, cy] = pts[i], [nx, ny] = pts[i + 1];
+    const lin = Math.hypot(cx - px, cy - py), lout = Math.hypot(nx - cx, ny - cy);
+    const rr = Math.min(r, lin / 2, lout / 2);
+    const ax = cx - ((cx - px) / lin) * rr, ay = cy - ((cy - py) / lin) * rr;
+    const bx = cx + ((nx - cx) / lout) * rr, by = cy + ((ny - cy) / lout) * rr;
+    d += ` L${ax},${ay} Q${cx},${cy} ${bx},${by}`;
+  }
+  const [lx, ly] = pts[pts.length - 1];
+  return d + ` L${lx},${ly}`;
+}
+
+const TURN = right('cond') + 12;          // where the two branches split
+const JOIN = X.email - 24;                // where they meet again
+const mid = (a: number, b: number) => (a + b) / 2;
+
+// step: the run step whose node this edge leads into.
+const EDGES = [
+  { step: 1, d: path([[right('source'), MID], [X.visit, MID]]) },
+  { step: 2, d: path([[right('visit'), MID], [X.connect, MID]]), label: '1 day', lx: mid(right('visit'), X.connect), ly: MID },
+  { step: 3, d: path([[right('connect'), MID], [X.cond, MID]]) },
+  { step: 4, d: path([[right('cond'), MID], [TURN, MID], [TURN, TOP], [X.track, TOP]]), label: 'Accepted', count: 'CA', tone: 'ok', lx: mid(TURN, X.track), ly: TOP },
+  { step: 4, d: path([[right('cond'), MID], [TURN, MID], [TURN, BOT], [X.track, BOT]]), label: 'Pending after 7 days', count: 'CN', tone: 'no', lx: mid(TURN, X.track), ly: BOT },
+  { step: 5, d: path([[right('message'), TOP], [JOIN, TOP], [JOIN, MID], [X.email, MID]]), label: 'No reply, 3 days', lx: mid(right('message'), JOIN), ly: TOP },
+  { step: 5, d: path([[right('withdraw'), BOT], [JOIN, BOT], [JOIN, MID], [X.email, MID]]), label: '1 day', lx: mid(right('withdraw'), JOIN), ly: BOT },
+  { step: 6, d: path([[right('email'), MID], [X.sync, MID]]) },
+  { step: 7, loop: true, d: path([[right('sync'), MID], [W - 28, MID], [W - 28, LANE], [28, LANE], [28, MID], [X.source, MID]], 18),
+    label: 'Repeat with the next post or search', lx: W / 2, ly: LANE },
+];
+const STEPS = Math.max(...NODES.map((n) => n.step)) + 1;
+---
+<section class="sec sec--navy fd" aria-labelledby="fd-title">
+  <div class="wrap">
+    <div class="fd__head">
+      <h1 id="fd-title" class="heading_primary">Book the same pipeline using 50 times fewer prospects.</h1>
+      <p class="subheading fd__lede">
+        Paste a LinkedIn post or search. hubsell finds the people, verifies email and phone, and runs
+        LinkedIn and email in one flow. Invites nobody accepts are withdrawn after 7 days and those people
+        get an email instead. Every reply syncs to your CRM. Run it below.
+      </p>
+    </div>
+  </div>
+
+  <div class="fd__bleed">
+    <div class="fd__app" data-fd>
+      <div class="fd__chrome">
+        <span class="fd__crumb">Flows <i>/</i> <b>Outbound from LinkedIn</b></span>
+        <span class="fd__tag">Sample data</span>
+      </div>
+
+      <form class="fd__ctrl" data-fd-form novalidate>
+        <div class="fd__tabs" role="radiogroup" aria-label="Source">
+          {SOURCES.map((s, i) => (
+            <label class="fd__tab">
+              <input type="radio" name="src" value={s.id} checked={i === 0} />
+              <span>{s.tab}</span>
+            </label>
+          ))}
+        </div>
+        <label class="fd__url">
+          <span class="fd__sr">LinkedIn post or search link</span>
+          <input type="url" name="url" value={SOURCES[0].sample} spellcheck="false" autocomplete="off" data-fd-url />
+        </label>
+        <div class="fd__opts">
+          <label class="fd__chk"><input type="checkbox" checked disabled /><span>Verified email</span></label>
+          <label class="fd__chk"><input type="checkbox" name="phone" /><span>Phone <small>+0.5 credit</small></span></label>
+        </div>
+        <button class="button fd__go" type="submit">Source and run</button>
+        <p class="fd__err" data-fd-err hidden>Please enter a valid LinkedIn post or people search link.</p>
+        <p class="fd__hint" data-fd-hint hidden>This page runs every link on sample data. In hubsell, it sources the link you paste.</p>
+      </form>
+
+      <div class="fd__vp" data-fd-vp>
+        <div class="fd__world" data-fd-world data-w={W} data-h={H} style={`width:${W}px;height:${H}px`}>
+          <svg class="fd__edges" width={W} height={H} viewBox={`0 0 ${W} ${H}`} aria-hidden="true">
+            {EDGES.map((e) => <path class:list={['fd__e', e.loop && 'fd__e--loop']} data-es={e.step} d={e.d} fill="none" />)}
+            {EDGES.map((e) => <path class:list={['fd__p', e.loop && 'fd__p--loop']} data-ps={e.step} d={e.d} pathLength="1" fill="none" />)}
+          </svg>
+
+          {EDGES.map((e) => e.label && (
+            <span class:list={['fd__el', e.tone && `fd__el--${e.tone}`, e.loop && 'fd__el--loop']} data-ls={e.step}
+                  style={`left:${e.lx}px;top:${e.ly}px`}>
+              {e.label}{e.count && <b data-k={e.count}></b>}
+            </span>
+          ))}
+
+          {NODES.map((n) => (
+            <div class:list={['wn', `wn--${n.kind}`]} data-n={n.id} data-step={n.step} data-cx={n.x + n.w / 2}
+                 style={`left:${n.x}px;top:${n.y}px;width:${n.w}px`}>
+              {n.id !== 'source' && <span class="wn__h wn__h--in" aria-hidden="true"></span>}
+              <span class="wn__h wn__h--out" aria-hidden="true"></span>
+              {n.id === 'source' && <span class="wn__h wn__h--in wn__h--loop" aria-hidden="true"></span>}
+              <div class="wn__hd">
+                <span class:list={['wb', n.kind === 'chip' ? 'wb--lg' : 'wb--md', `wb--${n.badge}`]} aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={I[n.ico]} />
+                </span>
+                <span class="wn__tt">
+                  <b>{n.t}</b>
+                  <span data-sub={n.id}>{n.s}</span>
+                </span>
+                {n.kind === 'card' && <span class="wp" data-pill><i></i><span>Off</span></span>}
+              </div>
+              {n.stats && (
+                <dl class="wn__st" style={`grid-template-columns:repeat(${n.stats.length},minmax(0,1fr))`}>
+                  {n.stats.map(([label, key, ico, tone]) => (
+                    <div>
+                      <dt>{label}</dt>
+                      <dd>
+                        <svg class={`ws ws--${tone}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={I[ico]} />
+                        <b data-k={key}>-</b><small data-r={key}></small>
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <span class="fd__fade fd__fade--l" data-fade="l" aria-hidden="true"></span>
+        <span class="fd__fade fd__fade--r" data-fade="r" aria-hidden="true"></span>
+
+        <div class="fd__zoom" role="group" aria-label="Canvas view">
+          <button type="button" data-z="in" aria-label="Zoom in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" set:html={I.zin} /></button>
+          <button type="button" data-z="out" aria-label="Zoom out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" set:html={I.zout} /></button>
+          <button type="button" data-z="fit" aria-label="Show the whole flow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" set:html={I.fit} /></button>
+        </div>
+        <span class="fd__drag" aria-hidden="true">Drag to move around</span>
+      </div>
+
+      <div class="fd__out" data-fd-out hidden aria-live="polite">
+        <p class="fd__big"><b data-o="M">-</b> meetings from <b data-o="F">-</b> people <span data-o="who"></span>.</p>
+        <p class="fd__vs">A bought list would need about <b data-o="bulk">-</b> contacts to book the same meetings, and that part of your market would be gone for next quarter.</p>
+        <div class="fd__act">
+          <a class="button is-large" href={SIGNUP_URL}>Book a demo</a>
+          <span>We run it on your own LinkedIn link. Then you repeat it with the next post or search.</span>
+        </div>
+        <p class="fd__fine">Sample data. Rates are illustrative.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ payload, STEPS }}>
+  const D = JSON.parse(payload);
+  const fmt = (n) => Math.round(n).toLocaleString('en-US');
+  const pct = (a, b) => (b ? (Math.round((a / b) * 1000) / 10).toFixed(1) + '%' : '');
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+  // Rounded at each step so the numbers on the canvas add up: accepted plus
+  // not accepted is exactly what was sent.
+  function compute(src, phone) {
+    const R = D.RATES, w = src.warmth, F = src.found, r = Math.round;
+    const E = r(F * R.email), P = phone ? r(F * R.phone) : 0;
+    const CA = r(F * R.accept * w), CN = F - CA;
+    const MR = r(CA * R.msgReply * w);
+    const ES = r((F - MR) * R.email), EO = r(ES * R.open), ER = r(ES * R.emailReply * w);
+    const Rep = MR + ER;
+    return {
+      F, E, P, V: F, CS: F, CA, CN, MS: CA, MR, WD: CN, ES, EO, ER,
+      SY: F, R: Rep, M: r(Rep * R.meeting), bulk: F * R.bulkFactor,
+      rates: { E: pct(E, F), P: phone ? pct(P, F) : '', CA: pct(CA, F), CN: pct(CN, F), MR: pct(MR, CA), EO: pct(EO, ES), ER: pct(ER, ES) },
+    };
+  }
+
+  function detect(url) {
+    if (url.includes('linkedin.com/posts')) return 'post';
+    if (url.includes('sales/search/people')) return 'salesnav';
+    if (url.includes('search/results/people')) return 'search';
+    return null;
+  }
+
+  function countTo(el, to, ms) {
+    if (!ms) { el.textContent = fmt(to); return; }
+    const t0 = performance.now();
+    const tick = (now) => {
+      const p = Math.min(1, (now - t0) / ms);
+      el.textContent = fmt(to * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  function init() {
+    document.querySelectorAll('[data-fd]').forEach((root) => {
+      if (root.dataset.fdReady) return;
+      root.dataset.fdReady = '1';
+
+      const form = root.querySelector('[data-fd-form]');
+      const url = root.querySelector('[data-fd-url]');
+      const err = root.querySelector('[data-fd-err]');
+      const hint = root.querySelector('[data-fd-hint]');
+      const out = root.querySelector('[data-fd-out]');
+      const vp = root.querySelector('[data-fd-vp]');
+      const world = root.querySelector('[data-fd-world]');
+      const nodes = [...root.querySelectorAll('[data-n]')];
+      const W = +world.dataset.w, H = +world.dataset.h;
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let running = false;
+
+      // ---- camera ----
+      // One transform on the world. "base" is the working zoom: full size on a
+      // desktop, one node wide on a phone. The view remembers what it is
+      // showing so a resize can re-frame the same thing.
+      const cam = { s: 1, tx: 0, ty: 0, mode: { kind: 'free', tx: 0 } };
+      const base = () => Math.min(1, (vp.clientWidth - 28) / 344);
+      const fitS = () => Math.min(base(), (vp.clientWidth - 24) / W);
+
+      function apply(animate) {
+        const t = animate && !reduce;
+        vp.classList.toggle('is-moving', !!t);
+        world.style.transform = `translate(${cam.tx}px,${cam.ty}px) scale(${cam.s})`;
+        // Below this zoom the real dot pitch turns the canvas grey, so the grid
+        // stops shrinking with the world.
+        const g = Math.max(9, 18 * cam.s);
+        vp.style.backgroundSize = `${g}px ${g}px`;
+        vp.style.backgroundPosition = `${cam.tx}px ${cam.ty}px`;
+        const vw = vp.clientWidth;
+        root.querySelector('[data-fade="l"]').classList.toggle('is-on', cam.tx < -4);
+        root.querySelector('[data-fade="r"]').classList.toggle('is-on', cam.tx + W * cam.s > vw + 4);
+      }
+      function clampX(tx, s) {
+        const vw = vp.clientWidth, ww = W * s;
+        if (ww <= vw) return (vw - ww) / 2;
+        return Math.min(0, Math.max(vw - ww, tx));
+      }
+      function frame(mode, animate) {
+        cam.mode = mode;
+        const vw = vp.clientWidth;
+        if (mode.kind === 'fit') {
+          cam.s = fitS();
+          vp.style.height = Math.round(Math.max(H * cam.s + 96, H * base() * 0.6)) + 'px';
+        } else {
+          cam.s = mode.s || base();
+          vp.style.height = Math.round(H * base()) + 'px';
+        }
+        const vh = parseFloat(vp.style.height);
+        if (mode.kind === 'focus') cam.tx = clampX(vw / 2 - mode.x * cam.s, cam.s);
+        else if (mode.kind === 'free') cam.tx = clampX(mode.tx, cam.s);
+        else cam.tx = clampX(0, cam.s);
+        cam.ty = (vh - H * cam.s) / 2;
+        apply(animate);
+      }
+
+      // Drag to pan. Vertical drags still scroll the page on touch screens.
+      let drag = null;
+      vp.addEventListener('pointerdown', (e) => {
+        if (e.target.closest('button')) return;
+        drag = { x: e.clientX, tx: cam.tx };
+        vp.setPointerCapture(e.pointerId);
+        vp.classList.add('is-drag');
+      });
+      vp.addEventListener('pointermove', (e) => {
+        if (!drag) return;
+        cam.tx = clampX(drag.tx + (e.clientX - drag.x), cam.s);
+        cam.mode = { kind: 'free', s: cam.s, tx: cam.tx };
+        apply(false);
+        vp.classList.add('was-dragged');
+      });
+      const end = () => { drag = null; vp.classList.remove('is-drag'); };
+      vp.addEventListener('pointerup', end);
+      vp.addEventListener('pointercancel', end);
+
+      root.querySelectorAll('[data-z]').forEach((b) => b.addEventListener('click', () => {
+        const z = b.dataset.z;
+        if (z === 'fit') return frame({ kind: 'fit' }, true);
+        const vw = vp.clientWidth;
+        const s = Math.min(1.25, Math.max(fitS(), cam.s * (z === 'in' ? 1.25 : 0.8)));
+        const cx = (vw / 2 - cam.tx) / cam.s;           // keep the centre of the view still
+        frame({ kind: 'free', s, tx: vw / 2 - cx * s }, true);
+      }));
+
+      new ResizeObserver(() => frame(cam.mode, false)).observe(vp);
+
+      // ---- run ----
+      const reset = () => {
+        nodes.forEach((n) => {
+          n.classList.remove('is-active', 'is-done');
+          const pill = n.querySelector('[data-pill]');
+          if (pill) { pill.dataset.pill = ''; pill.querySelector('span').textContent = 'Off'; }
+        });
+        root.querySelectorAll('[data-k]').forEach((x) => (x.textContent = x.closest('.fd__el') ? '' : '-'));
+        root.querySelectorAll('[data-r]').forEach((x) => (x.textContent = ''));
+        root.querySelectorAll('.fd__e, .fd__p, .fd__el').forEach((p) => p.classList.remove('is-done', 'is-run'));
+        out.hidden = true;
+      };
+
+      const srcById = (id) => D.SOURCES.find((s) => s.id === id);
+      const setSource = (src) => {
+        root.querySelector('[data-sub="source"]').textContent = src.tab;
+      };
+
+      // Picking a tab loads that tab's sample link, the way choosing a source in
+      // the app would prompt for that kind of link.
+      form.querySelectorAll('input[name="src"]').forEach((r) =>
+        r.addEventListener('change', () => {
+          if (running) return;
+          const src = srcById(r.value);
+          url.value = src.sample;
+          err.hidden = true; hint.hidden = true;
+          reset(); setSource(src); frame({ kind: 'focus', x: +nodes[0].dataset.cx }, true);
+        }));
+
+      // Pasting a link switches to the matching tab, which is what makes the
+      // control feel like the product rather than a form.
+      url.addEventListener('input', () => {
+        const id = detect(url.value);
+        err.hidden = true;
+        if (id) { form.querySelector(`input[name="src"][value="${id}"]`).checked = true; setSource(srcById(id)); }
+      });
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (running) return;
+        const v = url.value.trim();
+        const id = detect(v);
+        if (!id) { err.hidden = false; url.focus(); return; }
+        const src = srcById(id);
+        hint.hidden = v === src.sample;     // say plainly that a custom link runs on sample data
+        const phone = form.querySelector('input[name="phone"]').checked;
+        const V = compute(src, phone);
+
+        running = true;
+        root.classList.add('is-running');
+        reset(); setSource(src);
+        const beat = reduce ? 0 : 760;
+        const ms = reduce ? 0 : 520;
+
+        for (let step = 0; step < STEPS; step++) {
+          const here = nodes.filter((n) => +n.dataset.step === step);
+          if (step > 0) {
+            root.querySelectorAll(`[data-ps="${step}"]`).forEach((p) => p.classList.add('is-run'));
+            if (beat) await sleep(beat * 0.3);
+            root.querySelectorAll(`[data-es="${step}"], [data-ls="${step}"]`).forEach((p) => p.classList.add('is-done'));
+            root.querySelectorAll(`[data-ls="${step}"] [data-k]`).forEach((x) => countTo(x, V[x.dataset.k], ms));
+          }
+          frame({ kind: 'focus', x: +here[0].dataset.cx }, true);
+          here.forEach((n) => {
+            n.classList.add('is-active');
+            const pill = n.querySelector('[data-pill]');
+            if (pill) { pill.dataset.pill = 'on'; pill.querySelector('span').textContent = 'On'; }
+            n.querySelectorAll('[data-k]').forEach((x) => {
+              const key = x.dataset.k;
+              if (key === 'P' && !phone) { x.textContent = 'Off'; x.classList.add('is-off'); return; }
+              x.classList.remove('is-off');
+              countTo(x, V[key], ms);
+            });
+            n.querySelectorAll('[data-r]').forEach((x) => {
+              const r = V.rates[x.dataset.r];
+              x.textContent = r || '';
+            });
+            if (n.dataset.n === 'source') root.querySelector('[data-sub="source"]').textContent = src.detail;
+          });
+          if (beat) await sleep(beat);
+          here.forEach((n) => { n.classList.remove('is-active'); n.classList.add('is-done'); });
+        }
+
+        // Close the loop, then pull back so the whole flow is on screen at once.
+        // On a phone the whole flow would be too small to read, so the view
+        // stays on the last node and the zoom controls are there for the rest.
+        root.querySelectorAll(`[data-ps="${STEPS}"]`).forEach((p) => p.classList.add('is-run'));
+        if (fitS() >= 0.3) frame({ kind: 'fit' }, true);
+        if (beat) await sleep(beat);
+        root.querySelectorAll(`[data-es="${STEPS}"], [data-ls="${STEPS}"]`).forEach((p) => p.classList.add('is-done'));
+
+        root.querySelector('[data-o="M"]').textContent = fmt(V.M);
+        root.querySelector('[data-o="F"]').textContent = fmt(V.F);
+        root.querySelector('[data-o="who"]').textContent = src.who;
+        root.querySelector('[data-o="bulk"]').textContent = fmt(V.bulk);
+        out.hidden = false;
+        root.classList.remove('is-running');
+        running = false;
+      });
+
+      const start = () => ({ kind: 'focus', x: +nodes[0].dataset.cx });
+      frame(start(), false);
+    });
+  }
+
+  init();
+  document.addEventListener('astro:page-load', init);
+</script>
+
+<style>
+  .fd{ padding-top:clamp(48px,6vw,84px) }
+  .fd__head{ max-width:800px }
+  .fd .heading_primary{ text-wrap:balance }
+  .fd__lede{ margin-top:16px; max-width:68ch }
+
+  /* The app window is wider than the text column: the flow reads left to
+     right and needs the room. */
+  .fd__bleed{ max-width:1680px; margin:36px auto 0; padding:0 24px }
+
+  /* Light app palette on the navy band, so it reads as the product itself.
+     Values are the app's tokens from app/globals.css on the styleguide branch. */
+  .fd__app{
+    --ink:#192341; --mut:#54596B; --faint:#978E84;
+    --bd:#ECE1D4; --bd2:#DDCDB9; --paper:#FBF7F1;
+    --terra:#E0533A; --terra-deep:#BE3F22; --amber:#F4A93C; --amber-soft:#FAE7C9;
+    --green:#2FA06E; --green-soft:#E4F2EA; --red:#D8483B;
+    background:#fff; color:var(--ink);
+    border-radius:var(--radius-lg); overflow:hidden;
+    box-shadow:0 30px 70px -36px rgba(0,0,0,.75);
+  }
+
+  .fd__chrome{
+    display:flex; align-items:center; gap:12px;
+    padding:12px 18px; border-bottom:1px solid var(--bd); background:var(--paper);
+  }
+  .fd__crumb{ font-size:13px; color:var(--mut) }
+  .fd__crumb i{ font-style:normal; opacity:.5; margin:0 4px }
+  .fd__crumb b{ color:var(--ink); font-weight:600 }
+  .fd__tag{
+    margin-left:auto; white-space:nowrap; font-size:11.5px; font-weight:600; color:var(--mut);
+    background:var(--amber-soft); border-radius:999px; padding:4px 10px;
+  }
+
+  /* ---- controls: one row on wide screens ---- */
+  .fd__ctrl{
+    display:flex; flex-wrap:wrap; align-items:center; gap:10px 16px;
+    padding:14px 18px; border-bottom:1px solid var(--bd);
+  }
+  .fd__tabs{ display:flex; gap:4px; padding:3px; border:1px solid var(--bd); border-radius:8px; background:var(--paper) }
+  .fd__tab input{ position:absolute; opacity:0; width:0; height:0 }
+  .fd__tab span{
+    display:block; font:500 13px/1 var(--font-body); color:var(--mut); white-space:nowrap;
+    padding:8px 11px; border-radius:6px; cursor:pointer;
+  }
+  .fd__tab input:checked + span{ color:var(--ink); background:#fff; box-shadow:0 1px 2px rgba(2,6,23,.08) }
+  .fd__tab input:focus-visible + span{ outline:2px solid var(--terra); outline-offset:2px }
+  .fd__url{ flex:1 1 320px; min-width:0 }
+  .fd__url input{
+    width:100%; font:400 13px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;
+    color:var(--ink); background:#fff; border:1px solid var(--bd2); border-radius:7px; padding:10px 12px;
+  }
+  .fd__url input:focus{ outline:2px solid var(--terra); outline-offset:1px; border-color:transparent }
+  .fd__opts{ display:flex; gap:14px }
+  .fd__chk{ display:inline-flex; align-items:center; gap:7px; font-size:13px; color:var(--ink); cursor:pointer; white-space:nowrap }
+  .fd__chk input{ width:16px; height:16px; accent-color:var(--terra) }
+  .fd__chk small{ color:var(--faint); font-size:12px }
+  .fd__go{ white-space:nowrap }
+  .is-running .fd__go{ opacity:.55; pointer-events:none }
+  .fd__err, .fd__hint{ flex-basis:100%; margin:0; font-size:13px }
+  .fd__err{ color:var(--red) }
+  .fd__hint{ color:var(--mut) }
+  .fd__sr{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0) }
+
+  /* ---- canvas: the style guide's dot grid, scaled with the camera ---- */
+  .fd__vp{
+    position:relative; overflow:hidden; height:464px;
+    background-color:#fff;
+    background-image:radial-gradient(#d3d8e0 1.25px, transparent 1.25px);
+    background-size:18px 18px;
+    cursor:grab; touch-action:pan-y; user-select:none;
+  }
+  .fd__vp.is-drag{ cursor:grabbing }
+  .fd__world{ position:absolute; left:0; top:0; transform-origin:0 0 }
+  .fd__vp.is-moving .fd__world{ transition:transform .7s cubic-bezier(.22,.7,.2,1) }
+  .fd__vp.is-moving{ transition:height .7s cubic-bezier(.22,.7,.2,1), background-size .7s cubic-bezier(.22,.7,.2,1), background-position .7s cubic-bezier(.22,.7,.2,1) }
+
+  .fd__edges{ position:absolute; inset:0; overflow:visible; pointer-events:none }
+  .fd__e{ stroke:var(--bd2); stroke-width:1.75; transition:stroke .3s }
+  .fd__e.is-done{ stroke:#978E84 }
+  .fd__e--loop{ stroke-dasharray:6 6 }
+  .fd__e--loop.is-done{ stroke:var(--terra) }
+  .fd__p{
+    stroke:var(--terra); stroke-width:3; stroke-linecap:round;
+    stroke-dasharray:.18 .82; stroke-dashoffset:1; opacity:0;
+  }
+  .fd__p--loop{ stroke-dasharray:.05 .95 }
+  .fd__p.is-run{ animation:fd-flow .45s linear forwards }
+  .fd__p--loop.is-run{ animation-duration:.9s }
+  @keyframes fd-flow{ 0%{ stroke-dashoffset:1; opacity:1 } 85%{ opacity:1 } 100%{ stroke-dashoffset:0; opacity:0 } }
+
+  .fd__el{
+    position:absolute; z-index:2; transform:translate(-50%,-50%);
+    display:inline-flex; align-items:center; gap:6px;
+    font:600 11px/1 var(--font-body); color:var(--mut); white-space:nowrap;
+    background:#fff; border:1px solid var(--bd); border-radius:999px; padding:5px 9px;
+    transition:color .3s, border-color .3s, background .3s;
+  }
+  .fd__el b{ font-weight:700; font-variant-numeric:tabular-nums }
+  .fd__el b:empty{ display:none }
+  .fd__el.is-done{ color:var(--ink); border-color:var(--bd2) }
+  .fd__el--ok.is-done{ background:var(--green-soft); border-color:transparent; color:var(--green) }
+  .fd__el--no.is-done{ background:var(--bd); border-color:transparent; color:var(--red) }
+  .fd__el--loop{ color:var(--terra); font-size:12px; padding:6px 11px }
+
+  /* ---- nodes, per WorkflowNode.tsx ---- */
+  .wn{
+    position:absolute; z-index:3; transform:translateY(-50%);
+    background:#fff; border:1px solid var(--bd); border-radius:8px;
+    box-shadow:0 1px 2px rgba(2,6,23,.06);
+    transition:border-color .25s, box-shadow .25s;
+  }
+  .wn:hover{ box-shadow:0 4px 12px rgba(2,6,23,.08),0 2px 4px rgba(2,6,23,.04) }
+  /* The style guide's selected ring is #f3e8ff, a purple left over from the old
+     palette. A terracotta tint is used here until the app settles it. */
+  .wn.is-active{
+    border-color:var(--terra);
+    box-shadow:0 0 0 3px rgba(224,83,58,.16),0 4px 12px rgba(2,6,23,.08);
+  }
+  .wn__h{
+    position:absolute; top:50%; width:12px; height:12px; margin-top:-6px;
+    background:#fff; border:2px solid var(--bd2); border-radius:50%;
+  }
+  .wn__h--in{ left:-6px }
+  .wn__h--out{ right:-6px }
+  .wn.is-done .wn__h, .wn.is-active .wn__h{ border-color:#978E84 }
+
+  .wn__hd{ display:flex; align-items:center; gap:12px; padding:14px 16px }
+  .wn--chip .wn__hd{ padding:12px 14px }
+  .wn__tt{ display:flex; flex-direction:column; gap:2px; min-width:0; flex:1 }
+  .wn__tt b{ font:700 15px/1.2 var(--font-body); color:var(--ink) }
+  .wn__tt span{ font:500 12px/1.35 var(--font-body); color:var(--mut) }
+  .wn--chip .wn__tt b{ font-size:14px; font-weight:600 }
+
+  .wb{ flex:none; display:grid; place-items:center; border-radius:6px }
+  .wb--md{ width:38px; height:38px }
+  .wb--md svg{ width:19px; height:19px }
+  .wb--lg{ width:40px; height:40px }
+  .wb--lg svg{ width:20px; height:20px }
+  .wb--blue  { background:var(--green-soft); color:var(--terra-deep) }
+  .wb--violet{ background:var(--amber-soft); color:var(--terra) }
+  .wb--green { background:var(--green-soft); color:var(--green) }
+
+  .wp{
+    flex:none; align-self:flex-start; display:inline-flex; align-items:center; gap:6px;
+    height:22px; padding:0 9px; border-radius:999px;
+    font:600 11px/1 var(--font-body);
+    background:var(--amber-soft); color:var(--mut);
+    transition:background .25s, color .25s;
+  }
+  .wp i{ width:6px; height:6px; border-radius:50%; background:currentColor }
+  .wp[data-pill="on"]{ background:var(--green-soft); color:var(--green) }
+
+  .wn__st{ display:grid; margin:0; border-top:1px solid var(--bd2) }
+  .wn__st > div{ padding:11px 16px; min-width:0 }
+  .wn__st > div + div{ border-left:1px solid var(--bd2) }
+  .wn__st dt{
+    font:600 10.5px/1 var(--font-body); letter-spacing:.04em; text-transform:uppercase;
+    color:var(--faint); margin-bottom:5px; white-space:nowrap;
+  }
+  .wn__st dd{ margin:0; display:flex; align-items:center; gap:5px; white-space:nowrap }
+  .ws{ width:14px; height:14px; flex:none }
+  .ws--ok{ color:var(--green) }
+  .ws--no{ color:var(--red) }
+  .ws--neutral{ color:var(--mut) }
+  .wn__st b{ font:700 16px/1.2 var(--font-body); font-variant-numeric:tabular-nums; color:var(--ink) }
+  .wn__st b.is-off{ font-size:13px; font-weight:600; color:var(--faint) }
+  .wn__st small{ font:600 11.5px/1 var(--font-body); color:var(--mut) }
+
+  /* ---- canvas furniture ---- */
+  .fd__fade{ position:absolute; top:0; bottom:0; width:64px; z-index:4; pointer-events:none; opacity:0; transition:opacity .3s }
+  .fd__fade--l{ left:0; background:linear-gradient(90deg,#fff,rgba(255,255,255,0)) }
+  .fd__fade--r{ right:0; background:linear-gradient(270deg,#fff,rgba(255,255,255,0)) }
+  .fd__fade.is-on{ opacity:1 }
+
+  .fd__zoom{
+    position:absolute; left:14px; bottom:14px; z-index:5; display:flex; flex-direction:column;
+    background:#fff; border:1px solid var(--bd); border-radius:8px; overflow:hidden;
+    box-shadow:0 1px 2px rgba(2,6,23,.06);
+  }
+  .fd__zoom button{
+    width:30px; height:30px; display:grid; place-items:center; padding:0;
+    background:none; border:0; color:var(--mut); cursor:pointer;
+  }
+  .fd__zoom button + button{ border-top:1px solid var(--bd) }
+  .fd__zoom button:hover{ background:var(--paper); color:var(--ink) }
+  .fd__zoom button:focus-visible{ outline:2px solid var(--terra); outline-offset:-2px }
+  .fd__zoom svg{ width:15px; height:15px }
+  .fd__drag{
+    position:absolute; right:14px; bottom:14px; z-index:5;
+    font-size:11.5px; color:var(--faint); background:rgba(255,255,255,.9);
+    padding:4px 8px; border-radius:6px; transition:opacity .3s;
+  }
+  .was-dragged .fd__drag{ opacity:0 }
+
+  /* ---- result ---- */
+  .fd__out{ padding:20px 22px 22px; border-top:1px solid var(--bd); background:#fff }
+  .fd__big{ margin:0; font:500 20px/1.4 var(--font-head); color:var(--ink); max-width:62ch }
+  .fd__big b{ font-weight:700 }
+  .fd__vs{ margin:8px 0 0; font-size:14.5px; line-height:1.55; color:var(--mut); max-width:70ch }
+  .fd__vs b{ color:var(--ink) }
+  .fd__act{ display:flex; align-items:center; flex-wrap:wrap; gap:12px 18px; margin-top:16px }
+  .fd__act span{ font-size:13.5px; color:var(--mut); max-width:46ch }
+  .fd__fine{ margin:14px 0 0; font-size:12px; color:var(--faint) }
+
+  @media (max-width:720px){
+    .fd__bleed{ padding:0 16px }
+    .fd__ctrl{ padding:14px }
+    .fd__tabs{ width:100% }
+    .fd__tab{ flex:1 }
+    .fd__tab span{ text-align:center; padding:8px 2px; font-size:12px }
+    .fd__crumb{ white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0 }
+    .fd__go{ width:100% }
+    .fd__drag{ display:none }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .fd__p{ display:none }
+    .wn, .fd__e, .fd__el, .wp, .fd__fade{ transition:none }
+  }
+</style>
