@@ -4,7 +4,7 @@ import JsonLd from '../components/JsonLd.astro';
 import { softwareApplicationSchema } from '../data/seo';
 import { getHome } from '../data/home-i18n';
 import { asLocale } from '../i18n/utils';
-import Hero from '../components/Hero.astro';
+import HeroScene from '../components/HeroScene.astro';
 import CustomerLogos from '../components/CustomerLogos.astro';
 import VolumeVsPrecision from '../components/VolumeVsPrecision.astro';
 import Comparison from '../components/Comparison.astro';
@@ -50,7 +50,7 @@ const faqSchema = {
   <JsonLd slot="head" schema={[softwareApplicationSchema, faqSchema]} />
   {/* slot="head" sends this into BaseLayout's named head slot, so the
       JSON-LD lands inside <head> rather than the body. */}
-  {/*  1 */}<Hero />
+  {/*  1 */}<HeroScene />
   {/*  2 */}<CustomerLogos />
   {/*  3 */}<VolumeVsPrecision />
   {/*  4 */}<Comparison />
