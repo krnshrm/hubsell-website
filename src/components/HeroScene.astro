@@ -1,7 +1,7 @@
 ---
 // Homepage hero, prototype. Three dunes in the logo's funnel colours, back to
-// front, under a low sun. The working flow demo stands on the dunes, its top
-// edge above the second dune, so the window reads as part of the scene.
+// front, under a low sun. The working flow demo stands on the third dune, so
+// the window reads as part of the scene.
 //
 // Every shape here is hand-written SVG. No photography, no generated imagery
 // (see the NO AI-GENERATED IMAGES rule in CLAUDE.md).
@@ -84,11 +84,6 @@ const DOWN = '<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>';
     color:var(--ink);
     background:linear-gradient(180deg, var(--sky1) 0, var(--sky2) 45%, var(--sky3) 100%);
   }
-  :global([data-theme="dark"]) .hs{
-    --sky1:var(--hs-navy-deep); --sky2:var(--hs-navy); --sky3:var(--hs-dark-blue);
-    --sun:var(--hs-light-blue); --sun-halo:var(--hs-selected);
-    --accent:var(--hs-orange);
-  }
 
   /* ---- copy ---- */
   .hs__copy{
@@ -130,18 +125,18 @@ const DOWN = '<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>';
   .hs__d1{ fill:var(--d1) } .hs__d2{ fill:var(--d2) } .hs__d3{ fill:var(--d3) }
   .hs__ground{ fill:var(--ground) }
 
-  /* ---- demo window, pulled up so its top edge sits on the first dune,
-     above where the second one starts (about 48% down the scene) ---- */
+  /* ---- demo window, pulled up so its top edge sits on the third dune,
+     about 68% down the scene, with the first two dunes clear above it ---- */
   .hs__stage{
     position:relative; z-index:3;
-    margin-top:calc(clamp(260px,32vw,460px) * -0.6);
+    margin-top:calc(clamp(260px,32vw,460px) * -0.32);
     padding-bottom:clamp(48px,6vw,80px);
   }
   /* Ground colour from the scene's lower edge down, so the window stands on
      the page colour the next section starts with. */
   .hs__stage::before{
     content:''; position:absolute; z-index:-1; left:0; right:0; bottom:0;
-    top:calc(clamp(260px,32vw,460px) * 0.6 - 1px); background:var(--ground);
+    top:calc(clamp(260px,32vw,460px) * 0.32 - 1px); background:var(--ground);
   }
   .hs__stage :global(.fd__app){ box-shadow:0 40px 80px -40px rgba(25,35,65,.5), 0 2px 8px rgba(25,35,65,.08) }
 

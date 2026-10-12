@@ -2,18 +2,32 @@
 // Main navigation. Colour-aware: the bar samples the background of the section
 // currently under it, then flips between a light and dark treatment (text, logo,
 // hairline) and tints a frosted bar to match. Keys off the section's *computed*
-// background, so it works in dark mode too and needs no per-section tagging.
-// Login + language + theme live in the TopBar above this; this bar carries the
-// primary nav (Resources, Pricing) and the trial CTA.
-import { SIGNUP_URL } from '../data/site';
+// background, so it needs no per-section tagging.
+// It carries everything: the primary nav (Resources, Pricing), the language
+// switcher, Log in and the trial CTA. The separate top bar that used to hold
+// language, theme and Log in was removed on 2026-10-12, with dark mode.
+import { SIGNUP_URL, LOGIN_URL } from '../data/site';
 import { megaMenus, menuGroups, topLinks, liveLinks } from '../data/navigation';
-import { asLocale, useTranslations, localizedHref } from '../i18n/utils';
+import { switcherLocales, localeNames } from '../i18n/ui';
+import { asLocale, useTranslations, localizedHref, localizeUrl, basePath, hasTranslation } from '../i18n/utils';
 
 const LOGO_DARK = 'https://assets.hubsell.com/logo/hubsell-wordmark-dark.svg';   // for light sections
 const LOGO_LIGHT = 'https://assets.hubsell.com/logo/hubsell-wordmark-light.svg'; // for dark sections
 
 const locale = asLocale(Astro.currentLocale);
 const t = useTranslations(locale);
+const base = basePath(Astro.url.pathname, locale);
+
+// One entry per switcher locale (fr/es/pt are hidden until ready, see ui.ts).
+// A language is a real link only where THIS page is translated; otherwise it
+// stays greyed ("Soon"). English always exists.
+const langItems = switcherLocales.map((l) => ({
+  code: l,
+  name: localeNames[l],
+  current: l === locale,
+  available: hasTranslation(l, base),
+  href: localizeUrl(l, base),
+}));
 
 // The Resources mega-menu and top-level links live in src/data/navigation.ts so the
 // nav and footer stay in sync. Products / Solutions / Our Data / GTM Developers come
@@ -59,6 +73,26 @@ const t = useTranslations(locale);
     </nav>
 
     <div class="nav__actions">
+      <div class="nav__group nav__lang">
+        <button type="button" class="nav__link nav__trigger nav__langbtn" aria-haspopup="true" aria-expanded="false" aria-label={t('lang.label')}>
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18"/><path d="M12 3a15 15 0 0 0 0 18"/></svg>
+          <span>{locale.toUpperCase()}</span>
+        </button>
+        <ul class="nav__langmenu" role="menu">
+          {langItems.map((it) => (
+            <li>
+              {it.current ? (
+                <span role="menuitem" class="is-current" aria-current="true">{it.name}</span>
+              ) : it.available ? (
+                <a role="menuitem" href={it.href}>{it.name}</a>
+              ) : (
+                <span class="nav__soon">{it.name}</span>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <a class="nav__link nav__login" href={localizeUrl(locale, LOGIN_URL)}>{t('cta.login')}</a>
       <a class="button is-small nav__cta" href={localizedHref(locale, SIGNUP_URL)}>{t('cta.trial')}</a>
       <button type="button" class="nav__burger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -93,6 +127,14 @@ const t = useTranslations(locale);
     </div>
     <hr class="nav__mobrule" />
     {topLinks.map((l) => (<a class="nav__moblink" href={localizedHref(locale, l.href!)}>{l.key ? t(l.key) : l.label}</a>))}
+    <a class="nav__moblink" href={localizeUrl(locale, LOGIN_URL)}>{t('cta.login')}</a>
+    <div class="nav__moblangs" role="group" aria-label={t('lang.label')}>
+      {langItems.map((it) => (
+        it.current ? <span class="is-current" aria-current="true">{it.code.toUpperCase()}</span>
+        : it.available ? <a href={it.href} lang={it.code}>{it.code.toUpperCase()}</a>
+        : <span class="is-off">{it.code.toUpperCase()}</span>
+      ))}
+    </div>
     <a class="button nav__mobcta" href={localizedHref(locale, SIGNUP_URL)}>{t('cta.trial')}</a>
   </div>
 </header>
@@ -120,15 +162,6 @@ const t = useTranslations(locale);
     --nav-bd:rgba(255,255,255,.12); --nav-hover:rgba(254,254,254,.10);
     --nav-card:#37415A; --nav-card-bd:rgba(255,255,255,.12);
   }
-  /* Before the colour script runs the bar still reads data-tone="light"; in dark
-     mode that would flash a light bar for a frame. Paint the dark treatment for
-     that initial state straight away (the script then takes over via inline style). */
-  :global([data-theme="dark"]) .nav[data-tone="light"]{
-    --nav-tx:#FEFEFE; --nav-tx-dim:rgba(254,254,254,.72);
-    --nav-bd:rgba(255,255,255,.12); --nav-hover:rgba(254,254,254,.10);
-    --nav-card:#37415A; --nav-card-bd:rgba(255,255,255,.12);
-    --nav-bg:#1E1712;
-  }
 
   .nav__inner{
     max-width:var(--maxw); margin:0 auto; padding:12px clamp(20px,5vw,56px);
@@ -139,8 +172,6 @@ const t = useTranslations(locale);
   .nav__logo{width:108px; height:auto; display:block}
   .nav[data-tone="light"] .nav__logo--light{display:none}
   .nav[data-tone="dark"]  .nav__logo--dark{display:none}
-  :global([data-theme="dark"]) .nav[data-tone="light"] .nav__logo--dark{display:none}
-  :global([data-theme="dark"]) .nav[data-tone="light"] .nav__logo--light{display:block}
 
   .nav__links{display:flex; align-items:center; gap:4px}
   .nav__group{position:relative}
@@ -176,7 +207,34 @@ const t = useTranslations(locale);
     padding:2px 6px; border-radius:999px; background:color-mix(in srgb, var(--nav-tx) 12%, transparent);
   }
 
-  .nav__actions{display:flex; align-items:center; gap:10px}
+  .nav__actions{display:flex; align-items:center; gap:4px}
+  .nav__actions .nav__cta{ margin-left:8px }
+
+  /* Language switcher: globe + current code, menu on hover or focus */
+  .nav__langbtn{ display:inline-flex; align-items:center; gap:6px; font-size:13px }
+  .nav__langmenu{
+    position:absolute; top:calc(100% + 6px); right:0; min-width:180px; margin:0; padding:6px;
+    list-style:none; background:var(--nav-bg); border:1px solid var(--nav-bd);
+    border-radius:var(--radius); box-shadow:0 16px 40px rgba(0,0,0,.18);
+    opacity:0; visibility:hidden; transform:translateY(-6px);
+    transition:opacity .16s, transform .16s, visibility .16s; z-index:10;
+  }
+  .nav__lang:hover .nav__langmenu, .nav__lang:focus-within .nav__langmenu{ opacity:1; visibility:visible; transform:none; }
+  .nav__langmenu a, .nav__langmenu span{
+    display:flex; align-items:center; padding:8px 10px; border-radius:8px;
+    font:500 13.5px/1.2 var(--font-body); color:var(--nav-tx-dim); text-decoration:none;
+  }
+  .nav__langmenu a:hover{ color:var(--nav-tx); background:var(--nav-hover) }
+  .nav__langmenu .is-current{ color:var(--nav-tx); font-weight:600 }
+
+  /* Mobile: Log in as a row, languages as a small segmented row */
+  .nav__moblangs{ display:flex; gap:6px; padding:10px 8px 2px }
+  .nav__moblangs a, .nav__moblangs span{
+    font:600 13px/1 var(--font-body); padding:9px 12px; border-radius:8px;
+    border:1px solid var(--nav-bd); color:var(--nav-tx-dim); text-decoration:none;
+  }
+  .nav__moblangs .is-current{ color:var(--nav-tx); border-color:var(--nav-tx) }
+  .nav__moblangs .is-off{ opacity:.45 }
 
   /* Mobile hamburger + panel */
   .nav__burger{
@@ -228,7 +286,7 @@ const t = useTranslations(locale);
 
   @media (max-width:860px){
     .nav__links{ display:none; }
-    .nav__cta{ display:none; }
+    .nav__cta, .nav__lang, .nav__login{ display:none; }
     .nav__burger{ display:flex; }
     .nav__mobile:not([hidden]){ display:flex; }
   }
@@ -261,7 +319,7 @@ const t = useTranslations(locale);
 
     // The panel hangs off a stuck bar, so its usable height is the space between
     // its own top edge and the bottom of the visible viewport. Measured rather
-    // than hard-coded because the top bar scrolls away and mobile browser chrome
+    // than hard-coded because mobile browser chrome
     // changes the viewport height.
     const fit = () => {
       const top = panel.getBoundingClientRect().top;
@@ -309,7 +367,7 @@ const t = useTranslations(locale);
     panel.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && isOpen()) close(); });
 
-    // Scrolling moves the top bar out of the way, rotation and browser chrome
+    // Rotation and browser chrome
     // change the viewport. Re-measure on all of them, throttled to a frame.
     let queued = false;
     const refit = () => {
@@ -376,8 +434,6 @@ const t = useTranslations(locale);
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', () => { navH = bar?.offsetHeight || navH; update(); });
 
-    // The switch suppresses transitions, so one re-sample reads the settled colour.
-    window.addEventListener('hubsell:themechange', update);
     update();
   }
 

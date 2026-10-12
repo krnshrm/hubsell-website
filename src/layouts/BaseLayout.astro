@@ -1,5 +1,4 @@
 ---
-import TopBar from '../components/TopBar.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import JsonLd from '../components/JsonLd.astro';
@@ -18,7 +17,7 @@ export interface Props {
   noindex?: boolean;
   /**
    * Which shell to render around the page.
-   *  'site' (default) = marketing TopBar + Nav + Footer, used by every page.
+   *  'site' (default) = marketing Nav + Footer, used by every page.
    *  'docs'           = no site chrome at all; the page supplies its own
    *                     header and footer. Used by the knowledge center so a
    *                     reader in help mode is not pulled back into the
@@ -108,19 +107,13 @@ const altHref = (l: string) => new URL(localizeUrl(l, base), Astro.site).href;
 
     <!-- Pre-paint guard: only opt into scroll-reveal hiding when motion is allowed,
          so reduced-motion users (and the no-JS case) never see hidden content. -->
-    {/* is:inline keeps this script exactly as written and unbundled. It has
-        to run before the page paints, because it sets the theme attribute;
-        deferred, it gives a flash of the wrong theme. */}
+    {/* is:inline keeps this script exactly as written and unbundled, so it
+        runs before the page paints. */}
     <script is:inline>
-      // Use the saved choice if there is one, otherwise follow the OS setting. Set
-      // before paint so there is no flash.
-      try {
-        var t = localStorage.getItem('theme');
-        if (t !== 'dark' && t !== 'light') {
-          t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        }
-        document.documentElement.setAttribute('data-theme', t);
-      } catch (e) {}
+      // Dark mode was removed on 2026-10-12: the site is light only. Visitors who
+      // picked dark before still have it saved, so the old choice is cleared.
+      document.documentElement.setAttribute('data-theme', 'light');
+      try { localStorage.removeItem('theme'); } catch (e) {}
       if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         document.documentElement.classList.add('has-anim');
       }
@@ -132,7 +125,6 @@ const altHref = (l: string) => new URL(localizeUrl(l, base), Astro.site).href;
     <slot name="head" />
   </head>
   <body>
-    {chrome === 'site' && <TopBar />}
     {chrome === 'site' && <Nav />}
     <main>
       <slot />

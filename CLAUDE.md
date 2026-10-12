@@ -342,18 +342,21 @@ Do not edit the copy; change the style guide and copy the file over again.
   `--sec-bg/-tx/-bd/-card`.
 - CTA (`--cta-bg`, `--cta-tx`): the style guide's primary button. Navy `#192341`
   with white text on light sections, white with navy text on navy and Dark Blue
-  sections and in dark mode. One primary "Book a demo" button; secondary buttons
+  sections. One primary "Book a demo" button; secondary buttons
   were removed site-wide.
 - Orange `#FF9300` is the highlight (dots, bars, the "Most popular" badge), never a
   button, and never carries white text (2.2:1).
 - Accent text (`--accent-on`): `brand-strong` `#955F1E` on light sections, plain
-  orange on navy and Dark Blue sections and in dark mode.
+  orange on navy and Dark Blue sections.
 - Status: success `#289B9B`, warning `#FEC65D`, error `#E86250`, with `-muted`
   fills and `-strong` text from the tokens file.
 - Fonts: Lexend (headings), Instrument Sans (body), Newsreader (serif) on blog and
   legal only.
 - Layout wrapper: `.wrap` (max-width 1100px default).
-- Dark mode via `[data-theme="dark"]` token flips; reduced motion respected everywhere.
+- Light only. Dark mode was removed on 2026-10-12: `BaseLayout.astro` pins
+  `data-theme="light"` and clears any saved choice, and the theme toggle is gone.
+  The `[data-theme="dark"]` rules left in CSS no longer apply. Reduced motion is
+  respected everywhere.
 - Scoped `<style>` does not reach `set:html` / `<Content />` markup; wrap those
   selectors in `:global()`.
 
