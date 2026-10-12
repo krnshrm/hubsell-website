@@ -1,4 +1,4 @@
-import { SIGNUP_URL, DEMO_URL } from '../data/site';
+import { SIGNUP_URL, DEMO_URL, TRIAL_URL } from '../data/site';
 
 type Params = Record<string, string | number | undefined>;
 
@@ -18,7 +18,7 @@ export function track(event: string, params: Params = {}): void {
 // future cross-origin destination (e.g. https://app.hubsell.com/signup) is
 // matched by exact origin + path instead.
 
-const CTA_DESTINATIONS = [SIGNUP_URL, DEMO_URL];
+const CTA_DESTINATIONS = [SIGNUP_URL, DEMO_URL, TRIAL_URL];
 
 // The build hook in astro.config.mjs rewrites internal hrefs to the
 // trailing-slash form (/book-a-call/), while the constants in site.ts have no

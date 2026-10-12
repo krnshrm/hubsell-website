@@ -11,30 +11,48 @@
 // demo pulled up over the scene.
 import FlowDemo from './FlowDemo.astro';
 import AvatarStack from './AvatarStack.astro';
-import { SIGNUP_URL, DEMO_URL } from '../data/site';
+import { TRIAL_URL, DEMO_URL } from '../data/site';
 import { getHome } from '../data/home-i18n';
 import { asLocale, localizedHref } from '../i18n/utils';
 const L = asLocale(Astro.currentLocale);
 const { s } = getHome(L);
 
+// German is formal (Sie) with a lowercase "hubsell"; Dutch is formal (u).
+const COPY = {
+  en: {
+    h1a: 'Target fewer prospects.', h1b: 'Generate more pipeline.',
+    sub: 'hubsell books the same meetings from 50 times fewer people. Start from a LinkedIn post, an event, a search or your own list. hubsell qualifies them, finds verified contact data and runs LinkedIn, email and call tasks in one flow that writes back to your CRM.',
+    trial: 'Start free trial', demo: 'Book a demo', see: 'See demo below',
+  },
+  de: {
+    h1a: 'Weniger Kontakte ansprechen.', h1b: 'Mehr Pipeline erzeugen.',
+    sub: 'hubsell bucht dieselben Termine mit 50-mal weniger Kontakten. Starten Sie mit einem LinkedIn-Beitrag, einem Event, einer Suche oder Ihrer eigenen Liste. hubsell qualifiziert die Kontakte, findet verifizierte Kontaktdaten und steuert LinkedIn, E-Mail und Anrufaufgaben in einem Flow, der alles in Ihr CRM zurückschreibt.',
+    trial: 'Kostenlos testen', demo: 'Demo buchen', see: 'Demo unten ansehen',
+  },
+  nl: {
+    h1a: 'Minder prospects benaderen.', h1b: 'Meer pipeline genereren.',
+    sub: 'hubsell boekt dezelfde afspraken met 50 keer minder prospects. Begin met een LinkedIn-post, een event, een zoekopdracht of uw eigen lijst. hubsell kwalificeert ze, vindt geverifieerde contactgegevens en voert LinkedIn, e-mail en beltaken uit in één flow die alles terugschrijft naar uw CRM.',
+    trial: 'Gratis proberen', demo: 'Demo plannen', see: 'Bekijk de demo hieronder',
+  },
+};
+const T = COPY[L as keyof typeof COPY] ?? COPY.en;
+
 const DOWN = '<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>';
 ---
 <section class="hs" aria-labelledby="hs-title">
   <div class="wrap hs__copy">
-    <h1 id="hs-title" class="hs__title">Target fewer prospects.{" "}<br />Generate more pipeline.</h1>
+    <h1 id="hs-title" class="hs__title">{T.h1a}{" "}<br />{T.h1b}</h1>
     <div class="hs__side">
-      <p class="hs__sub">
-        hubsell books the same meetings from 50 times fewer people. Start from a LinkedIn post, an event, a search
-        or your own list. hubsell qualifies them, finds verified contact data and runs LinkedIn, email and call
-        tasks in one flow that writes back to your CRM.
-      </p>
-      <div class="hs__cta">
-        <a class="button is-large" href={localizedHref(L, SIGNUP_URL)}>Start free trial</a>
-        <a class="button is-large is-secondary" href={localizedHref(L, DEMO_URL)}>Book a demo</a>
+      <p class="hs__sub">{T.sub}</p>
+      {/* The section class is "hs", which track.ts does not recognise as a
+          hero, so the CTAs say where they are. */}
+      <div class="hs__cta" data-cta-location="hero">
+        <a class="button is-large" href={TRIAL_URL}>{T.trial}</a>
+        <a class="button is-large is-secondary" href={localizedHref(L, DEMO_URL)}>{T.demo}</a>
       </div>
       <div class="hs__trywrap">
         <a class="hs__try" href="#demo">
-          See demo below
+          {T.see}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={DOWN} />
         </a>
       </div>

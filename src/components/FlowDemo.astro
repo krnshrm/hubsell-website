@@ -21,9 +21,15 @@
 //
 // Geometry is computed here at build time from fixed node sizes, so nothing is
 // measured in the browser. The script only reveals and fills in numbers.
-import { SOURCES, RATES } from '../data/flow-demo';
+import { SOURCES, RATES, FLOW_COPY } from '../data/flow-demo';
+import { asLocale } from '../i18n/utils';
 
-const payload = JSON.stringify({ SOURCES, RATES });
+const L = asLocale(Astro.currentLocale);
+const C = FLOW_COPY[L as keyof typeof FLOW_COPY] ?? FLOW_COPY.en;
+const N = C.n;
+// Numbers come from SOURCES, words from the locale's copy.
+const SRC = SOURCES.map((s) => ({ ...s, ...C.src[s.id], sample: s.id === 'hiring' ? C.ui.rolesSample : s.sample }));
+const payload = JSON.stringify({ SOURCES: SRC, RATES, UI: C.ui, NUM: C.numberLocale, PCT_SPACE: C.pctSpace });
 
 // embed: render only the app window, for a hero that brings its own heading.
 const { embed = false } = Astro.props as { embed?: boolean };
@@ -76,66 +82,66 @@ const wait = (t: string): Node => ({ type: 'wait', id: `w${uid++}`, t });
 // An empty row the size of a wait. It keeps parallel tracks on the same rows,
 // so matching steps (the two emails, the two call tasks) line up across.
 const gap = (): Node => ({ type: 'gap', id: `g${uid++}` });
-const callTask = (key: string): Node => ({ type: 'card', id: `call-${key}`, badge: 'violet', ico: 'task', t: 'Call task', s: 'Created in your CRM', call: true,
-  stats: [['Tasks created', key, 'phone', 'ok']] });
-const emailStep = (p: string, s = 'Everyone without a reply'): Node => ({ type: 'card', id: `email-${p}`, badge: 'violet', ico: 'mail', t: 'Send email', s,
-  stats: [['Sent', `${p}ES`, 'send', 'ok'], ['Opened', `${p}EO`, 'open', 'ok'], ['Replied', `${p}ER`, 'reply', 'ok']] });
+const callTask = (key: string): Node => ({ type: 'card', id: `call-${key}`, badge: 'violet', ico: 'task', t: N.call, s: N.callSub, call: true,
+  stats: [[N.tasks, key, 'phone', 'ok']] });
+const emailStep = (p: string, s = N.emailSub): Node => ({ type: 'card', id: `email-${p}`, badge: 'violet', ico: 'mail', t: N.email, s,
+  stats: [[N.sent, `${p}ES`, 'send', 'ok'], [N.opened, `${p}EO`, 'open', 'ok'], [N.replied, `${p}ER`, 'reply', 'ok']] });
 
 // LinkedIn steps blue, email and automation violet, goals green: the style
 // guide's colour rule.
 const linkedinTracks = (): Item[] => [
-  { type: 'card', id: 'connect', badge: 'blue', ico: 'plus', t: 'Connection request', s: 'LinkedIn invite',
-    stats: [['Sent', 'CS', 'send', 'ok'], ['Accepted', 'CA', 'ok', 'ok'], ['Not accepted', 'CN', 'ban', 'no']] },
-  { type: 'chip', id: 'cond', badge: 'violet', ico: 'branch', t: 'Follow-up conditions', s: 'Accepted within 7 days?' },
+  { type: 'card', id: 'connect', badge: 'blue', ico: 'plus', t: N.connect, s: N.connectSub,
+    stats: [[N.sent, 'CS', 'send', 'ok'], [N.accepted, 'CA', 'ok', 'ok'], [N.notAccepted, 'CN', 'ban', 'no']] },
+  { type: 'chip', id: 'cond', badge: 'violet', ico: 'branch', t: N.cond, s: N.condSub },
   { branch: [
     [
-      { type: 'label', id: 'l-acc', t: 'Accepted', tone: 'ok', k: 'CA' },
-      wait('Wait 1 day'),
-      { type: 'card', id: 'dm', badge: 'blue', ico: 'msg', t: 'Direct message', s: 'LinkedIn message',
-        stats: [['Sent', 'MS', 'send', 'ok'], ['Replied', 'MR', 'reply', 'ok']] },
-      wait('Wait 3 days'),
+      { type: 'label', id: 'l-acc', t: N.branchAcc, tone: 'ok', k: 'CA' },
+      wait(N.wait1),
+      { type: 'card', id: 'dm', badge: 'blue', ico: 'msg', t: N.dm, s: N.dmSub,
+        stats: [[N.sent, 'MS', 'send', 'ok'], [N.replied, 'MR', 'reply', 'ok']] },
+      wait(N.wait3),
       emailStep('A'),
-      wait('Wait 2 days'),
+      wait(N.wait2),
       callTask('AC'),
     ],
     [
-      { type: 'label', id: 'l-not', t: 'Not accepted', tone: 'no', k: 'CN' },
-      wait('Wait 7 days'),
-      { type: 'card', id: 'withdraw', badge: 'blue', ico: 'minus', t: 'Withdraw connection', s: 'Cancel the pending invite',
-        stats: [['Withdrawn', 'WD', 'minus', 'neutral']] },
+      { type: 'label', id: 'l-not', t: N.branchNot, tone: 'no', k: 'CN' },
+      wait(N.wait7),
+      { type: 'card', id: 'withdraw', badge: 'blue', ico: 'minus', t: N.withdraw, s: N.withdrawSub,
+        stats: [[N.withdrawn, 'WD', 'minus', 'neutral']] },
       gap(),
       emailStep('N'),
-      wait('Wait 2 days'),
+      wait(N.wait2),
       callTask('NC'),
     ],
   ] },
 ];
 
-const sync: Node = { type: 'card', id: 'sync', badge: 'green', ico: 'sync', t: 'CRM sync', s: 'HubSpot, Salesforce or Pipedrive',
-  stats: [['Synced', 'SY', 'sync', 'neutral'], ['Replies', 'R', 'reply', 'ok'], ['Meetings', 'M', 'cal', 'ok']] };
+const sync: Node = { type: 'card', id: 'sync', badge: 'green', ico: 'sync', t: N.sync, s: N.syncSub,
+  stats: [[N.synced, 'SY', 'sync', 'neutral'], [N.replies, 'R', 'reply', 'ok'], [N.meetings, 'M', 'cal', 'ok']] };
 
 const FLOW_LI: Item[] = [
-  { type: 'card', id: 'source', badge: 'violet', ico: 'link', t: 'Source', s: SOURCES[0].tab,
-    stats: [['Found', 'F', 'users', 'neutral']] },
-  { type: 'card', id: 'qualify', badge: 'violet', ico: 'spark', t: 'Qualify with AI', s: 'Against your ideal customer',
-    stats: [['Checked', 'F', 'users', 'neutral'], ['Qualified', 'Q', 'ok', 'ok'], ['Not a fit', 'NF', 'x', 'no']] },
-  { type: 'card', id: 'enrich', badge: 'violet', ico: 'mailOk', t: 'Enrich', s: 'Verified email, phone if selected',
-    stats: [['Emails', 'E', 'mailOk', 'ok'], ['Phones', 'P', 'phone', 'ok']] },
+  { type: 'card', id: 'source', badge: 'violet', ico: 'link', t: N.source, s: SRC[0].tab,
+    stats: [[N.found, 'F', 'users', 'neutral']] },
+  { type: 'card', id: 'qualify', badge: 'violet', ico: 'spark', t: N.qualify, s: N.qualifySub,
+    stats: [[N.checked, 'F', 'users', 'neutral'], [N.qualified, 'Q', 'ok', 'ok'], [N.notFit, 'NF', 'x', 'no']] },
+  { type: 'card', id: 'enrich', badge: 'violet', ico: 'mailOk', t: N.enrich, s: N.enrichSub,
+    stats: [[N.emails, 'E', 'mailOk', 'ok'], [N.phones, 'P', 'phone', 'ok']] },
   ...linkedinTracks(),
   sync,
 ];
 
 const FLOW_CSV: Item[] = [
-  { type: 'card', id: 'source', badge: 'violet', ico: 'sheet', t: 'Import CSV', s: 'sample-leads.csv',
-    stats: [['Rows', 'F', 'users', 'neutral']] },
-  { type: 'card', id: 'verify', badge: 'violet', ico: 'shield', t: 'Verify data', s: 'Check emails and LinkedIn URLs',
-    stats: [['Valid email', 'VE', 'mailOk', 'ok'], ['Valid profile', 'VL', 'link', 'ok']] },
-  { type: 'card', id: 'enrich', badge: 'violet', ico: 'mailOk', t: 'Enrich missing data', s: 'Only the rows with gaps',
-    stats: [['Emails', 'EF', 'mailOk', 'ok'], ['Profiles', 'LF', 'link', 'ok'], ['Phones', 'P', 'phone', 'ok']] },
-  { type: 'chip', id: 'cond0', badge: 'violet', ico: 'branch', t: 'Follow-up conditions', s: 'Has a LinkedIn profile?' },
+  { type: 'card', id: 'source', badge: 'violet', ico: 'sheet', t: N.importCsv, s: 'sample-leads.csv',
+    stats: [[N.rows, 'F', 'users', 'neutral']] },
+  { type: 'card', id: 'verify', badge: 'violet', ico: 'shield', t: N.verify, s: N.verifySub,
+    stats: [[N.validEmail, 'VE', 'mailOk', 'ok'], [N.validProfile, 'VL', 'link', 'ok']] },
+  { type: 'card', id: 'enrich', badge: 'violet', ico: 'mailOk', t: N.enrichGaps, s: N.enrichGapsSub,
+    stats: [[N.emails, 'EF', 'mailOk', 'ok'], [N.profiles, 'LF', 'link', 'ok'], [N.phones, 'P', 'phone', 'ok']] },
+  { type: 'chip', id: 'cond0', badge: 'violet', ico: 'branch', t: N.cond, s: N.condProfile },
   { branch: [
-    [{ type: 'label', id: 'l-li', t: 'Has profile', tone: 'ok', k: 'YL' }, ...linkedinTracks()],
-    [{ type: 'label', id: 'l-em', t: 'Email only', tone: 'neutral', k: 'NL' }, emailStep('O', 'Everyone with an email'), wait('Wait 2 days'), callTask('OC')],
+    [{ type: 'label', id: 'l-li', t: N.hasProfile, tone: 'ok', k: 'YL' }, ...linkedinTracks()],
+    [{ type: 'label', id: 'l-em', t: N.emailOnly, tone: 'neutral', k: 'NL' }, emailStep('O', N.emailSubAll), wait(N.wait2), callTask('OC')],
   ] },
   sync,
 ];
@@ -229,13 +235,13 @@ const GRAPHS = [
   <div class="fd__bleed">
     <div class="fd__app" data-fd>
       <div class="fd__chrome">
-        <span class="fd__crumb">Flows <i>/</i> <b data-crumb>Outbound from a LinkedIn post</b></span>
-        <span class="fd__tag">Sample data</span>
+        <span class="fd__crumb">{C.ui.flows} <i>/</i> <b data-crumb>{SRC[0].crumb}</b></span>
+        <span class="fd__tag">{C.ui.sample}</span>
       </div>
 
       <form class="fd__ctrl" data-fd-form novalidate>
-        <div class="fd__tabs" role="radiogroup" aria-label="Source">
-          {SOURCES.map((s, i) => (
+        <div class="fd__tabs" role="radiogroup" aria-label={C.ui.source}>
+          {SRC.map((s, i) => (
             <label class="fd__tab">
               <input type="radio" name="src" value={s.id} checked={i === 0} />
               <span>
@@ -247,20 +253,20 @@ const GRAPHS = [
         </div>
         <div class="fd__row">
           <label class="fd__in" data-in="url">
-            <span class="fd__sr" data-in-label>{SOURCES[0].label}</span>
-            <input type="text" name="url" value={SOURCES[0].sample} spellcheck="false" autocomplete="off" data-fd-url />
+            <span class="fd__sr" data-in-label>{SRC[0].label}</span>
+            <input type="text" name="url" value={SRC[0].sample} spellcheck="false" autocomplete="off" data-fd-url />
           </label>
           <label class="fd__in fd__in--text" data-in="text" hidden>
-            <span class="fd__pre">Roles</span>
-            <input type="text" name="roles" value="SDR, Account Executive" autocomplete="off" />
+            <span class="fd__pre">{C.ui.roles}</span>
+            <input type="text" name="roles" value={C.ui.rolesSample} autocomplete="off" aria-label={SRC.find((s) => s.id === 'hiring')!.label} />
           </label>
           <div class="fd__in fd__file" data-in="file" hidden>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={I.sheet} />
-            <span><b>sample-leads.csv</b> 500 rows, some with missing emails and LinkedIn URLs</span>
+            <span><b>sample-leads.csv</b> {C.ui.file}</span>
           </div>
           <div class="fd__opts">
-            <label class="fd__chk"><input type="checkbox" checked disabled /><span>Verified email</span></label>
-            <label class="fd__chk"><input type="checkbox" name="phone" checked /><span>Phone <small>+0.5 credit</small></span></label>
+            <label class="fd__chk"><input type="checkbox" checked disabled /><span>{C.ui.verified}</span></label>
+            <label class="fd__chk"><input type="checkbox" name="phone" checked /><span>{C.ui.phone} <small>{C.ui.credit}</small></span></label>
           </div>
         </div>
       </form>
@@ -274,7 +280,7 @@ const GRAPHS = [
               {g.edges.map((e) => <path class:list={['fd__e', e.loop && 'fd__e--loop']} data-step={e.step} d={e.d} fill="none" />)}
               {g.edges.map((e) => <path class:list={['fd__p', e.loop && 'fd__p--loop']} data-step={e.step} pathLength="1" d={e.d} fill="none" />)}
             </svg>
-            <span class="fd__el" data-step={g.steps} style={`left:${g.loop.x}px;top:${g.loop.y}px`}>Repeat with the next source</span>
+            <span class="fd__el" data-step={g.steps} style={`left:${g.loop.x}px;top:${g.loop.y}px`}>{C.ui.repeat}</span>
 
             {g.nodes.map((n) => {
               const pos = `left:${n.x}px;top:${n.y}px;width:${n.w}px;height:${n.h}px`;
@@ -301,7 +307,7 @@ const GRAPHS = [
                       <b>{n.t}</b>
                       <span data-sub={n.id === 'source' ? 'src' : undefined}>{n.s}</span>
                     </span>
-                    {n.type === 'card' && <span class="wp" data-pill><i></i><span>Off</span></span>}
+                    {n.type === 'card' && <span class="wp" data-pill><i></i><span>{C.ui.off}</span></span>}
                   </div>
                   {n.type === 'card' && (
                     <dl class="wn__st" style={`grid-template-columns:repeat(${n.stats.length},minmax(0,1fr))`}>
@@ -332,8 +338,9 @@ const GRAPHS = [
   const D = JSON.parse(payload);
   const R = D.RATES;
   const r = Math.round;
-  const fmt = (n) => Math.round(n).toLocaleString('en-US');
-  const pct = (a, b) => (b ? (Math.round((a / b) * 1000) / 10).toFixed(1) + '%' : '');
+  const U = D.UI;
+  const fmt = (n) => Math.round(n).toLocaleString(D.NUM);
+  const pct = (a, b) => (b ? (Math.round((a / b) * 1000) / 10).toLocaleString(D.NUM, { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + (D.PCT_SPACE ? '\u00a0%' : '%') : '');
   const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
 
   // The two LinkedIn tracks, shared by every source that reaches them. Rounded
@@ -400,10 +407,6 @@ const GRAPHS = [
     requestAnimationFrame(tick);
   }
 
-  const CRUMB = {
-    post: 'Outbound from a LinkedIn post', event: 'Outbound from a LinkedIn event', hiring: 'Outbound to companies hiring',
-    search: 'Outbound from a people search', salesnav: 'Outbound from Sales Navigator', csv: 'Outbound from a CSV import',
-  };
 
   function init() {
     document.querySelectorAll('[data-fd]').forEach((root) => {
@@ -446,7 +449,7 @@ const GRAPHS = [
         world.querySelectorAll('.fd__it').forEach((n) => {
           n.classList.remove('is-in', 'is-active', 'is-done');
           const pill = n.querySelector('[data-pill]');
-          if (pill) { pill.dataset.pill = ''; pill.querySelector('span').textContent = 'Off'; }
+          if (pill) { pill.dataset.pill = ''; pill.querySelector('span').textContent = U.off; }
         });
         world.querySelectorAll('[data-k]').forEach((x) => { x.textContent = x.closest('.wl') ? '' : '-'; x.classList.remove('is-off'); });
         world.querySelectorAll('[data-r]').forEach((x) => (x.textContent = ''));
@@ -461,7 +464,7 @@ const GRAPHS = [
 
       const setSource = (id) => {
         src = D.SOURCES.find((s) => s.id === id);
-        root.querySelector('[data-crumb]').textContent = CRUMB[id];
+        root.querySelector('[data-crumb]').textContent = src.crumb;
         root.querySelectorAll('[data-in]').forEach((el) => (el.hidden = el.dataset.in !== src.input));
         root.querySelector('[data-in-label]').textContent = src.label;
         if (src.input === 'url' && detect(url.value) !== id) url.value = src.sample;
@@ -526,7 +529,7 @@ const GRAPHS = [
             n.classList.add('is-in', 'is-active');
             n.querySelectorAll('[data-k]').forEach((x) => {
               const key = x.dataset.k;
-              if ((key === 'P' || n.dataset.call) && !phone) { x.textContent = key === 'P' ? 'Off' : 'Skipped'; x.classList.add('is-off'); return; }
+              if ((key === 'P' || n.dataset.call) && !phone) { x.textContent = key === 'P' ? U.off : U.skipped; x.classList.add('is-off'); return; }
               countTo(x, v[key], ms, alive);
             });
             n.querySelectorAll('[data-r]').forEach((x) => (x.textContent = rates[x.dataset.r] || ''));
@@ -534,7 +537,7 @@ const GRAPHS = [
             if (pill) {
               const skip = n.dataset.call && !phone;
               pill.dataset.pill = skip ? 'skip' : 'on';
-              pill.querySelector('span').textContent = skip ? 'Skip' : 'On';
+              pill.querySelector('span').textContent = skip ? U.skip : U.on;
             }
             if (n.dataset.n === 'source') n.querySelector('[data-sub="src"]').textContent = src.detail;
           });

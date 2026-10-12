@@ -24,7 +24,7 @@ import Insights from '../components/Insights.astro';
 // navy/espresso never repeat back to back. Book a demo is the CTA
 // throughout; the old waitlist section has been removed.
 //
-// The title/description below (and softwareApplicationSchema.description
+// The description below (and softwareApplicationSchema.description
 // in src/data/seo.ts) name all three outreach channels — email, LinkedIn, and phone —
 // because the homepage body already does (HeroPipelineFlow's step 4, the
 // FragmentedStack/Comparison "Email, LinkedIn & phone" row). A short summary that
@@ -46,7 +46,7 @@ const faqSchema = {
   })),
 };
 ---
-<BaseLayout title="hubsell | Live-Sourced Data, Email, LinkedIn & Phone Outreach, One Platform" description="hubsell sources B2B contacts live, runs email, LinkedIn, and phone outreach from one flow, and syncs your CRM automatically. One platform to replace your outbound stack.">
+<BaseLayout title="hubsell | Target Fewer Prospects, Generate More Pipeline" description="Start from a LinkedIn post, event, search or list. hubsell qualifies contacts, finds verified emails and phones, and runs LinkedIn, email and calls in one flow.">
   <JsonLd slot="head" schema={[softwareApplicationSchema, faqSchema]} />
   {/* slot="head" sends this into BaseLayout's named head slot, so the
       JSON-LD lands inside <head> rather than the body. */}

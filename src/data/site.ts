@@ -17,6 +17,10 @@ export const TURNSTILE_SITE_KEY = '0x4AAAAAACIAXouVNUv0_MXY';
 export const GTM_ID = 'GTM-T6ZR38R';
 export const LOGIN_URL = 'https://app.hubsell.com/';
 export const DEMO_URL = '/book-a-call';
+// The app's signup page. Only the homepage hero's "Start free trial" button
+// points here for now; the site-wide "Book a demo" buttons still read
+// SIGNUP_URL above, until the trial becomes the main CTA everywhere.
+export const TRIAL_URL = 'https://app.hubsell.com/signup';
 
 // The people a visitor actually meets when they book a call. Rendered on
 // /book-a-call (which is also where "request a demo" points) above the form.
