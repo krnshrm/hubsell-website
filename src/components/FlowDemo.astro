@@ -423,12 +423,17 @@ const GRAPHS = [
       let src = D.SOURCES[0];
       let world = root.querySelector('[data-graph="li"]');
 
-      // The site's smooth scrolling (Lenis) takes every wheel event for the
-      // page unless the element opts out. Opt out only while the canvas has
-      // something to scroll, so an empty canvas never traps the page.
+      // While a run plays, the window follows the newest cards and the visitor
+      // cannot scroll it; the wheel scrolls the page instead. Once the flow is
+      // complete, the canvas becomes scrollable so the whole flow can be read.
+      // The site's smooth scrolling (Lenis) takes every wheel event unless the
+      // element opts out, so the opt-out is set only when there is something
+      // to scroll and the run has finished.
+      let unlocked = false;
       const scrollable = () => {
-        const v = vp.scrollHeight > vp.clientHeight + 2 || vp.scrollWidth > vp.clientWidth + 2;
+        const v = unlocked && (vp.scrollHeight > vp.clientHeight + 2 || vp.scrollWidth > vp.clientWidth + 2);
         vp.toggleAttribute('data-lenis-prevent', v);
+        vp.classList.toggle('is-locked', !unlocked);
       };
       new ResizeObserver(scrollable).observe(vp);
       root.querySelectorAll('[data-graph]').forEach((g) => g.addEventListener('transitionend', (e) => { if (e.target === g) scrollable(); }));
@@ -512,6 +517,7 @@ const GRAPHS = [
       async function run() {
         const my = ++gen;
         const alive = () => my === gen;
+        unlocked = false; scrollable();
         const phone = form.querySelector('input[name="phone"]').checked;
         const { v, rates } = compute(src, phone);
         const steps = +world.dataset.steps;
@@ -555,6 +561,7 @@ const GRAPHS = [
 
         if (!reduce) await sleep(480);                 // let the height transition finish first
         if (!alive()) return;
+        unlocked = true;
         scrollable();
         vp.scrollTo({ top: vp.scrollHeight, behavior: reduce ? 'auto' : 'smooth' });
       }
@@ -660,6 +667,9 @@ const GRAPHS = [
     background-image:radial-gradient(var(--bd) 1.25px, transparent 1.25px);
     background-size:18px 18px; background-attachment:local;
   }
+  /* Locked while the flow plays: the script still scrolls it to follow the
+     action, but wheel and touch go to the page. */
+  .fd__vp.is-locked{ overflow:hidden }
   .fd__world{ position:relative; margin:0 auto; transition:height .45s cubic-bezier(.22,.7,.2,1) }
   .fd__world[hidden]{ display:none }
 

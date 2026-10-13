@@ -1,6 +1,6 @@
 ---
 // Homepage hero, prototype. Three dunes in the logo's funnel colours, back to
-// front, under a low sun. The working flow demo stands on the third dune, so
+// front. The working flow demo stands on the third dune, so
 // the window reads as part of the scene.
 //
 // Every shape here is hand-written SVG. No photography, no generated imagery
@@ -70,14 +70,6 @@ const DOWN = '<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>';
   </div>
 
   <svg class="hs__scene" viewBox="0 0 1440 460" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-    <defs>
-      <radialGradient id="hs-sunglow">
-        <stop offset=".55" style="stop-color:var(--sun-halo);stop-opacity:.45" />
-        <stop offset="1" style="stop-color:var(--sun-halo);stop-opacity:0" />
-      </radialGradient>
-    </defs>
-    <circle cx="1250" cy="168" r="170" fill="url(#hs-sunglow)" />
-    <circle class="hs__sun" cx="1250" cy="168" r="92" />
     <path class="hs__d1" d="M0 200 C240 150,420 170,640 185 S1060 130,1440 170 V460H0Z" />
     <path class="hs__d2" d="M0 258 C200 218,380 228,560 248 S960 228,1180 220 S1360 228,1440 238 V460H0Z" />
     <path class="hs__d3" d="M0 318 C260 282,520 300,720 312 S1160 282,1440 300 V460H0Z" />
@@ -97,7 +89,7 @@ const DOWN = '<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>';
   .hs{
     --sky1:var(--hs-tint); --sky2:#E7EAF2; --sky3:var(--hs-light-blue);
     --d1:var(--hs-logo-yellow); --d2:var(--hs-logo-orange); --d3:var(--hs-logo-coral);
-    --ground:var(--sec-paper); --sun:var(--hs-brand-muted); --sun-halo:var(--hs-yellow);
+    --ground:var(--sec-paper);
     --ink:var(--hs-foreground); --ink-2:var(--hs-muted-foreground); --accent:var(--hs-brand-strong);
     position:relative; overflow:hidden;
     padding-top:clamp(40px,6vw,76px);
@@ -141,7 +133,6 @@ const DOWN = '<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>';
     height:clamp(260px,32vw,460px);
     margin-top:calc(clamp(260px,32vw,460px) * -0.3);
   }
-  .hs__sun{ fill:var(--sun) }
   .hs__d1{ fill:var(--d1) } .hs__d2{ fill:var(--d2) } .hs__d3{ fill:var(--d3) }
   .hs__ground{ fill:var(--ground) }
 
