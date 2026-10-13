@@ -346,13 +346,17 @@ Do not edit the copy; change the style guide and copy the file over again.
   2026-10-12; the Dark Blue `#37415A` section fill is no longer used (it stays
   only as the card colour on navy). Theme-aware via role tokens
   `--sec-bg/-tx/-bd/-card`.
+- Navy panels (2026-10-13): from 1024px wide in landscape, every navy section that
+  is a direct child of `<main>` renders as a rounded panel, at most 1240px wide, on the
+  colour of the section before it. Phones and portrait tablets keep full-width navy.
+  The rules are at the end of `global.css`.
+- Highlight colour (2026-10-13): one coral family. `--hl` (logo coral) for fills and
+  large text, `--hl-ink` for small text on light, `--hl-soft` for tag and chip fills.
+  Fills carry navy text. The flow demo keeps the app's own colours.
 - CTA (`--cta-bg`, `--cta-tx`): the style guide's primary button. Navy `#192341`
   with white text on light sections, white with navy text on navy sections. One primary "Book a demo" button; secondary buttons
   were removed site-wide.
-- Orange `#FF9300` is the highlight (dots, bars, the "Most popular" badge), never a
-  button, and never carries white text (2.2:1).
-- Accent text (`--accent-on`): `brand-strong` `#955F1E` on light sections, plain
-  orange on navy sections.
+- Accent text (`--accent-on`): `--hl-ink` on light sections, `--hl` on navy sections.
 - Status: success `#289B9B`, warning `#FEC65D`, error `#E86250`, with `-muted`
   fills and `-strong` text from the tokens file.
 - Fonts: Lexend (headings), Instrument Sans (body), Newsreader (serif) on blog and

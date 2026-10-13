@@ -235,3 +235,33 @@ html.has-anim .marquee__track{animation:marquee 32s linear infinite}
 :root { --badge-soon: "Soon"; }
 html[lang="de"] { --badge-soon: "Bald"; }
 html[lang="nl"] { --badge-soon: "Binnenkort"; }
+
+/* ---- Navy panels (site-wide since 2026-10-13) ----
+   From iPad landscape up, navy sections are rounded panels set on the light
+   page instead of full-width bands, never wider than the content plus a
+   margin. The space around a panel takes the colour of the section before it.
+   A panel that opens or closes the page keeps a gap from the nav and from the
+   navy footer, and two navy sections in a row join into one panel.
+   Phones and portrait tablets keep full-width navy. */
+@media (min-width:1024px) and (orientation:landscape){
+  main > :is(.sec--navy, .sec--esp){
+    --surround:var(--sec-paper);
+    --panel-x:max(clamp(16px,2vw,28px), calc((100% - 1240px) / 2));
+    position:relative; isolation:isolate;
+    background:var(--surround);
+  }
+  /* A component's <script> can sit between two sections. */
+  main > :is(.sec--navy, .sec--esp):is(.sec--sand + *, .sec--sand + script + *){ --surround:var(--sec-sand) }
+  main > :is(.sec--navy, .sec--esp)::before{
+    content:''; position:absolute; z-index:-1;
+    inset:0 var(--panel-x);
+    border-radius:clamp(24px,2.4vw,36px);
+    background:var(--sec-navy);
+  }
+  /* The gap is a border in the surround colour, so a section's own padding
+     is left alone. */
+  main > :is(.sec--navy, .sec--esp):not(section ~ *){ border-top:clamp(16px,2vw,28px) solid var(--surround) }
+  main > :is(.sec--navy, .sec--esp):not(:has(~ section)){ border-bottom:clamp(16px,2vw,28px) solid var(--surround) }
+  main > :is(.sec--navy, .sec--esp):has(+ :is(.sec--navy, .sec--esp), + script + :is(.sec--navy, .sec--esp))::before{ border-bottom-left-radius:0; border-bottom-right-radius:0 }
+  main > :is(.sec--navy, .sec--esp):is(.sec--navy + *, .sec--esp + *, .sec--navy + script + *, .sec--esp + script + *)::before{ border-top-left-radius:0; border-top-right-radius:0 }
+}
