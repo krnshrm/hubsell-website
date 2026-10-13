@@ -270,7 +270,7 @@ const en: Dict = {
   'lang.label': 'Language',
 };
 
-// German — formal Sie register throughout (per the brand decision). Legal labels
+// German: third person, no direct address (changed from Sie on 2026-10-12). Legal labels
 // use the German equivalents that German visitors expect (Impressum, AGB, AVV).
 const de: Dict = {
   'nav.resources': 'Ressourcen',
@@ -309,7 +309,7 @@ const de: Dict = {
   'cta.trial': 'Demo buchen',
   'cta.login': 'Anmelden',
   'badge.soon': 'Bald',
-  'footer.tagline': 'Ersetzen Sie Ihren Outbound-Stack. Live recherchierte Daten, E-Mail-, LinkedIn- und Telefon-Outreach und CRM-Sync auf einer Plattform.',
+  'footer.tagline': 'Ein Ersatz für den ganzen Outbound-Stack. Live recherchierte Daten, E-Mail-, LinkedIn- und Telefon-Outreach und CRM-Sync auf einer Plattform.',
   'footer.heading.getstarted': 'Erste Schritte',
   'footer.heading.platform': 'Plattform',
   'footer.heading.roles': 'Rollen',

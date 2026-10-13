@@ -17,7 +17,9 @@ import { asLocale, localizedHref } from '../i18n/utils';
 const L = asLocale(Astro.currentLocale);
 const { s } = getHome(L);
 
-// German is formal (Sie) with a lowercase "hubsell"; Dutch is formal (u).
+// German is third person with a lowercase "hubsell": the sentences after the
+// first drop the subject, which stays clear because the first names hubsell.
+// Dutch is formal (u).
 const COPY = {
   en: {
     h1a: 'Target fewer prospects.', h1b: 'Generate more pipeline.',
@@ -26,7 +28,7 @@ const COPY = {
   },
   de: {
     h1a: 'Weniger Kontakte ansprechen.', h1b: 'Mehr Pipeline erzeugen.',
-    sub: 'hubsell bucht dieselben Termine mit 50-mal weniger Kontakten. Starten Sie mit einem LinkedIn-Beitrag, einem Event, einer Suche oder Ihrer eigenen Liste. hubsell qualifiziert die Kontakte, findet verifizierte Kontaktdaten und steuert LinkedIn, E-Mail und Anrufaufgaben in einem Flow, der alles in Ihr CRM zurückschreibt.',
+    sub: 'hubsell bucht dieselben Termine mit 50-mal weniger Kontakten. Startet mit einem LinkedIn-Beitrag, einem Event, einer Suche oder einer eigenen Liste. Qualifiziert die Kontakte, findet verifizierte Kontaktdaten und steuert LinkedIn, E-Mail und Anrufaufgaben in einem Flow, der alles ins CRM zurückschreibt.',
     trial: 'Kostenlos testen', demo: 'Demo buchen', see: 'Demo unten ansehen',
   },
   nl: {

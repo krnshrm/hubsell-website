@@ -76,8 +76,8 @@ export const RATES = {
 
 // ---- copy, per locale ----
 // The demo is chrome around sample data, so everything a visitor reads lives
-// here: source tabs, node titles, stat labels, waits. German is formal (Sie)
-// with a lowercase "hubsell"; Dutch is formal (u) and keeps LinkedIn, CRM and
+// here: source tabs, node titles, stat labels, waits. German is third person, with no direct
+// address and a lowercase "hubsell"; Dutch is formal (u) and keeps LinkedIn, CRM and
 // credits in English. Stat labels sit three to a card, so they are kept to
 // about ten letters in every language.
 type SourceCopy = { tab: string; label: string; detail: string; crumb: string };
@@ -138,7 +138,7 @@ export const FLOW_COPY: Record<'en' | 'de' | 'nl', FlowCopy> = {
     },
     n: {
       source: 'Quelle', found: 'Gefunden', rows: 'Zeilen', importCsv: 'CSV importieren',
-      qualify: 'Mit KI qualifizieren', qualifySub: 'Abgleich mit Ihrem Idealkunden', checked: 'Geprüft', qualified: 'Passend', notFit: 'Unpassend',
+      qualify: 'Mit KI qualifizieren', qualifySub: 'Abgleich mit dem Idealkunden', checked: 'Geprüft', qualified: 'Passend', notFit: 'Unpassend',
       enrich: 'Anreichern', enrichSub: 'Verifizierte E-Mail, Telefon optional', emails: 'E-Mails', phones: 'Telefon',
       connect: 'Kontaktanfrage', connectSub: 'LinkedIn-Einladung', sent: 'Gesendet', accepted: 'Angenommen', notAccepted: 'Offen',
       cond: 'Folgebedingungen', condSub: 'In 7 Tagen angenommen?',
@@ -146,7 +146,7 @@ export const FLOW_COPY: Record<'en' | 'de' | 'nl', FlowCopy> = {
       dm: 'Direktnachricht', dmSub: 'LinkedIn-Nachricht', replied: 'Antworten',
       withdraw: 'Anfrage zurückziehen', withdrawSub: 'Offene Einladung zurückziehen', withdrawn: 'Zurückgezogen',
       email: 'E-Mail senden', emailSub: 'Alle ohne Antwort', emailSubAll: 'Alle mit E-Mail-Adresse', opened: 'Geöffnet',
-      call: 'Anrufaufgabe', callSub: 'In Ihrem CRM angelegt', tasks: 'Angelegte Aufgaben',
+      call: 'Anrufaufgabe', callSub: 'Im CRM angelegt', tasks: 'Angelegte Aufgaben',
       sync: 'CRM-Sync', syncSub: 'HubSpot, Salesforce oder Pipedrive', synced: 'Im CRM', replies: 'Antworten', meetings: 'Termine',
       verify: 'Daten prüfen', verifySub: 'E-Mails und LinkedIn-URLs prüfen', validEmail: 'E-Mail gültig', validProfile: 'Profil gültig',
       enrichGaps: 'Lücken anreichern', enrichGapsSub: 'Nur Zeilen mit Lücken', profiles: 'Profile',
