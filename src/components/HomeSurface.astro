@@ -1,0 +1,23 @@
+---
+// Trial (2026-10-13): the homepage reads as one light surface. Every light
+// section shares the same tint with no fill of its own, and the navy sections
+// become large rounded panels set on that surface, so no background change
+// runs edge to edge across the page. Cards on former white sections turn
+// white so they still stand off the tint.
+// Remove this component from the page to undo the trial.
+---
+<style is:global>
+  main:has(> .hs){ background:var(--sec-paper) }
+  main:has(> .hs) > .hs,
+  main:has(> .hs) > .sec--paper,
+  main:has(> .hs) > .sec--sand{
+    --sec-bg:transparent; --sec-bd:var(--sec-paper-bd); --sec-card:var(--sec-paper-card);
+    background:transparent;
+  }
+  main:has(> .hs) > .sec--navy,
+  main:has(> .hs) > .sec--esp{
+    margin-inline:clamp(10px,2vw,28px);
+    border-radius:clamp(20px,2.4vw,36px);
+    overflow:clip;
+  }
+</style>
