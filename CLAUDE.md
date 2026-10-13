@@ -301,7 +301,11 @@ counterparts, in a parallel folder.
 - Internal links go through `localizedHref(locale, '/path')`.
 - `embed-i18n.ts` keys off the exact English string; when you edit an English string
   that passes through `et()`, move the de and nl keys in the same change.
-- de: formal "Sie", lowercase "hubsell", German number and date formatting.
+- de: third person, no direct address (since 2026-10-13; was formal "Sie"). hubsell or
+  the team is the subject, or a "wer ..." clause, passive, or a noun phrase. A
+  subjectless verb ("Startet mit ...") only after a sentence that names hubsell, never
+  in headings or buttons. Customer quotes stay as said. Lowercase "hubsell", German
+  number and date formatting.
   nl: formal "u"/"uw", decimal comma, specific terms kept in English (see
   `docs/HANDOFF.md` and `docs/SITEMAP.md` for the full term lists).
 

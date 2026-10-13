@@ -1,10 +1,11 @@
 ---
-// Section 5 — Zero-day sourcing (Paper). Full-width timeline embed contrasting the
+// Homepage section 4 — Zero-day sourcing (Paper). Full-width timeline embed contrasting the
 // slow database model with hubsell's live, same-day sourcing.
 import ZeroDayTimeline from './ZeroDayTimeline.astro';
 import { getHome } from '../data/home-i18n';
-import { asLocale } from '../i18n/utils';
-const { s } = getHome(asLocale(Astro.currentLocale));
+import { asLocale, localizedHref } from '../i18n/utils';
+const L = asLocale(Astro.currentLocale);
+const { s } = getHome(L);
 ---
 <section class="sec sec--paper" aria-labelledby="zds-title">
   <div class="wrap">
@@ -20,7 +21,8 @@ const { s } = getHome(asLocale(Astro.currentLocale));
 
     <div class="zds-closer reveal">
       <p class="paragraph zds-closer__line">{s.zds.closer}</p>
-      <a href="#pipeline" class="button is-secondary">{s.zds.cta}</a>
+      {/* Pointed at #pipeline until PipelineSteps left the homepage (2026-10-13). */}
+      <a href={localizedHref(L, '/platform/live-data')} class="button is-secondary">{s.zds.cta}</a>
     </div>
   </div>
 </section>

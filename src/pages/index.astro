@@ -8,10 +8,8 @@ import HeroScene from '../components/HeroScene.astro';
 import CustomerLogos from '../components/CustomerLogos.astro';
 import VolumeVsPrecision from '../components/VolumeVsPrecision.astro';
 import Comparison from '../components/Comparison.astro';
-import FragmentedStack from '../components/FragmentedStack.astro';
 import ZeroDaySourcing from '../components/ZeroDaySourcing.astro';
 import RatingsStrip from '../components/RatingsStrip.astro';
-import PipelineSteps from '../components/PipelineSteps.astro';
 import Pricing from '../components/Pricing.astro';
 // import UseCases from '../components/UseCases.astro';  // hidden until its pages ship
 // import Features from '../components/Features.astro';  // hidden until its pages ship
@@ -50,19 +48,22 @@ const faqSchema = {
   <JsonLd slot="head" schema={[softwareApplicationSchema, faqSchema]} />
   {/* slot="head" sends this into BaseLayout's named head slot, so the
       JSON-LD lands inside <head> rather than the body. */}
+  {/* Order follows how a buyer decides: see it working, why fewer prospects
+      works, why the data is fresh, why not the alternatives, who uses it, what
+      it costs, what is left to ask. FragmentedStack and PipelineSteps were
+      taken off the homepage on 2026-10-13 (the comparison and the hero demo
+      cover them) and are kept for other pages. */}
   {/*  1 */}<HeroScene />
   {/*  2 */}<CustomerLogos />
   {/*  3 */}<VolumeVsPrecision />
-  {/*  4 */}<Comparison />
-  {/*  5 */}<FragmentedStack />
-  {/*  6 */}<ZeroDaySourcing />
+  {/*  4 */}<ZeroDaySourcing />
+  {/*  5 */}<Comparison />
+  {/*  6 */}<Testimonials />
   {/*  7 */}<RatingsStrip />
-  {/*  8 */}<PipelineSteps />
-  {/*  9 */}<Pricing />
-  {/* 10 <UseCases /> hidden until its pages ship */}
-  {/* 11 <Features /> hidden until its pages ship */}
-  {/* 12 */}<Testimonials />
-  {/* 13 <PublishTrackBeta /> hidden until its pages ship */}
-  {/* 14 */}<Faq />
-  {/* 15 */}<Insights />
+  {/*  8 */}<Pricing />
+  {/*  9 */}<Faq />
+  {/* 10 */}<Insights />
+  {/* <UseCases /> hidden until its pages ship */}
+  {/* <Features /> hidden until its pages ship */}
+  {/* <PublishTrackBeta /> hidden until its pages ship */}
 </BaseLayout>
