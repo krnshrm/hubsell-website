@@ -1,14 +1,6 @@
 ---
-// Homepage hero, prototype. Three dunes in the logo's funnel colours, back to
-// front. The working flow demo stands on the third dune, so
-// the window reads as part of the scene.
-//
-// Every shape here is hand-written SVG. No photography, no generated imagery
-// (see the NO AI-GENERATED IMAGES rule in CLAUDE.md).
-//
-// Layout is three stacked layers rather than absolute positioning, so it
-// holds at any width: copy, then the scene pulled up under the copy, then the
-// demo pulled up over the scene.
+// Homepage hero: copy, then the working flow demo directly under it. The
+// dune illustration was removed on 2026-10-13; the demo is the visual.
 import FlowDemo from './FlowDemo.astro';
 import AvatarStack from './AvatarStack.astro';
 import { TRIAL_URL, DEMO_URL } from '../data/site';
@@ -69,13 +61,6 @@ const DOWN = '<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>';
     </div>
   </div>
 
-  <svg class="hs__scene" viewBox="0 0 1440 460" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-    <path class="hs__d1" d="M0 200 C240 150,420 170,640 185 S1060 130,1440 170 V460H0Z" />
-    <path class="hs__d2" d="M0 258 C200 218,380 228,560 248 S960 228,1180 220 S1360 228,1440 238 V460H0Z" />
-    <path class="hs__d3" d="M0 318 C260 282,520 300,720 312 S1160 282,1440 300 V460H0Z" />
-
-    <path class="hs__ground" d="M0 428 C400 404,1040 404,1440 428 V460H0Z" />
-  </svg>
 
   <div class="hs__stage" id="demo">
     <FlowDemo embed />
@@ -83,18 +68,15 @@ const DOWN = '<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>';
 </section>
 
 <style>
-  /* Scene palette, from the style guide tokens. The sky is the app's cool
-     blue-grey; the dunes are the logo's funnel fills, back to front (yellow,
-     orange, coral), which the tokens file keeps fixed in both themes. */
+  /* Background fades from the app's cool blue-grey into the page tint the
+     next section starts with. */
   .hs{
-    --sky1:var(--hs-tint); --sky2:#E7EAF2; --sky3:var(--hs-light-blue);
-    --d1:var(--hs-logo-yellow); --d2:var(--hs-logo-orange); --d3:var(--hs-logo-coral);
-    --ground:var(--sec-paper);
+    --sky1:var(--hs-tint); --sky2:#E7EAF2;
     --ink:var(--hs-foreground); --ink-2:var(--hs-muted-foreground); --accent:var(--hs-brand-strong);
     position:relative; overflow:hidden;
     padding-top:clamp(40px,6vw,76px);
     color:var(--ink);
-    background:linear-gradient(180deg, var(--sky1) 0, var(--sky2) 45%, var(--sky3) 100%);
+    background:linear-gradient(180deg, var(--sky1) 0, var(--sky2) 45%, var(--sec-paper) 100%);
   }
 
   /* ---- copy ---- */
@@ -127,27 +109,11 @@ const DOWN = '<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>';
   .hs__proof b{ font:700 14px/1 var(--font-head); color:var(--accent) }
   .hs__proof i{ font-style:normal; font-weight:600; color:var(--ink) }
 
-  /* ---- scene ---- */
-  .hs__scene{
-    position:relative; z-index:1; display:block; width:100%;
-    height:clamp(260px,32vw,460px);
-    margin-top:calc(clamp(260px,32vw,460px) * -0.3);
-  }
-  .hs__d1{ fill:var(--d1) } .hs__d2{ fill:var(--d2) } .hs__d3{ fill:var(--d3) }
-  .hs__ground{ fill:var(--ground) }
-
-  /* ---- demo window, pulled up so its top edge sits on the third dune,
-     about 68% down the scene, with the first two dunes clear above it ---- */
+  /* ---- demo window ---- */
   .hs__stage{
     position:relative; z-index:3;
-    margin-top:calc(clamp(260px,32vw,460px) * -0.32);
-    padding-bottom:clamp(48px,6vw,80px);
-  }
-  /* Ground colour from the scene's lower edge down, so the window stands on
-     the page colour the next section starts with. */
-  .hs__stage::before{
-    content:''; position:absolute; z-index:-1; left:0; right:0; bottom:0;
-    top:calc(clamp(260px,32vw,460px) * 0.32 - 1px); background:var(--ground);
+    margin-top:clamp(40px,5vw,64px);
+    padding-bottom:clamp(16px,2vw,32px);
   }
   .hs__stage :global(.fd__app){ box-shadow:0 40px 80px -40px rgba(25,35,65,.5), 0 2px 8px rgba(25,35,65,.08) }
 
