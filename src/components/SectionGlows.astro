@@ -1,0 +1,56 @@
+---
+// Trial (2026-10-13): soft logo-colour glows that sit across the line between
+// two light sections, so the change of background reads as one surface rather
+// than a hard cut. A script places one glow on each such boundary, because
+// section heights change with locale and viewport width.
+//
+// The layer sits above the sections and multiplies, so white turns faintly
+// warm, text stays as dark as it was, and navy sections are left untouched.
+// Remove this component from the page to undo the trial.
+---
+<div class="glows" aria-hidden="true" data-glows></div>
+
+<script>
+  const layer = document.querySelector<HTMLElement>('[data-glows]');
+  if (layer) {
+    const host = layer.parentElement!;
+    const LIGHT = /\bsec--(paper|sand)\b/;
+    const place = () => {
+      layer.replaceChildren();
+      const top0 = host.getBoundingClientRect().top + scrollY;
+      const secs = [...host.querySelectorAll<HTMLElement>(':scope > section')];
+      let n = 0;
+      for (let i = 1; i < secs.length; i++) {
+        const a = secs[i - 1], b = secs[i];
+        // Skip the hero (the demo window sits on its lower edge) and any
+        // boundary that touches a navy section.
+        if (i === 1 || !LIGHT.test(a.className) || !LIGHT.test(b.className)) continue;
+        const y = b.getBoundingClientRect().top + scrollY - top0;
+        const g = document.createElement('i');
+        g.className = 'glow ' + (n % 2 ? 'is-amber is-right' : 'is-coral is-left');
+        g.style.top = y + 'px';
+        layer.appendChild(g);
+        n++;
+      }
+    };
+    place();
+    addEventListener('load', place);
+    new ResizeObserver(place).observe(host);
+  }
+</script>
+
+<style>
+  :global(main){ position:relative }
+  .glows{
+    position:absolute; inset:0; z-index:2; overflow:hidden;
+    pointer-events:none; mix-blend-mode:multiply;
+  }
+  .glows :global(.glow){
+    position:absolute; width:min(1100px,110vw); height:720px;
+    transform:translate(-50%,-50%); border-radius:50%;
+  }
+  .glows :global(.glow.is-left){ left:22% }
+  .glows :global(.glow.is-right){ left:78% }
+  .glows :global(.glow.is-coral){ background:radial-gradient(closest-side, rgba(232,98,80,.14), rgba(232,98,80,0)) }
+  .glows :global(.glow.is-amber){ background:radial-gradient(closest-side, rgba(254,198,93,.26), rgba(254,198,93,0)) }
+</style>

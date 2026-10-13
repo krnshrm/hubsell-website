@@ -15,9 +15,15 @@
 @import "./20261011-2350-hubsell-tokens.css";
 
 :root {
+  /* ---- HIGHLIGHT: one colour family for every accent on the site (2026-10-13).
+     --hl is the logo coral for fills, dots, bars and large text. --hl-ink is a
+     darker coral for small text on light surfaces (5.4:1 on white). --hl-soft
+     is the tint behind tags and icon chips. Fills carry navy text. ---- */
+  --hl:var(--hs-logo-coral); --hl-hover:#D4503E; --hl-ink:#B84432; --hl-soft:#FDECE9;
+
   /* ---- PALETTE (fixed brand values) ---- */
-  --brand:var(--hs-orange); --brand-hover:var(--hs-brand-hover);
-  --amber:var(--hs-yellow); --amber-soft:var(--hs-warning-muted); --amber-ink:var(--hs-brand-strong); --coral:var(--hs-coral);
+  --brand:var(--hl); --brand-hover:var(--hl-hover);
+  --amber:var(--hs-yellow); --amber-soft:var(--hl-soft); --amber-ink:var(--hl-ink); --coral:var(--hs-coral);
   --positive:var(--hs-green); --positive-soft:var(--hs-success-muted); --positive-ink:var(--hs-success-strong); --error:var(--hs-coral);
 
   /* Logo funnel fills (never themed) */
@@ -30,8 +36,8 @@
   /* ---- GLOBAL SEMANTIC (flip in dark) — nav, body, chrome ---- */
   --bg:var(--hs-tint); --text:#192341; --text-2:#555A73; --text-3:#6B7089;
   --border:#D3D8E5; --border-strong:#B9C0D3;
-  --accent-on:var(--hs-brand-strong);      /* accent text, links, metrics on light */
-  --accent-head:var(--hs-logo-coral);      /* highlighted words in headings, light and navy: large text only (3.3:1 on white, 4.3:1 on navy) */
+  --accent-on:var(--hl-ink);               /* accent text, links, metrics on light */
+  --accent-head:var(--hl);      /* highlighted words in headings, light and navy: large text only (3.3:1 on white, 4.3:1 on navy) */
   --on-dark:#FEFEFE;
 
   /* ---- SECTION ROLE TOKENS (theme-aware) ---- */
@@ -57,7 +63,7 @@
 
 [data-theme="dark"] {
   --bg:#192341; --text:#FEFEFE; --text-2:#D3D8E5; --text-3:#A3AABD;
-  --border:#37415A; --border-strong:#555A73; --accent-on:var(--hs-orange);
+  --border:#37415A; --border-strong:#555A73; --accent-on:var(--hl);
   --cta-bg:#FEFEFE; --cta-bg-hover:#D3D8E5; --cta-tx:#192341;
   --sec-paper:#192341; --sec-paper-tx:#FEFEFE; --sec-paper-bd:#37415A; --sec-paper-card:#222D4D;
   --sec-sand:#131B33;  --sec-sand-tx:#FEFEFE;  --sec-sand-bd:#2C3654;  --sec-sand-card:#192341;
@@ -67,7 +73,7 @@
 
 /* Dark sections: accents use the same coral as the headings (one highlight colour),
    and the CTA flips to the style guide's dark-mode primary (white, navy text). */
-.sec--navy,.sec--esp{--accent-on:var(--hs-logo-coral); --cta-bg:#FEFEFE; --cta-bg-hover:#D3D8E5; --cta-tx:#192341}
+.sec--navy,.sec--esp{--accent-on:var(--hl); --cta-bg:#FEFEFE; --cta-bg-hover:#D3D8E5; --cta-tx:#192341}
 
 /* ---- reset / base ---- */
 *{box-sizing:border-box}
