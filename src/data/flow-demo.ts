@@ -37,8 +37,8 @@ export const SOURCES: Source[] = [
     sample: 'https://www.linkedin.com/events/sample-revops-meetup-7380112',
     found: 386, detail: '386 people signed up for the event',
     who: 'who signed up for one LinkedIn event', warmth: 1.15 },
-  { id: 'hiring', tab: 'Hiring for roles', flow: 'li', input: 'text', label: 'Roles the company is hiring for',
-    sample: 'SDR, Account Executive',
+  { id: 'hiring', tab: 'Hiring for roles', flow: 'li', input: 'url', label: 'LinkedIn search link for people at companies hiring',
+    sample: 'https://www.linkedin.com/search/results/people/?origin=FACETED_SEARCH&activelyHiringForJobTitles=%5B%229625%22%5D',
     found: 268, detail: 'Sales leaders at 41 hiring companies',
     who: 'at companies hiring SDRs or Account Executives', warmth: 1.1 },
   { id: 'search', tab: 'People search', flow: 'li', input: 'url', label: 'LinkedIn people search link',
@@ -94,7 +94,7 @@ export const FLOW_COPY: Record<'en' | 'de' | 'nl', FlowCopy> = {
     src: {
       post:     { tab: 'LinkedIn post', label: 'LinkedIn post link', detail: 'Reactions, comments and reposts', crumb: 'Outbound from a LinkedIn post' },
       event:    { tab: 'Event participants', label: 'LinkedIn event link', detail: '386 people signed up', crumb: 'Outbound from a LinkedIn event' },
-      hiring:   { tab: 'Hiring for roles', label: 'Roles the company is hiring for', detail: 'Sales leaders at 41 hiring companies', crumb: 'Outbound to companies hiring' },
+      hiring:   { tab: 'Hiring for roles', label: 'LinkedIn search link for people at companies hiring', detail: 'Sales leaders at 41 hiring companies', crumb: 'Outbound to companies hiring' },
       search:   { tab: 'People search', label: 'LinkedIn people search link', detail: 'Heads of Sales in DE and NL', crumb: 'Outbound from a people search' },
       salesnav: { tab: 'Sales Navigator', label: 'Sales Navigator lead search link', detail: 'Sales leaders in DACH, 51 to 500 staff', crumb: 'Outbound from Sales Navigator' },
       csv:      { tab: 'Import CSV', label: 'CSV file', detail: 'sample-leads.csv, 500 rows', crumb: 'Outbound from a CSV import' },
@@ -126,7 +126,7 @@ export const FLOW_COPY: Record<'en' | 'de' | 'nl', FlowCopy> = {
     src: {
       post:     { tab: 'LinkedIn-Beitrag', label: 'Link zum LinkedIn-Beitrag', detail: 'Reaktionen, Kommentare, Reposts', crumb: 'Outbound aus einem LinkedIn-Beitrag' },
       event:    { tab: 'Event-Teilnehmer', label: 'Link zum LinkedIn-Event', detail: '386 Anmeldungen zum Event', crumb: 'Outbound aus einem LinkedIn-Event' },
-      hiring:   { tab: 'Offene Stellen', label: 'Rollen, für die das Unternehmen einstellt', detail: 'Vertrieb bei 41 Firmen, die einstellen', crumb: 'Outbound an Firmen, die einstellen' },
+      hiring:   { tab: 'Offene Stellen', label: 'LinkedIn-Suchlink für Personen bei Firmen, die einstellen', detail: 'Vertrieb bei 41 Firmen, die einstellen', crumb: 'Outbound an Firmen, die einstellen' },
       search:   { tab: 'Personensuche', label: 'Link zur LinkedIn-Personensuche', detail: 'Heads of Sales in DE und NL', crumb: 'Outbound aus einer Personensuche' },
       salesnav: { tab: 'Sales Navigator', label: 'Link zur Lead-Suche im Sales Navigator', detail: 'Vertrieb in DACH, 51 bis 500 MA', crumb: 'Outbound aus dem Sales Navigator' },
       csv:      { tab: 'CSV importieren', label: 'CSV-Datei', detail: 'sample-leads.csv, 500 Zeilen', crumb: 'Outbound aus einem CSV-Import' },
@@ -158,7 +158,7 @@ export const FLOW_COPY: Record<'en' | 'de' | 'nl', FlowCopy> = {
     src: {
       post:     { tab: 'LinkedIn-post', label: 'Link naar LinkedIn-post', detail: 'Reacties, opmerkingen, reposts', crumb: 'Outbound uit een LinkedIn-post' },
       event:    { tab: 'Eventdeelnemers', label: 'Link naar LinkedIn-event', detail: '386 aanmeldingen voor het event', crumb: 'Outbound uit een LinkedIn-event' },
-      hiring:   { tab: 'Vacatures', label: 'Functies waarvoor het bedrijf werft', detail: 'Sales bij 41 bedrijven die werven', crumb: 'Outbound naar bedrijven die werven' },
+      hiring:   { tab: 'Vacatures', label: 'LinkedIn-zoeklink voor mensen bij bedrijven die werven', detail: 'Sales bij 41 bedrijven die werven', crumb: 'Outbound naar bedrijven die werven' },
       search:   { tab: 'Personen zoeken', label: 'Link naar zoekopdracht op LinkedIn', detail: 'Heads of Sales in DE en NL', crumb: 'Outbound uit een zoekopdracht' },
       salesnav: { tab: 'Sales Navigator', label: 'Link naar leadzoekopdracht in Sales Navigator', detail: 'Sales in DACH, 51 tot 500 medewerkers', crumb: 'Outbound uit Sales Navigator' },
       csv:      { tab: 'CSV importeren', label: 'CSV-bestand', detail: 'sample-leads.csv, 500 rijen', crumb: 'Outbound uit een CSV-import' },

@@ -6,9 +6,9 @@
 // reaches it. LinkedIn sources go: source, qualify, enrich, connection request,
 // then a follow-up condition. Accepted gets a message, an email and a call task.
 // Not accepted waits 7 days, has the invite withdrawn, then gets an email and a
-// call task. A CSV import is verified first, gaps are enriched, and only people
-// with a LinkedIn profile enter the LinkedIn steps. Everything ends in the CRM
-// and the loop edge returns to the source.
+// call task, with a 2-day wait between the withdrawal and the email. A CSV
+// import is verified first, gaps are enriched, and only people with a LinkedIn
+// profile enter the LinkedIn steps. Everything ends in the CRM.
 //
 // The founder's note on demos is that people lean in once they see the whole
 // thing come together, so the run reveals the flow rather than showing it all
@@ -28,7 +28,7 @@ const L = asLocale(Astro.currentLocale);
 const C = FLOW_COPY[L as keyof typeof FLOW_COPY] ?? FLOW_COPY.en;
 const N = C.n;
 // Numbers come from SOURCES, words from the locale's copy.
-const SRC = SOURCES.map((s) => ({ ...s, ...C.src[s.id], sample: s.id === 'hiring' ? C.ui.rolesSample : s.sample }));
+const SRC = SOURCES.map((s) => ({ ...s, ...C.src[s.id] }));
 const payload = JSON.stringify({ SOURCES: SRC, RATES, UI: C.ui, NUM: C.numberLocale, PCT_SPACE: C.pctSpace });
 
 // embed: render only the app window, for a hero that brings its own heading.
@@ -109,7 +109,7 @@ const linkedinTracks = (): Item[] => [
       wait(N.wait7),
       { type: 'card', id: 'withdraw', badge: 'blue', ico: 'minus', t: N.withdraw, s: N.withdrawSub,
         stats: [[N.withdrawn, 'WD', 'minus', 'neutral']] },
-      gap(),
+      wait(N.wait2),
       emailStep('N'),
       wait(N.wait2),
       callTask('NC'),
@@ -208,11 +208,8 @@ function layout(flow: Item[]) {
   }
 
   const r = place(flow, left + W / 2, PAD, 0, []);
-  const src = nodes[0], end = nodes[nodes.length - 1];
-  const laneX = PAD / 2 + 4, loopY = end.y + end.h + 26;
-  edges.push({ step: r.step, loop: true,
-    d: path([[end.cx, end.y + end.h], [end.cx, loopY], [laneX, loopY], [laneX, src.y + src.h / 2], [src.x, src.y + src.h / 2]], 16) });
-  return { nodes, edges, steps: r.step, W: left + W + PAD, H: loopY + 40, loop: { x: (laneX + end.cx) / 2, y: loopY } };
+  const end = nodes[nodes.length - 1];
+  return { nodes, edges, steps: r.step, W: left + W + PAD, H: end.y + end.h + 40 };
 }
 
 const GRAPHS = [
@@ -236,7 +233,6 @@ const GRAPHS = [
     <div class="fd__app" data-fd>
       <div class="fd__chrome">
         <span class="fd__crumb">{C.ui.flows} <i>/</i> <b data-crumb>{SRC[0].crumb}</b></span>
-        <span class="fd__tag">{C.ui.sample}</span>
       </div>
 
       <form class="fd__ctrl" data-fd-form novalidate>
@@ -255,10 +251,6 @@ const GRAPHS = [
           <label class="fd__in" data-in="url">
             <span class="fd__sr" data-in-label>{SRC[0].label}</span>
             <input type="text" name="url" value={SRC[0].sample} spellcheck="false" autocomplete="off" data-fd-url />
-          </label>
-          <label class="fd__in fd__in--text" data-in="text" hidden>
-            <span class="fd__pre">{C.ui.roles}</span>
-            <input type="text" name="roles" value={C.ui.rolesSample} autocomplete="off" aria-label={SRC.find((s) => s.id === 'hiring')!.label} />
           </label>
           <div class="fd__in fd__file" data-in="file" hidden>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={I.sheet} />
@@ -280,7 +272,6 @@ const GRAPHS = [
               {g.edges.map((e) => <path class:list={['fd__e', e.loop && 'fd__e--loop']} data-step={e.step} d={e.d} fill="none" />)}
               {g.edges.map((e) => <path class:list={['fd__p', e.loop && 'fd__p--loop']} data-step={e.step} pathLength="1" d={e.d} fill="none" />)}
             </svg>
-            <span class="fd__el" data-step={g.steps} style={`left:${g.loop.x}px;top:${g.loop.y}px`}>{C.ui.repeat}</span>
 
             {g.nodes.map((n) => {
               const pos = `left:${n.x}px;top:${n.y}px;width:${n.w}px;height:${n.h}px`;
@@ -389,6 +380,7 @@ const GRAPHS = [
     if (url.includes('linkedin.com/posts')) return 'post';
     if (url.includes('linkedin.com/events')) return 'event';
     if (url.includes('sales/search/people')) return 'salesnav';
+    if (url.includes('activelyHiringForJobTitles')) return 'hiring';
     if (url.includes('search/results/people')) return 'search';
     return null;
   }
@@ -554,9 +546,7 @@ const GRAPHS = [
           here.forEach((n) => { n.classList.remove('is-active'); n.classList.add('is-done'); });
         }
 
-        // Close the loop back to the source.
         world.classList.add('is-complete');
-        world.querySelectorAll(`[data-step="${steps}"]`).forEach((p) => p.classList.add('is-in', 'is-run'));
         fitHeight();
 
         if (!reduce) await sleep(480);                 // let the height transition finish first
