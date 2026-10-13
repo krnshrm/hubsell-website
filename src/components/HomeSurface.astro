@@ -1,27 +1,24 @@
 ---
-// Trial (2026-10-13): the homepage reads as one light surface. Every light
-// section shares the same tint with no fill of its own, and the navy sections
-// become large rounded panels set on that surface, so no background change
-// runs edge to edge across the page. Cards on former white sections turn
-// white so they still stand off the tint.
-// Remove this component from the page to undo the trial.
+// Trial (2026-10-13): from iPad landscape up, the homepage's navy sections
+// become large rounded panels instead of full-width bands. The light sections
+// keep their two shades (tint and white). The space around each panel takes
+// the colour of the section before it, so the panel sits on that surface
+// rather than cutting across the page. Remove this component to undo it.
 ---
 <style is:global>
-  main:has(> .hs){ background:var(--sec-paper) }
-  main:has(> .hs) > .hs,
-  main:has(> .hs) > .sec--paper,
-  main:has(> .hs) > .sec--sand{
-    --sec-bg:transparent; --sec-bd:var(--sec-paper-bd); --sec-card:var(--sec-paper-card);
-    background:transparent;
-  }
-  /* Panels only from iPad landscape up. On a portrait tablet or a phone the
-     side margin costs too much width, so navy runs edge to edge there. */
   @media (min-width:1024px) and (orientation:landscape){
-    main:has(> .hs) > .sec--navy,
-    main:has(> .hs) > .sec--esp{
-      margin-inline:clamp(16px,2vw,28px);
+    main:has(> .hs) > :is(.sec--navy, .sec--esp){
+      --surround:var(--sec-paper);
+      position:relative; isolation:isolate;
+      background:var(--surround);
+    }
+    /* A component's <script> can sit between two sections. */
+    main:has(> .hs) > :is(.sec--navy, .sec--esp):is(.sec--sand + *, .sec--sand + script + *){ --surround:var(--sec-sand) }
+    main:has(> .hs) > :is(.sec--navy, .sec--esp)::before{
+      content:''; position:absolute; z-index:-1;
+      inset:0 clamp(16px,2vw,28px);
       border-radius:clamp(24px,2.4vw,36px);
-      overflow:clip;
+      background:var(--sec-navy);
     }
   }
 </style>
