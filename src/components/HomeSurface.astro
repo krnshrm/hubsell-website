@@ -14,10 +14,14 @@
     --sec-bg:transparent; --sec-bd:var(--sec-paper-bd); --sec-card:var(--sec-paper-card);
     background:transparent;
   }
-  main:has(> .hs) > .sec--navy,
-  main:has(> .hs) > .sec--esp{
-    margin-inline:clamp(10px,2vw,28px);
-    border-radius:clamp(20px,2.4vw,36px);
-    overflow:clip;
+  /* Panels only from iPad landscape up. On a portrait tablet or a phone the
+     side margin costs too much width, so navy runs edge to edge there. */
+  @media (min-width:1024px) and (orientation:landscape){
+    main:has(> .hs) > .sec--navy,
+    main:has(> .hs) > .sec--esp{
+      margin-inline:clamp(16px,2vw,28px);
+      border-radius:clamp(24px,2.4vw,36px);
+      overflow:clip;
+    }
   }
 </style>
