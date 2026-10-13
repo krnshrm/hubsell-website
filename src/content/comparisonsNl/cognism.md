@@ -1,7 +1,7 @@
 ---
 title: "Cognism"
 category: "Data en intelligence"
-metaTitle: "Cognism vs. hubsell: live sourcing en ingebouwde outreach"
+metaTitle: "Cognism-alternatief: live sourcing en ingebouwde outreach"
 metaDescription: "Op zoek naar een Cognism-alternatief? hubsell verzamelt data live en draait e-mail en LinkedIn in één flow, afgerekend per contact. Zo verhouden beide zich."
 heroSubhead: "Cognism is een premium dataleverancier uit Europa met AVG-focus, verkocht via jaarcontracten en alleen data. hubsell verzamelt contacten live voor uw zoekopdracht, verifieert ze en draait dan e-mail en LinkedIn als één flow, afgerekend per contact. Zo verschillen de twee."
 tldr: '<p>Cognism is een premium dataleverancier uit Europa met AVG-focus, het bekendst om Diamond Data, telefonisch geverifieerde mobiele nummers met een opgegeven nauwkeurigheid van 98% op die geverifieerde subset. Het is alleen data, verkocht via jaarcontracten die doorgaans beginnen bij zo’n $15.000 per jaar, en u koppelt het aan een apart outreachtool om daadwerkelijk sequenties te draaien. hubsell verzamelt contacten live voor uw zoekopdracht, verifieert ze en draait e-mail en LinkedIn als één flow, afgerekend per contact.</p><p>Cognism is logisch als u intensieve Europese cold calling doet en de diepste telefonisch geverifieerde EU-mobiele data met formele compliance-controles wilt en accepteert dat u apart betaalt voor een dataset en een outreachtool. hubsell is logisch als u verse data plus gecoördineerde e-mail- en LinkedIn-outreach op één plek wilt, afgerekend per contact, zonder jaarcontract met vijf cijfers.</p>'

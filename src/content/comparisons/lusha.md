@@ -1,7 +1,7 @@
 ---
 title: "Lusha"
 category: "Data and intelligence"
-metaTitle: "Lusha vs hubsell: from contact lookups to the full flow"
+metaTitle: "Lusha alternative: from contact lookups to the full flow"
 metaDescription: "Looking for a Lusha alternative? hubsell sources data live and runs email and LinkedIn in one flow, not just contact lookups. See how they compare."
 heroSubhead: "Lusha is a lightweight contact-lookup tool with no outreach layer. hubsell sources contacts live for your search, validates them, then runs email and LinkedIn as one flow, billed per contact. Here's how the two differ."
 tldr: "<p>Lusha is a lightweight contact-lookup tool, a Chrome extension that reveals emails and phone numbers, popular with smaller teams for quick one-off lookups. It is credit based, a phone reveal costs up to ten times an email, it is charged per seat with a free tier, and its database skews heavily to North America. There is no outreach layer at all. hubsell sources contacts live for your search, validates them, and runs email and LinkedIn as one flow, billed per contact.</p><p>Lusha makes sense if you want a simple, cheap way to grab a contact off LinkedIn now and then, and you do your outreach elsewhere. hubsell makes sense if you want fresh data plus coordinated outreach in one tool, especially outside North America where Lusha's coverage thins out.</p>"

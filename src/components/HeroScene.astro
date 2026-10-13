@@ -14,18 +14,21 @@ const { s } = getHome(L);
 // Dutch is formal (u).
 const COPY = {
   en: {
+    kw: 'Outbound sales platform',
     h1a: ['Generate ', 'more pipeline', ','], h1b: ['while targeting ', 'fewer prospects', '.'],
-    sub: 'hubsell books the same meetings from 50 times fewer people. Start from a LinkedIn post, an event, a search or your own list. hubsell qualifies them, finds verified contact data and runs LinkedIn, email and call tasks in one flow that writes back to your CRM.',
+    sub: 'hubsell is an outbound sales platform that books the same meetings from 50 times fewer people. Start from a LinkedIn post, an event, a search or your own list. hubsell qualifies them, finds verified contact data and runs LinkedIn, email and call tasks in one flow that writes back to your CRM.',
     trial: 'Start free trial', demo: 'Book a demo', see: 'See demo below',
   },
   de: {
+    kw: 'Outbound-Vertriebsplattform',
     h1a: ['', 'Mehr Pipeline', ' erzeugen,'], h1b: ['mit ', 'weniger Kontakten', '.'],
-    sub: 'hubsell bucht dieselben Termine mit 50-mal weniger Kontakten. Startet mit einem LinkedIn-Beitrag, einem Event, einer Suche oder einer eigenen Liste. Qualifiziert die Kontakte, findet verifizierte Kontaktdaten und steuert LinkedIn, E-Mail und Anrufaufgaben in einem Flow, der alles ins CRM zurückschreibt.',
+    sub: 'hubsell ist eine Outbound-Vertriebsplattform, die dieselben Termine mit 50-mal weniger Kontakten bucht. Startet mit einem LinkedIn-Beitrag, einem Event, einer Suche oder einer eigenen Liste. Qualifiziert die Kontakte, findet verifizierte Kontaktdaten und steuert LinkedIn, E-Mail und Anrufaufgaben in einem Flow, der alles ins CRM zurückschreibt.',
     trial: 'Kostenlos testen', demo: 'Demo buchen', see: 'Demo unten ansehen',
   },
   nl: {
+    kw: 'Outbound salesplatform',
     h1a: ['', 'Meer pipeline', ' genereren,'], h1b: ['met ', 'minder prospects', '.'],
-    sub: 'hubsell boekt dezelfde afspraken met 50 keer minder prospects. Begin met een LinkedIn-post, een event, een zoekopdracht of uw eigen lijst. hubsell kwalificeert ze, vindt geverifieerde contactgegevens en voert LinkedIn, e-mail en beltaken uit in één flow die alles terugschrijft naar uw CRM.',
+    sub: 'hubsell is een outbound salesplatform dat dezelfde afspraken boekt met 50 keer minder prospects. Begin met een LinkedIn-post, een event, een zoekopdracht of uw eigen lijst. hubsell kwalificeert ze, vindt geverifieerde contactgegevens en voert LinkedIn, e-mail en beltaken uit in één flow die alles terugschrijft naar uw CRM.',
     trial: 'Gratis proberen', demo: 'Demo plannen', see: 'Bekijk de demo hieronder',
   },
 };
@@ -35,7 +38,7 @@ const DOWN = '<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>';
 ---
 <section class="hs" aria-labelledby="hs-title">
   <div class="wrap hs__copy">
-    <h1 id="hs-title" class="hs__title">{T.h1a[0]}<span class="accent">{T.h1a[1]}</span>{T.h1a[2]}{" "}{T.h1b[0]}<span class="accent">{T.h1b[1]}</span>{T.h1b[2]}</h1>
+    <h1 id="hs-title" class="hs__title"><span class="hs__kw">{T.kw}</span>{T.h1a[0]}<span class="accent">{T.h1a[1]}</span>{T.h1a[2]}{" "}{T.h1b[0]}<span class="accent">{T.h1b[1]}</span>{T.h1b[2]}</h1>
     <div class="hs__side">
       <p class="hs__sub">{T.sub}</p>
       {/* The section class is "hs", which track.ts does not recognise as a
@@ -85,6 +88,13 @@ const DOWN = '<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>';
     position:relative; z-index:2;
     display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);
     gap:clamp(24px,4vw,64px); align-items:start;
+  }
+  /* The category name sits inside the H1 for search, styled as a small
+     label so the slogan still reads as the headline. */
+  .hs__kw{
+    display:block; margin-bottom:clamp(10px,1.2vw,16px);
+    font:600 clamp(13px,1vw,15px)/1.2 var(--font-body); letter-spacing:.08em;
+    text-transform:uppercase; color:var(--ink-2);
   }
   .hs__title{
     margin:0; font:400 clamp(40px,4.9vw,70px)/1.02 var(--font-head);

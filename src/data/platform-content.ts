@@ -28,6 +28,9 @@ export interface PlatformDetailData {
   row: PlatformRow;
   gridTitlePre: string; gridTitleAccent: string; gridTitlePost: string;
   blocks: PlatformBlock[];
+  /** Optional text section after the value grid, for a topic a search
+      term needs its own heading for (GDPR, CRM integrations, emails and dials). */
+  extra?: { title: string; paras: string[]; links?: { label: string; href: string }[] };
   proofEyebrow: string; proofTitle: string;
   quoteSlug: string;            // testimonial slug in the shared pool
   storySlug: string;            // customer story slug
@@ -132,11 +135,12 @@ export const platform: PlatformData = {
   details: [
     {
       path: '/platform/live-data',
-      title: 'Live-sourced B2B data, verified at the point of use | hubsell',
-      metaDescription: 'hubsell sources B2B contacts the moment you ask, matched to your ICP and verified at the point of use. Zero-day sourcing instead of a decaying database.',
+      title: 'B2B data provider with live, GDPR-compliant data | hubsell',
+      metaDescription: 'hubsell is a B2B data provider that sources contacts live, matched to your ICP and verified at the point of use. GDPR-compliant B2B data, hosted in Frankfurt.',
+      extra: {"title": "GDPR-compliant B2B data", "paras": ["hubsell is based in Berlin, Germany, and works to the GDPR. The platform runs on Amazon Web Services servers in Frankfurt.", "Every customer can sign hubsell’s data processing agreement. It sets out how personal data is handled, which sub-processors may work with it and how requests from the people in your data are answered. When a contract ends, the data in your account is deleted within 30 days.", "Contacts are sourced for your request instead of being resold from a shared list, so every record comes from a search you defined."], "links": [{"label": "Read the data processing agreement", "href": "/data-processing-agreement"}, {"label": "Guide: B2B data compliance and cold outreach", "href": "/insights/b2b-data-compliance"}]},
       eyebrow: 'Live data',
       h1Pre: 'B2B data sourced ', h1Accent: 'today', h1Post: ', not two years ago',
-      sub: 'hubsell does not sell access to a static database. Define your ICP and we source contacts live from LinkedIn, layer buying signals on top, and verify every record before it enters your flow.',
+      sub: 'hubsell is a B2B data provider that does not sell access to a static database. Define your ICP and we source contacts live from LinkedIn, layer buying signals on top, and verify every record before it enters your flow.',
       demoCta: 'Book a demo',
       heroTimeline: true,
       row: {
@@ -150,7 +154,7 @@ export const platform: PlatformData = {
         stepEyebrow: 'How it works',
         stepTitle: 'From live signal to verified contact',
       },
-      gridTitlePre: 'Data that is ', gridTitleAccent: 'correct on the day you use it', gridTitlePost: '',
+      gridTitlePre: 'B2B contact data that is ', gridTitleAccent: 'correct on the day you use it', gridTitlePost: '',
       blocks: [
         {
           title: 'Zero-day sourcing',
@@ -186,14 +190,14 @@ export const platform: PlatformData = {
 
     {
       path: '/platform/multichannel-outreach',
-      title: 'Multichannel outreach: email, LinkedIn, and phone in one flow | hubsell',
+      title: 'Multichannel outreach platform: email, LinkedIn, and phone | hubsell',
       metaDescription: 'Run email, LinkedIn, and phone as one coordinated sequence. Branching flows, safe sending limits, and outreach from the profiles buyers actually accept.',
       eyebrow: 'Multichannel outreach',
-      h1Pre: 'One flow across ', h1Accent: 'email, LinkedIn, and phone', h1Post: '',
+      h1Pre: 'Multichannel outreach across ', h1Accent: 'email, LinkedIn, and phone', h1Post: '',
       sub: 'Stop juggling an email tool, a LinkedIn tool, and a task list. hubsell runs all three channels as one coordinated sequence that reacts to what each contact does.',
       demoCta: 'Book a demo',
       row: {
-        titlePre: 'One sequence, ', titleAccent: 'every channel', titlePost: '',
+        titlePre: 'A multichannel outreach platform, ', titleAccent: 'not three tools', titlePost: '',
         points: [
           'Drag and drop email, LinkedIn, and phone steps into a single flow.',
           'Profile visits, connection requests, DMs, InMail, and call tasks, all coordinated with your email cadence.',
@@ -211,7 +215,7 @@ export const platform: PlatformData = {
         },
         {
           title: 'Safe sending, spread out',
-          body: 'Outreach is spread across 5 to 10 internal sender profiles, within strict platform limits. Lower volume per sender, higher deliverability, no domain burn.',
+          body: 'Outreach is spread across 5 to 10 internal sender profiles, within strict platform limits. Lower volume per sender, higher deliverability, no domain burn. LinkedIn automation runs with safe daily limits on every profile.',
         },
         {
           title: 'Sent from the right profiles',
@@ -241,8 +245,9 @@ export const platform: PlatformData = {
       path: '/platform/crm-sync',
       title: 'Automatic CRM sync for Salesforce, HubSpot, and Pipedrive | hubsell',
       metaDescription: 'Every send, open, reply, and connection logged to Salesforce, HubSpot, or Pipedrive automatically. No manual entry, no data rot, no lost activity.',
+      extra: {"title": "Salesforce, HubSpot, and Pipedrive integration", "paras": ["hubsell syncs with Salesforce, HubSpot, and Pipedrive natively and in both directions.", "LinkedIn activity is logged to each of them the same way email is. Connection requests, profile views and replies appear on the contact’s record as they happen, next to email events and call tasks."], "links": [{"label": "See all integrations", "href": "/integrations"}]},
       eyebrow: 'CRM sync',
-      h1Pre: 'Your CRM, always up to date. ', h1Accent: 'By itself', h1Post: '.',
+      h1Pre: 'Automatic CRM sync. ', h1Accent: 'Your CRM, always up to date', h1Post: '.',
       sub: 'hubsell does not replace your system of record, it feeds it. Every touchpoint across email, LinkedIn, and phone lands in your CRM the moment it happens.',
       demoCta: 'Book a demo',
       row: {
@@ -291,10 +296,10 @@ export const platform: PlatformData = {
     },
 {
       "path": "/platform/deliverability",
-      "title": "Deliverability: land in the inbox, not the spam folder | hubsell",
-      "metaDescription": "hubsell sends from your own mailboxes through the Google and Microsoft APIs, verifies every contact at source, and paces volume, so your outreach reaches the inbox.",
+      "title": "Email deliverability: land in the inbox, not the spam folder | hubsell",
+      "metaDescription": "Email deliverability with hubsell: send from your own mailboxes through the Google and Microsoft APIs, verify every contact at source, and pace volume to reach the inbox.",
       "eyebrow": "Deliverability",
-      "h1Pre": "Reach the ",
+      "h1Pre": "Email deliverability: reach the ",
       "h1Accent": "inbox",
       "h1Post": ", not the spam folder",
       "sub": "Great targeting means nothing if the message never arrives. hubsell protects the whole path to the inbox: verified contacts, authenticated sending from your own mailboxes, and volume paced to keep your reputation intact.",
@@ -418,10 +423,11 @@ export const platform: PlatformData = {
 },
 {
       "path": "/platform/enrichment",
-      "title": "Data enrichment: complete, verified contact records | hubsell",
+      "title": "Contact data enrichment: complete, verified records | hubsell",
       "metaDescription": "hubsell enriches every contact from multiple live sources and verifies the result at the point of use, so you get complete, current records instead of half-empty rows.",
+      "extra": {"title": "Verified work emails and direct dials", "paras": ["Enrichment fills the two fields outreach depends on most. Work email addresses are verified at the point of use, catch-all domains included, so you only send to addresses that can receive mail.", "Phone numbers, including direct dials and mobiles where a source has them, are added to the same record, so every call task has a number to dial."]},
       "eyebrow": "Enrichment",
-      "h1Pre": "Complete records, ",
+      "h1Pre": "Contact data enrichment, ",
       "h1Accent": "verified today",
       "h1Post": "",
       "sub": "A half-filled contact record stalls outreach. hubsell enriches each contact from several live sources and verifies the result the moment you use it, so you work from complete, current data rather than gaps.",

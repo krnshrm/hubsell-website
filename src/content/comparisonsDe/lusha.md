@@ -1,7 +1,7 @@
 ---
 title: "Lusha"
 category: "Daten und Intelligence"
-metaTitle: "Lusha vs. hubsell: von Kontaktabfragen zum vollständigen Ablauf"
+metaTitle: "Lusha-Alternative: von Kontaktabfragen zum vollständigen Ablauf"
 metaDescription: "Auf der Suche nach einer Lusha-Alternative? hubsell recherchiert Daten live und betreibt E-Mail und LinkedIn in einem Ablauf, nicht nur Kontaktabfragen. So schneiden beide im Vergleich ab."
 heroSubhead: "Lusha ist ein schlankes Tool für Kontaktabfragen ohne Outreach-Ebene. hubsell recherchiert Kontakte live für die jeweilige Suche, verifiziert sie und betreibt dann E-Mail und LinkedIn als einen Ablauf, abgerechnet pro Kontakt. So unterscheiden sich die beiden."
 tldr: "<p>Lusha ist ein schlankes Tool für Kontaktabfragen, eine Chrome-Erweiterung, die E-Mail-Adressen und Telefonnummern offenlegt, beliebt bei kleineren Teams für schnelle einmalige Abfragen. Es ist Credit-basiert, eine Telefon-Freischaltung kostet bis zum Zehnfachen einer E-Mail, es wird pro Platz berechnet, mit einer kostenlosen Stufe, und seine Datenbank ist stark auf Nordamerika ausgerichtet. Es gibt überhaupt keine Outreach-Ebene. hubsell recherchiert Kontakte live für die jeweilige Suche, verifiziert sie und betreibt E-Mail und LinkedIn als einen Ablauf, abgerechnet pro Kontakt.</p><p>Lusha ergibt Sinn für Teams, die eine einfache, günstige Möglichkeit möchten, ab und zu einen Kontakt von LinkedIn zu greifen, und den Outreach woanders machen. hubsell ergibt Sinn für Teams, die frische Daten plus koordinierten Outreach in einem Tool möchten, besonders außerhalb Nordamerikas, wo Lushas Abdeckung dünner wird.</p>"

@@ -2,7 +2,7 @@
 title: "E-Mail- und LinkedIn-Outreach als eine Sequenz"
 label: "Multichannel-Outreach"
 eyebrow: "Anwendungsfall"
-metaTitle: "Multichannel-Outreach-Software: E-Mail und LinkedIn"
+metaTitle: "LinkedIn-Automatisierung und E-Mail-Outreach in einer Sequenz"
 description: "hubsell betreibt E-Mail und LinkedIn als eine koordinierte Sequenz statt als zwei getrennte Tools. Verzweigungen, sichere LinkedIn-Limits und Personalisierung im großen Maßstab, alles in einer Plattform."
 subhead: "Die meisten Teams betreiben E-Mail in einem Tool und LinkedIn in einem anderen, und beide passen nie zusammen. hubsell betreibt sie als eine einzige Sequenz, mit Verzweigungen, die auf das Verhalten jedes Interessenten reagieren, damit jeder Kontaktpunkt im richtigen Kanal zur richtigen Zeit landet."
 widget: "MultichannelFlow"
@@ -44,4 +44,4 @@ In hubsell lassen sich E-Mail- und LinkedIn-Schritte per Drag-and-drop in einen 
 
 ## Teil der gesamten Bewegung
 
-Multichannel-Sequencing arbeitet mit den Live-Kontakten, die über die [Lead-Generierung](/de/use-cases/lead-generation) recherchiert werden, und jeder Kontaktpunkt wird von selbst im CRM protokolliert. Wie Daten, Kanäle und Synchronisierung zusammenspielen, zeigt der [Outbound-Vertrieb](/de/use-cases/outbound-sales).
+Multichannel-Sequencing arbeitet mit den Live-Kontakten, die über die [Lead-Generierung](/de/use-cases/lead-generation) recherchiert werden, und jeder Kontaktpunkt wird von selbst im CRM protokolliert. Wie Daten, Kanäle und Synchronisierung zusammenspielen, zeigt der [Outbound-Vertrieb](/de/use-cases/outbound-sales). Alle Kanäle und Einstellungen im Detail zeigt die [Multichannel-Outreach-Plattform](/de/platform/multichannel-outreach).

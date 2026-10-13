@@ -1,10 +1,10 @@
 ---
-title: "B2B lead generation with data that is correct today"
+title: "B2B lead generation software with data that is correct today"
 label: "Lead generation"
 eyebrow: "Use case"
 metaTitle: "B2B Lead Generation Software"
 description: "Outbound lead generation built on live-sourced, verified-at-source contacts matched to your ICP. No stale database, no wasted outreach on dead contacts."
-subhead: "Static databases decay from the day they are sold. hubsell sources leads live the moment you ask, matched to your ICP and verified before a single message goes out, so your pipeline starts with contacts that are correct now."
+subhead: "Static databases decay from the day they are sold. hubsell is B2B lead generation software that sources leads live the moment you ask, matched to your ICP and verified before a single message goes out, so your pipeline starts with contacts that are correct now."
 widget: "ZeroDayTimeline"
 widgetBg: "sec--sand"
 widgetCaption: "A bought database decays from day one. Live sourcing does not."

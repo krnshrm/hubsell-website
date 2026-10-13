@@ -1,7 +1,7 @@
 ---
 title: "Seamless"
 category: "Data en intelligence"
-metaTitle: "Seamless vs. hubsell: live data waar u echt naartoe kunt sturen"
+metaTitle: "Seamless-alternatief: live data waar u echt naartoe kunt sturen"
 metaDescription: "Op zoek naar een Seamless-alternatief? hubsell verzamelt data live, verifieert ze en rekent af per geverifieerd contact, met e-mail en LinkedIn in één flow. Zo verhouden beide zich."
 heroSubhead: "Seamless adverteert met realtime data, maar berekent een credit bij elke zoekopdracht, ook bij slechte resultaten. hubsell verzamelt live, verifieert op het moment van gebruik en rekent af per geverifieerd contact, met e-mail en LinkedIn in één flow. Zo verschillen de twee."
 tldr: '<p>Seamless afficheert zich als een realtime AI-zoekmachine die contactdata samenstelt wanneer u een opvraag uitvoert, in plaats van uit een statische database. De eigen marketing geeft 98% nauwkeurigheid op, maar gebruikers- en onafhankelijke rapporten zetten de e-mailnauwkeurigheid op zo’n 60 tot 75% met 20 tot 30% bounce, en het berekent een credit bij elke zoekopdracht, ook bij mislukte en foute resultaten. Het krijgt daarnaast veel kritiek voor agressieve automatische verlenging en moeizame opzegging. hubsell verzamelt eveneens live, maar verifieert op het moment van gebruik en rekent af per geverifieerd contact, en het draait e-mail en LinkedIn in één flow.</p><p>Seamless is logisch als u snelle, VS-gerichte opvragingen wilt en accepteert dat u verificatie en lijstonderhoud zelf op u neemt. hubsell is logisch als u live data wilt waar u echt naartoe kunt sturen, alleen afgerekend voor geverifieerde contacten, zonder voor bounces te betalen of u aan een automatische verlenging te binden.</p>'

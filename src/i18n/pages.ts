@@ -433,7 +433,11 @@ export interface ComparisonsCopy {
   featureH2: string;
   dataQualityH2: string;
   pricingH2: string;
-  chooseH2: string;
+  /** "[competitor] alternative" phrasing for search: H1 line, first sentence,
+      decision H2, related cards and the fallback title. */
+  altName: (c: string) => string;
+  altIntro: (c: string) => string;
+  chooseH2: (c: string) => string;
   faqH2: string;
   chooseHub: string;
   chooseCompPre: string;
@@ -469,7 +473,9 @@ const comparisonsPage = byLocale<ComparisonsCopy>(
     featureH2: 'Feature by feature',
     dataQualityH2: 'Data quality',
     pricingH2: 'Pricing',
-    chooseH2: 'Which should you choose?',
+    altName: (c) => `${c} alternative`,
+    altIntro: (c) => `Looking for a ${c} alternative?`,
+    chooseH2: (c) => `Is hubsell the right ${c} alternative?`,
     faqH2: 'Frequently asked questions',
     chooseHub: 'Choose hubsell if',
     chooseCompPre: 'Choose ',
@@ -503,7 +509,9 @@ const comparisonsPage = byLocale<ComparisonsCopy>(
     featureH2: 'Funktion für Funktion',
     dataQualityH2: 'Datenqualität',
     pricingH2: 'Preise',
-    chooseH2: 'Welches Tool ist die richtige Wahl?',
+    altName: (c) => `${c}-Alternative`,
+    altIntro: (c) => `Eine Alternative zu ${c} gesucht?`,
+    chooseH2: (c) => `Ist hubsell die richtige Alternative zu ${c}?`,
     faqH2: 'Häufig gestellte Fragen',
     chooseHub: 'hubsell wählen, wenn',
     chooseCompPre: '',
@@ -537,7 +545,9 @@ const comparisonsPage = byLocale<ComparisonsCopy>(
     featureH2: 'Functie voor functie',
     dataQualityH2: 'Datakwaliteit',
     pricingH2: 'Prijzen',
-    chooseH2: 'Wat moet u kiezen?',
+    altName: (c) => `${c}-alternatief`,
+    altIntro: (c) => `Op zoek naar een alternatief voor ${c}?`,
+    chooseH2: (c) => `Is hubsell het juiste alternatief voor ${c}?`,
     faqH2: 'Veelgestelde vragen',
     chooseHub: 'Kies hubsell als',
     chooseCompPre: 'Kies ',

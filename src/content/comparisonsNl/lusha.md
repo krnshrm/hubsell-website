@@ -1,7 +1,7 @@
 ---
 title: "Lusha"
 category: "Data en intelligence"
-metaTitle: "Lusha vs. hubsell: van contactopvragingen naar de volledige flow"
+metaTitle: "Lusha-alternatief: van contactopvragingen naar de volledige flow"
 metaDescription: "Op zoek naar een Lusha-alternatief? hubsell verzamelt data live en draait e-mail en LinkedIn in één flow, niet alleen contactopvragingen. Zo verhouden beide zich."
 heroSubhead: "Lusha is een licht tool voor contactopvragingen zonder outreachlaag. hubsell verzamelt contacten live voor uw zoekopdracht, verifieert ze en draait dan e-mail en LinkedIn als één flow, afgerekend per contact. Zo verschillen de twee."
 tldr: '<p>Lusha is een licht tool voor contactopvragingen, een Chrome-extensie die e-mailadressen en telefoonnummers blootlegt, populair bij kleinere teams voor snelle eenmalige opvragingen. Het is credit-gebaseerd, een telefoonontgrendeling kost tot tien keer zoveel als een e-mail, het wordt per seat berekend, met een gratis niveau, en de database is sterk op Noord-Amerika gericht. Er is helemaal geen outreachlaag. hubsell verzamelt contacten live voor uw zoekopdracht, verifieert ze en draait e-mail en LinkedIn als één flow, afgerekend per contact.</p><p>Lusha is logisch als u een eenvoudige, goedkope manier wilt om af en toe een contact van LinkedIn te plukken, en uw outreach ergens anders doet. hubsell is logisch als u verse data plus gecoördineerde outreach in één tool wilt, vooral buiten Noord-Amerika, waar de dekking van Lusha dunner wordt.</p>'

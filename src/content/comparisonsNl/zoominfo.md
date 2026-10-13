@@ -1,7 +1,7 @@
 ---
 title: "ZoomInfo"
 category: "Data en intelligence"
-metaTitle: "ZoomInfo vs. hubsell: live data zonder enterprise-contract"
+metaTitle: "ZoomInfo-alternatief: live data zonder enterprise-contract"
 metaDescription: "Op zoek naar een ZoomInfo-alternatief? hubsell verzamelt data live voor uw zoekopdracht en draait e-mail en LinkedIn in één flow, zonder jaarverbintenis. Zo verhouden beide zich."
 heroSubhead: "ZoomInfo is de grootste B2B-database, verkocht via jaarcontracten met vijf cijfers, met outreach als apart product. hubsell verzamelt contacten live voor uw zoekopdracht, verifieert ze en draait dan e-mail en LinkedIn als één flow, afgerekend per contact. Zo verschillen de twee."
 tldr: '<p>ZoomInfo is de grootste B2B-database en de enterprise-standaard, verkocht via jaarcontracten die beginnen bij zo’n $15.000 per jaar voor drie seats en vaak op $30.000 tot $60.000 liggen zodra add-ons zich opstapelen. Het is data-first, met outreach als apart product, en het contract verlengt automatisch in een venster van 60 tot 90 dagen, met een datavernietigingsclausule die uw geëxporteerde contacten bij vertrek wist. hubsell houdt geen database aan. Het verzamelt contacten live voor uw zoekopdracht, verifieert ze op dat moment en draait dan e-mail en LinkedIn als één flow, afgerekend per contact.</p><p>ZoomInfo is logisch als u een enterprise bent die de diepste US-database, intent-data en conversation intelligence nodig heeft, en u het budget en de bereidheid hebt voor een jaarverbintenis die zich moeilijk laat terugdraaien. hubsell is logisch als u verse data plus gecoördineerde outreach op één plek wilt, afgerekend per contact, zonder contract met vijf cijfers of een credittegoed dat vervalt.</p>'

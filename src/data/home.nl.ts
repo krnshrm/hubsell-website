@@ -307,8 +307,8 @@ export const stringsNl: HomeStrings = {
   },
   zds: {
     eyebrow: 'Zero-day-sourcing',
-    titlePre: 'Data verzameld op het moment ', titleAccent: 'dat u ze nodig hebt', titlePost: '. Niet op het moment dat iemand anders ze vastlegde.',
-    sub: 'hubsell verkoopt niet uit een verouderde database. Zodra u uw ICP definieert, verzamelen we live uit LinkedIn, afgestemd op uw criteria en gevalideerd op het moment van gebruik.',
+    titlePre: 'B2B-data verzameld op het moment ', titleAccent: 'dat u ze nodig hebt', titlePost: '. Niet op het moment dat iemand anders ze vastlegde.',
+    sub: 'hubsell verkoopt niet uit een verouderde database. Zodra u uw ICP definieert, verzamelen we live uit LinkedIn, afgestemd op uw criteria en gevalideerd op het moment van gebruik. hubsell is gevestigd in Berlijn en AVG-conform.',
     closer: 'U betaalt voor een contact dat vandaag klopt, niet voor toegang tot 300 miljoen contacten die twee jaar geleden juist waren.',
     cta: 'Zo doen we dat',
   },

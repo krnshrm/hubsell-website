@@ -1,7 +1,7 @@
 ---
 title: "Apollo"
 category: "All-in-one"
-metaTitle: "Apollo vs. hubsell: live verzamelde data, één outreach-flow"
+metaTitle: "Apollo-alternatief: live verzamelde data, één outreach-flow"
 metaDescription: "Op zoek naar een Apollo-alternatief? hubsell verzamelt contacten live voor uw zoekopdracht en draait e-mail en LinkedIn als één gecoördineerde flow. Zo verhouden beide zich."
 heroSubhead: "Apollo is een contactdatabase met sequencing eraan vast. hubsell houdt geen database aan. Het verzamelt contacten op het moment dat u zoekt, verifieert ze precies dan, draait e-mail en LinkedIn als één gecoördineerde flow en synchroniseert elk contactmoment met uw CRM. Zo verschillen de twee echt."
 tldr: '<p>Apollo geeft u een grote database, zo’n 275 miljoen contacten, die u met credits opvraagt, plus e-mailsequenties en LinkedIn-stappen die een medewerker nog steeds handmatig doet. De credits vervallen, de data is samengesteld voordat u zocht, en Apollo heeft zijn geautomatiseerde LinkedIn-acties in januari 2026 verwijderd. hubsell slaat geen database op. Het verzamelt contacten voor uw concrete zoekopdracht en verifieert ze precies op dat moment, en draait dan e-mail en LinkedIn samen als één geautomatiseerde sequentie.</p><p>Apollo is logisch als u een grote database wilt om te doorzoeken en een ingebouwde dialer, en de mensen hebt om die data zelf actueel en de deliverability schoon te houden. hubsell is logisch als u data wilt die klopt op het moment dat u die gebruikt, e-mail en LinkedIn gecoördineerd in één flow, en een factuur op basis van de contacten die u daadwerkelijk verzamelt, in plaats van een creditbudget dat u uitgeeft voordat het vervalt.</p>'

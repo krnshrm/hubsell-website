@@ -1,7 +1,7 @@
 ---
 title: "Cognism"
 category: "Data and intelligence"
-metaTitle: "Cognism vs hubsell: live sourcing and built-in outreach"
+metaTitle: "Cognism alternative: live sourcing and built-in outreach"
 metaDescription: "Looking for a Cognism alternative? hubsell sources data live and runs email and LinkedIn in one flow, billed per contact. See how the two compare."
 heroSubhead: "Cognism is a premium, GDPR-first European data provider, sold on annual contracts and data only. hubsell sources contacts live for your search, validates them, then runs email and LinkedIn as one flow, billed per contact. Here's how the two differ."
 tldr: "<p>Cognism is a premium, GDPR-first European data provider, best known for Diamond Data, phone-verified mobile numbers with a claimed 98 percent accuracy on that verified subset. It is data only, sold on annual contracts that typically start around $15,000 a year, and you plug it into a separate outreach tool to actually run sequences. hubsell sources contacts live for your search, validates them, and runs email and LinkedIn as one flow, billed per contact.</p><p>Cognism makes sense if you run heavy European cold calling and want the deepest phone-verified EU mobile data with formal compliance controls, and you accept paying for a dataset and an outreach tool separately. hubsell makes sense if you want fresh data plus coordinated email and LinkedIn outreach in one place, billed per contact, without a five-figure annual contract.</p>"

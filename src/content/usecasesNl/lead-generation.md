@@ -1,10 +1,10 @@
 ---
-title: "B2B-leadgeneratie met data die vandaag klopt"
+title: "Software voor B2B-leadgeneratie met data die vandaag klopt"
 label: "Leadgeneratie"
 eyebrow: "Toepassing"
 metaTitle: "Software voor B2B-leadgeneratie"
 description: "Outbound-leadgeneratie op basis van live verzamelde, aan de bron geverifieerde contacten die bij uw ICP passen. Geen verouderde database, geen verspilde outreach naar dode contacten."
-subhead: "Statische databases vervallen vanaf de dag dat ze worden verkocht. hubsell verzamelt leads live op het moment dat u het vraagt, afgestemd op uw ICP en geverifieerd voordat er ook maar één bericht uitgaat, zodat uw pipeline begint met contacten die nu kloppen."
+subhead: "Statische databases vervallen vanaf de dag dat ze worden verkocht. hubsell is software voor B2B-leadgeneratie en verzamelt leads live op het moment dat u het vraagt, afgestemd op uw ICP en geverifieerd voordat er ook maar één bericht uitgaat, zodat uw pipeline begint met contacten die nu kloppen."
 widget: "ZeroDayTimeline"
 widgetBg: "sec--sand"
 widgetCaption: "Een gekochte database vervalt vanaf dag één. Live sourcing niet."

@@ -1,10 +1,10 @@
 ---
-title: "B2B-Lead-Generierung mit Daten, die heute korrekt sind"
+title: "Software für B2B-Lead-Generierung mit Daten, die heute korrekt sind"
 label: "Lead-Generierung"
 eyebrow: "Anwendungsfall"
 metaTitle: "Software für B2B-Lead-Generierung"
 description: "Outbound-Lead-Generierung auf Basis live recherchierter, an der Quelle verifizierter Kontakte, die zum ICP passen. Keine veraltete Datenbank, kein verschwendeter Outreach an tote Kontakte."
-subhead: "Statische Datenbanken verfallen ab dem Tag, an dem sie verkauft werden. hubsell recherchiert Leads live im Moment der Anfrage, passend zum ICP und verifiziert, bevor eine einzige Nachricht rausgeht, damit die Pipeline mit Kontakten beginnt, die jetzt korrekt sind."
+subhead: "Statische Datenbanken verfallen ab dem Tag, an dem sie verkauft werden. hubsell ist eine Software für B2B-Lead-Generierung und recherchiert Leads live im Moment der Anfrage, passend zum ICP und verifiziert, bevor eine einzige Nachricht rausgeht, damit die Pipeline mit Kontakten beginnt, die jetzt korrekt sind."
 widget: "ZeroDayTimeline"
 widgetBg: "sec--sand"
 widgetCaption: "Eine gekaufte Datenbank verfällt ab Tag eins. Live-Sourcing nicht."

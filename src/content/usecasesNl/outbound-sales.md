@@ -1,10 +1,10 @@
 ---
-title: "Outbound-sales op één platform in plaats van zes tools"
+title: "Outbound-salessoftware op één platform in plaats van zes tools"
 label: "Outbound-sales"
 eyebrow: "Toepassing"
 metaTitle: "Software voor outbound-sales"
 description: "Draai uw hele outbound-beweging op één platform: live verzamelde data, e-mail- en LinkedIn-sequenties en automatische CRM-synchronisatie. Geen stack van zes tools die u bij elkaar moet houden."
-subhead: "De meeste outbound-processen lopen via zes losse tools. hubsell brengt de data, het e-mail- en LinkedIn-sequencing en de CRM-synchronisatie samen op één plek, zodat uw team de dag aan verkopen besteedt in plaats van aan het aan elkaar knopen van tools."
+subhead: "De meeste outbound-processen lopen via zes losse tools. hubsell is outbound-salessoftware en brengt de data, het e-mail- en LinkedIn-sequencing en de CRM-synchronisatie samen op één plek, zodat uw team de dag aan verkopen besteedt in plaats van aan het aan elkaar knopen van tools."
 widget: "UnifiedGrid"
 widgetBg: "sec--navy"
 widgetCaption: "Van zes tools naar één platform. Eén login, één flow, één factuur."
@@ -32,7 +32,7 @@ Een gemiddeld revenue-team gebruikt zo’n zes tools voor outbound, en elk lost 
 
 Elke overdracht tussen deze tools is een plek waar tijd en data verloren gaan. Het team besteedt een groot deel van de dag aan het verplaatsen van lijsten tussen apps, het opnieuw controleren van contacten en het overtypen van notities in het CRM. Verkopen gebeurt in de tijd die overblijft.
 
-## Hoe hubsell outbound draait
+## Zo werkt de outbound-salessoftware
 
 Drie stappen, één platform, geen exports ertussen.
 
@@ -44,4 +44,4 @@ Drie stappen, één platform, geen exports ertussen.
 
 ## Wat er verandert voor uw team
 
-Het team wisselt geen tabs meer en schoont geen data meer op, zodat meer van de dag naar gesprekken gaat die de pipeline vooruithelpen. Ook de stack wordt kleiner: de meeste teams die overstappen naar hubsell, zeggen in de eerste maand twee tot drie tool-abonnementen op. En het enige wat hubsell niet vervangt, uw CRM, houdt het in plaats daarvan synchroon.
+Het team wisselt geen tabs meer en schoont geen data meer op, zodat meer van de dag naar gesprekken gaat die de pipeline vooruithelpen. Ook de stack wordt kleiner: de meeste teams die overstappen naar hubsell, zeggen in de eerste maand twee tot drie tool-abonnementen op. En het enige wat hubsell niet vervangt, uw CRM, houdt het in plaats daarvan synchroon. Het hele [outbound salesplatform](/nl/) in actie ziet u op de homepage.

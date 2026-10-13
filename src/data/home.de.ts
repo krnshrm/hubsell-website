@@ -311,8 +311,8 @@ export const stringsDe: HomeStrings = {
   },
   zds: {
     eyebrow: 'Zero-Day-Sourcing',
-    titlePre: 'Daten in dem Moment recherchiert, ', titleAccent: 'in dem sie gebraucht werden', titlePost: '. Nicht in dem Moment, in dem jemand anderes sie erfasst hat.',
-    sub: 'hubsell verkauft nicht aus einer veralteten Datenbank. Sobald der ICP steht, recherchiert hubsell live aus LinkedIn, passend zu den Kriterien und im Moment der Nutzung validiert.',
+    titlePre: 'B2B-Daten in dem Moment recherchiert, ', titleAccent: 'in dem sie gebraucht werden', titlePost: '. Nicht in dem Moment, in dem jemand anderes sie erfasst hat.',
+    sub: 'hubsell verkauft nicht aus einer veralteten Datenbank. Sobald der ICP steht, recherchiert hubsell live aus LinkedIn, passend zu den Kriterien und im Moment der Nutzung validiert. hubsell hat seinen Sitz in Berlin und ist DSGVO-konform.',
     closer: 'Bezahlt wird ein Kontakt, der heute korrekt ist, nicht der Zugang zu 300 Millionen Kontakten, die vor zwei Jahren richtig waren.',
     cta: 'So machen wir das',
   },

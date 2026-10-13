@@ -37,8 +37,8 @@ const vsQuotes = ['matterway', 'spryker', 'cibt'].map((s) => pool.find((t) => t.
 
     <header class="vs-head">
       <p class="eyebrow is-accent">{c.eyebrowPrefix}{d.category ? ` \u00b7 ${d.category}` : ''}</p>
-      <h1 class="vs-title">{competitor} <span class="vs-vs">vs</span> hubsell</h1>
-      {d.heroSubhead && <p class="vs-sub">{d.heroSubhead}</p>}
+      <h1 class="vs-title"><span class="vs-alt">{c.altName(competitor)}</span>{competitor} <span class="vs-vs">vs</span> hubsell</h1>
+      {d.heroSubhead && <p class="vs-sub">{c.altIntro(competitor)} {d.heroSubhead}</p>}
       <div class="vs-actions">
         <a class="button is-large" href={localizedHref(L, SIGNUP_URL)}>{c.ctaPrimary}</a>
       </div>
@@ -81,7 +81,7 @@ const vsQuotes = ['matterway', 'spryker', 'cibt'].map((s) => pool.find((t) => t.
 
     {(d.chooseCompetitor || d.chooseHubsell) && (
       <section class="vs-section">
-        <h2 class="vs-h2">{c.chooseH2}</h2>
+        <h2 class="vs-h2">{c.chooseH2(competitor)}</h2>
         <div class="vs-choose">
           {d.chooseHubsell && (
             <div class="vs-choose__col is-hub">
@@ -150,7 +150,7 @@ const vsQuotes = ['matterway', 'spryker', 'cibt'].map((s) => pool.find((t) => t.
           {related.map((i: any) => (
             <a class="vs-card" href={localizedHref(L, `/vs/${i.id}`)}>
               {i.data.category && <span class="vs-card__cat">{i.data.category}</span>}
-              <h3 class="vs-card__title">{i.data.title} vs hubsell</h3>
+              <h3 class="vs-card__title">{c.altName(i.data.title)}</h3>
               <span class="vs-card__more">{c.compare}</span>
             </a>
           ))}
@@ -173,6 +173,8 @@ const vsQuotes = ['matterway', 'spryker', 'cibt'].map((s) => pool.find((t) => t.
     color:var(--sec-tx); margin:10px 0 0;
   }
   .vs-vs { color:var(--accent-on); font-weight:500; }
+  /* "[competitor] alternative" is in the H1 for search, styled as a lead-in line. */
+  .vs-alt { display:block; margin-bottom:6px; font-size:.5em; font-weight:500; letter-spacing:-.01em; color:var(--accent-head); }
   .vs-sub {
     font-family:var(--font-body); font-size:clamp(1.05rem,1.6vw,1.2rem); line-height:1.6;
     color:var(--sec-tx); opacity:.82; max-width:62ch; margin:18px 0 0;

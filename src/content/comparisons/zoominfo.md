@@ -1,7 +1,7 @@
 ---
 title: "ZoomInfo"
 category: "Data and intelligence"
-metaTitle: "ZoomInfo vs hubsell: live data without the enterprise contract"
+metaTitle: "ZoomInfo alternative: live data without the enterprise contract"
 metaDescription: "Looking for a ZoomInfo alternative? hubsell sources data live for your search and runs email and LinkedIn in one flow, with no annual lock-in. See how they compare."
 heroSubhead: "ZoomInfo is the largest B2B database, sold on five-figure annual contracts with outreach as a separate product. hubsell sources contacts live for your search, validates them, then runs email and LinkedIn as one flow, billed per contact. Here's how the two differ."
 tldr: "<p>ZoomInfo is the largest B2B database and the enterprise standard, sold on annual contracts that start around $15,000 a year for three seats and commonly run $30,000 to $60,000 once add-ons stack. It is data first, with outreach as a separate product, and the contract auto-renews on a 60 to 90 day window with a data-destruction clause that wipes your exported contacts when you leave. hubsell does not keep a database. It sources contacts live for your search, validates them at that moment, then runs email and LinkedIn as one flow, billed per contact.</p><p>ZoomInfo makes sense if you are an enterprise that needs the deepest US database, intent data, and conversation intelligence, and you have the budget and the appetite for an annual commitment that is hard to walk back. hubsell makes sense if you want fresh data plus coordinated outreach in one place, billed per contact, without a five-figure contract or a credit allowance that expires.</p>"

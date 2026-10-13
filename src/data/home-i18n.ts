@@ -160,8 +160,8 @@ const stringsEn: HomeStrings = {
   },
   zds: {
     eyebrow: 'Zero-day sourcing',
-    titlePre: 'Data sourced ', titleAccent: 'the moment you need it', titlePost: '. Not the moment someone else captured it.',
-    sub: 'hubsell doesn’t sell out of a stale database. The moment you define your ICP, we source live from LinkedIn, matched to your criteria and validated at the point of use.',
+    titlePre: 'B2B data sourced ', titleAccent: 'the moment you need it', titlePost: '. Not the moment someone else captured it.',
+    sub: 'hubsell doesn’t sell out of a stale database. The moment you define your ICP, we source live from LinkedIn, matched to your criteria and validated at the point of use. hubsell is based in Berlin and GDPR-compliant.',
     closer: 'You pay for a contact that’s correct today, not for access to 300 million contacts that were right two years ago.',
     cta: 'See how we do it',
   },

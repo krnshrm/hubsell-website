@@ -119,6 +119,20 @@ const quote = getPlatformQuote(L, d.quoteSlug);
   </div>
 </section>
 
+{d.extra && (
+  <section class="sec sec--sand" aria-labelledby="pf-extra">
+    <div class="wrap"><div class="pf-extra">
+      <h2 id="pf-extra" class="heading_primary">{d.extra.title}</h2>
+      {d.extra.paras.map((p) => <p class="paragraph">{p}</p>)}
+      {d.extra.links && (
+        <ul class="pf-extra__links">
+          {d.extra.links.map((l) => <li><a class="link" href={localizedHref(L, l.href)}>{l.label} &rarr;</a></li>)}
+        </ul>
+      )}
+    </div></div>
+  </section>
+)}
+
 <!-- 4 · Proof: customer story + quote (paper) -->
 <section class="sec sec--paper" aria-label={d.proofTitle}>
   <div class="wrap">
@@ -177,4 +191,7 @@ const quote = getPlatformQuote(L, d.quoteSlug);
     .viz__inner > :global(.hubsell-tree-embed),
     .viz__inner > :global(.hubsell-sync-embed){ padding:0 }
   }
+  .pf-extra{ max-width:760px }
+  .pf-extra .paragraph{ margin-top:16px }
+  .pf-extra__links{ list-style:none; padding:0; margin:22px 0 0; display:flex; flex-direction:column; gap:8px }
 </style>

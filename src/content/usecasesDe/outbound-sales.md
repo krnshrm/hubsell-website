@@ -1,10 +1,10 @@
 ---
-title: "Outbound-Vertrieb auf einer Plattform statt auf sechs Tools"
+title: "Software für Outbound-Vertrieb auf einer Plattform statt auf sechs Tools"
 label: "Outbound-Vertrieb"
 eyebrow: "Anwendungsfall"
 metaTitle: "Software für Outbound-Vertrieb"
 description: "Die gesamte Outbound-Bewegung auf einer Plattform: live recherchierte Daten, E-Mail- und LinkedIn-Sequenzen und automatische CRM-Synchronisierung. Kein Stack aus sechs Tools, der zusammengehalten werden muss."
-subhead: "Die meisten Outbound-Prozesse laufen über sechs unverbundene Tools. hubsell bringt die Daten, das E-Mail- und LinkedIn-Sequencing und die CRM-Synchronisierung an einen Ort, damit das Team den Tag mit Verkaufen verbringt statt mit dem Zusammenstückeln von Tools."
+subhead: "Die meisten Outbound-Prozesse laufen über sechs unverbundene Tools. hubsell ist eine Software für den Outbound-Vertrieb und bringt die Daten, das E-Mail- und LinkedIn-Sequencing und die CRM-Synchronisierung an einen Ort, damit das Team den Tag mit Verkaufen verbringt statt mit dem Zusammenstückeln von Tools."
 widget: "UnifiedGrid"
 widgetBg: "sec--navy"
 widgetCaption: "Aus sechs Tools wird eine Plattform. Ein Login, ein Ablauf, eine Rechnung."
@@ -32,7 +32,7 @@ Ein durchschnittliches Revenue-Team nutzt etwa sechs Tools für Outbound, und je
 
 Jede Übergabe zwischen diesen Tools ist eine Stelle, an der Zeit und Daten verloren gehen. Das Team verbringt einen großen Teil des Tages damit, Listen zwischen Apps zu verschieben, Kontakte erneut zu prüfen und Notizen ins CRM zu übertragen. Verkauft wird in der Zeit, die übrig bleibt.
 
-## Wie hubsell Outbound betreibt
+## So funktioniert die Software für Outbound-Vertrieb
 
 Drei Schritte, eine Plattform, keine Exporte dazwischen.
 
@@ -44,4 +44,4 @@ Drei Schritte, eine Plattform, keine Exporte dazwischen.
 
 ## Was sich für das Team ändert
 
-Das Team wechselt keine Tabs mehr und bereinigt keine Daten mehr, sodass mehr vom Tag in Gespräche fließt, die die Pipeline voranbringen. Auch der Stack wird kleiner: Die meisten Teams, die zu hubsell wechseln, kündigen im ersten Monat zwei bis drei Tool-Abos. Und das Einzige, was hubsell nicht ersetzt, das CRM, hält es stattdessen synchron.
+Das Team wechselt keine Tabs mehr und bereinigt keine Daten mehr, sodass mehr vom Tag in Gespräche fließt, die die Pipeline voranbringen. Auch der Stack wird kleiner: Die meisten Teams, die zu hubsell wechseln, kündigen im ersten Monat zwei bis drei Tool-Abos. Und das Einzige, was hubsell nicht ersetzt, das CRM, hält es stattdessen synchron. Die ganze [Outbound-Vertriebsplattform](/de/) in Aktion zeigt die Startseite.

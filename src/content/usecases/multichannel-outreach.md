@@ -2,7 +2,7 @@
 title: "Email and LinkedIn outreach, run as one sequence"
 label: "Multichannel outreach"
 eyebrow: "Use case"
-metaTitle: "Multichannel Outreach Software: Email and LinkedIn"
+metaTitle: "LinkedIn and email outreach automation"
 description: "Run email and LinkedIn as one coordinated sequence, not two separate tools. Branching, safe LinkedIn limits, and personalization at scale, all in one platform."
 subhead: "Most teams run email in one tool and LinkedIn in another, and the two never line up. hubsell runs them as a single sequence, with branching that reacts to what each prospect does, so every touch lands in the right channel at the right time."
 widget: "MultichannelFlow"
@@ -44,4 +44,4 @@ In hubsell you drag and drop email and LinkedIn steps into a single flow. Profil
 
 ## Part of the whole motion
 
-Multichannel sequencing works on the live contacts you source through [lead generation](/use-cases/lead-generation), and every touch logs to your CRM on its own. To see data, channels, and sync working together, see [outbound sales](/use-cases/outbound-sales).
+Multichannel sequencing works on the live contacts you source through [lead generation](/use-cases/lead-generation), and every touch logs to your CRM on its own. To see data, channels, and sync working together, see [outbound sales](/use-cases/outbound-sales). For every channel and setting in detail, see the [multichannel outreach platform](/platform/multichannel-outreach).

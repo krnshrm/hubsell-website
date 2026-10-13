@@ -1,10 +1,10 @@
 ---
-title: "Outbound sales that runs on one platform, not six tools"
+title: "Outbound sales software on one platform, not six tools"
 label: "Outbound sales"
 eyebrow: "Use case"
 metaTitle: "Outbound Sales Software"
 description: "Run your whole outbound motion in one platform: live-sourced data, email and LinkedIn sequences, and automatic CRM sync. No six-tool stack to hold together."
-subhead: "Most outbound runs across six disconnected tools. hubsell brings the data, the email and LinkedIn sequencing, and the CRM sync into one place, so your reps spend the day selling instead of stitching tools together."
+subhead: "Most outbound runs across six disconnected tools. hubsell is outbound sales software that brings the data, the email and LinkedIn sequencing, and the CRM sync into one place, so your reps spend the day selling instead of stitching tools together."
 widget: "UnifiedGrid"
 widgetBg: "sec--navy"
 widgetCaption: "Six tools become one platform. One login, one flow, one invoice."
@@ -32,7 +32,7 @@ The average revenue team runs about six tools to do outbound, and each one solve
 
 Every handoff between those tools is a place where time and data leak. Reps spend a large part of the day moving lists between apps, re-checking contacts, and copying notes into the CRM. The selling happens in whatever time is left.
 
-## How hubsell runs outbound
+## How the outbound sales software works
 
 Three moves, one platform, no exports in between.
 
@@ -44,4 +44,4 @@ Three moves, one platform, no exports in between.
 
 ## What changes for your team
 
-Reps stop switching tabs and stop cleaning data, so more of the day goes to conversations that move pipeline. The stack gets smaller too: most teams that move to hubsell drop two to three tool subscriptions within the first month, and the one thing hubsell does not replace, your CRM, it keeps in sync instead.
+Reps stop switching tabs and stop cleaning data, so more of the day goes to conversations that move pipeline. The stack gets smaller too: most teams that move to hubsell drop two to three tool subscriptions within the first month, and the one thing hubsell does not replace, your CRM, it keeps in sync instead. To see the whole [outbound sales platform](/) at work, start on the homepage.

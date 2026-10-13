@@ -72,11 +72,12 @@ export const platformNl: PlatformData = {
   details: [
     {
       path: '/platform/live-data',
-      title: 'Live verzamelde B2B-data, gevalideerd op het moment van gebruik | hubsell',
-      metaDescription: 'hubsell verzamelt B2B-contacten op het moment dat u erom vraagt, afgestemd op uw ICP en gevalideerd op het moment van gebruik. Zero-day sourcing in plaats van een vervallende database.',
+      title: 'B2B-dataleverancier met live, AVG-conforme data | hubsell',
+      metaDescription: 'hubsell is een B2B-dataleverancier die contacten live verzamelt, afgestemd op uw ICP en gevalideerd op het moment van gebruik. AVG-conforme B2B-data, gehost in Frankfurt.',
+      extra: {"title": "AVG-conforme B2B-data", "paras": ["hubsell is gevestigd in Berlijn, Duitsland, en werkt volgens de AVG. Het platform draait op servers van Amazon Web Services in Frankfurt.", "Elke klant kan de verwerkersovereenkomst van hubsell afsluiten. Daarin staat hoe persoonsgegevens worden verwerkt, welke subverwerkers ermee mogen werken en hoe verzoeken van betrokkenen worden beantwoord. Als het contract afloopt, worden de gegevens in uw account binnen 30 dagen verwijderd.", "Contacten worden verzameld voor uw zoekopdracht en niet doorverkocht uit een gedeelde lijst, dus elk record komt uit een zoekopdracht die u zelf hebt bepaald."], "links": [{"label": "Lees de verwerkersovereenkomst (Engels)", "href": "/data-processing-agreement"}, {"label": "Gids: B2B-datacompliance en cold outreach (Engels)", "href": "/insights/b2b-data-compliance"}]},
       eyebrow: 'Live data',
       h1Pre: 'B2B-data van ', h1Accent: 'vandaag', h1Post: ', niet van twee jaar geleden',
-      sub: 'hubsell verkoopt geen toegang tot een statische database. Definieer uw ICP en wij verzamelen contacten live uit LinkedIn, voegen koopsignalen toe en valideren elk record voordat het uw flow binnenkomt.',
+      sub: 'hubsell is een B2B-dataleverancier en verkoopt geen toegang tot een statische database. Definieer uw ICP en wij verzamelen contacten live uit LinkedIn, voegen koopsignalen toe en valideren elk record voordat het uw flow binnenkomt.',
       demoCta: 'Demo plannen',
       heroTimeline: true,
       row: {
@@ -90,7 +91,7 @@ export const platformNl: PlatformData = {
         stepEyebrow: 'Hoe het werkt',
         stepTitle: 'Van live signaal naar gevalideerd contact',
       },
-      gridTitlePre: 'Data die ', gridTitleAccent: 'correct is op de dag van gebruik', gridTitlePost: '',
+      gridTitlePre: 'B2B-contactgegevens die ', gridTitleAccent: 'correct is op de dag van gebruik', gridTitlePost: '',
       blocks: [
         {
           title: 'Zero-day sourcing',
@@ -126,14 +127,14 @@ export const platformNl: PlatformData = {
 
     {
       path: '/platform/multichannel-outreach',
-      title: 'Multichannel-outreach: e-mail, LinkedIn en telefoon in \u00e9\u00e9n flow | hubsell',
+      title: 'Multichannel-outreachplatform: e-mail, LinkedIn en telefoon | hubsell',
       metaDescription: 'Voer e-mail, LinkedIn en telefoon uit als \u00e9\u00e9n geco\u00f6rdineerde sequentie. Vertakkende flows, veilige verzendlimieten en outreach vanaf de profielen die kopers echt accepteren.',
       eyebrow: 'Multichannel-outreach',
-      h1Pre: '\u00c9\u00e9n flow over ', h1Accent: 'e-mail, LinkedIn en telefoon', h1Post: '',
+      h1Pre: 'Multichannel-outreach via ', h1Accent: 'e-mail, LinkedIn en telefoon', h1Post: '',
       sub: 'Stop met jongleren tussen een e-mailtool, een LinkedIn-tool en een takenlijst. hubsell draait alle drie de kanalen als \u00e9\u00e9n geco\u00f6rdineerde sequentie die reageert op wat elk contact doet.',
       demoCta: 'Demo plannen',
       row: {
-        titlePre: '\u00c9\u00e9n sequentie, ', titleAccent: 'elk kanaal', titlePost: '',
+        titlePre: 'Een multichannel-outreachplatform, ', titleAccent: 'geen drie tools', titlePost: '',
         points: [
           'Sleep e-mail-, LinkedIn- en telefoon-stappen met drag-and-drop in \u00e9\u00e9n enkele flow.',
           'Profielbezoeken, connectieverzoeken, DMs, InMail en beltaken, alles afgestemd op uw e-mailcadans.',
@@ -151,7 +152,7 @@ export const platformNl: PlatformData = {
         },
         {
           title: 'Veilig verzenden, verdeeld',
-          body: 'Outreach wordt verdeeld over 5 tot 10 interne verzendprofielen, binnen strikte platformlimieten. Minder volume per verzender, hogere deliverability, geen beschadigd domein.',
+          body: 'Outreach wordt verdeeld over 5 tot 10 interne verzendprofielen, binnen strikte platformlimieten. Minder volume per verzender, hogere deliverability, geen beschadigd domein. LinkedIn-automatisering draait met veilige daglimieten voor elk profiel.',
         },
         {
           title: 'Verzonden vanaf de juiste profielen',
@@ -181,8 +182,9 @@ export const platformNl: PlatformData = {
       path: '/platform/crm-sync',
       title: 'Automatische CRM-sync voor Salesforce, HubSpot en Pipedrive | hubsell',
       metaDescription: 'Elke verzending, opening, reactie en connectie wordt automatisch vastgelegd in Salesforce, HubSpot of Pipedrive. Geen handmatige invoer, geen dataverval, geen verloren activiteit.',
+      extra: {"title": "Integratie met Salesforce, HubSpot en Pipedrive", "paras": ["hubsell synchroniseert native en in beide richtingen met Salesforce, HubSpot en Pipedrive.", "LinkedIn-activiteit wordt in elk van deze CRM’s net zo vastgelegd als e-mail. Connectieverzoeken, profielbezoeken en reacties verschijnen op het contactrecord zodra ze gebeuren, naast e-mailgebeurtenissen en beltaken."], "links": [{"label": "Bekijk alle integraties", "href": "/integrations"}]},
       eyebrow: 'CRM-sync',
-      h1Pre: 'Uw CRM, altijd actueel. ', h1Accent: 'Vanzelf', h1Post: '.',
+      h1Pre: 'Automatische CRM-sync. ', h1Accent: 'Uw CRM, altijd actueel', h1Post: '.',
       sub: 'hubsell vervangt uw system of record niet, maar voedt het. Elk contactmoment via e-mail, LinkedIn en telefoon landt in uw CRM op het moment dat het gebeurt.',
       demoCta: 'Demo plannen',
       row: {
@@ -231,10 +233,10 @@ export const platformNl: PlatformData = {
     },
 {
       "path": "/platform/deliverability",
-      "title": "Deliverability: in de inbox landen, niet in de spammap | hubsell",
-      "metaDescription": "hubsell verstuurt vanuit uw eigen mailboxen via de Google- en Microsoft-APIs, valideert elk contact bij de bron en doseert het volume, zodat uw outreach de inbox bereikt.",
+      "title": "E-maildeliverability: in de inbox landen, niet in de spammap | hubsell",
+      "metaDescription": "E-maildeliverability met hubsell: verstuur vanuit uw eigen mailboxen via de Google- en Microsoft-API’s, valideer elk contact bij de bron en doseer het volume.",
       "eyebrow": "Deliverability",
-      "h1Pre": "Bereik de ",
+      "h1Pre": "E-maildeliverability: bereik de ",
       "h1Accent": "inbox",
       "h1Post": ", niet de spammap",
       "sub": "Goede targeting betekent niets als het bericht nooit aankomt. hubsell beschermt het hele pad naar de inbox: gevalideerde contacten, geauthenticeerd versturen vanuit uw eigen mailboxen en een volume dat is gedoseerd om uw reputatie intact te houden.",
@@ -358,10 +360,11 @@ export const platformNl: PlatformData = {
 },
 {
       "path": "/platform/enrichment",
-      "title": "Data enrichment: volledige, gevalideerde contactrecords | hubsell",
+      "title": "Verrijking van contactgegevens: volledig en gevalideerd | hubsell",
       "metaDescription": "hubsell verrijkt elk contact uit meerdere live bronnen en valideert het resultaat op het moment van gebruik, zodat u volledige, actuele records krijgt in plaats van halflege rijen.",
+      "extra": {"title": "Geverifieerde zakelijke e-mailadressen en directe nummers", "paras": ["Verrijking vult de twee velden waar outreach het meest van afhangt. Zakelijke e-mailadressen worden gevalideerd op het moment van gebruik, catch-all-domeinen inbegrepen, zodat u alleen verstuurt naar adressen die mail kunnen ontvangen.", "Telefoonnummers, waaronder directe nummers en mobiele nummers als een bron ze heeft, komen in hetzelfde record. Zo heeft elke beltaak een nummer."]},
       "eyebrow": "Enrichment",
-      "h1Pre": "Volledige records, ",
+      "h1Pre": "Verrijking van contactgegevens, ",
       "h1Accent": "vandaag gevalideerd",
       "h1Post": "",
       "sub": "Een halfgevulde contactrecord remt outreach. hubsell verrijkt elk contact uit meerdere live bronnen en valideert het resultaat op het moment dat u het gebruikt, zodat u werkt vanuit volledige, actuele data in plaats van gaten.",
