@@ -65,9 +65,9 @@
   --sec-esp:#192341;   --sec-esp-tx:#FEFEFE;   --sec-esp-bd:rgba(255,255,255,.16);  --sec-esp-card:#37415A;
 }
 
-/* Dark sections: orange text reads on navy, so accents switch to plain orange,
+/* Dark sections: accents use the same coral as the headings (one highlight colour),
    and the CTA flips to the style guide's dark-mode primary (white, navy text). */
-.sec--navy,.sec--esp{--accent-on:var(--hs-orange); --cta-bg:#FEFEFE; --cta-bg-hover:#D3D8E5; --cta-tx:#192341}
+.sec--navy,.sec--esp{--accent-on:var(--hs-logo-coral); --cta-bg:#FEFEFE; --cta-bg-hover:#D3D8E5; --cta-tx:#192341}
 
 /* ---- reset / base ---- */
 *{box-sizing:border-box}
@@ -201,7 +201,7 @@ html.has-anim .marquee__track{animation:marquee 32s linear infinite}
 .carousel__btn:hover{border-color:var(--accent-on)}
 .carousel__dots{display:flex;gap:7px;margin-left:auto}
 .carousel__dot{width:8px;height:8px;border-radius:50%;border:0;background:var(--sec-bd);cursor:pointer;padding:0}
-.carousel__dot.is-active{background:var(--hs-orange)}
+.carousel__dot.is-active{background:var(--accent-head)}
 .metric{font-family:var(--font-head);font-weight:600;font-size:1.75rem;line-height:1;color:var(--accent-on)}
 .metric-label{font-size:13px;line-height:1.4;color:var(--sec-tx);opacity:.7;margin-top:6px}
 
@@ -221,7 +221,7 @@ html.has-anim .marquee__track{animation:marquee 32s linear infinite}
 /* Scroll progress bar — pinned to the bottom edge of the viewport, fills left to
    right as the page scrolls. Shown on every page (lives in BaseLayout). */
 .scroll-progress{position:fixed;left:0;right:0;bottom:0;height:3px;z-index:60;pointer-events:none;background:transparent}
-.scroll-progress__fill{display:block;height:100%;width:100%;transform:scaleX(0);transform-origin:left center;background:var(--hs-orange)}
+.scroll-progress__fill{display:block;height:100%;width:100%;transform:scaleX(0);transform-origin:left center;background:var(--accent-head)}
 
 /* i18n: localized text for the "Soon" badges (Nav mega-menu items + the locale
    switcher). The badges are CSS ::after content, so the label is driven by a
