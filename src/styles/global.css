@@ -31,6 +31,7 @@
   --bg:var(--hs-tint); --text:#192341; --text-2:#555A73; --text-3:#6B7089;
   --border:#D3D8E5; --border-strong:#B9C0D3;
   --accent-on:var(--hs-brand-strong);      /* accent text, links, metrics on light */
+  --accent-head:var(--hs-logo-coral);      /* highlighted words in headings: 3.3:1 on white, large text only */
   --on-dark:#FEFEFE;
 
   /* ---- SECTION ROLE TOKENS (theme-aware) ---- */
@@ -66,7 +67,7 @@
 
 /* Dark sections: orange text reads on navy, so accents switch to plain orange,
    and the CTA flips to the style guide's dark-mode primary (white, navy text). */
-.sec--navy,.sec--esp{--accent-on:var(--hs-orange); --cta-bg:#FEFEFE; --cta-bg-hover:#D3D8E5; --cta-tx:#192341}
+.sec--navy,.sec--esp{--accent-on:var(--hs-orange); --accent-head:var(--hs-orange); --cta-bg:#FEFEFE; --cta-bg-hover:#D3D8E5; --cta-tx:#192341}
 
 /* ---- reset / base ---- */
 *{box-sizing:border-box}
@@ -116,6 +117,8 @@ a{color:inherit}
 .eyebrow{font-family:var(--font-body);font-weight:500;font-size:.8125rem;text-transform:uppercase;letter-spacing:.08em;color:var(--sec-tx);opacity:.6;margin:0}
 .quote{font-family:var(--font-body);font-weight:400;font-size:1.25rem;line-height:1.55;color:var(--sec-tx);margin:0}
 .accent{color:var(--accent-on)}
+/* Headings are large enough for the logo coral, which body text is not. */
+:where(h1,h2,.heading_primary,.heading_secondary) .accent{color:var(--accent-head)}
 .link{color:var(--accent-on);font-weight:500;text-decoration:none;border-bottom:1px solid transparent;transition:border-color .15s}
 .link:hover{border-bottom-color:var(--accent-on)}
 

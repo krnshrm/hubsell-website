@@ -88,10 +88,10 @@ export interface HomeStrings {
   };
   insightsSec: {
     newsTitle: string; newsSub: string; subscribeLabel: string; emailPlaceholder: string;
-    eyebrow: string; title: string; readMore: string; cardTag: string;
+    eyebrow: string; titlePre: string; titleAccent: string; titlePost: string; readMore: string; cardTag: string;
   };
   cmp: {
-    eyebrow: string; title: string; sub: string; moat: string; linksLabel: string;
+    eyebrow: string; titlePre: string; titleAccent: string; titlePost: string; sub: string; moat: string; linksLabel: string;
     srYes: string; srPart: string; srNo: string;
   };
   faqSec: { eyebrow: string; titlePre: string; titleAccent: string; titlePost: string; seeAll: string };
@@ -197,12 +197,12 @@ const stringsEn: HomeStrings = {
     newsTitle: 'What is working in outbound right now',
     newsSub: 'Playbooks, deliverability, and outbound strategy, straight to your inbox.',
     subscribeLabel: 'Subscribe', emailPlaceholder: 'Your email',
-    eyebrow: 'Insights', title: 'B2B outbound sales playbooks and insights',
+    eyebrow: 'Insights', titlePre: 'B2B outbound sales ', titleAccent: 'playbooks', titlePost: ' and insights',
     readMore: 'Read more insights →', cardTag: 'B2B sales',
   },
   cmp: {
     eyebrow: 'Why hubsell',
-    title: 'Most tools stop at the data. hubsell keeps going.',
+    titlePre: 'Most tools stop at the data. ', titleAccent: 'hubsell keeps going.', titlePost: '',
     sub: 'hubsell sources contacts live, runs email and LinkedIn in one flow, and syncs to your CRM automatically. The tools you’d otherwise buy each cover one piece of that. hubsell covers all of it.',
     moat: 'Plenty of tools do one or two of these. None do all three in one place.',
     linksLabel: 'Comparing hubsell to a specific tool?',

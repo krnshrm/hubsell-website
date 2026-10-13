@@ -22,17 +22,17 @@ const { s } = getHome(L);
 // Dutch is formal (u).
 const COPY = {
   en: {
-    h1a: 'Target fewer prospects.', h1b: 'Generate more pipeline.',
+    h1a: ['Generate ', 'more pipeline', ','], h1b: ['while targeting ', 'fewer prospects', '.'],
     sub: 'hubsell books the same meetings from 50 times fewer people. Start from a LinkedIn post, an event, a search or your own list. hubsell qualifies them, finds verified contact data and runs LinkedIn, email and call tasks in one flow that writes back to your CRM.',
     trial: 'Start free trial', demo: 'Book a demo', see: 'See demo below',
   },
   de: {
-    h1a: 'Weniger Kontakte ansprechen.', h1b: 'Mehr Pipeline erzeugen.',
+    h1a: ['', 'Mehr Pipeline', ' erzeugen,'], h1b: ['mit ', 'weniger Kontakten', '.'],
     sub: 'hubsell bucht dieselben Termine mit 50-mal weniger Kontakten. Startet mit einem LinkedIn-Beitrag, einem Event, einer Suche oder einer eigenen Liste. Qualifiziert die Kontakte, findet verifizierte Kontaktdaten und steuert LinkedIn, E-Mail und Anrufaufgaben in einem Flow, der alles ins CRM zurückschreibt.',
     trial: 'Kostenlos testen', demo: 'Demo buchen', see: 'Demo unten ansehen',
   },
   nl: {
-    h1a: 'Minder prospects benaderen.', h1b: 'Meer pipeline genereren.',
+    h1a: ['', 'Meer pipeline', ' genereren,'], h1b: ['met ', 'minder prospects', '.'],
     sub: 'hubsell boekt dezelfde afspraken met 50 keer minder prospects. Begin met een LinkedIn-post, een event, een zoekopdracht of uw eigen lijst. hubsell kwalificeert ze, vindt geverifieerde contactgegevens en voert LinkedIn, e-mail en beltaken uit in één flow die alles terugschrijft naar uw CRM.',
     trial: 'Gratis proberen', demo: 'Demo plannen', see: 'Bekijk de demo hieronder',
   },
@@ -43,7 +43,7 @@ const DOWN = '<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>';
 ---
 <section class="hs" aria-labelledby="hs-title">
   <div class="wrap hs__copy">
-    <h1 id="hs-title" class="hs__title">{T.h1a}{" "}<br />{T.h1b}</h1>
+    <h1 id="hs-title" class="hs__title">{T.h1a[0]}<span class="accent">{T.h1a[1]}</span>{T.h1a[2]}{" "}{T.h1b[0]}<span class="accent">{T.h1b[1]}</span>{T.h1b[2]}</h1>
     <div class="hs__side">
       <p class="hs__sub">{T.sub}</p>
       {/* The section class is "hs", which track.ts does not recognise as a
@@ -105,7 +105,7 @@ const DOWN = '<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>';
   }
   .hs__title{
     margin:0; font:400 clamp(40px,4.9vw,70px)/1.02 var(--font-head);
-    letter-spacing:-.035em; color:var(--ink);
+    letter-spacing:-.035em; color:var(--ink); text-wrap:balance;
   }
   /* Lexend's cap height sits lower in its line box than the body text's, so
      the side column drops a little to line its first line up with the H1. */
