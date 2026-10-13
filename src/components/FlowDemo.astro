@@ -581,7 +581,9 @@ const GRAPHS = [
 
   /* Wider than the text column so a CSV flow, with three tracks side by side,
      fits without scrolling on a laptop. */
-  .fd__bleed{ max-width:1360px; margin:36px auto 0; padding:0 24px }
+  /* The window is as wide as the navy panels at most (1240px, see the end of
+     global.css), so the page keeps one column width. */
+  .fd__bleed{ max-width:calc(1240px + 48px); margin:36px auto 0; padding:0 24px }
 
   /* The app's own tokens, from hubsell-styleguide (tokens/hubsell-tokens.css,
      copied into src/styles). They flip in dark mode, as the app does. */
