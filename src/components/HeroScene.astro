@@ -68,15 +68,16 @@ const DOWN = '<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>';
 </section>
 
 <style>
-  /* Background fades from the app's cool blue-grey into the page tint the
-     next section starts with. */
+  /* Same flat tint as the logos section below, and no clipping, so the demo
+     window's shadow falls softly onto the next section instead of being cut
+     off at the hero's edge. */
   .hs{
-    --sky1:var(--hs-tint); --sky2:#E7EAF2;
+    --sky1:var(--sec-paper);
     --ink:var(--hs-foreground); --ink-2:var(--hs-muted-foreground); --accent:var(--hs-brand-strong);
-    position:relative; overflow:hidden;
+    position:relative; z-index:1;
     padding-top:clamp(40px,6vw,76px);
     color:var(--ink);
-    background:linear-gradient(180deg, var(--sky1) 0, var(--sky2) 45%, var(--sec-paper) 100%);
+    background:var(--sec-paper);
   }
 
   /* ---- copy ---- */
