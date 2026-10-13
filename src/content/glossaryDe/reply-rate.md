@@ -12,7 +12,7 @@ updated: "Juli 2026"
 
 ## Warum es wichtig ist
 
-Die Antwortrate ist näher an dem, was wirklich zählt, einem Gespräch, als Öffnungen oder Klicks. Eine gesunde Antwortrate bedeutet, dass Targeting und Nachricht bei den richtigen Menschen ankommen. Weil sie echtes Engagement widerspiegelt, ist sie die Kennzahl, die es zu optimieren lohnt, wenn Sie Outreach testen und verfeinern. Sie belohnt Relevanz über Volumen.
+Die Antwortrate ist näher an dem, was wirklich zählt, einem Gespräch, als Öffnungen oder Klicks. Eine gesunde Antwortrate bedeutet, dass Targeting und Nachricht bei den richtigen Menschen ankommen. Weil sie echtes Engagement widerspiegelt, ist sie die Kennzahl, die es zu optimieren lohnt, wenn Outreach getestet und verfeinert wird. Sie belohnt Relevanz über Volumen.
 
 ## Wie es in der Praxis funktioniert
 
@@ -24,4 +24,4 @@ Ein häufiger Fehler ist, automatische Antworten als echte zu zählen, was die Z
 
 ## Wie hubsell es angeht
 
-hubsell verfolgt Antworten je Schritt über E-Mail und LinkedIn, sodass Sie sehen können, welche Nachrichten Gespräche starten, und an der Kennzahl verfeinern, die echtes Interesse widerspiegelt.
+hubsell verfolgt Antworten je Schritt über E-Mail und LinkedIn, sodass Teams sehen können, welche Nachrichten Gespräche starten, und an der Kennzahl verfeinern, die echtes Interesse widerspiegelt.

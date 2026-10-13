@@ -24,4 +24,4 @@ Ein häufiger Fehler ist, Intent-Signale als Gewissheit statt als Wahrscheinlich
 
 ## Wie hubsell es angeht
 
-hubsell kann die Recherche auf Accounts priorisieren, die zu Ihrem Profil passen und Anzeichen von Interesse zeigen, sodass Outreach landet, während der Account aufmerksam ist, statt nachdem der Moment vorbei ist.
+hubsell kann die Recherche auf Accounts priorisieren, die zum Profil passen und Anzeichen von Interesse zeigen, sodass Outreach landet, während der Account aufmerksam ist, statt nachdem der Moment vorbei ist.

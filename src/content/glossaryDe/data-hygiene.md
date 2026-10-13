@@ -24,4 +24,4 @@ Der größte Fehler ist, Hygiene als einmalige Bereinigung statt als laufende Ro
 
 ## Wie hubsell es angeht
 
-Weil hubsell Kontakte am Punkt der Nutzung verifiziert, wird viel Hygienearbeit gar nicht erst nötig: Die Daten, die in Ihren Workflow gelangen, sind bereits geprüft, sodass später weniger zu bereinigen ist.
+Weil hubsell Kontakte am Punkt der Nutzung verifiziert, wird viel Hygienearbeit gar nicht erst nötig: Die Daten, die in den Workflow gelangen, sind bereits geprüft, sodass später weniger zu bereinigen ist.

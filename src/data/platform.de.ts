@@ -1,36 +1,36 @@
 // German copy for the /platform pages. Mirrors platform-content.ts exactly in
-// structure; register is formal (Sie), brand stays lowercase "hubsell", technical
+// structure; register is third person with no direct address (since 2026-10-12), brand stays lowercase "hubsell", technical
 // terms (CRM, LinkedIn, ICP, InMail, DMs) stay English, German number formatting.
 import type { PlatformData } from './platform-content';
 
 export const platformDe: PlatformData = {
   overview: {
     title: 'Die hubsell-Plattform: Live-Daten, Multichannel-Outreach und CRM-Sync',
-    metaDescription: 'Eine Plattform, die B2B-Kontakte live recherchiert, E-Mail-, LinkedIn- und Telefon-Outreach in einem Ablauf betreibt und alles automatisch in Ihr CRM protokolliert.',
+    metaDescription: 'Eine Plattform, die B2B-Kontakte live recherchiert, E-Mail-, LinkedIn- und Telefon-Outreach in einem Ablauf betreibt und alles automatisch im CRM protokolliert.',
     eyebrow: 'Die Plattform',
     h1Pre: 'Die Arbeit von sechs Tools. ', h1Accent: 'Eine Plattform', h1Post: '.',
-    sub: 'hubsell ersetzt Ihre Tools f\u00fcr Daten, Enrichment, Sequencer, Deliverability, Dialer und CRM-Sync durch ein System: Live-Daten, Multichannel-Outreach und automatische CRM-Synchronisierung.',
+    sub: 'hubsell ersetzt die einzelnen Tools f\u00fcr Daten, Enrichment, Sequencer, Deliverability, Dialer und CRM-Sync durch ein System: Live-Daten, Multichannel-Outreach und automatische CRM-Synchronisierung.',
     demoCta: 'Demo buchen',
     problemEyebrow: 'Das Problem',
     problemTitlePre: 'Die meisten Outbound-Stacks sind drei Abos, ', problemTitleAccent: 'notd\u00fcrftig verklebt', problemTitlePost: '.',
     problemBody: [
       'Daten aus dem ersten Tool veralten bereits, w\u00e4hrend das zweite Tool sie verschickt, und das dritte Tool erf\u00e4hrt nie von der Antwort. Jede \u00dcbergabe zwischen Tools ist eine CSV-Datei, eine Verz\u00f6gerung und eine Stelle, an der Daten verrotten.',
-      'Sie zahlen drei Rechnungen, um L\u00fccken zwischen den Tools zu schaffen. hubsell schlie\u00dft diese L\u00fccken, indem es die drei Aufgaben an einem Ort erledigt, auf einem Datenbestand, in Echtzeit.',
+      'Das Team zahlt drei Rechnungen, um L\u00fccken zwischen den Tools zu schaffen. hubsell schlie\u00dft diese L\u00fccken, indem es die drei Aufgaben an einem Ort erledigt, auf einem Datenbestand, in Echtzeit.',
     ],
     capsEyebrow: 'Die drei F\u00e4higkeiten',
     capsTitle: 'Was die Plattform leistet',
     caps: [
       {
         eyebrow: 'Live-Daten',
-        title: 'Recherchiert an dem Tag, an dem Sie fragen',
-        body: 'hubsell verkauft keinen Zugang zu einer statischen Datenbank. Definieren Sie Ihr ICP und wir recherchieren Kontakte live aus LinkedIn, passend zu Ihren Kriterien und verifiziert am Punkt der Nutzung.',
+        title: 'Recherchiert am Tag der Anfrage',
+        body: 'hubsell verkauft keinen Zugang zu einer statischen Datenbank. Sobald das ICP definiert ist, recherchiert hubsell Kontakte live aus LinkedIn, passend zu den Kriterien und verifiziert am Punkt der Nutzung.',
         href: '/platform/live-data', linkLabel: 'Mehr zu Live-Daten',
         steps: ['Six live sources', 'Pooled into your ICP', 'Verified at the point of use'],
       },
       {
         eyebrow: 'Multichannel-Outreach',
         title: 'E-Mail, LinkedIn und Telefon in einem Flow',
-        body: 'Eine koordinierte Sequenz \u00fcber alle drei Kan\u00e4le, mit Verzweigungen, die auf das Verhalten jedes Kontakts reagieren, und Versand, der sicher \u00fcber die Profile Ihres Teams verteilt wird.',
+        body: 'Eine koordinierte Sequenz \u00fcber alle drei Kan\u00e4le, mit Verzweigungen, die auf das Verhalten jedes Kontakts reagieren, und Versand, der sicher \u00fcber die Profile des Teams verteilt wird.',
         href: '/platform/multichannel-outreach', linkLabel: 'Mehr zu Multichannel-Outreach',
         steps: ['One sequence, not three tools', 'Email, LinkedIn, and phone', 'Reacts to what they do'],
       },
@@ -43,15 +43,15 @@ export const platformDe: PlatformData = {
       },
     ],
     resultsEyebrow: 'Warum das funktioniert',
-    resultsTitle: 'Was Ihnen eine Plattform bringt',
+    resultsTitle: 'Was eine Plattform bringt',
     results: [
       {
         title: 'Effizienz',
-        body: 'Ein Login, eine Rechnung, keine CSV-Exporte zwischen Tools. Ihr Team f\u00fchrt den gesamten Outbound-Prozess an einem Ort aus, statt drei Produkte von Hand zusammenzuhalten.',
+        body: 'Ein Login, eine Rechnung, keine CSV-Exporte zwischen Tools. Das Team f\u00fchrt den gesamten Outbound-Prozess an einem Ort aus, statt drei Produkte von Hand zusammenzuhalten.',
       },
       {
         title: 'Ergebnisse',
-        body: 'Frische Daten verbessern die Zustellbarkeit. Koordinierte Kan\u00e4le erh\u00f6hen die Antwortquoten. Automatische Protokollierung h\u00e4lt Ihr Pipeline-Reporting ehrlich. Jeder Teil macht die anderen besser.',
+        body: 'Frische Daten verbessern die Zustellbarkeit. Koordinierte Kan\u00e4le erh\u00f6hen die Antwortquoten. Automatische Protokollierung h\u00e4lt das Pipeline-Reporting ehrlich. Jeder Teil macht die anderen besser.',
       },
     ],
     proofEyebrow: 'Beleg',
@@ -63,7 +63,7 @@ export const platformDe: PlatformData = {
     faqSlugs: ['hubsell-replace-outbound-stack', 'hubsell-crm-integration', 'stop-sales-email-bounces'],
     closing: {
       titlePre: 'Die ganze Plattform ', titleAccent: 'in einem Gespr\u00e4ch', titlePost: '.',
-      sub: 'Bringen Sie Ihren aktuellen Stack in ein kurzes Gespr\u00e4ch mit und wir zeigen Ihnen, wie er als ein System aussieht.',
+      sub: 'In einem kurzen Gespr\u00e4ch geht hubsell den aktuellen Stack durch und zeigt, wie er als ein System aussieht.',
     },
     closingCta: 'Demo buchen',
   },
@@ -72,18 +72,18 @@ export const platformDe: PlatformData = {
     {
       path: '/platform/live-data',
       title: 'Live recherchierte B2B-Daten, verifiziert am Punkt der Nutzung | hubsell',
-      metaDescription: 'hubsell recherchiert B2B-Kontakte in dem Moment, in dem Sie fragen, passend zu Ihrem ICP und verifiziert am Punkt der Nutzung. Zero-Day-Sourcing statt einer verfallenden Datenbank.',
+      metaDescription: 'hubsell recherchiert B2B-Kontakte im Moment der Anfrage, passend zum ICP und verifiziert am Punkt der Nutzung. Zero-Day-Sourcing statt einer verfallenden Datenbank.',
       eyebrow: 'Live-Daten',
       h1Pre: 'B2B-Daten von ', h1Accent: 'heute', h1Post: ', nicht von vor zwei Jahren',
-      sub: 'hubsell verkauft keinen Zugang zu einer statischen Datenbank. Definieren Sie Ihr ICP und wir recherchieren Kontakte live aus LinkedIn, erg\u00e4nzen Kaufsignale und verifizieren jeden Datensatz, bevor er in Ihren Flow gelangt.',
+      sub: 'hubsell verkauft keinen Zugang zu einer statischen Datenbank. hubsell recherchiert Kontakte passend zum ICP live aus LinkedIn, erg\u00e4nzt Kaufsignale und verifiziert jeden Datensatz, bevor er in den Flow gelangt.',
       demoCta: 'Demo buchen',
       heroTimeline: true,
       row: {
         titlePre: 'Recherchiert aus ', titleAccent: 'echten Kaufsignalen', titlePost: '',
         points: [
-          'Die meisten Plattformen lassen Sie nach Titel und Branche filtern. hubsell liest auch das Verhalten.',
+          'Bei den meisten Plattformen l\u00e4sst sich nach Titel und Branche filtern. hubsell liest auch das Verhalten.',
           'Personen, die einer Unternehmensseite folgen, mit einem LinkedIn-Post interagieren, den Job wechseln, Events besuchen oder f\u00fcr bestimmte Rollen einstellen.',
-          'Signale zeigen, wen Sie diese Woche kontaktieren sollten, nicht nur, wer zu einem Filter passt.',
+          'Signale zeigen, wen das Team diese Woche kontaktieren sollte, nicht nur, wer zu einem Filter passt.',
         ],
         embed: '05-sp-widget',
         stepEyebrow: 'So funktioniert es',
@@ -93,15 +93,15 @@ export const platformDe: PlatformData = {
       blocks: [
         {
           title: 'Zero-Day-Sourcing',
-          body: 'Eine ma\u00dfgeschneiderte Datenbank, erstellt im Moment Ihrer Anfrage, keine geteilte Liste von vor Jahren. Frisch von diesem Tag, mit 80 bis 90% Abdeckung Ihres Zielmarkts.',
+          body: 'Eine ma\u00dfgeschneiderte Datenbank, erstellt im Moment der Anfrage, keine geteilte Liste von vor Jahren. Frisch von diesem Tag, mit 80 bis 90% Abdeckung des Zielmarkts.',
         },
         {
-          title: 'Passend zu Ihrem ICP',
-          body: 'Definieren Sie Ihr ideales Kundenprofil einmal. Jeder Kontakt, der in Ihren Flow gelangt, wird daran gepr\u00fcft, bevor Sie einen einzigen Credit f\u00fcr Outreach ausgeben.',
+          title: 'Passend zum ICP',
+          body: 'Das ideale Kundenprofil wird einmal definiert. Jeder Kontakt, der in den Flow gelangt, wird daran gepr\u00fcft, bevor ein einziger Credit f\u00fcr Outreach ausgegeben wird.',
         },
         {
           title: 'Verifiziert am Punkt der Nutzung',
-          body: 'Jeder Datensatz wird im Moment der Recherche gepr\u00fcft, Catch-all-Domains inklusive. Bounces bleiben niedrig und Ihre Absenderreputation bleibt intakt.',
+          body: 'Jeder Datensatz wird im Moment der Recherche gepr\u00fcft, Catch-all-Domains inklusive. Bounces bleiben niedrig und die Absenderreputation bleibt intakt.',
         },
         {
           title: 'Gebaut gegen Datenverfall',
@@ -117,8 +117,8 @@ export const platformDe: PlatformData = {
       faqTitle: 'H\u00e4ufige Fragen zu Live-Daten',
       faqSlugs: ['stop-sales-email-bounces', 'build-b2b-audience-no-decay'],
       closing: {
-        titlePre: 'Sehen Sie Ihren Markt, recherchiert ', titleAccent: 'heute', titlePost: '.',
-        sub: 'Nennen Sie uns Ihr ICP in einem kurzen Gespr\u00e4ch und wir zeigen Ihnen, was Zero-Day-Sourcing daf\u00fcr liefert.',
+        titlePre: 'Den eigenen Markt sehen, recherchiert ', titleAccent: 'heute', titlePost: '.',
+        sub: 'In einem kurzen Gespr\u00e4ch zeigt hubsell anhand des ICP, was Zero-Day-Sourcing daf\u00fcr liefert.',
       },
       closingCta: 'Demo buchen',
     },
@@ -126,7 +126,7 @@ export const platformDe: PlatformData = {
     {
       path: '/platform/multichannel-outreach',
       title: 'Multichannel-Outreach: E-Mail, LinkedIn und Telefon in einem Flow | hubsell',
-      metaDescription: 'F\u00fchren Sie E-Mail, LinkedIn und Telefon als eine koordinierte Sequenz aus. Verzweigte Flows, sichere Versandlimits und Outreach von den Profilen, die K\u00e4ufer wirklich akzeptieren.',
+      metaDescription: 'hubsell f\u00fchrt E-Mail, LinkedIn und Telefon als eine koordinierte Sequenz aus. Verzweigte Flows, sichere Versandlimits und Outreach von den Profilen, die K\u00e4ufer wirklich akzeptieren.',
       eyebrow: 'Multichannel-Outreach',
       h1Pre: 'Ein Flow \u00fcber ', h1Accent: 'E-Mail, LinkedIn und Telefon', h1Post: '',
       sub: 'Schluss mit dem Jonglieren zwischen E-Mail-Tool, LinkedIn-Tool und Aufgabenliste. hubsell f\u00fchrt alle drei Kan\u00e4le als eine koordinierte Sequenz aus, die auf das Verhalten jedes Kontakts reagiert.',
@@ -134,8 +134,8 @@ export const platformDe: PlatformData = {
       row: {
         titlePre: 'Eine Sequenz, ', titleAccent: 'jeder Kanal', titlePost: '',
         points: [
-          'Ziehen Sie E-Mail-, LinkedIn- und Telefon-Schritte per Drag-and-drop in einen einzigen Flow.',
-          'Profilbesuche, Kontaktanfragen, DMs, InMail und Anrufaufgaben, alles abgestimmt auf Ihre E-Mail-Kadenz.',
+          'E-Mail-, LinkedIn- und Telefon-Schritte lassen sich per Drag-and-drop in einen einzigen Flow ziehen.',
+          'Profilbesuche, Kontaktanfragen, DMs, InMail und Anrufaufgaben, alles abgestimmt auf die E-Mail-Kadenz.',
           'Verzweigungsbedingungen leiten jeden Kontakt nach seinem Verhalten weiter: ge\u00f6ffnet, geantwortet, angenommen oder still geblieben.',
         ],
         embed: '06-multichannel-flow',
@@ -146,7 +146,7 @@ export const platformDe: PlatformData = {
       blocks: [
         {
           title: 'Zustellbarkeit von Grund auf',
-          body: 'E-Mails werden \u00fcber die Google- und Microsoft-APIs direkt aus Ihren eigenen Postf\u00e4chern versendet, ohne externe Server dazwischen. \u00d6ffnungsraten bleiben ehrlich und Spamfilter bleiben ruhig.',
+          body: 'E-Mails werden \u00fcber die Google- und Microsoft-APIs direkt aus den eigenen Postf\u00e4chern versendet, ohne externe Server dazwischen. \u00d6ffnungsraten bleiben ehrlich und Spamfilter bleiben ruhig.',
         },
         {
           title: 'Sicherer Versand, verteilt',
@@ -157,8 +157,8 @@ export const platformDe: PlatformData = {
           body: 'Kontaktanfragen von SDRs liegen unter 20% Annahmequote, weil K\u00e4ufer einen Pitch erwarten. Dieselbe Anfrage von einem Gr\u00fcnder oder Fachexperten liegt \u00fcber 50%. hubsell betreibt Outreach von den Profilen, die K\u00e4ufer akzeptieren.',
         },
         {
-          title: 'Anrufe dort, wo Ihr Team arbeitet',
-          body: 'Telefon-Schritte landen als Anrufaufgaben in Salesforce, HubSpot oder Pipedrive. Ihre Vertriebsmitarbeiter telefonieren aus dem CRM, das sie bereits nutzen, und das Ergebnis wird mit dem Rest der Sequenz protokolliert.',
+          title: 'Anrufe dort, wo das Team arbeitet',
+          body: 'Telefon-Schritte landen als Anrufaufgaben in Salesforce, HubSpot oder Pipedrive. Die Vertriebsmitarbeiter telefonieren aus dem CRM, das sie bereits nutzen, und das Ergebnis wird mit dem Rest der Sequenz protokolliert.',
         },
       ],
       proofEyebrow: 'Beleg',
@@ -171,7 +171,7 @@ export const platformDe: PlatformData = {
       faqSlugs: ['mass-email-brand-reputation', 'sdr-vs-executive-linkedin-outreach', 'hubsell-email-infrastructure'],
       closing: {
         titlePre: 'Alle drei Kan\u00e4le als ', titleAccent: 'ein Flow', titlePost: '.',
-        sub: 'Bringen Sie eine Ihrer aktuellen Kampagnen in ein kurzes Gespr\u00e4ch mit und wir \u00fcbersetzen sie in eine einzige hubsell-Sequenz.',
+        sub: 'In einem kurzen Gespr\u00e4ch \u00fcbersetzt hubsell eine aktuelle Kampagne in eine einzige hubsell-Sequenz.',
       },
       closingCta: 'Demo buchen',
     },
@@ -181,21 +181,21 @@ export const platformDe: PlatformData = {
       title: 'Automatischer CRM-Sync f\u00fcr Salesforce, HubSpot und Pipedrive | hubsell',
       metaDescription: 'Jedes Senden, \u00d6ffnen, Antworten und Vernetzen wird automatisch in Salesforce, HubSpot oder Pipedrive protokolliert. Keine manuelle Eingabe, kein Datenverfall, keine verlorene Aktivit\u00e4t.',
       eyebrow: 'CRM-Sync',
-      h1Pre: 'Ihr CRM, immer aktuell. ', h1Accent: 'Von selbst', h1Post: '.',
-      sub: 'hubsell ersetzt Ihr System of Record nicht, es versorgt es. Jeder Touchpoint \u00fcber E-Mail, LinkedIn und Telefon landet in Ihrem CRM, sobald er passiert.',
+      h1Pre: 'Das CRM, immer aktuell. ', h1Accent: 'Von selbst', h1Post: '.',
+      sub: 'hubsell ersetzt das bestehende System of Record nicht, es versorgt es. Jeder Touchpoint \u00fcber E-Mail, LinkedIn und Telefon landet im CRM, sobald er passiert.',
       demoCta: 'Demo buchen',
       row: {
         titlePre: 'Protokolliert, ', titleAccent: 'sobald es passiert', titlePost: '',
         points: [
           'Jeder Touchpoint, gesendet, ge\u00f6ffnet, beantwortet, vernetzt, wird automatisch in Salesforce, HubSpot oder Pipedrive protokolliert.',
           'Kontaktanfragen, Profilbesuche und Anrufergebnisse landen mit derselben Pr\u00e4zision wie E-Mail-Ereignisse.',
-          'Keine manuelle Eingabe. Kein Datenverfall. Ihr Team arbeitet an der Pipeline, nicht an der Tabelle.',
+          'Keine manuelle Eingabe. Kein Datenverfall. Das Team arbeitet an der Pipeline, nicht an der Tabelle.',
         ],
         embed: '07-crm-sync-tracker',
         stepEyebrow: 'So funktioniert es',
         stepTitle: 'Von der Aktivit\u00e4t zum synchronisierten Datensatz',
       },
-      gridTitlePre: 'Ein System of Record, dem Sie ', gridTitleAccent: 'endlich vertrauen k\u00f6nnen', gridTitlePost: '',
+      gridTitlePre: 'Ein System of Record, dem das Team ', gridTitleAccent: 'endlich vertrauen kann', gridTitlePost: '',
       blocks: [
         {
           title: 'Salesforce, HubSpot und Pipedrive',
@@ -203,7 +203,7 @@ export const platformDe: PlatformData = {
         },
         {
           title: 'Reporting bleibt ehrlich',
-          body: 'Wenn jede Aktivit\u00e4t im Moment des Geschehens protokolliert wird, zeigt Ihr Pipeline-Reporting die Realit\u00e4t, nicht das, was Vertriebsmitarbeiter noch eintippen wollten.',
+          body: 'Wenn jede Aktivit\u00e4t im Moment des Geschehens protokolliert wird, zeigt das Pipeline-Reporting die Realit\u00e4t, nicht das, was Vertriebsmitarbeiter noch eintippen wollten.',
         },
         {
           title: 'Jede Woche Stunden zur\u00fcck',
@@ -211,7 +211,7 @@ export const platformDe: PlatformData = {
         },
         {
           title: 'Anrufe als CRM-Aufgaben',
-          body: 'Telefon-Schritte erzeugen Aufgaben, die Ihre Vertriebsmitarbeiter im CRM erledigen. hubsell hat keinen eigenen Dialer und braucht auch keinen: Der Anruf passiert dort, wo der Datensatz liegt.',
+          body: 'Telefon-Schritte erzeugen Aufgaben, die Vertriebsmitarbeiter im CRM erledigen. hubsell hat keinen eigenen Dialer und braucht auch keinen: Der Anruf passiert dort, wo der Datensatz liegt.',
         },
       ],
       proofEyebrow: 'Beleg',
@@ -223,29 +223,29 @@ export const platformDe: PlatformData = {
       faqTitle: 'H\u00e4ufige Fragen zu CRM-Sync',
       faqSlugs: ['hubsell-crm-integration', 'hubsell-replace-outbound-stack'],
       closing: {
-        titlePre: 'Versorgen Sie Ihr CRM ', titleAccent: 'automatisch', titlePost: '.',
-        sub: 'Zeigen Sie uns Ihr CRM-Setup in einem kurzen Gespr\u00e4ch und wir gehen gemeinsam durch, was hubsell wo protokolliert.',
+        titlePre: 'Das CRM ', titleAccent: 'automatisch', titlePost: ' versorgen.',
+        sub: 'In einem kurzen Gespr\u00e4ch geht hubsell anhand des bestehenden CRM-Setups durch, was wo protokolliert wird.',
       },
       closingCta: 'Demo buchen',
     },
 {
       "path": "/platform/deliverability",
       "title": "Deliverability: im Posteingang landen, nicht im Spam-Ordner | hubsell",
-      "metaDescription": "hubsell sendet aus Ihren eigenen Postf\u00e4chern \u00fcber die Google- und Microsoft-APIs, verifiziert jeden Kontakt an der Quelle und taktet das Volumen, sodass Ihr Outreach den Posteingang erreicht.",
+      "metaDescription": "hubsell sendet aus den eigenen Postf\u00e4chern \u00fcber die Google- und Microsoft-APIs, verifiziert jeden Kontakt an der Quelle und taktet das Volumen, sodass der Outreach den Posteingang erreicht.",
       "eyebrow": "Deliverability",
       "h1Pre": "Den ",
       "h1Accent": "Posteingang",
       "h1Post": " erreichen, nicht den Spam-Ordner",
-      "sub": "Gutes Targeting bringt nichts, wenn die Nachricht nie ankommt. hubsell sch\u00fctzt den ganzen Weg zum Posteingang: verifizierte Kontakte, authentifiziertes Senden aus Ihren eigenen Postf\u00e4chern und ein Volumen, das getaktet ist, damit Ihre Reputation intakt bleibt.",
+      "sub": "Gutes Targeting bringt nichts, wenn die Nachricht nie ankommt. hubsell sch\u00fctzt den ganzen Weg zum Posteingang: verifizierte Kontakte, authentifiziertes Senden aus den eigenen Postf\u00e4chern und ein Volumen, das getaktet ist, damit die Reputation intakt bleibt.",
       "demoCta": "Demo buchen",
       "row": {
             "titlePre": "Gesendet, wie ",
             "titleAccent": "Posteing\u00e4nge es vertrauen",
             "titlePost": "",
             "points": [
-                  "E-Mails senden \u00fcber die Google- und Microsoft-APIs, direkt aus Ihren eigenen Postf\u00e4chern, ohne externen Relay im Weg.",
+                  "E-Mails senden \u00fcber die Google- und Microsoft-APIs, direkt aus den eigenen Postf\u00e4chern, ohne externen Relay im Weg.",
                   "Jeder Kontakt wird im Moment der Recherche verifiziert, catch-all-Domains markiert, sodass Bounces niedrig bleiben.",
-                  "Das Volumen verteilt sich innerhalb sicherer Limits auf Ihre Absenderprofile, sodass eine neue Domain nie in einen Filter geblasen wird."
+                  "Das Volumen verteilt sich innerhalb sicherer Limits auf die Absenderprofile, sodass eine neue Domain nie in einen Filter geblasen wird."
             ],
             "embed": "08-deliverability",
             "stepEyebrow": "So funktioniert es",
@@ -257,19 +257,19 @@ export const platformDe: PlatformData = {
       "blocks": [
             {
                   "title": "An der Quelle verifiziert",
-                  "body": "Jede Adresse wird am Punkt der Nutzung gepr\u00fcft, nicht aus einer vor Monaten erfassten Liste gezogen. Catch-all-Domains werden vor dem Senden markiert, sodass Sie Credits f\u00fcr Kontakte ausgeben, die Mail tats\u00e4chlich empfangen k\u00f6nnen."
+                  "body": "Jede Adresse wird am Punkt der Nutzung gepr\u00fcft, nicht aus einer vor Monaten erfassten Liste gezogen. Catch-all-Domains werden vor dem Senden markiert, sodass Credits f\u00fcr Kontakte ausgegeben werden, die Mail tats\u00e4chlich empfangen k\u00f6nnen."
             },
             {
-                  "title": "Aus Ihren Postf\u00e4chern gesendet",
-                  "body": "Outreach geht \u00fcber die Google- und Microsoft-APIs direkt aus Ihren eigenen Konten. Es gibt keinen Drittserver im Weg, dem Filter misstrauen k\u00f6nnten, sodass Ihr Senden aussieht wie das, was es ist: echte Mail von einer echten Person."
+                  "title": "Aus den eigenen Postf\u00e4chern gesendet",
+                  "body": "Outreach geht \u00fcber die Google- und Microsoft-APIs direkt aus den eigenen Konten. Es gibt keinen Drittserver im Weg, dem Filter misstrauen k\u00f6nnten, sodass das Senden aussieht wie das, was es ist: echte Mail von einer echten Person."
             },
             {
                   "title": "Authentifizierung richtig gemacht",
-                  "body": "SPF, DKIM und DMARC sind die Pr\u00fcfungen, mit denen Anbieter entscheiden, ob Mail wirklich von Ihnen stammt. hubsell leitet Sie an, alle drei korrekt zu setzen, sodass Ihre Domain besteht und Ihre Nachrichten vertraut werden."
+                  "body": "SPF, DKIM und DMARC sind die Pr\u00fcfungen, mit denen Anbieter entscheiden, ob Mail wirklich vom Absender stammt. hubsell leitet an, alle drei korrekt zu setzen, sodass die Domain besteht und den Nachrichten vertraut wird."
             },
             {
                   "title": "Getaktet, nicht geblasen",
-                  "body": "Das Volumen verteilt sich auf Absenderprofile und wird innerhalb sicherer Limits hochgefahren. Eine neue Domain w\u00e4rmt sich auf, statt zu spiken, sodass Sie Reputation aufbauen, statt sie beim ersten Senden zu verbrennen."
+                  "body": "Das Volumen verteilt sich auf Absenderprofile und wird innerhalb sicherer Limits hochgefahren. Eine neue Domain w\u00e4rmt sich auf, statt zu spiken, sodass Reputation entsteht, statt beim ersten Senden zu verbrennen."
             }
       ],
       "proofEyebrow": "Proof",
@@ -285,10 +285,10 @@ export const platformDe: PlatformData = {
             "hubsell-catch-all-domains"
       ],
       "closing": {
-            "titlePre": "Sehen Sie Ihre ",
+            "titlePre": "Die ",
             "titleAccent": "Inbox-Platzierung",
-            "titlePost": ", nicht nur Ihre \u00d6ffnungsrate.",
-            "sub": "Bringen Sie Ihr aktuelles Sende-Setup in ein kurzes Gespr\u00e4ch, und wir zeigen Ihnen, wo Ihre Mail tats\u00e4chlich landet und warum."
+            "titlePost": " sehen, nicht nur die \u00d6ffnungsrate.",
+            "sub": "In einem kurzen Gespr\u00e4ch zeigt hubsell anhand des aktuellen Sende-Setups, wo die Mail tats\u00e4chlich landet und warum."
       },
       "closingCta": "Demo buchen"
 },
@@ -300,23 +300,23 @@ export const platformDe: PlatformData = {
       "h1Pre": "Relevant f\u00fcr ",
       "h1Accent": "jeden Kontakt",
       "h1Post": ", bei jedem Volumen",
-      "sub": "Generische Mail wird ignoriert. hubsell baut jede Nachricht aus Live-Signalen und verifizierten Daten \u00fcber die Person und den Account, sodass Outreach sich liest, als w\u00e4re er f\u00fcr sie geschrieben, selbst wenn Sie ihn an Tausende senden.",
+      "sub": "Generische Mail wird ignoriert. hubsell baut jede Nachricht aus Live-Signalen und verifizierten Daten \u00fcber die Person und den Account, sodass Outreach sich liest, als w\u00e4re er f\u00fcr sie geschrieben, selbst wenn er an Tausende geht.",
       "demoCta": "Demo buchen",
       "row": {
             "titlePre": "Geschrieben f\u00fcr die ",
             "titleAccent": "Person und den Moment",
             "titlePost": "",
             "points": [
-                  "F\u00fcgen Sie echte Details \u00fcber die Person, das Unternehmen und das, was sie gerade tun, ein, nicht nur einen Vornamen.",
+                  "Nachrichten enthalten echte Details \u00fcber die Person, das Unternehmen und das, was sie gerade tun, nicht nur einen Vornamen.",
                   "Live-Signale wie ein Jobwechsel, ein Hiring-Schub oder Event-Aktivit\u00e4t geben jeder Nachricht einen Grund zu existieren.",
-                  "Derselbe Flow personalisiert einen Kontakt oder zehntausend, sodass Relevanz Sie keine Reichweite kostet."
+                  "Derselbe Flow personalisiert einen Kontakt oder zehntausend, sodass Relevanz keine Reichweite kostet."
             ],
             "embed": "09-personalization",
             "stepEyebrow": "So funktioniert es",
             "stepTitle": "Vom Live-Signal zur passenden Nachricht"
       },
       "gridTitlePre": "Relevanz, die ",
-      "gridTitleAccent": "mit Ihnen skaliert",
+      "gridTitleAccent": "mit dem Volumen skaliert",
       "gridTitlePost": "",
       "blocks": [
             {
@@ -329,11 +329,11 @@ export const platformDe: PlatformData = {
             },
             {
                   "title": "Konsistent bei Volumen",
-                  "body": "Von Hand zu personalisieren skaliert nicht, und Serienbrieffelder wirken hohl. hubsell h\u00e4lt jede Nachricht relevant, ob Sie zehn oder zehntausend senden, sodass Reichweite und Relevanz nicht mehr gegeneinander ziehen."
+                  "body": "Von Hand zu personalisieren skaliert nicht, und Serienbrieffelder wirken hohl. hubsell h\u00e4lt jede Nachricht relevant, ob zehn oder zehntausend gesendet werden, sodass Reichweite und Relevanz nicht mehr gegeneinander ziehen."
             },
             {
                   "title": "Korrekte Daten darunter",
-                  "body": "Personalisierung ist nur so gut wie die Daten dahinter. Weil jeder Kontakt an der Quelle verifiziert ist, stimmen die Details, auf die Sie verweisen, sodass eine personalisierte Zeile nie als Falsches-Unternehmen-Fehler landet."
+                  "body": "Personalisierung ist nur so gut wie die Daten dahinter. Weil jeder Kontakt an der Quelle verifiziert ist, stimmen die Details, auf die eine Nachricht verweist, sodass eine personalisierte Zeile nie als Falsches-Unternehmen-Fehler landet."
             }
       ],
       "proofEyebrow": "Proof",
@@ -348,22 +348,22 @@ export const platformDe: PlatformData = {
             "hubsell-conversion-rates"
       ],
       "closing": {
-            "titlePre": "Sehen Sie Outreach, der sich ",
+            "titlePre": "Outreach, der sich ",
             "titleAccent": "pers\u00f6nlich liest",
             "titlePost": ", im gro\u00dfen Ma\u00dfstab.",
-            "sub": "Zeigen Sie uns Ihre Zielgruppe in einem kurzen Gespr\u00e4ch, und wir entwerfen, wie personalisierter Outreach im gro\u00dfen Ma\u00dfstab daf\u00fcr aussieht."
+            "sub": "In einem kurzen Gespr\u00e4ch entwirft hubsell anhand der Zielgruppe, wie personalisierter Outreach im gro\u00dfen Ma\u00dfstab daf\u00fcr aussieht."
       },
       "closingCta": "Demo buchen"
 },
 {
       "path": "/platform/enrichment",
       "title": "Data Enrichment: vollst\u00e4ndige, verifizierte Kontaktdatens\u00e4tze | hubsell",
-      "metaDescription": "hubsell reichert jeden Kontakt aus mehreren Live-Quellen an und verifiziert das Ergebnis am Punkt der Nutzung, sodass Sie vollst\u00e4ndige, aktuelle Datens\u00e4tze erhalten statt halbleerer Zeilen.",
+      "metaDescription": "hubsell reichert jeden Kontakt aus mehreren Live-Quellen an und verifiziert das Ergebnis am Punkt der Nutzung, sodass vollst\u00e4ndige, aktuelle Datens\u00e4tze entstehen statt halbleerer Zeilen.",
       "eyebrow": "Enrichment",
       "h1Pre": "Vollst\u00e4ndige Datens\u00e4tze, ",
       "h1Accent": "heute verifiziert",
       "h1Post": "",
-      "sub": "Ein halb gef\u00fcllter Kontaktdatensatz bremst Outreach. hubsell reichert jeden Kontakt aus mehreren Live-Quellen an und verifiziert das Ergebnis in dem Moment, in dem Sie es nutzen, sodass Sie aus vollst\u00e4ndigen, aktuellen Daten arbeiten statt aus L\u00fccken.",
+      "sub": "Ein halb gef\u00fcllter Kontaktdatensatz bremst Outreach. hubsell reichert jeden Kontakt aus mehreren Live-Quellen an und verifiziert das Ergebnis im Moment der Nutzung, sodass das Team aus vollst\u00e4ndigen, aktuellen Daten arbeitet statt aus L\u00fccken.",
       "demoCta": "Demo buchen",
       "row": {
             "titlePre": "Gef\u00fcllt aus ",
@@ -372,7 +372,7 @@ export const platformDe: PlatformData = {
             "points": [
                   "Jeder Datensatz wird gebaut, indem der Reihe nach mehrere Quellen genutzt werden, sodass eine L\u00fccke in der einen von einer anderen gef\u00fcllt wird.",
                   "Gesch\u00e4ftliche E-Mail, Telefon, Rolle und Unternehmensdetails kommen zu einem vollst\u00e4ndigen Kontakt zusammen, nicht zu einem Streu halber Zeilen.",
-                  "Der fertige Datensatz wird am Punkt der Nutzung verifiziert, sodass das, wohin Sie senden, am Tag der Nutzung korrekt ist."
+                  "Der fertige Datensatz wird am Punkt der Nutzung verifiziert, sodass jede Zieladresse am Tag der Nutzung korrekt ist."
             ],
             "embed": "10-enrichment",
             "stepEyebrow": "So funktioniert es",
@@ -388,15 +388,15 @@ export const platformDe: PlatformData = {
             },
             {
                   "title": "Am Punkt der Nutzung verifiziert",
-                  "body": "Enrichment ohne Verifizierung f\u00fcllt Felder nur mit veralteten Vermutungen. hubsell pr\u00fcft den fertigen Datensatz in dem Moment, in dem Sie ihn nutzen, catch-all-Domains inklusive, sodass ein vollst\u00e4ndiger Datensatz auch ein korrekter ist."
+                  "body": "Enrichment ohne Verifizierung f\u00fcllt Felder nur mit veralteten Vermutungen. hubsell pr\u00fcft den fertigen Datensatz im Moment der Nutzung, catch-all-Domains inklusive, sodass ein vollst\u00e4ndiger Datensatz auch ein korrekter ist."
             },
             {
                   "title": "Keine verfallende Datenbank",
-                  "body": "Eine statische angereicherte Liste beginnt am Tag ihrer Erstellung zu verrotten. hubsell reichert live an, an dem Tag, an dem Sie fragen, sodass Sie nicht daf\u00fcr zahlen, Datens\u00e4tze aufzuf\u00fcllen, die vor Jahren erfasst wurden und seither abgedriftet sind."
+                  "body": "Eine statische angereicherte Liste beginnt am Tag ihrer Erstellung zu verrotten. hubsell reichert live an, am Tag der Anfrage, sodass niemand daf\u00fcr zahlt, Datens\u00e4tze aufzuf\u00fcllen, die vor Jahren erfasst wurden und seither abgedriftet sind."
             },
             {
                   "title": "Bereit f\u00fcr Outreach",
-                  "body": "Ein vollst\u00e4ndiger, verifizierter Datensatz flie\u00dft direkt in Ihre Sequenzen und Ihr CRM. Es gibt keinen Export, keinen Bereinigungsdurchlauf, kein zweites Tool, sodass die Daten, die Sie anreichern, die Daten sind, an die Sie senden."
+                  "body": "Ein vollst\u00e4ndiger, verifizierter Datensatz flie\u00dft direkt in die Sequenzen und das CRM. Es gibt keinen Export, keinen Bereinigungsdurchlauf, kein zweites Tool, sodass die angereicherten Daten genau die Daten sind, an die gesendet wird."
             }
       ],
       "proofEyebrow": "Proof",
@@ -411,10 +411,10 @@ export const platformDe: PlatformData = {
             "third-party-intent-data-accuracy"
       ],
       "closing": {
-            "titlePre": "Sehen Sie Ihre Liste ",
+            "titlePre": "Die eigene Liste ",
             "titleAccent": "gef\u00fcllt und verifiziert",
-            "titlePost": ".",
-            "sub": "Senden Sie uns in einem kurzen Gespr\u00e4ch eine Stichprobe Ihrer Daten, und wir zeigen Ihnen, was Live-Enrichment daf\u00fcr zur\u00fcckgibt."
+            "titlePost": " sehen.",
+            "sub": "In einem kurzen Gespr\u00e4ch zeigt hubsell anhand einer Datenstichprobe, was Live-Enrichment daf\u00fcr zur\u00fcckgibt."
       },
       "closingCta": "Demo buchen"
 }

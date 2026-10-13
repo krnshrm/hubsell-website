@@ -12,11 +12,11 @@ updated: "Juli 2026"
 
 ## Warum es wichtig ist
 
-Berechtigtes Interesse ist die Grundlage, auf die sich der meiste B2B-Outbound stützt, da es nicht praktikabel ist, jeden Interessenten vor einer ersten Nachricht um Einwilligung zu bitten. Richtig genutzt lässt es Sie relevante Geschäftskontakte rechtmäßig erreichen. Nachlässig genutzt wird es zu einem Etikett auf Daten, die Sie nicht halten sollten, also zählt es zu verstehen, was es tatsächlich verlangt.
+Berechtigtes Interesse ist die Grundlage, auf die sich der meiste B2B-Outbound stützt, da es nicht praktikabel ist, jeden Interessenten vor einer ersten Nachricht um Einwilligung zu bitten. Richtig genutzt lassen sich damit relevante Geschäftskontakte rechtmäßig erreichen. Nachlässig genutzt wird es zu einem Etikett auf Daten, die nicht gehalten werden sollten, also zählt es zu verstehen, was es tatsächlich verlangt.
 
 ## Wie es in der Praxis funktioniert
 
-Sich auf berechtigtes Interesse zu stützen bedeutet in der Regel eine Abwägung: Ihr Interesse, den Kontakt zu erreichen, gegen dessen berechtigte Erwartungen und Rechte. Eine relevante Person in ihrer beruflichen Rolle zu etwas für ihre Arbeit Nützlichem zu erreichen, sitzt bequemer als ungezielter Massenversand. Sie sollen die Begründung dokumentieren, Daten relevant halten und Widersprüche und Abmeldungen zügig beachten.
+Sich auf berechtigtes Interesse zu stützen bedeutet in der Regel eine Abwägung: das eigene Interesse, den Kontakt zu erreichen, gegen dessen berechtigte Erwartungen und Rechte. Eine relevante Person in ihrer beruflichen Rolle zu etwas für ihre Arbeit Nützlichem zu erreichen, sitzt bequemer als ungezielter Massenversand. Erwartet wird, die Begründung zu dokumentieren, Daten relevant zu halten und Widersprüche und Abmeldungen zügig zu beachten.
 
 ## Häufige Fehler
 
@@ -24,4 +24,4 @@ Ein häufiger Fehler ist, berechtigtes Interesse als Freibrief statt als Grundla
 
 ## Wie hubsell es angeht
 
-hubsell unterstützt Outreach an relevante Geschäftskontakte und macht die Behandlung von Abmeldungen unkompliziert, sodass ein Ansatz über berechtigtes Interesse belastbar bleibt. Die Abwägung für Ihren Fall führen Sie selbst durch, und dies ist keine Rechtsberatung.
+hubsell unterstützt Outreach an relevante Geschäftskontakte und macht die Behandlung von Abmeldungen unkompliziert, sodass ein Ansatz über berechtigtes Interesse belastbar bleibt. Die Abwägung für den eigenen Fall führt jedes Unternehmen selbst durch, und dies ist keine Rechtsberatung.

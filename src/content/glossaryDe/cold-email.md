@@ -12,7 +12,7 @@ updated: "Juli 2026"
 
 ## Warum es wichtig ist
 
-Cold E-Mail ist das Rückgrat der meisten Outbound-Programme, weil sie skaliert und messbar ist. Gut gemacht öffnet sie Gespräche mit Accounts, die zu Ihrem Profil passen und Sie nie gefunden hätten. Schlecht gemacht bounct sie, verärgert Menschen und verbrennt die Sende-Domain. Der Unterschied liegt in Datenqualität und Relevanz.
+Cold E-Mail ist das Rückgrat der meisten Outbound-Programme, weil sie skaliert und messbar ist. Gut gemacht öffnet sie Gespräche mit Accounts, die zum Profil passen und von selbst nie auf das Unternehmen gestoßen wären. Schlecht gemacht bounct sie, verärgert Menschen und verbrennt die Sende-Domain. Der Unterschied liegt in Datenqualität und Relevanz.
 
 ## Wie es in der Praxis funktioniert
 

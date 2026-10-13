@@ -12,7 +12,7 @@ updated: "Juli 2026"
 
 ## Warum es wichtig ist
 
-Data Decay ist der Grund, warum eine gekaufte Liste aufhört zu funktionieren. Branchenschätzungen setzen B2B-Data-Decay bei etwa 2 bis 3% pro Monat an, was bedeutet, dass eine Liste innerhalb eines Jahres zu einem Viertel falsch sein kann. Jeder verfallene Datensatz ist eine vergeudete Sendung, ein Bounce, der Ihrer Reputation schadet, oder ein Anruf bei jemandem, der das Unternehmen verlassen hat. Decay macht aus einer guten Liste eine Belastung, ohne dass jemand sie anfasst.
+Data Decay ist der Grund, warum eine gekaufte Liste aufhört zu funktionieren. Branchenschätzungen setzen B2B-Data-Decay bei etwa 2 bis 3% pro Monat an, was bedeutet, dass eine Liste innerhalb eines Jahres zu einem Viertel falsch sein kann. Jeder verfallene Datensatz ist eine vergeudete Sendung, ein Bounce, der die Reputation beschädigt, oder ein Anruf bei jemandem, der das Unternehmen verlassen hat. Decay macht aus einer guten Liste eine Belastung, ohne dass jemand sie anfasst.
 
 ## Wie es in der Praxis funktioniert
 
@@ -24,4 +24,4 @@ Der Kernfehler ist, eine große statische Liste zu kaufen und sie monatelang zu 
 
 ## Wie hubsell es angeht
 
-hubsell umgeht Decay, indem es überhaupt keine statische Liste hält. Kontakte werden an dem Tag recherchiert, an dem Sie sie brauchen, und in diesem Moment verifiziert, sodass Sie stets mit Daten arbeiten, die den heutigen Stand abbilden, nicht eine Momentaufnahme aus der Vergangenheit.
+hubsell umgeht Decay, indem es überhaupt keine statische Liste hält. Kontakte werden an dem Tag recherchiert, an dem sie gebraucht werden, und in diesem Moment verifiziert, sodass das Team stets mit Daten arbeitet, die den heutigen Stand abbilden, nicht eine Momentaufnahme aus der Vergangenheit.

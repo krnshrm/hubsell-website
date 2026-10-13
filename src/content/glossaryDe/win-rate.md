@@ -12,7 +12,7 @@ updated: "Juli 2026"
 
 ## Warum es wichtig ist
 
-Die Win Rate zeigt, wie gut das Team echte Chancen in Kunden verwandelt. Sie fließt direkt ins Forecasting, denn Ihre Win Rate zu kennen macht aus einem Haufen Pipeline eine erwartete Zahl. Eine steigende Win Rate bedeutet, dass Qualifizierung und Verkaufen besser werden; eine fallende signalisiert ein Problem bei Passung, Prozess oder der Qualität dessen, was in die Pipeline eintritt.
+Die Win Rate zeigt, wie gut das Team echte Chancen in Kunden verwandelt. Sie fließt direkt ins Forecasting, denn die eigene Win Rate zu kennen macht aus einem Haufen Pipeline eine erwartete Zahl. Eine steigende Win Rate bedeutet, dass Qualifizierung und Verkaufen besser werden; eine fallende signalisiert ein Problem bei Passung, Prozess oder der Qualität dessen, was in die Pipeline eintritt.
 
 ## Wie es in der Praxis funktioniert
 

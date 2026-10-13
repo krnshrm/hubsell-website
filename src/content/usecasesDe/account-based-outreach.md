@@ -3,11 +3,11 @@ title: "Account-basierter Outreach, der das gesamte Buying-Committee erreicht"
 label: "Account-basierter Outreach"
 eyebrow: "Anwendungsfall"
 metaTitle: "Software für account-basierten Outreach"
-description: "Umgeben Sie Ziel-Accounts, nicht nur einzelne Leads. Erreichen Sie jeden Stakeholder im Buying-Committee über E-Mail und LinkedIn, abgestimmt auf echte Kaufsignale."
-subhead: "B2B-Deals werden von einem Gremium entschieden, nicht von einem einzelnen Kontakt. Mit hubsell erreichen Sie jeden Stakeholder in einem Ziel-Account über E-Mail und LinkedIn aus einer Kampagne heraus, abgestimmt auf die Signale, die zeigen, dass ein Account im Markt ist."
+description: "Ganze Ziel-Accounts abdecken, nicht nur einzelne Leads. hubsell erreicht jeden Stakeholder im Buying-Committee über E-Mail und LinkedIn, abgestimmt auf echte Kaufsignale."
+subhead: "B2B-Deals werden von einem Gremium entschieden, nicht von einem einzelnen Kontakt. Mit hubsell erreicht das Team jeden Stakeholder in einem Ziel-Account über E-Mail und LinkedIn aus einer Kampagne heraus, abgestimmt auf die Signale, die zeigen, dass ein Account im Markt ist."
 widget: "SocialProspecting"
 widgetBg: "sec--esp"
-widgetCaption: "Erreichen Sie jeden Stakeholder im Account, nicht nur einen Lead."
+widgetCaption: "Jeden Stakeholder im Account erreichen, nicht nur einen Lead."
 proofStory: "staffbase"
 quotes:
   - "spryker"
@@ -29,7 +29,7 @@ order: 4
 
 ## Ein Lead ist kein Account
 
-Ein durchschnittlicher B2B-Kauf läuft heute über mehrere Stakeholder, doch die meisten Outbound-Prozesse zielen weiterhin auf einen Kontakt und hoffen, dass er den Deal intern trägt. Das tut er selten. Der Fürsprecher wird still, ein Entscheider, den Sie nie erreicht haben, sagt Nein, und der Deal stockt aus Gründen, die Sie nicht sehen.
+Ein durchschnittlicher B2B-Kauf läuft heute über mehrere Stakeholder, doch die meisten Outbound-Prozesse zielen weiterhin auf einen Kontakt und hoffen, dass er den Deal intern trägt. Das tut er selten. Der Fürsprecher wird still, ein Entscheider, den niemand je erreicht hat, sagt Nein, und der Deal stockt aus Gründen, die von außen nicht sichtbar sind.
 
 Account-basierter Outreach behandelt den Account als Einheit, nicht den Lead. Das Ziel ist, dem gesamten Buying-Committee ein vertrauter Name zu sein, sobald sich das Kauffenster öffnet.
 
@@ -37,11 +37,11 @@ Account-basierter Outreach behandelt den Account als Einheit, nicht den Lead. Da
 
 Das ist vertriebsgeführte account-basierte Arbeit: echter Outreach an echte Menschen, keine Display-Anzeigen.
 
-**Das gesamte Gremium erreichen.** Sprechen Sie jeden relevanten Stakeholder in einem Account nach Persona, Rolle und Senioritätsstufe an und führen Sie dann koordinierte Botschaften über E-Mail und LinkedIn zusammen, damit das gesamte Gremium eine stimmige Geschichte hört und nicht sechs unverbundene Pitches.
+**Das gesamte Gremium erreichen.** hubsell spricht jeden relevanten Stakeholder in einem Account nach Persona, Rolle und Senioritätsstufe an und führt dann koordinierte Botschaften über E-Mail und LinkedIn zusammen, damit das gesamte Gremium eine stimmige Geschichte hört und nicht sechs unverbundene Pitches.
 
-**Auf Signale abstimmen.** Legen Sie Kaufsignale über Ihre Account-Liste: Menschen, die den Job wechseln, mit Ihren Inhalten interagieren, Ihrem Unternehmen folgen oder Events besuchen. Sie erreichen Accounts dann, wenn etwas darauf hindeutet, dass sie es wert sind, statt nach einem starren Zeitplan.
+**Auf Signale abstimmen.** hubsell legt Kaufsignale über die Account-Liste: Menschen, die den Job wechseln, mit den eigenen Inhalten interagieren, dem eigenen Unternehmen folgen oder Events besuchen. So werden Accounts dann erreicht, wenn etwas darauf hindeutet, dass sie es wert sind, statt nach einem starren Zeitplan.
 
-**Auf Account-Ebene sehen.** Das Engagement wird je Account zusammengefasst, sodass Sie erkennen, welche Accounts wärmer werden und wo das Gremium reagiert, statt Kontakt für Kontakt zu lesen.
+**Auf Account-Ebene sehen.** Das Engagement wird je Account zusammengefasst, sodass erkennbar ist, welche Accounts wärmer werden und wo das Gremium reagiert, statt Kontakt für Kontakt zu lesen.
 
 ## Wo es hineinpasst
 

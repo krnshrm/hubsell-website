@@ -1,7 +1,7 @@
 ---
 term: "E-Mail-Deliverability"
 category: "Deliverability"
-definition: "E-Mail-Deliverability ist die Fähigkeit Ihrer Nachrichten, den Posteingang des Empfängers zu erreichen, statt blockiert oder in den Spam geschickt zu werden."
+definition: "E-Mail-Deliverability ist die Fähigkeit von Nachrichten, den Posteingang des Empfängers zu erreichen, statt blockiert oder in den Spam geschickt zu werden."
 related:
   - sender-reputation
   - catch-all-domain
@@ -12,11 +12,11 @@ updated: "Juli 2026"
 
 ## Warum es wichtig ist
 
-Eine E-Mail, die den Posteingang nicht erreicht, kann nicht gelesen, beantwortet oder konvertiert werden, so gut sie auch ist. Deliverability entscheidet, wie viel Ihres Outreach überhaupt gesehen wird. Schlechte Deliverability vergeudet den gesamten Aufwand davor, und sobald die Reputation einer Domain fällt, ist die Erholung langsam. Für jedes Team, das in Menge sendet, ist Deliverability ein zentrales Gut, das es zu schützen gilt.
+Eine E-Mail, die den Posteingang nicht erreicht, kann nicht gelesen, beantwortet oder konvertiert werden, so gut sie auch ist. Deliverability entscheidet, wie viel des Outreach überhaupt gesehen wird. Schlechte Deliverability vergeudet den gesamten Aufwand davor, und sobald die Reputation einer Domain fällt, ist die Erholung langsam. Für jedes Team, das in Menge sendet, ist Deliverability ein zentrales Gut, das es zu schützen gilt.
 
 ## Wie es in der Praxis funktioniert
 
-Deliverability hängt von Authentifizierung, Reputation und Verhalten ab. Authentifizierungs-Records, SPF, DKIM und DMARC, belegen, dass die Mail wirklich von Ihnen stammt. Die Sender-Reputation spiegelt Ihre Historie aus Bounces, Spam-Beschwerden und Engagement. Das Sendeverhalten, inklusive Menge, Ramp-up und Listenqualität, sagt Anbietern, ob sie Ihnen vertrauen. Eine Domain aufzuwärmen, Bounce-Rates niedrig zu halten und relevante Mail zu senden, unterstützt alle die Inbox-Platzierung.
+Deliverability hängt von Authentifizierung, Reputation und Verhalten ab. Authentifizierungs-Records, SPF, DKIM und DMARC, belegen, dass die Mail wirklich vom Absender stammt. Die Sender-Reputation spiegelt die Historie aus Bounces, Spam-Beschwerden und Engagement. Das Sendeverhalten, inklusive Menge, Ramp-up und Listenqualität, sagt Anbietern, ob sie dem Absender vertrauen. Eine Domain aufzuwärmen, Bounce-Rates niedrig zu halten und relevante Mail zu senden, unterstützt alle die Inbox-Platzierung.
 
 ## Häufige Fehler
 

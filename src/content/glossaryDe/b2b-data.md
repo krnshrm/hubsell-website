@@ -12,7 +12,7 @@ updated: "Juli 2026"
 
 ## Warum es wichtig ist
 
-Jede Outbound-Motion läuft auf B2B-Daten. Die Namen, Rollen, E-Mail-Adressen, Telefonnummern und Firmendetails entscheiden, wen Sie erreichen und ob die Nachricht ankommt. Sind die Daten falsch, verfehlen auch der beste Text und das beste Timing ihr Ziel. Gute Daten sind der Unterschied zwischen einer Kampagne, die Meetings bucht, und einer, die im Spam landet.
+Jede Outbound-Motion läuft auf B2B-Daten. Die Namen, Rollen, E-Mail-Adressen, Telefonnummern und Firmendetails entscheiden, wen ein Team erreicht und ob die Nachricht ankommt. Sind die Daten falsch, verfehlen auch der beste Text und das beste Timing ihr Ziel. Gute Daten sind der Unterschied zwischen einer Kampagne, die Meetings bucht, und einer, die im Spam landet.
 
 ## Wie es in der Praxis funktioniert
 
@@ -24,4 +24,4 @@ Der häufigste Fehler ist, B2B-Daten als einmaligen Kauf zu behandeln. Menschen 
 
 ## Wie hubsell es angeht
 
-hubsell verkauft keinen Zugang zu einer statischen Datenbank. hubsell recherchiert Kontakte live, an dem Tag, an dem Sie fragen, passend zu Ihrem ICP, und verifiziert jeden am Punkt der Nutzung. Sie zahlen für einen Kontakt, der heute korrekt ist, nicht für einen Datensatz, der vor zwei Jahren erfasst wurde.
+hubsell verkauft keinen Zugang zu einer statischen Datenbank. hubsell recherchiert Kontakte live, am Tag der Anfrage, passend zum ICP, und verifiziert jeden am Punkt der Nutzung. Bezahlt wird für einen Kontakt, der heute korrekt ist, nicht für einen Datensatz, der vor zwei Jahren erfasst wurde.

@@ -24,4 +24,4 @@ Ein häufiger Fehler ist, die Öffnungsrate als Erfolgskennzahl zu behandeln, ob
 
 ## Wie hubsell es angeht
 
-hubsell meldet Öffnungen als ein Signal neben Antworten und Ergebnissen, sodass Sie sie im Kontext lesen, statt auf eine Zahl zu optimieren, die keine Deals abschließt.
+hubsell meldet Öffnungen als ein Signal neben Antworten und Ergebnissen, sodass Teams sie im Kontext lesen, statt auf eine Zahl zu optimieren, die keine Deals abschließt.

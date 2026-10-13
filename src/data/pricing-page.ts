@@ -117,12 +117,12 @@ const EN: PricingPageData = {
 
 const DE: PricingPageData = {
   "title": "Preise | hubsell",
-  "metaDescription": "hubsell Preise: die Platform-Pl\u00e4ne Start, Grow und Scale sowie das Sales-Intelligence-Datenpaket. Vergleichen Sie jedes Feature, mit Preisen in EUR.",
+  "metaDescription": "hubsell Preise: die Platform-Pl\u00e4ne Start, Grow und Scale sowie das Sales-Intelligence-Datenpaket. Jedes Feature im Vergleich, mit Preisen in EUR.",
   "eyebrow": "Preise",
   "h1Pre": "Klare Preise f\u00fcr ",
-  "h1Accent": "Ihre gesamte GTM-Motion",
+  "h1Accent": "die gesamte GTM-Motion",
   "h1Post": "",
-  "sub": "Ein Platform-Plan f\u00fcr Outreach und CRM-Sync, dazu ein Datenpaket f\u00fcr live gesourcte Kontakte. W\u00e4hlen Sie den Plan, der zu Ihrem Team passt.",
+  "sub": "Ein Platform-Plan f\u00fcr Outreach und CRM-Sync, dazu ein Datenpaket f\u00fcr live gesourcte Kontakte. F\u00fcr jedes Team gibt es den passenden Plan.",
   "demoCta": "Demo buchen",
   "compareEyebrow": "Vergleich",
   "compareTitle": "Jedes Feature, Plan f\u00fcr Plan",
@@ -163,7 +163,7 @@ const DE: PricingPageData = {
   "faq": [
     {
       "q": "Was kostet hubsell?",
-      "a": "Die Platform startet bei 120 pro Seat und Monat mit Start. Grow kostet 4.320 pro Jahr f\u00fcr 3 Seats. Scale beginnt bei 10 Seats, den Preis erhalten Sie mit Ihrem Angebot. Alle Preise sind in EUR. Das Sales-Intelligence-Datenpaket wird separat berechnet."
+      "a": "Die Platform startet bei 120 pro Seat und Monat mit Start. Grow kostet 4.320 pro Jahr f\u00fcr 3 Seats. Scale beginnt bei 10 Seats, den Preis gibt es mit dem Angebot. Alle Preise sind in EUR. Das Sales-Intelligence-Datenpaket wird separat berechnet."
     },
     {
       "q": "Was ist der Unterschied zwischen Start, Grow und Scale?",
@@ -175,21 +175,21 @@ const DE: PricingPageData = {
     },
     {
       "q": "In welchen W\u00e4hrungen kann ich zahlen?",
-      "a": "Die Preise sind in EUR. F\u00fcr gr\u00f6\u00dfere Jahresvertr\u00e4ge k\u00f6nnen wir auch in einer anderen W\u00e4hrung anbieten; sprechen Sie uns in der Demo darauf an."
+      "a": "Die Preise sind in EUR. F\u00fcr gr\u00f6\u00dfere Jahresvertr\u00e4ge k\u00f6nnen wir auch in einer anderen W\u00e4hrung anbieten; das l\u00e4sst sich in der Demo ansprechen."
     },
     {
       "q": "Was ist das Datenpaket und wie funktionieren Credits?",
-      "a": "Es ist unser Sales-Intelligence-Produkt. Pay as you go kostet 1,25 pro Credit, oder Sie nehmen eine Subscription f\u00fcr 5.000 pro Jahr mit 5.000 Credits, die 10.000 bis 50.000 Kontakte anreichern. Pay as you go kostet pro Credit rund 25% mehr als die Subscription."
+      "a": "Es ist unser Sales-Intelligence-Produkt. Pay as you go kostet 1,25 pro Credit, oder es gibt eine Subscription f\u00fcr 5.000 pro Jahr mit 5.000 Credits, die 10.000 bis 50.000 Kontakte anreichern. Pay as you go kostet pro Credit rund 25% mehr als die Subscription."
     },
     {
       "q": "Wie fange ich an?",
-      "a": "Buchen Sie eine Demo, und wir richten hubsell auf Ihrer eigenen Pipeline ein und helfen Ihnen, den passenden Plan zu w\u00e4hlen."
+      "a": "In einer Demo richten wir hubsell auf der eigenen Pipeline ein und helfen bei der Wahl des passenden Plans."
     }
   ],
   "closingPre": "Nicht sicher, welcher Plan ",
   "closingAccent": "passt",
   "closingPost": "?",
-  "closingSub": "Buchen Sie eine kurze Demo, und wir bilden hubsell auf Ihre Pipeline und Ihre Teamgr\u00f6\u00dfe ab.",
+  "closingSub": "In einer kurzen Demo bilden wir hubsell auf die eigene Pipeline und die Teamgr\u00f6\u00dfe ab.",
   "closingCta": "Demo buchen",
   "groups": {
     "workflow": "Workflow-Nodes",

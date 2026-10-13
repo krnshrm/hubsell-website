@@ -7,7 +7,7 @@ export const faqsDeExtra: Record<string, { question: string; answer: string }> =
   'orchestrate-multiple-profiles': {
     question: 'Kann hubsell die Aktivität über mehrere Führungsprofile gleichzeitig orchestrieren?',
     answer:
-      '<p>Mit hubsell steuern Sie den Outreach Ihres CEO, Ihrer Vertriebsleitung und Ihrer Fachexperten aus einer einzigen, einheitlichen Steuerzentrale. So koordinieren Sie die Ansprache auf Augenhöhe über den gesamten Ziel-Account hinweg.</p>',
+      '<p>Mit hubsell lässt sich der Outreach von CEO, Vertriebsleitung und Fachexperten aus einer einzigen, einheitlichen Steuerzentrale steuern. So wird die Ansprache auf Augenhöhe über den gesamten Ziel-Account hinweg koordiniert.</p>',
   },
   'hubsell-email-infrastructure': {
     question: 'Versendet hubsell E-Mails über externe Server oder über unsere eigenen Postfächer?',
@@ -17,12 +17,12 @@ export const faqsDeExtra: Record<string, { question: string; answer: string }> =
   'personalize-outreach-at-scale': {
     question: 'Wie personalisieren wir Cold Outreach im großen Maßstab, ohne wie ein KI-Roboter zu klingen?',
     answer:
-      '<p>Käufer erkennen KI-geschriebene Schmeichelei sofort, und das kostet Antworten. Eine einfache, direkte Nachricht an eine hochrelevante Liste, etwa Teilnehmer eines bestimmten Webinars oder Personen, die mit einem bestimmten Post interagieren, schlägt maschinell personalisierte Texte an eine generische Persona durchgängig. hubsell baut die Relevanz bereits in die Daten ein: live recherchierte Kontakte, passend zu Ihrem ICP, damit die Nachricht kurz und ehrlich bleiben kann.</p>',
+      '<p>Käufer erkennen KI-geschriebene Schmeichelei sofort, und das kostet Antworten. Eine einfache, direkte Nachricht an eine hochrelevante Liste, etwa Teilnehmer eines bestimmten Webinars oder Personen, die mit einem bestimmten Post interagieren, schlägt maschinell personalisierte Texte an eine generische Persona durchgängig. hubsell baut die Relevanz bereits in die Daten ein: live recherchierte Kontakte, passend zum ICP, damit die Nachricht kurz und ehrlich bleiben kann.</p>',
   },
   'stop-sales-email-bounces': {
     question: 'Wie verhindern wir, dass unsere Vertriebs-E-Mails wegen schlechter CRM-Daten zurückkommen?',
     answer:
-      '<p>Die durchschnittliche Verweildauer eines B2B-Entscheiders liegt bei rund 2,5 Jahren, statische CRMs und gekaufte Listen verfallen daher um 25 bis 30% pro Jahr. hubsell löst das mit Zero-Day-Sourcing, unserer Live-Daten-Methode: Wir recherchieren und verifizieren Kontaktdaten im exakten Moment Ihrer Anfrage. Das hält die Genauigkeit hoch und schützt Ihre Absenderreputation.</p>',
+      '<p>Die durchschnittliche Verweildauer eines B2B-Entscheiders liegt bei rund 2,5 Jahren, statische CRMs und gekaufte Listen verfallen daher um 25 bis 30% pro Jahr. hubsell löst das mit Zero-Day-Sourcing, unserer Live-Daten-Methode: Wir recherchieren und verifizieren Kontaktdaten im exakten Moment der Anfrage. Das hält die Genauigkeit hoch und schützt die Absenderreputation.</p>',
   },
   'hubsell-high-volume-sales': {
     question: 'Eignet sich hubsell für transaktionalen Vertrieb mit hohem Volumen und niedrigem ACV?',
@@ -32,12 +32,12 @@ export const faqsDeExtra: Record<string, { question: string; answer: string }> =
   'mass-email-brand-reputation': {
     question: 'Schadet massenhaftes Cold E-Mailing aktiv unserer Markenreputation und Zustellbarkeit?',
     answer:
-      '<p>Die neuesten Regeln von Google und Yahoo bedeuten: Massenversand nach dem Gießkannenprinzip ruiniert die Absenderreputation Ihrer Domain in kurzer Zeit. hubsell schützt sie mit präzisem Targeting, nativem API-Versand über Google und Microsoft und der sicheren Verteilung des Outreach auf 5 bis 10 interne Absenderprofile. Weniger Volumen pro Absender, höhere Zustellbarkeit, keine beschädigte Domain.</p>',
+      '<p>Die neuesten Regeln von Google und Yahoo bedeuten: Massenversand nach dem Gießkannenprinzip ruiniert die Absenderreputation der eigenen Domain in kurzer Zeit. hubsell schützt sie mit präzisem Targeting, nativem API-Versand über Google und Microsoft und der sicheren Verteilung des Outreach auf 5 bis 10 interne Absenderprofile. Weniger Volumen pro Absender, höhere Zustellbarkeit, keine beschädigte Domain.</p>',
   },
   'third-party-intent-data-accuracy': {
     question: 'Sind B2B-Intent-Daten von Drittanbietern tatsächlich genau?',
     answer:
-      '<p>Die meisten Intent-Daten beruhen auf probabilistischen Algorithmen, die anhand von anonymem Web-Traffic raten, wer kauft. Da 95 Prozent der B2B-Käufer zu einem beliebigen Zeitpunkt nicht im Markt sind, jagt Ihr Vertriebsteam Geistern hinterher, wenn ein generischer Algorithmus auf einen nicht kaufenden Markt angewendet wird.</p>',
+      '<p>Die meisten Intent-Daten beruhen auf probabilistischen Algorithmen, die anhand von anonymem Web-Traffic raten, wer kauft. Da 95 Prozent der B2B-Käufer zu einem beliebigen Zeitpunkt nicht im Markt sind, jagt das Vertriebsteam Geistern hinterher, wenn ein generischer Algorithmus auf einen nicht kaufenden Markt angewendet wird.</p>',
   },
   'sdr-vs-executive-linkedin-outreach': {
     question: 'Sollten unsere SDRs oder unsere Führungskräfte den LinkedIn-Outreach übernehmen?',
@@ -47,16 +47,16 @@ export const faqsDeExtra: Record<string, { question: string; answer: string }> =
   'cold-email-reply-rates-dropping': {
     question: 'Warum sinken unsere Antwortraten bei Cold E-Mails plötzlich so stark?',
     answer:
-      '<p>Klassischer „Spray and Pray“-Outreach scheitert aus zwei strukturellen Gründen. Erstens bedeuten strenge neue Spam-Schwellen (0,3 Prozent Beschwerderate) von Google und Yahoo, dass Massenversand Ihre Domain-Reputation aktiv schädigt. Zweitens erkennen Käufer automatisierte KI-Personalisierung sofort. Sie wirkt persönlich, fühlt sich aber hohl an und löst eine innere Abwehrhaltung aus.</p>',
+      '<p>Klassischer „Spray and Pray“-Outreach scheitert aus zwei strukturellen Gründen. Erstens bedeuten strenge neue Spam-Schwellen (0,3 Prozent Beschwerderate) von Google und Yahoo, dass Massenversand die Domain-Reputation aktiv schädigt. Zweitens erkennen Käufer automatisierte KI-Personalisierung sofort. Sie wirkt persönlich, fühlt sich aber hohl an und löst eine innere Abwehrhaltung aus.</p>',
   },
   'sdr-first-meetings-week-one': {
     question: 'Kann ein neuer SDR wirklich in der ersten Woche Meetings buchen?',
     answer:
-      '<p>Ja, wenn drei Dinge stimmen: Das Angebot passt zum Markt, den Sie angehen. Das Targeting stimmt, also die richtigen Titel in den richtigen Organisationen. Und die Umsetzung stockt nicht, also Targeting abgestimmt und Copy freigegeben in den ersten Tagen. hubsell r\u00e4umt die \u00fcblichen Ramp-Blocker aus dem Weg, Listenbau, Tool-Setup und Datenbereinigung, damit die erste Woche in den Outreach gehen kann statt in Admin.</p>',
+      '<p>Ja, wenn drei Dinge stimmen: Das Angebot passt zum Markt, der angegangen wird. Das Targeting stimmt, also die richtigen Titel in den richtigen Organisationen. Und die Umsetzung stockt nicht, also Targeting abgestimmt und Copy freigegeben in den ersten Tagen. hubsell r\u00e4umt die \u00fcblichen Ramp-Blocker aus dem Weg, Listenbau, Tool-Setup und Datenbereinigung, damit die erste Woche in den Outreach gehen kann statt in Admin.</p>',
   },
   'hubsell-setup-before-first-sdr': {
     question: 'Wir stellen unseren ersten SDR ein. Wann sollten wir hubsell einrichten?',
     answer:
-      '<p>Vor Tag eins, damit die erste Woche dem Verkaufen geh\u00f6rt statt dem Tooling. Targeting und der erste Flow k\u00f6nnen bereitstehen, wenn der SDR anf\u00e4ngt, und weil Kontakte live recherchiert werden, veraltet nichts, w\u00e4hrend Sie einstellen.</p>',
+      '<p>Vor Tag eins, damit die erste Woche dem Verkaufen geh\u00f6rt statt dem Tooling. Targeting und der erste Flow k\u00f6nnen bereitstehen, wenn der SDR anf\u00e4ngt, und weil Kontakte live recherchiert werden, veraltet nichts, w\u00e4hrend noch eingestellt wird.</p>',
   },
 };

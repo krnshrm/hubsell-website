@@ -3,8 +3,8 @@ title: "Outbound-Vertrieb auf einer Plattform statt auf sechs Tools"
 label: "Outbound-Vertrieb"
 eyebrow: "Anwendungsfall"
 metaTitle: "Software für Outbound-Vertrieb"
-description: "Betreiben Sie Ihre gesamte Outbound-Bewegung auf einer Plattform: live recherchierte Daten, E-Mail- und LinkedIn-Sequenzen und automatische CRM-Synchronisierung. Kein Stack aus sechs Tools, den Sie zusammenhalten müssen."
-subhead: "Die meisten Outbound-Prozesse laufen über sechs unverbundene Tools. hubsell bringt die Daten, das E-Mail- und LinkedIn-Sequencing und die CRM-Synchronisierung an einen Ort, damit Ihr Team den Tag mit Verkaufen verbringt statt mit dem Zusammenstückeln von Tools."
+description: "Die gesamte Outbound-Bewegung auf einer Plattform: live recherchierte Daten, E-Mail- und LinkedIn-Sequenzen und automatische CRM-Synchronisierung. Kein Stack aus sechs Tools, der zusammengehalten werden muss."
+subhead: "Die meisten Outbound-Prozesse laufen über sechs unverbundene Tools. hubsell bringt die Daten, das E-Mail- und LinkedIn-Sequencing und die CRM-Synchronisierung an einen Ort, damit das Team den Tag mit Verkaufen verbringt statt mit dem Zusammenstückeln von Tools."
 widget: "UnifiedGrid"
 widgetBg: "sec--navy"
 widgetCaption: "Aus sechs Tools wird eine Plattform. Ein Login, ein Ablauf, eine Rechnung."
@@ -36,12 +36,12 @@ Jede Übergabe zwischen diesen Tools ist eine Stelle, an der Zeit und Daten verl
 
 Drei Schritte, eine Plattform, keine Exporte dazwischen.
 
-**Live recherchieren.** Sie definieren Ihren idealen Kunden, und hubsell recherchiert Kontakte live aus LinkedIn an dem Tag, an dem Sie fragen, passend zu Ihren Kriterien und zum Zeitpunkt der Nutzung verifiziert. Sie zahlen für einen Kontakt, der heute korrekt ist, nicht für eine Liste, die vor zwei Jahren erfasst wurde. Das ist die Ebene der [Lead-Generierung](/de/use-cases/lead-generation).
+**Live recherchieren.** Das Team definiert den idealen Kunden, und hubsell recherchiert Kontakte live aus LinkedIn am Tag der Anfrage, passend zu den Kriterien und zum Zeitpunkt der Nutzung verifiziert. Bezahlt wird ein Kontakt, der heute korrekt ist, nicht eine Liste, die vor zwei Jahren erfasst wurde. Das ist die Ebene der [Lead-Generierung](/de/use-cases/lead-generation).
 
 **Über Kanäle hinweg ansprechen.** E-Mail und LinkedIn laufen als eine koordinierte Sequenz, mit Verzweigungen, die jeden Kontakt anhand seines Verhaltens leiten. Das ist die Ebene des [Multichannel-Outreach](/de/use-cases/multichannel-outreach), eingebaut statt aufgesetzt.
 
-**Mit Ihrem CRM synchronisieren.** Jeder Versand, jede Öffnung, jede Antwort und jede Verbindung wird von selbst in Salesforce, HubSpot oder Pipedrive protokolliert. Keine manuelle Eingabe, kein Datenverfall, kein Team, das mit einer veralteten Pipeline arbeitet.
+**Mit dem CRM synchronisieren.** Jeder Versand, jede Öffnung, jede Antwort und jede Verbindung wird von selbst in Salesforce, HubSpot oder Pipedrive protokolliert. Keine manuelle Eingabe, kein Datenverfall, kein Team, das mit einer veralteten Pipeline arbeitet.
 
-## Was sich für Ihr Team ändert
+## Was sich für das Team ändert
 
-Das Team wechselt keine Tabs mehr und bereinigt keine Daten mehr, sodass mehr vom Tag in Gespräche fließt, die die Pipeline voranbringen. Auch der Stack wird kleiner: Die meisten Teams, die zu hubsell wechseln, kündigen im ersten Monat zwei bis drei Tool-Abos. Und das Einzige, was hubsell nicht ersetzt, Ihr CRM, hält es stattdessen synchron.
+Das Team wechselt keine Tabs mehr und bereinigt keine Daten mehr, sodass mehr vom Tag in Gespräche fließt, die die Pipeline voranbringen. Auch der Stack wird kleiner: Die meisten Teams, die zu hubsell wechseln, kündigen im ersten Monat zwei bis drei Tool-Abos. Und das Einzige, was hubsell nicht ersetzt, das CRM, hält es stattdessen synchron.

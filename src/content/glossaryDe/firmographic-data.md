@@ -12,7 +12,7 @@ updated: "Juli 2026"
 
 ## Warum es wichtig ist
 
-Firmografische Daten entscheiden, welche Unternehmen es wert sind, verfolgt zu werden. Sie filtern einen großen Markt auf die Accounts herunter, die zu Ihrem ICP passen, sodass Reps Zeit in Unternehmen investieren, die passen, statt in irgendwen aus der Liste. Ohne firmografische Filterung ist Targeting Raterei.
+Firmografische Daten entscheiden, welche Unternehmen es wert sind, verfolgt zu werden. Sie filtern einen großen Markt auf die Accounts herunter, die zum ICP passen, sodass Reps Zeit in Unternehmen investieren, die passen, statt in irgendwen aus der Liste. Ohne firmografische Filterung ist Targeting Raterei.
 
 ## Wie es in der Praxis funktioniert
 
@@ -24,4 +24,4 @@ Ein häufiger Fehler ist, sich auf veraltete Firmografien zu verlassen, da sich 
 
 ## Wie hubsell es angeht
 
-hubsell gleicht Kontakte in dem Moment mit Ihren firmografischen Kriterien ab, in dem sie recherchiert werden, sodass die Account-Passung gegen aktuelle Firmendaten bestätigt wird, nicht gegen eine gespeicherte Momentaufnahme.
+hubsell gleicht Kontakte in dem Moment mit den firmografischen Kriterien ab, in dem sie recherchiert werden, sodass die Account-Passung gegen aktuelle Firmendaten bestätigt wird, nicht gegen eine gespeicherte Momentaufnahme.

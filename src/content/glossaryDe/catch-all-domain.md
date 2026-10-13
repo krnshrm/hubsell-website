@@ -12,7 +12,7 @@ updated: "Juli 2026"
 
 ## Warum es wichtig ist
 
-Catch-all-Domains hebeln die normale E-Mail-Verifizierung aus. Eine Standardprüfung fragt den Mailserver, ob eine Adresse existiert, aber ein Catch-all-Server sagt zu allem Ja, sodass die Prüfung nicht bestätigen kann, dass das Postfach echt ist. Sendet man trotzdem, kann die Nachricht später bouncen oder nirgends ankommen, was still Ihre Bounce-Rate erhöht und der Deliverability schadet.
+Catch-all-Domains hebeln die normale E-Mail-Verifizierung aus. Eine Standardprüfung fragt den Mailserver, ob eine Adresse existiert, aber ein Catch-all-Server sagt zu allem Ja, sodass die Prüfung nicht bestätigen kann, dass das Postfach echt ist. Sendet man trotzdem, kann die Nachricht später bouncen oder nirgends ankommen, was still die Bounce-Rate erhöht und der Deliverability schadet.
 
 ## Wie es in der Praxis funktioniert
 

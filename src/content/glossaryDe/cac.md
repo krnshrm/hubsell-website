@@ -12,7 +12,7 @@ updated: "Juli 2026"
 
 ## Warum es wichtig ist
 
-CAC sagt Ihnen, was Wachstum tatsächlich kostet. Steigt er über das, was ein Kunde über seine Lebensdauer wert ist, verliert Wachstum Geld. Ihn zu beobachten hält Ausgaben diszipliniert und zeigt, welche Kanäle Kunden effizient bringen und welche nur Budget verbrennen. Er ist eines der klarsten Signale, ob eine Go-to-Market-Motion funktioniert.
+CAC zeigt, was Wachstum tatsächlich kostet. Steigt er über das, was ein Kunde über seine Lebensdauer wert ist, verliert Wachstum Geld. Ihn zu beobachten hält Ausgaben diszipliniert und zeigt, welche Kanäle Kunden effizient bringen und welche nur Budget verbrennen. Er ist eines der klarsten Signale, ob eine Go-to-Market-Motion funktioniert.
 
 ## Wie es in der Praxis funktioniert
 

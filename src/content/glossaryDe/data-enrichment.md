@@ -24,4 +24,4 @@ Veraltete Datensätze anzureichern, ohne sie neu zu verifizieren, verbreitet nur
 
 ## Wie hubsell es angeht
 
-Weil hubsell Daten live recherchiert und am Punkt der Nutzung verifiziert, geschehen Enrichment und Verifizierung zusammen statt als späterer Bereinigungsschritt. Der Datensatz, den Sie erhalten, ist bereits vollständig und geprüft, sodass später weniger zu korrigieren ist.
+Weil hubsell Daten live recherchiert und am Punkt der Nutzung verifiziert, geschehen Enrichment und Verifizierung zusammen statt als späterer Bereinigungsschritt. Der gelieferte Datensatz ist bereits vollständig und geprüft, sodass später weniger zu korrigieren ist.

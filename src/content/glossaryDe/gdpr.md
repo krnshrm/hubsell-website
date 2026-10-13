@@ -12,7 +12,7 @@ updated: "Juli 2026"
 
 ## Warum es wichtig ist
 
-Für jedes Team, das mit EU-Kontaktdaten arbeitet, setzt die DSGVO die Regeln, die Outreach rechtmäßig halten. Sie bestimmt, welche Daten Sie halten dürfen, auf welcher Grundlage Sie sie verarbeiten und welche Rechte die Menschen hinter diesen Daten haben. Fehler riskieren Bußgelder und Reputationsschaden, also gehören die Grundlagen zum B2B-Outreach in oder nach Europa dazu.
+Für jedes Team, das mit EU-Kontaktdaten arbeitet, setzt die DSGVO die Regeln, die Outreach rechtmäßig halten. Sie bestimmt, welche Daten ein Team halten darf, auf welcher Grundlage es sie verarbeitet und welche Rechte die Menschen hinter diesen Daten haben. Fehler riskieren Bußgelder und Reputationsschaden, also gehören die Grundlagen zum B2B-Outreach in oder nach Europa dazu.
 
 ## Wie es in der Praxis funktioniert
 
@@ -24,4 +24,4 @@ Ein häufiger Fehler ist anzunehmen, die DSGVO verbiete jeden B2B-Outreach, obwo
 
 ## Wie hubsell es angeht
 
-hubsell ist in der EU gebaut und gehostet und für DSGVO-bewussten B2B-Outreach ausgelegt, mit EU-Datenverarbeitung und einem verfügbaren Auftragsverarbeitungsvertrag. Das ist keine Rechtsberatung, und Ihre eigene Verarbeitungsgrundlage bestätigen Sie selbst.
+hubsell ist in der EU gebaut und gehostet und für DSGVO-bewussten B2B-Outreach ausgelegt, mit EU-Datenverarbeitung und einem verfügbaren Auftragsverarbeitungsvertrag. Das ist keine Rechtsberatung, und die eigene Verarbeitungsgrundlage bestätigt jedes Unternehmen selbst.

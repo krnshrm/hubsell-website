@@ -338,16 +338,17 @@ Do not edit the copy; change the style guide and copy the file over again.
 `docs/hubsell-style-guide.html` predates the 2026-10-11 switch to the app palette.
 
 - Section classes: `.sec--paper` (light blue-grey tint), `.sec--sand` (white),
-  `.sec--navy`, `.sec--esp` (Dark Blue `#37415A`). Theme-aware via role tokens
+  `.sec--navy` (navy `#192341`). `.sec--esp` renders the same navy since
+  2026-10-12; the Dark Blue `#37415A` section fill is no longer used (it stays
+  only as the card colour on navy). Theme-aware via role tokens
   `--sec-bg/-tx/-bd/-card`.
 - CTA (`--cta-bg`, `--cta-tx`): the style guide's primary button. Navy `#192341`
-  with white text on light sections, white with navy text on navy and Dark Blue
-  sections. One primary "Book a demo" button; secondary buttons
+  with white text on light sections, white with navy text on navy sections. One primary "Book a demo" button; secondary buttons
   were removed site-wide.
 - Orange `#FF9300` is the highlight (dots, bars, the "Most popular" badge), never a
   button, and never carries white text (2.2:1).
 - Accent text (`--accent-on`): `brand-strong` `#955F1E` on light sections, plain
-  orange on navy and Dark Blue sections.
+  orange on navy sections.
 - Status: success `#289B9B`, warning `#FEC65D`, error `#E86250`, with `-muted`
   fills and `-strong` text from the tokens file.
 - Fonts: Lexend (headings), Instrument Sans (body), Newsreader (serif) on blog and

@@ -1,7 +1,7 @@
 ---
 term: "Am Punkt der Nutzung verifizierte Daten"
 category: "Daten und Enrichment"
-definition: "Am Punkt der Nutzung verifizierte Daten sind Kontaktdaten, die genau dann auf Richtigkeit geprüft werden, wenn Sie sie brauchen, statt einer früheren Momentaufnahme zu vertrauen."
+definition: "Am Punkt der Nutzung verifizierte Daten sind Kontaktdaten, die genau dann auf Richtigkeit geprüft werden, wenn sie gebraucht werden, statt einer früheren Momentaufnahme zu vertrauen."
 related:
   - b2b-data
   - data-decay
@@ -12,7 +12,7 @@ updated: "Juli 2026"
 
 ## Warum es wichtig ist
 
-Ein Datensatz ist nur nützlich, wenn er korrekt ist, wenn Sie ihn nutzen, nicht als er erfasst wurde. Die Verifizierung am Punkt der Nutzung senkt Bounces, schützt Ihre Reputation und sorgt dafür, dass Sie Outreach-Aufwand für Menschen einsetzen, die tatsächlich erreichbar sind. Sie verschiebt die Frage von wie groß ist die Liste zu wie korrekt ist dieser Kontakt gerade jetzt.
+Ein Datensatz ist nur nützlich, wenn er korrekt ist, wenn er genutzt wird, nicht als er erfasst wurde. Die Verifizierung am Punkt der Nutzung senkt Bounces, schützt die Reputation und sorgt dafür, dass Outreach-Aufwand bei Menschen landet, die tatsächlich erreichbar sind. Sie verschiebt die Frage von wie groß ist die Liste zu wie korrekt ist dieser Kontakt gerade jetzt.
 
 ## Wie es in der Praxis funktioniert
 
@@ -24,4 +24,4 @@ Der Fehler, den dies behebt, ist, gespeicherten Daten standardmäßig zu vertrau
 
 ## Wie hubsell es angeht
 
-Am Punkt der Nutzung verifiziert ist die Standardarbeitsweise von hubsell. Jeder Kontakt wird geprüft, wenn Sie ihn anfordern, inklusive Catch-all-Prüfung, sodass ein Credit nur für einen Kontakt ausgegeben wird, der heute korrekt ist.
+Am Punkt der Nutzung verifiziert ist die Standardarbeitsweise von hubsell. Jeder Kontakt wird geprüft, wenn er angefordert wird, inklusive Catch-all-Prüfung, sodass ein Credit nur für einen Kontakt ausgegeben wird, der heute korrekt ist.

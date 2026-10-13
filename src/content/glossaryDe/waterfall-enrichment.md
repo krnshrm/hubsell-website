@@ -20,8 +20,8 @@ Ein Waterfall führt einen Datensatz in fester Reihenfolge durch Anbieter. Für 
 
 ## Häufige Fehler
 
-Ein häufiger Fehler ist, einen Waterfall ohne Verifizierung des Gewinnerergebnisses laufen zu lassen, sodass Sie die erste Antwort akzeptieren, auch wenn sie falsch ist. Ein weiterer ist eine schlechte Anbieterreihenfolge, die auf teure Quellen setzt, bevor günstigere geantwortet hätten. Ein dritter ist, Abdeckung so stark zu jagen, dass die Genauigkeit fällt.
+Ein häufiger Fehler ist, einen Waterfall ohne Verifizierung des Gewinnerergebnisses laufen zu lassen, sodass die erste Antwort akzeptiert wird, auch wenn sie falsch ist. Ein weiterer ist eine schlechte Anbieterreihenfolge, die auf teure Quellen setzt, bevor günstigere geantwortet hätten. Ein dritter ist, Abdeckung so stark zu jagen, dass die Genauigkeit fällt.
 
 ## Wie hubsell es angeht
 
-hubsell konzentriert sich darauf, jeden Kontakt am Punkt der Nutzung zu verifizieren, sodass das Ergebnis geprüft ist, wenn Sie es brauchen, statt als erste verfügbare Antwort aus einer Kette von Datenbanken akzeptiert zu werden.
+hubsell konzentriert sich darauf, jeden Kontakt am Punkt der Nutzung zu verifizieren, sodass das Ergebnis geprüft ist, wenn es gebraucht wird, statt als erste verfügbare Antwort aus einer Kette von Datenbanken akzeptiert zu werden.

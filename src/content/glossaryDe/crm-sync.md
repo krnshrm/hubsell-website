@@ -1,7 +1,7 @@
 ---
 term: "CRM-Sync"
 category: "CRM und RevOps"
-definition: "CRM-Sync ist der automatische Fluss von Kontakt- und Aktivitätsdaten zwischen Ihren Outreach-Tools und Ihrem CRM, sodass beide ohne manuelle Eingabe aktuell bleiben."
+definition: "CRM-Sync ist der automatische Fluss von Kontakt- und Aktivitätsdaten zwischen den Outreach-Tools und dem CRM, sodass beide ohne manuelle Eingabe aktuell bleiben."
 related:
   - two-way-sync
   - revops

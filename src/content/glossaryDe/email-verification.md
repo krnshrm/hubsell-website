@@ -1,7 +1,7 @@
 ---
 term: "E-Mail-Verifizierung"
 category: "Daten und Enrichment"
-definition: "E-Mail-Verifizierung ist das Prüfen, ob eine E-Mail-Adresse gültig ist und Mail empfangen kann, bevor Sie an sie senden."
+definition: "E-Mail-Verifizierung ist das Prüfen, ob eine E-Mail-Adresse gültig ist und Mail empfangen kann, bevor an sie gesendet wird."
 related:
   - catch-all-domain
   - email-deliverability
@@ -12,7 +12,7 @@ updated: "Juli 2026"
 
 ## Warum es wichtig ist
 
-An ungültige Adressen zu senden, verursacht Bounces, und eine hohe Bounce-Rate beschädigt Ihre Reputation, was dann auch die Zustellung an gute Adressen beeinträchtigt. Verifizierung schützt diese Reputation, indem schlechte Adressen zuerst herausgefiltert werden. Sie ist eine der günstigsten Möglichkeiten, ein Outbound-Programm gesund zu halten, und kostet weit weniger als der Schaden eines Bounce-Anstiegs.
+An ungültige Adressen zu senden, verursacht Bounces, und eine hohe Bounce-Rate beschädigt die Reputation, was dann auch die Zustellung an gute Adressen beeinträchtigt. Verifizierung schützt diese Reputation, indem schlechte Adressen zuerst herausgefiltert werden. Sie ist eine der günstigsten Möglichkeiten, ein Outbound-Programm gesund zu halten, und kostet weit weniger als der Schaden eines Bounce-Anstiegs.
 
 ## Wie es in der Praxis funktioniert
 

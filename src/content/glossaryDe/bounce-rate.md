@@ -12,7 +12,7 @@ updated: "Juli 2026"
 
 ## Warum es wichtig ist
 
-Bounces sind mehr als vergeudete Sendungen. Eine hohe Bounce-Rate sagt Mailbox-Anbietern, dass Ihre Liste schlecht ist, was Ihre Reputation senkt und selbst gültige Mail Richtung Spam schiebt. Bounces niedrig zu halten ist einer der direktesten Wege, die Deliverability zu schützen. Sie ist ein Symptom, das man beobachtet, und eine Ursache, die man steuert.
+Bounces sind mehr als vergeudete Sendungen. Eine hohe Bounce-Rate sagt Mailbox-Anbietern, dass die Liste schlecht ist, was die Reputation senkt und selbst gültige Mail Richtung Spam schiebt. Bounces niedrig zu halten ist einer der direktesten Wege, die Deliverability zu schützen. Sie ist ein Symptom, das man beobachtet, und eine Ursache, die man steuert.
 
 ## Wie es in der Praxis funktioniert
 

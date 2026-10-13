@@ -12,7 +12,7 @@ updated: "Juli 2026"
 
 ## Warum es wichtig ist
 
-Wenn Sie ein Tool nutzen, das Ihre Kontaktdaten berührt, erwartet die DSGVO einen AVV zwischen Ihnen und diesem Anbieter. Er definiert, was der Anbieter mit den Daten tun darf, wie sie geschützt werden und was bei einem Vorfall passiert. Ohne ihn lässt die Nutzung eines Daten- oder Outreach-Tools mit personenbezogenen EU-Daten eine Lücke in Ihrer Compliance.
+Nutzt ein Unternehmen ein Tool, das seine Kontaktdaten berührt, erwartet die DSGVO einen AVV zwischen dem Unternehmen und diesem Anbieter. Er definiert, was der Anbieter mit den Daten tun darf, wie sie geschützt werden und was bei einem Vorfall passiert. Ohne ihn lässt die Nutzung eines Daten- oder Outreach-Tools mit personenbezogenen EU-Daten eine Lücke in der Compliance.
 
 ## Wie es in der Praxis funktioniert
 
@@ -24,4 +24,4 @@ Ein häufiger Fehler ist, einen Anbieter zu nutzen, der personenbezogene Daten b
 
 ## Wie hubsell es angeht
 
-hubsell bietet einen Auftragsverarbeitungsvertrag, sodass Ihre Nutzung der Plattform mit personenbezogenen EU-Kontaktdaten abgedeckt ist, mit EU-Datenverarbeitung dahinter.
+hubsell bietet einen Auftragsverarbeitungsvertrag, sodass die Nutzung der Plattform mit personenbezogenen EU-Kontaktdaten abgedeckt ist, mit EU-Datenverarbeitung dahinter.

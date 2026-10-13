@@ -12,11 +12,11 @@ updated: "Juli 2026"
 
 ## Warum es wichtig ist
 
-Kaufsignale sagen Ihnen, wen Sie jetzt statt später kontaktieren sollten. Auf sie zu reagieren fokussiert den Aufwand auf Interessenten, die Interesse zeigen, was Antwort- und Conversion-Raten gegenüber einer unsortierten Liste hebt. Sie machen aus der Priorisierung statt einer Vermutung etwas, das auf beobachtetem Verhalten gründet.
+Kaufsignale zeigen, wen ein Team jetzt statt später kontaktieren sollte. Auf sie zu reagieren fokussiert den Aufwand auf Interessenten, die Interesse zeigen, was Antwort- und Conversion-Raten gegenüber einer unsortierten Liste hebt. Sie machen aus der Priorisierung statt einer Vermutung etwas, das auf beobachtetem Verhalten gründet.
 
 ## Wie es in der Praxis funktioniert
 
-Signale reichen von First-Party-Handlungen, etwa wiederholten Besuchen Ihrer Preisseite oder einer Demo-Anfrage, bis zu Third-Party-Intent, etwa dem Recherchieren Ihrer Kategorie anderswo. Teams sammeln diese, gewichten sie und nutzen sie, um zu ordnen, welche Accounts im Profil zuerst bearbeitet werden. Stärkere Signale, etwa eine direkte Produktanfrage, schlagen weichere wie einen einzelnen Content-Aufruf.
+Signale reichen von First-Party-Handlungen, etwa wiederholten Besuchen der eigenen Preisseite oder einer Demo-Anfrage, bis zu Third-Party-Intent, etwa dem Recherchieren der eigenen Kategorie anderswo. Teams sammeln diese, gewichten sie und nutzen sie, um zu ordnen, welche Accounts im Profil zuerst bearbeitet werden. Stärkere Signale, etwa eine direkte Produktanfrage, schlagen weichere wie einen einzelnen Content-Aufruf.
 
 ## Häufige Fehler
 

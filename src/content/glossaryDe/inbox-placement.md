@@ -1,7 +1,7 @@
 ---
 term: "Inbox-Platzierung"
 category: "Deliverability"
-definition: "Inbox-Platzierung ist der Anteil Ihrer zugestellten Mail, der tatsächlich im Haupt-Posteingang landet statt im Spam- oder Werbe-Ordner."
+definition: "Inbox-Platzierung ist der Anteil der zugestellten Mail, der tatsächlich im Haupt-Posteingang landet statt im Spam- oder Werbe-Ordner."
 related:
   - email-deliverability
   - sender-reputation
@@ -24,4 +24,4 @@ Ein häufiger Fehler ist, die Zustellrate zu beobachten und die Platzierung zu i
 
 ## Wie hubsell es angeht
 
-hubsell unterstützt die Inbox-Platzierung, indem es die treibenden Eingangsgrößen schützt: verifizierte Kontakte, authentifiziertes Senden und getaktetes Volumen, sodass mehr Ihrer Mail einen Ordner erreicht, den Menschen tatsächlich öffnen.
+hubsell unterstützt die Inbox-Platzierung, indem es die treibenden Eingangsgrößen schützt: verifizierte Kontakte, authentifiziertes Senden und getaktetes Volumen, sodass mehr Mail einen Ordner erreicht, den Menschen tatsächlich öffnen.

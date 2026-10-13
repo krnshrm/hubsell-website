@@ -63,13 +63,13 @@ const EN: IntegrationsPageData = {
 };
 
 const DE: IntegrationsPageData = {
-  "title": "Integrationen: hubsell mit Ihrem CRM und Ihren Kan\u00e4len verbinden | hubsell",
+  "title": "Integrationen: hubsell mit dem CRM und den Kan\u00e4len verbinden | hubsell",
   "metaDescription": "hubsell verbindet sich mit Salesforce, HubSpot und Pipedrive per Zwei-Wege-Sync und f\u00fchrt LinkedIn neben E-Mail in einer Sequenz. Weitere Integrationen folgen.",
   "eyebrow": "Integrationen",
-  "h1Pre": "Verbinden Sie hubsell mit ",
-  "h1Accent": "den Tools, die Sie schon nutzen",
+  "h1Pre": "hubsell verbinden mit ",
+  "h1Accent": "den Tools, die schon im Einsatz sind",
   "h1Post": "",
-  "sub": "hubsell arbeitet mit Ihrem CRM und Ihren Kan\u00e4len, sodass Daten und Aktivit\u00e4t an einem Ort bleiben. Zwei-Wege-CRM-Sync h\u00e4lt Ihre Datens\u00e4tze aktuell, und LinkedIn l\u00e4uft neben E-Mail in einer einzigen Sequenz.",
+  "sub": "hubsell arbeitet mit dem CRM und den Kan\u00e4len, sodass Daten und Aktivit\u00e4t an einem Ort bleiben. Zwei-Wege-CRM-Sync h\u00e4lt die Datens\u00e4tze aktuell, und LinkedIn l\u00e4uft neben E-Mail in einer einzigen Sequenz.",
   "demoCta": "Demo buchen",
   "listEyebrow": "Jetzt verf\u00fcgbar",
   "listTitle": "Womit sich hubsell heute verbindet",
@@ -89,22 +89,22 @@ const DE: IntegrationsPageData = {
     {
       "name": "Pipedrive",
       "category": "CRM",
-      "blurb": "Zwei-Wege-Sync mit Pipedrive. Ihre Pipeline bleibt aktuell, w\u00e4hrend Outreach passiert, ohne CSV dazwischen.",
+      "blurb": "Zwei-Wege-Sync mit Pipedrive. Die Pipeline bleibt aktuell, w\u00e4hrend Outreach passiert, ohne CSV dazwischen.",
       "status": "Live"
     },
     {
       "name": "LinkedIn",
       "category": "Outreach",
-      "blurb": "F\u00fchren Sie LinkedIn-Schritte in einer Sequenz aus. Profilbesuche, Kontaktanfragen und Nachrichten, abgestimmt auf Ihre E-Mail-Kadenz.",
+      "blurb": "LinkedIn-Schritte laufen in einer Sequenz. Profilbesuche, Kontaktanfragen und Nachrichten, abgestimmt auf die E-Mail-Kadenz.",
       "status": "Live"
     }
   ],
   "noteTitle": "Weitere folgen",
-  "noteBody": "Das ist der Satz, den wir heute unterst\u00fctzen. Wir f\u00fcgen weitere Integrationen hinzu. Wenn Sie ein bestimmtes Tool brauchen, sagen Sie es uns in einem kurzen Gespr\u00e4ch, und wir sagen Ihnen, wie der Stand ist.",
-  "closingPre": "Ihr Tool ",
+  "noteBody": "Das ist der Satz, den wir heute unterst\u00fctzen. Wir f\u00fcgen weitere Integrationen hinzu. Wer ein bestimmtes Tool braucht, erf\u00e4hrt in einem kurzen Gespr\u00e4ch, wie der Stand ist.",
+  "closingPre": "Das eigene Tool ",
   "closingAccent": "nicht dabei",
   "closingPost": "?",
-  "closingSub": "Sagen Sie uns in einem kurzen Gespr\u00e4ch, was Sie nutzen, und wir zeigen Ihnen, wie hubsell in Ihren Stack passt.",
+  "closingSub": "In einem kurzen Gespr\u00e4ch kl\u00e4ren wir, welche Tools im Einsatz sind, und zeigen, wie hubsell in den Stack passt.",
   "closingCta": "Demo buchen",
   "crumbHome": "Startseite",
   "crumbSelf": "Integrationen"

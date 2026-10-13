@@ -12,7 +12,7 @@ updated: "Juli 2026"
 
 ## Warum es wichtig ist
 
-Eine brandneue Sende-Domain hat keine Vorgeschichte, also sind Anbieter vorsichtig mit ihr. Sofort hohes Volumen zu senden wirkt wie Spam und wird gefiltert oder blockiert, was die Domain beschädigt, bevor sie überhaupt etabliert ist. Warmup verdient Vertrauen Schritt für Schritt, sodass Ihre Mail landet, sobald Sie skalieren. Es zu überspringen ist einer der schnellsten Wege, eine Domain zu verbrennen.
+Eine brandneue Sende-Domain hat keine Vorgeschichte, also sind Anbieter vorsichtig mit ihr. Sofort hohes Volumen zu senden wirkt wie Spam und wird gefiltert oder blockiert, was die Domain beschädigt, bevor sie überhaupt etabliert ist. Warmup verdient Vertrauen Schritt für Schritt, sodass die Mail landet, sobald das Volumen steigt. Es zu überspringen ist einer der schnellsten Wege, eine Domain zu verbrennen.
 
 ## Wie es in der Praxis funktioniert
 

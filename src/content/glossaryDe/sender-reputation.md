@@ -1,7 +1,7 @@
 ---
 term: "Sender-Reputation"
 category: "Deliverability"
-definition: "Sender-Reputation ist der Wert, den Mailbox-Anbieter Ihrer Sende-Domain und IP anhand Ihrer Historie zuweisen und der entscheidet, ob Ihre Mail den Posteingang erreicht."
+definition: "Sender-Reputation ist der Wert, den Mailbox-Anbieter einer Sende-Domain und IP anhand ihrer Historie zuweisen und der entscheidet, ob die Mail den Posteingang erreicht."
 related:
   - email-deliverability
   - domain-warmup
@@ -24,4 +24,4 @@ Der häufige Fehler ist, Reputation als fest statt als täglich verdient zu beha
 
 ## Wie hubsell es angeht
 
-hubsell schützt die Sender-Reputation, indem es Kontakte vor dem Versand verifiziert, Catch-all-Domains markiert und das Volumen innerhalb sicherer Limits auf Absenderprofile verteilt, sodass der Wert gesund bleibt, während Sie skalieren.
+hubsell schützt die Sender-Reputation, indem es Kontakte vor dem Versand verifiziert, Catch-all-Domains markiert und das Volumen innerhalb sicherer Limits auf Absenderprofile verteilt, sodass der Wert gesund bleibt, während das Volumen wächst.

@@ -12,7 +12,7 @@ updated: "Juli 2026"
 
 ## Warum es wichtig ist
 
-Auf einer Blocklist zu landen kann Ihre Mail ganz von der Zustellung abhalten, manchmal über viele Anbieter zugleich. Weil Anbieter diese Listen in Echtzeit abfragen, hat ein Eintrag sofortige Wirkung auf die Deliverability. Von ihnen fernzubleiben und bei einem Eintrag schnell entfernt zu werden, ist für jedes Team entscheidend, das sich auf E-Mail verlässt, um Käufer zu erreichen.
+Auf einer Blocklist zu landen kann die eigene Mail ganz von der Zustellung abhalten, manchmal über viele Anbieter zugleich. Weil Anbieter diese Listen in Echtzeit abfragen, hat ein Eintrag sofortige Wirkung auf die Deliverability. Von ihnen fernzubleiben und bei einem Eintrag schnell entfernt zu werden, ist für jedes Team entscheidend, das sich auf E-Mail verlässt, um Käufer zu erreichen.
 
 ## Wie es in der Praxis funktioniert
 
@@ -20,7 +20,7 @@ Blocklists, manchmal Blacklists genannt, werden von Organisationen gepflegt, die
 
 ## Häufige Fehler
 
-Der Hauptfehler ist das Verhalten, das zum Eintrag führt: an unverifizierte Listen senden, das Volumen hochschießen oder Beschwerden auslösen. Ein weiterer ist, nicht zu überwachen, sodass Sie einen Eintrag erst entdecken, nachdem die Zustellung eingebrochen ist. Ein dritter ist, die Entfernung zu beantragen, ohne die Ursache zu beheben, was nur zu einem erneuten Eintrag führt.
+Der Hauptfehler ist das Verhalten, das zum Eintrag führt: an unverifizierte Listen senden, das Volumen hochschießen oder Beschwerden auslösen. Ein weiterer ist, nicht zu überwachen, sodass ein Eintrag erst auffällt, nachdem die Zustellung eingebrochen ist. Ein dritter ist, die Entfernung zu beantragen, ohne die Ursache zu beheben, was nur zu einem erneuten Eintrag führt.
 
 ## Wie hubsell es angeht
 

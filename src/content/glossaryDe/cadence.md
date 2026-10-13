@@ -1,7 +1,7 @@
 ---
 term: "Cadence"
 category: "Outbound und E-Mail"
-definition: "Eine Cadence ist der Zeitplan und Rhythmus der Outreach-Touches über Kanäle hinweg und legt fest, wie oft und über welche Kanäle Sie einen Interessenten kontaktieren."
+definition: "Eine Cadence ist der Zeitplan und Rhythmus der Outreach-Touches über Kanäle hinweg und legt fest, wie oft und über welche Kanäle ein Interessent kontaktiert wird."
 related:
   - email-sequence
   - multichannel-outreach
@@ -12,7 +12,7 @@ updated: "Juli 2026"
 
 ## Warum es wichtig ist
 
-Die Cadence entscheidet, ob Nachfassen beharrlich oder lästig wirkt. Der richtige Rhythmus hält Sie präsent, ohne den Interessenten zu bedrängen, und Touches über Kanäle zu verteilen erreicht Menschen dort, wo sie reagieren. Eine schwache Cadence gibt entweder zu früh auf und lässt Antworten liegen, oder legt zu schnell nach und wird stummgeschaltet.
+Die Cadence entscheidet, ob Nachfassen beharrlich oder lästig wirkt. Der richtige Rhythmus hält den Absender präsent, ohne den Interessenten zu bedrängen, und Touches über Kanäle zu verteilen erreicht Menschen dort, wo sie reagieren. Eine schwache Cadence gibt entweder zu früh auf und lässt Antworten liegen, oder legt zu schnell nach und wird stummgeschaltet.
 
 ## Wie es in der Praxis funktioniert
 

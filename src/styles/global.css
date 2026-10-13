@@ -37,7 +37,9 @@
   --sec-paper:var(--hs-tint); --sec-paper-tx:#192341; --sec-paper-bd:#D3D8E5; --sec-paper-card:#FFFFFF;
   --sec-sand:#FFFFFF;  --sec-sand-tx:#192341;  --sec-sand-bd:#D3D8E5;  --sec-sand-card:var(--hs-tint);
   --sec-navy:#192341;  --sec-navy-tx:#FEFEFE;  --sec-navy-bd:rgba(255,255,255,.16); --sec-navy-card:#37415A;
-  --sec-esp:#37415A;   --sec-esp-tx:#FEFEFE;   --sec-esp-bd:rgba(255,255,255,.14);  --sec-esp-card:#192341;
+  /* .sec--esp used to be Dark Blue #37415A. Since 2026-10-12 it is the same
+     navy as .sec--navy; the class stays so existing sections need no edits. */
+  --sec-esp:#192341;   --sec-esp-tx:#FEFEFE;   --sec-esp-bd:rgba(255,255,255,.16);  --sec-esp-card:#37415A;
 
   --font-head:var(--hs-font-heading);
   --font-body:var(--hs-font-body);
@@ -59,7 +61,7 @@
   --sec-paper:#192341; --sec-paper-tx:#FEFEFE; --sec-paper-bd:#37415A; --sec-paper-card:#222D4D;
   --sec-sand:#131B33;  --sec-sand-tx:#FEFEFE;  --sec-sand-bd:#2C3654;  --sec-sand-card:#192341;
   --sec-navy:#0E1528;  --sec-navy-tx:#FEFEFE;  --sec-navy-bd:rgba(255,255,255,.12); --sec-navy-card:#222D4D;
-  --sec-esp:#37415A;   --sec-esp-tx:#FEFEFE;   --sec-esp-bd:rgba(255,255,255,.14);  --sec-esp-card:#192341;
+  --sec-esp:#192341;   --sec-esp-tx:#FEFEFE;   --sec-esp-bd:rgba(255,255,255,.16);  --sec-esp-card:#37415A;
 }
 
 /* Dark sections: orange text reads on navy, so accents switch to plain orange,
