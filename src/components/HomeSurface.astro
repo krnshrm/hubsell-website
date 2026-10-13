@@ -16,7 +16,9 @@
     main:has(> .hs) > :is(.sec--navy, .sec--esp):is(.sec--sand + *, .sec--sand + script + *){ --surround:var(--sec-sand) }
     main:has(> .hs) > :is(.sec--navy, .sec--esp)::before{
       content:''; position:absolute; z-index:-1;
-      inset:0 clamp(16px,2vw,28px);
+      /* Never wider than the content plus a margin, so on a wide screen the
+         panel stays a card around the content instead of a band. */
+      inset:0 max(clamp(16px,2vw,28px), calc((100% - 1240px) / 2));
       border-radius:clamp(24px,2.4vw,36px);
       background:var(--sec-navy);
     }
