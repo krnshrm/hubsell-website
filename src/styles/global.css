@@ -31,7 +31,7 @@
   --bg:var(--hs-tint); --text:#192341; --text-2:#555A73; --text-3:#6B7089;
   --border:#D3D8E5; --border-strong:#B9C0D3;
   --accent-on:var(--hs-brand-strong);      /* accent text, links, metrics on light */
-  --accent-head:var(--hs-logo-coral);      /* highlighted words in headings: 3.3:1 on white, large text only */
+  --accent-head:var(--hs-logo-coral);      /* highlighted words in headings, light and navy: large text only (3.3:1 on white, 4.3:1 on navy) */
   --on-dark:#FEFEFE;
 
   /* ---- SECTION ROLE TOKENS (theme-aware) ---- */
@@ -67,7 +67,7 @@
 
 /* Dark sections: orange text reads on navy, so accents switch to plain orange,
    and the CTA flips to the style guide's dark-mode primary (white, navy text). */
-.sec--navy,.sec--esp{--accent-on:var(--hs-orange); --accent-head:var(--hs-orange); --cta-bg:#FEFEFE; --cta-bg-hover:#D3D8E5; --cta-tx:#192341}
+.sec--navy,.sec--esp{--accent-on:var(--hs-orange); --cta-bg:#FEFEFE; --cta-bg-hover:#D3D8E5; --cta-tx:#192341}
 
 /* ---- reset / base ---- */
 *{box-sizing:border-box}
