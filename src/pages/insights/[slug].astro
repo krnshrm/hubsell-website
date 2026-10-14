@@ -1,4 +1,5 @@
 ---
+import CtaGroup from '../../components/CtaGroup.astro';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import JsonLd from '../../components/JsonLd.astro';
@@ -86,20 +87,20 @@ const off = pool.length ? [...post.id].reduce((a, c) => a + c.charCodeAt(0), 0) 
 const rotation = pool.length ? [pool[off], pool[(off + 1) % pool.length]] : [];
 const related = [...new Map([...byTopic, ...rotation].filter(Boolean).map((p) => [p.id, p])).values()].slice(0, 2);
 
-// A few relevant hubsell pages for this post's topics. Labels are the search
-// terms each target page is meant to rank for (docs/20261013-1138-KEYWORD-TARGETS.md).
+// A few relevant hubsell pages for this post's topics. Kept in the template as
+// internal links to product pages, so the migrated post body stays untouched.
 const HUB_LINKS = {
-  'Outbound sales': [{ label: 'Outbound sales software', href: '/use-cases/outbound-sales' }],
-  'Cold email': [{ label: 'Multichannel outreach platform', href: '/platform/multichannel-outreach' }, { label: 'Email deliverability', href: '/platform/deliverability' }],
-  'Email deliverability': [{ label: 'Email deliverability', href: '/platform/deliverability' }, { label: 'Inbox placement', href: '/glossary/inbox-placement' }],
-  'Prospect data': [{ label: 'Live B2B data provider', href: '/platform/live-data' }, { label: 'B2B data provider comparisons', href: '/comparisons' }],
-  'Data enrichment': [{ label: 'Contact data enrichment', href: '/platform/enrichment' }],
-  'LinkedIn': [{ label: 'LinkedIn and email outreach', href: '/use-cases/multichannel-outreach' }],
-  'Lead generation': [{ label: 'B2B lead generation software', href: '/use-cases/lead-generation' }],
-  'Multichannel outreach': [{ label: 'Multichannel outreach platform', href: '/platform/multichannel-outreach' }, { label: 'LinkedIn and email outreach', href: '/use-cases/multichannel-outreach' }],
-  'Sales operations': [{ label: 'Automatic CRM sync', href: '/platform/crm-sync' }, { label: 'What is RevOps', href: '/glossary/revops' }],
-  'Personalization': [{ label: 'Personalized outreach at scale', href: '/platform/personalization' }],
-  'Industry guides': [{ label: 'Account-based outreach software', href: '/use-cases/account-based-outreach' }],
+  'Outbound sales': [{ label: 'Outbound sales', href: '/use-cases/outbound-sales' }],
+  'Cold email': [{ label: 'Multichannel outreach', href: '/platform/multichannel-outreach' }, { label: 'Deliverability', href: '/platform/deliverability' }],
+  'Email deliverability': [{ label: 'Deliverability', href: '/platform/deliverability' }, { label: 'Inbox placement', href: '/glossary/inbox-placement' }],
+  'Prospect data': [{ label: 'Live-sourced data', href: '/platform/live-data' }],
+  'Data enrichment': [{ label: 'Data enrichment', href: '/platform/enrichment' }],
+  'LinkedIn': [{ label: 'Multichannel outreach', href: '/platform/multichannel-outreach' }],
+  'Lead generation': [{ label: 'Lead generation', href: '/use-cases/lead-generation' }],
+  'Multichannel outreach': [{ label: 'Multichannel outreach', href: '/platform/multichannel-outreach' }, { label: 'Multichannel use case', href: '/use-cases/multichannel-outreach' }],
+  'Sales operations': [{ label: 'CRM sync', href: '/platform/crm-sync' }, { label: 'What is RevOps', href: '/glossary/revops' }],
+  'Personalization': [{ label: 'Personalization', href: '/platform/personalization' }],
+  'Industry guides': [{ label: 'Account-based outreach', href: '/use-cases/account-based-outreach' }],
   'Sales skills': [],
 };
 const hubSeen = new Set();
@@ -316,7 +317,7 @@ const articleCrumbs = breadcrumbSchema([
       <aside class="post-cta sec--navy">
         <h2 class="post-cta__title">Put this into practice</h2>
         <p class="post-cta__text">{ctaText}</p>
-        <a class="button is-large" href={SIGNUP_URL}>Book a demo</a>
+        <CtaGroup align="center" />
       </aside>
     </div>
   </article>

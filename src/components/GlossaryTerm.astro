@@ -1,4 +1,5 @@
 ---
+import CtaGroup from './CtaGroup.astro';
 // Glossary term body. Renders one term: category tag, H1, the one-line definition
 // (the quotable answer), then the markdown body (the 4 written H2 sections), then
 // an auto-built Related terms block, then a soft CTA. The route file owns
@@ -58,7 +59,7 @@ const related = (entry.data.related || [])
   <div class="wrap" style="text-align:center">
     <h2 class="heading_primary">{c.ctaTitle}</h2>
     <p class="subheading" style="margin:16px auto 0;max-width:52ch">{c.ctaSub}</p>
-    <p style="margin:28px 0 0"><a href={localizedHref(L, SIGNUP_URL)} class="button is-large">{c.ctaButton}</a></p>
+    <div style="margin:28px 0 0"><CtaGroup align="center" /></div>
   </div>
 </section>
 

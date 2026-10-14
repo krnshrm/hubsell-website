@@ -1,4 +1,5 @@
 ---
+import CtaGroup from './CtaGroup.astro';
 // Renders the /integrations directory from getIntegrationsPage(L). Uses the
 // shared section tokens and .card/.chip classes so it themes with the rest of
 // the site. Logos are intentionally omitted for the stub set: a monogram badge
@@ -18,7 +19,7 @@ const { L, data: d } = Astro.props;
       <p class="eyebrow is-accent">{d.eyebrow}</p>
       <h1 id="intg-title" class="heading_hero" style="margin-top:10px">{d.h1Pre}<span class="accent">{d.h1Accent}</span>{d.h1Post}</h1>
       <p class="subheading" style="margin-top:16px;max-width:60ch">{d.sub}</p>
-      <p style="margin:28px 0 0"><a href={localizedHref(L, SIGNUP_URL)} class="button">{d.demoCta}</a></p>
+      <div style="margin:28px 0 0"><CtaGroup location="hero" /></div>
     </div>
   </div>
 </section>
@@ -58,7 +59,7 @@ const { L, data: d } = Astro.props;
     <div class="sec-head" style="text-align:center;max-width:60ch;margin-left:auto;margin-right:auto">
       <h2 class="heading_primary">{d.closingPre}<span class="accent">{d.closingAccent}</span>{d.closingPost}</h2>
       <p class="subheading" style="margin-top:14px">{d.closingSub}</p>
-      <p style="margin-top:26px"><a href={localizedHref(L, SIGNUP_URL)} class="button">{d.closingCta}</a></p>
+      <div style="margin-top:26px"><CtaGroup align="center" /></div>
     </div>
   </div>
 </section>

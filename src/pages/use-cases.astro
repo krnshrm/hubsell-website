@@ -1,4 +1,5 @@
 ---
+import CtaGroup from '../components/CtaGroup.astro';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SIGNUP_URL } from '../data/site';
@@ -32,7 +33,7 @@ const items = (await getCollection('usecases', (u) => !u.data.draft))
       </div>
 
       <div class="uc-ov-cta">
-        <a class="button is-large" href={SIGNUP_URL}>Book a demo</a>
+        <CtaGroup align="center" />
       </div>
     </div>
   </section>

@@ -1,0 +1,54 @@
+---
+// The site's one CTA group: Start free trial (primary), Book a demo (outline)
+// and a quiet "See pricing" link. Every hero and closing section uses it, so
+// the order, labels and targets stay the same everywhere. Colours come from
+// the section role tokens, so it works on light sections and on navy.
+import { TRIAL_URL, DEMO_URL } from '../data/site';
+import { asLocale, useTranslations, localizedHref, basePath } from '../i18n/utils';
+
+interface Props {
+  size?: 'default' | 'large';
+  align?: 'start' | 'center';
+  /** Shown instead of "See pricing", e.g. the homepage's "See demo below". */
+  third?: { label: string; href: string; icon?: 'down' | 'right' };
+  /** Sets data-cta-location for track.ts where the section class says nothing. */
+  location?: string;
+}
+const { size = 'large', align = 'start', third, location } = Astro.props;
+const L = asLocale(Astro.currentLocale);
+const t = useTranslations(L);
+const onPricing = basePath(Astro.url.pathname, L).replace(/\/$/, '') === '/pricing';
+const link = third ?? (onPricing ? undefined : { label: t('cta.pricing'), href: localizedHref(L, '/pricing'), icon: 'right' as const });
+const btn = size === 'large' ? 'button is-large' : 'button';
+const ARROW = {
+  right: '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>',
+  down: '<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>',
+};
+---
+<div class:list={['cta-group', align === 'center' && 'is-center']} data-cta-location={location}>
+  <div class="cta-group__buttons">
+    <a class={btn} href={TRIAL_URL}>{t('cta.startTrial')}</a>
+    <a class={`${btn} is-secondary`} href={localizedHref(L, DEMO_URL)}>{t('cta.demo')}</a>
+  </div>
+  {link && (
+    <a class="cta-group__link" href={link.href}>
+      {link.label}
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={ARROW[link.icon ?? 'right']} />
+    </a>
+  )}
+</div>
+
+<style>
+  .cta-group{ display:flex; flex-direction:column; align-items:flex-start; gap:16px }
+  .cta-group.is-center{ align-items:center }
+  .cta-group__buttons{ display:flex; flex-wrap:wrap; gap:12px }
+  .cta-group.is-center .cta-group__buttons{ justify-content:center }
+  .cta-group__link{
+    display:inline-flex; align-items:center; gap:8px;
+    font:600 14px/1 var(--font-body); color:var(--sec-tx); text-decoration:none;
+    border-bottom:1.5px solid currentColor; padding-bottom:3px;
+  }
+  .cta-group__link svg{ width:16px; height:16px; transition:transform .2s }
+  .cta-group__link:hover svg{ transform:translateX(2px) }
+  .cta-group__link[href^="#"]:hover svg{ transform:translateY(2px) }
+</style>

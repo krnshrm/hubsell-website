@@ -1,11 +1,12 @@
 ---
+import CtaGroup from './CtaGroup.astro';
 // Shared customer-story body, rendered by /customerstories/[slug] (English,
 // `customerstories`) and /de/customerstories/[slug] (German, `customerstoriesDe`).
 // Self-localizes UI strings from Astro.currentLocale; the story body, pull quote,
 // results, and byline come from the entry, already in the page's language. The
 // route owns BaseLayout, the Newsreader font link, and the breadcrumb JSON-LD.
 import { getCustomerStoriesPage } from '../i18n/pages';
-import { asLocale, localizedHref, useTranslations } from '../i18n/utils';
+import { asLocale, localizedHref } from '../i18n/utils';
 import { SIGNUP_URL } from '../data/site';
 
 interface Props { story: any; stories: any[]; }
@@ -13,7 +14,6 @@ const { story, stories } = Astro.props;
 const { title, company, champion, championTitle, championImage, testimonial, results, cta } = story.data;
 
 const L = asLocale(Astro.currentLocale);
-const t = useTranslations(L);
 const c = getCustomerStoriesPage(L);
 
 // story.body is the raw Webflow HTML, already link-rewritten by the converter.
@@ -103,7 +103,7 @@ const ctaText = cta || c.ctaTextDefault;
     <aside class="cs-cta sec--navy">
       <h2 class="cs-cta__title">{c.ctaTitlePre}{company || c.ctaTitleFallback}{c.ctaTitlePost}</h2>
       <p class="cs-cta__text">{ctaText}</p>
-      <div class="cta-row cta-row--center"><a class="button is-large" href={localizedHref(L, SIGNUP_URL)}>{c.ctaButton}</a><a class="link" href={localizedHref(L, '/pricing')}>{t('cta.seePricing')} &rarr;</a></div>
+      <CtaGroup align="center" />
     </aside>
   </div>
 </article>

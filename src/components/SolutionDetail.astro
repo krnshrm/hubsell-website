@@ -1,4 +1,5 @@
 ---
+import CtaGroup from './CtaGroup.astro';
 // Shared body template for the /solutions leaf pages (team + role). The route file
 // owns BaseLayout, title/description, and breadcrumb JSON-LD; this renders the
 // sections. Jobs-to-be-done framing: hero, the jobs, how hubsell helps (each block
@@ -58,7 +59,7 @@ const proofItems = (d.storySlug ? 1 : 0) + (quote ? 1 : 0) + (quote2 ? 1 : 0);
         <h1 id="sol-title" class="heading_hero" style="margin-top:10px">{d.h1Pre}<span class="accent">{d.h1Accent}</span>{d.h1Post}</h1>
         <p class="subheading" style="margin-top:16px;max-width:62ch">{d.sub}</p>
         {!d.emailCta && (
-          <p style="margin:28px 0 0"><a href={localizedHref(L, SIGNUP_URL)} class="button">{d.demoCta}</a></p>
+          <div style="margin:28px 0 0"><CtaGroup location="hero" /></div>
         )}
       </div>
       {HeroVisual && (
@@ -240,7 +241,7 @@ const proofItems = (d.storySlug ? 1 : 0) + (quote ? 1 : 0) + (quote2 ? 1 : 0);
   <div class="wrap" style="text-align:center">
     <h2 class="heading_primary">{d.closing.titlePre}<span class="accent">{d.closing.titleAccent}</span>{d.closing.titlePost}</h2>
     <p class="subheading" style="margin:16px auto 0;max-width:56ch">{d.closing.sub}</p>
-    <p style="margin:30px 0 0"><a href={localizedHref(L, SIGNUP_URL)} class="button is-large">{d.closingCta}</a></p>
+    <div style="margin:30px 0 0"><CtaGroup align="center" /></div>
   </div>
 </section>
 )}

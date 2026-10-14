@@ -1,4 +1,5 @@
 ---
+import CtaGroup from './CtaGroup.astro';
 // Reviews page body. Single source rendered by /hubsell-reviews (English) and
 // /de/hubsell-reviews (German); self-localizes from Astro.currentLocale. RatingsStrip
 // localizes itself via getHome; the testimonial wall takes the localized pool. The
@@ -43,7 +44,7 @@ const quotes = L === 'de' ? TESTIMONIALS_DE : L === 'nl' ? TESTIMONIALS_NL : TES
     <h2 class="heading_primary">{c.ctaTitle}</h2>
     <p class="subheading rv-sub">{c.ctaSub}</p>
     <div class="rv-actions">
-      <a class="button is-large" href={localizedHref(L, SIGNUP_URL)}>{c.ctaPrimary}</a>
+      <CtaGroup align="center" />
     </div>
   </div>
 </section>

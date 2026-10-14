@@ -6,7 +6,7 @@
 // It carries everything: the primary nav (Resources, Pricing), the language
 // switcher, Log in and the trial CTA. The separate top bar that used to hold
 // language, theme and Log in was removed on 2026-10-12, with dark mode.
-import { SIGNUP_URL, LOGIN_URL } from '../data/site';
+import { TRIAL_URL, LOGIN_URL } from '../data/site';
 import { megaMenus, menuGroups, topLinks, liveLinks } from '../data/navigation';
 import { switcherLocales, localeNames } from '../i18n/ui';
 import { asLocale, useTranslations, localizedHref, localizeUrl, basePath, hasTranslation } from '../i18n/utils';
@@ -93,7 +93,7 @@ const langItems = switcherLocales.map((l) => ({
         </ul>
       </div>
       <a class="nav__link nav__login" href={localizeUrl(locale, LOGIN_URL)}>{t('cta.login')}</a>
-      <a class="button is-small nav__cta" href={localizedHref(locale, SIGNUP_URL)}>{t('cta.trial')}</a>
+      <a class="button is-small nav__cta" href={TRIAL_URL}>{t('cta.startTrial')}</a>
       <button type="button" class="nav__burger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -135,7 +135,7 @@ const langItems = switcherLocales.map((l) => ({
         : <span class="is-off">{it.code.toUpperCase()}</span>
       ))}
     </div>
-    <a class="button nav__mobcta" href={localizedHref(locale, SIGNUP_URL)}>{t('cta.trial')}</a>
+    <a class="button nav__mobcta" href={TRIAL_URL}>{t('cta.startTrial')}</a>
   </div>
 </header>
 

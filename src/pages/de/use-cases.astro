@@ -1,4 +1,5 @@
 ---
+import CtaGroup from '../../components/CtaGroup.astro';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getUseCasesPage } from '../../i18n/pages';
@@ -33,7 +34,7 @@ const items = (await getCollection('usecasesDe', (u) => !u.data.draft))
       </div>
 
       <div class="uc-ov-cta">
-        <a class="button is-large" href={localizedHref(L, SIGNUP_URL)}>{c.ctaPrimary}</a>
+        <CtaGroup align="center" />
       </div>
     </div>
   </section>

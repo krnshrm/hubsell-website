@@ -354,8 +354,11 @@ Do not edit the copy; change the style guide and copy the file over again.
   large text, `--hl-ink` for small text on light, `--hl-soft` for tag and chip fills.
   Fills carry navy text. The flow demo keeps the app's own colours.
 - CTA (`--cta-bg`, `--cta-tx`): the style guide's primary button. Navy `#192341`
-  with white text on light sections, white with navy text on navy sections. One primary "Book a demo" button; secondary buttons
-  were removed site-wide.
+  with white text on light sections, white with navy text on navy sections.
+- CTA group (2026-10-14): every hero and closing CTA uses `CtaGroup.astro`: Start free
+  trial (primary, `TRIAL_URL`), Book a demo (outline, `DEMO_URL`) and a "See pricing"
+  link (hidden on /pricing; the homepage hero shows "See demo below" instead). The nav
+  button is Start free trial.
 - Accent text (`--accent-on`): `--hl-ink` on light sections, `--hl` on navy sections.
 - Status: success `#289B9B`, warning `#FEC65D`, error `#E86250`, with `-muted`
   fills and `-strong` text from the tokens file.
