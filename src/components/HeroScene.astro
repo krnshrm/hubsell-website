@@ -37,7 +37,7 @@ const T = COPY[L as keyof typeof COPY] ?? COPY.en;
 ---
 <section class="hs" aria-labelledby="hs-title">
   <div class="wrap hs__copy">
-    <h1 id="hs-title" class="hs__title"><span class="hs__kw">{T.kw}</span>{T.h1a[0]}<span class="accent">{T.h1a[1]}</span>{T.h1a[2]}{" "}{T.h1b[0]}<span class="accent">{T.h1b[1]}</span>{T.h1b[2]}</h1>
+    <h1 id="hs-title" class="heading_hero hs__title"><span class="eyebrow hs__kw">{T.kw}</span>{T.h1a[0]}<span class="accent">{T.h1a[1]}</span>{T.h1a[2]}{" "}{T.h1b[0]}<span class="accent">{T.h1b[1]}</span>{T.h1b[2]}</h1>
     <div class="hs__side">
       <p class="hs__sub">{T.sub}</p>
       {/* The section class is "hs", which track.ts does not recognise as a
@@ -83,15 +83,7 @@ const T = COPY[L as keyof typeof COPY] ?? COPY.en;
   }
   /* The category name sits inside the H1 for search, styled as a small
      label so the slogan still reads as the headline. */
-  .hs__kw{
-    display:block; margin-bottom:clamp(10px,1.2vw,16px);
-    font:600 clamp(13px,1vw,15px)/1.2 var(--font-body); letter-spacing:.08em;
-    text-transform:uppercase; color:var(--ink-2);
-  }
-  .hs__title{
-    margin:0; font:400 clamp(40px,4.9vw,70px)/1.02 var(--font-head);
-    letter-spacing:-.035em; color:var(--ink); text-wrap:balance;
-  }
+  .hs__kw{ display:block; margin-bottom:clamp(10px,1.2vw,16px) }
   /* Lexend's cap height sits lower in its line box than the body text's, so
      the side column drops a little to line its first line up with the H1. */
   .hs__side{ padding-top:clamp(6px,.9vw,14px) }

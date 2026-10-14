@@ -364,6 +364,11 @@ Do not edit the copy; change the style guide and copy the file over again.
   fills and `-strong` text from the tokens file.
 - Fonts: Lexend (headings), Instrument Sans (body), Newsreader (serif) on blog and
   legal only.
+- Page titles and eyebrows (2026-10-14): every H1 is Lexend regular with tight
+  tracking, the homepage hero's style. `.heading_hero` on landing pages,
+  `.heading_page` on documents (legal, blog posts, knowledge base). Section headings
+  stay semibold. All eyebrows are one style (muted, semibold, uppercase); coral is
+  only for highlighted words, so `.eyebrow.is-accent` no longer changes colour.
 - Layout wrapper: `.wrap` (max-width 1100px default).
 - Light only. Dark mode was removed on 2026-10-12: `BaseLayout.astro` pins
   `data-theme="light"` and clears any saved choice, and the theme toggle is gone.
