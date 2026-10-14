@@ -2,7 +2,7 @@
 // Shared body template for the three /platform capability pages. The route file
 // owns BaseLayout, title/description, and breadcrumb JSON-LD; this renders the
 // sections. Background rhythm: paper, sand, navy, paper, sand (FAQ), espresso.
-import { localizedHref } from '../i18n/utils';
+import { localizedHref, useTranslations } from '../i18n/utils';
 import { SIGNUP_URL } from '../data/site';
 import { getHome } from '../data/home-i18n';
 import { getPlatformQuote } from '../data/platform-i18n';
@@ -23,6 +23,7 @@ import PlatformFaqPicks from './PlatformFaqPicks.astro';
 
 interface Props { L: Locale; data: PlatformDetailData }
 const { L, data: d } = Astro.props;
+const t = useTranslations(L);
 const { s } = getHome(L);
 
 const EMBEDS: Record<string, any> = {
@@ -60,7 +61,7 @@ const quote = getPlatformQuote(L, d.quoteSlug);
       <p class="eyebrow is-accent">{d.eyebrow}</p>
       <h1 id="pf-title" class="heading_hero" style="margin-top:10px">{d.h1Pre}<span class="accent">{d.h1Accent}</span>{d.h1Post}</h1>
       <p class="subheading" style="margin-top:16px;max-width:62ch">{d.sub}</p>
-      <p style="margin:28px 0 0"><a href={localizedHref(L, SIGNUP_URL)} class="button">{d.demoCta}</a></p>
+      <p class="cta-row" style="margin:28px 0 0"><a href={localizedHref(L, SIGNUP_URL)} class="button">{d.demoCta}</a><a class="link" href={localizedHref(L, '/pricing')}>{t('cta.seePricing')} &rarr;</a></p>
     </div>
     {d.heroTimeline && (
       <div style="margin-top:clamp(36px,5vw,60px)">
@@ -162,7 +163,7 @@ const quote = getPlatformQuote(L, d.quoteSlug);
   <div class="wrap" style="text-align:center">
     <h2 class="heading_primary">{d.closing.titlePre}<span class="accent">{d.closing.titleAccent}</span>{d.closing.titlePost}</h2>
     <p class="subheading" style="margin:16px auto 0;max-width:56ch">{d.closing.sub}</p>
-    <p style="margin:30px 0 0"><a href={localizedHref(L, SIGNUP_URL)} class="button is-large">{d.closingCta}</a></p>
+    <p class="cta-row cta-row--center" style="margin:30px 0 0"><a href={localizedHref(L, SIGNUP_URL)} class="button is-large">{d.closingCta}</a><a class="link" href={localizedHref(L, '/pricing')}>{t('cta.seePricing')} &rarr;</a></p>
   </div>
 </section>
 

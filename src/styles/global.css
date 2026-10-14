@@ -129,6 +129,10 @@ a{color:inherit}
 .link:hover{border-bottom-color:var(--accent-on)}
 
 /* ---- buttons ---- */
+/* Button plus a quieter text link (e.g. pricing). One primary button stays the
+   rule; the second step is a .link, not a second button. */
+.cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px}
+.cta-row--center{justify-content:center}
 .button{
   font-family:var(--font-body);font-weight:500;font-size:1rem;line-height:1;cursor:pointer;
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
@@ -196,6 +200,7 @@ html.has-anim .marquee__track{animation:marquee 32s linear infinite}
 .acc__item.is-open .acc__btn::after{transform:rotate(225deg);margin-top:4px}
 .acc__panel{max-height:0;overflow:hidden;transition:max-height .26s ease}
 .acc__panel p{margin:0 4px 22px;font-size:1rem;line-height:1.65;color:var(--sec-tx);opacity:.82;max-width:68ch}
+.acc__panel a{color:var(--accent-on);font-weight:500;text-decoration:underline;text-underline-offset:2px}
 
 /* carousel (testimonials) */
 .carousel{position:relative}

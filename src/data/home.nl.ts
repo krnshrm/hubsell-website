@@ -215,13 +215,13 @@ export const faqsNl: Faq[] = [
   {
     question: 'Hoe verhoudt hubsell zich tot Outreach of Salesloft?',
     slug: 'hubsell-vs-outreach-salesloft',
-    answer: '<p>Outreach en Salesloft zijn e-mailsequentie-tools, ze verzamelen geen data en beheersen LinkedIn niet native. U hebt nog steeds een aparte dataleverancier en een handmatig LinkedIn-proces nodig. hubsell dekt alle drie de lagen: actuele prospectdata, gecoördineerde e-mail- en LinkedIn-sequenties plus beltaken en automatische CRM-synchronisatie. Eén platform, één abonnement.</p>',
+    answer: '<p>Outreach en Salesloft zijn e-mailsequentie-tools, ze verzamelen geen data en beheersen LinkedIn niet native. U hebt nog steeds een aparte dataleverancier en een handmatig LinkedIn-proces nodig. hubsell dekt alle drie de lagen: actuele prospectdata, gecoördineerde e-mail- en LinkedIn-sequenties plus beltaken en automatische CRM-synchronisatie. Eén platform, één abonnement. Bekijk <a href="/nl/comparisons/">hoe hubsell zich verhoudt</a> tot Apollo, ZoomInfo, Cognism, Lusha en Seamless.</p>',
     onHomepage: true,
   },
   {
     question: 'Waarin verschilt hubsell van statische B2B-databases zoals ZoomInfo of Apollo?',
     slug: 'hubsell-catch-all-domains',
-    answer: '<p>De meeste sales-intelligence-tools geven u een statische export en laten de outreach aan een ander platform over. hubsell verzamelt contacten live op het moment van uw aanvraag, en laat u ze vervolgens via e-mail, LinkedIn en telefoon benaderen en alles met uw CRM synchroniseren, zonder tool-wissel. Geen databaseverval, geen aan elkaar geknoopte stack.</p>',
+    answer: '<p>De meeste sales-intelligence-tools geven u een statische export en laten de outreach aan een ander platform over. hubsell verzamelt contacten live op het moment van uw aanvraag, en laat u ze vervolgens via e-mail, LinkedIn en telefoon benaderen en alles met uw CRM synchroniseren, zonder tool-wissel. Geen databaseverval, geen aan elkaar geknoopte stack. De vergelijking in detail: <a href="/nl/vs/zoominfo/">ZoomInfo-alternatief</a> en <a href="/nl/vs/apollo/">Apollo-alternatief</a>.</p>',
     onHomepage: true,
   },
   {
