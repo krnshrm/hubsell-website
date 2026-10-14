@@ -32,7 +32,7 @@ draft: false
 
 <h2>Data does not sit still</h2>
 <p>Even the records that are right today are on a clock. As data ages, it turns from an asset into a liability. Job titles change. People move companies. Teams get restructured. A record that was accurate when the vendor compiled it can be months out of date by the time it reaches your sequence, because vendors build over quarters, sell over quarters, and you use the data across a year-long contract.</p>
-<p>A short note on intent data, since it usually comes up here. Third-party intent data promises to tell you who is in-market. In practice it is noisy and directional at best, and independent analysis keeps landing on the same point: bought signals correlate weakly with real purchase behavior. First-party signals, the things a buyer actually does, are a different and stronger conversation, and one for another post.</p>
+<p>A short note on <a id="" href="/insights/intent-data-b2b-sales-marketing/">intent data</a>, since it usually comes up here. Third-party intent data promises to tell you who is in-market. In practice it is noisy and directional at best, and independent analysis keeps landing on the same point: bought signals correlate weakly with real purchase behavior. First-party signals, the things a buyer actually does, are a different and stronger conversation, and one for another post.</p>
 
 <h2>The one real benefit, and its price</h2>
 <p>To be fair, databases have one undeniable strength. Immediate availability. You ask for the data and it is there the same minute, because it was already sitting on a shelf.</p>

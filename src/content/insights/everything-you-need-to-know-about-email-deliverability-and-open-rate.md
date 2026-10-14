@@ -18,7 +18,7 @@ coAuthors: ["sebastian", "guido"]
 <p>Before we start, a few words on why deliverability and open rate are the foundation of all email outreach. Any email that is not delivered into the inbox of the intended recipient will not be opened. Stronger still, even the subject line snippet will never be seen. Those prospects are effectively not part of the campaign at all.</p>
 
 <h2>What email deliverability is</h2>
-<p>Email deliverability is whether a sent email reaches the recipient's inbox, not just their mail server. The difference between delivery and deliverability matters. You may see a high delivery rate while your mail is quietly landing in spam, promotions, or junk. Inbox placement is what drives open rate, and open rate is what drives everything after it.</p>
+<p><a id="" href="/platform/deliverability/">Email deliverability</a> is whether a sent email reaches the recipient's inbox, not just their mail server. The difference between delivery and deliverability matters. You may see a high delivery rate while your mail is quietly landing in spam, promotions, or junk. Inbox placement is what drives open rate, and open rate is what drives everything after it.</p>
 
 <h2>The case for open rate</h2>
 <p>Say you target 1000 prospects and your open rate is 30 percent, close to the industry average. Only 300 people read your content. The other 700 remain oblivious to who you are and what you do. Since only those 300 saw the message, every reply you get comes from that group.</p>
@@ -64,7 +64,7 @@ coAuthors: ["sebastian", "guido"]
 </ul>
 <p><strong>Spam complaints.</strong> There are two kinds. An external complaint is someone manually marking your email as spam. An internal complaint is someone unsubscribing and selecting spam as the reason, which alerts the sender without the email provider counting it against you.</p>
 <p><strong>Spam traps.</strong> ISPs run addresses that are either newly created or abandoned and taken over specifically to catch spammers. Sending to one signals that you are likely spamming and can get you blacklisted. Poor quality data is how these end up on your list without you knowing.</p>
-<p><strong>Blacklists.</strong> A blacklist is a list of IP addresses, domains, and servers identified as sending spam. Landing on one means your mail hits junk or is not delivered at all. You do not have to be sending spam to get listed. You only have to look like it. Common triggers include a sudden spike in sending volume, no unsubscribe option, and a high bounce rate, which suggests a bought list.</p>
+<p><strong>Blacklists.</strong> A <a id="" href="/insights/how-to-avoid-email-domain-blacklist-and-remove-ip/">blacklist</a> is a list of IP addresses, domains, and servers identified as sending spam. Landing on one means your mail hits junk or is not delivered at all. You do not have to be sending spam to get listed. You only have to look like it. Common triggers include a sudden spike in sending volume, no unsubscribe option, and a high bounce rate, which suggests a bought list.</p>
 
 <h2>Bounce rate</h2>
 <p>There are two kinds of bounce, and the difference matters.</p>
@@ -72,7 +72,7 @@ coAuthors: ["sebastian", "guido"]
 <p><strong>Hard bounces</strong> are sends to wrong or non-existent addresses. They damage your domain health and the spam rating of everything you send afterwards. Mail 100 prospects with 15 wrong addresses and you lose 15 percent of your potential, plus your provider concludes your data quality is poor and removes points from your domain rating. Sustain a high bounce rate and the damage compounds.</p>
 <p><strong>Bounce management.</strong> Three things to remember:</p>
 <ul>
-<li>Ask your data provider for their expected bounce rate. In hubsell's case it is under 5 percent. If a provider's number is too high, consider another one.</li>
+<li>Ask your <a id="" href="/platform/live-data/">data provider</a> for their expected bounce rate. In hubsell's case it is under 5 percent. If a provider's number is too high, consider another one.</li>
 <li>Monitor campaigns and pause if you pass 10 percent.</li>
 <li>Make sure bounces are recorded correctly. Sending a follow-up to a bounced address is as damaging as the first send, and entirely avoidable.</li>
 </ul>
@@ -86,7 +86,7 @@ coAuthors: ["sebastian", "guido"]
 <h2>The recipient's email address</h2>
 <p>There are three types you can target, and only one of them is a good idea.</p>
 <p><strong>Role-based addresses</strong> like marketing@ or info@ are often managed by several people. If you are targeting a specific decision maker and someone else reads it, your personalisation does not fit. They also raise your soft bounce risk, and they carry the most noise because they are the easiest addresses to find.</p>
-<p><strong>Private addresses</strong> on Gmail, Yahoo, or similar are worse. Recipients feel intruded upon, the content is not relevant to them personally, and under GDPR it is not legal in every EU country. People checking personal mail are also not in a work frame of mind, which cuts both ways but rarely in your favour.</p>
+<p><strong>Private addresses</strong> on Gmail, Yahoo, or similar are worse. Recipients feel intruded upon, the content is not relevant to them personally, and under <a id="" href="/insights/b2b-data-compliance/">GDPR</a> it is not legal in every EU country. People checking personal mail are also not in a work frame of mind, which cuts both ways but rarely in your favour.</p>
 <p><strong>Direct corporate addresses</strong> are what we recommend to every customer. They are the most productive of the three and carry none of the problems above.</p>
 
 <h2>Subject lines</h2>
@@ -103,7 +103,7 @@ coAuthors: ["sebastian", "guido"]
 </ul>
 <p>Things we are on the fence about, which we do not use but some customers do with mixed results: ellipses, capitalising every word, and generic short subjects like "quick question" or "feedback".</p>
 <p>Two checks when writing one. First, does the subject line indicate what the email is about, consistently? If not, you are drifting into clickbait. It sounds simple and it is not, because compressing 100 words into 10 is hard. Second, check the length, and remember that a short subject pulls the opening of your body into the preview.</p>
-<p><strong>Static versus dynamic subject lines.</strong> Personalisation in subject lines is usually limited to static placeholders such as first name, last name, and company name. At hubsell we use what we call dynamic placeholders, which apply if-this-then-that logic to personalise far more deeply.</p>
+<p><strong>Static versus dynamic subject lines.</strong> Personalisation in subject lines is usually limited to static placeholders such as first name, last name, and company name. At hubsell we use what we call <a id="" href="/platform/personalization/">dynamic placeholders</a>, which apply if-this-then-that logic to personalise far more deeply.</p>
 <p>A static example looks like this:</p>
 <blockquote><p>{{firstName}}, quick question about {{companyName}}</p></blockquote>
 <p>A dynamic one adjusts itself based on a property of the recipient. Using department as the condition, one subject line produces four variants:</p>
