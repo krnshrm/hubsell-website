@@ -1,17 +1,18 @@
 ---
-// Product motif for /platform/deliverability: the sender mailboxes with their
+// Product motif for /platform/deliverability: the customer's own mailbox with its
 // daily cap, the authentication the hubsell team sets up, the sending window and
 // the stop on reply or bounce. Sample names and times; no placement figures,
 // because hubsell does not publish one.
 import { asLocale } from '../i18n/utils';
 const L = asLocale(Astro.currentLocale);
 const T = ({
-  en: { title: 'Sender mailboxes', live: 'Live', today: 'Sent today', cap: 'of daily cap', auth: 'Authentication', set: 'Set up', window: 'Sending window', stop: 'Flow stops on reply or bounce', foot: 'Sent from your own mailboxes through the Google and Microsoft APIs' },
-  de: { title: 'Absender-Postfächer', live: 'Aktiv', today: 'Heute gesendet', cap: 'des Tageslimits', auth: 'Authentifizierung', set: 'Eingerichtet', window: 'Versandzeiten', stop: 'Flow stoppt bei Antwort oder Bounce', foot: 'Gesendet aus den eigenen Postfächern über die APIs von Google und Microsoft' },
-  nl: { title: 'Verzendmailboxen', live: 'Actief', today: 'Vandaag verstuurd', cap: 'van de daglimiet', auth: 'Authenticatie', set: 'Ingesteld', window: 'Verzendtijden', stop: 'Flow stopt bij reactie of bounce', foot: 'Verstuurd vanuit uw eigen mailboxen via de API’s van Google en Microsoft' },
+  en: { title: 'Your mailbox', live: 'Live', today: 'Sent today', cap: 'of daily cap', auth: 'Authentication', set: 'Set up', window: 'Sending window', stop: 'Flow stops on reply or bounce', foot: 'Sent from your own mailbox through the Google or Microsoft API' },
+  de: { title: 'Das eigene Postfach', live: 'Aktiv', today: 'Heute gesendet', cap: 'des Tageslimits', auth: 'Authentifizierung', set: 'Eingerichtet', window: 'Versandzeiten', stop: 'Flow stoppt bei Antwort oder Bounce', foot: 'Gesendet aus dem eigenen Postfach über die API von Google oder Microsoft' },
+  nl: { title: 'Uw mailbox', live: 'Actief', today: 'Vandaag verstuurd', cap: 'van de daglimiet', auth: 'Authenticatie', set: 'Ingesteld', window: 'Verzendtijden', stop: 'Flow stopt bij reactie of bounce', foot: 'Verstuurd vanuit uw eigen mailbox via de API van Google of Microsoft' },
 } as const)[L] ?? null;
-const t = T ?? { title: 'Sender mailboxes', live: 'Live', today: 'Sent today', cap: 'of daily cap', auth: 'Authentication', set: 'Set up', window: 'Sending window', stop: 'Flow stops on reply or bounce', foot: 'Sent from your own mailboxes through the Google and Microsoft APIs' };
-const boxes = [['AK', 'anna@yourcompany.com', 72], ['MS', 'max@yourcompany.com', 58], ['LB', 'lea@yourcompany.com', 64]] as const;
+const t = T ?? { title: 'Your mailbox', live: 'Live', today: 'Sent today', cap: 'of daily cap', auth: 'Authentication', set: 'Set up', window: 'Sending window', stop: 'Flow stops on reply or bounce', foot: 'Sent from your own mailbox through the Google or Microsoft API' };
+// One mailbox: hubsell sends low to mid volume from the customer's own address.
+const boxes = [['AK', 'anna@yourcompany.com', 64]] as const;
 ---
 <div class="dlv">
   <div class="dlv__top">

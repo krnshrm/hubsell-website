@@ -23,6 +23,7 @@ import PlatformStoryCard from './PlatformStoryCard.astro';
 import PlatformFaqPicks from './PlatformFaqPicks.astro';
 import PlatformHeroSlice from './PlatformHeroSlice.astro';
 import PlatformCompare from './PlatformCompare.astro';
+import HeroPipelineFlow from './HeroPipelineFlow.astro';
 import PlatformStages from './PlatformStages.astro';
 import SectionHead from './SectionHead.astro';
 
@@ -102,7 +103,7 @@ import Avatar from './Avatar.astro';
         <p class="subheading" style="margin-top:16px;max-width:62ch">{d.sub}</p>
         <div style="margin:28px 0 0"><CtaGroup location="hero" /></div>
       </div>
-      {d.heroSlice && <div class="pf-hero__slice"><PlatformHeroSlice kind={d.heroSlice} /></div>}
+      {d.heroSlice && <div class="pf-hero__slice">{d.heroSlice === 'deliverability' ? <HeroPipelineFlow variant="deliverability" /> : <PlatformHeroSlice kind={d.heroSlice} />}</div>}
     </div>
     {v2 && STAGE_OF[d.path] && <div class="pf-stages"><PlatformStages current={STAGE_OF[d.path]} /></div>}
     {!v2 && d.heroTimeline && (

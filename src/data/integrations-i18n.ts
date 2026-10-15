@@ -122,7 +122,7 @@ const EN: IntegrationsPageData = {
   },
   "mailPoints": [
     "Emails are sent from your own Google Workspace or Microsoft 365 mailboxes through their APIs. There is no outside SMTP server and no tracking redirect in the path.",
-    "Every mailbox has a daily sending cap, and emails go out within the sending windows you set, spaced out rather than in bursts.",
+    "Your mailbox has a daily sending cap, and emails go out within the sending windows you set, spaced out rather than in bursts.",
     "When a contact replies or an email bounces, the flow stops for that contact, so nobody gets a follow-up after answering."
   ],
   "mailLink": {
@@ -181,8 +181,8 @@ const EN: IntegrationsPageData = {
       "answer": "<p>Google Workspace and Microsoft 365. hubsell sends from your own mailboxes through the Gmail and Microsoft APIs, not from an outside sending server.</p>"
     },
     {
-      "question": "Can I connect more than one mailbox?",
-      "answer": "<p>Yes. Outreach can be spread across several sender mailboxes from your team, and each mailbox has its own daily sending cap.</p>"
+      "question": "Which mailbox does hubsell send from?",
+      "answer": "<p>From the Google Workspace or Microsoft 365 mailbox you connect, within a daily cap. hubsell is built for low to mid volume and well-targeted outreach, not bulk sending. See <a class=\"link\" href=\"/platform/deliverability/\">deliverability</a>.</p>"
     },
     {
       "question": "Does hubsell integrate with LinkedIn?",
@@ -301,7 +301,7 @@ const DE: IntegrationsPageData = {
   },
   "mailPoints": [
     "E-Mails werden aus den eigenen Postfächern bei Google Workspace oder Microsoft 365 über deren APIs versendet. Es gibt keinen externen SMTP-Server und keine Tracking-Umleitung dazwischen.",
-    "Jedes Postfach hat ein tägliches Versandlimit, und E-Mails gehen innerhalb der festgelegten Versandzeiten raus, verteilt statt gebündelt.",
+    "Das Postfach hat ein tägliches Versandlimit, und E-Mails gehen innerhalb der festgelegten Versandzeiten raus, verteilt statt gebündelt.",
     "Antwortet ein Kontakt oder bounct eine E-Mail, stoppt der Flow für diesen Kontakt, sodass niemand nach einer Antwort noch ein Follow-up bekommt."
   ],
   "mailLink": {
@@ -360,8 +360,8 @@ const DE: IntegrationsPageData = {
       "answer": "<p>Google Workspace und Microsoft 365. hubsell sendet aus den eigenen Postfächern über die APIs von Gmail und Microsoft, nicht über einen externen Versandserver.</p>"
     },
     {
-      "question": "Lassen sich mehrere Postfächer verbinden?",
-      "answer": "<p>Ja. Der Outreach lässt sich auf mehrere Absender-Postfächer des Teams verteilen, und jedes Postfach hat sein eigenes tägliches Versandlimit.</p>"
+      "question": "Aus welchem Postfach sendet hubsell?",
+      "answer": "<p>Aus dem verbundenen Postfach bei Google Workspace oder Microsoft 365, innerhalb eines Tageslimits. hubsell ist für geringes bis mittleres Volumen und gezielten Outreach gebaut, nicht für Massenversand. Mehr zur <a class=\"link\" href=\"/de/platform/deliverability/\">Zustellbarkeit</a>.</p>"
     },
     {
       "question": "Ist hubsell mit LinkedIn integriert?",
@@ -480,7 +480,7 @@ const NL: IntegrationsPageData = {
   },
   "mailPoints": [
     "E-mails worden verstuurd vanuit uw eigen Google Workspace- of Microsoft 365-mailboxen via hun API’s. Er is geen externe SMTP-server en geen trackingredirect ertussen.",
-    "Elke mailbox heeft een dagelijkse verzendlimiet, en e-mails gaan uit binnen de verzendtijden die u instelt, gespreid in plaats van in pieken.",
+    "Uw mailbox heeft een dagelijkse verzendlimiet, en e-mails gaan uit binnen de verzendtijden die u instelt, gespreid in plaats van in pieken.",
     "Als een contact reageert of een e-mail bouncet, stopt de flow voor dat contact, zodat niemand na een antwoord nog een follow-up krijgt."
   ],
   "mailLink": {
@@ -539,8 +539,8 @@ const NL: IntegrationsPageData = {
       "answer": "<p>Google Workspace en Microsoft 365. hubsell verstuurt vanuit uw eigen mailboxen via de API’s van Gmail en Microsoft, niet via een externe verzendserver.</p>"
     },
     {
-      "question": "Kan ik meer dan één mailbox koppelen?",
-      "answer": "<p>Ja. Outreach kan over meerdere verzendmailboxen van uw team worden verdeeld, en elke mailbox heeft een eigen dagelijkse verzendlimiet.</p>"
+      "question": "Vanuit welke mailbox verstuurt hubsell?",
+      "answer": "<p>Vanuit de Google Workspace- of Microsoft 365-mailbox die u koppelt, binnen een daglimiet. hubsell is gebouwd voor laag tot gemiddeld volume en gerichte outreach, niet voor bulkverzending. Zie <a class=\"link\" href=\"/nl/platform/deliverability/\">deliverability</a>.</p>"
     },
     {
       "question": "Integreert hubsell met LinkedIn?",
