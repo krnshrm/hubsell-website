@@ -14,7 +14,7 @@ quotes:
   - "meetyoo"
   - "cibt"
 features:
-  - "E-Mail und LinkedIn in einem Ablauf"
+  - "E-Mail und LinkedIn in einem Flow"
   - "Verzweigung nach Interessentenverhalten"
   - "Personalisierung im großen Maßstab"
 roles:
@@ -34,7 +34,7 @@ Käufer sehen keine zwei Kanäle. Sie sehen, dass sich ein Unternehmen meldet, u
 
 ## Ein koordinierter Flow
 
-In hubsell lassen sich E-Mail- und LinkedIn-Schritte per Drag-and-drop in einen einzigen Ablauf ziehen. Profilbesuche, Kontaktanfragen, Direktnachrichten, InMail und E-Mail laufen alle in einer Taktung.
+In hubsell lassen sich E-Mail- und LinkedIn-Schritte per Drag-and-drop in einen einzigen Flow ziehen. Profilbesuche, Kontaktanfragen, Direktnachrichten, InMail und E-Mail laufen alle in einer Taktung.
 
 **Verzweigung, die reagiert.** Bedingungen leiten jeden Kontakt automatisch anhand seines Verhaltens. Anfrage angenommen, aber nicht geantwortet? Dann geht es den einen Weg. Schon verbunden? Dann den anderen. Jeder Ausgang wird behandelt, ohne dass jemand den nächsten Schritt von Hand entscheidet.
 

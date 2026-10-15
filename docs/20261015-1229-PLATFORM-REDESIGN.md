@@ -7,12 +7,13 @@ category is finished.
 
 | Page | Status | Notes |
 |---|---|---|
+| `/platform` | Built (2026-10-15), in review | Overview, keyword "sales engagement platform". Hero uses the old homepage visual (HeroPipelineFlow). Six-tool compare, four stage rows with each page's hero slice, deliverability and signal-based personalization cards, why one platform, proof, closing, 10 FAQs. |
 | `/platform/live-data` | Done (2026-10-15) | Reference page for the pattern below. en, de, nl. |
 | `/platform/enrichment` | Done (2026-10-15) | Field by field, six enrichment steps with fractional pricing, catch-all verification. No waterfall: hubsell sources and orchestrates, only phones from partners. |
 | `/platform/multichannel-outreach` | Done (2026-10-15) | Step by step (8 flow steps), safe LinkedIn automation. Facts confirmed by the owner. |
 | `/platform/crm-sync` | Built (2026-10-15), in review | One-way sync into the CRM today (two-way is planned, say so only in the FAQ). Contacts pushed by hand or by rule, field mapping, matching to existing records, suppression of CRM contacts. "Two-way" claims removed site-wide. |
 | `/platform/deliverability` | To do | |
-| `/platform/personalization` | To do | Open question: keep, merge into multichannel, or retire. |
+| `/platform/personalization` | To do | Refocus on personalization based on buying signals (owner, 2026-10-15). |
 | `/platform` (overview) | To do | Becomes the map of the five stages. |
 
 ## Page pattern (as on live data)

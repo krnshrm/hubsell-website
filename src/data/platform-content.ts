@@ -37,7 +37,7 @@ export interface PlatformDetailData {
   heroSlice?: 'live-data' | 'enrichment' | 'multichannel' | 'crm-sync';
   /** Simple numbered steps for pages without a stepped walkthrough widget. */
   howSteps?: { note?: string; items: { title: string; body: string }[] };
-  compare?: { eyebrow: string; titlePre: string; titleAccent: string; titlePost: string; colA: string; colB: string; rows: [string, string, string][] };
+  compare?: PlatformCompareData;
   /** New layout: every section gets a keyword eyebrow and a two-colour H2. */
   heads?: Record<'signals' | 'explained' | 'steps' | 'extra' | 'proof' | 'closing' | 'faq', { eyebrow: string; pre: string; accent: string; post: string }>;
   /** New layout: one card per sourcing signal, each with its own H3. */
@@ -57,92 +57,56 @@ export interface PlatformCapabilityCard {
   eyebrow: string; title: string; body: string; href: string; linkLabel: string; steps?: string[];
 }
 
+export interface PlatformCompareData { eyebrow: string; titlePre: string; titleAccent: string; titlePost: string; colA: string; colB: string; rows: [string, string, string][] }
+
+/** A two-colour section heading: keyword eyebrow, then pre + coral accent + post. */
+export interface PlatformHead { eyebrow: string; pre: string; accent: string; post: string }
+
+export interface PlatformOverviewStage {
+  eyebrow: string; title: string; body: string; href: string; linkLabel: string;
+  slice: 'live-data' | 'enrichment' | 'multichannel' | 'crm-sync';
+}
+
 export interface PlatformOverviewData {
   title: string;
   metaDescription: string;
   eyebrow: string;
   h1Pre: string; h1Accent: string; h1Post: string;
   sub: string;
-  demoCta: string;
-  problemEyebrow: string;
-  problemTitlePre: string; problemTitleAccent: string; problemTitlePost: string;
-  problemBody: string[];
-  capsEyebrow: string; capsTitle: string;
-  caps: PlatformCapabilityCard[];
-  resultsEyebrow: string; resultsTitle: string;
-  results: PlatformBlock[];
-  proofEyebrow: string; proofTitle: string; ratingsLine: string;
+  compare: PlatformCompareData;
+  heads: { stages: PlatformHead; also: PlatformHead; why: PlatformHead; proof: PlatformHead; closing: PlatformHead; faq: PlatformHead };
+  stages: PlatformOverviewStage[];
+  also: { title: string; body: string; href: string; linkLabel: string }[];
+  why: { title: string; body: string }[];
+  ratingsLine: string;
   quoteSlug: string;
-  faqEyebrow: string; faqTitle: string; faqSlugs: string[];
-  closing: PlatformClosing;
-  closingCta: string;
+  storySlug: string; storyLabel: string;
+  closingSub: string;
+  faqs: { question: string; answer: string }[];
 }
 
 export interface PlatformData { overview: PlatformOverviewData; details: PlatformDetailData[] }
 
 export const platform: PlatformData = {
   overview: {
-    title: 'The hubsell platform: live data, multichannel outreach, and CRM sync',
-    metaDescription: 'One platform that sources B2B contacts live, runs email, LinkedIn, and phone outreach in one flow, and logs everything to your CRM automatically.',
-    eyebrow: 'The platform',
-    h1Pre: 'Six tools\u2019 worth of work. ', h1Accent: 'One platform', h1Post: '.',
-    sub: 'hubsell replaces your data, enrichment, sequencer, deliverability, dialer, and CRM sync tools with one system: live data, multichannel outreach, and automatic CRM sync.',
-    demoCta: 'Book a demo',
-    problemEyebrow: 'The problem',
-    problemTitlePre: 'Most outbound stacks are three subscriptions ', problemTitleAccent: 'duct-taped together', problemTitlePost: '.',
-    problemBody: [
-      'Data exported from the first tool is already going stale while the second tool sends it, and the third tool never hears about the reply. Every handover between tools is a CSV, a delay, and a place for records to rot.',
-      'You pay three invoices to create gaps between them. hubsell closes those gaps by doing the three jobs in one place, on one data set, in real time.',
-    ],
-    capsEyebrow: 'The three capabilities',
-    capsTitle: 'What the platform does',
-    caps: [
-      {
-        eyebrow: 'Live data',
-        title: 'Sourced the day you ask',
-        body: 'hubsell does not sell access to a static database. Define your ICP and we source contacts live from LinkedIn, matched to your criteria and verified at the point of use.',
-        href: '/platform/live-data', linkLabel: 'Explore live data',
-        steps: ['Six live sources', 'Pooled into your ICP', 'Verified at the point of use'],
-      },
-      {
-        eyebrow: 'Multichannel outreach',
-        title: 'Email, LinkedIn, and phone in one flow',
-        body: 'One coordinated flow across all three channels, with branching that reacts to what each contact does and sending spread safely across your team\u2019s profiles.',
-        href: '/platform/multichannel-outreach', linkLabel: 'Explore multichannel outreach',
-        steps: ['One flow, not three tools', 'Email, LinkedIn, and phone', 'Reacts to what they do'],
-      },
-      {
-        eyebrow: 'CRM sync',
-        title: 'Every touchpoint logged automatically',
-        body: 'Sends, opens, replies, and connections land in Salesforce, HubSpot, or Pipedrive the moment they happen. No manual entry, no data rot.',
-        href: '/platform/crm-sync', linkLabel: 'Explore CRM sync',
-        steps: ['Every activity captured', 'Mapped to the right fields', 'Logged in real time'],
-      },
-    ],
-    resultsEyebrow: 'Why it works',
-    resultsTitle: 'What one platform gets you',
-    results: [
-      {
-        title: 'Efficiency',
-        body: 'One login, one invoice, no CSV exports between tools. Your team runs the whole outbound motion in one place instead of stitching three products together by hand.',
-      },
-      {
-        title: 'Results',
-        body: 'Fresh data lifts deliverability. Coordinated channels lift reply rates. Automatic logging keeps your pipeline reporting truthful. Each part makes the others work better.',
-      },
-    ],
-    proofEyebrow: 'Proof',
-    proofTitle: 'Teams that made the switch',
-    ratingsLine: 'Rated 4.6+ across G2, Capterra, and GetApp.',
-    quoteSlug: 'cibt',
-    faqEyebrow: 'FAQ',
-    faqTitle: 'Common questions',
-    faqSlugs: ['hubsell-replace-outbound-stack', 'hubsell-crm-integration', 'stop-sales-email-bounces'],
-    closing: {
-      titlePre: 'See the whole platform ', titleAccent: 'in one call', titlePost: '.',
-      sub: 'Bring your current stack to a short call and we will show you what it looks like as one system.',
-    },
-    closingCta: 'Book a demo',
+    title: "Sales engagement platform with live data and CRM sync | hubsell",
+    metaDescription: "hubsell is a sales engagement platform with its own live B2B data. Source contacts, run email, LinkedIn and call tasks in one flow, and sync every touch to your CRM.",
+    eyebrow: "Sales engagement platform",
+    h1Pre: "Six tools’ worth of work. ",
+    h1Accent: "One platform",
+    h1Post: ".",
+    sub: "hubsell is a sales engagement platform with its own data. It sources contacts live, runs email, LinkedIn and call tasks in one flow, and syncs every touch to Salesforce, HubSpot or Pipedrive.",
+    compare: {"eyebrow": "All-in-one sales engagement", "titlePre": "A six-tool outbound stack versus ", "titleAccent": "one platform", "titlePost": "", "colA": "Separate tools", "colB": "hubsell", "rows": [["Contact data", "A database bought once and used for months", "Sourced live for each search, checked against your ICP"], ["Enrichment", "A second tool, a CSV in and a CSV out", "Verified emails and phones added in the same place"], ["Email outreach", "An email tool that knows nothing about LinkedIn", "Email and LinkedIn steps in one flow"], ["LinkedIn", "Done by hand, or in another automation tool", "Profile visits, invites, messages and InMail as flow steps"], ["Calls", "A dialer and notes typed in afterwards", "Call tasks created in your CRM"], ["CRM", "Activity logged by hand, if at all", "Contacts and activity synced to Salesforce, HubSpot or Pipedrive"], ["Cost", "Several subscriptions and the work between them", "One login, one invoice"]]},
+    heads: {"stages": {"eyebrow": "Platform overview", "pre": "Every stage of outbound, ", "accent": "in one place", "post": ""}, "also": {"eyebrow": "Also in the platform", "pre": "Built in, ", "accent": "not bolted on", "post": ""}, "why": {"eyebrow": "Why one platform", "pre": "Each part makes ", "accent": "the others work better", "post": ""}, "proof": {"eyebrow": "Customer results", "pre": "Teams that ", "accent": "moved to one platform", "post": ""}, "closing": {"eyebrow": "Sales engagement platform", "pre": "See the whole platform ", "accent": "in one call", "post": "."}, "faq": {"eyebrow": "Sales engagement platform FAQ", "pre": "Questions about ", "accent": "the hubsell platform", "post": ""}},
+    stages: [{"eyebrow": "Live B2B data", "title": "Find prospects from buying signals", "slice": "live-data", "href": "/platform/live-data", "linkLabel": "Explore live data", "body": "Contacts are sourced live from LinkedIn and company websites, for your search, from signals like post engagement, job changes, hiring and competitor followers. Each one is checked against your ICP before you use it."}, {"eyebrow": "Contact data enrichment", "title": "Verified emails and phone numbers", "slice": "enrichment", "href": "/platform/enrichment", "linkLabel": "Explore enrichment", "body": "95% of work emails are accurate, catch-all domains included, and every record gets a quality check before it reaches outreach. Phone numbers are optional, from partners chosen for quality."}, {"eyebrow": "Multichannel outreach", "title": "Email, LinkedIn and calls in one flow", "slice": "multichannel", "href": "/platform/multichannel-outreach", "linkLabel": "Explore multichannel outreach", "body": "Profile visits, connection requests, messages, InMail, emails and call tasks run as steps in one flow. Conditions route each contact by what they do, so nobody gets an email after they have already replied on LinkedIn."}, {"eyebrow": "CRM sync", "title": "Every touch on the right record", "slice": "crm-sync", "href": "/platform/crm-sync", "linkLabel": "Explore CRM sync", "body": "Contacts and activity go to Salesforce, HubSpot or Pipedrive, pushed by hand or by rule, and matched to existing records so nothing is duplicated."}],
+    also: [{"title": "Email deliverability", "href": "/platform/deliverability", "linkLabel": "Explore deliverability", "body": "Emails go out from your own Google or Microsoft mailboxes through their APIs. Contacts are verified before the first send, and volume is spread across your senders."}, {"title": "Signal-based personalization", "href": "/platform/personalization", "linkLabel": "Explore personalization", "body": "Messages can open with the signal that put a contact on your list: the post they engaged with, the job they just started or the role their company is hiring for."}],
+    why: [{"title": "Fresh data, fewer bounces", "body": "Contacts sourced and verified the day you use them bounce less, which protects your sender reputation for every email that follows."}, {"title": "Coordinated channels, more replies", "body": "When email and LinkedIn know about each other, each contact gets the next step that fits what they did, not a second message on a channel they already answered."}, {"title": "Automatic logging, honest reports", "body": "When every touch lands in the CRM as it happens, pipeline reports show what really happened, and reps get back the time they spent typing it in."}],
+    ratingsLine: "Rated 4.6+ across G2, Capterra, and GetApp.",
+    quoteSlug: "cibt",
+    storySlug: "workspace365",
+    storyLabel: "Read the Workspace 365 story",
+    closingSub: "Bring your current stack to a short call and we will show you what it looks like as one system.",
+    faqs: [{"question": "What is a sales engagement platform?", "answer": "<p>A sales engagement platform runs the outreach side of sales: emails, LinkedIn steps and calls, in an order you set, with each touch tracked. hubsell adds the two things most of them leave out: live B2B contact data to reach out to, and automatic sync of the results to your CRM.</p>"}, {"question": "How is hubsell different from Outreach or Salesloft?", "answer": "<p>Outreach and Salesloft are email sequence tools. They do not source contact data and do not run LinkedIn natively, so you still need a data provider and a manual LinkedIn process next to them. hubsell covers all three: live data, email and LinkedIn in one flow with call tasks, and CRM sync.</p>"}, {"question": "Which tools can hubsell replace?", "answer": "<p>A B2B data provider, an enrichment tool, an email outreach tool and a LinkedIn automation tool. Calls run as tasks in your CRM, so a separate dialer is not needed for outbound steps, and activity is logged to the CRM without a sync tool in between.</p>"}, {"question": "Does hubsell include B2B contact data?", "answer": "<p>Yes. hubsell sources contacts live for each search, from LinkedIn and company websites, and enriches the ones that fit your ICP with a verified work email and, if you want it, a phone number. There is no static database to buy access to. See <a class=\"link\" href=\"/platform/live-data/\">live data</a>.</p>"}, {"question": "Which channels does hubsell support?", "answer": "<p>Email from your own Google or Microsoft mailboxes, LinkedIn (profile visits, connection requests, messages and InMail) and phone, as call tasks in your CRM. All of them run as steps in one flow.</p>"}, {"question": "Which CRMs does hubsell work with?", "answer": "<p>Salesforce, HubSpot and Pipedrive. Contacts, companies and activity are synced from hubsell into the CRM in real time, matched to existing records so nothing is duplicated. See <a class=\"link\" href=\"/platform/crm-sync/\">CRM sync</a>.</p>"}, {"question": "Is hubsell GDPR-compliant?", "answer": "<p>Yes. hubsell is based in Berlin and hosts data in Frankfurt. It processes data for the purpose you set and does not keep it to resell. You stay the data controller and hubsell is your processor, under a data processing agreement.</p>"}, {"question": "How long does it take to get started?", "answer": "<p>The hubsell team handles campaign setup, data sourcing and flow configuration with you, so most teams run their first outbound campaign in under 7 days.</p>"}, {"question": "How much does hubsell cost?", "answer": "<p>Start costs from €120 per seat per month and Grow from €4,320 per year. Scale is priced in a custom offer for teams from 10 seats. See <a class=\"link\" href=\"/pricing/\">pricing</a>.</p>"}, {"question": "Who is hubsell for?", "answer": "<p>B2B companies that sell to other businesses: sales teams and SDRs, founders who sell themselves, RevOps teams and agencies that run outbound for clients. Most customers are in Europe.</p>"}],
   },
 
   details: [

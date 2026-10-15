@@ -1,141 +1,146 @@
 ---
+// Body of the /platform overview. Same section pattern as the platform detail
+// pages (keyword eyebrow and two-colour H2 on every section), so the overview reads
+// as the index of those pages. Each stage row reuses that page's hero slice.
+// Background rhythm: paper, navy, sand, paper, sand, paper, navy, paper.
 import CtaGroup from './CtaGroup.astro';
-// Body template for the /platform overview page. The route file owns BaseLayout
-// and the breadcrumb JSON-LD. Background rhythm: sand (hero), navy (problem),
-// paper (capabilities), sand (results), espresso (proof), sand via FaqPicks would
-// repeat, so FAQ takes paper here, then navy (closing CTA is inside proof? no):
-// final order: sand, navy, paper, sand, espresso, paper (FAQ), navy (CTA).
+import SectionHead from './SectionHead.astro';
+import HeroPipelineFlow from './HeroPipelineFlow.astro';
+import PlatformStages from './PlatformStages.astro';
+import PlatformCompare from './PlatformCompare.astro';
+import PlatformHeroSlice from './PlatformHeroSlice.astro';
+import PlatformStoryCard from './PlatformStoryCard.astro';
+import PlatformFaqPicks from './PlatformFaqPicks.astro';
 import { localizedHref } from '../i18n/utils';
-import { SIGNUP_URL } from '../data/site';
 import { getHome } from '../data/home-i18n';
 import { getPlatformQuote } from '../data/platform-i18n';
 import type { PlatformOverviewData } from '../data/platform-content';
 import type { Locale } from '../i18n/ui';
-import PlatformFaqPicks from './PlatformFaqPicks.astro';
-import UnifiedPlatformSteps from './UnifiedPlatformSteps.astro';
-import { et } from '../data/embed-i18n';
 
 interface Props { L: Locale; data: PlatformOverviewData }
 const { L, data: d } = Astro.props;
 const { s } = getHome(L);
+const h = d.heads;
 const quote = getPlatformQuote(L, d.quoteSlug);
 ---
-<!-- 1 · Hero (sand) -->
-<section class="sec sec--sand" aria-labelledby="pov-title">
+<section class="sec sec--paper" aria-labelledby="pov-title">
   <div class="wrap">
-    <div class="sec-head" style="margin-bottom:0">
-      <p class="eyebrow is-accent">{d.eyebrow}</p>
-      <h1 id="pov-title" class="heading_hero" style="margin-top:10px">{d.h1Pre}<span class="accent">{d.h1Accent}</span>{d.h1Post}</h1>
-      <p class="subheading" style="margin-top:16px;max-width:62ch">{d.sub}</p>
-      <div style="margin:28px 0 0"><CtaGroup location="hero" /></div>
+    <div class="pov-hero">
+      <div class="sec-head" style="margin-bottom:0">
+        <p class="eyebrow">{d.eyebrow}</p>
+        <h1 id="pov-title" class="heading_hero" style="margin-top:10px">{d.h1Pre}<span class="accent">{d.h1Accent}</span>{d.h1Post}</h1>
+        <p class="subheading" style="margin-top:16px;max-width:62ch">{d.sub}</p>
+        <div style="margin:28px 0 0"><CtaGroup location="hero" /></div>
+      </div>
+      <div class="pov-hero__viz"><HeroPipelineFlow /></div>
+    </div>
+    <div class="pov-stagestrip"><PlatformStages current={['source', 'qualify', 'enrich', 'outreach', 'crm']} /></div>
+  </div>
+</section>
+
+<PlatformCompare id="pov-compare" c={d.compare} />
+
+<section class="sec sec--sand" aria-labelledby="pov-stages">
+  <div class="wrap">
+    <SectionHead id="pov-stages" {...h.stages} />
+    <div class="pov-rows">
+      {d.stages.map((st, i) => (
+        <article class:list={['pov-row', i % 2 === 1 && 'is-flip']}>
+          <div class="pov-row__text">
+            <p class="eyebrow">{st.eyebrow}</p>
+            <h3 class="heading_secondary" style="margin-top:8px">{st.title}</h3>
+            <p class="paragraph" style="margin-top:14px;opacity:.84">{st.body}</p>
+            <a class="link" href={localizedHref(L, st.href)} style="margin-top:18px;display:inline-block">{st.linkLabel} &rarr;</a>
+          </div>
+          <div class="pov-row__viz"><PlatformHeroSlice kind={st.slice} /></div>
+        </article>
+      ))}
     </div>
   </div>
 </section>
 
-<!-- 2 · The problem (navy) -->
-<section class="sec sec--navy" aria-label={d.problemTitlePre + d.problemTitleAccent + d.problemTitlePost}>
+<section class="sec sec--paper" aria-labelledby="pov-also">
   <div class="wrap">
-    <div class="sec-head" style="margin-bottom:0">
-      <p class="eyebrow is-accent">{d.problemEyebrow}</p>
-      <h2 class="heading_primary" style="margin-top:8px">{d.problemTitlePre}<span class="accent">{d.problemTitleAccent}</span>{d.problemTitlePost}</h2>
-      {d.problemBody.map((p) => <p class="paragraph" style="margin-top:18px;opacity:.88;max-width:64ch">{p}</p>)}
-    </div>
-    <div style="margin-top:clamp(28px,4vw,44px)">
-      <UnifiedPlatformSteps />
-    </div>
-  </div>
-</section>
-
-<!-- 3 · The three capabilities (paper) -->
-<section class="sec sec--paper" aria-label={d.capsTitle}>
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow is-accent">{d.capsEyebrow}</p>
-      <h2 class="heading_primary" style="margin-top:8px">{d.capsTitle}</h2>
-    </div>
-    <div class="pov-caps">
-      {d.caps.map((c) => (
-        <a class="card pov-cap" href={localizedHref(L, c.href)}>
-          <p class="eyebrow is-accent">{c.eyebrow}</p>
-          <h3 class="heading_small" style="margin-top:10px">{c.title}</h3>
-          <p class="paragraph_small" style="margin-top:10px">{c.body}</p>
-          {c.steps && (
-            <ol class="pov-strip">
-              {c.steps.map((st, i) => (
-                <li class="pov-striprow"><span class="pov-stripnum">{i + 1}</span>{et(L, st)}</li>
-              ))}
-            </ol>
-          )}
-          <span class="link" style="margin-top:auto;padding-top:18px;display:inline-block">{c.linkLabel} &rarr;</span>
+    <SectionHead id="pov-also" {...h.also} />
+    <div class="pov-two">
+      {d.also.map((a) => (
+        <a class="card pov-card" href={localizedHref(L, a.href)}>
+          <h3 class="heading_small">{a.title}</h3>
+          <p class="paragraph_small" style="margin-top:10px">{a.body}</p>
+          <span class="link" style="margin-top:auto;padding-top:18px;display:inline-block">{a.linkLabel} &rarr;</span>
         </a>
       ))}
     </div>
   </div>
 </section>
 
-<!-- 4 · Results (sand) -->
-<section class="sec sec--sand" aria-label={d.resultsTitle}>
+<section class="sec sec--sand" aria-labelledby="pov-why">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow is-accent">{d.resultsEyebrow}</p>
-      <h2 class="heading_primary" style="margin-top:8px">{d.resultsTitle}</h2>
-    </div>
-    <div class="pov-results">
-      {d.results.map((r) => (
-        <div class="card">
-          <h3 class="heading_small">{r.title}</h3>
-          <p class="paragraph_small" style="margin-top:10px">{r.body}</p>
-        </div>
+    <SectionHead id="pov-why" {...h.why} />
+    <ol class="pov-why">
+      {d.why.map((w, i) => (
+        <li>
+          <span class="pov-why__n">{i + 1}</span>
+          <h3 class="heading_small">{w.title}</h3>
+          <p class="paragraph_small" style="margin-top:10px">{w.body}</p>
+        </li>
       ))}
-    </div>
+    </ol>
   </div>
 </section>
 
-<!-- 5 · Proof (espresso) -->
-<section class="sec sec--esp" aria-label={d.proofTitle}>
+<section class="sec sec--paper" aria-labelledby="pov-proof">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow is-accent">{d.proofEyebrow}</p>
-      <h2 class="heading_primary" style="margin-top:8px">{d.proofTitle}</h2>
-      <p class="paragraph" style="margin-top:14px;opacity:.85">{d.ratingsLine}</p>
+    <SectionHead id="pov-proof" {...h.proof} sub={d.ratingsLine} />
+    <div class="pov-two">
+      <PlatformStoryCard L={L} slug={d.storySlug} label={d.storyLabel} />
+      {quote && (
+        <figure class="card pov-quote">
+          <blockquote class="quote" style="margin:0">&ldquo;{quote.quote}&rdquo;</blockquote>
+          <figcaption class="paragraph_small" style="margin-top:16px">
+            <b>{quote.name}</b>{quote.title && `, ${quote.title}`}{quote.company && ` · ${quote.company}`}
+          </figcaption>
+        </figure>
+      )}
     </div>
-    {quote && (
-      <figure class="card pov-quote">
-        <blockquote class="quote" style="margin:0">&ldquo;{quote.quote}&rdquo;</blockquote>
-        <figcaption class="paragraph_small" style="margin-top:16px">
-          <b>{quote.name}</b>{quote.title && `, ${quote.title}`}{quote.company && ` \u00b7 ${quote.company}`}
-        </figcaption>
-      </figure>
-    )}
   </div>
 </section>
 
-<!-- 6 · FAQ picks (paper) -->
-<PlatformFaqPicks L={L} eyebrow={d.faqEyebrow} title={d.faqTitle} slugs={d.faqSlugs} seeAll={s.faqSec.seeAll} tone="paper" />
-
-<!-- 7 · Closing CTA (navy) -->
-<section class="sec sec--navy" aria-label={d.closing.titlePre + d.closing.titleAccent + d.closing.titlePost}>
+<section class="sec sec--esp" aria-labelledby="pov-closing">
   <div class="wrap" style="text-align:center">
-    <h2 class="heading_primary">{d.closing.titlePre}<span class="accent">{d.closing.titleAccent}</span>{d.closing.titlePost}</h2>
-    <p class="subheading" style="margin:16px auto 0;max-width:56ch">{d.closing.sub}</p>
+    <SectionHead id="pov-closing" {...h.closing} align="center" sub={d.closingSub} />
     <div style="margin:30px 0 0"><CtaGroup align="center" /></div>
   </div>
 </section>
 
+<PlatformFaqPicks L={L} tone="paper" eyebrow={h.faq.eyebrow} title={h.faq.pre + h.faq.accent + h.faq.post} titleParts={[h.faq.pre, h.faq.accent, h.faq.post]} slugs={[]} items={d.faqs} seeAll={s.faqSec.seeAll} />
+
 <style>
-  .pov-caps{ display:grid; grid-template-columns:1fr; gap:20px }
-  .pov-cap{ display:flex; flex-direction:column; text-decoration:none; transition:transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s ease, border-color .3s ease }
-  .pov-cap:hover{ transform:translateY(-4px); border-color:var(--accent-on); box-shadow:0 16px 48px rgba(0,0,0,.08) }
-  .pov-strip{ list-style:none; margin:16px 0 0; padding:14px 0 0; border-top:1px solid var(--sec-bd); display:flex; flex-direction:column; gap:9px }
-  .pov-striprow{ display:flex; align-items:flex-start; gap:10px; font:500 13px/1.4 var(--font-body); color:var(--sec-tx); opacity:.86 }
-  .pov-stripnum{ flex:none; width:19px; height:19px; border-radius:50%; background:var(--positive-soft); color:var(--positive-ink);
-    font:600 11px/19px var(--font-head); text-align:center }
-  .pov-results{ display:grid; grid-template-columns:1fr; gap:20px }
-  .pov-quote{ max-width:720px }
-  @media (min-width:760px){
-    .pov-results{ grid-template-columns:1fr 1fr }
+  .pov-hero{ display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:clamp(32px,5vw,72px); align-items:center }
+  .pov-hero > *{ min-width:0 }
+  .pov-hero__viz{ display:flex; justify-content:center }
+  .pov-stagestrip{ margin-top:clamp(36px,5vw,56px) }
+  @media (max-width:960px){
+    .pov-hero{ grid-template-columns:1fr }
+    .pov-hero__viz{ justify-content:flex-start }
   }
-  @media (min-width:980px){
-    .pov-caps{ grid-template-columns:1fr 1fr 1fr }
+
+  .pov-rows{ display:flex; flex-direction:column; gap:clamp(48px,7vw,96px) }
+  .pov-row{ display:grid; grid-template-columns:1fr; gap:28px; align-items:center }
+  .pov-row__viz{ width:100%; max-width:400px }
+  @media (min-width:960px){
+    .pov-row{ grid-template-columns:minmax(0,1fr) minmax(0,400px); gap:clamp(48px,6vw,96px) }
+    .pov-row.is-flip{ grid-template-columns:minmax(0,400px) minmax(0,1fr) }
+    .pov-row.is-flip .pov-row__viz{ order:-1 }
   }
+
+  .pov-two{ display:grid; grid-template-columns:1fr; gap:20px; align-items:stretch }
+  @media (min-width:760px){ .pov-two{ grid-template-columns:1fr 1fr } }
+  .pov-card{ display:flex; flex-direction:column; text-decoration:none; color:inherit }
+  .pov-quote{ display:flex; flex-direction:column; justify-content:center }
+
+  .pov-why{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr; gap:28px }
+  @media (min-width:860px){ .pov-why{ grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(28px,4vw,56px) } }
+  .pov-why li{ border-top:1px solid var(--sec-bd); padding-top:22px }
+  .pov-why__n{ display:block; font:600 15px/1 var(--font-head); color:var(--accent-on); margin-bottom:12px }
 </style>

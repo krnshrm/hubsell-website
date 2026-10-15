@@ -25,7 +25,7 @@ const de: Dict = {
   'Validate contact details': 'Kontaktdaten verifizieren',
   'Checked on the spot, catch-alls included': 'Sofort geprüft, inklusive Catch-all-Domains',
   'Run email, LinkedIn, & phone': 'E-Mail, LinkedIn & Telefon',
-  'One coordinated flow, calls as CRM tasks': 'Ein abgestimmter Ablauf, Anrufe als CRM-Aufgaben',
+  'One coordinated flow, calls as CRM tasks': 'Ein abgestimmter Flow, Anrufe als CRM-Aufgaben',
   'Sync to your CRM': 'Mit dem CRM synchronisieren',
   'Salesforce, HubSpot, Pipedrive, auto-logged': 'Salesforce, HubSpot, Pipedrive, automatisch protokolliert',
   'Live data': 'Live-Daten',

@@ -22,6 +22,7 @@ import PlatformEnrichmentViz from './PlatformEnrichmentViz.astro';
 import PlatformStoryCard from './PlatformStoryCard.astro';
 import PlatformFaqPicks from './PlatformFaqPicks.astro';
 import PlatformHeroSlice from './PlatformHeroSlice.astro';
+import PlatformCompare from './PlatformCompare.astro';
 import PlatformStages from './PlatformStages.astro';
 import SectionHead from './SectionHead.astro';
 
@@ -109,27 +110,7 @@ const STAGE_OF: Record<string, string[]> = {
   </div>
 </section>
 
-{d.compare && (
-  <section class="sec sec--navy" aria-labelledby="pf-compare">
-    <div class="wrap">
-      <SectionHead id="pf-compare" eyebrow={d.compare.eyebrow} pre={d.compare.titlePre} accent={d.compare.titleAccent} post={d.compare.titlePost} />
-      <div class="pcmp" role="table">
-        <div class="pcmp__row pcmp__head" role="row">
-          <span role="columnheader"></span>
-          <span role="columnheader">{d.compare.colA}</span>
-          <span role="columnheader" class="is-us">{d.compare.colB}</span>
-        </div>
-        {d.compare.rows.map(([label, a, b]) => (
-          <div class="pcmp__row" role="row">
-            <span role="rowheader" class="pcmp__label">{label}</span>
-            <span role="cell" class="pcmp__a"><i aria-hidden="true">&times;</i>{a}</span>
-            <span role="cell" class="pcmp__b is-us"><i aria-hidden="true">&check;</i>{b}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-)}
+{d.compare && <PlatformCompare id="pf-compare" c={d.compare} />}
 
 <!-- 2a · New layout: signals summary, heading left and widget right (sand),
      then each signal explained on its own (paper). -->
@@ -336,24 +317,6 @@ const STAGE_OF: Record<string, string[]> = {
   }
   .pf-stages{ margin-top:clamp(36px,5vw,56px) }
 
-  /* Before and after: three columns on desktop, label above the pair on phones. */
-  .pcmp{ margin-top:28px; border:1px solid var(--sec-bd); border-radius:var(--radius-lg); overflow:hidden }
-  .pcmp__row{ display:grid; grid-template-columns:minmax(0,.7fr) minmax(0,1fr) minmax(0,1fr) }
-  .pcmp__row + .pcmp__row{ border-top:1px solid var(--sec-bd) }
-  .pcmp__row > span{ padding:16px 20px; font:400 15px/1.5 var(--font-body); color:var(--sec-tx) }
-  .pcmp__head > span{ font:600 13px/1.2 var(--font-body); letter-spacing:.06em; text-transform:uppercase; opacity:.72; padding-block:14px }
-  .pcmp__head .is-us{ opacity:1; color:var(--hl) }
-  .pcmp .is-us{ background:color-mix(in srgb, var(--sec-tx) 5%, transparent) }
-  .pcmp__label{ font-weight:600 !important }
-  .pcmp__a{ opacity:.72 }
-  .pcmp i{ font-style:normal; font-weight:700; margin-right:8px }
-  .pcmp__a i{ color:var(--hl) }
-  .pcmp__b i{ color:var(--hs-success) }
-  @media (max-width:720px){
-    .pcmp__head{ display:none }
-    .pcmp__row{ grid-template-columns:1fr 1fr }
-    .pcmp__label{ grid-column:1 / -1; padding-bottom:0 !important }
-  }
   .prow__head :global(.sec-head){ margin-bottom:20px }
   /* Signals explained: a two-column list with hairlines, no cards. */
   .psig{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:clamp(32px,5vw,72px) }

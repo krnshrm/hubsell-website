@@ -1,0 +1,48 @@
+---
+// Before and after table on navy, shared by the platform overview and the
+// platform detail pages.
+import SectionHead from './SectionHead.astro';
+import type { PlatformCompareData } from '../data/platform-content';
+interface Props { c: PlatformCompareData; id: string }
+const { c, id } = Astro.props;
+---
+<section class="sec sec--navy" aria-labelledby={id}>
+  <div class="wrap">
+    <SectionHead id={id} eyebrow={c.eyebrow} pre={c.titlePre} accent={c.titleAccent} post={c.titlePost} />
+    <div class="pcmp" role="table">
+      <div class="pcmp__row pcmp__head" role="row">
+        <span role="columnheader"></span>
+        <span role="columnheader">{c.colA}</span>
+        <span role="columnheader" class="is-us">{c.colB}</span>
+      </div>
+      {c.rows.map(([label, a, b]) => (
+        <div class="pcmp__row" role="row">
+          <span role="rowheader" class="pcmp__label">{label}</span>
+          <span role="cell" class="pcmp__a"><i aria-hidden="true">&times;</i>{a}</span>
+          <span role="cell" class="pcmp__b is-us"><i aria-hidden="true">&check;</i>{b}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Before and after: three columns on desktop, label above the pair on phones. */
+  .pcmp{ margin-top:28px; border:1px solid var(--sec-bd); border-radius:var(--radius-lg); overflow:hidden }
+  .pcmp__row{ display:grid; grid-template-columns:minmax(0,.7fr) minmax(0,1fr) minmax(0,1fr) }
+  .pcmp__row + .pcmp__row{ border-top:1px solid var(--sec-bd) }
+  .pcmp__row > span{ padding:16px 20px; font:400 15px/1.5 var(--font-body); color:var(--sec-tx) }
+  .pcmp__head > span{ font:600 13px/1.2 var(--font-body); letter-spacing:.06em; text-transform:uppercase; opacity:.72; padding-block:14px }
+  .pcmp__head .is-us{ opacity:1; color:var(--hl) }
+  .pcmp .is-us{ background:color-mix(in srgb, var(--sec-tx) 5%, transparent) }
+  .pcmp__label{ font-weight:600 !important }
+  .pcmp__a{ opacity:.72 }
+  .pcmp i{ font-style:normal; font-weight:700; margin-right:8px }
+  .pcmp__a i{ color:var(--hl) }
+  .pcmp__b i{ color:var(--hs-success) }
+  @media (max-width:720px){
+    .pcmp__head{ display:none }
+    .pcmp__row{ grid-template-columns:1fr 1fr }
+    .pcmp__label{ grid-column:1 / -1; padding-bottom:0 !important }
+  }
+</style>

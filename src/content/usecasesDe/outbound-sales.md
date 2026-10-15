@@ -7,7 +7,7 @@ description: "Die gesamte Outbound-Bewegung auf einer Plattform: live recherchie
 subhead: "Die meisten Outbound-Prozesse laufen über sechs unverbundene Tools. hubsell ist eine Software für den Outbound-Vertrieb und bringt die Daten, die E-Mail- und LinkedIn-Flows und die CRM-Synchronisierung an einen Ort, damit das Team den Tag mit Verkaufen verbringt statt mit dem Zusammenstückeln von Tools."
 widget: "UnifiedGrid"
 widgetBg: "sec--navy"
-widgetCaption: "Aus sechs Tools wird eine Plattform. Ein Login, ein Ablauf, eine Rechnung."
+widgetCaption: "Aus sechs Tools wird eine Plattform. Ein Login, ein Flow, eine Rechnung."
 proofStory: "safran"
 quotes:
   - "matterway"

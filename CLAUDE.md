@@ -406,7 +406,7 @@ Do not edit the copy; change the style guide and copy the file over again.
 - Translations follow the same no-buzzword rule in the target language; do not carry
   an English buzzword across as a loanword.
 - Product terms (2026-10-15): hubsell's outreach automation is a **Flow** (plural
-  Flows), never a "sequence". de: "der Flow" ("in einem Flow", "einen Flow"); nl: "de
+  Flows), never a "sequence". de: "der Flow" ("in einem Flow", "einen Flow"; not "Ablauf" or "Sequenz"); nl: "de
   flow". Keep "sequence", "sequencing" and "sequencer" only for competitors and the
   tool category (Outreach and Salesloft as "email sequence tools", the "Sequencer"
   tool chip, the "Email sequencing" row in comparison tables, the glossary entry).

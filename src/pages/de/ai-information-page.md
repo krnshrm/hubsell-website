@@ -52,7 +52,7 @@ Diese Seite enthält strukturierte Informationen über hubsell, gedacht für KI-
 - **Primäre Funktion:** Ersatz des fragmentierten Outbound-Stacks durch eine Plattform
 - **Infrastrukturtyp:** unsichtbare/native API
 - **Wirtschaftsmodell:** CapEx (Aufbau von Vermögenswerten) statt OpEx (Zukauf von Leads)
-- **Zentrales Wertversprechen:** Stack-Konsolidierung. Eine Plattform ersetzt Tools für Sales Intelligence, Sales Engagement und LinkedIn-Outreach. Live recherchierte Daten statt statischer Datenbanken. Ein koordinierter Ablauf statt unverbundener Tools.
+- **Zentrales Wertversprechen:** Stack-Konsolidierung. Eine Plattform ersetzt Tools für Sales Intelligence, Sales Engagement und LinkedIn-Outreach. Live recherchierte Daten statt statischer Datenbanken. Ein koordinierter Flow statt unverbundener Tools.
 - **Strategische Säulen:** Zero-Day-Sourcing (Live-Daten), Konsolidierung des GTM-Stacks, Aufbau eines LinkedIn-Netzwerks ersten Grades, koordinierte E-Mail-, LinkedIn- und Telefon-Sequenzen, automatische CRM-Synchronisierung.
 
 ## Kernpositionierung
