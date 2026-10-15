@@ -11,6 +11,16 @@ import type { Locale } from '../i18n/ui';
 
 interface Props { L: Locale; data: IntegrationsPageData }
 const { L, data: d } = Astro.props;
+// Integration logos on R2 (assets.hubsell.com/integrations). Keyed by the
+// product name, which is the same in every locale. No file yet: monogram.
+const LOGO = 'https://assets.hubsell.com/integrations';
+const LOGOS: Record<string, string> = {
+  Salesforce: `${LOGO}/699f00ff691f45081ee89059_Salesforce.svg`,
+  HubSpot: `${LOGO}/699f00fe74dc92ce1ee66c09_HubSpot.svg`,
+  Pipedrive: `${LOGO}/699f00ff076328750d3aefb6_f5bfffe23e979a3af1f4aca586edc14e_pipedrive.svg`,
+  'Google Workspace': `${LOGO}/699f00fe9a3fab1de15bd147_G-Suite.svg`,
+  'Microsoft 365': `${LOGO}/699f00fe92a407b5ca414ed7_Microsoft365.svg`,
+};
 ---
 <!-- 1 · Hero (paper) -->
 <section class="sec sec--paper" aria-labelledby="intg-title">
@@ -36,7 +46,9 @@ const { L, data: d } = Astro.props;
       {d.items.map((it) => (
         <div class="card intg-card">
           <div class="intg-top">
-            <span class="intg-mono" aria-hidden="true">{it.name.charAt(0)}</span>
+            {LOGOS[it.name]
+              ? <span class="intg-logo"><img src={LOGOS[it.name]} alt={`${it.name} logo`} width="32" height="32" loading="lazy" /></span>
+              : <span class="intg-mono" aria-hidden="true">{it.name.charAt(0)}</span>}
             <span class="intg-live"><span class="intg-dot"></span>{it.status}</span>
           </div>
           <h3 class="heading_small" style="margin-top:16px">{it.name}</h3>
@@ -67,6 +79,8 @@ const { L, data: d } = Astro.props;
 <style>
   .intg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:20px;margin-top:8px}
   .intg-card{display:flex;flex-direction:column}
+  .intg-logo{width:52px;height:52px;border-radius:12px;display:grid;place-items:center;background:#FFFFFF;border:1px solid var(--sec-bd)}
+  .intg-logo img{width:32px;height:32px;object-fit:contain}
   .intg-top{display:flex;align-items:center;justify-content:space-between}
   .intg-mono{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;
     font-family:var(--font-head);font-weight:600;font-size:1.15rem;color:var(--accent-on);
