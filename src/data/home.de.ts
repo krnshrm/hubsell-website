@@ -55,17 +55,17 @@ export const pipelineStepsDe: PipelineStep[] = [
 
 export const featuresDe: Feature[] = [
   { title: 'Live recherchierte Interessentendaten', body: 'Statt statischer Datenbanken live recherchierte Kontakte, die zum ICP passen. Keine veralteten Daten, kein verschwendetes Outreach-Budget.' },
-  { title: 'E-Mail, LinkedIn & Telefon in einem Flow', body: 'hubsell führt E-Mail, LinkedIn und Telefon als eine koordinierte Sequenz aus, nicht als getrennte Tools. Profilbesuche, Kontaktanfragen, DMs, InMail und Anrufaufgaben laufen aus einem einzigen Flow.' },
+  { title: 'E-Mail, LinkedIn & Telefon in einem Flow', body: 'hubsell führt E-Mail, LinkedIn und Telefon als einen koordinierten Flow aus, nicht als getrennte Tools. Profilbesuche, Kontaktanfragen, DMs, InMail und Anrufaufgaben laufen aus einem einzigen Flow.' },
   { title: 'KI-Qualifizierung und -Routing', body: 'hubsell qualifiziert Kontakte mit KI anhand des ICP und leitet sie automatisch in den richtigen Flow, bevor ein einziges Credit für Outreach anfällt.', beta: true },
   { title: 'Abdeckung des Buying Committee', body: 'hubsell erreicht jeden Stakeholder eines Zielkunden über E-Mail und LinkedIn aus einer einzigen Kampagne. Kein Tool-Wechsel.' },
   { title: 'Intelligentes Outreach über mehrere Absender', body: 'hubsell verteilt Outreach sicher über CEO-, VP-Sales- und Fachexperten-Profile und vervielfacht so die Reichweite, ohne einen einzelnen Absender zu verbrennen.' },
   { title: 'Verifizierung von Catch-all-Domains', body: 'Eine proprietäre Validierung verifiziert Catch-all-Domains und schützt die Absenderreputation vor Hard Bounces und Blacklists.' },
   { title: 'LinkedIn-Content in Pipeline verwandeln', body: 'Ein LinkedIn-Beitrag geht live, und hubsell interagiert automatisch mit allen, die ihn liken, kommentieren oder teilen. Aus diesen warmen Signalen wird Pipeline, bevor der Wettbewerb reagiert.', beta: true },
-  { title: 'Intent- und signalgesteuerte Ansprache', body: 'hubsell erkennt die 5 % kaufbereiten Interessenten anhand von Echtzeit-Intent-Signalen und leitet sie automatisch in gezielte Sequenzen.', beta: true },
+  { title: 'Intent- und signalgesteuerte Ansprache', body: 'hubsell erkennt die 5 % kaufbereiten Interessenten anhand von Echtzeit-Intent-Signalen und leitet sie automatisch in gezielte Flows.', beta: true },
 ];
 
 export const rolesDe: Role[] = [
-  { title: 'Vertrieb', line: 'Recherchieren, sequenzieren und abschließen aus einem Workspace. Kein Tab-Wechsel.' },
+  { title: 'Vertrieb', line: 'Recherchieren, ansprechen und abschließen aus einem Workspace. Kein Tab-Wechsel.' },
   { title: 'Gründer', line: 'Founder-led Outbound, das ankommt, ohne ein SDR-Team einzustellen.' },
   { title: 'Sales Operations', line: 'Ein System of Record, automatisch mit dem CRM synchronisiert.' },
   { title: 'RevOps', line: 'Saubere, validierte Daten rein und raus. Keine manuelle Pflege.' },
@@ -171,7 +171,7 @@ export const comparisonDe: ComparisonData = {
       hub:['yes','Live recherchiert, im Moment der Nutzung verifiziert'], aio:['part','Vorgefertigte Datenbank mit ~275 Mio.'],
       data:['part','Große statische Datenbank'], lookup:['part','Einzelne Kontaktabfragen'] } },
     { label: 'E-Mail, LinkedIn & Telefon, ein Flow', cells: {
-      hub:['yes','Eine Sequenz, Anrufe als CRM-Aufgaben'], aio:['part','E-Mail automatisiert, LinkedIn manuell'],
+      hub:['yes','Ein Flow, Anrufe als CRM-Aufgaben'], aio:['part','E-Mail automatisiert, LinkedIn manuell'],
       data:['no','Outreach separat verkauft'], lookup:['no','Keine Outreach-Ebene'] } },
     { label: 'Automatische CRM-Synchronisierung', cells: {
       hub:['yes','Salesforce, HubSpot & Pipedrive'], aio:['part','Salesforce & HubSpot nativ'],
@@ -195,7 +195,7 @@ export const faqsDe: Faq[] = [
   {
     question: 'Müssen wir die Kampagnen selbst aufbauen, oder bietet hubsell ein begleitetes Onboarding und Strategie?',
     slug: 'hubsell-onboarding-strategy',
-    answer: '<p>hubsell übergibt nicht einfach einen Login und wünscht viel Glück. Das hubsell-Team übernimmt die komplette Kampagneneinrichtung, Datenrecherche und Sequenzkonfiguration. Die erste Outbound-Kampagne startet so in unter 7 Tagen und wird von dort aus stetig besser.</p>',
+    answer: '<p>hubsell übergibt nicht einfach einen Login und wünscht viel Glück. Das hubsell-Team übernimmt die komplette Kampagneneinrichtung, Datenrecherche und Flow-Konfiguration. Die erste Outbound-Kampagne startet so in unter 7 Tagen und wird von dort aus stetig besser.</p>',
     onHomepage: true,
   },
   {
@@ -219,13 +219,13 @@ export const faqsDe: Faq[] = [
   {
     question: 'Wie schneidet hubsell im Vergleich zu Outreach oder Salesloft ab?',
     slug: 'hubsell-vs-outreach-salesloft',
-    answer: '<p>Outreach und Salesloft sind E-Mail-Sequenz-Tools – sie recherchieren keine Daten und beherrschen LinkedIn nicht nativ. Es braucht weiterhin einen separaten Datenanbieter und einen manuellen LinkedIn-Prozess. hubsell deckt alle drei Ebenen ab: aktuelle Interessentendaten, koordinierte E-Mail- und LinkedIn-Sequenzen plus Anrufaufgaben und automatische CRM-Synchronisierung. Eine Plattform, ein Abonnement. Alle Vergleiche mit Apollo, ZoomInfo, Cognism, Lusha und Seamless stehen auf der <a href="/de/comparisons/">Vergleichsseite</a>.</p>',
+    answer: '<p>Outreach und Salesloft sind E-Mail-Sequenz-Tools – sie recherchieren keine Daten und beherrschen LinkedIn nicht nativ. Es braucht weiterhin einen separaten Datenanbieter und einen manuellen LinkedIn-Prozess. hubsell deckt alle drei Ebenen ab: aktuelle Interessentendaten, koordinierte E-Mail- und LinkedIn-Flows plus Anrufaufgaben und automatische CRM-Synchronisierung. Eine Plattform, ein Abonnement.</p>',
     onHomepage: true,
   },
   {
     question: 'Wie unterscheidet sich hubsell von statischen B2B-Datenbanken wie ZoomInfo oder Apollo?',
     slug: 'hubsell-catch-all-domains',
-    answer: '<p>Die meisten Sales-Intelligence-Tools liefern einen statischen Export und überlassen den Outreach einer anderen Plattform. hubsell recherchiert Kontakte live im Moment der Anfrage, spricht sie per E-Mail, LinkedIn und Telefon an und synchronisiert alles mit dem CRM, ganz ohne Tool-Wechsel. Kein Datenbankverfall, kein zusammengeflickter Stack. Der Vergleich im Detail: <a href="/de/vs/zoominfo/">ZoomInfo-Alternative</a> und <a href="/de/vs/apollo/">Apollo-Alternative</a>.</p>',
+    answer: '<p>Die meisten Sales-Intelligence-Tools liefern einen statischen Export und überlassen den Outreach einer anderen Plattform. hubsell recherchiert Kontakte live im Moment der Anfrage, spricht sie per E-Mail, LinkedIn und Telefon an und synchronisiert alles mit dem CRM, ganz ohne Tool-Wechsel. Kein Datenbankverfall, kein zusammengeflickter Stack.</p>',
     onHomepage: true,
   },
   {
@@ -303,7 +303,7 @@ export const stringsDe: HomeStrings = {
       { tool: 'Lead-Datenbanken', cost: 'Daten veralten um 30 % pro Jahr. Lücken im ICP.', cap: 'Live-Beschaffung', capDesc: 'Auf das ICP zugeschnitten, am Tag der Nutzung.' },
       { tool: 'E-Mail-Finder', cost: 'Mehrere Anbieter zu verwalten. Manuelles Stapeln, kein Flow.', cap: 'Zum Zeitpunkt der Nutzung geprüft', capDesc: 'KI-bereinigt, menschlich verifiziert.' },
       { tool: 'Buyer-Intent-Tools', cost: 'Keine Aktionsebene. Signale lösen nie Outreach aus.', cap: 'Signal-Layering', capDesc: 'Kaufbereite Kontakte aus Jobwechseln und Events.' },
-      { tool: 'Cold-E-Mail-Tools', cost: 'E-Mail läuft für sich. LinkedIn ist ein eigenes Tool.', cap: 'E-Mail und LinkedIn in einem Flow', capDesc: 'Eine abgestimmte Sequenz.' },
+      { tool: 'Cold-E-Mail-Tools', cost: 'E-Mail läuft für sich. LinkedIn ist ein eigenes Tool.', cap: 'E-Mail und LinkedIn in einem Flow', capDesc: 'Ein abgestimmter Flow.' },
       { tool: 'LinkedIn-Outreach', cost: 'Nur Punktlösung. Keine Verbindung zu E-Mail-Sequenzen.', cap: 'Alle Beteiligten, eine Kampagne', capDesc: 'Das gesamte Buying Center, nicht eine Person.' },
       { tool: 'CRM-Pflege', cost: 'Reps pflegen von Hand, oder gar nicht. CRM immer veraltet.', cap: 'Synchronisiertes CRM', capDesc: 'Automatisch in Salesforce, HubSpot und Pipedrive.' },
     ],
@@ -338,11 +338,11 @@ export const stringsDe: HomeStrings = {
   loop: {
     eyebrow: 'Publizieren & verfolgen · Beta',
     titlePre: 'LinkedIn-Content erzeugt bereits Nachfrage. Jetzt ', titleAccent: 'schließt sich der Kreis', titlePost: '.',
-    body: 'Die meisten Outbound-Aktivitäten beginnen kalt. Aber wer LinkedIn-Content liked, kommentiert oder teilt, hat sich bereits gemeldet. Post-Interagierende lassen sich schon heute in hubsell importieren und in eine Sequenz aufnehmen. Was in der Beta kommt, ist der geschlossene Kreis: direkt aus hubsell publizieren, jede Interaktion in Echtzeit verfolgen und jede Person automatisch in eine warme Sequenz aufnehmen, ganz ohne Listenexport oder Tab-Wechsel.',
+    body: 'Die meisten Outbound-Aktivitäten beginnen kalt. Aber wer LinkedIn-Content liked, kommentiert oder teilt, hat sich bereits gemeldet. Post-Interagierende lassen sich schon heute in hubsell importieren und in einen Flow aufnehmen. Was in der Beta kommt, ist der geschlossene Kreis: direkt aus hubsell publizieren, jede Interaktion in Echtzeit verfolgen und jede Person automatisch in einen warmen Flow aufnehmen, ganz ohne Listenexport oder Tab-Wechsel.',
     cta: 'Demo buchen',
     nowLabel: 'Heute verfügbar', betaLabel: 'In der Beta',
-    now: ['Alle importieren, die liken, kommentieren oder teilen', 'Post-Interagierende noch heute in eine Sequenz aufnehmen'],
-    beta: ['Direkt aus hubsell publizieren', 'Jede Interaktion in Echtzeit verfolgen', 'Jede Person automatisch in eine warme Sequenz aufnehmen', 'Kein Listenexport, kein Tab-Wechsel'],
+    now: ['Alle importieren, die liken, kommentieren oder teilen', 'Post-Interagierende noch heute in einen Flow aufnehmen'],
+    beta: ['Direkt aus hubsell publizieren', 'Jede Interaktion in Echtzeit verfolgen', 'Jede Person automatisch in einen warmen Flow aufnehmen', 'Kein Listenexport, kein Tab-Wechsel'],
   },
   insightsSec: {
     newsTitle: 'Was im Outbound gerade funktioniert',

@@ -1,13 +1,13 @@
 ---
-title: "E-mail- en LinkedIn-outreach als één sequentie"
+title: "E-mail- en LinkedIn-outreach als één flow"
 label: "Multichannel-outreach"
 eyebrow: "Toepassing"
 metaTitle: "LinkedIn- en e-mailoutreach automatiseren"
-description: "Draai e-mail en LinkedIn als één gecoördineerde sequentie in plaats van twee losse tools. Vertakkingen, veilige LinkedIn-limieten en personalisatie op schaal, alles op één platform."
-subhead: "De meeste teams draaien e-mail in het ene tool en LinkedIn in het andere, en die twee passen nooit samen. hubsell draait ze als één enkele sequentie, met vertakkingen die reageren op het gedrag van elke prospect, zodat elk contactmoment in het juiste kanaal op het juiste moment landt."
+description: "Draai e-mail en LinkedIn als één gecoördineerde flow in plaats van twee losse tools. Vertakkingen, veilige LinkedIn-limieten en personalisatie op schaal, alles op één platform."
+subhead: "De meeste teams draaien e-mail in het ene tool en LinkedIn in het andere, en die twee passen nooit samen. hubsell draait ze als één enkele flow, met vertakkingen die reageren op het gedrag van elke prospect, zodat elk contactmoment in het juiste kanaal op het juiste moment landt."
 widget: "MultichannelFlow"
 widgetBg: "sec--esp"
-widgetCaption: "E-mail en LinkedIn in één vertakte sequentie."
+widgetCaption: "E-mail en LinkedIn in één vertakte flow."
 proofStory: "verhaert"
 quotes:
   - "alon-even"
@@ -32,7 +32,7 @@ Wanneer e-mail en LinkedIn in aparte tools zitten, blijft het werk aan het team 
 
 Kopers zien geen twee kanalen. Ze zien dat uw bedrijf contact opneemt, en die ervaring zou als één gesprek moeten voelen.
 
-## Eén gecoördineerde sequentie
+## Eén gecoördineerde flow
 
 In hubsell sleept u e-mail- en LinkedIn-stappen met drag-and-drop in één flow. Profielbezoeken, connectieverzoeken, directe berichten, InMail en e-mail draaien allemaal in één cadans.
 
@@ -44,4 +44,4 @@ In hubsell sleept u e-mail- en LinkedIn-stappen met drag-and-drop in één flow.
 
 ## Onderdeel van de hele beweging
 
-Multichannel-sequencing werkt met de live contacten die u via [leadgeneratie](/nl/use-cases/lead-generation) verzamelt, en elk contactmoment wordt vanzelf in uw CRM vastgelegd. Om data, kanalen en synchronisatie in samenspel te zien, bekijk [outbound-sales](/nl/use-cases/outbound-sales). Alle kanalen en instellingen in detail ziet u op het [multichannel-outreachplatform](/nl/platform/multichannel-outreach).
+Multichannel-flows werken met de live contacten die u via [leadgeneratie](/nl/use-cases/lead-generation) verzamelt, en elk contactmoment wordt vanzelf in uw CRM vastgelegd. Om data, kanalen en synchronisatie in samenspel te zien, bekijk [outbound-sales](/nl/use-cases/outbound-sales). Alle kanalen en instellingen in detail ziet u op het [multichannel-outreachplatform](/nl/platform/multichannel-outreach).

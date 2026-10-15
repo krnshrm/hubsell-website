@@ -369,6 +369,10 @@ Do not edit the copy; change the style guide and copy the file over again.
   `.heading_page` on documents (legal, blog posts, knowledge base). Section headings
   stay semibold. All eyebrows are one style (muted, semibold, uppercase); coral is
   only for highlighted words, so `.eyebrow.is-accent` no longer changes colour.
+- Line breaks (2026-10-15): no heading line may hold only one or two words. All
+  headings, eyebrows and subheadings use `text-wrap: balance`; body text uses
+  `text-wrap: pretty` (no single word on a last line). Rules at the end of
+  `global.css`; do not override them per component.
 - Layout wrapper: `.wrap` (max-width 1100px default).
 - Light only. Dark mode was removed on 2026-10-12: `BaseLayout.astro` pins
   `data-theme="light"` and clears any saved choice, and the theme toggle is gone.
@@ -398,6 +402,11 @@ Do not edit the copy; change the style guide and copy the file over again.
   ranges ("3 to 6"). Em dashes are fine inside code comments.
 - Translations follow the same no-buzzword rule in the target language; do not carry
   an English buzzword across as a loanword.
+- Product terms (2026-10-15): hubsell's outreach automation is a **Flow** (plural
+  Flows), never a "sequence". de: "der Flow" ("in einem Flow", "einen Flow"); nl: "de
+  flow". Keep "sequence", "sequencing" and "sequencer" only for competitors and the
+  tool category (Outreach and Salesloft as "email sequence tools", the "Sequencer"
+  tool chip, the "Email sequencing" row in comparison tables, the glossary entry).
 - Migrated content (blog bodies, legal text, testimonials): the English stays
   verbatim, punctuation included.
 - Comments explain why a thing is the way it is, not how the language or framework

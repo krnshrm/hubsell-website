@@ -44,4 +44,4 @@ hubsell verkauft nicht aus einer veralteten Datenbank. Sobald der ideale Kunde d
 
 ## Von Leads zur Pipeline
 
-Lead-Generierung ist nur die halbe Arbeit. Die recherchierten Kontakte fließen direkt in [E-Mail- und LinkedIn-Sequenzen](/de/use-cases/multichannel-outreach) und synchronisieren sich mit dem CRM, sodass es zwischen dem Finden eines Leads und seiner Bearbeitung keinen Export-Schritt gibt. Wer die gesamte Bewegung an einem Ort möchte, findet sie unter [Outbound-Vertrieb](/de/use-cases/outbound-sales).
+Lead-Generierung ist nur die halbe Arbeit. Die recherchierten Kontakte fließen direkt in [E-Mail- und LinkedIn-Flows](/de/use-cases/multichannel-outreach) und synchronisieren sich mit dem CRM, sodass es zwischen dem Finden eines Leads und seiner Bearbeitung keinen Export-Schritt gibt. Wer die gesamte Bewegung an einem Ort möchte, findet sie unter [Outbound-Vertrieb](/de/use-cases/outbound-sales).

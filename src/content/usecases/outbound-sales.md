@@ -3,8 +3,8 @@ title: "Outbound sales software on one platform, not six tools"
 label: "Outbound sales"
 eyebrow: "Use case"
 metaTitle: "Outbound Sales Software"
-description: "Run your whole outbound motion in one platform: live-sourced data, email and LinkedIn sequences, and automatic CRM sync. No six-tool stack to hold together."
-subhead: "Most outbound runs across six disconnected tools. hubsell is outbound sales software that brings the data, the email and LinkedIn sequencing, and the CRM sync into one place, so your reps spend the day selling instead of stitching tools together."
+description: "Run your whole outbound motion in one platform: live-sourced data, email and LinkedIn flows, and automatic CRM sync. No six-tool stack to hold together."
+subhead: "Most outbound runs across six disconnected tools. hubsell is outbound sales software that brings the data, the email and LinkedIn flows, and the CRM sync into one place, so your reps spend the day selling instead of stitching tools together."
 widget: "UnifiedGrid"
 widgetBg: "sec--navy"
 widgetCaption: "Six tools become one platform. One login, one flow, one invoice."
@@ -15,7 +15,7 @@ quotes:
   - "cibt"
 features:
   - "Live-sourced prospect data"
-  - "Email and LinkedIn in one sequence"
+  - "Email and LinkedIn in one flow"
   - "Automatic CRM sync"
 roles:
   - "Sales teams"
@@ -38,7 +38,7 @@ Three moves, one platform, no exports in between.
 
 **Source live.** You define your ideal customer, and hubsell sources contacts live from LinkedIn the day you ask, matched to your criteria and verified at the point of use. You pay for a contact that is correct today, not for a list captured two years ago. This is the [lead generation](/use-cases/lead-generation) layer.
 
-**Reach out across channels.** Email and LinkedIn run as a single coordinated sequence, with branching that routes each contact based on what they do. That is the [multichannel outreach](/use-cases/multichannel-outreach) layer, built in rather than bolted on.
+**Reach out across channels.** Email and LinkedIn run as a single coordinated flow, with branching that routes each contact based on what they do. That is the [multichannel outreach](/use-cases/multichannel-outreach) layer, built in rather than bolted on.
 
 **Sync to your CRM.** Every send, open, reply, and connection logs to Salesforce, HubSpot, or Pipedrive on its own. No manual entry, no data rot, no reps working from a stale pipeline.
 

@@ -45,4 +45,4 @@ Das ist vertriebsgeführte account-basierte Arbeit: echter Outreach an echte Men
 
 ## Wo es hineinpasst
 
-Account-basierter Outreach nutzt dieselbe Live-[Lead-Generierung](/de/use-cases/lead-generation) und dasselbe [Multichannel-Sequencing](/de/use-cases/multichannel-outreach) wie der Rest von hubsell, gerichtet auf eine benannte Liste von Accounts und ihren Stakeholdern. Es ist der account-basierte Ausschnitt einer einzigen Outbound-Plattform, kein separates Tool zum Kaufen und Anbinden.
+Account-basierter Outreach nutzt dieselbe Live-[Lead-Generierung](/de/use-cases/lead-generation) und dieselben [Multichannel-Flows](/de/use-cases/multichannel-outreach) wie der Rest von hubsell, gerichtet auf eine benannte Liste von Accounts und ihren Stakeholdern. Es ist der account-basierte Ausschnitt einer einzigen Outbound-Plattform, kein separates Tool zum Kaufen und Anbinden.

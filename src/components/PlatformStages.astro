@@ -38,6 +38,14 @@ const STAGES = [
   </ol>
 </nav>
 
+<script>
+  // On a phone the strip scrolls sideways; start it at the stage this page covers.
+  document.querySelectorAll<HTMLElement>('.pst ol').forEach((ol) => {
+    const on = ol.querySelector<HTMLElement>('li.is-on');
+    if (on && ol.scrollWidth > ol.clientWidth) ol.scrollLeft = Math.max(0, on.offsetLeft - 16);
+  });
+</script>
+
 <style>
   /* One row always; on a phone it scrolls sideways rather than wrapping. */
   .pst ol{ list-style:none; margin:0; padding:2px 0; display:flex; align-items:center; overflow-x:auto; scrollbar-width:none }

@@ -8,8 +8,8 @@ category is finished.
 | Page | Status | Notes |
 |---|---|---|
 | `/platform/live-data` | Done (2026-10-15) | Reference page for the pattern below. en, de, nl. |
-| `/platform/enrichment` | To do | |
-| `/platform/multichannel-outreach` | To do | |
+| `/platform/enrichment` | Done (2026-10-15) | Field by field, six enrichment steps with fractional pricing, catch-all verification. No waterfall: hubsell sources and orchestrates, only phones from partners. |
+| `/platform/multichannel-outreach` | Built (2026-10-15), in review | Step by step (8 flow steps), safe LinkedIn automation. Facts from existing site FAQs. |
 | `/platform/crm-sync` | To do | |
 | `/platform/deliverability` | To do | |
 | `/platform/personalization` | To do | Open question: keep, merge into multichannel, or retire. |
@@ -34,6 +34,7 @@ Section order and backgrounds:
 
 Heading rules:
 
+- No heading line with only one or two words (balanced wrapping, see CLAUDE.md).
 - Every section uses `SectionHead`: a keyword eyebrow, then an H2 in two colours
   (accent words in coral). No section without an eyebrow.
 - Eyebrows and H2s target the page's keyword groups in

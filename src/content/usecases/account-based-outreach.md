@@ -45,4 +45,4 @@ This is sales-led account-based work: real outreach to real people, not display 
 
 ## Where it fits
 
-Account-based outreach uses the same live [lead generation](/use-cases/lead-generation) and [multichannel sequencing](/use-cases/multichannel-outreach) as the rest of hubsell, pointed at a named list of accounts and their stakeholders. It is the account-based slice of a single outbound platform, not a separate tool to buy and connect.
+Account-based outreach uses the same live [lead generation](/use-cases/lead-generation) and [multichannel flows](/use-cases/multichannel-outreach) as the rest of hubsell, pointed at a named list of accounts and their stakeholders. It is the account-based slice of a single outbound platform, not a separate tool to buy and connect.

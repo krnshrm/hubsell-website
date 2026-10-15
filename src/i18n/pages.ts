@@ -347,7 +347,7 @@ const useCasesPage = byLocale<UseCasesCopy>(
     ovEyebrow: 'Use cases',
     ovH1: 'One platform, every outbound motion',
     ovSub:
-      'From sourcing leads to working whole buying committees, here is how teams put hubsell to work. Each one runs on the same live data, the same email, LinkedIn, and phone sequencing, and the same automatic CRM sync.',
+      'From sourcing leads to working whole buying committees, here is how teams put hubsell to work. Each one runs on the same live data, the same email, LinkedIn, and phone flows, and the same automatic CRM sync.',
     back: 'All use cases',
     eyebrowDefault: 'Use case',
     ctaPrimary: 'Book a demo',
@@ -360,7 +360,7 @@ const useCasesPage = byLocale<UseCasesCopy>(
     stripHeading: 'More teams using hubsell',
     ctaHeadingDefault: 'See it run on your own pipeline',
     ctaTextDefault:
-      'Book a demo and see hubsell run on your outbound: live-sourced data, email and LinkedIn sequences, and automatic CRM sync.',
+      'Book a demo and see hubsell run on your outbound: live-sourced data, email and LinkedIn flows, and automatic CRM sync.',
     relatedLabel: 'More use cases',
     explore: 'Explore →',
   },
@@ -371,7 +371,7 @@ const useCasesPage = byLocale<UseCasesCopy>(
     ovEyebrow: 'Anwendungsfälle',
     ovH1: 'Eine Plattform, jede Outbound-Bewegung',
     ovSub:
-      'Vom Recherchieren von Leads bis zur Ansprache ganzer Buying-Committees: So setzen Teams hubsell ein. Jeder Fall läuft auf denselben Live-Daten, demselben E-Mail- und LinkedIn-Sequencing und derselben automatischen CRM-Synchronisierung.',
+      'Vom Recherchieren von Leads bis zur Ansprache ganzer Buying-Committees: So setzen Teams hubsell ein. Jeder Fall läuft auf denselben Live-Daten, denselben E-Mail- und LinkedIn-Flows und derselben automatischen CRM-Synchronisierung.',
     back: 'Alle Anwendungsfälle',
     eyebrowDefault: 'Anwendungsfall',
     ctaPrimary: 'Demo buchen',
@@ -384,7 +384,7 @@ const useCasesPage = byLocale<UseCasesCopy>(
     stripHeading: 'Weitere Teams, die hubsell nutzen',
     ctaHeadingDefault: 'hubsell an der eigenen Pipeline sehen',
     ctaTextDefault:
-      'In der Demo arbeitet hubsell am eigenen Outbound: live recherchierte Daten, E-Mail-, LinkedIn- und Telefon-Sequenzen und automatische CRM-Synchronisierung.',
+      'In der Demo arbeitet hubsell am eigenen Outbound: live recherchierte Daten, E-Mail-, LinkedIn- und Telefon-Flows und automatische CRM-Synchronisierung.',
     relatedLabel: 'Weitere Anwendungsfälle',
     explore: 'Entdecken →',
   },
@@ -395,7 +395,7 @@ const useCasesPage = byLocale<UseCasesCopy>(
     ovEyebrow: 'Toepassingen',
     ovH1: 'Eén platform, elke outbound-beweging',
     ovSub:
-      'Van het verzamelen van leads tot het bewerken van complete buying committees: zo zetten teams hubsell in. Elke toepassing draait op dezelfde live data, hetzelfde e-mail-, LinkedIn- en telefoon-sequencing en dezelfde automatische CRM-synchronisatie.',
+      'Van het verzamelen van leads tot het bewerken van complete buying committees: zo zetten teams hubsell in. Elke toepassing draait op dezelfde live data, dezelfde e-mail-, LinkedIn- en telefoon-flows en dezelfde automatische CRM-synchronisatie.',
     back: 'Alle toepassingen',
     eyebrowDefault: 'Toepassing',
     ctaPrimary: 'Demo plannen',
@@ -408,7 +408,7 @@ const useCasesPage = byLocale<UseCasesCopy>(
     stripHeading: 'Meer teams die hubsell gebruiken',
     ctaHeadingDefault: 'Zie het draaien op uw eigen pipeline',
     ctaTextDefault:
-      'Plan een demo en zie hubsell werken voor uw outbound: live verzamelde data, e-mail-, LinkedIn- en telefoon-sequenties en automatische CRM-synchronisatie.',
+      'Plan een demo en zie hubsell werken voor uw outbound: live verzamelde data, e-mail-, LinkedIn- en telefoon-flows en automatische CRM-synchronisatie.',
     relatedLabel: 'Meer toepassingen',
     explore: 'Ontdekken →',
   },
@@ -500,7 +500,7 @@ const comparisonsPage = byLocale<ComparisonsCopy>(
     ovEyebrow: 'Vergleiche',
     ovH1: 'hubsell vs. die Alternativen',
     ovSub:
-      'Die meisten Outbound-Stacks schrauben eine Datenbank an einen Sequencer an ein Sync-Tool. hubsell recherchiert Kontakte live, betreibt E-Mail, LinkedIn und Telefon als einen Ablauf und synchronisiert jeden Kontaktpunkt mit dem CRM. So schneidet es im Vergleich ab, samt der Fälle, in denen die anderen Tools besser passen.',
+      'Die meisten Outbound-Stacks schrauben eine Datenbank an einen Sequencer an ein Sync-Tool. hubsell recherchiert Kontakte live, betreibt E-Mail, LinkedIn und Telefon als einen Flow und synchronisiert jeden Kontaktpunkt mit dem CRM. So schneidet es im Vergleich ab, samt der Fälle, in denen die anderen Tools besser passen.',
     back: 'Alle Vergleiche',
     eyebrowPrefix: 'Vergleich',
     ctaPrimary: 'Demo buchen',
@@ -609,7 +609,7 @@ const customerStoriesPage = byLocale<CustomerStoriesCopy>(
     ctaTitlePost: '?',
     ctaButton: 'Book a demo',
     ctaTextDefault:
-      'Book a demo and see hubsell run on your own outbound: verified data, email and LinkedIn sequences, and automatic CRM sync.',
+      'Book a demo and see hubsell run on your own outbound: verified data, email and LinkedIn flows, and automatic CRM sync.',
     crumbHome: 'Home',
     crumbStories: 'Customer stories',
   },
@@ -630,7 +630,7 @@ const customerStoriesPage = byLocale<CustomerStoriesCopy>(
     ctaTitlePost: '?',
     ctaButton: 'Demo buchen',
     ctaTextDefault:
-      'In der Demo arbeitet hubsell am eigenen Outbound: verifizierte Daten, E-Mail-, LinkedIn- und Telefon-Sequenzen und automatische CRM-Synchronisierung.',
+      'In der Demo arbeitet hubsell am eigenen Outbound: verifizierte Daten, E-Mail-, LinkedIn- und Telefon-Flows und automatische CRM-Synchronisierung.',
     crumbHome: 'Startseite',
     crumbStories: 'Kundenstorys',
   },
@@ -651,7 +651,7 @@ const customerStoriesPage = byLocale<CustomerStoriesCopy>(
     ctaTitlePost: '?',
     ctaButton: 'Demo plannen',
     ctaTextDefault:
-      'Plan een demo en zie hubsell werken voor uw eigen outbound: geverifieerde data, e-mail-, LinkedIn- en telefoon-sequenties en automatische CRM-synchronisatie.',
+      'Plan een demo en zie hubsell werken voor uw eigen outbound: geverifieerde data, e-mail-, LinkedIn- en telefoon-flows en automatische CRM-synchronisatie.',
     crumbHome: 'Home',
     crumbStories: 'Klantverhalen',
   },

@@ -1,13 +1,13 @@
 ---
-title: "E-Mail- und LinkedIn-Outreach als eine Sequenz"
+title: "E-Mail- und LinkedIn-Outreach als ein Flow"
 label: "Multichannel-Outreach"
 eyebrow: "Anwendungsfall"
-metaTitle: "LinkedIn-Automatisierung und E-Mail-Outreach in einer Sequenz"
-description: "hubsell betreibt E-Mail und LinkedIn als eine koordinierte Sequenz statt als zwei getrennte Tools. Verzweigungen, sichere LinkedIn-Limits und Personalisierung im großen Maßstab, alles in einer Plattform."
-subhead: "Die meisten Teams betreiben E-Mail in einem Tool und LinkedIn in einem anderen, und beide passen nie zusammen. hubsell betreibt sie als eine einzige Sequenz, mit Verzweigungen, die auf das Verhalten jedes Interessenten reagieren, damit jeder Kontaktpunkt im richtigen Kanal zur richtigen Zeit landet."
+metaTitle: "LinkedIn-Automatisierung und E-Mail-Outreach in einem Flow"
+description: "hubsell betreibt E-Mail und LinkedIn als einen koordinierten Flow statt als zwei getrennte Tools. Verzweigungen, sichere LinkedIn-Limits und Personalisierung im großen Maßstab, alles in einer Plattform."
+subhead: "Die meisten Teams betreiben E-Mail in einem Tool und LinkedIn in einem anderen, und beide passen nie zusammen. hubsell betreibt sie als einen einzigen Flow, mit Verzweigungen, die auf das Verhalten jedes Interessenten reagieren, damit jeder Kontaktpunkt im richtigen Kanal zur richtigen Zeit landet."
 widget: "MultichannelFlow"
 widgetBg: "sec--esp"
-widgetCaption: "E-Mail und LinkedIn in einer verzweigten Sequenz."
+widgetCaption: "E-Mail und LinkedIn in einem verzweigten Flow."
 proofStory: "verhaert"
 quotes:
   - "alon-even"
@@ -32,7 +32,7 @@ Wenn E-Mail und LinkedIn in getrennten Tools liegen, bleibt die Arbeit am Team h
 
 Käufer sehen keine zwei Kanäle. Sie sehen, dass sich ein Unternehmen meldet, und das Erlebnis sollte sich wie ein einziges Gespräch anfühlen.
 
-## Eine koordinierte Sequenz
+## Ein koordinierter Flow
 
 In hubsell lassen sich E-Mail- und LinkedIn-Schritte per Drag-and-drop in einen einzigen Ablauf ziehen. Profilbesuche, Kontaktanfragen, Direktnachrichten, InMail und E-Mail laufen alle in einer Taktung.
 
@@ -44,4 +44,4 @@ In hubsell lassen sich E-Mail- und LinkedIn-Schritte per Drag-and-drop in einen 
 
 ## Teil der gesamten Bewegung
 
-Multichannel-Sequencing arbeitet mit den Live-Kontakten, die über die [Lead-Generierung](/de/use-cases/lead-generation) recherchiert werden, und jeder Kontaktpunkt wird von selbst im CRM protokolliert. Wie Daten, Kanäle und Synchronisierung zusammenspielen, zeigt der [Outbound-Vertrieb](/de/use-cases/outbound-sales). Alle Kanäle und Einstellungen im Detail zeigt die [Multichannel-Outreach-Plattform](/de/platform/multichannel-outreach).
+Multichannel-Flows arbeiten mit den Live-Kontakten, die über die [Lead-Generierung](/de/use-cases/lead-generation) recherchiert werden, und jeder Kontaktpunkt wird von selbst im CRM protokolliert. Wie Daten, Kanäle und Synchronisierung zusammenspielen, zeigt der [Outbound-Vertrieb](/de/use-cases/outbound-sales). Alle Kanäle und Einstellungen im Detail zeigt die [Multichannel-Outreach-Plattform](/de/platform/multichannel-outreach).

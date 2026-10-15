@@ -283,3 +283,11 @@ html[lang="nl"] { --badge-soon: "Binnenkort"; }
 @property --title-nudge { syntax:'<length>'; inherits:true; initial-value:0px; }
 main h1{ --title-nudge:.05em; translate:calc(-1 * var(--title-nudge)) 0 }
 main h1 :is(.hs__kw, .vs-alt){ translate:var(--title-nudge) 0 }
+
+/* ---- Line breaks (2026-10-15) ----
+   No heading line may end up with one or two lonely words. Headings and
+   eyebrows balance their lines; body text avoids a single word on its last
+   line. Browsers without support simply wrap as before. */
+h1, h2, h3, h4, .heading_hero, .heading_page, .heading_primary, .heading_secondary,
+.heading_tertiary, .heading_small, .eyebrow, .subheading{ text-wrap:balance }
+p, li, dd, blockquote, figcaption{ text-wrap:pretty }

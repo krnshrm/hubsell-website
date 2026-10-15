@@ -62,13 +62,13 @@ export interface Feature {
 // "Live data, email and LinkedIn orchestrated in one solution"
 export const features: Feature[] = [
   { title: 'Live-sourced prospect data', body: 'Replace static databases with live-sourced contacts matched to your ICP. No stale data, no wasted outreach budget.' },
-  { title: 'Email, LinkedIn & phone in one flow', body: 'Run email, LinkedIn, and phone as one coordinated sequence, not separate tools. Profile visits, connection requests, DMs, InMail, and call tasks all run from a single flow.' },
+  { title: 'Email, LinkedIn & phone in one flow', body: 'Run email, LinkedIn, and phone as one coordinated flow, not separate tools. Profile visits, connection requests, DMs, InMail, and call tasks all run from a single flow.' },
   { title: 'AI qualification and routing', body: 'Use AI to qualify contacts against your ICP and route them into the right flow automatically, before you spend a single credit on outreach.', beta: true },
   { title: 'Buying committee coverage', body: 'Reach every stakeholder at a target account across email and LinkedIn from a single campaign. No tool-switching.' },
   { title: 'Multi-sender intelligent outreach', body: 'Spread outreach safely across CEO, VP Sales, and SME profiles to multiply reach without burning any single sender.' },
   { title: 'Catch-all domain verification', body: 'Proprietary validation verifies catch-all domains, protecting your sender reputation from hard bounces and blacklists.' },
   { title: 'Turn LinkedIn content into pipeline', body: 'Publish a LinkedIn post and automatically engage everyone who likes, comments, or reposts, turning those warm signals into pipeline before your competitors do.', beta: true },
-  { title: 'Intent and signal driven targeting', body: 'Pinpoint the 5% of in-market buyers using real-time intent signals and route them into targeted sequences automatically.', beta: true },
+  { title: 'Intent and signal driven targeting', body: 'Pinpoint the 5% of in-market buyers using real-time intent signals and route them into targeted flows automatically.', beta: true },
 ];
 
 export interface Role { title: string; line: string; }
@@ -76,7 +76,7 @@ export interface Role { title: string; line: string; }
 // "One platform for GTM" personas. Role one-liners were not in the CMS;
 // these are concise, product-true summaries. Review or replace as desired.
 export const roles: Role[] = [
-  { title: 'Sales', line: 'Source, sequence, and close from one workspace. No tab-switching.' },
+  { title: 'Sales', line: 'Source, reach out, and close from one workspace. No tab-switching.' },
   { title: 'Founders', line: 'Run founder-led outbound that lands, without hiring an SDR team.' },
   { title: 'Sales Operations', line: 'One system of record, synced to your CRM automatically.' },
   { title: 'RevOps', line: 'Clean, validated data in and out. No manual hygiene.' },

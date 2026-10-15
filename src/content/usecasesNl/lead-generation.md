@@ -44,4 +44,4 @@ hubsell verkoopt niet uit een verouderde database. Zodra u uw ideale klant defin
 
 ## Van leads naar pipeline
 
-Leadgeneratie is maar het halve werk. De contacten die u verzamelt, stromen rechtstreeks in [e-mail- en LinkedIn-sequenties](/nl/use-cases/multichannel-outreach) en synchroniseren met uw CRM, zodat er tussen het vinden van een lead en het bewerken ervan geen exportstap zit. Wilt u de hele beweging op één plek, bekijk dan [outbound-sales](/nl/use-cases/outbound-sales).
+Leadgeneratie is maar het halve werk. De contacten die u verzamelt, stromen rechtstreeks in [e-mail- en LinkedIn-flows](/nl/use-cases/multichannel-outreach) en synchroniseren met uw CRM, zodat er tussen het vinden van een lead en het bewerken ervan geen exportstap zit. Wilt u de hele beweging op één plek, bekijk dan [outbound-sales](/nl/use-cases/outbound-sales).

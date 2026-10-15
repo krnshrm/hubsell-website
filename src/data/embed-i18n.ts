@@ -265,13 +265,13 @@ const de: Dict = {
   'Handed to outreach': 'An den Outreach \u00fcbergeben',
   'You pay for a contact that is correct today, then reach out.': 'Bezahlt wird ein Kontakt, der heute korrekt ist. Danach startet der Outreach.',
   'Verified contact': 'Verifizierter Kontakt',
-  'Into your sequence': 'In die Sequenz',
+  'Into your flow': 'In den Flow',
 
   // -- MultichannelSteps (/platform/multichannel-outreach detail visual) --
-  'One sequence, not three tools': 'Eine Sequenz, keine drei Tools',
+  'One flow, not three tools': 'Ein Flow, keine drei Tools',
   'A contact enters a single flow you build once.': 'Ein Kontakt l\u00e4uft in einen einzigen Flow, der einmal gebaut wird.',
   'New contact': 'Neuer Kontakt',
-  'Your sequence': 'Die Sequenz',
+  'Your flow': 'Der Flow',
   'Email, LinkedIn, and phone': 'E-Mail, LinkedIn und Telefon',
   'Every channel runs from the same flow, not separate tools.': 'Jeder Kanal l\u00e4uft aus demselben Flow, nicht aus separaten Tools.',
   'Email': 'E-Mail',
@@ -309,7 +309,7 @@ const de: Dict = {
   'Wired onto one data set': 'Auf einen Datenbestand verbunden',
   'hubsell runs every job on the same live data, so nothing decays in a handover.': 'hubsell erledigt jede Aufgabe auf denselben Live-Daten, sodass bei der \u00dcbergabe nichts verf\u00e4llt.',
   'One system, one invoice': 'Ein System, eine Rechnung',
-  'Source, sequence, and sync from a single workspace.': 'Finden, sequenzieren und synchronisieren aus einem einzigen Workspace.',
+  'Source, reach out, and sync from a single workspace.': 'Finden, ansprechen und synchronisieren aus einem einzigen Workspace.',
   'Live data, outreach, and CRM sync in one place.': 'Live-Daten, Outreach und CRM-Sync an einem Ort.',
 
   // -- Solution step visuals (/solutions/* How sections) --
@@ -592,13 +592,13 @@ const nl: Dict = {
   'Handed to outreach': 'Doorgegeven aan outreach',
   'You pay for a contact that is correct today, then reach out.': 'U betaalt voor een contact dat vandaag klopt, en neemt dan contact op.',
   'Verified contact': 'Gevalideerd contact',
-  'Into your sequence': 'In uw sequentie',
+  'Into your flow': 'In uw flow',
 
   // -- MultichannelSteps (/platform/multichannel-outreach detail visual) --
-  'One sequence, not three tools': 'E\u00e9n sequentie, geen drie tools',
+  'One flow, not three tools': 'E\u00e9n flow, geen drie tools',
   'A contact enters a single flow you build once.': 'Een contact komt in \u00e9\u00e9n flow die u \u00e9\u00e9n keer bouwt.',
   'New contact': 'Nieuw contact',
-  'Your sequence': 'Uw sequentie',
+  'Your flow': 'Uw flow',
   'Email, LinkedIn, and phone': 'E-mail, LinkedIn en telefoon',
   'Every channel runs from the same flow, not separate tools.': 'Elk kanaal loopt vanuit dezelfde flow, niet vanuit aparte tools.',
   'Email': 'E-mail',
@@ -637,7 +637,7 @@ const nl: Dict = {
   'Wired onto one data set': 'Verbonden op \u00e9\u00e9n dataset',
   'hubsell runs every job on the same live data, so nothing decays in a handover.': 'hubsell doet elke klus op dezelfde live data, zodat er bij een overdracht niets vervalt.',
   'One system, one invoice': 'E\u00e9n systeem, \u00e9\u00e9n factuur',
-  'Source, sequence, and sync from a single workspace.': 'Verzamelen, sequencen en synchroniseren vanuit \u00e9\u00e9n workspace.',
+  'Source, reach out, and sync from a single workspace.': 'Verzamelen, benaderen en synchroniseren vanuit \u00e9\u00e9n workspace.',
   'Live data, outreach, and CRM sync in one place.': 'Live data, outreach en CRM-sync op \u00e9\u00e9n plek.',
 
   // -- Solution step visuals (/solutions/* How sections) --

@@ -44,4 +44,4 @@ hubsell does not sell out of a stale database. The moment you define your ideal 
 
 ## From leads to pipeline
 
-Lead generation is only half the job. The contacts you source flow straight into [email and LinkedIn sequences](/use-cases/multichannel-outreach) and sync to your CRM, so there is no export step between finding a lead and working it. If you want the full motion in one place, see [outbound sales](/use-cases/outbound-sales).
+Lead generation is only half the job. The contacts you source go straight into [email and LinkedIn flows](/use-cases/multichannel-outreach) and sync to your CRM, so there is no export step between finding a lead and working it. If you want the full motion in one place, see [outbound sales](/use-cases/outbound-sales).

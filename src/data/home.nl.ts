@@ -51,13 +51,13 @@ export const pipelineStepsNl: PipelineStep[] = [
 
 export const featuresNl: Feature[] = [
   { title: 'Live verzamelde prospectdata', body: 'Vervang statische databases door live verzamelde contacten die bij uw ICP passen. Geen verouderde data, geen verspild outreach-budget.' },
-  { title: 'E-mail, LinkedIn & telefoon in één flow', body: 'Voer e-mail, LinkedIn en telefoon uit als één gecoördineerde sequentie, niet als losse tools. Profielbezoeken, connectieverzoeken, DMs, InMail en beltaken lopen vanuit één flow.' },
+  { title: 'E-mail, LinkedIn & telefoon in één flow', body: 'Voer e-mail, LinkedIn en telefoon uit als één gecoördineerde flow, niet als losse tools. Profielbezoeken, connectieverzoeken, DMs, InMail en beltaken lopen vanuit één flow.' },
   { title: 'AI-kwalificatie en -routing', body: 'Kwalificeer contacten met AI op basis van uw ICP en stuur ze automatisch naar de juiste flow, voordat u ook maar één credit aan outreach uitgeeft.', beta: true },
   { title: 'Dekking van het buying committee', body: 'Bereik elke stakeholder binnen een doelaccount via e-mail en LinkedIn vanuit één campagne. Geen tool-wissel.' },
   { title: 'Slimme outreach via meerdere afzenders', body: 'Verdeel outreach veilig over CEO-, VP Sales- en expertprofielen om het bereik te vermenigvuldigen, zonder één afzender te verbranden.' },
   { title: 'Verificatie van catch-all-domeinen', body: 'Een eigen validatie verifieert catch-all-domeinen en beschermt uw afzenderreputatie tegen hard bounces en blacklists.' },
   { title: 'LinkedIn-content omzetten in pipeline', body: 'Publiceer een LinkedIn-bericht en interacteer automatisch met iedereen die het liket, erop reageert of het deelt, en zet die warme signalen om in pipeline voordat uw concurrenten dat doen.', beta: true },
-  { title: 'Intent- en signaalgestuurde benadering', body: 'Identificeer de 5% koopklare prospects op basis van realtime intent-signalen en stuur ze automatisch naar gerichte sequenties.', beta: true },
+  { title: 'Intent- en signaalgestuurde benadering', body: 'Identificeer de 5% koopklare prospects op basis van realtime intent-signalen en stuur ze automatisch naar gerichte flows.', beta: true },
 ];
 
 export const rolesNl: Role[] = [
@@ -167,7 +167,7 @@ export const comparisonNl: ComparisonData = {
       hub:['yes','Live verzameld, geverifieerd op moment van gebruik'], aio:['part','Kant-en-klare database met ~275 mln.'],
       data:['part','Grote statische database'], lookup:['part','Losse contactopvragingen'] } },
     { label: 'E-mail, LinkedIn & telefoon, één flow', cells: {
-      hub:['yes','Eén sequentie, beltaken in het CRM'], aio:['part','E-mail geautomatiseerd, LinkedIn handmatig'],
+      hub:['yes','Eén flow, beltaken in het CRM'], aio:['part','E-mail geautomatiseerd, LinkedIn handmatig'],
       data:['no','Outreach apart verkocht'], lookup:['no','Geen outreach-laag'] } },
     { label: 'Automatische CRM-synchronisatie', cells: {
       hub:['yes','Salesforce, HubSpot & Pipedrive'], aio:['part','Salesforce & HubSpot native'],
@@ -191,7 +191,7 @@ export const faqsNl: Faq[] = [
   {
     question: 'Moeten we de campagnes zelf opbouwen, of biedt hubsell begeleide onboarding en strategie?',
     slug: 'hubsell-onboarding-strategy',
-    answer: '<p>We geven u niet zomaar een login en wensen u succes. Ons team neemt de volledige campagne-inrichting, dataverzameling en sequentieconfiguratie op zich, zodat u uw eerste outbound-campagne in minder dan 7 dagen kunt starten, en die van daaruit gestaag kunt verbeteren.</p>',
+    answer: '<p>We geven u niet zomaar een login en wensen u succes. Ons team neemt de volledige campagne-inrichting, dataverzameling en flowconfiguratie op zich, zodat u uw eerste outbound-campagne in minder dan 7 dagen kunt starten, en die van daaruit gestaag kunt verbeteren.</p>',
     onHomepage: true,
   },
   {
@@ -215,13 +215,13 @@ export const faqsNl: Faq[] = [
   {
     question: 'Hoe verhoudt hubsell zich tot Outreach of Salesloft?',
     slug: 'hubsell-vs-outreach-salesloft',
-    answer: '<p>Outreach en Salesloft zijn e-mailsequentie-tools, ze verzamelen geen data en beheersen LinkedIn niet native. U hebt nog steeds een aparte dataleverancier en een handmatig LinkedIn-proces nodig. hubsell dekt alle drie de lagen: actuele prospectdata, gecoördineerde e-mail- en LinkedIn-sequenties plus beltaken en automatische CRM-synchronisatie. Eén platform, één abonnement. Bekijk <a href="/nl/comparisons/">hoe hubsell zich verhoudt</a> tot Apollo, ZoomInfo, Cognism, Lusha en Seamless.</p>',
+    answer: '<p>Outreach en Salesloft zijn e-mailsequentie-tools, ze verzamelen geen data en beheersen LinkedIn niet native. U hebt nog steeds een aparte dataleverancier en een handmatig LinkedIn-proces nodig. hubsell dekt alle drie de lagen: actuele prospectdata, gecoördineerde e-mail- en LinkedIn-flows plus beltaken en automatische CRM-synchronisatie. Eén platform, één abonnement.</p>',
     onHomepage: true,
   },
   {
     question: 'Waarin verschilt hubsell van statische B2B-databases zoals ZoomInfo of Apollo?',
     slug: 'hubsell-catch-all-domains',
-    answer: '<p>De meeste sales-intelligence-tools geven u een statische export en laten de outreach aan een ander platform over. hubsell verzamelt contacten live op het moment van uw aanvraag, en laat u ze vervolgens via e-mail, LinkedIn en telefoon benaderen en alles met uw CRM synchroniseren, zonder tool-wissel. Geen databaseverval, geen aan elkaar geknoopte stack. De vergelijking in detail: <a href="/nl/vs/zoominfo/">ZoomInfo-alternatief</a> en <a href="/nl/vs/apollo/">Apollo-alternatief</a>.</p>',
+    answer: '<p>De meeste sales-intelligence-tools geven u een statische export en laten de outreach aan een ander platform over. hubsell verzamelt contacten live op het moment van uw aanvraag, en laat u ze vervolgens via e-mail, LinkedIn en telefoon benaderen en alles met uw CRM synchroniseren, zonder tool-wissel. Geen databaseverval, geen aan elkaar geknoopte stack.</p>',
     onHomepage: true,
   },
   {
@@ -299,7 +299,7 @@ export const stringsNl: HomeStrings = {
       { tool: 'Leaddatabases', cost: 'Data veroudert 30% per jaar. Gaten in uw ICP.', cap: 'Live sourcing', capDesc: 'Opgebouwd rond uw ICP op de dag dat u het nodig hebt.' },
       { tool: 'E-mailfinders', cost: 'Meerdere aanbieders te beheren. Handmatig stapelen, geen flow.', cap: 'Gevalideerd op het moment van gebruik', capDesc: 'AI-opgeschoond, menselijk geverifieerd.' },
       { tool: 'Buyer-intent-tools', cost: 'Geen actielaag. Signalen leiden nooit tot outreach.', cap: 'Signaallagen', capDesc: 'Kopers in de markt uit functiewissels en events.' },
-      { tool: 'Cold-e-mailtools', cost: 'E-mail draait op zichzelf. LinkedIn is een aparte tool.', cap: 'E-mail en LinkedIn in één flow', capDesc: 'Eén gecoördineerde sequentie.' },
+      { tool: 'Cold-e-mailtools', cost: 'E-mail draait op zichzelf. LinkedIn is een aparte tool.', cap: 'E-mail en LinkedIn in één flow', capDesc: 'Eén gecoördineerde flow.' },
       { tool: 'LinkedIn-outreach', cost: 'Alleen een puntoplossing. Geen link met e-mailsequenties.', cap: 'Elke stakeholder, één campagne', capDesc: 'De hele buying group, niet één persoon.' },
       { tool: 'CRM-beheer', cost: 'Reps loggen handmatig, of helemaal niet. CRM altijd verouderd.', cap: 'Gesynchroniseerd CRM', capDesc: 'Automatisch naar Salesforce, HubSpot en Pipedrive.' },
     ],
@@ -334,11 +334,11 @@ export const stringsNl: HomeStrings = {
   loop: {
     eyebrow: 'Publiceren & volgen · Beta',
     titlePre: 'Uw LinkedIn-content genereert al vraag. Sluit nu ', titleAccent: 'de cirkel', titlePost: '.',
-    body: 'De meeste outbound begint koud. Maar iedereen die uw LinkedIn-content liket, erop reageert of deelt, heeft zich al gemeld. U kunt post-engagers vandaag al in hubsell importeren en in een sequentie opnemen. Wat in de beta komt, is de gesloten cirkel: rechtstreeks vanuit hubsell publiceren, elke interactie in realtime volgen en elke persoon automatisch in een warme sequentie opnemen, zonder ooit een lijst te exporteren of tabs te wisselen.',
+    body: 'De meeste outbound begint koud. Maar iedereen die uw LinkedIn-content liket, erop reageert of deelt, heeft zich al gemeld. U kunt post-engagers vandaag al in hubsell importeren en in een flow opnemen. Wat in de beta komt, is de gesloten cirkel: rechtstreeks vanuit hubsell publiceren, elke interactie in realtime volgen en elke persoon automatisch in een warme flow opnemen, zonder ooit een lijst te exporteren of tabs te wisselen.',
     cta: 'Demo plannen',
     nowLabel: 'Vandaag beschikbaar', betaLabel: 'Komt in de beta',
-    now: ['Importeer iedereen die liket, reageert of deelt', 'Neem post-engagers vandaag al op in een sequentie'],
-    beta: ['Publiceer rechtstreeks vanuit hubsell', 'Volg elke interactie in realtime', 'Neem elke persoon automatisch op in een warme sequentie', 'Geen lijsten exporteren, geen tabs wisselen'],
+    now: ['Importeer iedereen die liket, reageert of deelt', 'Neem post-engagers vandaag al op in een flow'],
+    beta: ['Publiceer rechtstreeks vanuit hubsell', 'Volg elke interactie in realtime', 'Neem elke persoon automatisch op in een warme flow', 'Geen lijsten exporteren, geen tabs wisselen'],
   },
   insightsSec: {
     newsTitle: 'Wat er nu werkt in outbound',

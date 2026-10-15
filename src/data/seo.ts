@@ -57,7 +57,7 @@ export const softwareApplicationSchema = {
   operatingSystem: 'Web',
   url: SITE_URL,
   description:
-    'hubsell replaces your sales intelligence, sales engagement, and LinkedIn outreach tools with one platform: live-sourced verified contact data, coordinated email, LinkedIn, and phone sequences, and automatic CRM sync.',
+    'hubsell replaces your sales intelligence, sales engagement, and LinkedIn outreach tools with one platform: live-sourced verified contact data, coordinated email, LinkedIn, and phone flows, and automatic CRM sync.',
   publisher: { '@type': 'Organization', name: 'hubsell', url: SITE_URL },
   aggregateRating: {
     '@type': 'AggregateRating',

@@ -3,8 +3,8 @@ title: "Outbound-salessoftware op één platform in plaats van zes tools"
 label: "Outbound-sales"
 eyebrow: "Toepassing"
 metaTitle: "Software voor outbound-sales"
-description: "Draai uw hele outbound-beweging op één platform: live verzamelde data, e-mail- en LinkedIn-sequenties en automatische CRM-synchronisatie. Geen stack van zes tools die u bij elkaar moet houden."
-subhead: "De meeste outbound-processen lopen via zes losse tools. hubsell is outbound-salessoftware en brengt de data, het e-mail- en LinkedIn-sequencing en de CRM-synchronisatie samen op één plek, zodat uw team de dag aan verkopen besteedt in plaats van aan het aan elkaar knopen van tools."
+description: "Draai uw hele outbound-beweging op één platform: live verzamelde data, e-mail- en LinkedIn-flows en automatische CRM-synchronisatie. Geen stack van zes tools die u bij elkaar moet houden."
+subhead: "De meeste outbound-processen lopen via zes losse tools. hubsell is outbound-salessoftware en brengt de data, de e-mail- en LinkedIn-flows en de CRM-synchronisatie samen op één plek, zodat uw team de dag aan verkopen besteedt in plaats van aan het aan elkaar knopen van tools."
 widget: "UnifiedGrid"
 widgetBg: "sec--navy"
 widgetCaption: "Van zes tools naar één platform. Eén login, één flow, één factuur."
@@ -15,7 +15,7 @@ quotes:
   - "cibt"
 features:
   - "Live verzamelde prospectdata"
-  - "E-mail en LinkedIn in één sequentie"
+  - "E-mail en LinkedIn in één flow"
   - "Automatische CRM-synchronisatie"
 roles:
   - "Salesteams"
@@ -38,7 +38,7 @@ Drie stappen, één platform, geen exports ertussen.
 
 **Live verzamelen.** U definieert uw ideale klant en hubsell verzamelt contacten live uit LinkedIn op de dag dat u het vraagt, afgestemd op uw criteria en geverifieerd op het moment van gebruik. U betaalt voor een contact dat vandaag klopt, niet voor een lijst die twee jaar geleden is vastgelegd. Dat is de laag van [leadgeneratie](/nl/use-cases/lead-generation).
 
-**Over kanalen benaderen.** E-mail en LinkedIn draaien als één gecoördineerde sequentie, met vertakkingen die elk contact op basis van gedrag sturen. Dat is de laag van [multichannel-outreach](/nl/use-cases/multichannel-outreach), ingebouwd in plaats van erop geplakt.
+**Over kanalen benaderen.** E-mail en LinkedIn draaien als één gecoördineerde flow, met vertakkingen die elk contact op basis van gedrag sturen. Dat is de laag van [multichannel-outreach](/nl/use-cases/multichannel-outreach), ingebouwd in plaats van erop geplakt.
 
 **Met uw CRM synchroniseren.** Elke verzending, opening, elk antwoord en elke connectie wordt vanzelf vastgelegd in Salesforce, HubSpot of Pipedrive. Geen handmatige invoer, geen dataverval, geen team dat met een verouderde pipeline werkt.
 

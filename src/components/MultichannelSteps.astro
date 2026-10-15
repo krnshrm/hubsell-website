@@ -1,7 +1,7 @@
 ---
 // Stepped detail visual for /platform/multichannel-outreach. Expands the
 // MultichannelFlow embed into three walked steps: (1) a contact enters one
-// sequence, (2) email, LinkedIn, and phone run as branches of the same flow,
+// flow, (2) email, LinkedIn, and phone run as branches of the same flow,
 // (3) the flow reacts to what the contact does. Same 2-column row shape and
 // white-card / green-connector vocabulary as LiveDataSteps. Animated on scroll,
 // reduced-motion safe.
@@ -10,11 +10,11 @@ import { asLocale } from '../i18n/utils';
 const L = asLocale(Astro.currentLocale);
 ---
 <div class="mcs" data-mcs>
-  <!-- STEP 1 — one sequence -->
+  <!-- STEP 1 — one flow -->
   <div class="mcs-step">
     <div class="mcs-text">
       <span class="mcs-num">01</span>
-      <h3 class="heading_small">{et(L, 'One sequence, not three tools')}</h3>
+      <h3 class="heading_small">{et(L, 'One flow, not three tools')}</h3>
       <p class="paragraph_small mcs-cap">{et(L, 'A contact enters a single flow you build once.')}</p>
     </div>
     <div class="mcs-viz">
@@ -24,7 +24,7 @@ const L = asLocale(Astro.currentLocale);
           {et(L, 'New contact')}
         </div>
         <svg class="mcs-arrow" viewBox="0 0 60 24" aria-hidden="true"><path class="mcs-flow" d="M0 12 H50"/><path d="M46 6 L56 12 L46 18" fill="none"/></svg>
-        <div class="mcs-seq">{et(L, 'Your sequence')}</div>
+        <div class="mcs-seq">{et(L, 'Your flow')}</div>
       </div>
     </div>
   </div>

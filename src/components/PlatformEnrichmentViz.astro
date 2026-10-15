@@ -1,22 +1,32 @@
 ---
-// Static product motif for /platform/enrichment. White card, navy ink in both
-// themes. Shows a contact record filling from several sources, then verified.
+// Static product motif for /platform/enrichment: one contact record, each field
+// with what hubsell did to it and where it came from. hubsell sources and
+// orchestrates every field itself; only phone numbers come from partners.
+import { asLocale } from '../i18n/utils';
+const L = asLocale(Astro.currentLocale);
+const T = {
+  en: { title: 'Contact record', done: 'Enriched', foot: 'Sourced and orchestrated by hubsell \u00b7 quality-checked before use',
+    rows: [['Name', 'Cleaned', 'LinkedIn'], ['Work email', 'Validated', 'hubsell'], ['Phone', 'Sourced', 'Partner'], ['Title', 'Normalised', 'AI'], ['Company, size, industry', 'Added', 'Website']] },
+  de: { title: 'Kontaktdatensatz', done: 'Angereichert', foot: 'Von hubsell recherchiert und gesteuert \u00b7 vor der Nutzung qualitätsgeprüft',
+    rows: [['Name', 'Bereinigt', 'LinkedIn'], ['Geschäftliche E-Mail', 'Validiert', 'hubsell'], ['Telefon', 'Recherchiert', 'Partner'], ['Titel', 'Normalisiert', 'KI'], ['Unternehmen, Größe, Branche', 'Ergänzt', 'Website']] },
+  nl: { title: 'Contactrecord', done: 'Verrijkt', foot: 'Verzameld en georkestreerd door hubsell \u00b7 gecontroleerd voor gebruik',
+    rows: [['Naam', 'Opgeschoond', 'LinkedIn'], ['Zakelijk e-mailadres', 'Gevalideerd', 'hubsell'], ['Telefoon', 'Verzameld', 'Partner'], ['Functie', 'Genormaliseerd', 'AI'], ['Bedrijf, omvang, branche', 'Toegevoegd', 'Website']] },
+}[L] ?? null;
+const C = T ?? { title: 'Contact record', done: 'Enriched', foot: '', rows: [] };
 ---
 <div class="enr">
   <div class="enr__top">
-    <span class="enr__title">Contact record</span>
-    <span class="enr__done">&#10003; Enriched</span>
+    <span class="enr__title">{C.title}</span>
+    <span class="enr__done">&#10003; {C.done}</span>
   </div>
 
   <div class="enr__rows">
-    <div class="enr__row"><span class="enr__k">Name</span><span class="enr__v">Complete</span><span class="enr__src">S1</span><span class="enr__ok">&#10003;</span></div>
-    <div class="enr__row"><span class="enr__k">Work email</span><span class="enr__v">Verified</span><span class="enr__src">S2</span><span class="enr__ok">&#10003;</span></div>
-    <div class="enr__row"><span class="enr__k">Phone</span><span class="enr__v">Complete</span><span class="enr__src">S3</span><span class="enr__ok">&#10003;</span></div>
-    <div class="enr__row"><span class="enr__k">Role</span><span class="enr__v">Complete</span><span class="enr__src">S4</span><span class="enr__ok">&#10003;</span></div>
-    <div class="enr__row"><span class="enr__k">Company, size, industry</span><span class="enr__v">Complete</span><span class="enr__src">S6</span><span class="enr__ok">&#10003;</span></div>
+    {C.rows.map(([k, v, src]) => (
+      <div class="enr__row"><span class="enr__k">{k}</span><span class="enr__v">{v}</span><span class="enr__src">{src}</span><span class="enr__ok">&#10003;</span></div>
+    ))}
   </div>
 
-  <div class="enr__foot">6 live sources, waterfalled &middot; verified at the point of use</div>
+  <div class="enr__foot">{C.foot}</div>
 </div>
 
 <style>

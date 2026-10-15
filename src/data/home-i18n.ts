@@ -152,7 +152,7 @@ const stringsEn: HomeStrings = {
       { tool: 'Lead databases', cost: 'Data decays 30% a year. Coverage gaps in your ICP.', cap: 'Live sourcing', capDesc: 'Built against your ICP the day you need it.' },
       { tool: 'Email finders', cost: 'Multiple providers to manage. Manual stacking, no flow.', cap: 'Validated at point of use', capDesc: 'AI-cleaned, human-verified.' },
       { tool: 'Buyer intent tools', cost: 'No native action layer. Signals never trigger outreach.', cap: 'Signal layering', capDesc: 'In-market buyers from job changes and events.' },
-      { tool: 'Cold email tools', cost: 'Email runs on its own. LinkedIn is a separate tool.', cap: 'Email and LinkedIn in one flow', capDesc: 'One coordinated sequence.' },
+      { tool: 'Cold email tools', cost: 'Email runs on its own. LinkedIn is a separate tool.', cap: 'Email and LinkedIn in one flow', capDesc: 'One coordinated flow.' },
       { tool: 'LinkedIn outreach', cost: 'Point solution only. No link to email sequences.', cap: 'Every stakeholder, one campaign', capDesc: 'The whole buying group, not one person.' },
       { tool: 'CRM admin', cost: 'Reps log by hand, or not at all. CRM always out of date.', cap: 'Synced CRM', capDesc: 'Auto-logged to Salesforce, HubSpot and Pipedrive.' },
     ],
@@ -187,11 +187,11 @@ const stringsEn: HomeStrings = {
   loop: {
     eyebrow: 'Publish & track · Beta',
     titlePre: 'Your LinkedIn content is already generating demand. Now ', titleAccent: 'close the loop', titlePost: '.',
-    body: 'Most outbound starts cold. But everyone who likes, comments, or reposts your LinkedIn content has already raised their hand. You can already import post engagers into hubsell and enrol them in a sequence today. What is coming in beta is the closed loop: publish directly from hubsell, track every engagement as it happens, and automatically enrol each person into a warm sequence, without ever exporting a list or switching tabs.',
+    body: 'Most outbound starts cold. But everyone who likes, comments, or reposts your LinkedIn content has already raised their hand. You can already import post engagers into hubsell and enrol them in a flow today. What is coming in beta is the closed loop: publish directly from hubsell, track every engagement as it happens, and automatically enrol each person into a warm flow, without ever exporting a list or switching tabs.',
     cta: 'Book a demo',
     nowLabel: 'Available today', betaLabel: 'Coming in beta',
-    now: ['Import everyone who likes, comments, or reposts', 'Enrol post engagers into a sequence today'],
-    beta: ['Publish directly from hubsell', 'Track every engagement as it happens', 'Auto-enrol each person into a warm sequence', 'No exporting lists, no switching tabs'],
+    now: ['Import everyone who likes, comments, or reposts', 'Enrol post engagers into a flow today'],
+    beta: ['Publish directly from hubsell', 'Track every engagement as it happens', 'Auto-enrol each person into a warm flow', 'No exporting lists, no switching tabs'],
   },
   insightsSec: {
     newsTitle: 'What is working in outbound right now',
@@ -227,7 +227,7 @@ const comparisonEn: ComparisonData = {
       hub:['yes','Sourced live, verified at point of use'], aio:['part','Pre-built database of ~275M'],
       data:['part','Large static database'], lookup:['part','One-off contact lookups'] } },
     { label: 'Email, LinkedIn & phone, one flow', cells: {
-      hub:['yes','One sequence, calls as CRM tasks'], aio:['part','Email automated, LinkedIn manual'],
+      hub:['yes','One flow, calls as CRM tasks'], aio:['part','Email automated, LinkedIn manual'],
       data:['no','Outreach sold separately'], lookup:['no','No outreach layer'] } },
     { label: 'Automatic CRM sync', cells: {
       hub:['yes','Salesforce, HubSpot & Pipedrive'], aio:['part','Salesforce & HubSpot native'],

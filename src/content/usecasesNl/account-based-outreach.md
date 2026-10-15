@@ -45,4 +45,4 @@ Dit is sales-geleid account-based werk: echte outreach naar echte mensen, geen d
 
 ## Waar het in past
 
-Account-based outreach gebruikt dezelfde live [leadgeneratie](/nl/use-cases/lead-generation) en hetzelfde [multichannel-sequencing](/nl/use-cases/multichannel-outreach) als de rest van hubsell, gericht op een benoemde lijst van accounts en hun stakeholders. Het is het account-based deel van één outbound-platform, geen apart tool om te kopen en te koppelen.
+Account-based outreach gebruikt dezelfde live [leadgeneratie](/nl/use-cases/lead-generation) en dezelfde [multichannel-flows](/nl/use-cases/multichannel-outreach) als de rest van hubsell, gericht op een benoemde lijst van accounts en hun stakeholders. Het is het account-based deel van één outbound-platform, geen apart tool om te kopen en te koppelen.
