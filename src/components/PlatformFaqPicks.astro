@@ -10,6 +10,8 @@ interface Props {
   L: Locale;
   eyebrow: string;
   title: string;
+  /** Two-colour heading: [before, accent, after]. */
+  titleParts?: [string, string, string];
   slugs: string[];
   /** Page-specific questions; when given they replace the slug picks. */
   items?: { question: string; answer: string }[];
@@ -17,7 +19,7 @@ interface Props {
   tone?: 'sand' | 'paper';
   accent?: boolean;   // false = muted eyebrow like the homepage hero
 }
-const { L, eyebrow, title, slugs, items, seeAll, tone = 'sand', accent = true } = Astro.props;
+const { L, eyebrow, title, titleParts, slugs, items, seeAll, tone = 'sand', accent = true } = Astro.props;
 const all = getFaqs(L);
 const picks = items ?? slugs
   .map((s) => all.find((f) => f.slug === s))
@@ -27,7 +29,7 @@ const picks = items ?? slugs
   <div class="wrap" style="max-width:820px">
     <div class="sec-head">
       <p class={accent ? 'eyebrow is-accent' : 'eyebrow'}>{eyebrow}</p>
-      <h2 class="heading_primary" style="margin-top:8px">{title}</h2>
+      <h2 class="heading_primary" style="margin-top:8px">{titleParts ? <Fragment>{titleParts[0]}<span class="accent">{titleParts[1]}</span>{titleParts[2]}</Fragment> : title}</h2>
     </div>
 
     <div class="acc" data-accordion style="margin-top:32px">

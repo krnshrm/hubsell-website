@@ -1,0 +1,15 @@
+---
+// The one section header pattern: a keyword eyebrow, then an H2 in two colours
+// (the accent words in coral), optionally a lead paragraph. Use it for every
+// section heading so the pattern never drifts from section to section.
+interface Props {
+  eyebrow: string; pre: string; accent: string; post?: string;
+  id?: string; sub?: string; align?: 'start' | 'center';
+}
+const { eyebrow, pre, accent, post = '', id, sub, align = 'start' } = Astro.props;
+---
+<div class:list={['sec-head', align === 'center' && 'is-center']}>
+  <p class="eyebrow">{eyebrow}</p>
+  <h2 id={id} class="heading_primary" style="margin-top:8px">{pre}<span class="accent">{accent}</span>{post}</h2>
+  {sub && <p class="subheading">{sub}</p>}
+</div>
