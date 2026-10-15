@@ -189,7 +189,7 @@ export const solutionsNl: SolutionsData = {
             { label: "Activiteit op quotaniveau", body: "Haal hoge activiteitsquota zonder in te leveren op berichtkwaliteit." },
             { label: "Berichten die menselijk lezen", body: "Bereik prospects met berichten die lezen alsof een mens ze schreef." },
           ],
-          href: '/platform/personalization', linkLabel: "Bekijk personalisatie",
+          href: '/platform/personalisation', linkLabel: "Bekijk personalisatie",
         },
         {
           problemTitle: "Het zwarte gat van deliverability", 

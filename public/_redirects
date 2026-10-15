@@ -54,20 +54,10 @@
 # Intentionally NOT redirected (correct 404s): /cdn-cgi/* (Cloudflare-reserved),
 # /free-tools-for-b2b-sales (no equivalent yet; reclaim when Free tools ships).
 
-# --- URLs visitors type or guess that had no page (GA4 landing pages, 2026-10) ---
-# 302 for signup and trial: the trial is about to become the main CTA and may
-# get a page on this site, so these should not be cached as permanent.
-/signup    https://app.hubsell.com/signup   302
-/signup/   https://app.hubsell.com/signup   302
-/trial     https://app.hubsell.com/signup   302
-/trial/    https://app.hubsell.com/signup   302
-/login     https://app.hubsell.com/         301
-/login/    https://app.hubsell.com/         301
-/demo      /book-a-call/                    301
-/demo/     /book-a-call/                    301
-/docs      /knowledge/                      301
-/docs/     /knowledge/                      301
-/flow      /platform/multichannel-outreach/ 301
-/flow/     /platform/multichannel-outreach/ 301
-/flows     /platform/multichannel-outreach/ 301
-/flows/    /platform/multichannel-outreach/ 301
+# Personalisation page moved to the British spelling (2026-10-15).
+/platform/personalization        /platform/personalisation/        301
+/platform/personalization/       /platform/personalisation/        301
+/de/platform/personalization     /de/platform/personalisation/     301
+/de/platform/personalization/    /de/platform/personalisation/     301
+/nl/platform/personalization     /nl/platform/personalisation/     301
+/nl/platform/personalization/    /nl/platform/personalisation/     301

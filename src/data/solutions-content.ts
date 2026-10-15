@@ -278,7 +278,7 @@ export const solutions: SolutionsData = {
             { label: "Quota-level activity, kept up", body: "Hit high-activity quotas without sacrificing message quality." },
             { label: "Messages that read human", body: "Reach prospects with messages that read like a human wrote them." },
           ],
-          href: '/platform/personalization', linkLabel: "See personalisation",
+          href: '/platform/personalisation', linkLabel: "See personalisation",
         },
         {
           problemTitle: "The deliverability black hole", 

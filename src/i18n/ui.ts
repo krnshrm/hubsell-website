@@ -33,7 +33,7 @@ export const translatedRoutes: Partial<Record<Locale, string[]>> = {
   de: [
     '/', '/contact', '/book-a-call', '/pricing', '/faqs', '/hubsell-reviews', '/ai-information-page',
     '/use-cases',
-    '/platform', '/platform/live-data', '/platform/multichannel-outreach', '/platform/crm-sync', '/platform/deliverability', '/platform/personalization', '/platform/enrichment', '/integrations',
+    '/platform', '/platform/live-data', '/platform/multichannel-outreach', '/platform/crm-sync', '/platform/deliverability', '/platform/personalisation', '/platform/enrichment', '/integrations',
     '/solutions', '/solutions/team/sales-teams', '/solutions/team/agencies', '/solutions/team/revops', '/solutions/team/founders', '/solutions/role/sdr', '/solutions/role/sales-leader', '/solutions/role/marketing', '/solutions/role/sales-operations',
     '/use-cases/outbound-sales', '/use-cases/lead-generation',
     '/use-cases/multichannel-outreach', '/use-cases/account-based-outreach',
@@ -114,7 +114,7 @@ export const translatedRoutes: Partial<Record<Locale, string[]>> = {
     '/', '/contact', '/book-a-call', '/pricing',
     '/faqs', '/hubsell-reviews', '/ai-information-page',
     '/use-cases',
-    '/platform', '/platform/live-data', '/platform/multichannel-outreach', '/platform/crm-sync', '/platform/deliverability', '/platform/personalization', '/platform/enrichment', '/integrations',
+    '/platform', '/platform/live-data', '/platform/multichannel-outreach', '/platform/crm-sync', '/platform/deliverability', '/platform/personalisation', '/platform/enrichment', '/integrations',
     '/solutions', '/solutions/team/sales-teams', '/solutions/team/agencies', '/solutions/team/revops', '/solutions/team/founders', '/solutions/role/sdr', '/solutions/role/sales-leader', '/solutions/role/marketing', '/solutions/role/sales-operations',
     '/use-cases/outbound-sales',
     '/use-cases/lead-generation',

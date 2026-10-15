@@ -189,7 +189,7 @@ export const solutionsDe: SolutionsData = {
             { label: "Aktivit\u00e4t auf Quotenniveau", body: "Hohe Aktivit\u00e4tsquoten, ohne die Qualit\u00e4t der Nachrichten zu opfern." },
             { label: "Nachrichten, die menschlich klingen", body: "Prospects bekommen Nachrichten, die klingen, als h\u00e4tte ein Mensch sie geschrieben." },
           ],
-          href: '/platform/personalization', linkLabel: "Zur Personalisierung",
+          href: '/platform/personalisation', linkLabel: "Zur Personalisierung",
         },
         {
           problemTitle: "Das schwarze Loch der Deliverability", 

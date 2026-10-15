@@ -78,7 +78,7 @@ export const platformLinks: NavLink[] = [
   { label: 'Multichannel outreach', key: 'nav.platform.outreach', href: '/platform/multichannel-outreach' },
   { label: 'CRM sync', key: 'nav.platform.crmsync', href: '/platform/crm-sync' },
   { label: 'Deliverability', key: 'nav.platform.deliverability', href: '/platform/deliverability' },
-  { label: 'Personalisation', key: 'nav.platform.personalization', href: '/platform/personalization' },
+  { label: 'Personalisation', key: 'nav.platform.personalization', href: '/platform/personalisation' },
   { label: 'Enrichment', key: 'nav.platform.enrichment', href: '/platform/enrichment' },
   { label: 'Integrations', key: 'nav.platform.integrations', href: '/integrations' },
 ];

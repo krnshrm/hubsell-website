@@ -13,7 +13,7 @@ category is finished.
 | `/platform/multichannel-outreach` | Done (2026-10-15) | Step by step (8 flow steps), safe LinkedIn automation. Facts confirmed by the owner. |
 | `/platform/crm-sync` | Built (2026-10-15), in review | One-way sync into the CRM today (two-way is planned, say so only in the FAQ). Contacts pushed by hand or by rule, field mapping, matching to existing records, suppression of CRM contacts. "Two-way" claims removed site-wide. |
 | `/platform/deliverability` | Built (2026-10-15), in review | Own Google or Microsoft mailboxes through their APIs; SPF, DKIM and DMARC set up by the hubsell team (a checker may come later); a daily cap per mailbox, no number published; sending windows; stop on reply or bounce; recent, relevant data as part of deliverability. |
-| `/platform/personalization` | Built (2026-10-15), in review | Signal-based: AI drafts each message from the signal and the company website; a flow per signal. |
+| `/platform/personalisation` | Built (2026-10-15), in review | Signal-based: AI drafts each message from the signal and the company website; a flow per signal. |
 | `/platform` (overview) | To do | Becomes the map of the five stages. |
 
 ## Page pattern (as on live data)
