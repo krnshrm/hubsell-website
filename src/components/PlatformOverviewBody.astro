@@ -28,8 +28,7 @@ import Avatar from './Avatar.astro';
   <div class="wrap">
     <div class="pov-hero">
       <div class="sec-head" style="margin-bottom:0">
-        <p class="eyebrow">{d.eyebrow}</p>
-        <h1 id="pov-title" class="heading_hero" style="margin-top:10px">{d.h1Pre}<span class="accent">{d.h1Accent}</span>{d.h1Post}</h1>
+        <h1 id="pov-title" class="heading_hero"><span class="eyebrow pov-kw">{d.eyebrow}</span>{d.h1Pre}<span class="accent">{d.h1Accent}</span>{d.h1Post}</h1>
         <p class="subheading" style="margin-top:16px;max-width:62ch">{d.sub}</p>
         <div style="margin:28px 0 0"><CtaGroup location="hero" /></div>
       </div>
@@ -149,4 +148,6 @@ import Avatar from './Avatar.astro';
   .pq-by{ display:flex; align-items:center; gap:12px; margin-top:20px }
   .pq-by__meta{ display:flex; flex-direction:column; gap:2px; font:400 13.5px/1.35 var(--font-body); color:var(--sec-tx) }
   .pq-by__meta span{ opacity:.7 }
+  /* The eyebrow sits inside the H1 so "sales engagement platform" is in the heading for search; it still looks like an eyebrow. */
+  .pov-kw{ display:block; margin-bottom:10px }
 </style>

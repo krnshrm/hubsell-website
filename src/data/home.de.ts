@@ -219,13 +219,13 @@ export const faqsDe: Faq[] = [
   {
     question: 'Wie schneidet hubsell im Vergleich zu Outreach oder Salesloft ab?',
     slug: 'hubsell-vs-outreach-salesloft',
-    answer: '<p>Outreach und Salesloft sind E-Mail-Sequenz-Tools – sie recherchieren keine Daten und beherrschen LinkedIn nicht nativ. Es braucht weiterhin einen separaten Datenanbieter und einen manuellen LinkedIn-Prozess. hubsell deckt alle drei Ebenen ab: aktuelle Interessentendaten, koordinierte E-Mail- und LinkedIn-Flows plus Anrufaufgaben und automatische CRM-Synchronisierung. Eine Plattform, ein Abonnement.</p>',
+    answer: '<p>Outreach und Salesloft sind E-Mail-Sequenz-Tools – sie recherchieren keine Daten und beherrschen LinkedIn nicht nativ. Es braucht weiterhin einen separaten Datenanbieter und einen manuellen LinkedIn-Prozess. hubsell deckt alle drei Ebenen ab: aktuelle Interessentendaten, koordinierte E-Mail- und LinkedIn-Flows plus Anrufaufgaben und automatische CRM-Synchronisierung. Eine Plattform, ein Abonnement. Alle Vergleiche mit Apollo, ZoomInfo, Cognism, Lusha und Seamless stehen auf der <a href="/de/comparisons/">Vergleichsseite</a>.</p>',
     onHomepage: true,
   },
   {
     question: 'Wie unterscheidet sich hubsell von statischen B2B-Datenbanken wie ZoomInfo oder Apollo?',
     slug: 'hubsell-catch-all-domains',
-    answer: '<p>Die meisten Sales-Intelligence-Tools liefern einen statischen Export und überlassen den Outreach einer anderen Plattform. hubsell recherchiert Kontakte live im Moment der Anfrage, spricht sie per E-Mail, LinkedIn und Telefon an und synchronisiert alles mit dem CRM, ganz ohne Tool-Wechsel. Kein Datenbankverfall, kein zusammengeflickter Stack.</p>',
+    answer: '<p>Die meisten Sales-Intelligence-Tools liefern einen statischen Export und überlassen den Outreach einer anderen Plattform. hubsell recherchiert Kontakte live im Moment der Anfrage, spricht sie per E-Mail, LinkedIn und Telefon an und synchronisiert alles mit dem CRM, ganz ohne Tool-Wechsel. Kein Datenbankverfall, kein zusammengeflickter Stack. Der Vergleich im Detail: <a href="/de/vs/zoominfo/">ZoomInfo-Alternative</a> und <a href="/de/vs/apollo/">Apollo-Alternative</a>.</p>',
     onHomepage: true,
   },
   {
