@@ -141,3 +141,17 @@ export function definedTermSetSchema(terms: { name: string; description: string;
     })),
   };
 }
+
+/** FAQPage schema from the same items a page renders, so the two cannot drift. */
+export function faqPageSchema(items: { question: string; answer: string }[]) {
+  const strip = (s: string) => s.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: strip(f.answer) },
+    })),
+  };
+}

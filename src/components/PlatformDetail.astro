@@ -21,6 +21,8 @@ import PlatformPersonalizationViz from './PlatformPersonalizationViz.astro';
 import PlatformEnrichmentViz from './PlatformEnrichmentViz.astro';
 import PlatformStoryCard from './PlatformStoryCard.astro';
 import PlatformFaqPicks from './PlatformFaqPicks.astro';
+import PlatformHeroSlice from './PlatformHeroSlice.astro';
+import PlatformStages from './PlatformStages.astro';
 
 interface Props { L: Locale; data: PlatformDetailData }
 const { L, data: d } = Astro.props;
@@ -53,23 +55,60 @@ const STEP_EMBEDS: Record<string, any> = {
 };
 const StepEmbed = STEP_EMBEDS[d.row.embed];
 const quote = getPlatformQuote(L, d.quoteSlug);
+// Pages with a before-and-after table use the 2026-10-15 layout.
+const v2 = Boolean(d.compare);
+const STAGE_OF: Record<string, string[]> = {
+  '/platform/live-data': ['source', 'qualify'],
+  '/platform/enrichment': ['enrich'],
+  '/platform/multichannel-outreach': ['outreach'],
+  '/platform/crm-sync': ['crm'],
+};
 ---
 <!-- 1 · Hero (paper) -->
 <section class="sec sec--paper" aria-labelledby="pf-title">
   <div class="wrap">
-    <div class="sec-head" style="margin-bottom:0">
-      <p class="eyebrow is-accent">{d.eyebrow}</p>
-      <h1 id="pf-title" class="heading_hero" style="margin-top:10px">{d.h1Pre}<span class="accent">{d.h1Accent}</span>{d.h1Post}</h1>
-      <p class="subheading" style="margin-top:16px;max-width:62ch">{d.sub}</p>
-      <div style="margin:28px 0 0"><CtaGroup location="hero" /></div>
+    <div class:list={['pf-hero', d.heroSlice && 'has-slice']}>
+      <div class="sec-head" style="margin-bottom:0">
+        <p class="eyebrow">{d.eyebrow}</p>
+        <h1 id="pf-title" class="heading_hero" style="margin-top:10px">{d.h1Pre}<span class="accent">{d.h1Accent}</span>{d.h1Post}</h1>
+        <p class="subheading" style="margin-top:16px;max-width:62ch">{d.sub}</p>
+        <div style="margin:28px 0 0"><CtaGroup location="hero" /></div>
+      </div>
+      {d.heroSlice && <div class="pf-hero__slice"><PlatformHeroSlice kind={d.heroSlice} /></div>}
     </div>
-    {d.heroTimeline && (
+    {v2 && STAGE_OF[d.path] && <div class="pf-stages"><PlatformStages current={STAGE_OF[d.path]} /></div>}
+    {!v2 && d.heroTimeline && (
       <div style="margin-top:clamp(36px,5vw,60px)">
         <ZeroDayTimeline />
       </div>
     )}
   </div>
 </section>
+
+{d.compare && (
+  <section class="sec sec--navy" aria-labelledby="pf-compare">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">{d.compare.eyebrow}</p>
+        <h2 id="pf-compare" class="heading_primary" style="margin-top:8px">{d.compare.titlePre}<span class="accent">{d.compare.titleAccent}</span>{d.compare.titlePost}</h2>
+      </div>
+      <div class="pcmp" role="table">
+        <div class="pcmp__row pcmp__head" role="row">
+          <span role="columnheader"></span>
+          <span role="columnheader">{d.compare.colA}</span>
+          <span role="columnheader" class="is-us">{d.compare.colB}</span>
+        </div>
+        {d.compare.rows.map(([label, a, b]) => (
+          <div class="pcmp__row" role="row">
+            <span role="rowheader" class="pcmp__label">{label}</span>
+            <span role="cell" class="pcmp__a"><i aria-hidden="true">&times;</i>{a}</span>
+            <span role="cell" class="pcmp__b is-us"><i aria-hidden="true">&check;</i>{b}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
 
 <!-- 2 · Feature row with the product embed (sand) -->
 <section class="sec sec--sand" aria-label={d.row.titlePre + d.row.titleAccent + d.row.titlePost} style="--vw:640">
@@ -95,7 +134,7 @@ const quote = getPlatformQuote(L, d.quoteSlug);
   <section class="sec sec--paper" aria-label={d.row.titlePre + d.row.titleAccent + d.row.titlePost}>
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow is-accent">{d.row.stepEyebrow ?? d.eyebrow}</p>
+        <p class="eyebrow">{d.row.stepEyebrow ?? d.eyebrow}</p>
         <h2 class="heading_primary" style="margin-top:8px">{d.row.stepTitle ?? (d.row.titlePre + d.row.titleAccent + d.row.titlePost)}</h2>
       </div>
       <StepEmbed />
@@ -103,8 +142,8 @@ const quote = getPlatformQuote(L, d.quoteSlug);
   </section>
 )}
 
-<!-- 3 · Value grid (navy) -->
-<section class="sec sec--navy" aria-label={d.gridTitlePre + d.gridTitleAccent + d.gridTitlePost}>
+<!-- 3 · Value grid (navy), replaced by the before-and-after table in the new layout -->
+{!v2 && <section class="sec sec--navy" aria-label={d.gridTitlePre + d.gridTitleAccent + d.gridTitlePost}>
   <div class="wrap">
     <div class="sec-head">
       <h2 class="heading_primary">{d.gridTitlePre}<span class="accent">{d.gridTitleAccent}</span>{d.gridTitlePost}</h2>
@@ -118,7 +157,7 @@ const quote = getPlatformQuote(L, d.quoteSlug);
       ))}
     </div>
   </div>
-</section>
+</section>}
 
 {d.extra && (
   <section class="sec sec--sand" aria-labelledby="pf-extra">
@@ -138,7 +177,7 @@ const quote = getPlatformQuote(L, d.quoteSlug);
 <section class="sec sec--paper" aria-label={d.proofTitle}>
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow is-accent">{d.proofEyebrow}</p>
+      <p class="eyebrow">{d.proofEyebrow}</p>
       <h2 class="heading_primary" style="margin-top:8px">{d.proofTitle}</h2>
     </div>
     <div class="pproof">
@@ -155,8 +194,8 @@ const quote = getPlatformQuote(L, d.quoteSlug);
   </div>
 </section>
 
-<!-- 5 · FAQ picks (sand) -->
-<PlatformFaqPicks L={L} eyebrow={d.faqEyebrow} title={d.faqTitle} slugs={d.faqSlugs} seeAll={s.faqSec.seeAll} />
+<!-- 5 · FAQ picks (sand); after the closing CTA in the new layout -->
+{!v2 && <PlatformFaqPicks L={L} eyebrow={d.faqEyebrow} title={d.faqTitle} slugs={d.faqSlugs} items={d.faqs} seeAll={s.faqSec.seeAll} />}
 
 <!-- 6 · Closing CTA (espresso) -->
 <section class="sec sec--esp" aria-label={d.closing.titlePre + d.closing.titleAccent + d.closing.titlePost}>
@@ -166,6 +205,8 @@ const quote = getPlatformQuote(L, d.quoteSlug);
     <div style="margin:30px 0 0"><CtaGroup align="center" /></div>
   </div>
 </section>
+
+{v2 && <PlatformFaqPicks L={L} eyebrow={d.faqEyebrow} title={d.faqTitle} slugs={d.faqSlugs} items={d.faqs} seeAll={s.faqSec.seeAll} />}
 
 <style>
   .prow{ display:flex; flex-direction:column; gap:24px }
@@ -195,4 +236,32 @@ const quote = getPlatformQuote(L, d.quoteSlug);
   .pf-extra{ max-width:760px }
   .pf-extra .paragraph{ margin-top:16px }
   .pf-extra__links{ list-style:none; padding:0; margin:22px 0 0; display:flex; flex-direction:column; gap:8px }
+  /* Hero with a flow slice: copy left, slice right; stacked below 960px. */
+  .pf-hero.has-slice{ display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); gap:clamp(32px,5vw,72px); align-items:center }
+  .pf-hero > *{ min-width:0 }
+  .pf-hero__slice{ width:100%; max-width:420px; justify-self:end }
+  @media (max-width:960px){
+    .pf-hero.has-slice{ grid-template-columns:1fr }
+    .pf-hero__slice{ justify-self:start; max-width:400px }
+  }
+  .pf-stages{ margin-top:clamp(36px,5vw,56px) }
+
+  /* Before and after: three columns on desktop, label above the pair on phones. */
+  .pcmp{ margin-top:28px; border:1px solid var(--sec-bd); border-radius:var(--radius-lg); overflow:hidden }
+  .pcmp__row{ display:grid; grid-template-columns:minmax(0,.7fr) minmax(0,1fr) minmax(0,1fr) }
+  .pcmp__row + .pcmp__row{ border-top:1px solid var(--sec-bd) }
+  .pcmp__row > span{ padding:16px 20px; font:400 15px/1.5 var(--font-body); color:var(--sec-tx) }
+  .pcmp__head > span{ font:600 13px/1.2 var(--font-body); letter-spacing:.06em; text-transform:uppercase; opacity:.72; padding-block:14px }
+  .pcmp__head .is-us{ opacity:1; color:var(--hl) }
+  .pcmp .is-us{ background:color-mix(in srgb, var(--sec-tx) 5%, transparent) }
+  .pcmp__label{ font-weight:600 !important }
+  .pcmp__a{ opacity:.72 }
+  .pcmp i{ font-style:normal; font-weight:700; margin-right:8px }
+  .pcmp__a i{ color:var(--hl) }
+  .pcmp__b i{ color:var(--hs-success) }
+  @media (max-width:720px){
+    .pcmp__head{ display:none }
+    .pcmp__row{ grid-template-columns:1fr 1fr }
+    .pcmp__label{ grid-column:1 / -1; padding-bottom:0 !important }
+  }
 </style>

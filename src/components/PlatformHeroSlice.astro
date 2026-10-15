@@ -1,0 +1,115 @@
+---
+// A static slice of the homepage flow demo for a platform page hero: the two or
+// three cards this page is about, in the app's own card style and colours, so
+// every page reads as one part of the same product. Sample figures only.
+import { FLOW_COPY } from '../data/flow-demo';
+import { asLocale } from '../i18n/utils';
+
+interface Props { kind: 'live-data' }
+const { kind } = Astro.props;
+const L = asLocale(Astro.currentLocale);
+const C = FLOW_COPY[L] ?? FLOW_COPY.en;
+const N = C.n;
+const num = (v: number) => v.toLocaleString(C.numberLocale);
+const pct = (v: number) => `${v}${C.pctSpace ? ' ' : ''}%`;
+
+const I: Record<string, string> = {
+  users:  '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  spark:  '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/>',
+  mailOk: '<path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h8"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/><path d="m16 19 2 2 4-4"/>',
+  phone:  '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>',
+  ok:     '<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>',
+  x:      '<circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/>',
+  eye:    '<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>',
+};
+
+const FOLLOWERS = { en: 'Followers of a competitor', de: 'Follower eines Wettbewerbers', nl: 'Volgers van een concurrent' }[L] ?? 'Followers of a competitor';
+
+type Stat = [label: string, value: string, ico: string, tone: 'ok' | 'no' | 'neutral', rate?: string];
+type Card = { t: string; s: string; ico: string; badge: 'violet' | 'blue' | 'green'; stats: Stat[] };
+const SLICES: Record<Props['kind'], Card[]> = {
+  'live-data': [
+    { t: N.source, s: FOLLOWERS, ico: 'eye', badge: 'violet',
+      stats: [[N.found, num(1240), 'users', 'neutral']] },
+    { t: N.qualify, s: N.qualifySub, ico: 'spark', badge: 'violet',
+      stats: [[N.checked, num(1240), 'users', 'neutral'], [N.qualified, num(412), 'ok', 'ok', pct(33)], [N.notFit, num(828), 'x', 'no']] },
+    { t: N.enrich, s: N.enrichSub, ico: 'mailOk', badge: 'violet',
+      stats: [[N.emails, num(391), 'mailOk', 'ok', pct(95)], [N.phones, num(288), 'phone', 'ok']] },
+  ],
+};
+const cards = SLICES[kind];
+---
+<div class="ps" aria-hidden="true">
+  {cards.map((c, i) => (
+    <div class="ps__card" style={`--i:${i}`}>
+      {i > 0 && <span class="ps__h ps__h--in"></span>}
+      {i < cards.length - 1 && <span class="ps__h ps__h--out"></span>}
+      <div class="ps__hd">
+        <span class={`ps__b ps__b--${c.badge}`}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={I[c.ico]} />
+        </span>
+        <span class="ps__tt"><b>{c.t}</b><span>{c.s}</span></span>
+        <span class="ps__pill"><i></i>{C.ui.on}</span>
+      </div>
+      <dl class="ps__st" style={`grid-template-columns:repeat(${c.stats.length},minmax(0,1fr))`}>
+        {c.stats.map(([label, value, ico, tone, rate]) => (
+          <div>
+            <dt>{label}</dt>
+            <dd>
+              <svg class={`ps__si ps__si--${tone}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={I[ico]} />
+              <b>{value}</b>{rate && <small>{rate}</small>}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  ))}
+</div>
+
+<style>
+  /* App tokens, as in FlowDemo.astro. */
+  .ps{
+    --ink:var(--hs-foreground); --mut:var(--hs-muted-foreground); --bd:var(--hs-border); --card:var(--hs-card);
+    position:relative; display:flex; flex-direction:column; align-items:center; gap:34px;
+    padding:30px 24px; border-radius:16px; border:1px solid var(--bd);
+    background-color:var(--card);
+    background-image:radial-gradient(var(--bd) 1.25px, transparent 1.25px); background-size:18px 18px;
+    box-shadow:0 40px 80px -40px rgba(25,35,65,.35), 0 2px 8px rgba(25,35,65,.06);
+    overflow:hidden;
+  }
+  @media (max-width:480px){
+    .ps{ padding:22px 12px; gap:28px }
+    .ps__st > div{ padding:10px 10px }
+  }
+  /* The connector runs behind the cards, from the first to the last. */
+  .ps::before{ content:''; position:absolute; top:60px; bottom:60px; left:50%; width:2px; margin-left:-1px; background:var(--hs-subtle-foreground); opacity:.6 }
+  .ps__card{
+    position:relative; width:100%; max-width:344px;
+    background:var(--card); border:1px solid var(--bd); border-radius:8px; box-shadow:0 1px 2px rgba(2,6,23,.06);
+    animation:ps-in .5s cubic-bezier(.22,.7,.2,1) both; animation-delay:calc(var(--i) * 180ms + 150ms);
+  }
+  @keyframes ps-in{ from{ opacity:0; transform:translateY(10px) } to{ opacity:1; transform:none } }
+  @media (prefers-reduced-motion:reduce){ .ps__card{ animation:none } }
+  .ps__h{ position:absolute; left:50%; width:12px; height:12px; margin-left:-6px; background:var(--card); border:2px solid var(--hs-subtle-foreground); border-radius:50% }
+  .ps__h--in{ top:-6px } .ps__h--out{ bottom:-6px }
+  .ps__hd{ display:flex; align-items:center; gap:12px; padding:14px 16px }
+  .ps__b{ flex:none; display:grid; place-items:center; width:38px; height:38px; border-radius:6px }
+  .ps__b svg{ width:19px; height:19px }
+  .ps__b--violet{ background:var(--hs-brand-muted); color:var(--hs-brand-strong) }
+  .ps__b--blue{ background:var(--hs-info-muted); color:var(--hs-info-strong) }
+  .ps__b--green{ background:var(--hs-success-muted); color:var(--hs-success-strong) }
+  .ps__tt{ display:flex; flex-direction:column; gap:2px; min-width:0; flex:1 }
+  .ps__tt b{ font:700 15px/1.2 var(--font-body); color:var(--ink) }
+  .ps__tt span{ font:500 12px/1.35 var(--font-body); color:var(--mut); white-space:nowrap; overflow:hidden; text-overflow:ellipsis }
+  .ps__pill{ flex:none; align-self:flex-start; display:inline-flex; align-items:center; gap:6px; height:22px; padding:0 9px; border-radius:999px; font:600 11px/1 var(--font-body); background:var(--hs-success-muted); color:var(--hs-success-strong) }
+  .ps__pill i{ width:6px; height:6px; border-radius:50%; background:currentColor }
+  .ps__st{ display:grid; margin:0; border-top:1px solid var(--bd) }
+  .ps__st > div{ padding:11px 14px; min-width:0 }
+  .ps__st > div + div{ border-left:1px solid var(--bd) }
+  .ps__st dt{ font:600 10.5px/1 var(--font-body); letter-spacing:.04em; text-transform:uppercase; color:var(--mut); margin-bottom:5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis }
+  .ps__st dd{ margin:0; display:flex; align-items:center; gap:5px; white-space:nowrap }
+  .ps__si{ width:14px; height:14px; flex:none }
+  .ps__si--ok{ color:var(--hs-success-strong) } .ps__si--no{ color:var(--hs-destructive-strong) } .ps__si--neutral{ color:var(--mut) }
+  .ps__st b{ font:700 16px/1.2 var(--font-body); font-variant-numeric:tabular-nums; color:var(--ink) }
+  .ps__st small{ font:600 11.5px/1 var(--font-body); color:var(--mut) }
+</style>

@@ -11,13 +11,15 @@ interface Props {
   eyebrow: string;
   title: string;
   slugs: string[];
+  /** Page-specific questions; when given they replace the slug picks. */
+  items?: { question: string; answer: string }[];
   seeAll: string;
   tone?: 'sand' | 'paper';
   accent?: boolean;   // false = muted eyebrow like the homepage hero
 }
-const { L, eyebrow, title, slugs, seeAll, tone = 'sand', accent = true } = Astro.props;
+const { L, eyebrow, title, slugs, items, seeAll, tone = 'sand', accent = true } = Astro.props;
 const all = getFaqs(L);
-const picks = slugs
+const picks = items ?? slugs
   .map((s) => all.find((f) => f.slug === s))
   .filter((f): f is NonNullable<typeof f> => Boolean(f));
 ---

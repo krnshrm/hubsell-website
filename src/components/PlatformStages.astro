@@ -1,0 +1,57 @@
+---
+// The five stages of a hubsell flow, with the ones this page covers marked.
+// Ties the platform pages together as one product and links each stage to the
+// page that explains it.
+import { asLocale, localizedHref } from '../i18n/utils';
+
+interface Props { current: string[] }
+const { current } = Astro.props;
+const L = asLocale(Astro.currentLocale);
+
+const LABELS = {
+  en: { aria: 'Where this sits in a hubsell flow', source: 'Source', qualify: 'Qualify', enrich: 'Enrich', outreach: 'Outreach', crm: 'CRM sync' },
+  de: { aria: 'Wo das in einem hubsell-Flow sitzt', source: 'Recherche', qualify: 'Qualifizieren', enrich: 'Anreichern', outreach: 'Outreach', crm: 'CRM-Sync' },
+  nl: { aria: 'Waar dit zit in een hubsell-flow', source: 'Verzamelen', qualify: 'Kwalificeren', enrich: 'Verrijken', outreach: 'Outreach', crm: 'CRM-sync' },
+}[L] ?? null;
+const T = LABELS ?? { aria: 'Where this sits in a hubsell flow', source: 'Source', qualify: 'Qualify', enrich: 'Enrich', outreach: 'Outreach', crm: 'CRM sync' };
+
+const STAGES = [
+  { id: 'source', href: '/platform/live-data' },
+  { id: 'qualify', href: '/platform/live-data' },
+  { id: 'enrich', href: '/platform/enrichment' },
+  { id: 'outreach', href: '/platform/multichannel-outreach' },
+  { id: 'crm', href: '/platform/crm-sync' },
+] as const;
+---
+<nav class="pst" aria-label={T.aria}>
+  <ol>
+    {STAGES.map((s, i) => {
+      const on = current.includes(s.id);
+      return (
+        <li class:list={[on && 'is-on']}>
+          <a href={localizedHref(L, s.href)} aria-current={on ? 'page' : undefined}>
+            <span class="pst__n">{i + 1}</span>{T[s.id]}
+          </a>
+        </li>
+      );
+    })}
+  </ol>
+</nav>
+
+<style>
+  /* One row always; on a phone it scrolls sideways rather than wrapping. */
+  .pst ol{ list-style:none; margin:0; padding:2px 0; display:flex; align-items:center; overflow-x:auto; scrollbar-width:none }
+  .pst ol::-webkit-scrollbar{ display:none }
+  .pst li{ display:flex; align-items:center; flex:none }
+  .pst li + li::before{ content:''; width:clamp(14px,2.4vw,32px); height:2px; background:var(--sec-bd); margin:0 6px }
+  .pst a{
+    display:inline-flex; align-items:center; gap:8px; padding:7px 14px 7px 8px; border-radius:999px;
+    font:600 14px/1 var(--font-body); color:var(--sec-tx); text-decoration:none;
+    background:var(--sec-card); border:1px solid var(--sec-bd); opacity:.7; transition:opacity .2s, border-color .2s;
+  }
+  .pst a:hover{ opacity:1 }
+  .pst__n{ display:grid; place-items:center; width:22px; height:22px; border-radius:50%; font-size:12px; background:var(--sec-bd); color:var(--sec-tx) }
+  .pst li.is-on a{ opacity:1; border-color:var(--hl) }
+  .pst li.is-on .pst__n{ background:var(--hl); color:var(--hs-navy) }
+  .pst li.is-on + li.is-on::before{ background:var(--hl) }
+</style>
