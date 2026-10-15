@@ -12,8 +12,8 @@ category is finished.
 | `/platform/enrichment` | Done (2026-10-15) | Field by field, six enrichment steps with fractional pricing, catch-all verification. No waterfall: hubsell sources and orchestrates, only phones from partners. |
 | `/platform/multichannel-outreach` | Done (2026-10-15) | Step by step (8 flow steps), safe LinkedIn automation. Facts confirmed by the owner. |
 | `/platform/crm-sync` | Built (2026-10-15), in review | One-way sync into the CRM today (two-way is planned, say so only in the FAQ). Contacts pushed by hand or by rule, field mapping, matching to existing records, suppression of CRM contacts. "Two-way" claims removed site-wide. |
-| `/platform/deliverability` | To do | |
-| `/platform/personalization` | To do | Refocus on personalization based on buying signals (owner, 2026-10-15). |
+| `/platform/deliverability` | Built (2026-10-15), in review | Own Google or Microsoft mailboxes through their APIs; SPF, DKIM and DMARC set up by the hubsell team (a checker may come later); a daily cap per mailbox, no number published; sending windows; stop on reply or bounce; recent, relevant data as part of deliverability. |
+| `/platform/personalization` | Built (2026-10-15), in review | Signal-based: AI drafts each message from the signal and the company website; a flow per signal. |
 | `/platform` (overview) | To do | Becomes the map of the five stages. |
 
 ## Page pattern (as on live data)
@@ -47,3 +47,4 @@ How a page switches to the new layout: give its data entry in
 `src/data/platform-content.ts` (and `.de.ts`, `.nl.ts`) the fields `compare`,
 `heads`, `faqs`, and optionally `heroSlice` and `signals`. Pages without
 `compare` keep the old layout.
+| `/integrations` | Built (2026-10-15), in review | CRM (Salesforce, HubSpot, Pipedrive) and email (Google Workspace, Microsoft 365). LinkedIn and Sales Navigator removed from the page by decision (trademark and endorsement risk); a FAQ explains LinkedIn steps run inside flows. AI integrations to follow once the MCP is set up. |

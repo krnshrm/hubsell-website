@@ -1,46 +1,67 @@
 ---
-// Static product motif for /platform/deliverability. White card, navy ink in
-// both themes (product-screenshot look), so it stays legible on dark sections.
+// Product motif for /platform/deliverability: the sender mailboxes with their
+// daily cap, the authentication the hubsell team sets up, the sending window and
+// the stop on reply or bounce. Sample names and times; no placement figures,
+// because hubsell does not publish one.
+import { asLocale } from '../i18n/utils';
+const L = asLocale(Astro.currentLocale);
+const T = ({
+  en: { title: 'Sender mailboxes', live: 'Live', today: 'Sent today', cap: 'of daily cap', auth: 'Authentication', set: 'Set up', window: 'Sending window', stop: 'Flow stops on reply or bounce', foot: 'Sent from your own mailboxes through the Google and Microsoft APIs' },
+  de: { title: 'Absender-Postfächer', live: 'Aktiv', today: 'Heute gesendet', cap: 'des Tageslimits', auth: 'Authentifizierung', set: 'Eingerichtet', window: 'Versandzeiten', stop: 'Flow stoppt bei Antwort oder Bounce', foot: 'Gesendet aus den eigenen Postfächern über die APIs von Google und Microsoft' },
+  nl: { title: 'Verzendmailboxen', live: 'Actief', today: 'Vandaag verstuurd', cap: 'van de daglimiet', auth: 'Authenticatie', set: 'Ingesteld', window: 'Verzendtijden', stop: 'Flow stopt bij reactie of bounce', foot: 'Verstuurd vanuit uw eigen mailboxen via de API’s van Google en Microsoft' },
+} as const)[L] ?? null;
+const t = T ?? { title: 'Sender mailboxes', live: 'Live', today: 'Sent today', cap: 'of daily cap', auth: 'Authentication', set: 'Set up', window: 'Sending window', stop: 'Flow stops on reply or bounce', foot: 'Sent from your own mailboxes through the Google and Microsoft APIs' };
+const boxes = [['AK', 'anna@yourcompany.com', 72], ['MS', 'max@yourcompany.com', 58], ['LB', 'lea@yourcompany.com', 64]] as const;
 ---
 <div class="dlv">
   <div class="dlv__top">
-    <span class="dlv__title">Deliverability</span>
-    <span class="dlv__live"><span class="dlv__dot"></span>Live</span>
+    <span class="dlv__title">{t.title}</span>
+    <span class="dlv__live"><span class="dlv__dot"></span>{t.live}</span>
   </div>
-
-  <div class="dlv__placement">
-    <div class="dlv__pl-head">
-      <span>Inbox placement</span><span class="dlv__pct">98%</span>
+  <div class="dlv__boxes">
+    {boxes.map(([ini, mail, pct]) => (
+      <div class="dlv__box">
+        <span class="dlv__av">{ini}</span>
+        <span class="dlv__mail"><b>{mail}</b><span>{t.today}: {pct}% {t.cap}</span></span>
+        <span class="dlv__bar"><span style={`width:${pct}%`}></span></span>
+      </div>
+    ))}
+  </div>
+  <div class="dlv__grid">
+    <div class="dlv__cell">
+      <span class="dlv__lab">{t.auth}</span>
+      <span class="dlv__chips"><i>SPF</i><i>DKIM</i><i>DMARC</i></span>
+      <span class="dlv__ok">&#10003; {t.set}</span>
     </div>
-    <div class="dlv__bar"><span class="dlv__bar-fill" style="width:98%"></span></div>
-    <div class="dlv__legend"><span>Primary inbox</span><span>Spam 2%</span></div>
+    <div class="dlv__cell">
+      <span class="dlv__lab">{t.window}</span>
+      <span class="dlv__time">09:00 &ndash; 17:00</span>
+      <span class="dlv__ok">&#10003; {t.stop}</span>
+    </div>
   </div>
-
-  <div class="dlv__auth">
-    <div class="dlv__auth-row"><span>SPF</span><span class="dlv__pass">&#10003; Pass</span></div>
-    <div class="dlv__auth-row"><span>DKIM</span><span class="dlv__pass">&#10003; Pass</span></div>
-    <div class="dlv__auth-row"><span>DMARC</span><span class="dlv__pass">&#10003; Pass</span></div>
-  </div>
-
-  <div class="dlv__foot">Verified at source &middot; catch-all flagged &middot; sent from your mailbox</div>
+  <div class="dlv__foot">{t.foot}</div>
 </div>
 
 <style>
-  .dlv{background:#fff;border:1px solid #D3D8E5;border-radius:16px;padding:22px;
-    width:100%;font-family:var(--font-body);color:#192341;box-shadow:0 1px 2px rgba(25,35,65,.05)}
-  .dlv__top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
-  .dlv__title{font-family:var(--font-head);font-weight:600;font-size:1.05rem}
-  .dlv__live{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:#23757E}
-  .dlv__dot{width:7px;height:7px;border-radius:50%;background:#289B9B;box-shadow:0 0 0 3px rgba(40,155,155,.2)}
-  .dlv__placement{background:#FEFEFE;border:1px solid #D3D8E5;border-radius:12px;padding:16px;margin-bottom:16px}
-  .dlv__pl-head{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:#555A73;margin-bottom:10px}
-  .dlv__pct{font-family:var(--font-head);font-weight:600;font-size:1.5rem;color:#192341}
-  .dlv__bar{height:10px;border-radius:999px;background:#D3D8E5;overflow:hidden}
-  .dlv__bar-fill{display:block;height:100%;background:#289B9B;border-radius:999px}
-  .dlv__legend{display:flex;justify-content:space-between;font-size:11.5px;color:#6B7089;margin-top:8px}
-  .dlv__auth{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
-  .dlv__auth-row{display:flex;justify-content:space-between;align-items:center;font-size:13.5px;font-weight:500;
-    background:#FEFEFE;border:1px solid #D3D8E5;border-radius:10px;padding:10px 14px}
-  .dlv__pass{color:#23757E;font-weight:600;font-size:12.5px}
-  .dlv__foot{font-size:12px;color:#6B7089;border-top:1px solid #D3D8E5;padding-top:14px}
+  .dlv{ background:#fff; border:1px solid #D3D8E5; border-radius:16px; padding:22px; width:100%; font-family:var(--font-body); color:#192341; box-shadow:0 1px 2px rgba(25,35,65,.05) }
+  .dlv__top{ display:flex; justify-content:space-between; align-items:center }
+  .dlv__title{ font:600 16px/1.2 var(--font-head) }
+  .dlv__live{ display:inline-flex; align-items:center; gap:6px; font:600 11px/1 var(--font-body); color:#23757E; background:#E5F4F4; border-radius:999px; padding:5px 9px }
+  .dlv__dot{ width:6px; height:6px; border-radius:50%; background:#289B9B }
+  .dlv__boxes{ display:flex; flex-direction:column; gap:10px; margin-top:16px }
+  .dlv__box{ display:grid; grid-template-columns:34px 1fr 96px; gap:12px; align-items:center; padding:10px 12px; border:1px solid #E5E7EB; border-radius:10px }
+  .dlv__av{ width:34px; height:34px; border-radius:50%; display:grid; place-items:center; background:#EEF0F6; font:600 12px/1 var(--font-body); color:#37415A }
+  .dlv__mail{ display:flex; flex-direction:column; gap:3px; min-width:0 }
+  .dlv__mail b{ font:600 13px/1.2 var(--font-body); white-space:nowrap; overflow:hidden; text-overflow:ellipsis }
+  .dlv__mail span{ font-size:11.5px; color:#555A73 }
+  .dlv__bar{ height:6px; border-radius:999px; background:#EEF0F6; overflow:hidden }
+  .dlv__bar span{ display:block; height:100%; background:#289B9B; border-radius:999px }
+  .dlv__grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px }
+  .dlv__cell{ display:flex; flex-direction:column; gap:8px; padding:12px; border:1px solid #E5E7EB; border-radius:10px }
+  .dlv__lab{ font:600 10.5px/1 var(--font-body); letter-spacing:.06em; text-transform:uppercase; color:#555A73 }
+  .dlv__chips{ display:flex; gap:6px }
+  .dlv__chips i{ font-style:normal; font:600 11.5px/1 var(--font-body); padding:5px 8px; border-radius:6px; background:#E5F4F4; color:#23757E }
+  .dlv__time{ font:600 15px/1.2 var(--font-head) }
+  .dlv__ok{ font-size:11.5px; color:#23757E; font-weight:600 }
+  .dlv__foot{ margin-top:14px; font-size:11.5px; color:#555A73; text-align:center }
 </style>

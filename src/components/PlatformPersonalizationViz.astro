@@ -1,49 +1,41 @@
 ---
-// Static product motif for /platform/personalization. White card, navy ink in
-// both themes. Shows a drafted message with merged fields and a scale line.
+// Product motif for /platform/personalization: a buying signal and the company
+// website go in, an AI draft for that one contact comes out. Sample people and
+// companies, invented for the illustration.
+import { asLocale } from '../i18n/utils';
+const L = asLocale(Astro.currentLocale);
+const T = {
+  en: { signal: 'Signal', signalText: 'Liked your post “Why outbound needs fresh data”', site: 'Company website', siteText: 'Route planning software for mid-sized carriers', draft: 'AI draft', for: 'For Lena Weber, Head of Sales at Carrow Logistics',
+    body: 'Hi Lena, thanks for the like on our post about fresh data. Selling route planning to carriers means reaching dispatch leads who change roles often, so an old list goes stale fast. Worth comparing notes on how your team finds them?' },
+  de: { signal: 'Signal', signalText: 'Hat den Post „Warum Outbound frische Daten braucht“ geliked', site: 'Unternehmenswebsite', siteText: 'Software zur Routenplanung für mittelgroße Speditionen', draft: 'KI-Entwurf', for: 'Für Lena Weber, Head of Sales bei Carrow Logistics',
+    body: 'Hallo Lena, danke fürs Liken unseres Posts über frische Daten. Wer Routenplanung an Speditionen verkauft, erreicht Disponenten, die oft die Rolle wechseln, und eine alte Liste veraltet schnell. Lohnt sich ein kurzer Austausch, wie das Team sie findet?' },
+  nl: { signal: 'Signaal', signalText: 'Vond de post ‘Waarom outbound verse data nodig heeft’ leuk', site: 'Bedrijfswebsite', siteText: 'Routeplanningssoftware voor middelgrote vervoerders', draft: 'AI-concept', for: 'Voor Lena Weber, Head of Sales bij Carrow Logistics',
+    body: 'Hoi Lena, bedankt voor de like op onze post over verse data. Wie routeplanning aan vervoerders verkoopt, bereikt planners die vaak van rol wisselen, en een oude lijst veroudert snel. Zin om te vergelijken hoe jullie team ze vindt?' },
+}[L] ?? null;
+const t = T ?? { signal: 'Signal', signalText: '', site: '', siteText: '', draft: '', for: '', body: '' };
 ---
 <div class="prs">
-  <div class="prs__top">
-    <span class="prs__title">Personalised draft</span>
-    <span class="prs__chip">at scale</span>
+  <div class="prs__in">
+    <div class="prs__src"><span class="prs__lab">{t.signal}</span><span>{t.signalText}</span></div>
+    <div class="prs__src"><span class="prs__lab">{t.site}</span><span>{t.siteText}</span></div>
   </div>
-
-  <div class="prs__mail">
-    <p class="prs__line">Hi <span class="tok">First name</span>,</p>
-    <p class="prs__line">Saw <span class="tok">Company</span> is <span class="tok">hiring 4 SDRs</span>,
-      usually the sign a team is scaling outbound.</p>
-    <p class="prs__line">We help teams like <span class="tok">Company</span> reach the right buyers without the busywork.</p>
-    <p class="prs__line prs__muted">Worth a short call, <span class="tok">First name</span>?</p>
-  </div>
-
-  <div class="prs__scale">
-    <div class="prs__scale-row">
-      <span>Contacts</span><b>10,000</b>
-    </div>
-    <div class="prs__scale-row">
-      <span>Unique variants</span><b>10,000</b>
-    </div>
-    <div class="prs__scale-row">
-      <span>Built from</span><span class="prs__sig">live signals + verified data</span>
-    </div>
+  <svg class="prs__arrow" viewBox="0 0 16 28" aria-hidden="true"><path d="M8 2 V24"/><path d="M2 18 L8 25 L14 18"/></svg>
+  <div class="prs__card">
+    <div class="prs__top"><span class="prs__title">{t.draft}</span></div>
+    <p class="prs__for">{t.for}</p>
+    <p class="prs__body">{t.body}</p>
   </div>
 </div>
 
 <style>
-  .prs{background:#fff;border:1px solid #D3D8E5;border-radius:16px;padding:22px;
-    width:100%;font-family:var(--font-body);color:#192341;box-shadow:0 1px 2px rgba(25,35,65,.05)}
-  .prs__top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
-  .prs__title{font-family:var(--font-head);font-weight:600;font-size:1.05rem}
-  .prs__chip{font-size:11.5px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;
-    background:var(--hl-soft);color:var(--hl-ink);border-radius:999px;padding:4px 10px}
-  .prs__mail{background:#FEFEFE;border:1px solid #D3D8E5;border-radius:12px;padding:16px 18px;margin-bottom:16px}
-  .prs__line{font-size:14px;line-height:1.55;margin:0 0 9px}
-  .prs__line:last-child{margin-bottom:0}
-  .prs__muted{color:#555A73}
-  .tok{display:inline;background:var(--hl-soft);color:var(--hl-ink);border-radius:5px;
-    padding:1px 6px;font-weight:600;font-size:12.5px;white-space:nowrap}
-  .prs__scale{display:flex;flex-direction:column;gap:9px}
-  .prs__scale-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#555A73}
-  .prs__scale-row b{font-family:var(--font-head);color:#192341;font-size:15px}
-  .prs__sig{color:#23757E;font-weight:500;font-size:12.5px}
+  .prs{ display:flex; flex-direction:column; align-items:center; gap:8px; width:100%; font-family:var(--font-body); color:#192341 }
+  .prs__in{ display:grid; grid-template-columns:1fr 1fr; gap:10px; width:100% }
+  .prs__src{ display:flex; flex-direction:column; gap:6px; padding:12px 14px; background:#fff; border:1px solid #D3D8E5; border-radius:12px; font-size:13px; line-height:1.4; box-shadow:0 1px 2px rgba(25,35,65,.05) }
+  .prs__lab{ font:600 10.5px/1 var(--font-body); letter-spacing:.06em; text-transform:uppercase; color:#555A73 }
+  .prs__arrow{ width:16px; height:28px; color:var(--hl) }
+  .prs__arrow path{ fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round }
+  .prs__card{ width:100%; background:#fff; border:2px solid var(--hl); border-radius:16px; padding:18px 20px; box-shadow:0 10px 30px rgba(232,98,80,.14) }
+  .prs__title{ display:inline-block; font:600 11.5px/1 var(--font-body); padding:5px 9px; border-radius:999px; background:var(--hl-soft); color:var(--hl-ink) }
+  .prs__for{ margin:12px 0 0; font-size:12px; color:#555A73 }
+  .prs__body{ margin:8px 0 0; font-size:14.5px; line-height:1.55 }
 </style>

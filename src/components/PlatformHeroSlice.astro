@@ -5,7 +5,7 @@
 import { FLOW_COPY } from '../data/flow-demo';
 import { asLocale } from '../i18n/utils';
 
-interface Props { kind: 'live-data' | 'enrichment' | 'multichannel' | 'crm-sync' }
+interface Props { kind: 'live-data' | 'enrichment' | 'multichannel' | 'crm-sync' | 'deliverability' | 'personalization' }
 const { kind } = Astro.props;
 const L = asLocale(Astro.currentLocale);
 const C = FLOW_COPY[L] ?? FLOW_COPY.en;
@@ -36,6 +36,12 @@ const I: Record<string, string> = {
   eye:    '<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>',
 };
 
+// Labels the flow demo does not have.
+const X = ({
+  en: { senders: 'Sender mailboxes', sendersSub: 'Daily cap and sending window', mailboxes: 'Mailboxes', stopped: 'Stopped on reply', post: 'LinkedIn post', postSub: 'People who engaged', draft: 'AI draft', draftSub: 'From the signal and the website', drafts: 'Drafts' },
+  de: { senders: 'Absender-Postfächer', sendersSub: 'Tageslimit und Versandzeiten', mailboxes: 'Postfächer', stopped: 'Gestoppt bei Antwort', post: 'LinkedIn-Post', postSub: 'Personen mit Interaktion', draft: 'KI-Entwurf', draftSub: 'Aus Signal und Website', drafts: 'Entwürfe' },
+  nl: { senders: 'Verzendmailboxen', sendersSub: 'Daglimiet en verzendtijden', mailboxes: 'Mailboxen', stopped: 'Gestopt na reactie', post: 'LinkedIn-post', postSub: 'Mensen die reageerden', draft: 'AI-concept', draftSub: 'Uit het signaal en de website', drafts: 'Concepten' },
+} as const)[L] ?? { senders: 'Sender mailboxes', sendersSub: 'Daily cap and sending window', mailboxes: 'Mailboxes', stopped: 'Stopped on reply', post: 'LinkedIn post', postSub: 'People who engaged', draft: 'AI draft', draftSub: 'From the signal and the website', drafts: 'Drafts' };
 const FOLLOWERS = { en: 'Followers of a competitor', de: 'Follower eines Wettbewerbers', nl: 'Volgers van een concurrent' }[L] ?? 'Followers of a competitor';
 
 type Stat = [label: string, value: string, ico: string, tone: 'ok' | 'no' | 'neutral', rate?: string];
@@ -64,6 +70,22 @@ const SLICES: Record<Props['kind'], Card[]> = {
       stats: [[N.tasks, num(24), 'phone', 'ok']] },
     { t: N.sync, s: N.syncSub, ico: 'sync', badge: 'green',
       stats: [[N.synced, num(186), 'sync', 'neutral'], [N.replies, num(22), 'reply', 'ok'], [N.meetings, num(9), 'cal', 'ok']] },
+  ],
+  'deliverability': [
+    { t: N.enrich, s: N.enrichSub, ico: 'mailOk', badge: 'violet',
+      stats: [[N.emails, num(391), 'mailOk', 'ok', pct(95)]] },
+    { t: X.senders, s: X.sendersSub, ico: 'shield', badge: 'green',
+      stats: [[X.mailboxes, num(3), 'mail', 'neutral']] },
+    { t: N.email, s: N.emailSub, ico: 'mail', badge: 'violet',
+      stats: [[N.sent, num(166), 'send', 'ok'], [N.replied, num(9), 'reply', 'ok', pct(5)], [X.stopped, num(9), 'ban', 'neutral']] },
+  ],
+  'personalization': [
+    { t: X.post, s: X.postSub, ico: 'eye', badge: 'violet',
+      stats: [[N.found, num(1240), 'users', 'neutral'], [N.qualified, num(412), 'ok', 'ok', pct(33)]] },
+    { t: X.draft, s: X.draftSub, ico: 'spark', badge: 'violet',
+      stats: [[X.drafts, num(391), 'msg', 'ok']] },
+    { t: N.email, s: N.emailSub, ico: 'mail', badge: 'violet',
+      stats: [[N.sent, num(391), 'send', 'ok'], [N.replied, num(31), 'reply', 'ok', pct(8)]] },
   ],
   'enrichment': [
     { t: N.importCsv, s: 'sample-leads.csv', ico: 'sheet', badge: 'violet',
