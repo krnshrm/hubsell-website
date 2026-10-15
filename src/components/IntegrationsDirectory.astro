@@ -20,7 +20,11 @@ const LOGOS: Record<string, string> = {
   Pipedrive: `${LOGO}/699f00ff076328750d3aefb6_f5bfffe23e979a3af1f4aca586edc14e_pipedrive.svg`,
   'Google Workspace': `${LOGO}/699f00fe9a3fab1de15bd147_G-Suite.svg`,
   'Microsoft 365': `${LOGO}/699f00fe92a407b5ca414ed7_Microsoft365.svg`,
+  // Official LinkedIn brand files, to be uploaded to R2 under these names.
+  LinkedIn: `${LOGO}/linkedin.svg`,
+  'Sales Navigator': `${LOGO}/linkedin-sales-navigator.svg`,
 };
+const groups = [...new Set(d.items.map((it) => it.category))].map((cat) => ({ cat, items: d.items.filter((it) => it.category === cat) }));
 ---
 <!-- 1 · Hero (paper) -->
 <section class="sec sec--paper" aria-labelledby="intg-title">
@@ -42,26 +46,31 @@ const LOGOS: Record<string, string> = {
       <h2 class="heading_primary" style="margin-top:8px">{d.listTitle}</h2>
     </div>
 
-    <div class="intg-grid">
-      {d.items.map((it) => (
-        <div class="card intg-card">
-          <div class="intg-top">
-            {LOGOS[it.name]
-              ? <span class="intg-logo"><img src={LOGOS[it.name]} alt={`${it.name} logo`} width="32" height="32" loading="lazy" /></span>
-              : <span class="intg-mono" aria-hidden="true">{it.name.charAt(0)}</span>}
-            <span class="intg-live"><span class="intg-dot"></span>{it.status}</span>
-          </div>
-          <h3 class="heading_small" style="margin-top:16px">{it.name}</h3>
-          <p style="margin-top:10px"><span class="chip">{it.category}</span></p>
-          <p class="paragraph_small" style="margin-top:12px">{it.blurb}</p>
+    {groups.map((g) => (
+      <Fragment>
+        <h3 class="intg-group">{g.cat}</h3>
+        <div class="intg-grid">
+          {g.items.map((it) => (
+            <div class="card intg-card">
+              <div class="intg-top">
+                {LOGOS[it.name]
+                  ? <span class="intg-logo"><img src={LOGOS[it.name]} alt={`${it.name} logo`} width="32" height="32" loading="lazy" onerror="this.parentElement.dataset.missing='1'" /><b aria-hidden="true">{it.name.charAt(0)}</b></span>
+                  : <span class="intg-mono" aria-hidden="true">{it.name.charAt(0)}</span>}
+                <span class="intg-live"><span class="intg-dot"></span>{it.status}</span>
+              </div>
+              <h4 class="heading_small" style="margin-top:16px">{it.name}</h4>
+              <p class="paragraph_small" style="margin-top:12px">{it.blurb}</p>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
+      </Fragment>
+    ))}
 
     <div class="card intg-note">
       <h3 class="heading_small">{d.noteTitle}</h3>
       <p class="paragraph_small" style="margin-top:8px;max-width:72ch">{d.noteBody}</p>
     </div>
+    <p class="intg-tm">{d.trademark}</p>
   </div>
 </section>
 
@@ -77,10 +86,14 @@ const LOGOS: Record<string, string> = {
 </section>
 
 <style>
-  .intg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:20px;margin-top:8px}
+  .intg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;margin-top:8px}
   .intg-card{display:flex;flex-direction:column}
   .intg-logo{width:52px;height:52px;border-radius:12px;display:grid;place-items:center;background:#FFFFFF;border:1px solid var(--sec-bd)}
   .intg-logo img{width:32px;height:32px;object-fit:contain}
+  .intg-logo b{display:none;font:600 18px/1 var(--font-head);color:var(--sec-tx)}
+  .intg-logo[data-missing] img{display:none}
+  .intg-logo[data-missing] b{display:block}
+  .intg-group{font:600 13px/1.2 var(--font-body);letter-spacing:.06em;text-transform:uppercase;opacity:.72;margin:28px 0 14px}
   .intg-top{display:flex;align-items:center;justify-content:space-between}
   .intg-mono{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;
     font-family:var(--font-head);font-weight:600;font-size:1.15rem;color:var(--accent-on);
@@ -88,4 +101,5 @@ const LOGOS: Record<string, string> = {
   .intg-live{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:500;color:var(--sec-tx);opacity:.8}
   .intg-dot{width:7px;height:7px;border-radius:50%;background:#289B9B;box-shadow:0 0 0 3px rgba(40,155,155,.18)}
   .intg-note{margin-top:22px}
+  .intg-tm{margin:16px 0 0;font:400 12px/1.5 var(--font-body);color:var(--sec-tx);opacity:.6;max-width:90ch}
 </style>

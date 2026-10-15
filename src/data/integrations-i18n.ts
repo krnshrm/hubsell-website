@@ -9,7 +9,7 @@ export interface IntegrationsPageData {
   title: string; metaDescription: string;
   eyebrow: string; h1Pre: string; h1Accent: string; h1Post: string; sub: string; demoCta: string;
   listEyebrow: string; listTitle: string; items: IntegrationItem[];
-  noteTitle: string; noteBody: string;
+  noteTitle: string; noteBody: string; trademark: string;
   closingPre: string; closingAccent: string; closingPost: string; closingSub: string; closingCta: string;
   crumbHome: string; crumbSelf: string;
 }
@@ -35,7 +35,7 @@ const EN: IntegrationsPageData = {
     {
       "name": "HubSpot",
       "category": "CRM",
-      "blurb": "Native sync with HubSpot. Activity and outcomes flow to the right contacts and deals without manual entry.",
+      "blurb": "Native sync with HubSpot. Activity and outcomes land on the right contacts and companies without manual entry.",
       "status": "Live"
     },
     {
@@ -45,14 +45,33 @@ const EN: IntegrationsPageData = {
       "status": "Live"
     },
     {
+      "name": "Google Workspace",
+      "category": "Outreach",
+      "blurb": "Emails go out from your own Google mailboxes through the Gmail API. No outside sending server, so every message is real mail from a real person.",
+      "status": "Live"
+    },
+    {
+      "name": "Microsoft 365",
+      "category": "Outreach",
+      "blurb": "Emails go out from your own Outlook mailboxes through the Microsoft API, with no outside sending server in the path.",
+      "status": "Live"
+    },
+    {
       "name": "LinkedIn",
       "category": "Outreach",
-      "blurb": "Run LinkedIn steps inside one flow. Profile visits, connection requests, and messages, coordinated with your email cadence.",
+      "blurb": "Profile visits, connection requests, messages and InMail run as steps in the same flow as your emails, spread across your team’s profiles.",
+      "status": "Live"
+    },
+    {
+      "name": "Sales Navigator",
+      "category": "Outreach",
+      "blurb": "Start from a Sales Navigator search: hubsell collects the people in it, checks them against your ICP and enriches the ones that fit.",
       "status": "Live"
     }
   ],
   "noteTitle": "More on the way",
   "noteBody": "This is the set we support today. We are adding more integrations, so if there is a tool you need, tell us on a short call and we will let you know where it stands.",
+  "trademark": "LinkedIn and Sales Navigator are trademarks of LinkedIn Corporation. Google Workspace is a trademark of Google LLC, Microsoft 365 a trademark of Microsoft Corporation. hubsell is not affiliated with or endorsed by these companies.",
   "closingPre": "Do not see ",
   "closingAccent": "your tool",
   "closingPost": "?",
@@ -77,30 +96,49 @@ const DE: IntegrationsPageData = {
     {
       "name": "Salesforce",
       "category": "CRM",
-      "blurb": "Nativer Sync mit Salesforce. Jedes Senden, \u00d6ffnen, Antworten und jede Verbindung landet automatisch am richtigen Datensatz, in Echtzeit.",
+      "blurb": "Nativer Sync mit Salesforce. Jedes Senden, Öffnen, Antworten und jede Verbindung landet automatisch am richtigen Datensatz, in Echtzeit.",
       "status": "Live"
     },
     {
       "name": "HubSpot",
       "category": "CRM",
-      "blurb": "Nativer Sync mit HubSpot. Aktivit\u00e4t und Ergebnisse flie\u00dfen ohne manuelle Eingabe zu den richtigen Kontakten und Deals.",
+      "blurb": "Nativer Sync mit HubSpot. Aktivität und Ergebnisse fließen ohne manuelle Eingabe zu den richtigen Kontakten und Unternehmen.",
       "status": "Live"
     },
     {
       "name": "Pipedrive",
       "category": "CRM",
-      "blurb": "Nativer Sync mit Pipedrive. Die Pipeline bleibt aktuell, w\u00e4hrend Outreach passiert, ohne CSV dazwischen.",
+      "blurb": "Nativer Sync mit Pipedrive. Die Pipeline bleibt aktuell, während Outreach passiert, ohne CSV dazwischen.",
+      "status": "Live"
+    },
+    {
+      "name": "Google Workspace",
+      "category": "Outreach",
+      "blurb": "E-Mails gehen aus den eigenen Google-Postfächern über die Gmail-API raus. Kein externer Versandserver, jede Nachricht ist echte Mail von einem echten Menschen.",
+      "status": "Live"
+    },
+    {
+      "name": "Microsoft 365",
+      "category": "Outreach",
+      "blurb": "E-Mails gehen aus den eigenen Outlook-Postfächern über die Microsoft-API raus, ohne externen Versandserver dazwischen.",
       "status": "Live"
     },
     {
       "name": "LinkedIn",
       "category": "Outreach",
-      "blurb": "LinkedIn-Schritte laufen in einem Flow. Profilbesuche, Kontaktanfragen und Nachrichten, abgestimmt auf die E-Mail-Kadenz.",
+      "blurb": "Profilbesuche, Vernetzungsanfragen, Nachrichten und InMail laufen als Schritte im selben Flow wie die E-Mails, verteilt auf die Profile des Teams.",
+      "status": "Live"
+    },
+    {
+      "name": "Sales Navigator",
+      "category": "Outreach",
+      "blurb": "Start mit einer Sales-Navigator-Suche: hubsell sammelt die Personen darin, gleicht sie mit dem ICP ab und reichert die passenden an.",
       "status": "Live"
     }
   ],
   "noteTitle": "Weitere folgen",
   "noteBody": "Das ist der Satz, den wir heute unterst\u00fctzen. Wir f\u00fcgen weitere Integrationen hinzu. Wer ein bestimmtes Tool braucht, erf\u00e4hrt in einem kurzen Gespr\u00e4ch, wie der Stand ist.",
+  "trademark": "LinkedIn und Sales Navigator sind Marken der LinkedIn Corporation. Google Workspace ist eine Marke der Google LLC, Microsoft 365 eine Marke der Microsoft Corporation. hubsell ist mit diesen Unternehmen nicht verbunden und wird nicht von ihnen empfohlen.",
   "closingPre": "Das eigene Tool ",
   "closingAccent": "nicht dabei",
   "closingPost": "?",
@@ -131,7 +169,7 @@ const NL: IntegrationsPageData = {
     {
       "name": "HubSpot",
       "category": "CRM",
-      "blurb": "Native sync met HubSpot. Activiteit en uitkomsten stromen zonder handmatige invoer naar de juiste contacten en deals.",
+      "blurb": "Native sync met HubSpot. Activiteit en uitkomsten stromen zonder handmatige invoer naar de juiste contacten en bedrijven.",
       "status": "Live"
     },
     {
@@ -141,14 +179,33 @@ const NL: IntegrationsPageData = {
       "status": "Live"
     },
     {
+      "name": "Google Workspace",
+      "category": "Outreach",
+      "blurb": "E-mails gaan uit vanuit uw eigen Google-mailboxen via de Gmail-API. Geen externe verzendserver, dus elk bericht is echte mail van een echt persoon.",
+      "status": "Live"
+    },
+    {
+      "name": "Microsoft 365",
+      "category": "Outreach",
+      "blurb": "E-mails gaan uit vanuit uw eigen Outlook-mailboxen via de Microsoft-API, zonder externe verzendserver ertussen.",
+      "status": "Live"
+    },
+    {
       "name": "LinkedIn",
       "category": "Outreach",
-      "blurb": "Draai LinkedIn-stappen binnen \u00e9\u00e9n flow. Profielbezoeken, connectieverzoeken en berichten, afgestemd op uw e-mailcadans.",
+      "blurb": "Profielbezoeken, connectieverzoeken, berichten en InMail lopen als stappen in dezelfde flow als uw e-mails, verdeeld over de profielen van uw team.",
+      "status": "Live"
+    },
+    {
+      "name": "Sales Navigator",
+      "category": "Outreach",
+      "blurb": "Start vanuit een Sales Navigator-zoekopdracht: hubsell verzamelt de mensen erin, toetst ze aan uw ICP en verrijkt wie past.",
       "status": "Live"
     }
   ],
   "noteTitle": "Meer volgt",
   "noteBody": "Dit is de set die we vandaag ondersteunen. We voegen meer integraties toe. Als er een tool is dat u nodig hebt, laat het ons weten in een kort gesprek en we vertellen u hoe het ervoor staat.",
+  "trademark": "LinkedIn en Sales Navigator zijn handelsmerken van LinkedIn Corporation. Google Workspace is een handelsmerk van Google LLC, Microsoft 365 een handelsmerk van Microsoft Corporation. hubsell is niet gelieerd aan en wordt niet onderschreven door deze bedrijven.",
   "closingPre": "Ziet u ",
   "closingAccent": "uw tool",
   "closingPost": " niet?",
