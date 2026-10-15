@@ -88,6 +88,7 @@ const STAGE_OF: Record<string, string[]> = {
   '/platform/multichannel-outreach': ['outreach'],
   '/platform/crm-sync': ['crm'],
 };
+import Avatar from './Avatar.astro';
 ---
 <!-- 1 · Hero (paper) -->
 <section class="sec sec--paper" aria-labelledby="pf-title">
@@ -252,8 +253,9 @@ const STAGE_OF: Record<string, string[]> = {
       {quote && (
         <figure class="card pquote">
           <blockquote class="quote" style="margin:0">&ldquo;{quote.quote}&rdquo;</blockquote>
-          <figcaption class="paragraph_small" style="margin-top:16px">
-            <b>{quote.name}</b>{quote.title && `, ${quote.title}`}{quote.company && ` \u00b7 ${quote.company}`}
+          <figcaption class="pq-by">
+            <Avatar src={quote.photo} name={quote.name} size={48} />
+            <span class="pq-by__meta"><b>{quote.name}</b><span>{[quote.title, quote.company].filter(Boolean).join(' \u00b7 ')}</span></span>
           </figcaption>
         </figure>
       )}
@@ -337,4 +339,8 @@ const STAGE_OF: Record<string, string[]> = {
   .phow__note{ margin:22px 0 0; max-width:70ch; font:500 .9375rem/1.6 var(--font-body); color:var(--sec-tx) }
   @media (max-width:960px){ .phow{ grid-template-columns:repeat(2,minmax(0,1fr)) } }
   @media (max-width:560px){ .phow{ grid-template-columns:1fr } }
+
+  .pq-by{ display:flex; align-items:center; gap:12px; margin-top:20px }
+  .pq-by__meta{ display:flex; flex-direction:column; gap:2px; font:400 13.5px/1.35 var(--font-body); color:var(--sec-tx) }
+  .pq-by__meta span{ opacity:.7 }
 </style>

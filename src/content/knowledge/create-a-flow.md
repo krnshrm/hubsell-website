@@ -57,7 +57,7 @@ draft: false
 <h2 class="kb-sub" id="logic">Build the branching logic</h2>
 <ol class="kb-steps" start="4">
   <li>
-    <p>Click <span class="kb-kbd">Triggers</span>. A trigger defines the event that enrolls a contact into the flow.</p>
+    <p>Click <span class="kb-kbd">Triggers</span>. A trigger defines the event that enrols a contact into the flow.</p>
     <figure class="kb-figure" data-ph="Screenshot: the Triggers menu">
       <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-21/29efb4ec-62c7-49d0-8b56-599b3de4d79d/ascreenshot_7dad7b2602e74c78ad1a9ee66793f89a_text_export.jpeg" alt="The Triggers menu in the flow builder" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
       <figcaption>Opening Triggers</figcaption>

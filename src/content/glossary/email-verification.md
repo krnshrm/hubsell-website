@@ -12,7 +12,7 @@ updated: "July 2026"
 
 ## Why it matters
 
-Sending to invalid addresses causes bounces, and a high bounce rate damages your sender reputation, which then hurts delivery to good addresses too. Verification protects that reputation by filtering out bad addresses first. It is one of the cheapest ways to keep an outbound program healthy and its cost is far lower than the damage a bounce spike causes.
+Sending to invalid addresses causes bounces, and a high bounce rate damages your sender reputation, which then hurts delivery to good addresses too. Verification protects that reputation by filtering out bad addresses first. It is one of the cheapest ways to keep an outbound programme healthy and its cost is far lower than the damage a bounce spike causes.
 
 ## How it works in practice
 

@@ -25,7 +25,7 @@ export const pipelineSteps: PipelineStep[] = [
     title: 'Find the ', titleAccent: 'right people', tail: ', not just the right filters',
     points: [
       'Most platforms let you filter by title and industry.',
-      'hubsell sources from live behavioral signals: people following a company page, engaging with a LinkedIn post, changing jobs, attending events, or hiring for specific roles.',
+      'hubsell sources from live behavioural signals: people following a company page, engaging with a LinkedIn post, changing jobs, attending events, or hiring for specific roles.',
       'Every contact entering your flow is matched to your ICP and validated at the point of use.',
     ],
     cta: 'Source your data', more: 'Explore live data', embed: '05-sp-widget', flip: false,
@@ -112,7 +112,7 @@ export const testimonials: Testimonial[] = [
     results: [
       { metric: '3x', label: 'increase in opportunity generation' },
       { metric: '60%', label: 'and higher open rate' },
-      { metric: '90%+', label: 'level of personalization' },
+      { metric: '90%+', label: 'level of personalisation' },
     ],
   },
   {

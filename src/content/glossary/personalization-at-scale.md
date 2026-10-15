@@ -1,7 +1,7 @@
 ---
-term: "Personalization at scale"
+term: "Personalisation at scale"
 category: "Outbound and email"
-definition: "Personalization at scale is tailoring outreach to each prospect's context while still sending to many people, rather than choosing between relevant or high-volume."
+definition: "Personalisation at scale is tailoring outreach to each prospect's context while still sending to many people, rather than choosing between relevant or high-volume."
 related:
   - cold-email
   - email-sequence
@@ -12,7 +12,7 @@ updated: "July 2026"
 
 ## Why it matters
 
-Generic mass email gets ignored, and one-by-one hand-writing does not scale. Personalization at scale is how teams keep messages relevant to the account and role while still reaching enough people to build pipeline. It is the balance that makes volume outbound work instead of just filling spam folders.
+Generic mass email gets ignored, and one-by-one hand-writing does not scale. Personalisation at scale is how teams keep messages relevant to the account and role while still reaching enough people to build pipeline. It is the balance that makes volume outbound work instead of just filling spam folders.
 
 ## How it works in practice
 
@@ -20,7 +20,7 @@ It works by grouping prospects by shared traits, such as role, industry, or a de
 
 ## Common mistakes
 
-A common mistake is confusing token insertion with personalization, so a mail merge with a first name still reads as generic. Another is personalizing on a field that is wrong, which is worse than not personalizing. A third is spending so long per message that volume collapses.
+A common mistake is confusing token insertion with personalisation, so a mail merge with a first name still reads as generic. Another is personalising on a field that is wrong, which is worse than not personalising. A third is spending so long per message that volume collapses.
 
 ## How hubsell approaches it
 

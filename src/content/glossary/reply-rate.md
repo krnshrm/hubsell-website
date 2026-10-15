@@ -12,7 +12,7 @@ updated: "July 2026"
 
 ## Why it matters
 
-Reply rate is closer to what actually matters, a conversation, than opens or clicks. A healthy reply rate means the targeting and message are landing with the right people. Because it reflects real engagement, it is the metric worth optimizing when you test and refine outreach. It rewards relevance over volume.
+Reply rate is closer to what actually matters, a conversation, than opens or clicks. A healthy reply rate means the targeting and message are landing with the right people. Because it reflects real engagement, it is the metric worth optimising when you test and refine outreach. It rewards relevance over volume.
 
 ## How it works in practice
 

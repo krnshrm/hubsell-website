@@ -12,7 +12,7 @@ updated: "July 2026"
 
 ## Why it matters
 
-Bounces are more than wasted sends. A high bounce rate tells mailbox providers your list is poor, which lowers your sender reputation and pushes even valid mail toward spam. Keeping bounces low is one of the most direct ways to protect deliverability. It is a symptom to watch and a cause to control.
+Bounces are more than wasted sends. A high bounce rate tells mailbox providers your list is poor, which lowers your sender reputation and pushes even valid mail towards spam. Keeping bounces low is one of the most direct ways to protect deliverability. It is a symptom to watch and a cause to control.
 
 ## How it works in practice
 

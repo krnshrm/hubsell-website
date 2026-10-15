@@ -32,7 +32,7 @@ export const menuGroups: NavGroup[] = [
     key: 'nav.heading.learn',
     links: [
       { label: 'Insights', key: 'nav.insights', href: '/insights' },
-      { label: 'Knowledge center', href: '/knowledge' },
+      { label: 'Knowledge centre', href: '/knowledge' },
       { label: 'Customer stories', key: 'nav.customerstories', href: '/customerstories' },
       { label: 'Comparisons', key: 'nav.comparisons', href: '/comparisons' },
       { label: 'Glossary', key: 'nav.glossary', href: '/glossary' },
@@ -41,7 +41,7 @@ export const menuGroups: NavGroup[] = [
       { label: 'AI sales coach', soon: true },
       { label: 'Free tools', soon: true },
       { label: 'GTM plays', soon: true },
-      { label: 'Help center', soon: true },
+      { label: 'Help centre', soon: true },
     ],
   },
   {
@@ -51,7 +51,7 @@ export const menuGroups: NavGroup[] = [
       { label: 'Contact', key: 'nav.contact', href: '/contact' },
       { label: 'About us', soon: true },
       { label: 'Careers', soon: true },
-      { label: 'Partner program', soon: true },
+      { label: 'Partner programme', soon: true },
       { label: 'Newsroom', soon: true },
       { label: 'Reviews', key: 'nav.reviews', href: '/hubsell-reviews' },
       { label: 'AI information', key: 'nav.aiinfo', href: '/ai-information-page' },
@@ -78,7 +78,7 @@ export const platformLinks: NavLink[] = [
   { label: 'Multichannel outreach', key: 'nav.platform.outreach', href: '/platform/multichannel-outreach' },
   { label: 'CRM sync', key: 'nav.platform.crmsync', href: '/platform/crm-sync' },
   { label: 'Deliverability', key: 'nav.platform.deliverability', href: '/platform/deliverability' },
-  { label: 'Personalization', key: 'nav.platform.personalization', href: '/platform/personalization' },
+  { label: 'Personalisation', key: 'nav.platform.personalization', href: '/platform/personalization' },
   { label: 'Enrichment', key: 'nav.platform.enrichment', href: '/platform/enrichment' },
   { label: 'Integrations', key: 'nav.platform.integrations', href: '/integrations' },
 ];

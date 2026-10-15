@@ -22,6 +22,7 @@ const { L, data: d } = Astro.props;
 const { s } = getHome(L);
 const h = d.heads;
 const quote = getPlatformQuote(L, d.quoteSlug);
+import Avatar from './Avatar.astro';
 ---
 <section class="sec sec--paper" aria-labelledby="pov-title">
   <div class="wrap">
@@ -97,8 +98,9 @@ const quote = getPlatformQuote(L, d.quoteSlug);
       {quote && (
         <figure class="card pov-quote">
           <blockquote class="quote" style="margin:0">&ldquo;{quote.quote}&rdquo;</blockquote>
-          <figcaption class="paragraph_small" style="margin-top:16px">
-            <b>{quote.name}</b>{quote.title && `, ${quote.title}`}{quote.company && ` · ${quote.company}`}
+          <figcaption class="pq-by">
+            <Avatar src={quote.photo} name={quote.name} size={48} />
+            <span class="pq-by__meta"><b>{quote.name}</b><span>{[quote.title, quote.company].filter(Boolean).join(' · ')}</span></span>
           </figcaption>
         </figure>
       )}
@@ -143,4 +145,8 @@ const quote = getPlatformQuote(L, d.quoteSlug);
   @media (min-width:860px){ .pov-why{ grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(28px,4vw,56px) } }
   .pov-why li{ border-top:1px solid var(--sec-bd); padding-top:22px }
   .pov-why__n{ display:block; font:600 15px/1 var(--font-head); color:var(--accent-on); margin-bottom:12px }
+
+  .pq-by{ display:flex; align-items:center; gap:12px; margin-top:20px }
+  .pq-by__meta{ display:flex; flex-direction:column; gap:2px; font:400 13.5px/1.35 var(--font-body); color:var(--sec-tx) }
+  .pq-by__meta span{ opacity:.7 }
 </style>

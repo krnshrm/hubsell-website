@@ -16,7 +16,7 @@ Most tools rely on other services behind the scenes, such as hosting or email in
 
 ## How it works in practice
 
-Under the GDPR, a processor may only use a sub-processor with the customer's authorization, and must pass the same data-protection duties down to it by contract. Providers usually publish a list of their sub-processors, what each does, and where it operates, and give notice before adding a new one so customers can review or object.
+Under the GDPR, a processor may only use a sub-processor with the customer's authorisation, and must pass the same data-protection duties down to it by contract. Providers usually publish a list of their sub-processors, what each does, and where it operates, and give notice before adding a new one so customers can review or object.
 
 ## Common mistakes
 

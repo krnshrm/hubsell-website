@@ -12,7 +12,7 @@ updated: "July 2026"
 
 ## Why it matters
 
-Most B2B contact data is PII, since a name and work email identify a person. That means the data you run outreach on falls under privacy rules like the GDPR. Knowing what counts as PII tells you which records need a lawful basis, careful storage, and a way to honor deletion, so it is the starting point for handling data responsibly.
+Most B2B contact data is PII, since a name and work email identify a person. That means the data you run outreach on falls under privacy rules like the GDPR. Knowing what counts as PII tells you which records need a lawful basis, careful storage, and a way to honour deletion, so it is the starting point for handling data responsibly.
 
 ## How it works in practice
 

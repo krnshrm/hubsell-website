@@ -1,5 +1,5 @@
 ---
-// The knowledge center hub.
+// The knowledge centre hub.
 // Search first, because most people arrive with a question rather than a wish
 // to browse. Under it: a row of the most-wanted articles, then a card per
 // category. Typing in the search box swaps the category grid for a flat list
@@ -42,7 +42,7 @@ const crumbs = breadcrumbSchema([
 ]);
 ---
 <KnowledgeLayout
-  title="Knowledge center | hubsell"
+  title="Knowledge centre | hubsell"
   description="Guides and step-by-step help for hubsell: set up your account, connect your channels, source data, and launch your first flow."
 >
   <JsonLd slot="head" schema={crumbs} />
@@ -54,7 +54,7 @@ const crumbs = breadcrumbSchema([
 
       <div class="kbhub__search">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-        <input type="search" id="kbSearch" placeholder="Search articles" aria-label="Search the knowledge center" autocomplete="off" />
+        <input type="search" id="kbSearch" placeholder="Search articles" aria-label="Search the knowledge centre" autocomplete="off" />
       </div>
 
       {popular.length > 0 && (

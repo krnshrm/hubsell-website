@@ -1,7 +1,7 @@
 ---
 term: "Lead scoring"
 category: "CRM and RevOps"
-definition: "Lead scoring is a method of ranking prospects by how likely they are to buy, using fit and behavior signals, so teams focus on the best leads first."
+definition: "Lead scoring is a method of ranking prospects by how likely they are to buy, using fit and behaviour signals, so teams focus on the best leads first."
 related:
   - ideal-customer-profile
   - buying-signal
@@ -16,11 +16,11 @@ Not every lead is worth the same effort, and reps only have so many hours. Lead 
 
 ## How it works in practice
 
-Scoring combines fit, how well a lead matches the Ideal Customer Profile, with behavior, the actions that signal interest such as visits, replies, or demo requests. Each factor carries a weight, and the totals rank leads or sort them into tiers. The model is tuned over time against which leads actually closed, so the score stays connected to real outcomes.
+Scoring combines fit, how well a lead matches the Ideal Customer Profile, with behaviour, the actions that signal interest such as visits, replies, or demo requests. Each factor carries a weight, and the totals rank leads or sort them into tiers. The model is tuned over time against which leads actually closed, so the score stays connected to real outcomes.
 
 ## Common mistakes
 
-A common mistake is scoring on behavior alone, so an engaged but poor-fit lead ranks too high. Another is setting the weights once and never revisiting them against closed-won data. A third is over-engineering the model into something no one trusts or maintains.
+A common mistake is scoring on behaviour alone, so an engaged but poor-fit lead ranks too high. Another is setting the weights once and never revisiting them against closed-won data. A third is over-engineering the model into something no one trusts or maintains.
 
 ## How hubsell approaches it
 

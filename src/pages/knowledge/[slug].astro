@@ -1,5 +1,5 @@
 ---
-// A knowledge center article.
+// A knowledge centre article.
 // Docs-style three-column page: sidebar (from KnowledgeLayout), the article,
 // and an "On this page" rail built automatically from the article's own h2
 // headings. Nothing about the article CONTENT changed when this layout landed;
@@ -102,7 +102,7 @@ const updatedLabel = updated
   : null;
 ---
 <KnowledgeLayout
-  title={`${title} | hubsell Knowledge center`}
+  title={`${title} | hubsell Knowledge centre`}
   description={description}
   activeSlug={article.id}
   activeCategory={category}
@@ -281,7 +281,7 @@ const updatedLabel = updated
 </script>
 
 <style is:global>
-  /* Knowledge center article styles. Global (not scoped) because the article body
+  /* Knowledge centre article styles. Global (not scoped) because the article body
      is injected with set:html and would not receive Astro's scoped class hashes. */
   :root { --kb-card:#FFFFFF; }
   [data-theme="dark"] { --kb-card:#211B15; }

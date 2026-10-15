@@ -1,7 +1,7 @@
 ---
 term: "Buying signal"
 category: "Outbound and email"
-definition: "A buying signal is an action or event that suggests a prospect is moving toward a purchase, such as visiting pricing pages or researching a category."
+definition: "A buying signal is an action or event that suggests a prospect is moving towards a purchase, such as visiting pricing pages or researching a category."
 related:
   - intent-data
   - sales-trigger
@@ -12,7 +12,7 @@ updated: "July 2026"
 
 ## Why it matters
 
-Buying signals tell you who to contact now versus later. Acting on them focuses effort on prospects showing interest, which lifts reply and conversion rates compared with an unsorted list. They turn prioritization from a guess into something grounded in observed behavior.
+Buying signals tell you who to contact now versus later. Acting on them focuses effort on prospects showing interest, which lifts reply and conversion rates compared with an unsorted list. They turn prioritisation from a guess into something grounded in observed behaviour.
 
 ## How it works in practice
 
@@ -24,4 +24,4 @@ A common mistake is treating every signal as equal, when a pricing-page visit me
 
 ## How hubsell approaches it
 
-hubsell helps you act on signals by sourcing and prioritizing contacts at in-profile accounts showing interest, so outreach reaches them while the intent is current.
+hubsell helps you act on signals by sourcing and prioritising contacts at in-profile accounts showing interest, so outreach reaches them while the intent is current.

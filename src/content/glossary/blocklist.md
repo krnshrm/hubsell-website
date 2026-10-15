@@ -16,11 +16,11 @@ Landing on a blocklist can stop your mail from being delivered at all, sometimes
 
 ## How it works in practice
 
-Blocklists, sometimes called blacklists, are maintained by organizations that track spam signals such as hitting spam traps, high complaint rates, and sudden volume spikes. When a domain or IP shows these patterns, it can be added. Receiving servers check incoming mail against these lists and block or filter matches. Delisting usually requires fixing the cause and requesting removal.
+Blocklists, sometimes called blacklists, are maintained by organisations that track spam signals such as hitting spam traps, high complaint rates, and sudden volume spikes. When a domain or IP shows these patterns, it can be added. Receiving servers check incoming mail against these lists and block or filter matches. Delisting usually requires fixing the cause and requesting removal.
 
 ## Common mistakes
 
-The main mistake is the behavior that gets you listed: sending to unverified lists, spiking volume, or triggering complaints. Another is not monitoring, so you only discover a listing after delivery has collapsed. A third is requesting delisting without fixing the underlying cause, which just gets you relisted.
+The main mistake is the behaviour that gets you listed: sending to unverified lists, spiking volume, or triggering complaints. Another is not monitoring, so you only discover a listing after delivery has collapsed. A third is requesting delisting without fixing the underlying cause, which just gets you relisted.
 
 ## How hubsell approaches it
 

@@ -42,7 +42,7 @@ for (let p = 0; p < pickedCount; p++) {
 }
 
 // Locale-aware number formatting: 100,000 in English, 100.000 in German and Dutch.
-const NUM_LOCALE = L === 'de' ? 'de-DE' : L === 'nl' ? 'nl-NL' : 'en-US';
+const NUM_LOCALE = L === 'de' ? 'de-DE' : L === 'nl' ? 'nl-NL' : 'en-GB';
 const fmt = (n: number) => n.toLocaleString(NUM_LOCALE);
 
 ---
@@ -300,7 +300,7 @@ const fmt = (n: number) => n.toLocaleString(NUM_LOCALE);
       if (root.dataset.bound) return;
       root.dataset.bound = 'true';
 
-      const numLocale = root.dataset.numLocale || 'en-US';
+      const numLocale = root.dataset.numLocale || 'en-GB';
       const fmt = (n: number) => n.toLocaleString(numLocale);
       const counters = Array.from(root.querySelectorAll<HTMLElement>('[data-count-to]'))
         .map((el) => ({ el, to: Number(el.dataset.countTo) }));

@@ -1,7 +1,7 @@
 ---
 term: "AEO"
 category: "SEO and GEO"
-definition: "AEO, or answer engine optimization, is the practice of structuring content so it is chosen as the direct answer by search features and AI assistants."
+definition: "AEO, or answer engine optimisation, is the practice of structuring content so it is chosen as the direct answer by search features and AI assistants."
 related:
   - geo
   - seo

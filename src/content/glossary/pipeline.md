@@ -1,7 +1,7 @@
 ---
 term: "Pipeline"
 category: "CRM and RevOps"
-definition: "Pipeline is the set of active deals a team is working, organized by the stages they move through from first contact to close."
+definition: "Pipeline is the set of active deals a team is working, organised by the stages they move through from first contact to close."
 related:
   - sales-pipeline-stages
   - crm
@@ -16,7 +16,7 @@ Pipeline is how a team sees what revenue is coming and where it might stall. It 
 
 ## How it works in practice
 
-Pipeline organizes deals into stages, such as new, qualified, proposal, and closed, each with criteria for moving forward. Reps update a deal as it progresses, and the CRM rolls the stages and values into a forecast. Leaders read pipeline for coverage, whether there is enough in progress to hit the target, and for bottlenecks where deals pile up or drop out.
+Pipeline organises deals into stages, such as new, qualified, proposal, and closed, each with criteria for moving forward. Reps update a deal as it progresses, and the CRM rolls the stages and values into a forecast. Leaders read pipeline for coverage, whether there is enough in progress to hit the target, and for bottlenecks where deals pile up or drop out.
 
 ## Common mistakes
 

@@ -16,7 +16,7 @@ Most replies do not come from the first email. A sequence keeps the conversation
 
 ## How it works in practice
 
-A sequence lays out several emails with timing between them, for example an opener, a follow-up two days later, and a final note a week on. Steps can branch on behavior, so a reply stops the sequence and an open might trigger a different next message. Sequences run from a tool that sends on schedule and tracks opens, replies, and bounces.
+A sequence lays out several emails with timing between them, for example an opener, a follow-up two days later, and a final note a week on. Steps can branch on behaviour, so a reply stops the sequence and an open might trigger a different next message. Sequences run from a tool that sends on schedule and tracks opens, replies, and bounces.
 
 ## Common mistakes
 

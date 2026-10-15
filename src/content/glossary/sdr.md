@@ -16,7 +16,7 @@ The SDR is the engine of most outbound teams. By concentrating on prospecting an
 
 ## How it works in practice
 
-SDRs work a target list matched to the Ideal Customer Profile, reaching contacts through email, LinkedIn, and calls in a planned sequence. They qualify replies against simple criteria, book meetings for account executives, and hand over the context. Their day is heavy on outreach volume and follow-up, so they lean on clean data and a sales engagement tool to stay organized.
+SDRs work a target list matched to the Ideal Customer Profile, reaching contacts through email, LinkedIn, and calls in a planned sequence. They qualify replies against simple criteria, book meetings for account executives, and hand over the context. Their day is heavy on outreach volume and follow-up, so they lean on clean data and a sales engagement tool to stay organised.
 
 ## Common mistakes
 

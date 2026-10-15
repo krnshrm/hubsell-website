@@ -16,7 +16,7 @@ The BDR, like the SDR, keeps new opportunities flowing into the pipeline. The di
 
 ## How it works in practice
 
-Where companies split the roles, BDRs often lean toward outbound to brand-new accounts or new segments, while SDRs may handle a mix that includes following up on inbound interest. In practice both prospect a target list, run multichannel sequences, qualify interest, and pass qualified opportunities to account executives. The workflow is much the same, and clean data matters to both.
+Where companies split the roles, BDRs often lean towards outbound to brand-new accounts or new segments, while SDRs may handle a mix that includes following up on inbound interest. In practice both prospect a target list, run multichannel sequences, qualify interest, and pass qualified opportunities to account executives. The workflow is much the same, and clean data matters to both.
 
 ## Common mistakes
 

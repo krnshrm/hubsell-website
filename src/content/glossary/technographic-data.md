@@ -20,8 +20,8 @@ Technographic data is detected from public signals such as website tags, job pos
 
 ## Common mistakes
 
-The main mistake is trusting technographic detection as certain, since it is inferred, not confirmed, and a detected tool may be a trial or a legacy system. Another is over-personalizing on a single detected tool that turns out to be wrong, which undermines credibility. Treat technographics as a strong hint, not a fact.
+The main mistake is trusting technographic detection as certain, since it is inferred, not confirmed, and a detected tool may be a trial or a legacy system. Another is over-personalising on a single detected tool that turns out to be wrong, which undermines credibility. Treat technographics as a strong hint, not a fact.
 
 ## How hubsell approaches it
 
-hubsell can factor the tools an account uses into how contacts are sourced and prioritized, so outreach reaches accounts where your product fits their stack.
+hubsell can factor the tools an account uses into how contacts are sourced and prioritised, so outreach reaches accounts where your product fits their stack.

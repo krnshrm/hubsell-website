@@ -1,7 +1,7 @@
 ---
 term: "SEO"
 category: "SEO and GEO"
-definition: "SEO, or search engine optimization, is the practice of improving content and pages so they rank higher in search engine results and attract more visitors."
+definition: "SEO, or search engine optimisation, is the practice of improving content and pages so they rank higher in search engine results and attract more visitors."
 related:
   - geo
   - aeo

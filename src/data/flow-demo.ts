@@ -90,7 +90,7 @@ type FlowCopy = {
 
 export const FLOW_COPY: Record<'en' | 'de' | 'nl', FlowCopy> = {
   en: {
-    numberLocale: 'en-US', pctSpace: false,
+    numberLocale: 'en-GB', pctSpace: false,
     src: {
       post:     { tab: 'LinkedIn post', label: 'LinkedIn post link', detail: 'Reactions, comments and reposts', crumb: 'Outbound from a LinkedIn post' },
       event:    { tab: 'Event participants', label: 'LinkedIn event link', detail: '386 people signed up', crumb: 'Outbound from a LinkedIn event' },

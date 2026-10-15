@@ -99,7 +99,7 @@ export const platform: PlatformData = {
     compare: {"eyebrow": "All-in-one sales engagement", "titlePre": "A six-tool outbound stack versus ", "titleAccent": "one platform", "titlePost": "", "colA": "Separate tools", "colB": "hubsell", "rows": [["Contact data", "A database bought once and used for months", "Sourced live for each search, checked against your ICP"], ["Enrichment", "A second tool, a CSV in and a CSV out", "Verified emails and phones added in the same place"], ["Email outreach", "An email tool that knows nothing about LinkedIn", "Email and LinkedIn steps in one flow"], ["LinkedIn", "Done by hand, or in another automation tool", "Profile visits, invites, messages and InMail as flow steps"], ["Calls", "A dialer and notes typed in afterwards", "Call tasks created in your CRM"], ["CRM", "Activity logged by hand, if at all", "Contacts and activity synced to Salesforce, HubSpot or Pipedrive"], ["Cost", "Several subscriptions and the work between them", "One login, one invoice"]]},
     heads: {"stages": {"eyebrow": "Platform overview", "pre": "Every stage of outbound, ", "accent": "in one place", "post": ""}, "also": {"eyebrow": "Also in the platform", "pre": "Built in, ", "accent": "not bolted on", "post": ""}, "why": {"eyebrow": "Why one platform", "pre": "Each part makes ", "accent": "the others work better", "post": ""}, "proof": {"eyebrow": "Customer results", "pre": "Teams that ", "accent": "moved to one platform", "post": ""}, "closing": {"eyebrow": "Sales engagement platform", "pre": "See the whole platform ", "accent": "in one call", "post": "."}, "faq": {"eyebrow": "Sales engagement platform FAQ", "pre": "Questions about ", "accent": "the hubsell platform", "post": ""}},
     stages: [{"eyebrow": "Live B2B data", "title": "Find prospects from buying signals", "slice": "live-data", "href": "/platform/live-data", "linkLabel": "Explore live data", "body": "Contacts are sourced live from LinkedIn and company websites, for your search, from signals like post engagement, job changes, hiring and competitor followers. Each one is checked against your ICP before you use it."}, {"eyebrow": "Contact data enrichment", "title": "Verified emails and phone numbers", "slice": "enrichment", "href": "/platform/enrichment", "linkLabel": "Explore enrichment", "body": "95% of work emails are accurate, catch-all domains included, and every record gets a quality check before it reaches outreach. Phone numbers are optional, from partners chosen for quality."}, {"eyebrow": "Multichannel outreach", "title": "Email, LinkedIn and calls in one flow", "slice": "multichannel", "href": "/platform/multichannel-outreach", "linkLabel": "Explore multichannel outreach", "body": "Profile visits, connection requests, messages, InMail, emails and call tasks run as steps in one flow. Conditions route each contact by what they do, so nobody gets an email after they have already replied on LinkedIn."}, {"eyebrow": "CRM sync", "title": "Every touch on the right record", "slice": "crm-sync", "href": "/platform/crm-sync", "linkLabel": "Explore CRM sync", "body": "Contacts and activity go to Salesforce, HubSpot or Pipedrive, pushed by hand or by rule, and matched to existing records so nothing is duplicated."}],
-    also: [{"title": "Email deliverability", "href": "/platform/deliverability", "linkLabel": "Explore deliverability", "body": "Emails go out from your own Google or Microsoft mailboxes through their APIs. Contacts are verified before the first send, and volume is spread across your senders."}, {"title": "Signal-based personalization", "href": "/platform/personalization", "linkLabel": "Explore personalization", "body": "Messages can open with the signal that put a contact on your list: the post they engaged with, the job they just started or the role their company is hiring for."}],
+    also: [{"title": "Email deliverability", "href": "/platform/deliverability", "linkLabel": "Explore deliverability", "body": "Emails go out from your own Google or Microsoft mailboxes through their APIs. Contacts are verified before the first send, and volume is spread across your senders."}, {"title": "Signal-based personalisation", "href": "/platform/personalization", "linkLabel": "Explore personalisation", "body": "Messages can open with the signal that put a contact on your list: the post they engaged with, the job they just started or the role their company is hiring for."}],
     why: [{"title": "Fresh data, fewer bounces", "body": "Contacts sourced and verified the day you use them bounce less, which protects your sender reputation for every email that follows."}, {"title": "Coordinated channels, more replies", "body": "When email and LinkedIn know about each other, each contact gets the next step that fits what they did, not a second message on a channel they already answered."}, {"title": "Automatic logging, honest reports", "body": "When every touch lands in the CRM as it happens, pipeline reports show what really happened, and reps get back the time they spent typing it in."}],
     ratingsLine: "Rated 4.6+ across G2, Capterra, and GetApp.",
     quoteSlug: "cibt",
@@ -128,7 +128,7 @@ export const platform: PlatformData = {
       row: {
         titlePre: 'Sourced from ', titleAccent: 'live buying signals', titlePost: '',
         points: [
-          'Most platforms let you filter by title and industry. hubsell also reads behavior.',
+          'Most platforms let you filter by title and industry. hubsell also reads behaviour.',
           'People following your company page or a competitor\u2019s, engaging with a LinkedIn post, changing jobs, attending events, or hiring for specific roles.',
           'Signals tell you who is worth contacting this week, not just who matches a filter.',
         ],
@@ -353,9 +353,9 @@ export const platform: PlatformData = {
 },
 {
       "path": "/platform/personalization",
-      "title": "Personalization at scale: relevant outreach for every contact | hubsell",
-      "metaDescription": "hubsell personalizes outreach from live signals and verified data, so every message is relevant to the person and the moment, sent to thousands without losing the human touch.",
-      "eyebrow": "Personalization",
+      "title": "Personalisation at scale: relevant outreach for every contact | hubsell",
+      "metaDescription": "hubsell personalises outreach from live signals and verified data, so every message is relevant to the person and the moment, sent to thousands without losing the human touch.",
+      "eyebrow": "Personalisation",
       "h1Pre": "Relevant to ",
       "h1Accent": "every contact",
       "h1Post": ", at any volume",
@@ -368,7 +368,7 @@ export const platform: PlatformData = {
             "points": [
                   "Merge in real details about the person, the company, and what they are doing right now, not just a first name.",
                   "Live signals such as a job change, a hiring push, or event activity give every message a reason to exist.",
-                  "The same flow personalizes one contact or ten thousand, so relevance does not cost you reach."
+                  "The same flow personalises one contact or ten thousand, so relevance does not cost you reach."
             ],
             "embed": "09-personalization",
             "stepEyebrow": "How it works",
@@ -380,7 +380,7 @@ export const platform: PlatformData = {
       "blocks": [
             {
                   "title": "Beyond the first name",
-                  "body": "Real personalization uses what is true about the account: the role, the company, the moment. hubsell pulls from verified data and live signals, so a message references something that actually matters to the reader."
+                  "body": "Real personalisation uses what is true about the account: the role, the company, the moment. hubsell pulls from verified data and live signals, so a message references something that actually matters to the reader."
             },
             {
                   "title": "Grounded in live signals",
@@ -388,11 +388,11 @@ export const platform: PlatformData = {
             },
             {
                   "title": "Consistent at volume",
-                  "body": "Personalizing by hand does not scale, and mail merge fields feel hollow. hubsell keeps every message relevant whether you send ten or ten thousand, so reach and relevance stop pulling against each other."
+                  "body": "Personalising by hand does not scale, and mail merge fields feel hollow. hubsell keeps every message relevant whether you send ten or ten thousand, so reach and relevance stop pulling against each other."
             },
             {
                   "title": "Correct data underneath",
-                  "body": "Personalization is only as good as the data behind it. Because every contact is verified at source, the details you reference are right, so a personalized line never lands as a wrong-company mistake."
+                  "body": "Personalisation is only as good as the data behind it. Because every contact is verified at source, the details you reference are right, so a personalised line never lands as a wrong-company mistake."
             }
       ],
       "proofEyebrow": "Proof",
@@ -401,7 +401,7 @@ export const platform: PlatformData = {
       "storySlug": "elium",
       "storyLabel": "Read the Elium story",
       "faqEyebrow": "FAQ",
-      "faqTitle": "Common questions about personalization",
+      "faqTitle": "Common questions about personalisation",
       "faqSlugs": [
             "personalize-outreach-at-scale",
             "hubsell-conversion-rates"
@@ -410,7 +410,7 @@ export const platform: PlatformData = {
             "titlePre": "See outreach that ",
             "titleAccent": "reads as personal",
             "titlePost": ", at scale.",
-            "sub": "Show us your audience on a short call and we will draft what personalized-at-scale outreach looks like for it."
+            "sub": "Show us your audience on a short call and we will draft what personalised-at-scale outreach looks like for it."
       },
       "closingCta": "Book a demo"
 },

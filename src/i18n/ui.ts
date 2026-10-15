@@ -228,7 +228,7 @@ const en: Dict = {
   'nav.platform.outreach': 'Multichannel outreach',
   'nav.platform.crmsync': 'CRM sync',
   'nav.platform.deliverability': 'Deliverability',
-  'nav.platform.personalization': 'Personalization',
+  'nav.platform.personalization': 'Personalisation',
   'nav.platform.enrichment': 'Enrichment',
   'nav.platform.integrations': 'Integrations',
   'nav.solutions': 'Solutions',

@@ -5,6 +5,8 @@
 import { getCollection } from 'astro:content';
 import { localizedHref } from '../i18n/utils';
 import type { Locale } from '../i18n/ui';
+import Avatar from './Avatar.astro';
+import { TESTIMONIALS } from '../data/testimonials';
 
 interface Props {
   L: Locale;
@@ -17,6 +19,8 @@ const stories = await getCollection(collName as 'customerstories');
 const story = stories.find((s) => s.id === slug);
 const d = story?.data as any;
 const results: { metric: string; label: string }[] = (d?.results ?? []).slice(0, 2);
+// The champion's face from the shared R2 avatars; the story's own image is the fallback.
+const photo = TESTIMONIALS.find((t) => t.storySlug === slug)?.photo ?? d?.championImage;
 ---
 {story && (
   <article class="card story-card">
@@ -33,6 +37,12 @@ const results: { metric: string; label: string }[] = (d?.results ?? []).slice(0,
         ))}
       </div>
     )}
+    {d.champion && (
+      <p class="story-card__by">
+        <Avatar src={photo} name={d.champion} size={40} />
+        <span><b>{d.champion}</b>{d.championTitle && <span>{d.championTitle}</span>}</span>
+      </p>
+    )}
     <a href={localizedHref(L, `/customerstories/${slug}`)} class="link" style="margin-top:auto">{label} &rarr;</a>
   </article>
 )}
@@ -44,4 +54,7 @@ const results: { metric: string; label: string }[] = (d?.results ?? []).slice(0,
   .story-card__metric{ display:flex; flex-direction:column; gap:2px }
   .story-card__num{ font-family:var(--font-head); font-weight:600; font-size:1.5rem; color:var(--accent-on) }
   .story-card__lbl{ font-size:13px; opacity:.7 }
+  .story-card__by{ display:flex; align-items:center; gap:11px; margin:18px 0 0; font:400 13px/1.35 var(--font-body) }
+  .story-card__by > span:last-child{ display:flex; flex-direction:column; gap:2px }
+  .story-card__by > span:last-child span{ opacity:.7 }
 </style>

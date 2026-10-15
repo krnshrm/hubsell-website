@@ -12,7 +12,7 @@ updated: "July 2026"
 
 ## Why it matters
 
-Search engines and AI read pages more reliably when the meaning is labeled explicitly. Schema markup does that labeling, telling them this is a definition, this is a review, this is a question and answer. That can produce richer search results and makes content easier for answer engines to use accurately, which supports both SEO and GEO.
+Search engines and AI read pages more reliably when the meaning is labelled explicitly. Schema markup does that labelling, telling them this is a definition, this is a review, this is a question and answer. That can produce richer search results and makes content easier for answer engines to use accurately, which supports both SEO and GEO.
 
 ## How it works in practice
 

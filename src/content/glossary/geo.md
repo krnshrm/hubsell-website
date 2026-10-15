@@ -1,7 +1,7 @@
 ---
 term: "GEO"
 category: "SEO and GEO"
-definition: "GEO, or generative engine optimization, is the practice of shaping content so it is picked up and cited by AI answer engines like ChatGPT and Perplexity."
+definition: "GEO, or generative engine optimisation, is the practice of shaping content so it is picked up and cited by AI answer engines like ChatGPT and Perplexity."
 related:
   - seo
   - aeo
@@ -16,7 +16,7 @@ More people now get answers from AI assistants rather than a list of blue links.
 
 ## How it works in practice
 
-GEO favors clear, factual, well-structured content that answers a question directly, since that is what generative systems lift and cite. Practical steps include a plain one-sentence answer near the top of a page, consistent terminology, structured data that machines can parse, and signals like an llms.txt file that guide AI crawlers. A glossary with clean definitions is a good example of GEO-friendly content.
+GEO favours clear, factual, well-structured content that answers a question directly, since that is what generative systems lift and cite. Practical steps include a plain one-sentence answer near the top of a page, consistent terminology, structured data that machines can parse, and signals like an llms.txt file that guide AI crawlers. A glossary with clean definitions is a good example of GEO-friendly content.
 
 ## Common mistakes
 

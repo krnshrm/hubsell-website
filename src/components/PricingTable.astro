@@ -12,7 +12,7 @@ import { FEATURE_ICONS } from '../data/pricing-feature-icons';
 import { asLocale, localizedHref } from '../i18n/utils';
 const L = asLocale(Astro.currentLocale);
 // Prices are EUR only; larger contracts in other currencies are quoted in the offer.
-const nf = new Intl.NumberFormat(L === 'de' ? 'de-DE' : L === 'nl' ? 'nl-NL' : 'en-US', { maximumFractionDigits: 2 });
+const nf = new Intl.NumberFormat(L === 'de' ? 'de-DE' : L === 'nl' ? 'nl-NL' : 'en-GB', { maximumFractionDigits: 2 });
 const eur = (n: number) => `€${nf.format(n)}`;
 ---
 <div class="pricing-wrap" data-pricing>

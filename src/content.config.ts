@@ -30,7 +30,7 @@ const insights = defineCollection({
   }),
 });
 
-// Knowledge center (/knowledge) — the product help section for app.hubsell.com
+// Knowledge centre (/knowledge) — the product help section for app.hubsell.com
 // users. One .md per article at src/content/knowledge/<slug>.md: YAML frontmatter
 // (metadata) plus the article body as raw HTML (steps, figures, result), rendered
 // with set:html by src/pages/knowledge/[slug].astro. Drafts are authored in the

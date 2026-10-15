@@ -12,7 +12,7 @@ updated: "July 2026"
 
 ## Why it matters
 
-A/B testing replaces opinion with evidence. Instead of guessing which subject line or opener works, you measure it on real recipients and keep the winner. Over time, small tested improvements compound into a meaningfully better program. It is how outbound gets better on purpose rather than by chance.
+A/B testing replaces opinion with evidence. Instead of guessing which subject line or opener works, you measure it on real recipients and keep the winner. Over time, small tested improvements compound into a meaningfully better programme. It is how outbound gets better on purpose rather than by chance.
 
 ## How it works in practice
 
@@ -20,7 +20,7 @@ You change one variable, such as the subject line, split the audience so each ve
 
 ## Common mistakes
 
-A common mistake is testing several changes at once, so you cannot tell which one moved the result. Another is calling a winner on too small a sample, where the gap is just noise. A third is optimizing open rate alone, which can rise on a misleading subject line while replies fall.
+A common mistake is testing several changes at once, so you cannot tell which one moved the result. Another is calling a winner on too small a sample, where the gap is just noise. A third is optimising open rate alone, which can rise on a misleading subject line while replies fall.
 
 ## How hubsell approaches it
 

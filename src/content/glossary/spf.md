@@ -16,7 +16,7 @@ SPF is one of the checks mailbox providers run to decide if a message is really 
 
 ## How it works in practice
 
-SPF is a DNS record that names the servers and services authorized to send on behalf of your domain. When a receiving server gets a message, it checks whether the sending server appears in that list. A pass supports delivery; a fail is a signal the mail may be forged. SPF works alongside DKIM and DMARC, not on its own.
+SPF is a DNS record that names the servers and services authorised to send on behalf of your domain. When a receiving server gets a message, it checks whether the sending server appears in that list. A pass supports delivery; a fail is a signal the mail may be forged. SPF works alongside DKIM and DMARC, not on its own.
 
 ## Common mistakes
 

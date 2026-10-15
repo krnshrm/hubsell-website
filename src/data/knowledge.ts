@@ -1,4 +1,4 @@
-// Knowledge center categories.
+// Knowledge centre categories.
 // One list, used in four places: the hub's category cards, the sidebar, the
 // category landing pages (/knowledge/category/<slug>), and the article
 // breadcrumb. Keeping it here means a rename or a new category is a one-line

@@ -12,7 +12,7 @@ updated: "July 2026"
 
 ## Why it matters
 
-Cold email is the backbone of most outbound programs because it scales and it is measurable. Done well, it opens conversations with accounts that fit your profile and would never have found you otherwise. Done badly, it bounces, annoys people, and burns the sending domain. The gap between the two is data quality and relevance.
+Cold email is the backbone of most outbound programmes because it scales and it is measurable. Done well, it opens conversations with accounts that fit your profile and would never have found you otherwise. Done badly, it bounces, annoys people, and burns the sending domain. The gap between the two is data quality and relevance.
 
 ## How it works in practice
 

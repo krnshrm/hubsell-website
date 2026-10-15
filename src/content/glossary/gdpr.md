@@ -1,7 +1,7 @@
 ---
 term: "GDPR"
 category: "Compliance and GDPR"
-definition: "The GDPR is the European Union law that governs how organizations collect, store, and use the personal data of people in the EU."
+definition: "The GDPR is the European Union law that governs how organisations collect, store, and use the personal data of people in the EU."
 related:
   - legitimate-interest
   - data-processing-agreement
@@ -16,11 +16,11 @@ For any team handling EU contact data, the GDPR sets the rules that keep outreac
 
 ## How it works in practice
 
-The GDPR requires a lawful basis for processing personal data, such as consent or legitimate interest, and gives people rights like access, correction, and erasure. It expects data to be accurate, kept only as long as needed, and handled securely. Organizations that process data on behalf of others sign agreements setting out those duties, and EU data is expected to be protected wherever it is stored.
+The GDPR requires a lawful basis for processing personal data, such as consent or legitimate interest, and gives people rights like access, correction, and erasure. It expects data to be accurate, kept only as long as needed, and handled securely. Organisations that process data on behalf of others sign agreements setting out those duties, and EU data is expected to be protected wherever it is stored.
 
 ## Common mistakes
 
-A common mistake is assuming the GDPR blocks all B2B outreach, when it allows it under a valid basis with the right safeguards. The opposite mistake is ignoring it and holding data with no lawful basis or no way to honor a deletion request. A third is treating compliance as a one-time task rather than an ongoing practice.
+A common mistake is assuming the GDPR blocks all B2B outreach, when it allows it under a valid basis with the right safeguards. The opposite mistake is ignoring it and holding data with no lawful basis or no way to honour a deletion request. A third is treating compliance as a one-time task rather than an ongoing practice.
 
 ## How hubsell approaches it
 

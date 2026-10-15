@@ -16,7 +16,7 @@ The SQL is where a lead becomes a genuine opportunity that a rep commits time to
 
 ## How it works in practice
 
-A lead becomes an SQL when a salesperson reviews it, often an MQL passed from marketing, and confirms it meets the criteria to pursue, such as fit, need, and timing. Frameworks that check budget, authority, need, and timing are common. Once accepted, the SQL enters the pipeline as an opportunity and moves through the stages toward a close.
+A lead becomes an SQL when a salesperson reviews it, often an MQL passed from marketing, and confirms it meets the criteria to pursue, such as fit, need, and timing. Frameworks that check budget, authority, need, and timing are common. Once accepted, the SQL enters the pipeline as an opportunity and moves through the stages towards a close.
 
 ## Common mistakes
 

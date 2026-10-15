@@ -12,7 +12,7 @@ export const faqs: Faq[] = [
   {
     question: "Can hubsell orchestrate across multiple executive profiles simultaneously?",
     slug: "orchestrate-multiple-profiles",
-    answer: "<p>hubsell allows you to manage outreach from your CEO, VP of Sales, and Subject Matter Experts from a single, unified command center, enabling coordinated, peer-to-peer engagement across the entire target account.</p>",
+    answer: "<p>hubsell allows you to manage outreach from your CEO, VP of Sales, and Subject Matter Experts from a single, unified command centre, enabling coordinated, peer-to-peer engagement across the entire target account.</p>",
     onHomepage: false,
   },
   {
@@ -40,9 +40,9 @@ export const faqs: Faq[] = [
     onHomepage: false,
   },
   {
-    question: "How can we personalize cold outreach at scale without sounding like an AI robot?",
+    question: "How can we personalise cold outreach at scale without sounding like an AI robot?",
     slug: "personalize-outreach-at-scale",
-    answer: "<p>Buyers spot AI-written flattery instantly, and it costs you replies. A simple, direct message sent to a highly relevant list, say attendees of a specific webinar or people engaging with a specific post, consistently beats machine-personalized copy sent to a generic persona. hubsell builds the relevance in at the data stage: live-sourced contacts matched to your ICP, so the message can stay short and honest.</p>",
+    answer: "<p>Buyers spot AI-written flattery instantly, and it costs you replies. A simple, direct message sent to a highly relevant list, say attendees of a specific webinar or people engaging with a specific post, consistently beats machine-personalised copy sent to a generic persona. hubsell builds the relevance in at the data stage: live-sourced contacts matched to your ICP, so the message can stay short and honest.</p>",
     onHomepage: false,
   },
   {
@@ -120,7 +120,7 @@ export const faqs: Faq[] = [
   {
     question: "Why are our cold email reply rates suddenly dropping so low?",
     slug: "cold-email-reply-rates-dropping",
-    answer: "<p>Traditional \"spray and pray\" outreach is failing for two structural reasons. First, strict new spam thresholds (0.3% complaint rates) from Google and Yahoo mean high-volume email blasts are actively damaging your domain reputation. Second, buyers instantly recognize automated AI personalization. It looks personal but feels hollow, triggering a mental firewall.</p>",
+    answer: "<p>Traditional \"spray and pray\" outreach is failing for two structural reasons. First, strict new spam thresholds (0.3% complaint rates) from Google and Yahoo mean high-volume email blasts are actively damaging your domain reputation. Second, buyers instantly recognise automated AI personalisation. It looks personal but feels hollow, triggering a mental firewall.</p>",
     onHomepage: false,
   },
   {

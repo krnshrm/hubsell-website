@@ -20,8 +20,8 @@ Cost per lead is the spend on a channel or campaign divided by the leads it prod
 
 ## Common mistakes
 
-A common mistake is optimizing for the lowest cost per lead regardless of quality, which fills the funnel with leads that never close. Another is comparing channels on cost per lead alone without looking downstream. A third is leaving real costs out, which understates the true figure.
+A common mistake is optimising for the lowest cost per lead regardless of quality, which fills the funnel with leads that never close. Another is comparing channels on cost per lead alone without looking downstream. A third is leaving real costs out, which understates the true figure.
 
 ## How hubsell approaches it
 
-hubsell keeps cost per lead honest by sourcing contacts that are correct today, so spend goes toward reachable, in-profile people rather than leads that bounce or never fit.
+hubsell keeps cost per lead honest by sourcing contacts that are correct today, so spend goes towards reachable, in-profile people rather than leads that bounce or never fit.

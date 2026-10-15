@@ -12,7 +12,7 @@ updated: "July 2026"
 
 ## Why it matters
 
-Timing changes outcomes. Reaching an account right after a relevant event, like a leadership change or expansion, lands better than an unprompted message, because the event gives the outreach a reason to exist. Triggers turn a cold list into a prioritized one, where the accounts most likely to be receptive rise to the top.
+Timing changes outcomes. Reaching an account right after a relevant event, like a leadership change or expansion, lands better than an unprompted message, because the event gives the outreach a reason to exist. Triggers turn a cold list into a prioritised one, where the accounts most likely to be receptive rise to the top.
 
 ## How it works in practice
 
@@ -24,4 +24,4 @@ A common mistake is acting on a trigger for an account that does not fit the ICP
 
 ## How hubsell approaches it
 
-hubsell can prioritize sourcing toward accounts where a relevant event has occurred, so reps reach them while the moment is fresh and the reason to talk is clear.
+hubsell can prioritise sourcing towards accounts where a relevant event has occurred, so reps reach them while the moment is fresh and the reason to talk is clear.

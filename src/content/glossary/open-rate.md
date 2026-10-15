@@ -24,4 +24,4 @@ A common mistake is treating open rate as a success metric, when opens do not eq
 
 ## How hubsell approaches it
 
-hubsell reports opens as one signal alongside replies and outcomes, so you read them in context rather than optimizing for a number that does not close deals.
+hubsell reports opens as one signal alongside replies and outcomes, so you read them in context rather than optimising for a number that does not close deals.

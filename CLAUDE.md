@@ -400,6 +400,10 @@ Do not edit the copy; change the style guide and copy the file over again.
 
 ## House style for anything Claude writes
 
+- British English (2026-10-15), -ise spelling: personalise, organisation, optimise, behaviour,
+  colour, centre, programme, enrol, towards, per cent, dates as 13 June 2026. Keep URLs and
+  slugs as they are (/platform/personalization), schema.org types (Organization), product
+  and plan names, and verbatim content (blog posts, legal text, customer quotes).
 - No em dashes. No AI-sounding words (seamless, elevate, leverage, robust,
   streamline, unlock, end-to-end, and similar). Plain, clear language. Spell out
   ranges ("3 to 6"). Em dashes are fine inside code comments.

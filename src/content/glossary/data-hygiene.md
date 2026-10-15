@@ -16,7 +16,7 @@ A CRM full of duplicates, typos, and dead records misleads every decision made f
 
 ## How it works in practice
 
-Data hygiene covers deduplication, standardizing formats, filling gaps through enrichment, and removing or flagging records that are invalid or out of date. It runs as a routine, not a one-off: a scheduled clean, validation on new records as they enter, and periodic checks against live sources. Clear field rules keep new data consistent from the start.
+Data hygiene covers deduplication, standardising formats, filling gaps through enrichment, and removing or flagging records that are invalid or out of date. It runs as a routine, not a one-off: a scheduled clean, validation on new records as they enter, and periodic checks against live sources. Clear field rules keep new data consistent from the start.
 
 ## Common mistakes
 
