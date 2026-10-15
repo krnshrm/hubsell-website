@@ -1,5 +1,5 @@
 ---
-// Section 2 — Customer logos (Paper). A static, hand-picked "shelf": a bordered strip
+// Section 2, Customer logos (Paper). A static, hand-picked "shelf": a bordered strip
 // of equal cells divided by thin hairlines (styled after salesforge.ai's logo band),
 // instead of the old auto-scrolling marquee. Top row = the five companies with a
 // published customer story: each cell links to its story and carries a small corner
@@ -54,7 +54,7 @@ function panelFor(slug: string) {
   };
 }
 
-// Row 1 — companies with a published customer story: linked + corner-arrow indicator.
+// Row 1, companies with a published customer story: linked + corner-arrow indicator.
 // `slug` maps to /customerstories/<slug> (localized at render).
 const storyLogos = [
   { name: 'Safran Software', slug: 'safran',       src: 'https://assets.hubsell.com/logos/6998a5a3d1e6f3a4831a8f45_Safran-Software.svg' },
@@ -64,7 +64,7 @@ const storyLogos = [
   { name: 'Sensolus',        slug: 'sensolus',     src: 'https://assets.hubsell.com/logos/6998a5a3d68828bdce8239a2_Sensolus.svg' },
 ];
 
-// Row 2 — additional hand-picked logos (no story): shown plain.
+// Row 2, additional hand-picked logos (no story): shown plain.
 const moreLogos = [
   { name: 'GLS',       src: 'https://assets.hubsell.com/logos/6998a5a0115d997ba479a747_GLS-Sprachenzentrum.svg' },
   { name: 'FABs',      src: 'https://assets.hubsell.com/logos/6998a5a06aeabbbea89c3080_FABs.svg' },
@@ -82,7 +82,7 @@ const moreLogos = [
         {storyLogos.map((l) => {
           const p = panelFor(l.slug);
           return (
-            <a class="logo-cell logo-cell--story" href={localizedHref(L, `/customerstories/${l.slug}`)} aria-label={`${l.name} — ${cs.eyebrowStory}`}>
+            <a class="logo-cell logo-cell--story" href={localizedHref(L, `/customerstories/${l.slug}`)} aria-label={`${l.name}, ${cs.eyebrowStory}`}>
               <svg class="logo-cell__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
               <img class="logo-cell__img" src={l.src} alt={l.name} loading="lazy" decoding="async" width="130" height="30" />
               {p && (

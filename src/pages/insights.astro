@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 // All non-draft posts, featured first, then by date (date is used only for order,
-// it is not shown — the original publish dates were lost in a Webflow re-import).
+// it is not shown, the original publish dates were lost in a Webflow re-import).
 const posts = (await getCollection('insights', (p) => !p.data.draft)).sort((a, b) => {
   const f = (b.data.featured ? 1 : 0) - (a.data.featured ? 1 : 0);
   if (f) return f;

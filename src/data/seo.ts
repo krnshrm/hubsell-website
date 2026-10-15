@@ -1,6 +1,6 @@
 // Central SEO / structured-data values. Keep brand facts here so JSON-LD, Open
-// Graph images, and titles stay consistent everywhere. Plain language only — no
-// marketing filler — because this text feeds search engines and AI answers.
+// Graph images, and titles stay consistent everywhere. Plain language only, no
+// marketing filler, because this text feeds search engines and AI answers.
 
 export const SITE_URL = 'https://www.hubsell.com';
 

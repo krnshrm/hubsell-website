@@ -20,7 +20,7 @@ faqs:
   - question: "Is Seamless.AI's data actually real-time?"
     answer: "<p>Seamless markets itself as a real-time AI search engine with 98 per cent accuracy, but independent and user reports put email accuracy around 60 to 75 per cent with 20 to 30 per cent bounce, and a credit is charged on every search including failed results. hubsell also sources live, but validates at the point of use and bills only per verified contact.</p>"
   - question: "Does Seamless.AI run email and LinkedIn sequences?"
-    answer: "<p>No. Seamless offers an AI writer but no automated email sequencing and no LinkedIn outreach — it stops at lookup. hubsell runs email and LinkedIn as one coordinated flow.</p>"
+    answer: "<p>No. Seamless offers an AI writer but no automated email sequencing and no LinkedIn outreach: it stops at lookup. hubsell runs email and LinkedIn as one coordinated flow.</p>"
   - question: "Is Seamless.AI hard to cancel?"
     answer: "<p>Seamless is widely flagged in reviews for aggressive auto-renewal and a 60-day non-renewal window that reviewers describe as hard to escape. hubsell is billed month to month with no renewal lock-in.</p>"
   - question: "How does Seamless.AI pricing compare to hubsell?"

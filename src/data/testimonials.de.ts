@@ -1,8 +1,7 @@
 // German quotes for the shared testimonials pool, mapped onto TESTIMONIALS by slug
 // so the shared shape (photo, slug, storySlug) is preserved. The six customer-story
 // champions are already translated for the homepage (home.de.ts) and reused here by
-// slug; the six standalone quotes are translated below. Only the quote is German —
-// names, titles, and companies stay as-is, matching the homepage.
+// slug; the six standalone quotes are translated below. Only the quote is German, // names, titles, and companies stay as-is, matching the homepage.
 import { TESTIMONIALS, type Testimonial } from './testimonials';
 import { testimonialsDe } from './home.de';
 

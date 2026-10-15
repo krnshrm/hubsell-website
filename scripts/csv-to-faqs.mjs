@@ -94,4 +94,4 @@ export const homeFaqs = faqs.filter((f) => f.onHomepage);
 `;
 
 await writeFile('src/data/faqs.ts', out, 'utf8');
-console.log(`Wrote src/data/faqs.ts — ${items.length} FAQs (${items.filter((f) => f.onHomepage).length} on the homepage).`);
+console.log(`Wrote src/data/faqs.ts, ${items.length} FAQs (${items.filter((f) => f.onHomepage).length} on the homepage).`);

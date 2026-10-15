@@ -9,7 +9,7 @@ export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = 'en';
 
 // Which locales appear in the language switcher (TopBar). fr/es/pt are parked
-// until their translations are done — they stay in `locales` (type + fallback)
+// until their translations are done, they stay in `locales` (type + fallback)
 // but are hidden from the UI. Add a locale here when it's ready to be offered.
 // de is live; nl shows as a greyed "Soon" until it has translatedRoutes.
 export const switcherLocales: Locale[] = ['en', 'de', 'nl'];

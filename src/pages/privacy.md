@@ -153,7 +153,7 @@ In addition to the uses identified elsewhere in this Privacy Policy, we may use 
 (a) improve your browsing experience by personalizing and improving the Services;  
 (b) send information to you which we think may be of interest to you by post, email, or other means;  
 (c) send you marketing communications relating to our business or the businesses of carefully-selected third parties which we think may be of interest to you, and  
-(d) provide other companies with aggregated and Non-Personal Information about our users — but this information will not be used to identify any individual user.
+(d) provide other companies with aggregated and Non-Personal Information about our users, but this information will not be used to identify any individual user.
 
 We may, from time to time, contact you on behalf of external business partners about a particular offering that may be of interest to you. In those cases, we do not transfer your unique Personal Information to the third party.
 

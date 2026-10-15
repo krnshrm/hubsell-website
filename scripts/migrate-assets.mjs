@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * migrate-assets.mjs — Webflow CDN  ->  Cloudflare R2 asset migrator.
+ * migrate-assets.mjs, Webflow CDN  ->  Cloudflare R2 asset migrator.
  *
  * What it does, in one idempotent pass:
  *   1. DISCOVER  every Webflow-CDN asset URL referenced by your sources.
@@ -15,10 +15,10 @@
  *      your local text files in place.
  *
  * Because discovery is manifest-driven and uploads skip existing keys, you can
- * safely re-run this every phase — only new assets get processed.
+ * safely re-run this every phase, only new assets get processed.
  *
  * Only media/font/document assets are uploaded to R2. Webflow's .css/.js bundles
- * are intentionally NOT uploaded — those belong in the repo. (Their internal
+ * are intentionally NOT uploaded, those belong in the repo. (Their internal
  * font/image url()s ARE migrated, and rewritten when you scan the imported CSS.)
  *
  * Usage:
@@ -37,7 +37,7 @@
  *   R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, R2_BUCKET,
  *   R2_PUBLIC_BASE    (default https://assets.hubsell.com)
  *   R2_JURISDICTION   (optional; set to "eu" for EU-jurisdiction buckets,
- *                      "fedramp" for FedRAMP — leave unset for the default.
+ *                      "fedramp" for FedRAMP, leave unset for the default.
  *                      Adds the <jur> segment to the S3 API endpoint:
  *                      https://<account>.<jur>.r2.cloudflarestorage.com)
  */
@@ -224,7 +224,7 @@ async function discover() {
       if (assets.has(url)) continue;
       const key = keyFor(url);
       if (keyOwners.has(key) && keyOwners.get(key) !== url) {
-        warn(`key collision "${key}" from two URLs — keeping first:\n      ${keyOwners.get(key)}\n      ${url}`);
+        warn(`key collision "${key}" from two URLs, keeping first:\n      ${keyOwners.get(key)}\n      ${url}`);
         continue;
       }
       keyOwners.set(key, url);
@@ -332,7 +332,7 @@ async function main() {
   results.forEach((r, i) => {
     if (r === 'uploaded') uploaded++;
     else if (r === 'skipped') skipped++;
-    else { failed++; warn(`failed: ${urls[i]} — ${r?.error?.message || r}`); }
+    else { failed++; warn(`failed: ${urls[i]}, ${r?.error?.message || r}`); }
   });
 
   await writeFile(flags.out, JSON.stringify(map, null, 2));

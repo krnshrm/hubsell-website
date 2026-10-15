@@ -2,7 +2,7 @@
 // GERMAN STRINGS FOR THE PRODUCT VISUALS (the animated embeds + pricing table).
 // Keyed by the exact English text that appears inside each widget. et(locale, en)
 // returns the German for `de`, and the English key verbatim for every other
-// locale — so English output is unchanged. Each label is listed once even when a
+// locale, so English output is unchanged. Each label is listed once even when a
 // widget repeats it (desktop + mobile copies, repeated pills/timestamps).
 //
 // KEPT IN ENGLISH ON PURPOSE (not keys here): sample person names (Max Truman,

@@ -124,7 +124,7 @@ const {
             button.textContent = label;
             return;
           }
-          // Confirm on the button itself — no trailing message.
+          // Confirm on the button itself, no trailing message.
           button.textContent = 'Subscribed';
           input.disabled = true;
           track('form_submit_success', { form_id: root.dataset.form || 'waitlist', page_path: location.pathname });

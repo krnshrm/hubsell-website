@@ -1,4 +1,4 @@
-// hubsell — site motion system.
+// hubsell, site motion system.
 // Self-hosted Lenis smooth scroll + the GSAP/ScrollTrigger wiring the product
 // embeds rely on. The scroll-reveal tweens were removed (2026-07-02): content
 // no longer slides in on scroll, and the `.reveal` / `.reveal-stagger` classes
@@ -37,7 +37,7 @@ function initMotion() {
     });
   });
 
-  // Scroll reveals removed — sections are always visible. The product embeds
+  // Scroll reveals removed, sections are always visible. The product embeds
   // own their ScrollTriggers; the Lenis wiring above keeps them in sync.
 }
 

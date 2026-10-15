@@ -18,7 +18,7 @@ lastFactChecked: "13 June 2026"
 sources: "<p>Competitor details verified June 2026. ZoomInfo does not publish full pricing, so figures are reported or third-party. Key sources:</p><ul><li>Pricing and contract terms: pin.com, factors.ai, enrich.so, zoominfopricing, derrick.</li><li>Database size and accuracy: cleanlist, competitor-reported.</li><li>Auto-renewal, credits, data-destruction clause: pin.com, enrich.so, zoominfopricing.</li></ul>"
 faqs:
   - question: "Does ZoomInfo include outreach, or just data?"
-    answer: "<p>ZoomInfo is data first — its outreach tool, Engage, is a separate paid add-on, not a coordinated multichannel flow, and it has no automated LinkedIn outreach. hubsell sources live and runs email and LinkedIn together in one flow, billed per contact.</p>"
+    answer: "<p>ZoomInfo is data first: its outreach tool, Engage, is a separate paid add-on, not a coordinated multichannel flow, and it has no automated LinkedIn outreach. hubsell sources live and runs email and LinkedIn together in one flow, billed per contact.</p>"
   - question: "What happens to your data if you cancel ZoomInfo?"
     answer: "<p>ZoomInfo contracts include a data-destruction clause that wipes the contacts you exported once the contract ends, and auto-renew on a 60 to 90 day cancellation window with renewals commonly rising 10 to 20 per cent. hubsell is month to month, and there is no database to hand back because nothing is stored between searches.</p>"
   - question: "How much does ZoomInfo cost compared to hubsell?"

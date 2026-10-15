@@ -218,6 +218,9 @@ These are not theoretical. Each one distorted a real pull on 2026-09-17.
   files** and rendered with `set:html`, not through Markdown. Use-cases and glossary
   bodies are real Markdown rendered the normal way.
 - CRM names allowed in copy: Salesforce, HubSpot, Pipedrive only.
+- Links (2026-10-15): every URL the site prints ends in "/" and uses https://www.hubsell.com,
+  in links, meta tags and JSON-LD. `src/middleware.ts` enforces this in dev and in the build;
+  write new links with the slash anyway.
 - CRM sync (confirmed 2026-10-15): one-way, from hubsell into the CRM. Contacts are pushed
   by hand or by rule, fields are mapped, existing records are matched (no duplicates), and
   CRM contacts can be suppressed before outreach. Never call it two-way until it ships.
@@ -406,7 +409,8 @@ Do not edit the copy; change the style guide and copy the file over again.
   and plan names, and verbatim content (blog posts, legal text, customer quotes).
 - No em dashes. No AI-sounding words (seamless, elevate, leverage, robust,
   streamline, unlock, end-to-end, and similar). Plain, clear language. Spell out
-  ranges ("3 to 6"). Em dashes are fine inside code comments.
+  ranges ("3 to 6"). No em dashes anywhere in the site, comments and migrated content
+  included (owner decision 2026-10-15): use a comma, a colon or brackets instead.
 - Translations follow the same no-buzzword rule in the target language; do not carry
   an English buzzword across as a loanword.
 - Product terms (2026-10-15): hubsell's outreach automation is a **Flow** (plural

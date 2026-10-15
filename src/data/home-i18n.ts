@@ -214,7 +214,7 @@ const stringsEn: HomeStrings = {
   },
 };
 
-// Comparison matrix — English. Exact text/labels lifted from Comparison.astro.
+// Comparison matrix, English. Exact text/labels lifted from Comparison.astro.
 const comparisonEn: ComparisonData = {
   heads: {
     hub:    { label: 'hubsell' },

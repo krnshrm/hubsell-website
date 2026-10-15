@@ -110,7 +110,7 @@ const need = ['Name', 'Slug', 'Hero subhead', 'TL;DR', 'Core difference', 'Featu
 const missing = need.filter((n) => col(n) === -1);
 if (missing.length) { console.error('CSV is missing expected columns: ' + missing.join(', ')); process.exit(1); }
 
-// build every row that has a slug (draft/archived are NOT used to filter — see header)
+// build every row that has a slug (draft/archived are NOT used to filter, see header)
 const data = rows.slice(1).filter((r) =>
   r.length >= header.length && (r[col('Slug')] || '').trim());
 

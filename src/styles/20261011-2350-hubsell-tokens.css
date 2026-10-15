@@ -1,9 +1,9 @@
 /* ==========================================================================
-   hubsell tokens — plain CSS, no framework
+   hubsell tokens, plain CSS, no framework
    ──────────────────────────────────────────────────────────────────────────
    Source of truth: hubsell-styleguide (app/globals.css holds the same values
    under shadcn/Tailwind names). Copy this file as-is into any project that
-   isn't the Next/Tailwind app — e.g. hubsell-website/src/styles/ — and map
+   isn't the Next/Tailwind app, e.g. hubsell-website/src/styles/, and map
    your own variable names onto these. Don't edit the copy; edit here and
    re-copy.
 
@@ -36,7 +36,7 @@
   --hs-coral-hover: #ff5c34;   /* SelectRed */
   --hs-navy-deep: #131b33;     /* derived: a step below navy */
 
-  /* Logo funnel fills — exactly as on hubsell.com, never themed */
+  /* Logo funnel fills, exactly as on hubsell.com, never themed */
   --hs-logo-orange: #ff9300;
   --hs-logo-coral: #e86250;
   --hs-logo-yellow: #fec65d;

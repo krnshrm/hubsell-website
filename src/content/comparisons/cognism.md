@@ -20,7 +20,7 @@ faqs:
   - question: "How does Cognism source and verify its data?"
     answer: "<p>Cognism's differentiator is Diamond Data, a human phone-verified subset of its EU mobile numbers, with a claimed 98 per cent accuracy that applies to that verified subset, not the whole database. Standard records, like any pre-built database, are refreshed on a cycle rather than sourced at the moment you search. hubsell sources and validates every contact at the point of use.</p>"
   - question: "Does Cognism include email and LinkedIn outreach?"
-    answer: "<p>No. Cognism is a data source, not an execution tool — there is no native outreach, so teams pair it with a separate platform such as Outreach or SalesLoft and pay for both. hubsell sources live and runs email and LinkedIn as one flow in the same tool.</p>"
+    answer: "<p>No. Cognism is a data source, not an execution tool: there is no native outreach, so teams pair it with a separate platform such as Outreach or SalesLoft and pay for both. hubsell sources live and runs email and LinkedIn as one flow in the same tool.</p>"
   - question: "Is Cognism or hubsell better for teams that need verified mobile numbers in Europe?"
     answer: "<p>Cognism is the stronger choice for EU and EMEA teams doing phone-heavy outbound: Diamond Data's human-verified mobile numbers and formal GDPR, ISO, and SOC controls are best in class for European cold calling. hubsell is the better fit if you want that kind of live-sourced data paired with coordinated email and LinkedIn outreach in one platform, billed per contact instead of a five-figure annual contract.</p>"
   - question: "How much does Cognism cost compared to hubsell?"

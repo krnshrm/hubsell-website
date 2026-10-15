@@ -4,8 +4,8 @@ import { EMAIL_RE, classifyEmail, EMAIL_DOMAIN_MESSAGES } from 'hs-block';
 
 interface Env {
   TURNSTILE_SECRET_KEY?: string;  // Turnstile server verification; unset = Turnstile off
-  PLUNK_PUBLIC_KEY?: string; // pk_ — records form events via /v1/track
-  PLUNK_SECRET_KEY?: string; // sk_ — sends the internal alert email via /v1/send
+  PLUNK_PUBLIC_KEY?: string; // pk_, records form events via /v1/track
+  PLUNK_SECRET_KEY?: string; // sk_, sends the internal alert email via /v1/send
   PLUNK_API_BASE?: string;
   NOTIFY_EMAIL?: string;     // inbox that gets a new-submission alert (alerts stay off if unset)
   PLUNK_FROM?: string;       // sender address on your verified Plunk domain (optional)
@@ -286,7 +286,7 @@ async function notifyTeam(
         `<tr><td style="padding:3px 14px 3px 0;color:#54596B;vertical-align:top">${esc(k)}</td><td style="padding:3px 0;color:#192341"><strong>${esc(v)}</strong></td></tr>`,
     )
     .join('');
-  const subject = `New ${label}${data.company ? ` — ${data.company}` : ''}`;
+  const subject = `New ${label}${data.company ? `, ${data.company}` : ''}`;
   const body = `<div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#192341">
   <h2 style="margin:0 0 2px;font-size:18px">New ${esc(label)}</h2>
   <p style="margin:0 0 16px;color:#978E84;font-size:13px">via hubsell.com</p>

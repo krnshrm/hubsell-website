@@ -8,7 +8,7 @@
 // there. Brand is always lowercase "hubsell". Common SaaS terms (CRM, Pipeline,
 // LinkedIn, Outbound, GTM, ICP, Beta) are kept where they read naturally.
 //
-// NOTE FOR REVIEW — the six testimonial quotes below are translations of real,
+// NOTE FOR REVIEW, the six testimonial quotes below are translations of real,
 // attributed customer quotes. Revert any individual `quote` to its English
 // original (in home-content.ts) if you would rather not render a German
 // paraphrase under a named person. Names, titles, companies and metrics are
@@ -157,7 +157,7 @@ export const insightsDe: Insight[] = [
   },
 ];
 
-// Competitor copy stays factual — positioning, never a put-down. Marks (yes/part/
+// Competitor copy stays factual, positioning, never a put-down. Marks (yes/part/
 // no) and the /vs hrefs are structural and live in the component.
 export const comparisonDe: ComparisonData = {
   heads: {

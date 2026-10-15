@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 /**
- * migrate-from-manifest.mjs — upload the full Webflow asset library to R2, foldered.
+ * migrate-from-manifest.mjs, upload the full Webflow asset library to R2, foldered.
  *
  * Unlike migrate-assets.mjs (which crawls pages for referenced URLs), this reads a
- * manifest produced from the Webflow Assets API — the COMPLETE library, 219 assets,
+ * manifest produced from the Webflow Assets API, the COMPLETE library, 219 assets,
  * each already mapped to a folder prefix (logos/, avatars/, brand/, ...). It downloads
- * each asset's ORIGINAL (not Webflow's -p-500 resize variants — Astro will handle
+ * each asset's ORIGINAL (not Webflow's -p-500 resize variants, Astro will handle
  * responsive sizing) and uploads it to its foldered R2 key, skipping anything already
  * there. Idempotent: safe to re-run; only missing keys get uploaded.
  *
@@ -91,7 +91,7 @@ async function pool(items, n, fn) {
 
 async function main() {
   const manifest = JSON.parse(await readFile(flags.manifest, 'utf8'));
-  console.log(`\nManifest: ${flags.manifest} — ${manifest.length} assets`);
+  console.log(`\nManifest: ${flags.manifest}, ${manifest.length} assets`);
 
   // per-folder summary
   const byPrefix = {};
@@ -119,7 +119,7 @@ async function main() {
   results.forEach((r, i) => {
     if (r === 'uploaded') uploaded++;
     else if (r === 'skipped') skipped++;
-    else { failed++; warn(`failed: ${manifest[i].key} — ${r?.error?.message || r}`); }
+    else { failed++; warn(`failed: ${manifest[i].key}, ${r?.error?.message || r}`); }
   });
   console.log(`\nDone. uploaded=${uploaded} skipped=${skipped} failed=${failed}.`);
   if (failed) console.log(`Re-run the same command to retry just the failures (uploaded keys are skipped).`);

@@ -10,7 +10,7 @@ const L = asLocale(Astro.currentLocale);
 const TOOLS = ['Data', 'Enrichment', 'Sequencer', 'Deliverability', 'Dialer', 'CRM sync'];
 ---
 <div class="ups" data-ups>
-  <!-- STEP 1 — fragmented -->
+  <!-- STEP 1, fragmented -->
   <div class="ups-step">
     <div class="ups-text">
       <span class="ups-num">01</span>
@@ -24,7 +24,7 @@ const TOOLS = ['Data', 'Enrichment', 'Sequencer', 'Deliverability', 'Dialer', 'C
     </div>
   </div>
 
-  <!-- STEP 2 — connect -->
+  <!-- STEP 2, connect -->
   <div class="ups-step">
     <div class="ups-text">
       <span class="ups-num">02</span>
@@ -40,7 +40,7 @@ const TOOLS = ['Data', 'Enrichment', 'Sequencer', 'Deliverability', 'Dialer', 'C
     </div>
   </div>
 
-  <!-- STEP 3 — one system -->
+  <!-- STEP 3, one system -->
   <div class="ups-step">
     <div class="ups-text">
       <span class="ups-num">03</span>
@@ -70,18 +70,18 @@ const TOOLS = ['Data', 'Enrichment', 'Sequencer', 'Deliverability', 'Dialer', 'C
 
   .ups-tool{ background:#FFFFFF; color:#192341; border:1px solid #E5E7EB; border-radius:10px; padding:9px 13px; font:500 12.5px/1 var(--font-body); box-shadow:0 4px 12px rgba(0,0,0,.10) }
 
-  /* step 1 — scattered, tilted */
+  /* step 1, scattered, tilted */
   .ups-scatter{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; max-width:360px }
   .ups-tool.is-loose:nth-child(2n){ transform:rotate(-3deg) }
   .ups-tool.is-loose:nth-child(3n){ transform:rotate(2.5deg) }
 
-  /* step 2 — aligned in a bordered frame joined by green */
+  /* step 2, aligned in a bordered frame joined by green */
   .ups-connect{ width:100%; display:flex; justify-content:center }
   .ups-ring{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; padding:16px; border:2px solid #289B9B; border-radius:14px;
     background:rgba(40,155,155,.06); box-shadow:0 6px 20px rgba(40,155,155,.14) }
   .ups-tool.is-wired{ border-color:#289B9B; text-align:center }
 
-  /* step 3 — one hub */
+  /* step 3, one hub */
   .ups-one{ display:flex; flex-direction:column; align-items:center; gap:12px; text-align:center }
   .ups-hub{ display:flex; align-items:center; gap:8px; background:#FFFFFF; color:#23757E; border:2px solid #289B9B; border-radius:14px;
     padding:14px 22px; font:600 17px/1 var(--font-head); box-shadow:0 8px 22px rgba(40,155,155,.20) }

@@ -1,10 +1,10 @@
 ---
-// Homepage — "Why hubsell" comparison. Sets the competitive narrative early and
+// Homepage, "Why hubsell" comparison. Sets the competitive narrative early and
 // tactfully: hubsell as the whole motion (live data + multichannel outreach +
 // CRM sync) versus the categories of point tools you'd otherwise stitch together.
 // Column headers + the footer links deep-link to the /vs comparison pages
 // (Comparisons CMS collection: apollo, zoominfo, cognism, lusha, seamless).
-// Competitor copy stays factual — positioning, never a put-down.
+// Competitor copy stays factual, positioning, never a put-down.
 import { getHome } from '../data/home-i18n';
 import { asLocale, localizedHref } from '../i18n/utils';
 const L = asLocale(Astro.currentLocale);
@@ -121,7 +121,7 @@ const last = rows.length - 1;
   .cmp__cell:not(.cmp__cell--hub){ border-bottom:1px solid var(--sec-bd) }
   .cmp__cell p{ margin:0; font-size:12px; line-height:1.4; color:var(--sec-tx); opacity:.66; max-width:19ch }
 
-  /* hubsell centerpiece — contiguous dark column */
+  /* hubsell centerpiece, contiguous dark column */
   .cmp__head--hub, .cmp__cell--hub{ background:var(--hub-bg); color:var(--hub-tx) }
   .cmp__cell--hub p{ color:var(--hub-tx); opacity:.84 }
   .cmp__head--hub{ border-radius:16px 16px 0 0 }

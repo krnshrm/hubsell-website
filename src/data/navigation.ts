@@ -132,5 +132,5 @@ export const legalLinks: NavLink[] = [
   { label: 'Affiliate Terms', key: 'legal.affiliate', href: '/affiliate-terms-and-conditions' },
 ];
 
-// Live (built) links only — used by the footer so unbuilt pages never show there.
+// Live (built) links only, used by the footer so unbuilt pages never show there.
 export const liveLinks = (links: NavLink[]): NavLink[] => links.filter((l) => !l.soon && l.href);

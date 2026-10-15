@@ -236,7 +236,7 @@ const vsQuotes = ['matterway', 'spryker', 'cibt'].map((s) => pool.find((t) => t.
   .vs-table :global(.hs-beta) { font-weight:600; color:var(--accent-on); }
   .vs-table :global(.hs-note) { display:block; margin-top:2px; font-size:.85em; color:color-mix(in srgb,var(--sec-tx) 58%,transparent); }
 
-  /* which should you choose — two columns */
+  /* which should you choose, two columns */
   .vs-choose { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
   .vs-choose__col {
     background:var(--sec-card); border:1px solid var(--sec-bd); border-radius:var(--radius-lg);
@@ -283,7 +283,7 @@ const vsQuotes = ['matterway', 'spryker', 'cibt'].map((s) => pool.find((t) => t.
 </style>
 
 <script>
-  // Same accordion behavior as Faq.astro / FaqsBody.astro — duplicated rather than
+  // Same accordion behavior as Faq.astro / FaqsBody.astro, duplicated rather than
   // shared because neither of those extracted it into a standalone component.
   function initAccordions() {
     document.querySelectorAll<HTMLElement>('[data-accordion]').forEach((acc) => {
