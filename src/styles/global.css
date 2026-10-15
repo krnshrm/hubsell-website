@@ -270,3 +270,16 @@ html[lang="nl"] { --badge-soon: "Binnenkort"; }
   main > :is(.sec--navy, .sec--esp):has(+ :is(.sec--navy, .sec--esp), + script + :is(.sec--navy, .sec--esp))::before{ border-bottom-left-radius:0; border-bottom-right-radius:0 }
   main > :is(.sec--navy, .sec--esp):is(.sec--navy + *, .sec--esp + *, .sec--navy + script + *, .sec--esp + script + *)::before{ border-top-left-radius:0; border-top-right-radius:0 }
 }
+
+/* ---- Optical left edge for page titles (2026-10-15) ----
+   Lexend glyphs carry built-in space on their left side: about 0.1em on B, H, M
+   and E, 0.05em on G, C and S, 0.03em on t and T. At 70px that is up to 7px, so
+   a large title looks indented next to its eyebrow and subtitle. Every H1 is
+   nudged left by 0.05em, a middle value: stems still sit about 3px in, diagonal
+   letters about 1.5px out. translate is used rather than margin so it never
+   fights a component's own margin and does not change layout. The small lines
+   that live inside an H1 (homepage eyebrow, comparison "alternative" line) are
+   moved back by the same distance, measured in the H1's font size. */
+@property --title-nudge { syntax:'<length>'; inherits:true; initial-value:0px; }
+main h1{ --title-nudge:.05em; translate:calc(-1 * var(--title-nudge)) 0 }
+main h1 :is(.hs__kw, .vs-alt){ translate:var(--title-nudge) 0 }
