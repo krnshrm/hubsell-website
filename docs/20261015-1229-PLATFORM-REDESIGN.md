@@ -9,8 +9,8 @@ category is finished.
 |---|---|---|
 | `/platform/live-data` | Done (2026-10-15) | Reference page for the pattern below. en, de, nl. |
 | `/platform/enrichment` | Done (2026-10-15) | Field by field, six enrichment steps with fractional pricing, catch-all verification. No waterfall: hubsell sources and orchestrates, only phones from partners. |
-| `/platform/multichannel-outreach` | Built (2026-10-15), in review | Step by step (8 flow steps), safe LinkedIn automation. Facts from existing site FAQs. |
-| `/platform/crm-sync` | To do | |
+| `/platform/multichannel-outreach` | Done (2026-10-15) | Step by step (8 flow steps), safe LinkedIn automation. Facts confirmed by the owner. |
+| `/platform/crm-sync` | Built (2026-10-15), in review | One-way sync into the CRM today (two-way is planned, say so only in the FAQ). Contacts pushed by hand or by rule, field mapping, matching to existing records, suppression of CRM contacts. "Two-way" claims removed site-wide. |
 | `/platform/deliverability` | To do | |
 | `/platform/personalization` | To do | Open question: keep, merge into multichannel, or retire. |
 | `/platform` (overview) | To do | Becomes the map of the five stages. |

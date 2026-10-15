@@ -24,4 +24,4 @@ Ein häufiger Fehler ist, sich auf manuelle Eingabe oder nächtliche Exporte zu 
 
 ## Wie hubsell es angeht
 
-hubsell protokolliert jedes Senden, Öffnen und Antworten automatisch in Salesforce, HubSpot oder Pipedrive, mit Zwei-Wege-Sync in Echtzeit und ohne Middleware zu warten, sodass die Pipeline abbildet, was tatsächlich passiert ist.
+hubsell protokolliert jedes Senden, Öffnen und Antworten automatisch in Salesforce, HubSpot oder Pipedrive, in Echtzeit und ohne Middleware, die gewartet werden muss, sodass die Pipeline abbildet, was tatsächlich passiert ist.

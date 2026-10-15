@@ -24,4 +24,4 @@ Een veelgemaakte fout is leunen op handmatige invoer of nachtelijke exports, wat
 
 ## Hoe hubsell het aanpakt
 
-hubsell legt elke verzending, opening en reactie automatisch vast in Salesforce, HubSpot of Pipedrive, met tweerichtings-sync in realtime en zonder middleware om te onderhouden, zodat de pipeline weergeeft wat er werkelijk is gebeurd.
+hubsell legt elke verzending, opening en reactie automatisch vast in Salesforce, HubSpot of Pipedrive, in realtime en zonder middleware om te onderhouden, zodat de pipeline weergeeft wat er werkelijk is gebeurd.

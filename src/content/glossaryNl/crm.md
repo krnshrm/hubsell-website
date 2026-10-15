@@ -24,4 +24,4 @@ De grootste fout is leunen op handmatige invoer, wat het CRM onvolledig laat omd
 
 ## Hoe hubsell het aanpakt
 
-hubsell houdt het CRM actueel door elke verzending, opening en reactie automatisch vast te leggen in Salesforce, HubSpot of Pipedrive, met tweerichtings-sync, zodat het record weergeeft wat er werkelijk is gebeurd zonder handmatige invoer.
+hubsell houdt het CRM actueel door elke verzending, opening en reactie automatisch vast te leggen in Salesforce, HubSpot of Pipedrive, zodat het record weergeeft wat er werkelijk is gebeurd zonder handmatige invoer.

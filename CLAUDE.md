@@ -218,6 +218,9 @@ These are not theoretical. Each one distorted a real pull on 2026-09-17.
   files** and rendered with `set:html`, not through Markdown. Use-cases and glossary
   bodies are real Markdown rendered the normal way.
 - CRM names allowed in copy: Salesforce, HubSpot, Pipedrive only.
+- CRM sync (confirmed 2026-10-15): one-way, from hubsell into the CRM. Contacts are pushed
+  by hand or by rule, fields are mapped, existing records are matched (no duplicates), and
+  CRM contacts can be suppressed before outreach. Never call it two-way until it ships.
 - `SIGNUP_URL` in `src/data/site.ts` points at `/book-a-call` until the real signup
   page ships; every "Book a demo" CTA reads that one constant.
 

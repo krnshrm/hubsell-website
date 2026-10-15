@@ -24,4 +24,4 @@ The biggest mistake is relying on manual entry, which leaves the CRM incomplete 
 
 ## How hubsell approaches it
 
-hubsell keeps the CRM current by logging every send, open, and reply to Salesforce, HubSpot, or Pipedrive automatically, with two-way sync, so the record reflects what actually happened without manual entry.
+hubsell keeps the CRM current by logging every send, open, and reply to Salesforce, HubSpot, or Pipedrive automatically, so the record reflects what actually happened without manual entry.

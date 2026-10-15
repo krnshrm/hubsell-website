@@ -24,4 +24,4 @@ Ein häufiger Fehler ist, Zwei-Wege-Sync ohne Konfliktregeln zu aktivieren, soda
 
 ## Wie hubsell es angeht
 
-hubsell führt Zwei-Wege-Sync in Echtzeit mit Salesforce, HubSpot und Pipedrive, sodass eine Änderung auf einer Seite auf der anderen erscheint und Reps stets aktuelle Daten sehen.
+Der Sync von hubsell läuft derzeit in eine Richtung, von hubsell nach Salesforce, HubSpot oder Pipedrive, in Echtzeit. Vor dem Schreiben gleicht hubsell bestehende Datensätze ab, damit keine Dubletten entstehen, und kann Kontakte ausschließen, die schon im CRM sind. Ein Zwei-Wege-Sync ist geplant.

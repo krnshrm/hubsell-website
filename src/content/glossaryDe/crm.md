@@ -24,4 +24,4 @@ Der größte Fehler ist, sich auf manuelle Eingabe zu verlassen, was das CRM unv
 
 ## Wie hubsell es angeht
 
-hubsell hält das CRM aktuell, indem es jedes Senden, Öffnen und Antworten automatisch in Salesforce, HubSpot oder Pipedrive protokolliert, mit Zwei-Wege-Sync, sodass der Datensatz ohne manuelle Eingabe abbildet, was tatsächlich passiert ist.
+hubsell hält das CRM aktuell, indem es jedes Senden, Öffnen und Antworten automatisch in Salesforce, HubSpot oder Pipedrive protokolliert, sodass der Datensatz ohne manuelle Eingabe abbildet, was tatsächlich passiert ist.

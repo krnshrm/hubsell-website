@@ -16,12 +16,12 @@ export interface IntegrationsPageData {
 
 const EN: IntegrationsPageData = {
   "title": "Integrations: connect hubsell to your CRM and channels | hubsell",
-  "metaDescription": "hubsell connects to Salesforce, HubSpot, and Pipedrive with two-way sync, and runs LinkedIn alongside email in one flow. More integrations are on the way.",
+  "metaDescription": "hubsell connects to Salesforce, HubSpot, and Pipedrive with native sync, and runs LinkedIn alongside email in one flow. More integrations are on the way.",
   "eyebrow": "Integrations",
   "h1Pre": "CRM integrations for ",
   "h1Accent": "Salesforce, HubSpot, and Pipedrive",
   "h1Post": "",
-  "sub": "hubsell works with your CRM and your channels, so data and activity stay in one place. Two-way CRM sync keeps your records current, and LinkedIn runs alongside email in a single flow.",
+  "sub": "hubsell works with your CRM and your channels, so data and activity stay in one place. Real-time CRM sync keeps your records current, and LinkedIn runs alongside email in a single flow.",
   "demoCta": "Book a demo",
   "listEyebrow": "Available now",
   "listTitle": "What hubsell connects to today",
@@ -29,19 +29,19 @@ const EN: IntegrationsPageData = {
     {
       "name": "Salesforce",
       "category": "CRM",
-      "blurb": "Two-way sync with Salesforce. Every send, open, reply, and connection lands on the right record automatically, in real time.",
+      "blurb": "Native sync with Salesforce. Every send, open, reply, and connection lands on the right record automatically, in real time.",
       "status": "Live"
     },
     {
       "name": "HubSpot",
       "category": "CRM",
-      "blurb": "Two-way sync with HubSpot. Activity and outcomes flow to the right contacts and deals without manual entry.",
+      "blurb": "Native sync with HubSpot. Activity and outcomes flow to the right contacts and deals without manual entry.",
       "status": "Live"
     },
     {
       "name": "Pipedrive",
       "category": "CRM",
-      "blurb": "Two-way sync with Pipedrive. Your pipeline stays current as outreach happens, with no CSV in between.",
+      "blurb": "Native sync with Pipedrive. Your pipeline stays current as outreach happens, with no CSV in between.",
       "status": "Live"
     },
     {
@@ -64,12 +64,12 @@ const EN: IntegrationsPageData = {
 
 const DE: IntegrationsPageData = {
   "title": "Integrationen: hubsell mit dem CRM und den Kan\u00e4len verbinden | hubsell",
-  "metaDescription": "hubsell verbindet sich mit Salesforce, HubSpot und Pipedrive per Zwei-Wege-Sync und f\u00fchrt LinkedIn neben E-Mail in einem Flow. Weitere Integrationen folgen.",
+  "metaDescription": "hubsell verbindet sich mit Salesforce, HubSpot und Pipedrive per nativem Sync und f\u00fchrt LinkedIn neben E-Mail in einem Flow. Weitere Integrationen folgen.",
   "eyebrow": "Integrationen",
   "h1Pre": "CRM-Integrationen für ",
   "h1Accent": "Salesforce, HubSpot und Pipedrive",
   "h1Post": "",
-  "sub": "hubsell arbeitet mit dem CRM und den Kan\u00e4len, sodass Daten und Aktivit\u00e4t an einem Ort bleiben. Zwei-Wege-CRM-Sync h\u00e4lt die Datens\u00e4tze aktuell, und LinkedIn l\u00e4uft neben E-Mail in einem einzigen Flow.",
+  "sub": "hubsell arbeitet mit dem CRM und den Kan\u00e4len, sodass Daten und Aktivit\u00e4t an einem Ort bleiben. CRM-Sync in Echtzeit h\u00e4lt die Datens\u00e4tze aktuell, und LinkedIn l\u00e4uft neben E-Mail in einem einzigen Flow.",
   "demoCta": "Demo buchen",
   "listEyebrow": "Jetzt verf\u00fcgbar",
   "listTitle": "Womit sich hubsell heute verbindet",
@@ -77,19 +77,19 @@ const DE: IntegrationsPageData = {
     {
       "name": "Salesforce",
       "category": "CRM",
-      "blurb": "Zwei-Wege-Sync mit Salesforce. Jedes Senden, \u00d6ffnen, Antworten und jede Verbindung landet automatisch am richtigen Datensatz, in Echtzeit.",
+      "blurb": "Nativer Sync mit Salesforce. Jedes Senden, \u00d6ffnen, Antworten und jede Verbindung landet automatisch am richtigen Datensatz, in Echtzeit.",
       "status": "Live"
     },
     {
       "name": "HubSpot",
       "category": "CRM",
-      "blurb": "Zwei-Wege-Sync mit HubSpot. Aktivit\u00e4t und Ergebnisse flie\u00dfen ohne manuelle Eingabe zu den richtigen Kontakten und Deals.",
+      "blurb": "Nativer Sync mit HubSpot. Aktivit\u00e4t und Ergebnisse flie\u00dfen ohne manuelle Eingabe zu den richtigen Kontakten und Deals.",
       "status": "Live"
     },
     {
       "name": "Pipedrive",
       "category": "CRM",
-      "blurb": "Zwei-Wege-Sync mit Pipedrive. Die Pipeline bleibt aktuell, w\u00e4hrend Outreach passiert, ohne CSV dazwischen.",
+      "blurb": "Nativer Sync mit Pipedrive. Die Pipeline bleibt aktuell, w\u00e4hrend Outreach passiert, ohne CSV dazwischen.",
       "status": "Live"
     },
     {
@@ -112,12 +112,12 @@ const DE: IntegrationsPageData = {
 
 const NL: IntegrationsPageData = {
   "title": "Integraties: hubsell verbinden met uw CRM en kanalen | hubsell",
-  "metaDescription": "hubsell verbindt met Salesforce, HubSpot en Pipedrive met tweerichtings-sync, en draait LinkedIn naast e-mail in \u00e9\u00e9n flow. Meer integraties volgen.",
+  "metaDescription": "hubsell verbindt met Salesforce, HubSpot en Pipedrive met native sync, en draait LinkedIn naast e-mail in \u00e9\u00e9n flow. Meer integraties volgen.",
   "eyebrow": "Integraties",
   "h1Pre": "CRM-integraties voor ",
   "h1Accent": "Salesforce, HubSpot en Pipedrive",
   "h1Post": "",
-  "sub": "hubsell werkt met uw CRM en uw kanalen, zodat data en activiteit op \u00e9\u00e9n plek blijven. Tweerichtings-CRM-sync houdt uw records actueel, en LinkedIn draait naast e-mail in \u00e9\u00e9n flow.",
+  "sub": "hubsell werkt met uw CRM en uw kanalen, zodat data en activiteit op \u00e9\u00e9n plek blijven. Realtime CRM-sync houdt uw records actueel, en LinkedIn draait naast e-mail in \u00e9\u00e9n flow.",
   "demoCta": "Demo plannen",
   "listEyebrow": "Nu beschikbaar",
   "listTitle": "Waarmee hubsell vandaag verbindt",
@@ -125,19 +125,19 @@ const NL: IntegrationsPageData = {
     {
       "name": "Salesforce",
       "category": "CRM",
-      "blurb": "Tweerichtings-sync met Salesforce. Elke verzending, opening, reactie en connectie landt automatisch op de juiste record, in realtime.",
+      "blurb": "Native sync met Salesforce. Elke verzending, opening, reactie en connectie landt automatisch op de juiste record, in realtime.",
       "status": "Live"
     },
     {
       "name": "HubSpot",
       "category": "CRM",
-      "blurb": "Tweerichtings-sync met HubSpot. Activiteit en uitkomsten stromen zonder handmatige invoer naar de juiste contacten en deals.",
+      "blurb": "Native sync met HubSpot. Activiteit en uitkomsten stromen zonder handmatige invoer naar de juiste contacten en deals.",
       "status": "Live"
     },
     {
       "name": "Pipedrive",
       "category": "CRM",
-      "blurb": "Tweerichtings-sync met Pipedrive. Uw pipeline blijft actueel terwijl outreach gebeurt, zonder CSV ertussen.",
+      "blurb": "Native sync met Pipedrive. Uw pipeline blijft actueel terwijl outreach gebeurt, zonder CSV ertussen.",
       "status": "Live"
     },
     {

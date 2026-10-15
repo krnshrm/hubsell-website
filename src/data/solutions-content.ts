@@ -198,7 +198,7 @@ export const solutions: SolutionsData = {
       how: [
         { title: 'One platform, not six', body: 'hubsell replaces the data, enrichment, sequencer, deliverability, dialer, and CRM sync tools with one system on one data set.', href: '/platform', linkLabel: 'See the platform' },
         { title: 'Verified data in, no rot between tools', body: 'Data is sourced and checked at the point of use, so records do not decay in a handover between products.', href: '/platform/live-data', linkLabel: 'See live data' },
-        { title: 'Real-time two-way CRM sync', body: 'Every activity logs to Salesforce, HubSpot, or Pipedrive automatically, with no middleware to maintain.', href: '/platform/crm-sync', linkLabel: 'See CRM sync' },
+        { title: 'Real-time CRM sync', body: 'Every activity logs to Salesforce, HubSpot, or Pipedrive automatically, with no middleware to maintain.', href: '/platform/crm-sync', linkLabel: 'See CRM sync' },
       ],
       proofEyebrow: 'Proof', proofTitle: 'Hours back, numbers you trust',
       quoteSlug: 'spryker', storySlug: 'elium', storyLabel: 'Read the Elium story',
@@ -405,7 +405,7 @@ export const solutions: SolutionsData = {
       howEyebrow: 'How hubsell helps', howTitle: 'How hubsell gets it done',
       how: [
         { title: 'Less rot to clean', body: 'Data is verified at the point of use, so you are not scrubbing a list that was stale before it arrived.', href: '/platform/live-data', linkLabel: 'See live data' },
-        { title: 'No middleware to babysit', body: 'Real-time two-way CRM sync keeps records current with no nightly jobs and no CSV exports to manage.', href: '/platform/crm-sync', linkLabel: 'See CRM sync' },
+        { title: 'No middleware to babysit', body: 'Real-time CRM sync keeps records current with no nightly jobs and no CSV exports to manage.', href: '/platform/crm-sync', linkLabel: 'See CRM sync' },
         { title: 'Hours back for the reps', body: 'Automatic activity logging removes the manual entry that eats selling time across the team.', href: '/platform', linkLabel: 'See the platform' },
       ],
       proofEyebrow: 'Proof', proofTitle: 'What operators say',

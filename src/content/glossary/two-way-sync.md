@@ -24,4 +24,4 @@ A common mistake is enabling two-way sync without conflict rules, so the systems
 
 ## How hubsell approaches it
 
-hubsell runs two-way sync in real time with Salesforce, HubSpot, and Pipedrive, so a change on either side is reflected on the other and reps always see current data.
+hubsell’s sync runs one way today, from hubsell into Salesforce, HubSpot, or Pipedrive, in real time. Before it writes, it matches existing records so it does not create duplicates, and it can leave out contacts already in the CRM. Two-way sync is planned.

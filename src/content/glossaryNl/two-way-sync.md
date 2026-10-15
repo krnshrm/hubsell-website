@@ -24,4 +24,4 @@ Een veelgemaakte fout is tweerichtings-sync inschakelen zonder conflictregels, z
 
 ## Hoe hubsell het aanpakt
 
-hubsell draait tweerichtings-sync in realtime met Salesforce, HubSpot en Pipedrive, zodat een wijziging aan de ene kant aan de andere verschijnt en reps altijd actuele data zien.
+De sync van hubsell loopt op dit moment in één richting, van hubsell naar Salesforce, HubSpot of Pipedrive, in realtime. Voordat hubsell schrijft, koppelt het bestaande records zodat er geen dubbele records ontstaan, en het kan contacten uitsluiten die al in het CRM staan. Tweerichtings-sync staat gepland.

@@ -109,7 +109,7 @@ export const solutionsDe: SolutionsData = {
       how: [
         { title: 'Eine Plattform, keine sechs', body: 'hubsell ersetzt die Tools f\u00fcr Daten, Enrichment, Sequencer, Deliverability, Dialer und CRM-Sync durch ein System auf einem Datenbestand.', href: '/platform', linkLabel: 'Zur Plattform' },
         { title: 'Verifizierte Daten rein, kein Verfall dazwischen', body: 'Daten werden am Punkt der Nutzung recherchiert und gepr\u00fcft, sodass Datens\u00e4tze bei der \u00dcbergabe zwischen Produkten nicht verfallen.', href: '/platform/live-data', linkLabel: 'Zu Live-Daten' },
-        { title: 'Zwei-Wege-CRM-Sync in Echtzeit', body: 'Jede Aktivit\u00e4t wird automatisch in Salesforce, HubSpot oder Pipedrive protokolliert, ohne Middleware, die gepflegt werden muss.', href: '/platform/crm-sync', linkLabel: 'Zu CRM-Sync' },
+        { title: 'CRM-Sync in Echtzeit', body: 'Jede Aktivit\u00e4t wird automatisch in Salesforce, HubSpot oder Pipedrive protokolliert, ohne Middleware, die gepflegt werden muss.', href: '/platform/crm-sync', linkLabel: 'Zu CRM-Sync' },
       ],
       proofEyebrow: 'Beleg', proofTitle: 'Stunden zur\u00fcck, Zahlen zum Vertrauen',
       quoteSlug: 'spryker', storySlug: 'elium', storyLabel: 'Zur Elium-Story',
@@ -316,7 +316,7 @@ export const solutionsDe: SolutionsData = {
       howEyebrow: 'Wie hubsell hilft', howTitle: 'Wie hubsell das l\u00f6st',
       how: [
         { title: 'Weniger Verfall zu bereinigen', body: 'Daten werden am Punkt der Nutzung verifiziert, sodass keine Liste zu schrubben ist, die schon vor Ankunft veraltet war.', href: '/platform/live-data', linkLabel: 'Zu Live-Daten' },
-        { title: 'Keine Middleware zu betreuen', body: 'Zwei-Wege-CRM-Sync in Echtzeit h\u00e4lt Datens\u00e4tze aktuell, ohne n\u00e4chtliche Jobs und ohne CSV-Exporte zu verwalten.', href: '/platform/crm-sync', linkLabel: 'Zu CRM-Sync' },
+        { title: 'Keine Middleware zu betreuen', body: 'CRM-Sync in Echtzeit h\u00e4lt Datens\u00e4tze aktuell, ohne n\u00e4chtliche Jobs und ohne CSV-Exporte zu verwalten.', href: '/platform/crm-sync', linkLabel: 'Zu CRM-Sync' },
         { title: 'Stunden zur\u00fcck f\u00fcr die Reps', body: 'Automatische Aktivit\u00e4tsprotokollierung entfernt die manuelle Eingabe, die im ganzen Team Verkaufszeit frisst.', href: '/platform', linkLabel: 'Zur Plattform' },
       ],
       proofEyebrow: 'Beleg', proofTitle: 'Was Operators sagen',

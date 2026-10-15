@@ -24,4 +24,4 @@ A common mistake is relying on manual entry or nightly exports, which leaves the
 
 ## How hubsell approaches it
 
-hubsell logs every send, open, and reply to Salesforce, HubSpot, or Pipedrive automatically, with two-way sync in real time and no middleware to maintain, so the pipeline reflects what actually happened.
+hubsell logs every send, open, and reply to Salesforce, HubSpot, or Pipedrive automatically and in real time, with no middleware to maintain, so the pipeline reflects what actually happened.

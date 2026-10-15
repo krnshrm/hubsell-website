@@ -34,7 +34,7 @@ export interface PlatformDetailData {
   /** Redesign (2026-10-15), live data first. A page that has `compare` uses the
       new order: hero with a flow slice, stages strip, before and after, how it
       works, detail, proof, closing CTA, FAQ. */
-  heroSlice?: 'live-data' | 'enrichment' | 'multichannel';
+  heroSlice?: 'live-data' | 'enrichment' | 'multichannel' | 'crm-sync';
   /** Simple numbered steps for pages without a stepped walkthrough widget. */
   howSteps?: { note?: string; items: { title: string; body: string }[] };
   compare?: { eyebrow: string; titlePre: string; titleAccent: string; titlePost: string; colA: string; colB: string; rows: [string, string, string][] };
@@ -116,7 +116,7 @@ export const platform: PlatformData = {
         title: 'Every touchpoint logged automatically',
         body: 'Sends, opens, replies, and connections land in Salesforce, HubSpot, or Pipedrive the moment they happen. No manual entry, no data rot.',
         href: '/platform/crm-sync', linkLabel: 'Explore CRM sync',
-        steps: ['Every activity captured', 'Mapped to the right fields', 'Two-way, in real time'],
+        steps: ['Every activity captured', 'Mapped to the right fields', 'Logged in real time'],
       },
     ],
     resultsEyebrow: 'Why it works',
@@ -267,19 +267,24 @@ export const platform: PlatformData = {
 
     {
       path: '/platform/crm-sync',
-      title: 'Automatic CRM sync for Salesforce, HubSpot, and Pipedrive | hubsell',
-      metaDescription: 'Every send, open, reply, and connection logged to Salesforce, HubSpot, or Pipedrive automatically. No manual entry, no data rot, no lost activity.',
-      extra: {"title": "Salesforce, HubSpot, and Pipedrive integration", "paras": ["hubsell syncs with Salesforce, HubSpot, and Pipedrive natively and in both directions.", "LinkedIn activity is logged to each of them the same way email is. Connection requests, profile views and replies appear on the contact’s record as they happen, next to email events and call tasks."], "links": [{"label": "See all integrations", "href": "/integrations"}]},
+      title: 'CRM sync: LinkedIn and email activity in HubSpot, Salesforce and Pipedrive | hubsell',
+      metaDescription: 'Sync LinkedIn and email activity to HubSpot, Salesforce or Pipedrive. Push contacts by hand or by rule, match existing records, and log every touch as it happens.',
+      heroSlice: "crm-sync",
+      compare: {"eyebrow": "CRM integration", "titlePre": "Manual CRM logging versus ", "titleAccent": "automatic CRM sync", "titlePost": "", "colA": "Logging by hand", "colB": "hubsell CRM sync", "rows": [["Getting contacts in", "CSV exports and imports, or typing records in", "Pushed by hand or automatically, by the conditions you set"], ["Duplicates", "A second record every time someone imports a list", "Matched to existing records instead of creating new ones"], ["LinkedIn activity", "Stays in LinkedIn, invisible to the rest of the team", "Visits, invites, messages and replies on the contact record"], ["Email activity", "Logged when a rep remembers", "Sends, opens and replies logged as they happen"], ["Calls", "A dialer plus a note typed in afterwards", "Call tasks in the CRM, outcome on the record"], ["Existing customers", "Contacted again because nobody checked the CRM", "CRM contacts suppressed before outreach starts"]]},
+      heads: {"signals": {"eyebrow": "CRM integration", "pre": "Every touchpoint ", "accent": "logged in your CRM", "post": ""}, "explained": {"eyebrow": "Sync LinkedIn to your CRM", "pre": "What hubsell syncs ", "accent": "to your CRM", "post": ""}, "steps": {"eyebrow": "How it works", "pre": "From flow step ", "accent": "to CRM record", "post": ""}, "extra": {"eyebrow": "Salesforce, HubSpot and Pipedrive integration", "pre": "Your CRM stays the ", "accent": "system of record", "post": ""}, "proof": {"eyebrow": "Customer results", "pre": "What changes with ", "accent": "automatic CRM logging", "post": ""}, "closing": {"eyebrow": "Automatic CRM sync", "pre": "Your CRM, ", "accent": "always up to date", "post": "."}, "faq": {"eyebrow": "CRM sync FAQ", "pre": "Questions about ", "accent": "CRM sync", "post": ""}},
+      signals: {"sub": "Everything below can go to Salesforce, HubSpot or Pipedrive. You choose what is pushed and when.", "startLabel": "In the CRM", "items": [{"id": "company", "title": "Contacts and companies", "body": "People and their companies are created in the CRM, or matched to the record that already exists and updated.", "start": "One record per person"}, {"id": "email", "title": "Email activity", "body": "Every email a flow sends, plus opens and replies, is logged on the contact as it happens.", "start": "Activity on the contact timeline"}, {"id": "invite", "title": "LinkedIn invites and connections", "body": "Connection requests and accepted invites show up on the contact next to email, so the whole team sees the LinkedIn side of outreach.", "start": "Activity on the contact timeline"}, {"id": "message", "title": "LinkedIn messages and replies", "body": "Messages and InMail sent from your team’s profiles, and the replies to them, are logged on the record.", "start": "Activity on the contact timeline"}, {"id": "call", "title": "Call tasks and outcomes", "body": "Phone steps create a call task in the CRM. The rep calls from the CRM and logs the outcome there.", "start": "A task in the CRM"}, {"id": "branch", "title": "Push rules", "body": "Decide which contacts go across: push by hand, or set conditions, for example only the contacts who reply.", "start": "Only the contacts worth a record"}, {"id": "map", "title": "Field mapping", "body": "Choose which hubsell field fills which CRM field, so the data lands where your reports expect it.", "start": "Your fields, your structure"}, {"id": "ban", "title": "Suppressing CRM contacts", "body": "Contacts already in your CRM, such as customers or open deals, can be left out before outreach starts.", "start": "Not contacting customers by mistake"}]},
+      extra: {"title": "Your CRM stays the system of record", "paras": ["hubsell writes to Salesforce, HubSpot and Pipedrive. It does not replace them, and your team does not have to work in two places.", "Before it writes, hubsell looks for the record that already exists and updates it, so pushing the same person twice does not create a second contact.", "Contacts already in your CRM can be suppressed before a flow starts, so customers and open deals are not contacted by mistake."], "links": [{"label": "How to connect your CRM", "href": "/knowledge/connect-your-crm"}]},
+      faqs: [{"question": "Does hubsell integrate with HubSpot, Salesforce and Pipedrive?", "answer": "<p>Yes. hubsell has native integrations with all three. You connect your CRM once under Integrations and grant the permissions it asks for. From then on the sync runs in real time, without Zapier, middleware or CSV files. See <a class=\"link\" href=\"/knowledge/connect-your-crm/\">how to connect your CRM</a>.</p>"}, {"question": "How do I sync LinkedIn activity to HubSpot?", "answer": "<p>Connect HubSpot to hubsell and run your LinkedIn outreach in a hubsell flow. Profile visits, connection requests, accepted invites, messages and replies are then logged on the HubSpot contact, next to email activity and call tasks. Salesforce and Pipedrive work the same way.</p>"}, {"question": "What does hubsell sync to my CRM?", "answer": "<p>Contacts and their companies, email activity (sent, opened, replied), LinkedIn activity (profile visits, connection requests, accepted invites, messages, InMail and replies) and call tasks with their outcomes.</p>"}, {"question": "Are contacts pushed to my CRM automatically?", "answer": "<p>Only if you want them to be. You can push contacts by hand, or set conditions that push them automatically, for example only the contacts who reply. Connecting your CRM does not send anything across on its own.</p>"}, {"question": "Will hubsell create duplicate records in my CRM?", "answer": "<p>No. Before it writes, hubsell matches each contact and company to the record that already exists and updates it, instead of creating a second one.</p>"}, {"question": "Can I exclude contacts who are already in my CRM?", "answer": "<p>Yes. Contacts already in your CRM, such as customers or people in open deals, can be suppressed before outreach starts, so nobody is contacted by mistake.</p>"}, {"question": "Is hubsell’s CRM sync two-way?", "answer": "<p>Today the sync runs from hubsell into your CRM. hubsell writes contacts, companies and activity, and checks the CRM for existing records and for contacts to suppress. Changes made in the CRM are not written back into hubsell yet. Two-way sync is planned.</p>"}, {"question": "Can I choose which CRM fields hubsell fills?", "answer": "<p>Yes. You map hubsell fields to the fields in your CRM, so the data lands where your reports and workflows expect it.</p>"}, {"question": "How are phone calls logged in the CRM?", "answer": "<p>hubsell has no built-in dialer. A phone step in a flow creates a call task in Salesforce, HubSpot or Pipedrive. The rep calls from the CRM and logs the outcome on the same record as the email and LinkedIn activity.</p>"}, {"question": "Why log outreach activity in the CRM automatically?", "answer": "<p>Manual logging is slow and incomplete, so pipeline reports show what reps remembered to type in. When every touch is logged as it happens, the record is complete and reps get the time back. Elium saved around 20 hours a week after switching to hubsell.</p>"}],
       eyebrow: 'CRM sync',
-      h1Pre: 'Automatic CRM sync. ', h1Accent: 'Your CRM, always up to date', h1Post: '.',
-      sub: 'hubsell does not replace your system of record, it feeds it. Every touchpoint across email, LinkedIn, and phone lands in your CRM the moment it happens.',
+      h1Pre: 'LinkedIn and email, ', h1Accent: 'synced to your CRM', h1Post: '',
+      sub: 'hubsell feeds HubSpot, Salesforce and Pipedrive, it does not replace them. You decide which contacts go across, by hand or by rule, and every email, LinkedIn step and call task lands on the right record as it happens.',
       demoCta: 'Book a demo',
       row: {
         titlePre: 'Logged ', titleAccent: 'the moment it happens', titlePost: '',
         points: [
-          'Every touchpoint, sent, opened, replied, connected, is logged to Salesforce, HubSpot, or Pipedrive automatically.',
-          'Connection requests, profile views, and call outcomes land with the same precision as email events.',
-          'No manual entry. No data rot. Your team works the pipeline, not the spreadsheet.',
+          'Email sends, opens and replies, LinkedIn steps and call tasks land on the contact record in Salesforce, HubSpot or Pipedrive.',
+          'Contacts and companies are matched to existing records, so the sync updates what is already there instead of creating duplicates.',
+          'No manual entry and no CSV in between. Your team works the pipeline, not the spreadsheet.',
         ],
         embed: '07-crm-sync-tracker',
         stepEyebrow: 'How it works',
@@ -289,7 +294,7 @@ export const platform: PlatformData = {
       blocks: [
         {
           title: 'Salesforce, HubSpot, and Pipedrive',
-          body: 'Native two-way sync with the three CRMs, in real time. No middleware, no CSV exports, no nightly jobs.',
+          body: 'Native sync into the three CRMs, in real time. No middleware, no CSV exports, no nightly jobs.',
         },
         {
           title: 'Reporting stays truthful',

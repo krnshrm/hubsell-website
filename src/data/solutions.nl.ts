@@ -109,7 +109,7 @@ export const solutionsNl: SolutionsData = {
       how: [
         { title: '\u00c9\u00e9n platform, geen zes', body: 'hubsell vervangt de tools voor data, enrichment, sequencer, deliverability, dialer en CRM-sync door \u00e9\u00e9n systeem op \u00e9\u00e9n dataset.', href: '/platform', linkLabel: 'Naar het platform' },
         { title: 'Geverifieerde data erin, geen verval ertussen', body: 'Data wordt verzameld en gecontroleerd op het moment van gebruik, zodat records niet vervallen bij een overdracht tussen producten.', href: '/platform/live-data', linkLabel: 'Naar live data' },
-        { title: 'Realtime tweerichtings-CRM-sync', body: 'Elke activiteit wordt automatisch vastgelegd in Salesforce, HubSpot of Pipedrive, zonder middleware om te onderhouden.', href: '/platform/crm-sync', linkLabel: 'Naar CRM-sync' },
+        { title: 'Realtime CRM-sync', body: 'Elke activiteit wordt automatisch vastgelegd in Salesforce, HubSpot of Pipedrive, zonder middleware om te onderhouden.', href: '/platform/crm-sync', linkLabel: 'Naar CRM-sync' },
       ],
       proofEyebrow: 'Bewijs', proofTitle: 'Uren terug, cijfers die u vertrouwt',
       quoteSlug: 'spryker', storySlug: 'elium', storyLabel: 'Lees het Elium-verhaal',
@@ -316,7 +316,7 @@ export const solutionsNl: SolutionsData = {
       howEyebrow: 'Hoe hubsell helpt', howTitle: 'Hoe hubsell het klaart',
       how: [
         { title: 'Minder verval om op te schonen', body: 'Data wordt gevalideerd op het moment van gebruik, zodat u geen lijst schrobt die al verouderd was voordat die binnenkwam.', href: '/platform/live-data', linkLabel: 'Naar live data' },
-        { title: 'Geen middleware om te bewaken', body: 'Realtime tweerichtings-CRM-sync houdt records actueel, zonder nachtelijke jobs en zonder CSV-exports om te beheren.', href: '/platform/crm-sync', linkLabel: 'Naar CRM-sync' },
+        { title: 'Geen middleware om te bewaken', body: 'Realtime CRM-sync houdt records actueel, zonder nachtelijke jobs en zonder CSV-exports om te beheren.', href: '/platform/crm-sync', linkLabel: 'Naar CRM-sync' },
         { title: 'Uren terug voor de reps', body: 'Automatische activiteitsvastlegging haalt de handmatige invoer weg die in het hele team verkooptijd opvreet.', href: '/platform', linkLabel: 'Naar het platform' },
       ],
       proofEyebrow: 'Bewijs', proofTitle: 'Wat operators zeggen',
