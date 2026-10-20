@@ -545,5 +545,5 @@ Notes:
 | `docs/20261009-1447-SITE-ANALYSIS-PLAYBOOK.md` | standard analysis recipes (health check, search visibility, conversion, lead quality), task format, report template |
 | `docs/analyses/` | analysis reports and the task ledger |
 | `docs/20261015-1229-PLATFORM-REDESIGN.md` | platform pages redesign: section pattern, heading rules, status per page |
-| `docs/20261013-1138-KEYWORD-TARGETS.md` | keyword groups to target, each with its owning page, and the Search Console check to run against them |
+| `docs/20261013-1138-KEYWORD-TARGETS.md` | which page owns which keyword, the on-page placement standard, the internal linking structure (and a checklist that it survived), and the Search Console check with its 2026-10-13 baseline |
 | `docs/20260922-1415-SESSION-HANDOFF.md` | state at the close of the 2026-09-22 session: what is unpushed, what is open, why the fragmented stack is built the way it is |

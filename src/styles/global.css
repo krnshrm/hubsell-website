@@ -201,6 +201,7 @@ html.has-anim .marquee__track{animation:marquee 32s linear infinite}
 .acc__item.is-open .acc__btn::after{transform:rotate(225deg);margin-top:4px}
 .acc__panel{max-height:0;overflow:hidden;transition:max-height .26s ease}
 .acc__panel p{margin:0 4px 22px;font-size:1rem;line-height:1.65;color:var(--sec-tx);opacity:.82;max-width:68ch}
+.acc__panel a{color:var(--accent-on);font-weight:500;text-decoration:underline;text-underline-offset:2px}
 
 /* carousel (testimonials) */
 .carousel{position:relative}
@@ -282,7 +283,7 @@ html[lang="nl"] { --badge-soon: "Binnenkort"; }
    moved back by the same distance, measured in the H1's font size. */
 @property --title-nudge { syntax:'<length>'; inherits:true; initial-value:0px; }
 main h1{ --title-nudge:.05em; translate:calc(-1 * var(--title-nudge)) 0 }
-main h1 :is(.hs__kw, .vs-alt){ translate:var(--title-nudge) 0 }
+main h1 :is(.hs__kw, .vs-alt, .pov-kw){ translate:var(--title-nudge) 0 }
 
 /* ---- Line breaks (2026-10-15) ----
    No heading line may end up with one or two lonely words. Headings and
