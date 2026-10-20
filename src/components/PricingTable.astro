@@ -20,8 +20,6 @@ const eurCredit = (n: number) => `€${nf3.format(n)}`;
 // Credits per action that succeeds. A failed step costs nothing; completed steps are charged.
 const CREDITS: [string, number, string?][] = [
   ['Source a contact', 1],
-  ['Clean and normalise the data with AI', 0],
-  ['Add missing details', 0],
   ['Find a missing LinkedIn URL', 2],
   ['Generate and validate a work email (catch-all included)', 5],
   ['Add a phone number (mobile or direct dial)', 5],
@@ -243,7 +241,7 @@ const CREDITS: [string, number, string?][] = [
           {CREDITS.map(([label, n, note]) => (
             <tr>
               <td>{et(L, label)}{note && <span class="pricing-credits-note">{et(L, note)}</span>}</td>
-              <td class="pricing-credits-n">{n === 0 ? et(L, "Free") : nf3.format(n)}</td>
+              <td class="pricing-credits-n">{nf3.format(n)}</td>
             </tr>
           ))}
         </tbody>

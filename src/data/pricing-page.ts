@@ -94,7 +94,7 @@ const EN: PricingPageData = {
     },
     {
       "q": "How many credits does each action use?",
-      "a": "Sourcing a contact uses 1 credit and finding a missing LinkedIn URL uses 2. Generating and validating a work email uses 5, catch-all domains included, and a phone number (mobile or direct dial) also uses 5. Verifying an email you import uses 0.5 and shows which addresses are valid, and hubsell can then update and correct the invalid ones. Cleaning and normalising the data and adding missing details are free. A step that fails costs nothing; steps already completed are charged."
+      "a": "Sourcing a contact uses 1 credit and finding a missing LinkedIn URL uses 2. Generating and validating a work email uses 5, catch-all domains included, and a phone number (mobile or direct dial) also uses 5. Verifying an email you import uses 0.5 and shows which addresses are valid, and hubsell can then update and correct the invalid ones. A step that fails costs nothing; steps already completed are charged."
     },
     {
       "q": "Why did the number of credits change?",
@@ -191,7 +191,7 @@ const DE: PricingPageData = {
     },
     {
       "q": "Wie viele Credits verbraucht jede Aktion?",
-      "a": "Das Recherchieren eines Kontakts verbraucht 1 Credit, das Finden einer fehlenden LinkedIn-URL 2. Das Generieren und Validieren einer geschäftlichen E-Mail verbraucht 5, Catch-all-Domains eingeschlossen, eine Telefonnummer (Mobil oder Durchwahl) ebenfalls 5. Die Prüfung importierter E-Mails verbraucht 0,5 und zeigt, welche Adressen gültig sind; ungültige Adressen kann hubsell anschließend aktualisieren und korrigieren. Das Bereinigen und Normalisieren der Daten und das Ergänzen fehlender Angaben sind kostenlos. Ein fehlgeschlagener Schritt kostet nichts, bereits abgeschlossene Schritte werden berechnet."
+      "a": "Das Recherchieren eines Kontakts verbraucht 1 Credit, das Finden einer fehlenden LinkedIn-URL 2. Das Generieren und Validieren einer geschäftlichen E-Mail verbraucht 5, Catch-all-Domains eingeschlossen, eine Telefonnummer (Mobil oder Durchwahl) ebenfalls 5. Die Prüfung importierter E-Mails verbraucht 0,5 und zeigt, welche Adressen gültig sind; ungültige Adressen kann hubsell anschließend aktualisieren und korrigieren. Ein fehlgeschlagener Schritt kostet nichts, bereits abgeschlossene Schritte werden berechnet."
     },
     {
       "q": "Warum hat sich die Zahl der Credits geändert?",
@@ -288,7 +288,7 @@ const NL: PricingPageData = {
     },
     {
       "q": "Hoeveel credits verbruikt elke actie?",
-      "a": "Een contact verzamelen verbruikt 1 credit, een ontbrekende LinkedIn-URL vinden 2. Een zakelijk e-mailadres genereren en valideren verbruikt 5, catch-all-domeinen inbegrepen, en een telefoonnummer (mobiel of direct) ook 5. Geïmporteerde e-mailadressen controleren verbruikt 0,5 en laat zien welke adressen geldig zijn; ongeldige adressen kan hubsell daarna bijwerken en corrigeren. De data opschonen en normaliseren en ontbrekende gegevens toevoegen is gratis. Een mislukte stap kost niets, stappen die al zijn afgerond worden gerekend."
+      "a": "Een contact verzamelen verbruikt 1 credit, een ontbrekende LinkedIn-URL vinden 2. Een zakelijk e-mailadres genereren en valideren verbruikt 5, catch-all-domeinen inbegrepen, en een telefoonnummer (mobiel of direct) ook 5. Geïmporteerde e-mailadressen controleren verbruikt 0,5 en laat zien welke adressen geldig zijn; ongeldige adressen kan hubsell daarna bijwerken en corrigeren. Een mislukte stap kost niets, stappen die al zijn afgerond worden gerekend."
     },
     {
       "q": "Waarom is het aantal credits veranderd?",
