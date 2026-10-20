@@ -101,7 +101,7 @@ export const FLOW_COPY: Record<'en' | 'de' | 'nl', FlowCopy> = {
     },
     ui: {
       flows: 'Flows', sample: 'Sample data', source: 'Source', roles: 'Roles', rolesSample: 'SDR, Account Executive',
-      file: '500 rows, some with missing emails and LinkedIn URLs', verified: 'Verified email', phone: 'Phone', credit: '+0.5 credit',
+      file: '500 rows, some with missing emails and LinkedIn URLs', verified: 'Verified email', phone: 'Phone', credit: '+5 credits',
       repeat: 'Repeat with the next source', on: 'On', off: 'Off', skip: 'Skip', skipped: 'Skipped',
     },
     n: {
@@ -133,7 +133,7 @@ export const FLOW_COPY: Record<'en' | 'de' | 'nl', FlowCopy> = {
     },
     ui: {
       flows: 'Flows', sample: 'Beispieldaten', source: 'Quelle', roles: 'Rollen', rolesSample: 'SDR, Account Executive',
-      file: '500 Zeilen, teils ohne E-Mail oder LinkedIn-URL', verified: 'Verifizierte E-Mail', phone: 'Telefon', credit: '+0,5 Credits',
+      file: '500 Zeilen, teils ohne E-Mail oder LinkedIn-URL', verified: 'Verifizierte E-Mail', phone: 'Telefon', credit: '+5 Credits',
       repeat: 'Mit der nächsten Quelle wiederholen', on: 'An', off: 'Aus', skip: 'Übersprungen', skipped: 'Übersprungen',
     },
     n: {
@@ -165,7 +165,7 @@ export const FLOW_COPY: Record<'en' | 'de' | 'nl', FlowCopy> = {
     },
     ui: {
       flows: 'Flows', sample: 'Voorbeelddata', source: 'Bron', roles: 'Functies', rolesSample: 'SDR, Account Executive',
-      file: '500 rijen, deels zonder e-mail of LinkedIn-URL', verified: 'Geverifieerd e-mailadres', phone: 'Telefoon', credit: '+0,5 credit',
+      file: '500 rijen, deels zonder e-mail of LinkedIn-URL', verified: 'Geverifieerd e-mailadres', phone: 'Telefoon', credit: '+5 credits',
       repeat: 'Herhaal met de volgende bron', on: 'Aan', off: 'Uit', skip: 'Overgeslagen', skipped: 'Overgeslagen',
     },
     n: {

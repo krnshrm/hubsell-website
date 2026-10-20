@@ -90,7 +90,15 @@ const EN: PricingPageData = {
     },
     {
       "q": "What is the Data add-on and how do credits work?",
-      "a": "It is our Sales Intelligence product. Pay as you go is 1.25 per credit, or take a subscription at 5,000 per year that includes 5,000 credits and enriches 10,000 to 50,000 contacts. Pay as you go costs about 25% more per credit than the subscription."
+      "a": "It is our Sales Intelligence product. Pay as you go is 0.125 per credit, or take a subscription at 5,000 per year that includes 50,000 credits. Each action uses a set number of credits when it succeeds, for example 1 to source a contact and 5 for a validated work email. Pay as you go costs about 25% more per credit than the subscription."
+    },
+    {
+      "q": "How many credits does each action use?",
+      "a": "Sourcing a contact uses 1 credit and finding a missing LinkedIn URL uses 2. Generating and validating a work email uses 5, catch-all domains included, and a phone number (mobile or direct dial) also uses 5. Verifying an email you import uses 0.5 and shows which addresses are valid, and hubsell can then update and correct the invalid ones. Cleaning and normalising the data and adding missing details are free. A step that fails costs nothing; steps already completed are charged."
+    },
+    {
+      "q": "Why did the number of credits change?",
+      "a": "In October 2026 hubsell moved credits to a finer scale: what used to cost 1 credit now costs 10, and what cost 0.1 now costs 1. Prices did not change. The subscription now includes 50,000 credits instead of 5,000, and pay as you go is €0.125 per credit instead of €1.25."
     },
     {
       "q": "How do I get started?",
@@ -109,7 +117,7 @@ const EN: PricingPageData = {
     "support": "Support and onboarding",
     "comingsoon": "Coming soon"
   },
-  "creditsNote": "Data sourcing and enrichment run on Sales Intelligence credits: \u20ac1.25 per credit pay as you go, or \u20ac5,000 per year for 5,000 credits.",
+  "creditsNote": "Data sourcing and enrichment run on Sales Intelligence credits: \u20ac0.125 per credit pay as you go, or \u20ac5,000 per year for 50,000 credits.",
   "soonLabel": "Coming soon",
   "crumbHome": "Home",
   "crumbSelf": "Pricing"
@@ -179,7 +187,15 @@ const DE: PricingPageData = {
     },
     {
       "q": "Was ist das Datenpaket und wie funktionieren Credits?",
-      "a": "Es ist unser Sales-Intelligence-Produkt. Pay as you go kostet 1,25 pro Credit, oder es gibt eine Subscription f\u00fcr 5.000 pro Jahr mit 5.000 Credits, die 10.000 bis 50.000 Kontakte anreichern. Pay as you go kostet pro Credit rund 25% mehr als die Subscription."
+      "a": "Es ist unser Sales-Intelligence-Produkt. Pay as you go kostet 0,125 pro Credit, oder es gibt eine Subscription für 5.000 pro Jahr mit 50.000 Credits. Jede Aktion verbraucht bei Erfolg eine feste Zahl Credits, etwa 1 für einen recherchierten Kontakt und 5 für eine validierte geschäftliche E-Mail. Pay as you go kostet pro Credit rund 25% mehr als die Subscription."
+    },
+    {
+      "q": "Wie viele Credits verbraucht jede Aktion?",
+      "a": "Das Recherchieren eines Kontakts verbraucht 1 Credit, das Finden einer fehlenden LinkedIn-URL 2. Das Generieren und Validieren einer geschäftlichen E-Mail verbraucht 5, Catch-all-Domains eingeschlossen, eine Telefonnummer (Mobil oder Durchwahl) ebenfalls 5. Die Prüfung importierter E-Mails verbraucht 0,5 und zeigt, welche Adressen gültig sind; ungültige Adressen kann hubsell anschließend aktualisieren und korrigieren. Das Bereinigen und Normalisieren der Daten und das Ergänzen fehlender Angaben sind kostenlos. Ein fehlgeschlagener Schritt kostet nichts, bereits abgeschlossene Schritte werden berechnet."
+    },
+    {
+      "q": "Warum hat sich die Zahl der Credits geändert?",
+      "a": "Im Oktober 2026 hat hubsell die Credit-Skala verfeinert: Was früher 1 Credit kostete, kostet jetzt 10, und was 0,1 kostete, kostet jetzt 1. Die Preise bleiben gleich. Die Subscription enthält jetzt 50.000 statt 5.000 Credits, und Pay as you go kostet €0,125 statt €1,25 pro Credit."
     },
     {
       "q": "Wie fange ich an?",
@@ -198,7 +214,7 @@ const DE: PricingPageData = {
     "support": "Support und Onboarding",
     "comingsoon": "In K\u00fcrze"
   },
-  "creditsNote": "Data Sourcing und Enrichment laufen \u00fcber Sales-Intelligence-Credits: \u20ac1,25 pro Credit im Pay as you go oder \u20ac5.000 pro Jahr f\u00fcr 5.000 Credits.",
+  "creditsNote": "Data Sourcing und Enrichment laufen \u00fcber Sales-Intelligence-Credits: \u20ac0,125 pro Credit im Pay as you go oder \u20ac5.000 pro Jahr f\u00fcr 50.000 Credits.",
   "soonLabel": "Bald verf\u00fcgbar",
   "crumbHome": "Startseite",
   "crumbSelf": "Preise"
@@ -268,7 +284,15 @@ const NL: PricingPageData = {
     },
     {
       "q": "Wat is het datapakket en hoe werken credits?",
-      "a": "Het is ons Sales Intelligence-product. Pay as you go kost 1,25 per credit, of u neemt een subscription voor 5.000 per jaar met 5.000 credits, die 10.000 tot 50.000 contacten verrijken. Pay as you go kost per credit ongeveer 25% meer dan de subscription."
+      "a": "Het is ons Sales Intelligence-product. Pay as you go kost 0,125 per credit, of u neemt een subscription voor 5.000 per jaar met 50.000 credits. Elke actie verbruikt bij succes een vast aantal credits, bijvoorbeeld 1 voor een verzameld contact en 5 voor een gevalideerd zakelijk e-mailadres. Pay as you go kost per credit ongeveer 25% meer dan de subscription."
+    },
+    {
+      "q": "Hoeveel credits verbruikt elke actie?",
+      "a": "Een contact verzamelen verbruikt 1 credit, een ontbrekende LinkedIn-URL vinden 2. Een zakelijk e-mailadres genereren en valideren verbruikt 5, catch-all-domeinen inbegrepen, en een telefoonnummer (mobiel of direct) ook 5. Geïmporteerde e-mailadressen controleren verbruikt 0,5 en laat zien welke adressen geldig zijn; ongeldige adressen kan hubsell daarna bijwerken en corrigeren. De data opschonen en normaliseren en ontbrekende gegevens toevoegen is gratis. Een mislukte stap kost niets, stappen die al zijn afgerond worden gerekend."
+    },
+    {
+      "q": "Waarom is het aantal credits veranderd?",
+      "a": "In oktober 2026 heeft hubsell de creditschaal verfijnd: wat vroeger 1 credit kostte, kost nu 10, en wat 0,1 kostte, kost nu 1. De prijzen blijven gelijk. De subscription bevat nu 50.000 in plaats van 5.000 credits, en pay as you go kost €0,125 in plaats van €1,25 per credit."
     },
     {
       "q": "Hoe ga ik van start?",
@@ -287,7 +311,7 @@ const NL: PricingPageData = {
     "support": "Support en onboarding",
     "comingsoon": "Binnenkort"
   },
-  "creditsNote": "Data sourcing en enrichment draaien op Sales Intelligence-credits: \u20ac1,25 per credit met pay as you go, of \u20ac5.000 per jaar voor 5.000 credits.",
+  "creditsNote": "Data sourcing en enrichment draaien op Sales Intelligence-credits: \u20ac0,125 per credit met pay as you go, of \u20ac5.000 per jaar voor 50.000 credits.",
   "soonLabel": "Binnenkort",
   "crumbHome": "Home",
   "crumbSelf": "Prijzen"

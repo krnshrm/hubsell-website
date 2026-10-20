@@ -14,6 +14,19 @@ const L = asLocale(Astro.currentLocale);
 // Prices are EUR only; larger contracts in other currencies are quoted in the offer.
 const nf = new Intl.NumberFormat(L === 'de' ? 'de-DE' : L === 'nl' ? 'nl-NL' : 'en-GB', { maximumFractionDigits: 2 });
 const eur = (n: number) => `€${nf.format(n)}`;
+// Credits moved to a finer scale on 2026-10-20 (x10), so a credit costs fractions of a cent.
+const nf3 = new Intl.NumberFormat(L === 'de' ? 'de-DE' : L === 'nl' ? 'nl-NL' : 'en-GB', { maximumFractionDigits: 3 });
+const eurCredit = (n: number) => `€${nf3.format(n)}`;
+// Credits per action that succeeds. A failed step costs nothing; completed steps are charged.
+const CREDITS: [string, number, string?][] = [
+  ['Source a contact', 1],
+  ['Clean and normalise the data with AI', 0],
+  ['Add missing details', 0],
+  ['Find a missing LinkedIn URL', 2],
+  ['Generate and validate a work email (catch-all included)', 5],
+  ['Add a phone number (mobile or direct dial)', 5],
+  ['Verify an email you import', 0.5, 'Shows which imported emails are valid. hubsell can then update and correct the invalid ones.'],
+];
 ---
 <div class="pricing-wrap" data-pricing>
 
@@ -164,7 +177,7 @@ const eur = (n: number) => `€${nf.format(n)}`;
         <div class="pricing-card-badge">{et(L, "Most popular")}</div>
         <div class="pricing-card-name">Sales Intelligence | Pay as you go</div>
         <div class="pricing-card-price-prefix">{et(L, "Starting at")}</div>
-        <div class="pricing-card-price">{eur(1.25)}<span class="pricing-card-price-period">{et(L, "/credit")}</span></div>
+        <div class="pricing-card-price">{eurCredit(0.125)}<span class="pricing-card-price-period">{et(L, "/credit")}</span></div>
 
         <div class="pricing-card-desc">{et(L, "Only pay for what you use. Cost per credit is")} <span class="pricing-card-emph">{et(L, "25% more")}</span> {et(L, "than with a Sales Intelligence Subscription.")}</div>
         <div class="pricing-card-divider"></div>
@@ -191,7 +204,7 @@ const eur = (n: number) => `€${nf.format(n)}`;
         <div class="pricing-card-price-prefix">{et(L, "Starting at")}</div>
         <div class="pricing-card-price">{eur(5000)}<span class="pricing-card-price-period">{et(L, "/year")}</span></div>
         <div class="pricing-card-desc">{et(L, "For teams that need a larger amount of data and more advanced sourcing techniques.")}</div>
-        <div class="pricing-card-emph-line">{et(L, "Includes 5000 credits - enriches 10K-50K contacts.")}</div>
+        <div class="pricing-card-emph-line">{et(L, "Includes 50,000 credits a year.")}</div>
         <div class="pricing-card-divider"></div>
         <div class="pricing-card-features-label">{et(L, "Everything in Pay as you go, plus:")}</div>
         <ul class="pricing-card-features">
@@ -220,15 +233,22 @@ const eur = (n: number) => `€${nf.format(n)}`;
       </div>
 
     </div>
-  </div>
 
-  <div class="pricing-popup-bg" data-popup-bg>
-    <div class="pricing-popup">
-      <button class="pricing-popup-close" data-popup-close>×</button>
-      <div class="pricing-popup-title">{et(L, "How credits work")}</div>
-      <div class="pricing-popup-body">
-        {et(L, "Credits are consumed at different rates depending on the action. Enrichment, validation, and intent signals each draw a different number of credits per record.")}
-      </div>
+    <div class="pricing-credits" id="credits">
+      <h3 class="pricing-credits-title">{et(L, "How credits work")}</h3>
+      <p class="pricing-credits-intro">{et(L, "Each step uses credits only when it succeeds. A step that fails costs nothing, and steps already completed are charged.")}</p>
+      <table class="pricing-credits-table">
+        <thead><tr><th scope="col">{et(L, "Action")}</th><th scope="col">{et(L, "Credits")}</th></tr></thead>
+        <tbody>
+          {CREDITS.map(([label, n, note]) => (
+            <tr>
+              <td>{et(L, label)}{note && <span class="pricing-credits-note">{et(L, note)}</span>}</td>
+              <td class="pricing-credits-n">{n === 0 ? et(L, "Free") : nf3.format(n)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p class="pricing-credits-example">{et(L, "Example: sourcing a contact and finding a validated work email uses 6 credits (1 + 5). 50,000 credits cover 50,000 sourced contacts, or about 8,000 with a validated email.")}</p>
     </div>
   </div>
 
@@ -321,13 +341,17 @@ const eur = (n: number) => `€${nf.format(n)}`;
 .pricing-features-name { width: 40%; opacity: 0.85; }
 .pricing-features-value { width: 20%; text-align: center; opacity: 0.7; }
 .pricing-features-x { opacity: 0.25; }
-.pricing-popup-bg { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.5); display: none; align-items: center; justify-content: center; z-index: 9999; }
-.pricing-popup-bg.is-open { display: flex; }
-.pricing-popup { background: var(--neutral-primary); border-radius: 20px; padding: 40px; max-width: 520px; width: 90%; max-height: 80vh; overflow-y: auto; position: relative; }
-.pricing-popup-close { position: absolute; top: 16px; right: 16px; background: transparent; border: none; font-size: 28px; cursor: pointer; opacity: 0.5; padding: 4px 8px; line-height: 1; color: var(--neutral-inverse); }
-.pricing-popup-close:hover { opacity: 1; }
-.pricing-popup-title { font-family: 'Lexend', system-ui, sans-serif; font-size: 22px; font-weight: 500; margin-bottom: 16px; }
-.pricing-popup-body { font-size: 14px; line-height: 1.6; }
+.pricing-credits { max-width: 880px; margin: 40px auto 0; padding: 32px; border: 1px solid var(--pt-hair-strong); border-radius: 20px; background: var(--neutral-primary); }
+.pricing-credits-title { font-family: 'Lexend', system-ui, sans-serif; font-size: 22px; font-weight: 600; margin: 0; }
+.pricing-credits-intro { font-size: 15px; line-height: 1.6; margin: 10px 0 0; opacity: .85; }
+.pricing-credits-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 15px; }
+.pricing-credits-table th { text-align: left; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; opacity: .7; padding: 0 0 10px; }
+.pricing-credits-table th:last-child, .pricing-credits-n { text-align: right; white-space: nowrap; }
+.pricing-credits-table td { padding: 12px 0; border-top: 1px solid var(--pt-hair); vertical-align: top; }
+.pricing-credits-n { font-weight: 600; padding-left: 16px !important; }
+.pricing-credits-note { display: block; font-size: 13px; opacity: .7; margin-top: 4px; }
+.pricing-credits-example { font-size: 14px; line-height: 1.6; margin: 16px 0 0; padding-top: 16px; border-top: 1px solid var(--pt-hair); }
+@media (max-width: 600px) { .pricing-credits { padding: 22px; } }
 @media (max-width: 900px) {
   .pricing-grid-3, .pricing-grid-2 { grid-template-columns: 1fr; max-width: 600px; margin: 0 auto; }
   .pricing-tabs { flex-direction: column; border-bottom: none; gap: 8px; max-width: 100%; }
@@ -366,16 +390,6 @@ const eur = (n: number) => `€${nf.format(n)}`;
       })
     );
 
-    const popupBg = wrap.querySelector('[data-popup-bg]');
-    const popupClose = wrap.querySelector('[data-popup-close]');
-    wrap.querySelectorAll('[data-popup]').forEach((t) =>
-      t.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (popupBg) popupBg.classList.add('is-open');
-      })
-    );
-    if (popupClose) popupClose.addEventListener('click', () => popupBg.classList.remove('is-open'));
-    if (popupBg) popupBg.addEventListener('click', (e) => { if (e.target === popupBg) popupBg.classList.remove('is-open'); });
   }
 
   initPricingTable();
