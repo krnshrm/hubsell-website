@@ -77,7 +77,7 @@ const showToc = tocSetting ?? (toc.length >= 4 && !looksLikeList);
 // computed exactly as in that script, so a changed title gets a fresh preview
 // on LinkedIn and Slack instead of their cached one.
 const firstTopic = (topics ?? [])[0];
-const topicStyle = (TOPICS.topics as Record<string, { label: string; bg: string; ink: string }>)[firstTopic] ?? TOPICS.fallback;
+const topicLabel = (name?: string) => (name ? (TOPICS.labels as Record<string, string>)[name] ?? name : TOPICS.fallbackLabel);
 const ogVersion = createHash('sha1').update(`${title}|${firstTopic ?? ''}`).digest('hex').slice(0, 10);
 const ogImage = `${SITE_URL}/og/insights/${post.id}.png?v=${ogVersion}`;
 
@@ -172,7 +172,7 @@ const articleCrumbs = breadcrumbSchema([
       <div class="post-page__grid">
         <div class="post-page__main">
           <header class="post-page__head">
-            <p class="post-page__topic" style={`--tc-bg:${topicStyle.bg};--tc-ink:${topicStyle.ink}`}>{topicStyle.label}</p>
+            <p class="post-page__topic">{topicLabel(firstTopic)}</p>
             <h1 class="post-page__title">{title}</h1>
             {readTime && <p class="post-page__meta">{readTime}</p>}
             {postAuthors.length > 0 && (
@@ -302,7 +302,7 @@ const articleCrumbs = breadcrumbSchema([
               <a class="post" href={`/insights/${p.id}`}>
                 <TopicCover topic={(p.data.topics ?? [])[0]} />
                 <div class="post__body">
-                  <p class="eyebrow is-accent" style="font-size:.72rem">{TOPICS.topics[(p.data.topics ?? [])[0]]?.label ?? (p.data.topics ?? [])[0] ?? TOPICS.fallback.label}</p>
+                  <p class="eyebrow is-accent" style="font-size:.72rem">{topicLabel((p.data.topics ?? [])[0])}</p>
                   <h3 class="post__title">{p.data.title}</h3>
                   {p.data.readTime && <p class="post__meta">{p.data.readTime}</p>}
                 </div>
@@ -383,10 +383,10 @@ const articleCrumbs = breadcrumbSchema([
   .post-page__byline-text a { color:inherit; text-decoration:none; font-weight:600; }
   .post-page__byline-text a:hover { text-decoration:underline; }
   .post-page__byline-role { display:block; opacity:.6; }
-  /* Topic badge in the topic's cover colour, so a post and its card match. */
+  /* Topic badge in the cover's navy, so a post and its card match. */
   .post-page__topic {
     display:inline-block; margin:0; padding:5px 11px; border-radius:999px;
-    background:var(--tc-bg); color:var(--tc-ink);
+    background:#192341; color:#fefefe;
     font-family:var(--font-body); font-size:12px; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
   }
 

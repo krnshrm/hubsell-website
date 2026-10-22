@@ -19,7 +19,7 @@ const OUT = join(ROOT, 'public/og/insights');
 const MANIFEST = join(OUT, '.manifest.json');
 const TOPICS = JSON.parse(readFileSync(join(ROOT, 'src/data/20261022-1202-blog-topics.json'), 'utf8'));
 // Bump to redraw every image after a layout change below.
-const LAYOUT = '2';
+const LAYOUT = '3';
 
 const font = (pkg, file) => readFileSync(join(ROOT, 'node_modules/@fontsource', pkg, 'files', file));
 const FONTS = [
@@ -103,7 +103,7 @@ for (const file of readdirSync(POSTS).filter((f) => f.endsWith('.md')).sort()) {
   const key = `${version}:${LAYOUT}:${logos.dark ? 'logo' : 'text'}`;
   if (manifest[slug] === key && existsSync(target)) { kept++; continue; }
 
-  const topic = TOPICS.topics[first] ?? TOPICS.fallback;
+  const topic = { ...TOPICS.cover, label: first ? TOPICS.labels[first] ?? first : TOPICS.fallbackLabel };
   const svg = await satori(card({ title, topic, logo: logos[topic.logo] }), { width: 1200, height: 630, fonts: FONTS });
   writeFileSync(target, new Resvg(svg).render().asPng());
   manifest[slug] = key;

@@ -1,18 +1,8 @@
 {
-  "_note": "Blog topic covers. Keys are the topic strings used in post frontmatter. Colours are from src/styles/20261011-2350-hubsell-tokens.css; 'ink' is the text colour on that background. Read by src/components/20261022-1202-TopicCover.astro and scripts/20261022-1202-og-images.mjs.",
-  "fallback": { "label": "B2B sales", "bg": "#192341", "ink": "#fefefe", "logo": "light" },
-  "topics": {
-    "Outbound sales":        { "label": "Outbound sales",        "bg": "#192341", "ink": "#fefefe", "logo": "light" },
-    "Cold email":            { "label": "Cold email",            "bg": "#e86250", "ink": "#192341", "logo": "dark" },
-    "Email deliverability":  { "label": "Email deliverability",  "bg": "#289b9b", "ink": "#192341", "logo": "dark" },
-    "Prospect data":         { "label": "Prospect data",         "bg": "#00b2c5", "ink": "#192341", "logo": "dark" },
-    "Lead generation":       { "label": "Lead generation",       "bg": "#ff9300", "ink": "#192341", "logo": "dark" },
-    "Sales operations":      { "label": "Sales operations",      "bg": "#37415a", "ink": "#fefefe", "logo": "light" },
-    "Multichannel outreach": { "label": "Multichannel outreach", "bg": "#fec65d", "ink": "#192341", "logo": "dark" },
-    "Personalization":       { "label": "Personalisation",       "bg": "#d3d8e5", "ink": "#192341", "logo": "dark" },
-    "Data enrichment":       { "label": "Data enrichment",       "bg": "#64b4b4", "ink": "#192341", "logo": "dark" },
-    "LinkedIn":              { "label": "LinkedIn",              "bg": "#23757e", "ink": "#fefefe", "logo": "light" },
-    "Industry guides":       { "label": "Industry guides",       "bg": "#ffefd9", "ink": "#192341", "logo": "dark" },
-    "Sales skills":          { "label": "Sales skills",          "bg": "#555a73", "ink": "#fefefe", "logo": "light" }
+  "_note": "Blog topic covers. Every cover is navy (owner decision 2026-10-22); only the topic name changes. 'labels' maps a frontmatter topic to its display label where they differ (British spelling); any other topic shows as written. Read by src/components/20261022-1202-TopicCover.astro, src/pages/insights.astro, src/pages/insights/[slug].astro and scripts/20261022-1202-og-images.mjs.",
+  "cover": { "bg": "#192341", "ink": "#fefefe", "logo": "light" },
+  "fallbackLabel": "B2B sales",
+  "labels": {
+    "Personalization": "Personalisation"
   }
 }

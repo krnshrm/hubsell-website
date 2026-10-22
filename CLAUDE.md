@@ -380,12 +380,13 @@ Do not edit the copy; change the style guide and copy the file over again.
   `text-wrap: pretty` (no single word on a last line). Rules at the end of
   `global.css`; do not override them per component.
 - Blog covers (2026-10-22): posts have no images. Cards show a topic cover
-  (`src/components/20261022-1202-TopicCover.astro`), coloured per first topic from
-  `src/data/20261022-1202-blog-topics.json`, and the post header shows the same topic
-  as a badge. Social images are generated before every build by
+  (`src/components/20261022-1202-TopicCover.astro`): navy, with the post's first topic
+  (one colour for every topic, owner decision 2026-10-22), and the post header shows
+  the same topic as a navy badge. Display labels live in
+  `src/data/20261022-1202-blog-topics.json`. Social images are generated before every build by
   `scripts/20261022-1202-og-images.mjs` (Satori) into `public/og/insights/`
-  (git-ignored); run `npm run og` to see them in dev. A new topic needs an entry in the
-  JSON file, or it falls back to navy "B2B sales".
+  (git-ignored); run `npm run og` to see them in dev. A post with no topic shows
+  "B2B sales".
 - Layout wrapper: `.wrap` (max-width 1100px default).
 - Light only. Dark mode was removed on 2026-10-12: `BaseLayout.astro` pins
   `data-theme="light"` and clears any saved choice, and the theme toggle is gone.

@@ -1,6 +1,6 @@
 ---
 // The cover every blog card shows instead of a per-post image: the post's first
-// topic in its own colour, with the hubsell wordmark. A new post needs no
+// topic on navy, with the hubsell wordmark. A new post needs no
 // artwork, and every card in a topic reads the same. Decorative only, so it is
 // hidden from screen readers; the card title is the accessible name.
 // Newsreader must be loaded by the page (insights index and post pages do).
@@ -8,13 +8,15 @@ import TOPICS from '../data/20261022-1202-blog-topics.json';
 
 interface Props { topic?: string; size?: 'card' | 'lead' }
 const { topic, size = 'card' } = Astro.props;
-const t = (topic && TOPICS.topics[topic as keyof typeof TOPICS.topics]) || TOPICS.fallback;
+const labels: Record<string, string> = TOPICS.labels;
+const label = topic ? labels[topic] ?? topic : TOPICS.fallbackLabel;
+const t = TOPICS.cover;
 const logo = `https://assets.hubsell.com/logo/hubsell-wordmark-${t.logo}.svg`;
 ---
 <div class:list={['tcover', size === 'lead' && 'tcover--lead']} style={`--tc-bg:${t.bg};--tc-ink:${t.ink}`} aria-hidden="true">
   <img class="tcover__logo" src={logo} alt="" width="84" height="20" loading="lazy" />
   <span class="tcover__caption">Insights</span>
-  <span class="tcover__topic">{t.label}</span>
+  <span class="tcover__topic">{label}</span>
 </div>
 
 <style>

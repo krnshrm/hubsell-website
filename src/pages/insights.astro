@@ -20,7 +20,7 @@ const [lead, ...rest] = posts;
 // browser only does a substring test. Topics are included so "deliverability" finds
 // posts tagged with it even when the word is not in the title.
 const haystack = (p) =>
-  `${p.data.title} ${p.data.description ?? ''} ${(p.data.topics ?? []).map((t) => `${t} ${TOPICS.topics[t]?.label ?? ''}`).join(' ')}`.toLowerCase();
+  `${p.data.title} ${p.data.description ?? ''} ${(p.data.topics ?? []).map((t) => `${t} ${TOPICS.labels[t] ?? ''}`).join(' ')}`.toLowerCase();
 
 // Topic chips, ordered by how many posts carry each topic so the biggest
 // categories come first. The card eyebrow shows a post's first topic, so the chip
@@ -30,8 +30,8 @@ for (const p of posts) for (const tp of p.data.topics ?? []) topicCounts.set(tp,
 const topics = [...topicCounts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
 const firstTopic = (p) => (p.data.topics ?? [])[0];
 // Display label: the frontmatter keeps "Personalization", the site shows British spelling.
-const topicLabel = (name) => TOPICS.topics[name]?.label ?? name;
-const cardTopic = (p) => topicLabel(firstTopic(p) ?? TOPICS.fallback.label);
+const topicLabel = (name) => TOPICS.labels[name] ?? name;
+const cardTopic = (p) => firstTopic(p) ? topicLabel(firstTopic(p)) : TOPICS.fallbackLabel;
 ---
 <BaseLayout
   title="Insights | hubsell"
