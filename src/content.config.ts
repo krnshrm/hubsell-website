@@ -16,8 +16,8 @@ const insights = defineCollection({
     description: z.string().optional(),         // Webflow: Snippet  (meta + card excerpt)
     summary: z.string().optional(),            // Webflow: Post Summary (kept, not displayed)
     publishedAt: z.coerce.date().optional(),   // Webflow: Published On (re-import dates; not shown)
-    coverImage: z.string().optional(),         // R2 main image (post hero + social card)
-    thumbnail: z.string().optional(),          // R2 thumbnail (overview cards)
+    coverImage: z.string().optional(),         // unused since 2026-10-22 (topic covers + generated social image); kept so old posts still validate
+    thumbnail: z.string().optional(),          // unused since 2026-10-22, see coverImage
     sources: z.string().optional(),            // Sources / image credits HTML block
     featured: z.boolean().default(false),      // Webflow: Featured?
     readTime: z.string().optional(),           // computed, e.g. "8 min read"

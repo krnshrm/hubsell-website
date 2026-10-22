@@ -1,6 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import TopicCover from '../components/20261022-1202-TopicCover.astro';
+import TOPICS from '../data/20261022-1202-blog-topics.json';
 
 // All non-draft posts, featured first, then by date (date is used only for order,
 // it is not shown, the original publish dates were lost in a Webflow re-import).
@@ -13,13 +15,12 @@ const posts = (await getCollection('insights', (p) => !p.data.draft)).sort((a, b
 });
 
 const [lead, ...rest] = posts;
-const cardImage = (p) => p.data.coverImage || p.data.thumbnail;
 
 // Everything the search box matches against, lowercased once at build time so the
 // browser only does a substring test. Topics are included so "deliverability" finds
 // posts tagged with it even when the word is not in the title.
 const haystack = (p) =>
-  `${p.data.title} ${p.data.description ?? ''} ${(p.data.topics ?? []).join(' ')}`.toLowerCase();
+  `${p.data.title} ${p.data.description ?? ''} ${(p.data.topics ?? []).map((t) => `${t} ${TOPICS.topics[t]?.label ?? ''}`).join(' ')}`.toLowerCase();
 
 // Topic chips, ordered by how many posts carry each topic so the biggest
 // categories come first. The card eyebrow shows a post's first topic, so the chip
@@ -27,12 +28,20 @@ const haystack = (p) =>
 const topicCounts = new Map();
 for (const p of posts) for (const tp of p.data.topics ?? []) topicCounts.set(tp, (topicCounts.get(tp) ?? 0) + 1);
 const topics = [...topicCounts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
-const cardTopic = (p) => (p.data.topics ?? [])[0] ?? 'B2B sales';
+const firstTopic = (p) => (p.data.topics ?? [])[0];
+// Display label: the frontmatter keeps "Personalization", the site shows British spelling.
+const topicLabel = (name) => TOPICS.topics[name]?.label ?? name;
+const cardTopic = (p) => topicLabel(firstTopic(p) ?? TOPICS.fallback.label);
 ---
 <BaseLayout
   title="Insights | hubsell"
   description="B2B outbound sales playbooks, deliverability guides, and prospecting tactics from the hubsell team."
 >
+  <link
+    slot="head"
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap"
+  />
   <section class="sec sec--paper" aria-labelledby="insights-title">
     <div class="wrap">
       <div class="sec-head">
@@ -43,9 +52,7 @@ const cardTopic = (p) => (p.data.topics ?? [])[0] ?? 'B2B sales';
 
       {lead && (
         <a class="post post--lead reveal" href={`/insights/${lead.id}`} data-search={haystack(lead)} data-topics={(lead.data.topics ?? []).join('|').toLowerCase()}>
-          {cardImage(lead) && (
-            <img class="post__img" src={cardImage(lead)} alt={lead.data.title} loading="lazy" width="800" height="450" />
-          )}
+          <TopicCover topic={firstTopic(lead)} size="lead" />
           <div class="post__body">
             <p class="eyebrow is-accent" style="font-size:.72rem">{cardTopic(lead)}</p>
             <h2 class="post__title post__title--lead">{lead.data.title}</h2>
@@ -63,7 +70,7 @@ const cardTopic = (p) => (p.data.topics ?? [])[0] ?? 'B2B sales';
         <div class="ins-topics" role="group" aria-label="Filter by topic">
           <button class="ins-chip is-on" type="button" data-topic="">All<span>{posts.length}</span></button>
           {topics.map(([name, count]) => (
-            <button class="ins-chip" type="button" data-topic={name.toLowerCase()}>{name}<span>{count}</span></button>
+            <button class="ins-chip" type="button" data-topic={name.toLowerCase()}>{topicLabel(name)}<span>{count}</span></button>
           ))}
         </div>
       </div>
@@ -73,9 +80,7 @@ const cardTopic = (p) => (p.data.topics ?? [])[0] ?? 'B2B sales';
       <div class="grid grid-3 reveal-stagger" style="margin-top:24px">
         {rest.map((post) => (
           <a class="post" href={`/insights/${post.id}`} data-search={haystack(post)} data-topics={(post.data.topics ?? []).join('|').toLowerCase()}>
-            {cardImage(post) && (
-              <img class="post__img" src={cardImage(post)} alt={post.data.title} loading="lazy" width="400" height="225" />
-            )}
+            <TopicCover topic={firstTopic(post)} />
             <div class="post__body">
               <p class="eyebrow is-accent" style="font-size:.72rem">{cardTopic(post)}</p>
               <h3 class="post__title">{post.data.title}</h3>
@@ -125,15 +130,13 @@ const cardTopic = (p) => (p.data.topics ?? [])[0] ?? 'B2B sales';
   .ins-search input::placeholder{color:var(--sec-tx);opacity:.45}
   .ins-empty{font-family:var(--font-body);color:var(--sec-tx);opacity:.7;margin:22px 0 0}
   .post__meta { font-family:var(--font-body); font-size:12.5px; color:var(--sec-tx); opacity:.55; margin:10px 0 0; }
-  /* text-only cards (no image): a touch more top padding so they do not look empty */
-  .post:not(:has(.post__img)) .post__body { padding-top:24px; }
 
   /* lead / featured card: image and text side by side on wider screens */
   .post--lead { margin-bottom:8px; }
   .post__title--lead { font-size:1.5rem; line-height:1.2; }
   @media (min-width:760px){
     .post--lead { flex-direction:row; align-items:stretch; }
-    .post--lead .post__img { width:54%; height:auto; }
+    .post--lead > :global(.tcover) { width:54%; flex:none; }
     .post--lead .post__body { flex:1; padding:32px 34px; display:flex; flex-direction:column; justify-content:center; }
     .post__title--lead { font-size:1.7rem; }
     .post--lead .post__excerpt { font-size:15px; margin-top:4px; }

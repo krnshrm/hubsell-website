@@ -13,3 +13,6 @@ asset-map.json
 *client_secret*.json
 application_default_credentials.json
 .env
+
+# generated at build by scripts/20261022-1202-og-images.mjs
+public/og/

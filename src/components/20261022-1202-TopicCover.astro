@@ -1,0 +1,50 @@
+---
+// The cover every blog card shows instead of a per-post image: the post's first
+// topic in its own colour, with the hubsell wordmark. A new post needs no
+// artwork, and every card in a topic reads the same. Decorative only, so it is
+// hidden from screen readers; the card title is the accessible name.
+// Newsreader must be loaded by the page (insights index and post pages do).
+import TOPICS from '../data/20261022-1202-blog-topics.json';
+
+interface Props { topic?: string; size?: 'card' | 'lead' }
+const { topic, size = 'card' } = Astro.props;
+const t = (topic && TOPICS.topics[topic as keyof typeof TOPICS.topics]) || TOPICS.fallback;
+const logo = `https://assets.hubsell.com/logo/hubsell-wordmark-${t.logo}.svg`;
+---
+<div class:list={['tcover', size === 'lead' && 'tcover--lead']} style={`--tc-bg:${t.bg};--tc-ink:${t.ink}`} aria-hidden="true">
+  <img class="tcover__logo" src={logo} alt="" width="84" height="20" loading="lazy" />
+  <span class="tcover__caption">Insights</span>
+  <span class="tcover__topic">{t.label}</span>
+</div>
+
+<style>
+  .tcover {
+    position:relative; overflow:hidden; aspect-ratio:16 / 9; width:100%;
+    background:var(--tc-bg); color:var(--tc-ink);
+    display:flex; flex-direction:column; justify-content:space-between;
+    padding:clamp(16px,2.4vw,22px);
+  }
+  /* Two quiet rings in the corner so the panel is not a flat block of colour. */
+  .tcover::before, .tcover::after {
+    content:''; position:absolute; border-radius:50%; pointer-events:none;
+    border:1.5px solid color-mix(in srgb,var(--tc-ink) 16%,transparent);
+  }
+  .tcover::before { width:72%; aspect-ratio:1; right:-22%; bottom:-48%; }
+  .tcover::after { width:44%; aspect-ratio:1; right:-6%; bottom:-22%; }
+  .tcover__logo { position:relative; width:84px; height:auto; display:block; }
+  .tcover__caption {
+    position:absolute; top:clamp(16px,2.4vw,22px); right:clamp(16px,2.4vw,22px);
+    font-family:var(--font-body); font-size:11px; font-weight:600; letter-spacing:.08em;
+    text-transform:uppercase; opacity:.75;
+  }
+  .tcover__topic {
+    position:relative; max-width:80%;
+    font-family:'Newsreader', Georgia, 'Times New Roman', serif; font-weight:500;
+    font-size:clamp(1.6rem,2.6vw,2.1rem); line-height:1.05; letter-spacing:-.01em;
+  }
+  .tcover--lead .tcover__topic { font-size:clamp(2rem,4vw,3rem); }
+  .tcover--lead .tcover__logo { width:100px; }
+  @media (min-width:760px) {
+    .tcover--lead { aspect-ratio:auto; min-height:100%; }
+  }
+</style>

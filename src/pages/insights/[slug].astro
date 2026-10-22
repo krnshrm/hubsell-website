@@ -5,7 +5,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import WaitlistForm from '../../components/WaitlistForm.astro';
 import { SITE_URL, breadcrumbSchema } from '../../data/seo';
-import { SIGNUP_URL, AUTHORS } from '../../data/site';
+import { AUTHORS, TRIAL_URL, DEMO_URL } from '../../data/site';
+import TopicCover from '../../components/20261022-1202-TopicCover.astro';
+import TOPICS from '../../data/20261022-1202-blog-topics.json';
+import { createHash } from 'node:crypto';
 
 export async function getStaticPaths() {
   const posts = (await getCollection('insights', (p) => !p.data.draft)).sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
@@ -13,7 +16,7 @@ export async function getStaticPaths() {
 }
 
 const { post, posts } = Astro.props;
-const { title, description, coverImage, thumbnail, sources, readTime, summary, cta, publishedAt, topics, author, coAuthors, toc: tocSetting } = post.data;
+const { title, description, sources, readTime, summary, cta, publishedAt, topics, author, coAuthors, toc: tocSetting } = post.data;
 
 // Resolve the byline: main author first, then any co-authors, in that order.
 // Unknown keys are dropped rather than throwing, so a typo in frontmatter costs
@@ -69,20 +72,24 @@ const bodyWithAnchors = bodyHtml.replace(
 const numberedHeadings = toc.filter((h) => /^\d+[.)]\s/.test(h.text)).length;
 const looksLikeList = toc.length > 0 && numberedHeadings / toc.length > 0.5;
 const showToc = tocSetting ?? (toc.length >= 4 && !looksLikeList);
-const heroImage = coverImage || thumbnail;
+// Posts carry no images: cards show a topic cover, and the social image is
+// generated at build by scripts/20261022-1202-og-images.mjs. The ?v= hash must be
+// computed exactly as in that script, so a changed title gets a fresh preview
+// on LinkedIn and Slack instead of their cached one.
+const firstTopic = (topics ?? [])[0];
+const topicStyle = (TOPICS.topics as Record<string, { label: string; bg: string; ink: string }>)[firstTopic] ?? TOPICS.fallback;
+const ogVersion = createHash('sha1').update(`${title}|${firstTopic ?? ''}`).digest('hex').slice(0, 10);
+const ogImage = `${SITE_URL}/og/insights/${post.id}.png?v=${ogVersion}`;
 
-// Two related posts: prefer ones that share a topic with this post (and have an
-// image), then fall back to the previous image-preferred rotation so every post
-// still gets two picks.
-const cardImg = (p) => p.data.thumbnail || p.data.coverImage;
+// Two related posts: prefer ones that share a topic with this post, then fall
+// back to a rotation through the rest so every post still gets two picks.
 const myTopics = new Set(post.data.topics || []);
 const others = posts.filter((p) => p.id !== post.id);
 const sharedCount = (p) => (p.data.topics || []).filter((t) => myTopics.has(t)).length;
 const byTopic = others
   .filter((p) => sharedCount(p) > 0)
-  .sort((a, b) => (sharedCount(b) - sharedCount(a)) || ((cardImg(b) ? 1 : 0) - (cardImg(a) ? 1 : 0)));
-const withImg = others.filter((p) => cardImg(p));
-const pool = withImg.length >= 2 ? withImg : others;
+  .sort((a, b) => sharedCount(b) - sharedCount(a));
+const pool = others;
 const off = pool.length ? [...post.id].reduce((a, c) => a + c.charCodeAt(0), 0) % pool.length : 0;
 const rotation = pool.length ? [pool[off], pool[(off + 1) % pool.length]] : [];
 const related = [...new Map([...byTopic, ...rotation].filter(Boolean).map((p) => [p.id, p])).values()].slice(0, 2);
@@ -123,7 +130,7 @@ const articleSchema = {
   '@type': 'Article',
   headline: title,
   description,
-  ...(coverImage ? { image: [coverImage] } : {}),
+  image: [ogImage],
   ...(publishedAt ? { datePublished: publishedAt.toISOString().slice(0, 10) } : {}),
   author: postAuthors.length
     ? postAuthors.map((a) => ({
@@ -148,7 +155,7 @@ const articleCrumbs = breadcrumbSchema([
   { name: title, url: `/insights/${post.id}` },
 ]);
 ---
-<BaseLayout title={`${title} | hubsell`} description={description} ogImage={coverImage} ogType="article">
+<BaseLayout title={`${title} | hubsell`} description={description} ogImage={ogImage} ogType="article">
 {/* set:html injects a string as raw HTML with no escaping, so it is used
     only for the migrated post bodies, which come from this repo. */}
   <link
@@ -165,7 +172,7 @@ const articleCrumbs = breadcrumbSchema([
       <div class="post-page__grid">
         <div class="post-page__main">
           <header class="post-page__head">
-            <p class="eyebrow is-accent">B2B sales</p>
+            <p class="post-page__topic" style={`--tc-bg:${topicStyle.bg};--tc-ink:${topicStyle.ink}`}>{topicStyle.label}</p>
             <h1 class="post-page__title">{title}</h1>
             {readTime && <p class="post-page__meta">{readTime}</p>}
             {postAuthors.length > 0 && (
@@ -198,10 +205,6 @@ const articleCrumbs = breadcrumbSchema([
               </div>
             )}
           </header>
-
-          {heroImage && (
-            <img class="post-page__cover" src={heroImage} alt={title} width="1200" height="675" />
-          )}
 
           <div class="prose" set:html={bodyWithAnchors} />
 
@@ -270,6 +273,13 @@ const articleCrumbs = breadcrumbSchema([
         )}
 
         <aside class="post-page__aside">
+          <div class="post-aside-stack">
+          <div class="post-aside-card post-aside-card--trial">
+            <p class="post-aside-card__title">Want to run this with hubsell?</p>
+            <p class="post-aside-card__text">Live data, email and LinkedIn in one Flow, and every touch logged to your CRM.</p>
+            <a class="button" href={TRIAL_URL}>Start free trial</a>
+            <a class="post-aside-card__alt link" href={DEMO_URL}>Or book a demo</a>
+          </div>
           <div class="post-aside-card">
             <p class="post-aside-card__title">Get the next one in your inbox</p>
             <p class="post-aside-card__text">New posts on outbound, deliverability, and B2B data. No noise, unsubscribe anytime.</p>
@@ -280,6 +290,7 @@ const articleCrumbs = breadcrumbSchema([
               help=""
             />
           </div>
+          </div>
         </aside>
       </div>
 
@@ -289,11 +300,9 @@ const articleCrumbs = breadcrumbSchema([
           <div class="post-related__grid">
             {related.map((p) => (
               <a class="post" href={`/insights/${p.id}`}>
-                {cardImg(p) && (
-                  <img class="post__img" src={cardImg(p)} alt={p.data.title} loading="lazy" width="400" height="225" />
-                )}
+                <TopicCover topic={(p.data.topics ?? [])[0]} />
                 <div class="post__body">
-                  <p class="eyebrow is-accent" style="font-size:.72rem">{(p.data.topics && p.data.topics[0]) || 'B2B sales'}</p>
+                  <p class="eyebrow is-accent" style="font-size:.72rem">{TOPICS.topics[(p.data.topics ?? [])[0]]?.label ?? (p.data.topics ?? [])[0] ?? TOPICS.fallback.label}</p>
                   <h3 class="post__title">{p.data.title}</h3>
                   {p.data.readTime && <p class="post__meta">{p.data.readTime}</p>}
                 </div>
@@ -374,20 +383,22 @@ const articleCrumbs = breadcrumbSchema([
   .post-page__byline-text a { color:inherit; text-decoration:none; font-weight:600; }
   .post-page__byline-text a:hover { text-decoration:underline; }
   .post-page__byline-role { display:block; opacity:.6; }
-  .post-page__cover {
-    display:block; width:100%; max-width:100%; margin:0 0 8px;
-    height:auto; border-radius:var(--radius-lg);
-    border:1px solid var(--sec-bd); background:color-mix(in srgb,var(--sec-tx) 6%,transparent);
+  /* Topic badge in the topic's cover colour, so a post and its card match. */
+  .post-page__topic {
+    display:inline-block; margin:0; padding:5px 11px; border-radius:999px;
+    background:var(--tc-bg); color:var(--tc-ink);
+    font-family:var(--font-body); font-size:12px; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
   }
 
-  /* Sticky subscribe card in the right column. */
+  /* Right column: trial card above the subscribe card, sticky together. */
+  .post-aside-stack { position:sticky; top:92px; display:flex; flex-direction:column; gap:16px; }
   .post-aside-card {
-    position:sticky; top:92px;
     background:var(--sec-card); border:1px solid var(--sec-bd); border-radius:var(--radius-lg); padding:24px;
   }
   .post-aside-card__title { font-family:var(--font-head); font-weight:600; font-size:1.15rem; line-height:1.3; color:var(--sec-tx); margin:0 0 8px; }
   .post-aside-card__text { font-family:var(--font-body); font-size:14px; line-height:1.55; color:var(--sec-tx); opacity:.72; margin:0 0 16px; }
   .post-aside-card .button { width:100%; justify-content:center; }
+  .post-aside-card__alt { display:block; margin-top:12px; text-align:center; font-size:14px; }
 
   /* Reading column: serif body (Newsreader), brand headings (Lexend). */
   .prose {
@@ -500,7 +511,7 @@ const articleCrumbs = breadcrumbSchema([
     .post-page__main { grid-column:auto; }
     .post-page__aside { grid-column:auto; grid-row:auto; }
     .post-page__toc-col { grid-column:auto; order:-1; }
-    .post-aside-card { position:static; }
+    .post-aside-stack { position:static; }
     .post-toc { position:static; }
     .post-toc__list { max-height:none; columns:1; }
   }
