@@ -305,7 +305,8 @@ async function notifyTeam(
         to: env.NOTIFY_EMAIL,
         subject,
         body,
-        subscribed: false,
+        // No `subscribed` here: passing false would mark the team inbox
+        // contact as unsubscribed in Plunk on every form submission.
         reply: email, // reply goes straight to the person who submitted
         ...(env.PLUNK_FROM ? { from: env.PLUNK_FROM } : {}),
       }),
