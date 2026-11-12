@@ -115,9 +115,10 @@ a page is performing:
 - **B2C industries.** The product only works for companies selling to other
   businesses.
 - **Markets we do not sell into.** Customers are concentrated in Europe, the site is
-  localised for de and nl, and pricing is EUR-denominated at European B2B SaaS levels.
+  localised for de and nl (fr, es and Brazilian pt planned), and pricing is EUR-denominated
+  at European B2B SaaS levels.
   **Target markets:** the 27 EU member states, plus the United Kingdom, Switzerland,
-  Norway, the United States and Canada. Everything else is out of market: report it
+  Norway, the United States, Canada and Brazil (Brazil added 2026-11-12). Everything else is out of market: report it
   as one total and exclude it when judging a page. The GA4 (`countryId`) and GSC
   (`country`) code lists are in `docs/20261009-1447-SITE-ANALYSIS-PLAYBOOK.md`.
 
