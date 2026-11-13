@@ -234,9 +234,11 @@ These are not theoretical. Each one distorted a real pull on 2026-09-17.
 ```bash
 npm install
 npm run dev        # http://localhost:4321
-npm run build      # runs "prebuild" (scripts/check-email-rules.mjs) then astro build -> dist/
+npm run build      # "prebuild" (scripts/check-email-rules.mjs), astro build -> dist/, then "postbuild" (term check)
 npm run preview
 npm run check:email   # email-domain rule self-test, standalone
+npm run check:terms   # app terms and form of address in the built pages (runs after every build)
+npm run terms         # regenerate the app term list from ../hubsell-client (origin/main)
 ```
 
 `prebuild` fails the build if the installed `hs-block` version is behind what
@@ -320,6 +322,30 @@ counterparts, in a parallel folder.
   full term lists).
   fr: French from France, "vous"/"votre". es: Spanish from Spain, "tú". pt: Brazilian
   Portuguese, "você". Spelling, vocabulary and number/date formats follow those countries.
+- Formats for fr, es and pt (2026-11-13), the same as the app's `Intl` output:
+  fr: `120 €`, `4 320 €` (space as thousands separator, decimal comma), `95 %`,
+  dates as "13 juin 2026", a non-breaking space before `:` `;` `?` `!`, quotes « ».
+  es: `120 €`, `4.320 €` (decimal comma), `95 %`, dates as "13 de junio de 2026",
+  opening `¿` and `¡`.
+  pt: `€ 120`, `€ 4.320` (decimal comma), `95%`, dates as "13 de junho de 2026",
+  Brazilian spelling and words (contato, usuário, equipe, tela, arquivo, registro).
+  In all three: lowercase "hubsell", sentence case headings, plan names (Start, Grow,
+  Scale) and "Flow" stay as they are.
+- **App terms** (2026-11-13): `docs/20261113-1401-APP-TERMS.md` lists the app's word for
+  each product term in all six languages. It is generated from hubsell-client's message
+  files by `npm run terms` (which terms: `scripts/20261113-1401-app-terms.config.mjs`);
+  run it again when the app's messages change. Use the word in that list. Where the
+  older term lists in `docs/HANDOFF.md` and `docs/SITEMAP.md` say something else, the
+  app's word wins.
+- **Term check:** `npm run build` ends with `scripts/20261113-1401-check-app-terms.mjs`
+  ("postbuild"), which reads the built pages under `dist/<locale>/` for words to avoid
+  (`avoid` in the config), the wrong form of address and European Portuguese. Findings
+  fail the build for the languages in `enforce` (fr, es, pt from the start; de and nl
+  only report until their live copy is rewritten, then add them). Text that is right as
+  it is (a customer quote, a competitor's "sequence") goes into `allow` with the reason.
+  `npm run check:terms -- --pairs` also compares each translated page with its English
+  page and lists where the English uses an app term and the translation uses another
+  word; that list never fails a build.
 
 ## Forms and the server function
 
@@ -550,6 +576,7 @@ Notes:
 |---|---|
 | `docs/HANDOFF.md` | status, backlog, standing rules, locked decisions. The most complete single reference. |
 | `docs/SITEMAP.md` | per-page site map, migration history, full i18n term lists |
+| `docs/20261113-1401-APP-TERMS.md` | the app's word for each product term in six languages (generated, with `docs/20261113-1401-app-terms.json` for the check) |
 | `docs/20260724-1425-CODEBASE-FLOWCHART.md` | Mermaid maps of the build and render flow |
 | `docs/20260724-1520-SEARCH-CONSOLE.md` | GSC state, the 403 incident, indexing reports |
 | `docs/BOT-PROTECTION.md` | honeypot, fill time, Turnstile, Cloudflare bot settings |
