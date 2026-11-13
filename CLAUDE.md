@@ -115,9 +115,11 @@ a page is performing:
 - **B2C industries.** The product only works for companies selling to other
   businesses.
 - **Markets we do not sell into.** Customers are concentrated in Europe, the site is
-  localised for de and nl, and pricing is EUR-denominated at European B2B SaaS levels.
+  localised for de and nl (planned: French from France, Spanish from Spain and Brazilian
+  Portuguese, the same variants as the app), and pricing is EUR-denominated
+  at European B2B SaaS levels.
   **Target markets:** the 27 EU member states, plus the United Kingdom, Switzerland,
-  Norway, the United States and Canada. Everything else is out of market: report it
+  Norway, the United States, Canada and Brazil (Brazil added 2026-11-12). Everything else is out of market: report it
   as one total and exclude it when judging a page. The GA4 (`countryId`) and GSC
   (`country`) code lists are in `docs/20261009-1447-SITE-ANALYSIS-PLAYBOOK.md`.
 
@@ -307,13 +309,17 @@ counterparts, in a parallel folder.
 - Internal links go through `localizedHref(locale, '/path')`.
 - `embed-i18n.ts` keys off the exact English string; when you edit an English string
   that passes through `et()`, move the de and nl keys in the same change.
-- de: third person, no direct address (since 2026-10-13; was formal "Sie"). hubsell or
-  the team is the subject, or a "wer ..." clause, passive, or a noun phrase. A
-  subjectless verb ("Startet mit ...") only after a sentence that names hubsell, never
-  in headings or buttons. Customer quotes stay as said. Lowercase "hubsell", German
-  number and date formatting.
-  nl: formal "u"/"uw", decimal comma, specific terms kept in English (see
-  `docs/HANDOFF.md` and `docs/SITEMAP.md` for the full term lists).
+- **The website follows the app** (owner decision 2026-11-13): same form of address and the
+  same terms as hubsell-client's message files (`src/i18n/messages/<locale>/`). When in
+  doubt, ask the owner. Pages still written in the old style are rewritten on the
+  `website-languages` plan; until then, new or edited copy uses the rules below.
+- de: formal "Sie" (as in the app; replaces the third-person rule of 2026-10-13).
+  Customer quotes stay as said. Lowercase "hubsell", German number and date formatting.
+  nl: informal "je"/"jouw" (as in the app; replaces formal "u"/"uw"), decimal comma,
+  specific terms kept in English (see `docs/HANDOFF.md` and `docs/SITEMAP.md` for the
+  full term lists).
+  fr: French from France, "vous"/"votre". es: Spanish from Spain, "tú". pt: Brazilian
+  Portuguese, "você". Spelling, vocabulary and number/date formats follow those countries.
 
 ## Forms and the server function
 
