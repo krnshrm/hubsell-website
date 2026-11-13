@@ -132,4 +132,11 @@ export const allow = [
   { locale: 'de', page: '/de/vs/cognism/', word: 'Sequenzen', why: 'describes what the competitor lacks (tool category)' },
   { locale: 'nl', page: '/nl/vs/cognism/', word: 'sequenties', why: 'describes what the competitor lacks (tool category)' },
   { locale: 'de', text: 'in einem bestimmten Ablauf nutzen', why: 'customer quote (Verhaert), stays as said' },
+  { locale: 'nl', text: 'ondersteunen u bij uw hele aanpak', why: 'customer quote (Staffbase), stays as said' },
+  { locale: 'nl', text: 'Ze kunnen echt met u samenwerken', why: 'customer quote (Staffbase), stays as said' },
+  { locale: 'nl', text: 'als u met een klein team echte resultaten wilt halen', why: 'customer quote (Elium), stays as said' },
+  // The pricing table lists flow nodes under their product names, which stay
+  // English in every language (src/data/pricing-features.ts).
+  { locale: 'de', page: '/de/pricing/', word: 'email', why: 'node names in the pricing table stay English' },
+  { locale: 'nl', page: '/nl/pricing/', word: 'email', why: 'node names in the pricing table stay English' },
 ];

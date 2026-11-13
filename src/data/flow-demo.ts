@@ -77,7 +77,7 @@ export const RATES = {
 // ---- copy, per locale ----
 // The demo is chrome around sample data, so everything a visitor reads lives
 // here: source tabs, node titles, stat labels, waits. German is third person, with no direct
-// address and a lowercase "hubsell"; Dutch is formal (u) and keeps LinkedIn, CRM and
+// address and a lowercase "hubsell"; Dutch is informal (je) and keeps LinkedIn, CRM and
 // credits in English. Stat labels sit three to a card, so they are kept to
 // about ten letters in every language.
 type SourceCopy = { tab: string; label: string; detail: string; crumb: string };
@@ -140,7 +140,7 @@ export const FLOW_COPY: Record<'en' | 'de' | 'nl', FlowCopy> = {
       source: 'Quelle', found: 'Gefunden', rows: 'Zeilen', importCsv: 'CSV importieren',
       qualify: 'Mit KI qualifizieren', qualifySub: 'Abgleich mit dem Idealkunden', checked: 'Geprüft', qualified: 'Passend', notFit: 'Unpassend',
       enrich: 'Anreichern', enrichSub: 'Verifizierte E-Mail, Telefon optional', emails: 'E-Mails', phones: 'Telefon',
-      connect: 'Kontaktanfrage', connectSub: 'LinkedIn-Einladung', sent: 'Gesendet', accepted: 'Angenommen', notAccepted: 'Offen',
+      connect: 'Vernetzungsanfrage', connectSub: 'LinkedIn-Einladung', sent: 'Gesendet', accepted: 'Angenommen', notAccepted: 'Offen',
       cond: 'Folgebedingungen', condSub: 'In 7 Tagen angenommen?',
       wait1: 'Warten: 1 Tag', wait2: 'Warten: 2 Tage', wait3: 'Warten: 3 Tage', wait7: 'Warten: 7 Tage',
       dm: 'Direktnachricht', dmSub: 'LinkedIn-Nachricht', replied: 'Antworten',
@@ -170,7 +170,7 @@ export const FLOW_COPY: Record<'en' | 'de' | 'nl', FlowCopy> = {
     },
     n: {
       source: 'Bron', found: 'Gevonden', rows: 'Rijen', importCsv: 'CSV importeren',
-      qualify: 'Kwalificeren met AI', qualifySub: 'Getoetst aan uw ideale klant', checked: 'Bekeken', qualified: 'Passend', notFit: 'Past niet',
+      qualify: 'Kwalificeren met AI', qualifySub: 'Getoetst aan je ideale klant', checked: 'Bekeken', qualified: 'Passend', notFit: 'Past niet',
       enrich: 'Verrijken', enrichSub: 'Geverifieerd e-mailadres, telefoon optioneel', emails: 'E-mails', phones: 'Telefoon',
       connect: 'Connectieverzoek', connectSub: 'LinkedIn-uitnodiging', sent: 'Verstuurd', accepted: 'Aanvaard', notAccepted: 'Open',
       cond: 'Vervolgcondities', condSub: 'Binnen 7 dagen aanvaard?',
@@ -178,7 +178,7 @@ export const FLOW_COPY: Record<'en' | 'de' | 'nl', FlowCopy> = {
       dm: 'Direct bericht', dmSub: 'LinkedIn-bericht', replied: 'Antwoorden',
       withdraw: 'Connectie intrekken', withdrawSub: 'Openstaande uitnodiging intrekken', withdrawn: 'Ingetrokken',
       email: 'E-mail versturen', emailSub: 'Iedereen zonder antwoord', emailSubAll: 'Iedereen met een e-mailadres', opened: 'Geopend',
-      call: 'Beltaak', callSub: 'Aangemaakt in uw CRM', tasks: 'Aangemaakte taken',
+      call: 'Beltaak', callSub: 'Aangemaakt in je CRM', tasks: 'Aangemaakte taken',
       sync: 'CRM-sync', syncSub: 'HubSpot, Salesforce of Pipedrive', synced: 'In CRM', replies: 'Antwoorden', meetings: 'Afspraken',
       verify: 'Data controleren', verifySub: 'E-mails en LinkedIn-URL’s controleren', validEmail: 'E-mail geldig', validProfile: 'Profiel geldig',
       enrichGaps: 'Ontbrekende data verrijken', enrichGapsSub: 'Alleen rijen met hiaten', profiles: 'Profielen',
