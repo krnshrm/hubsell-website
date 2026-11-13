@@ -1,0 +1,1722 @@
+{
+  "source": {
+    "repo": "hubsell-client",
+    "ref": "origin/main",
+    "commit": "938a2d9",
+    "date": "2026-11-13",
+    "path": "src/i18n/messages"
+  },
+  "locales": [
+    "en",
+    "de",
+    "nl",
+    "fr",
+    "es",
+    "pt"
+  ],
+  "terms": [
+    {
+      "id": "dashboard",
+      "group": "Navigation",
+      "keys": [
+        "nav.dashboard"
+      ],
+      "en": [
+        "Dashboard"
+      ],
+      "de": [
+        "Dashboard"
+      ],
+      "nl": [
+        "Dashboard"
+      ],
+      "fr": [
+        "Tableau de bord"
+      ],
+      "es": [
+        "Panel"
+      ],
+      "pt": [
+        "Painel"
+      ]
+    },
+    {
+      "id": "source-enrich",
+      "group": "Navigation",
+      "keys": [
+        "nav.sourceEnrich"
+      ],
+      "en": [
+        "Source & Enrich"
+      ],
+      "de": [
+        "Daten finden & anreichern"
+      ],
+      "nl": [
+        "Vinden & verrijken"
+      ],
+      "fr": [
+        "Sourcer et enrichir"
+      ],
+      "es": [
+        "Buscar y enriquecer"
+      ],
+      "pt": [
+        "Encontrar e enriquecer"
+      ]
+    },
+    {
+      "id": "orchestrate-engage",
+      "group": "Navigation",
+      "keys": [
+        "nav.orchestrateEngage"
+      ],
+      "en": [
+        "Orchestrate & Engage"
+      ],
+      "de": [
+        "Steuern & ansprechen"
+      ],
+      "nl": [
+        "Aansturen & benaderen"
+      ],
+      "fr": [
+        "Orchestrer et engager"
+      ],
+      "es": [
+        "Orquestar e interactuar"
+      ],
+      "pt": [
+        "Orquestrar e engajar"
+      ]
+    },
+    {
+      "id": "settings",
+      "group": "Navigation",
+      "keys": [
+        "breadcrumb.settings"
+      ],
+      "en": [
+        "Settings"
+      ],
+      "de": [
+        "Einstellungen"
+      ],
+      "nl": [
+        "Instellingen"
+      ],
+      "fr": [
+        "Paramètres"
+      ],
+      "es": [
+        "Configuración"
+      ],
+      "pt": [
+        "Configurações"
+      ]
+    },
+    {
+      "id": "onboarding",
+      "group": "Navigation",
+      "keys": [
+        "breadcrumb.onboarding"
+      ],
+      "en": [
+        "Onboarding"
+      ],
+      "de": [
+        "Onboarding"
+      ],
+      "nl": [
+        "Onboarding"
+      ],
+      "fr": [
+        "Prise en main"
+      ],
+      "es": [
+        "Primeros pasos"
+      ],
+      "pt": [
+        "Primeiros passos"
+      ]
+    },
+    {
+      "id": "statistics",
+      "group": "Navigation",
+      "keys": [
+        "breadcrumb.statistics"
+      ],
+      "en": [
+        "Statistics"
+      ],
+      "de": [
+        "Statistiken"
+      ],
+      "nl": [
+        "Statistieken"
+      ],
+      "fr": [
+        "Statistiques"
+      ],
+      "es": [
+        "Estadísticas"
+      ],
+      "pt": [
+        "Estatísticas"
+      ]
+    },
+    {
+      "id": "add-data",
+      "group": "Navigation",
+      "keys": [
+        "breadcrumb.add-data"
+      ],
+      "en": [
+        "Add data"
+      ],
+      "de": [
+        "Daten hinzufügen"
+      ],
+      "nl": [
+        "Gegevens toevoegen"
+      ],
+      "fr": [
+        "Ajouter des données"
+      ],
+      "es": [
+        "Añadir datos"
+      ],
+      "pt": [
+        "Adicionar dados"
+      ]
+    },
+    {
+      "id": "import-csv",
+      "group": "Navigation",
+      "keys": [
+        "breadcrumb.CSV-import"
+      ],
+      "en": [
+        "Import CSV"
+      ],
+      "de": [
+        "CSV importieren"
+      ],
+      "nl": [
+        "CSV importeren"
+      ],
+      "fr": [
+        "Importer un CSV"
+      ],
+      "es": [
+        "Importar CSV"
+      ],
+      "pt": [
+        "Importar CSV"
+      ]
+    },
+    {
+      "id": "contact",
+      "group": "Main nouns",
+      "keys": [
+        "contacts.columnLabels.fullName",
+        "nav.contacts"
+      ],
+      "en": [
+        "Contact",
+        "Contacts"
+      ],
+      "de": [
+        "Kontakt",
+        "Kontakte"
+      ],
+      "nl": [
+        "Contact",
+        "Contacten"
+      ],
+      "fr": [
+        "Contact",
+        "Contacts"
+      ],
+      "es": [
+        "Contacto",
+        "Contactos"
+      ],
+      "pt": [
+        "Contato",
+        "Contatos"
+      ],
+      "pair": true
+    },
+    {
+      "id": "company",
+      "group": "Main nouns",
+      "keys": [
+        "contacts.columnLabels.companyLegalName",
+        "breadcrumb.companies"
+      ],
+      "en": [
+        "Company",
+        "Companies"
+      ],
+      "de": [
+        "Unternehmen"
+      ],
+      "nl": [
+        "Bedrijf",
+        "Bedrijven"
+      ],
+      "fr": [
+        "Entreprise",
+        "Entreprises"
+      ],
+      "es": [
+        "Empresa",
+        "Empresas"
+      ],
+      "pt": [
+        "Empresa",
+        "Empresas"
+      ]
+    },
+    {
+      "id": "list",
+      "group": "Main nouns",
+      "keys": [
+        "data.searches.filterConfig.list",
+        "nav.lists"
+      ],
+      "en": [
+        "List",
+        "Lists"
+      ],
+      "de": [
+        "Liste",
+        "Listen"
+      ],
+      "nl": [
+        "Lijst",
+        "Lijsten"
+      ],
+      "fr": [
+        "Liste",
+        "Listes"
+      ],
+      "es": [
+        "Lista",
+        "Listas"
+      ],
+      "pt": [
+        "Lista",
+        "Listas"
+      ],
+      "pair": true,
+      "match": {
+        "nl": [
+          "lijst"
+        ]
+      }
+    },
+    {
+      "id": "search",
+      "group": "Main nouns",
+      "keys": [
+        "nav.searches"
+      ],
+      "en": [
+        "Searches"
+      ],
+      "de": [
+        "Suchen"
+      ],
+      "nl": [
+        "Zoekopdrachten"
+      ],
+      "fr": [
+        "Recherches"
+      ],
+      "es": [
+        "Búsquedas"
+      ],
+      "pt": [
+        "Pesquisas"
+      ]
+    },
+    {
+      "id": "flow",
+      "group": "Main nouns",
+      "keys": [
+        "contacts.columnLabels.flowName",
+        "nav.flows"
+      ],
+      "en": [
+        "Flow",
+        "Flows"
+      ],
+      "de": [
+        "Flow",
+        "Flows"
+      ],
+      "nl": [
+        "Flow",
+        "Flows"
+      ],
+      "fr": [
+        "Flow",
+        "Flows"
+      ],
+      "es": [
+        "Flow",
+        "Flows"
+      ],
+      "pt": [
+        "Flow",
+        "Flows"
+      ],
+      "pair": true
+    },
+    {
+      "id": "task",
+      "group": "Main nouns",
+      "keys": [
+        "flowEditor.library.customTask.label",
+        "nav.tasks"
+      ],
+      "en": [
+        "Task",
+        "Tasks"
+      ],
+      "de": [
+        "Aufgabe",
+        "Aufgaben"
+      ],
+      "nl": [
+        "Taak",
+        "Taken"
+      ],
+      "fr": [
+        "Tâche",
+        "Tâches"
+      ],
+      "es": [
+        "Tarea",
+        "Tareas"
+      ],
+      "pt": [
+        "Tarefa",
+        "Tarefas"
+      ],
+      "pair": true,
+      "match": {
+        "nl": [
+          "taak",
+          "taken"
+        ]
+      }
+    },
+    {
+      "id": "template",
+      "group": "Main nouns",
+      "keys": [
+        "settings.company.roles.groups.templates"
+      ],
+      "en": [
+        "Templates"
+      ],
+      "de": [
+        "Vorlagen"
+      ],
+      "nl": [
+        "Sjablonen"
+      ],
+      "fr": [
+        "Modèles"
+      ],
+      "es": [
+        "Plantillas"
+      ],
+      "pt": [
+        "Modelos"
+      ],
+      "pair": true,
+      "match": {
+        "de": [
+          "vorlage"
+        ],
+        "nl": [
+          "sjablo"
+        ],
+        "fr": [
+          "modèle"
+        ],
+        "es": [
+          "plantilla"
+        ],
+        "pt": [
+          "modelo"
+        ]
+      },
+      "enMatch": [
+        "template",
+        "templates"
+      ]
+    },
+    {
+      "id": "tag",
+      "group": "Main nouns",
+      "keys": [
+        "contacts.columnLabels.tags"
+      ],
+      "en": [
+        "Tags"
+      ],
+      "de": [
+        "Tags"
+      ],
+      "nl": [
+        "Tags"
+      ],
+      "fr": [
+        "Tags"
+      ],
+      "es": [
+        "Etiquetas"
+      ],
+      "pt": [
+        "Tags"
+      ]
+    },
+    {
+      "id": "export",
+      "group": "Main nouns",
+      "keys": [
+        "breadcrumb.exports"
+      ],
+      "en": [
+        "Exports"
+      ],
+      "de": [
+        "Exporte"
+      ],
+      "nl": [
+        "Exports"
+      ],
+      "fr": [
+        "Exports"
+      ],
+      "es": [
+        "Exportaciones"
+      ],
+      "pt": [
+        "Exportações"
+      ]
+    },
+    {
+      "id": "integration",
+      "group": "Main nouns",
+      "keys": [
+        "breadcrumb.integrations"
+      ],
+      "en": [
+        "Integrations"
+      ],
+      "de": [
+        "Integrationen"
+      ],
+      "nl": [
+        "Integraties"
+      ],
+      "fr": [
+        "Intégrations"
+      ],
+      "es": [
+        "Integraciones"
+      ],
+      "pt": [
+        "Integrações"
+      ],
+      "pair": true,
+      "match": {
+        "de": [
+          "integration"
+        ],
+        "nl": [
+          "integratie"
+        ],
+        "fr": [
+          "intégration"
+        ],
+        "es": [
+          "integraci"
+        ],
+        "pt": [
+          "integraç"
+        ]
+      },
+      "enMatch": [
+        "integration",
+        "integrations"
+      ]
+    },
+    {
+      "id": "enrichment",
+      "group": "Main nouns",
+      "keys": [
+        "contacts.filterConfig.groups.enrichment"
+      ],
+      "en": [
+        "Enrichment"
+      ],
+      "de": [
+        "Anreicherung"
+      ],
+      "nl": [
+        "Verrijking"
+      ],
+      "fr": [
+        "Enrichissement"
+      ],
+      "es": [
+        "Enriquecimiento"
+      ],
+      "pt": [
+        "Enriquecimento"
+      ],
+      "pair": true,
+      "match": {
+        "de": [
+          "anreicher",
+          "angereichert"
+        ],
+        "nl": [
+          "verrijk"
+        ],
+        "fr": [
+          "enrichi"
+        ],
+        "es": [
+          "enriquec"
+        ],
+        "pt": [
+          "enriquec"
+        ]
+      }
+    },
+    {
+      "id": "enrich-contacts",
+      "group": "Main nouns",
+      "keys": [
+        "settings.company.roles.actions.contacts.enrich.label"
+      ],
+      "en": [
+        "Enrich contacts"
+      ],
+      "de": [
+        "Kontakte anreichern"
+      ],
+      "nl": [
+        "Contacten verrijken"
+      ],
+      "fr": [
+        "Enrichir les contacts"
+      ],
+      "es": [
+        "Enriquecer contactos"
+      ],
+      "pt": [
+        "Enriquecer contatos"
+      ]
+    },
+    {
+      "id": "suppression",
+      "group": "Main nouns",
+      "keys": [
+        "breadcrumb.suppression"
+      ],
+      "en": [
+        "Suppression"
+      ],
+      "de": [
+        "Sperrliste"
+      ],
+      "nl": [
+        "Blokkeerlijst"
+      ],
+      "fr": [
+        "Liste d'exclusion"
+      ],
+      "es": [
+        "Lista de exclusión"
+      ],
+      "pt": [
+        "Supressão"
+      ]
+    },
+    {
+      "id": "mailbox",
+      "group": "Main nouns",
+      "keys": [
+        "breadcrumb.mailbox"
+      ],
+      "en": [
+        "Mailbox"
+      ],
+      "de": [
+        "Postfach"
+      ],
+      "nl": [
+        "Mailbox"
+      ],
+      "fr": [
+        "Boîte mail"
+      ],
+      "es": [
+        "Buzón de correo"
+      ],
+      "pt": [
+        "Caixa de e-mail"
+      ],
+      "pair": true,
+      "match": {
+        "de": [
+          "postf"
+        ],
+        "fr": [
+          "boîte mail",
+          "boîtes mail"
+        ],
+        "es": [
+          "buzón",
+          "buzones"
+        ],
+        "pt": [
+          "caixa de e-mail",
+          "caixas de e-mail"
+        ]
+      },
+      "enMatch": [
+        "mailbox",
+        "mailboxes"
+      ]
+    },
+    {
+      "id": "signature",
+      "group": "Main nouns",
+      "keys": [
+        "breadcrumb.signature"
+      ],
+      "en": [
+        "Signature"
+      ],
+      "de": [
+        "Signatur"
+      ],
+      "nl": [
+        "Handtekening"
+      ],
+      "fr": [
+        "Signature"
+      ],
+      "es": [
+        "Firma"
+      ],
+      "pt": [
+        "Assinatura"
+      ]
+    },
+    {
+      "id": "snippet",
+      "group": "Main nouns",
+      "keys": [
+        "breadcrumb.snippet"
+      ],
+      "en": [
+        "Snippet"
+      ],
+      "de": [
+        "Snippet"
+      ],
+      "nl": [
+        "Snippet"
+      ],
+      "fr": [
+        "Snippet"
+      ],
+      "es": [
+        "Snippet"
+      ],
+      "pt": [
+        "Snippet"
+      ]
+    },
+    {
+      "id": "email",
+      "group": "Main nouns",
+      "keys": [
+        "common.email"
+      ],
+      "en": [
+        "Email"
+      ],
+      "de": [
+        "E-Mail"
+      ],
+      "nl": [
+        "E-mail"
+      ],
+      "fr": [
+        "E-mail"
+      ],
+      "es": [
+        "Email"
+      ],
+      "pt": [
+        "E-mail"
+      ]
+    },
+    {
+      "id": "phone",
+      "group": "Main nouns",
+      "keys": [
+        "contacts.profile.phone"
+      ],
+      "en": [
+        "Phone"
+      ],
+      "de": [
+        "Telefon"
+      ],
+      "nl": [
+        "Telefoon"
+      ],
+      "fr": [
+        "Téléphone"
+      ],
+      "es": [
+        "Teléfono"
+      ],
+      "pt": [
+        "Telefone"
+      ]
+    },
+    {
+      "id": "step",
+      "group": "Flow steps",
+      "keys": [
+        "common.library.step"
+      ],
+      "en": [
+        "Step"
+      ],
+      "de": [
+        "Schritt"
+      ],
+      "nl": [
+        "Stap"
+      ],
+      "fr": [
+        "Étape"
+      ],
+      "es": [
+        "Paso"
+      ],
+      "pt": [
+        "Etapa"
+      ]
+    },
+    {
+      "id": "connection-request",
+      "group": "Flow steps",
+      "keys": [
+        "flowEditor.library.linkedinConnect.label"
+      ],
+      "en": [
+        "Connection request"
+      ],
+      "de": [
+        "Vernetzungsanfrage"
+      ],
+      "nl": [
+        "Connectieverzoek"
+      ],
+      "fr": [
+        "Demande de connexion"
+      ],
+      "es": [
+        "Solicitud de conexión"
+      ],
+      "pt": [
+        "Solicitação de conexão"
+      ],
+      "pair": true,
+      "match": {
+        "de": [
+          "vernetzungsanfrage"
+        ],
+        "nl": [
+          "connectieverzoek"
+        ],
+        "fr": [
+          "demande de connexion",
+          "demandes de connexion"
+        ],
+        "es": [
+          "solicitud de conexión",
+          "solicitudes de conexión"
+        ],
+        "pt": [
+          "solicitação de conexão",
+          "solicitações de conexão"
+        ]
+      },
+      "enMatch": [
+        "connection request",
+        "connection requests"
+      ]
+    },
+    {
+      "id": "direct-message",
+      "group": "Flow steps",
+      "keys": [
+        "flowEditor.library.linkedinDm.label"
+      ],
+      "en": [
+        "Direct message"
+      ],
+      "de": [
+        "Direktnachricht"
+      ],
+      "nl": [
+        "Direct bericht"
+      ],
+      "fr": [
+        "Message direct"
+      ],
+      "es": [
+        "Mensaje directo"
+      ],
+      "pt": [
+        "Mensagem direta"
+      ]
+    },
+    {
+      "id": "profile-visit",
+      "group": "Flow steps",
+      "keys": [
+        "flowEditor.library.linkedinProfileVisit.label"
+      ],
+      "en": [
+        "Profile visit"
+      ],
+      "de": [
+        "Profilbesuch"
+      ],
+      "nl": [
+        "Profielbezoek"
+      ],
+      "fr": [
+        "Visite de profil"
+      ],
+      "es": [
+        "Visita al perfil"
+      ],
+      "pt": [
+        "Visita ao perfil"
+      ],
+      "pair": true,
+      "match": {
+        "de": [
+          "profilbesuch"
+        ],
+        "nl": [
+          "profielbezoek"
+        ],
+        "fr": [
+          "visite de profil",
+          "visites de profil"
+        ],
+        "es": [
+          "visita al perfil",
+          "visitas al perfil"
+        ],
+        "pt": [
+          "visita ao perfil",
+          "visitas ao perfil"
+        ]
+      },
+      "enMatch": [
+        "profile visit",
+        "profile visits"
+      ]
+    },
+    {
+      "id": "inmail",
+      "group": "Flow steps",
+      "keys": [
+        "flowEditor.library.linkedinInmail.label"
+      ],
+      "en": [
+        "LinkedIn InMail"
+      ],
+      "de": [
+        "LinkedIn InMail"
+      ],
+      "nl": [
+        "LinkedIn InMail"
+      ],
+      "fr": [
+        "LinkedIn InMail"
+      ],
+      "es": [
+        "LinkedIn InMail"
+      ],
+      "pt": [
+        "LinkedIn InMail"
+      ]
+    },
+    {
+      "id": "follow-up-email",
+      "group": "Flow steps",
+      "keys": [
+        "flowEditor.library.followUpEmail.label"
+      ],
+      "en": [
+        "Follow-up Email"
+      ],
+      "de": [
+        "Follow-up-E-Mail"
+      ],
+      "nl": [
+        "Follow-up-e-mail"
+      ],
+      "fr": [
+        "E-mail de relance"
+      ],
+      "es": [
+        "Email de seguimiento"
+      ],
+      "pt": [
+        "E-mail de follow-up"
+      ]
+    },
+    {
+      "id": "schedule",
+      "group": "Flow steps",
+      "keys": [
+        "flowEditor.nodeLabels.schedule"
+      ],
+      "en": [
+        "Schedule"
+      ],
+      "de": [
+        "Zeitplan"
+      ],
+      "nl": [
+        "Planning"
+      ],
+      "fr": [
+        "Planification"
+      ],
+      "es": [
+        "Programación"
+      ],
+      "pt": [
+        "Agendamento"
+      ]
+    },
+    {
+      "id": "drip-rate",
+      "group": "Flow steps",
+      "keys": [
+        "flows.listing.columns.dripRate"
+      ],
+      "en": [
+        "Drip Rate"
+      ],
+      "de": [
+        "Drip-Rate"
+      ],
+      "nl": [
+        "Drip-rate"
+      ],
+      "fr": [
+        "Rythme d'entrée"
+      ],
+      "es": [
+        "Ritmo de entrada"
+      ],
+      "pt": [
+        "Ritmo de entrada"
+      ]
+    },
+    {
+      "id": "trigger",
+      "group": "Flow steps",
+      "keys": [
+        "onboarding.plans.features.triggers"
+      ],
+      "en": [
+        "Triggers"
+      ],
+      "de": [
+        "Trigger"
+      ],
+      "nl": [
+        "Triggers"
+      ],
+      "fr": [
+        "Déclencheurs"
+      ],
+      "es": [
+        "Disparadores"
+      ],
+      "pt": [
+        "Gatilhos"
+      ]
+    },
+    {
+      "id": "webhook",
+      "group": "Flow steps",
+      "keys": [
+        "flowEditor.library.webhook.label"
+      ],
+      "en": [
+        "Webhook"
+      ],
+      "de": [
+        "Webhook"
+      ],
+      "nl": [
+        "Webhook"
+      ],
+      "fr": [
+        "Webhook"
+      ],
+      "es": [
+        "Webhook"
+      ],
+      "pt": [
+        "Webhook"
+      ]
+    },
+    {
+      "id": "bounced",
+      "group": "Statuses",
+      "keys": [
+        "common.statuses.contact.bounced"
+      ],
+      "en": [
+        "Bounced"
+      ],
+      "de": [
+        "Unzustellbar"
+      ],
+      "nl": [
+        "Gebounced"
+      ],
+      "fr": [
+        "Rejeté"
+      ],
+      "es": [
+        "Rebotado"
+      ],
+      "pt": [
+        "Devolvido"
+      ]
+    },
+    {
+      "id": "replied",
+      "group": "Statuses",
+      "keys": [
+        "common.statuses.contact.replied"
+      ],
+      "en": [
+        "Replied"
+      ],
+      "de": [
+        "Geantwortet"
+      ],
+      "nl": [
+        "Beantwoord"
+      ],
+      "fr": [
+        "Répondu"
+      ],
+      "es": [
+        "Respondido"
+      ],
+      "pt": [
+        "Respondido"
+      ]
+    },
+    {
+      "id": "opened",
+      "group": "Statuses",
+      "keys": [
+        "common.statuses.contact.opened"
+      ],
+      "en": [
+        "Opened"
+      ],
+      "de": [
+        "Geöffnet"
+      ],
+      "nl": [
+        "Geopend"
+      ],
+      "fr": [
+        "Ouvert"
+      ],
+      "es": [
+        "Abierto"
+      ],
+      "pt": [
+        "Aberto"
+      ]
+    },
+    {
+      "id": "clicked",
+      "group": "Statuses",
+      "keys": [
+        "common.statuses.recipient.clicked"
+      ],
+      "en": [
+        "Clicked"
+      ],
+      "de": [
+        "Geklickt"
+      ],
+      "nl": [
+        "Geklikt"
+      ],
+      "fr": [
+        "Cliqué"
+      ],
+      "es": [
+        "Clic"
+      ],
+      "pt": [
+        "Clicado"
+      ]
+    },
+    {
+      "id": "unsubscribed",
+      "group": "Statuses",
+      "keys": [
+        "common.statuses.recipient.unsubscribed"
+      ],
+      "en": [
+        "Unsubscribed"
+      ],
+      "de": [
+        "Abgemeldet"
+      ],
+      "nl": [
+        "Afgemeld"
+      ],
+      "fr": [
+        "Désabonné"
+      ],
+      "es": [
+        "Baja"
+      ],
+      "pt": [
+        "Descadastrado"
+      ]
+    },
+    {
+      "id": "not-interested",
+      "group": "Statuses",
+      "keys": [
+        "common.statuses.recipient.notInterested"
+      ],
+      "en": [
+        "Not interested"
+      ],
+      "de": [
+        "Kein Interesse"
+      ],
+      "nl": [
+        "Geen interesse"
+      ],
+      "fr": [
+        "Pas intéressé"
+      ],
+      "es": [
+        "Sin interés"
+      ],
+      "pt": [
+        "Sem interesse"
+      ]
+    },
+    {
+      "id": "engaged",
+      "group": "Statuses",
+      "keys": [
+        "flows.listing.columns.engaged"
+      ],
+      "en": [
+        "Engaged"
+      ],
+      "de": [
+        "Engagiert"
+      ],
+      "nl": [
+        "Betrokken"
+      ],
+      "fr": [
+        "Engagés"
+      ],
+      "es": [
+        "Comprometidos"
+      ],
+      "pt": [
+        "Engajados"
+      ]
+    },
+    {
+      "id": "seniority",
+      "group": "Contact fields",
+      "keys": [
+        "contacts.columnLabels.seniority"
+      ],
+      "en": [
+        "Seniority"
+      ],
+      "de": [
+        "Hierarchieebene"
+      ],
+      "nl": [
+        "Senioriteit"
+      ],
+      "fr": [
+        "Niveau hiérarchique"
+      ],
+      "es": [
+        "Nivel jerárquico"
+      ],
+      "pt": [
+        "Senioridade"
+      ]
+    },
+    {
+      "id": "department",
+      "group": "Contact fields",
+      "keys": [
+        "contacts.columnLabels.department"
+      ],
+      "en": [
+        "Department"
+      ],
+      "de": [
+        "Abteilung"
+      ],
+      "nl": [
+        "Afdeling"
+      ],
+      "fr": [
+        "Service"
+      ],
+      "es": [
+        "Departamento"
+      ],
+      "pt": [
+        "Departamento"
+      ]
+    },
+    {
+      "id": "industry",
+      "group": "Contact fields",
+      "keys": [
+        "contacts.columnLabels.companyIndustry"
+      ],
+      "en": [
+        "Industry"
+      ],
+      "de": [
+        "Branche"
+      ],
+      "nl": [
+        "Branche"
+      ],
+      "fr": [
+        "Secteur"
+      ],
+      "es": [
+        "Sector"
+      ],
+      "pt": [
+        "Setor"
+      ]
+    },
+    {
+      "id": "credits",
+      "group": "Account and plans",
+      "keys": [
+        "breadcrumb.credits"
+      ],
+      "en": [
+        "Credits"
+      ],
+      "de": [
+        "Credits"
+      ],
+      "nl": [
+        "Credits"
+      ],
+      "fr": [
+        "Crédits"
+      ],
+      "es": [
+        "Créditos"
+      ],
+      "pt": [
+        "Créditos"
+      ],
+      "pair": true,
+      "match": {
+        "de": [
+          "credit"
+        ],
+        "nl": [
+          "credit"
+        ],
+        "fr": [
+          "crédit"
+        ],
+        "es": [
+          "crédito"
+        ],
+        "pt": [
+          "crédito"
+        ]
+      },
+      "enMatch": [
+        "credits"
+      ]
+    },
+    {
+      "id": "seats",
+      "group": "Account and plans",
+      "keys": [
+        "onboarding.plans.review.seats"
+      ],
+      "en": [
+        "Seats"
+      ],
+      "de": [
+        "Plätze"
+      ],
+      "nl": [
+        "Licenties"
+      ],
+      "fr": [
+        "Licences"
+      ],
+      "es": [
+        "Licencias"
+      ],
+      "pt": [
+        "Licenças"
+      ],
+      "pair": true,
+      "match": {
+        "de": [
+          "platz",
+          "plätze"
+        ],
+        "nl": [
+          "licentie"
+        ],
+        "fr": [
+          "licence"
+        ],
+        "es": [
+          "licencia"
+        ],
+        "pt": [
+          "licença"
+        ]
+      },
+      "enMatch": [
+        "seat",
+        "seats"
+      ]
+    },
+    {
+      "id": "plans",
+      "group": "Account and plans",
+      "keys": [
+        "breadcrumb.plans"
+      ],
+      "en": [
+        "Plans"
+      ],
+      "de": [
+        "Tarife"
+      ],
+      "nl": [
+        "Abonnementen"
+      ],
+      "fr": [
+        "Formules"
+      ],
+      "es": [
+        "Planes"
+      ],
+      "pt": [
+        "Planos"
+      ]
+    },
+    {
+      "id": "plan-usage",
+      "group": "Account and plans",
+      "keys": [
+        "breadcrumb.plan-and-usage"
+      ],
+      "en": [
+        "Plan & usage"
+      ],
+      "de": [
+        "Tarif & Nutzung"
+      ],
+      "nl": [
+        "Abonnement & gebruik"
+      ],
+      "fr": [
+        "Formule et utilisation"
+      ],
+      "es": [
+        "Plan y uso"
+      ],
+      "pt": [
+        "Plano e uso"
+      ]
+    },
+    {
+      "id": "trial-ended",
+      "group": "Account and plans",
+      "keys": [
+        "nav.trial.ended"
+      ],
+      "en": [
+        "Trial ended"
+      ],
+      "de": [
+        "Testphase beendet"
+      ],
+      "nl": [
+        "Proefperiode beëindigd"
+      ],
+      "fr": [
+        "Essai terminé"
+      ],
+      "es": [
+        "Prueba finalizada"
+      ],
+      "pt": [
+        "Teste encerrado"
+      ]
+    },
+    {
+      "id": "team",
+      "group": "Account and plans",
+      "keys": [
+        "settings.company.roles.levels.team"
+      ],
+      "en": [
+        "Team"
+      ],
+      "de": [
+        "Team"
+      ],
+      "nl": [
+        "Team"
+      ],
+      "fr": [
+        "Équipe"
+      ],
+      "es": [
+        "Equipo"
+      ],
+      "pt": [
+        "Equipe"
+      ]
+    },
+    {
+      "id": "team-management",
+      "group": "Account and plans",
+      "keys": [
+        "breadcrumb.team-management"
+      ],
+      "en": [
+        "Team management"
+      ],
+      "de": [
+        "Teamverwaltung"
+      ],
+      "nl": [
+        "Teambeheer"
+      ],
+      "fr": [
+        "Gestion de l'équipe"
+      ],
+      "es": [
+        "Gestión del equipo"
+      ],
+      "pt": [
+        "Gerenciamento da equipe"
+      ]
+    },
+    {
+      "id": "user",
+      "group": "Account and plans",
+      "keys": [
+        "flows.listing.columns.user"
+      ],
+      "en": [
+        "User"
+      ],
+      "de": [
+        "Benutzer"
+      ],
+      "nl": [
+        "Gebruiker"
+      ],
+      "fr": [
+        "Utilisateur"
+      ],
+      "es": [
+        "Usuario"
+      ],
+      "pt": [
+        "Usuário"
+      ]
+    },
+    {
+      "id": "role",
+      "group": "Account and plans",
+      "keys": [
+        "settings.company.team.columns.role"
+      ],
+      "en": [
+        "Role"
+      ],
+      "de": [
+        "Rolle"
+      ],
+      "nl": [
+        "Rol"
+      ],
+      "fr": [
+        "Rôle"
+      ],
+      "es": [
+        "Rol"
+      ],
+      "pt": [
+        "Função"
+      ]
+    },
+    {
+      "id": "roles-permissions",
+      "group": "Account and plans",
+      "keys": [
+        "breadcrumb.roles"
+      ],
+      "en": [
+        "Roles & permissions"
+      ],
+      "de": [
+        "Rollen & Berechtigungen"
+      ],
+      "nl": [
+        "Rollen & rechten"
+      ],
+      "fr": [
+        "Rôles et autorisations"
+      ],
+      "es": [
+        "Roles y permisos"
+      ],
+      "pt": [
+        "Funções e permissões"
+      ]
+    },
+    {
+      "id": "owner",
+      "group": "Account and plans",
+      "keys": [
+        "common.owner"
+      ],
+      "en": [
+        "Owner"
+      ],
+      "de": [
+        "Verantwortlich"
+      ],
+      "nl": [
+        "Eigenaar"
+      ],
+      "fr": [
+        "Propriétaire"
+      ],
+      "es": [
+        "Propietario"
+      ],
+      "pt": [
+        "Responsável"
+      ]
+    },
+    {
+      "id": "sign-up",
+      "group": "Account and plans",
+      "keys": [
+        "auth.signup.title"
+      ],
+      "en": [
+        "Sign up"
+      ],
+      "de": [
+        "Registrieren"
+      ],
+      "nl": [
+        "Registreren"
+      ],
+      "fr": [
+        "S'inscrire"
+      ],
+      "es": [
+        "Registrarse"
+      ],
+      "pt": [
+        "Criar conta"
+      ]
+    },
+    {
+      "id": "log-out",
+      "group": "Account and plans",
+      "keys": [
+        "userMenu.logOut"
+      ],
+      "en": [
+        "Log out"
+      ],
+      "de": [
+        "Abmelden"
+      ],
+      "nl": [
+        "Uitloggen"
+      ],
+      "fr": [
+        "Se déconnecter"
+      ],
+      "es": [
+        "Cerrar sesión"
+      ],
+      "pt": [
+        "Sair"
+      ]
+    }
+  ]
+}
