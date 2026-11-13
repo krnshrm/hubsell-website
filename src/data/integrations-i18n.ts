@@ -203,15 +203,15 @@ const EN: IntegrationsPageData = {
 
 const DE: IntegrationsPageData = {
   "title": "Integrationen: HubSpot, Salesforce, Pipedrive, Google und Microsoft | hubsell",
-  "metaDescription": "hubsell mit HubSpot, Salesforce oder Pipedrive verbinden und aus den eigenen Postfächern bei Google Workspace oder Microsoft 365 senden. Native Integrationen, in Minuten eingerichtet, ohne Middleware.",
+  "metaDescription": "Verbinden Sie hubsell mit HubSpot, Salesforce oder Pipedrive und senden Sie aus Ihren eigenen Postfächern bei Google Workspace oder Microsoft 365. Native Integrationen, in Minuten eingerichtet, ohne Middleware.",
   "eyebrow": "Integrationen",
   "h1Pre": "Integrationen für ",
   "h1Accent": "CRM und E-Mail",
   "h1Post": "",
-  "sub": "hubsell verbindet sich mit Salesforce, HubSpot und Pipedrive und sendet aus den eigenen Postfächern bei Google Workspace oder Microsoft 365. Native Verbindungen, mit wenigen Klicks freigegeben, ohne Middleware, die gepflegt werden muss.",
+  "sub": "hubsell verbindet sich mit Salesforce, HubSpot und Pipedrive und sendet aus Ihren eigenen Postfächern bei Google Workspace oder Microsoft 365. Native Verbindungen, mit wenigen Klicks freigegeben, ohne Middleware, die gepflegt werden muss.",
   "hubLabels": {
-    "mail": "Sendet aus dem Postfach",
-    "crm": "Synchronisiert ins CRM"
+    "mail": "Sendet aus Ihrem Postfach",
+    "crm": "Synchronisiert in Ihr CRM"
   },
   "heads": {
     "list": {
@@ -229,7 +229,7 @@ const DE: IntegrationsPageData = {
     "mail": {
       "eyebrow": "E-Mail-Integration",
       "pre": "So funktioniert der Versand ",
-      "accent": "aus dem eigenen Postfach",
+      "accent": "aus Ihrem eigenen Postfach",
       "post": ""
     },
     "steps": {
@@ -240,14 +240,14 @@ const DE: IntegrationsPageData = {
     },
     "security": {
       "eyebrow": "Sicherheit und DSGVO",
-      "pre": "Die Daten bleiben ",
-      "accent": "unter eigener Kontrolle",
+      "pre": "Ihre Daten bleiben ",
+      "accent": "unter Ihrer Kontrolle",
       "post": ""
     },
     "closing": {
       "eyebrow": "Integrationen",
-      "pre": "Unsicher, ob es zum ",
-      "accent": "eigenen Stack passt",
+      "pre": "Unsicher, ob es zu ",
+      "accent": "Ihrem Stack passt",
       "post": "?"
     },
     "faq": {
@@ -276,32 +276,32 @@ const DE: IntegrationsPageData = {
     {
       "name": "Pipedrive",
       "category": "CRM",
-      "blurb": "Kontakte und Aktivität aus hubsell halten die Pipeline in Pipedrive aktuell, ohne CSV dazwischen."
+      "blurb": "Kontakte und Aktivität aus hubsell halten Ihre Pipeline in Pipedrive aktuell, ohne CSV dazwischen."
     },
     {
       "name": "Google Workspace",
       "category": "Email",
-      "blurb": "E-Mails gehen aus den eigenen Google-Postfächern über die Gmail-API raus, ohne externen Versandserver."
+      "blurb": "E-Mails gehen aus Ihren eigenen Google-Postfächern über die Gmail-API raus, ohne externen Versandserver."
     },
     {
       "name": "Microsoft 365",
       "category": "Email",
-      "blurb": "E-Mails gehen aus den eigenen Outlook-Postfächern über die Microsoft-API raus, ohne externen Versandserver."
+      "blurb": "E-Mails gehen aus Ihren eigenen Outlook-Postfächern über die Microsoft-API raus, ohne externen Versandserver."
     }
   ],
   "crmPoints": [
     "Kontakte werden per Hand ins CRM übertragen oder über Bedingungen automatisch, etwa nur die Kontakte, die antworten.",
     "Jeder Kontakt und jedes Unternehmen wird mit dem bestehenden Datensatz abgeglichen und aktualisiert, sodass keine Dubletten entstehen.",
-    "E-Mail-Aktivität, LinkedIn-Aktivität und Anrufaufgaben werden sofort am Datensatz protokolliert, und das Feld-Mapping legt fest, welches hubsell-Feld welches CRM-Feld füllt.",
-    "Kontakte, die schon im CRM sind, etwa Kunden oder offene Deals, lassen sich vor dem Outreach ausschließen."
+    "E-Mail-Aktivität, LinkedIn-Aktivität und Anrufaufgaben werden sofort am Datensatz protokolliert, und Sie legen fest, welches hubsell-Feld welches CRM-Feld füllt.",
+    "Kontakte, die schon in Ihrem CRM sind, etwa Kunden oder offene Deals, lassen sich vor dem Outreach ausschließen."
   ],
   "crmLink": {
     "label": "Mehr zum CRM-Sync",
     "href": "/platform/crm-sync"
   },
   "mailPoints": [
-    "E-Mails werden aus den eigenen Postfächern bei Google Workspace oder Microsoft 365 über deren APIs versendet. Es gibt keinen externen SMTP-Server und keine Tracking-Umleitung dazwischen.",
-    "Das Postfach hat ein tägliches Versandlimit, und E-Mails gehen innerhalb der festgelegten Versandzeiten raus, verteilt statt gebündelt.",
+    "E-Mails werden aus Ihren eigenen Postfächern bei Google Workspace oder Microsoft 365 über deren APIs versendet. Es gibt keinen externen SMTP-Server und keine Tracking-Umleitung dazwischen.",
+    "Ihr Postfach hat ein tägliches Versandlimit, und E-Mails gehen innerhalb der Versandzeiten raus, die Sie festlegen, verteilt statt gebündelt.",
     "Antwortet ein Kontakt oder bounct eine E-Mail, stoppt der Flow für diesen Kontakt, sodass niemand nach einer Antwort noch ein Follow-up bekommt."
   ],
   "mailLink": {
@@ -311,29 +311,29 @@ const DE: IntegrationsPageData = {
   "steps": [
     {
       "title": "Integrationen öffnen",
-      "body": "In hubsell das Profilmenü unten links öffnen und Integrationen wählen."
+      "body": "Öffnen Sie in hubsell das Profilmenü unten links und wählen Sie Integrationen."
     },
     {
       "title": "Auswählen und freigeben",
-      "body": "CRM oder Postfach-Anbieter wählen. hubsell leitet zur Anmeldeseite des Tools weiter, wo die angefragten Berechtigungen erteilt werden."
+      "body": "Wählen Sie Ihr CRM oder Ihren Postfach-Anbieter. hubsell leitet Sie zur Anmeldeseite des Tools weiter, wo Sie die angefragten Berechtigungen erteilen."
     },
     {
       "title": "Festlegen, was synchronisiert wird",
-      "body": "Zurück in hubsell erscheint die Verbindung als aktiv. Von sich aus wird nichts übertragen: Was wann ins CRM geht, legt das Team fest."
+      "body": "Zurück in hubsell erscheint die Verbindung als aktiv. Von sich aus wird nichts übertragen: Was wann ins CRM geht, legen Sie fest."
     }
   ],
   "stepsLink": {
-    "label": "Anleitung: CRM verbinden",
+    "label": "Anleitung: Ihr CRM verbinden",
     "href": "/knowledge/connect-your-crm/"
   },
   "security": [
-    "Jedes Tool wird über die eigene Anmelde- und Berechtigungsseite verbunden. hubsell erhält nur den freigegebenen Zugriff, und dieser lässt sich im Tool jederzeit entziehen.",
-    "hubsell sitzt in Berlin und hostet die Daten in Frankfurt. Der Kunde bleibt Verantwortlicher, hubsell ist Auftragsverarbeiter, mit einem Auftragsverarbeitungsvertrag."
+    "Sie verbinden jedes Tool über dessen eigene Anmelde- und Berechtigungsseite. hubsell erhält nur den Zugriff, den Sie freigeben, und Sie können ihn im Tool jederzeit entziehen.",
+    "hubsell sitzt in Berlin und hostet die Daten in Frankfurt. Sie bleiben Verantwortlicher, hubsell ist Ihr Auftragsverarbeiter, mit einem Auftragsverarbeitungsvertrag."
   ],
   "noteTitle": "Weitere folgen",
-  "noteBody": "Das ist der Stand heute. Fehlt ein Tool, reicht ein kurzes Gespräch, und hubsell sagt, wo es steht.",
+  "noteBody": "Das ist der Stand heute. Wenn Sie ein Tool brauchen, sagen Sie es uns in einem kurzen Gespräch, und wir sagen Ihnen, wo es steht.",
   "trademark": "Salesforce, HubSpot und Pipedrive sind Marken ihrer jeweiligen Inhaber. Google Workspace ist eine Marke der Google LLC, Microsoft 365 eine Marke der Microsoft Corporation. hubsell ist mit diesen Unternehmen nicht verbunden und wird nicht von ihnen empfohlen.",
-  "closingSub": "In einem kurzen Gespräch zeigt hubsell, wie es in den bestehenden Stack passt.",
+  "closingSub": "Sagen Sie uns in einem kurzen Gespräch, womit Sie arbeiten, und wir zeigen Ihnen, wie hubsell in Ihren Stack passt.",
   "faqs": [
     {
       "question": "Mit welchen CRMs ist hubsell integriert?",
@@ -341,15 +341,15 @@ const DE: IntegrationsPageData = {
     },
     {
       "question": "Wie lange dauert es, das CRM zu verbinden?",
-      "answer": "<p>Wenige Minuten. In hubsell Integrationen öffnen, das CRM wählen und die angefragten Berechtigungen erteilen. Mehr in der <a class=\"link\" href=\"/knowledge/connect-your-crm/\">Anleitung</a>.</p>"
+      "answer": "<p>Wenige Minuten. Sie öffnen in hubsell Integrationen, wählen Ihr CRM und erteilen die angefragten Berechtigungen. Mehr in der <a class=\"link\" href=\"/knowledge/connect-your-crm/\">Anleitung</a>.</p>"
     },
     {
       "question": "Werden Kontakte beim Verbinden automatisch übertragen?",
-      "answer": "<p>Nein. Das Verbinden überträgt von sich aus nichts. Kontakte werden per Hand übertragen oder über Bedingungen automatisch.</p>"
+      "answer": "<p>Nein. Das Verbinden überträgt von sich aus nichts. Sie übertragen Kontakte per Hand oder legen Bedingungen fest, die sie automatisch übertragen.</p>"
     },
     {
       "question": "Ist die CRM-Integration ein Zwei-Wege-Sync?",
-      "answer": "<p>Derzeit läuft der Sync von hubsell ins CRM, und hubsell prüft das CRM auf bestehende Datensätze und auszuschließende Kontakte. Änderungen im CRM werden noch nicht nach hubsell zurückgeschrieben. Ein Zwei-Wege-Sync ist geplant.</p>"
+      "answer": "<p>Derzeit läuft der Sync von hubsell in Ihr CRM, und hubsell prüft das CRM auf bestehende Datensätze und auszuschließende Kontakte. Änderungen im CRM werden noch nicht nach hubsell zurückgeschrieben. Ein Zwei-Wege-Sync ist geplant.</p>"
     },
     {
       "question": "Legt hubsell Dubletten im CRM an?",
@@ -357,11 +357,11 @@ const DE: IntegrationsPageData = {
     },
     {
       "question": "Mit welchen E-Mail-Anbietern arbeitet hubsell?",
-      "answer": "<p>Google Workspace und Microsoft 365. hubsell sendet aus den eigenen Postfächern über die APIs von Gmail und Microsoft, nicht über einen externen Versandserver.</p>"
+      "answer": "<p>Google Workspace und Microsoft 365. hubsell sendet aus Ihren eigenen Postfächern über die APIs von Gmail und Microsoft, nicht über einen externen Versandserver.</p>"
     },
     {
       "question": "Aus welchem Postfach sendet hubsell?",
-      "answer": "<p>Aus dem verbundenen Postfach bei Google Workspace oder Microsoft 365, innerhalb eines Tageslimits. hubsell ist für geringes bis mittleres Volumen und gezielten Outreach gebaut, nicht für Massenversand. Mehr zur <a class=\"link\" href=\"/de/platform/deliverability/\">Zustellbarkeit</a>.</p>"
+      "answer": "<p>Aus dem Postfach bei Google Workspace oder Microsoft 365, das Sie verbinden, innerhalb eines Tageslimits. hubsell ist für geringes bis mittleres Volumen und gezielten Outreach gebaut, nicht für Massenversand. Mehr zur <a class=\"link\" href=\"/de/platform/deliverability/\">Zustellbarkeit</a>.</p>"
     },
     {
       "question": "Ist hubsell mit LinkedIn integriert?",
@@ -369,11 +369,11 @@ const DE: IntegrationsPageData = {
     },
     {
       "question": "Sind die Daten beim Verbinden eines Tools sicher?",
-      "answer": "<p>Jedes Tool wird über die eigene Anmelde- und Berechtigungsseite verbunden, und der Zugriff lässt sich jederzeit entziehen. hubsell hostet die Daten in Frankfurt und arbeitet als Auftragsverarbeiter mit einem Auftragsverarbeitungsvertrag.</p>"
+      "answer": "<p>Sie verbinden jedes Tool über dessen eigene Anmelde- und Berechtigungsseite und können den Zugriff jederzeit entziehen. hubsell hostet die Daten in Frankfurt und arbeitet als Ihr Auftragsverarbeiter mit einem Auftragsverarbeitungsvertrag.</p>"
     },
     {
       "question": "Was, wenn das eigene Tool fehlt?",
-      "answer": "<p>Ein kurzes Gespräch genügt. hubsell ergänzt laufend Integrationen und sagt, wo das Tool steht.</p>"
+      "answer": "<p>Sagen Sie es uns in einem kurzen Gespräch. Wir ergänzen laufend Integrationen und sagen Ihnen, wo Ihr Tool steht.</p>"
     }
   ],
   "crumbHome": "Start",
@@ -382,15 +382,15 @@ const DE: IntegrationsPageData = {
 
 const NL: IntegrationsPageData = {
   "title": "Integraties: HubSpot, Salesforce, Pipedrive, Google en Microsoft | hubsell",
-  "metaDescription": "Koppel hubsell aan HubSpot, Salesforce of Pipedrive en verstuur vanuit uw eigen Google Workspace- of Microsoft 365-mailboxen. Native integraties, in minuten ingesteld, zonder middleware.",
+  "metaDescription": "Koppel hubsell aan HubSpot, Salesforce of Pipedrive en verstuur vanuit je eigen Google Workspace- of Microsoft 365-mailboxen. Native integraties, in minuten ingesteld, zonder middleware.",
   "eyebrow": "Integraties",
   "h1Pre": "Integraties voor ",
   "h1Accent": "CRM en e-mail",
   "h1Post": "",
-  "sub": "hubsell koppelt met Salesforce, HubSpot en Pipedrive en verstuurt vanuit uw eigen Google Workspace- of Microsoft 365-mailboxen. Native koppelingen, met een paar klikken toegestaan, zonder middleware om te onderhouden.",
+  "sub": "hubsell koppelt met Salesforce, HubSpot en Pipedrive en verstuurt vanuit je eigen Google Workspace- of Microsoft 365-mailboxen. Native koppelingen, met een paar klikken toegestaan, zonder middleware om te onderhouden.",
   "hubLabels": {
-    "mail": "Verstuurt vanuit uw mailbox",
-    "crm": "Synchroniseert met uw CRM"
+    "mail": "Verstuurt vanuit je mailbox",
+    "crm": "Synchroniseert met je CRM"
   },
   "heads": {
     "list": {
@@ -408,7 +408,7 @@ const NL: IntegrationsPageData = {
     "mail": {
       "eyebrow": "E-mailintegratie",
       "pre": "Zo werkt versturen ",
-      "accent": "vanuit uw eigen mailbox",
+      "accent": "vanuit je eigen mailbox",
       "post": ""
     },
     "steps": {
@@ -419,14 +419,14 @@ const NL: IntegrationsPageData = {
     },
     "security": {
       "eyebrow": "Beveiliging en AVG",
-      "pre": "Uw data blijft ",
-      "accent": "onder uw controle",
+      "pre": "Je data blijft ",
+      "accent": "onder je controle",
       "post": ""
     },
     "closing": {
       "eyebrow": "Integraties",
-      "pre": "Twijfelt u of het past ",
-      "accent": "in uw stack",
+      "pre": "Twijfel je of het past ",
+      "accent": "in je stack",
       "post": "?"
     },
     "faq": {
@@ -455,32 +455,32 @@ const NL: IntegrationsPageData = {
     {
       "name": "Pipedrive",
       "category": "CRM",
-      "blurb": "Contacten en activiteit uit hubsell houden uw Pipedrive-pipeline actueel, zonder CSV ertussen."
+      "blurb": "Contacten en activiteit uit hubsell houden je Pipedrive-pipeline actueel, zonder CSV ertussen."
     },
     {
       "name": "Google Workspace",
       "category": "Email",
-      "blurb": "E-mails gaan uit vanuit uw eigen Google-mailboxen via de Gmail-API, zonder externe verzendserver."
+      "blurb": "E-mails gaan uit vanuit je eigen Google-mailboxen via de Gmail-API, zonder externe verzendserver."
     },
     {
       "name": "Microsoft 365",
       "category": "Email",
-      "blurb": "E-mails gaan uit vanuit uw eigen Outlook-mailboxen via de Microsoft-API, zonder externe verzendserver."
+      "blurb": "E-mails gaan uit vanuit je eigen Outlook-mailboxen via de Microsoft-API, zonder externe verzendserver."
     }
   ],
   "crmPoints": [
     "Zet contacten handmatig over naar het CRM, of stel voorwaarden in die ze automatisch overzetten, bijvoorbeeld alleen de contacten die reageren.",
     "Elk contact en bedrijf wordt gekoppeld aan het bestaande record en bijgewerkt, zodat de sync geen dubbele records aanmaakt.",
-    "E-mailactiviteit, LinkedIn-activiteit en beltaken worden direct op het record vastgelegd, en u kiest welk hubsell-veld welk CRM-veld vult.",
-    "Contacten die al in uw CRM staan, zoals klanten of open deals, kunt u uitsluiten voordat de outreach begint."
+    "E-mailactiviteit, LinkedIn-activiteit en beltaken worden direct op het record vastgelegd, en je kiest welk hubsell-veld welk CRM-veld vult.",
+    "Contacten die al in je CRM staan, zoals klanten of open deals, kun je uitsluiten voordat de outreach begint."
   ],
   "crmLink": {
     "label": "Meer over CRM-sync",
     "href": "/platform/crm-sync"
   },
   "mailPoints": [
-    "E-mails worden verstuurd vanuit uw eigen Google Workspace- of Microsoft 365-mailboxen via hun API’s. Er is geen externe SMTP-server en geen trackingredirect ertussen.",
-    "Uw mailbox heeft een dagelijkse verzendlimiet, en e-mails gaan uit binnen de verzendtijden die u instelt, gespreid in plaats van in pieken.",
+    "E-mails worden verstuurd vanuit je eigen Google Workspace- of Microsoft 365-mailboxen via hun API’s. Er is geen externe SMTP-server en geen trackingredirect ertussen.",
+    "Je mailbox heeft een dagelijkse verzendlimiet, en e-mails gaan uit binnen de verzendtijden die je instelt, gespreid in plaats van in pieken.",
     "Als een contact reageert of een e-mail bouncet, stopt de flow voor dat contact, zodat niemand na een antwoord nog een follow-up krijgt."
   ],
   "mailLink": {
@@ -494,25 +494,25 @@ const NL: IntegrationsPageData = {
     },
     {
       "title": "Kiezen en toestaan",
-      "body": "Kies uw CRM of mailboxprovider. hubsell stuurt u naar het inlogscherm van die tool, waar u de gevraagde rechten geeft."
+      "body": "Kies je CRM of mailboxprovider. hubsell stuurt je naar het inlogscherm van die tool, waar je de gevraagde rechten geeft."
     },
     {
       "title": "Bepalen wat synchroniseert",
-      "body": "Terug in hubsell staat de koppeling op actief. Er gaat niets vanzelf over: u bepaalt wat naar het CRM gaat en wanneer."
+      "body": "Terug in hubsell staat de koppeling op actief. Er gaat niets vanzelf over: je bepaalt wat naar het CRM gaat en wanneer."
     }
   ],
   "stepsLink": {
-    "label": "Handleiding: uw CRM koppelen",
+    "label": "Handleiding: je CRM koppelen",
     "href": "/knowledge/connect-your-crm/"
   },
   "security": [
-    "U koppelt elke tool via het eigen inlog- en rechtenscherm, zodat hubsell alleen de toegang krijgt die u geeft. U kunt die op elk moment in de tool intrekken.",
-    "hubsell is gevestigd in Berlijn en host de data in Frankfurt. U blijft verwerkingsverantwoordelijke en hubsell is uw verwerker, onder een verwerkersovereenkomst."
+    "Je koppelt elke tool via het eigen inlog- en rechtenscherm, zodat hubsell alleen de toegang krijgt die je geeft. Je kunt die op elk moment in de tool intrekken.",
+    "hubsell is gevestigd in Berlijn en host de data in Frankfurt. Je blijft verwerkingsverantwoordelijke en hubsell is je verwerker, onder een verwerkersovereenkomst."
   ],
   "noteTitle": "Er komen er meer",
-  "noteBody": "Dit is wat we vandaag ondersteunen. Mist u een tool, vertel het ons in een kort gesprek en wij laten weten hoe het ervoor staat.",
+  "noteBody": "Dit is wat we vandaag ondersteunen. Mis je een tool, vertel het ons in een kort gesprek en wij laten weten hoe het ervoor staat.",
   "trademark": "Salesforce, HubSpot en Pipedrive zijn handelsmerken van hun eigenaren. Google Workspace is een handelsmerk van Google LLC, Microsoft 365 een handelsmerk van Microsoft Corporation. hubsell is niet gelieerd aan en wordt niet onderschreven door deze bedrijven.",
-  "closingSub": "Vertel ons in een kort gesprek wat u gebruikt en wij laten zien hoe hubsell in uw stack past.",
+  "closingSub": "Vertel ons in een kort gesprek wat je gebruikt en wij laten zien hoe hubsell in je stack past.",
   "faqs": [
     {
       "question": "Met welke CRM’s integreert hubsell?",
@@ -520,15 +520,15 @@ const NL: IntegrationsPageData = {
     },
     {
       "question": "Hoe lang duurt het om mijn CRM te koppelen?",
-      "answer": "<p>Een paar minuten. U opent Integraties in hubsell, kiest uw CRM en geeft de gevraagde rechten. Zie de <a class=\"link\" href=\"/knowledge/connect-your-crm/\">handleiding</a>.</p>"
+      "answer": "<p>Een paar minuten. Je opent Integraties in hubsell, kiest je CRM en geeft de gevraagde rechten. Zie de <a class=\"link\" href=\"/knowledge/connect-your-crm/\">handleiding</a>.</p>"
     },
     {
       "question": "Worden contacten bij het koppelen automatisch overgezet?",
-      "answer": "<p>Nee. Koppelen zet uit zichzelf niets over. U zet contacten handmatig over, of stelt voorwaarden in die ze automatisch overzetten.</p>"
+      "answer": "<p>Nee. Koppelen zet uit zichzelf niets over. Je zet contacten handmatig over, of stelt voorwaarden in die ze automatisch overzetten.</p>"
     },
     {
       "question": "Werkt de CRM-integratie in twee richtingen?",
-      "answer": "<p>Op dit moment loopt de sync van hubsell naar uw CRM, en hubsell controleert het CRM op bestaande records en op contacten om uit te sluiten. Wijzigingen in het CRM worden nog niet teruggeschreven naar hubsell. Tweerichtings-sync staat gepland.</p>"
+      "answer": "<p>Op dit moment loopt de sync van hubsell naar je CRM, en hubsell controleert het CRM op bestaande records en op contacten om uit te sluiten. Wijzigingen in het CRM worden nog niet teruggeschreven naar hubsell. Tweerichtings-sync staat gepland.</p>"
     },
     {
       "question": "Maakt hubsell dubbele records aan in mijn CRM?",
@@ -536,11 +536,11 @@ const NL: IntegrationsPageData = {
     },
     {
       "question": "Met welke e-mailproviders werkt hubsell?",
-      "answer": "<p>Google Workspace en Microsoft 365. hubsell verstuurt vanuit uw eigen mailboxen via de API’s van Gmail en Microsoft, niet via een externe verzendserver.</p>"
+      "answer": "<p>Google Workspace en Microsoft 365. hubsell verstuurt vanuit je eigen mailboxen via de API’s van Gmail en Microsoft, niet via een externe verzendserver.</p>"
     },
     {
       "question": "Vanuit welke mailbox verstuurt hubsell?",
-      "answer": "<p>Vanuit de Google Workspace- of Microsoft 365-mailbox die u koppelt, binnen een daglimiet. hubsell is gebouwd voor laag tot gemiddeld volume en gerichte outreach, niet voor bulkverzending. Zie <a class=\"link\" href=\"/nl/platform/deliverability/\">deliverability</a>.</p>"
+      "answer": "<p>Vanuit de Google Workspace- of Microsoft 365-mailbox die je koppelt, binnen een daglimiet. hubsell is gebouwd voor laag tot gemiddeld volume en gerichte outreach, niet voor bulkverzending. Zie <a class=\"link\" href=\"/nl/platform/deliverability/\">deliverability</a>.</p>"
     },
     {
       "question": "Integreert hubsell met LinkedIn?",
@@ -548,11 +548,11 @@ const NL: IntegrationsPageData = {
     },
     {
       "question": "Is mijn data veilig als ik een tool koppel?",
-      "answer": "<p>U koppelt elke tool via het eigen inlog- en rechtenscherm en kunt de toegang op elk moment intrekken. hubsell host de data in Frankfurt en werkt als uw verwerker onder een verwerkersovereenkomst.</p>"
+      "answer": "<p>Je koppelt elke tool via het eigen inlog- en rechtenscherm en kunt de toegang op elk moment intrekken. hubsell host de data in Frankfurt en werkt als je verwerker onder een verwerkersovereenkomst.</p>"
     },
     {
       "question": "Wat als mijn tool er niet bij staat?",
-      "answer": "<p>Vertel het ons in een kort gesprek. We voegen integraties toe en laten u weten hoe het met uw tool staat.</p>"
+      "answer": "<p>Vertel het ons in een kort gesprek. We voegen integraties toe en laten je weten hoe het met je tool staat.</p>"
     }
   ],
   "crumbHome": "Home",
