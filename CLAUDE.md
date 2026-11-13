@@ -115,7 +115,8 @@ a page is performing:
 - **B2C industries.** The product only works for companies selling to other
   businesses.
 - **Markets we do not sell into.** Customers are concentrated in Europe, the site is
-  localised for de and nl (fr, es and Brazilian pt planned), and pricing is EUR-denominated
+  localised for de and nl (planned: French from France, Spanish from Spain and Brazilian
+  Portuguese, the same variants as the app), and pricing is EUR-denominated
   at European B2B SaaS levels.
   **Target markets:** the 27 EU member states, plus the United Kingdom, Switzerland,
   Norway, the United States, Canada and Brazil (Brazil added 2026-11-12). Everything else is out of market: report it
@@ -317,7 +318,8 @@ counterparts, in a parallel folder.
   nl: informal "je"/"jouw" (as in the app; replaces formal "u"/"uw"), decimal comma,
   specific terms kept in English (see `docs/HANDOFF.md` and `docs/SITEMAP.md` for the
   full term lists).
-  fr: "vous"/"votre" (France). es: "tú" (Spain). pt: Brazilian Portuguese, "você".
+  fr: French from France, "vous"/"votre". es: Spanish from Spain, "tú". pt: Brazilian
+  Portuguese, "você". Spelling, vocabulary and number/date formats follow those countries.
 
 ## Forms and the server function
 

@@ -79,7 +79,8 @@ report a change across a break as a real movement.
 ### Target markets
 
 In: the 27 EU member states, plus the United Kingdom, Switzerland, Norway, the
-United States, Canada and Brazil (added 2026-11-12, with the Brazilian Portuguese site). Everything else is out of market: report it as one
+United States, Canada and Brazil (added 2026-11-12, with the Brazilian Portuguese site).
+The French (France) and Spanish (Spain) sites serve markets already in the list (FR, ES). Everything else is out of market: report it as one
 total, and exclude it when judging a page.
 
 GA4, dimension `countryId` (ISO alpha-2):
