@@ -16,6 +16,8 @@ const {
   placeholder = 'email@yourcompany.com',
   help = 'Use your corporate email. Free providers and competitor domains are blocked.',
 } = Astro.props;
+import { asLocale } from '../i18n/utils';
+const emailLabel = ({ de: 'Geschäftliche E-Mail', nl: 'Zakelijk e-mailadres' } as Record<string, string>)[asLocale(Astro.currentLocale)] ?? 'Work email';
 ---
 <div class="hs-form" data-form={form}>
   <form novalidate>
@@ -28,7 +30,7 @@ const {
         required
         autocomplete="email"
         placeholder={placeholder}
-        aria-label="Work email"
+        aria-label={emailLabel}
         aria-describedby="business-email-help"
       />
       <button class="button" type="submit">{buttonLabel}</button>
