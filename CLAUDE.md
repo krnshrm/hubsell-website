@@ -308,13 +308,16 @@ counterparts, in a parallel folder.
 - Internal links go through `localizedHref(locale, '/path')`.
 - `embed-i18n.ts` keys off the exact English string; when you edit an English string
   that passes through `et()`, move the de and nl keys in the same change.
-- de: third person, no direct address (since 2026-10-13; was formal "Sie"). hubsell or
-  the team is the subject, or a "wer ..." clause, passive, or a noun phrase. A
-  subjectless verb ("Startet mit ...") only after a sentence that names hubsell, never
-  in headings or buttons. Customer quotes stay as said. Lowercase "hubsell", German
-  number and date formatting.
-  nl: formal "u"/"uw", decimal comma, specific terms kept in English (see
-  `docs/HANDOFF.md` and `docs/SITEMAP.md` for the full term lists).
+- **The website follows the app** (owner decision 2026-11-13): same form of address and the
+  same terms as hubsell-client's message files (`src/i18n/messages/<locale>/`). When in
+  doubt, ask the owner. Pages still written in the old style are rewritten on the
+  `website-languages` plan; until then, new or edited copy uses the rules below.
+- de: formal "Sie" (as in the app; replaces the third-person rule of 2026-10-13).
+  Customer quotes stay as said. Lowercase "hubsell", German number and date formatting.
+  nl: informal "je"/"jouw" (as in the app; replaces formal "u"/"uw"), decimal comma,
+  specific terms kept in English (see `docs/HANDOFF.md` and `docs/SITEMAP.md` for the
+  full term lists).
+  fr: "vous"/"votre" (France). es: "tú" (Spain). pt: Brazilian Portuguese, "você".
 
 ## Forms and the server function
 
