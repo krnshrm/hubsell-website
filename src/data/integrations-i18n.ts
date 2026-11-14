@@ -1,6 +1,9 @@
 // Copy for the /integrations page: CRM and email integrations. English base plus
 // German and Dutch; getIntegrationsPage(L) picks per locale.
 import type { Locale } from '../i18n/ui';
+import { integrationsFr } from './20261114-1030-integrations.fr';
+import { integrationsEs } from './20261114-1030-integrations.es';
+import { integrationsPt } from './20261114-1030-integrations.pt';
 
 export interface IntegrationHead { eyebrow: string; pre: string; accent: string; post: string }
 export interface IntegrationItem { name: string; category: 'CRM' | 'Email'; blurb: string }
@@ -562,5 +565,8 @@ const NL: IntegrationsPageData = {
 export function getIntegrationsPage(L: Locale): IntegrationsPageData {
   if (L === 'de') return DE;
   if (L === 'nl') return NL;
+  if (L === 'fr') return integrationsFr;
+  if (L === 'es') return integrationsEs;
+  if (L === 'pt') return integrationsPt;
   return EN;
 }

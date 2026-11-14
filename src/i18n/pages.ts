@@ -6,6 +6,12 @@
 // Locales without a translation fall back to English until they are filled in.
 import { asLocale } from './utils';
 import type { Locale } from './ui';
+import { pagesFr } from './20261114-1030-pages.fr';
+import { pagesEs } from './20261114-1030-pages.es';
+import { pagesPt } from './20261114-1030-pages.pt';
+
+// fr, es and pt keep the copy of all these pages in one file per language.
+const more: Record<string, typeof pagesFr> = { fr: pagesFr, es: pagesEs, pt: pagesPt };
 
 function byLocale<T>(en: T, de: T, nl?: T): Record<Locale, T> {
   return { en, de, nl: nl ?? en, fr: en, es: en, pt: en };
@@ -104,7 +110,8 @@ const contact = byLocale<ContactCopy>(
 );
 
 export function getContact(locale: string | undefined): ContactCopy {
-  return contact[asLocale(locale)];
+  const l = asLocale(locale);
+  return more[l]?.contact ?? contact[l];
 }
 
 // ── Book a call ─────────────────────────────────────────────────────────────────
@@ -176,7 +183,8 @@ const bookCall = byLocale<BookCallCopy>(
 );
 
 export function getBookCall(locale: string | undefined): BookCallCopy {
-  return bookCall[asLocale(locale)];
+  const l = asLocale(locale);
+  return more[l]?.bookCall ?? bookCall[l];
 }
 
 // ── FAQs page ───────────────────────────────────────────────────────────────────
@@ -240,7 +248,8 @@ const faqsPage = byLocale<FaqsCopy>(
 );
 
 export function getFaqsPage(locale: string | undefined): FaqsCopy {
-  return faqsPage[asLocale(locale)];
+  const l = asLocale(locale);
+  return more[l]?.faqsPage ?? faqsPage[l];
 }
 
 // ── Reviews page (hubsell-reviews) ───────────────────────────────────────────────
@@ -311,7 +320,8 @@ const reviewsPage = byLocale<ReviewsCopy>(
 );
 
 export function getReviewsPage(locale: string | undefined): ReviewsCopy {
-  return reviewsPage[asLocale(locale)];
+  const l = asLocale(locale);
+  return more[l]?.reviewsPage ?? reviewsPage[l];
 }
 
 // ── Use cases (overview + detail) ────────────────────────────────────────────────
@@ -415,7 +425,8 @@ const useCasesPage = byLocale<UseCasesCopy>(
 );
 
 export function getUseCasesPage(locale: string | undefined): UseCasesCopy {
-  return useCasesPage[asLocale(locale)];
+  const l = asLocale(locale);
+  return more[l]?.useCasesPage ?? useCasesPage[l];
 }
 
 // ── Comparisons (overview + /vs detail) ──────────────────────────────────────────
@@ -568,7 +579,8 @@ const comparisonsPage = byLocale<ComparisonsCopy>(
 );
 
 export function getComparisonsPage(locale: string | undefined): ComparisonsCopy {
-  return comparisonsPage[asLocale(locale)];
+  const l = asLocale(locale);
+  return more[l]?.comparisonsPage ?? comparisonsPage[l];
 }
 
 // ── Customer stories (overview + detail) ─────────────────────────────────────────
@@ -658,5 +670,6 @@ const customerStoriesPage = byLocale<CustomerStoriesCopy>(
 );
 
 export function getCustomerStoriesPage(locale: string | undefined): CustomerStoriesCopy {
-  return customerStoriesPage[asLocale(locale)];
+  const l = asLocale(locale);
+  return more[l]?.customerStoriesPage ?? customerStoriesPage[l];
 }

@@ -4,6 +4,9 @@
 // Feature-row labels are pulled from the widget's own translations via et(), so
 // the comparison table is localized without repeating any feature wording here.
 import type { Locale } from '../i18n/ui';
+import { pricingFr } from './20261114-1030-pricing-page.fr';
+import { pricingEs } from './20261114-1030-pricing-page.es';
+import { pricingPt } from './20261114-1030-pricing-page.pt';
 
 export interface PricingFaq { q: string; a: string }
 export interface PricingPageData {
@@ -320,5 +323,8 @@ const NL: PricingPageData = {
 export function getPricingPage(L: Locale): PricingPageData {
   if (L === 'de') return DE;
   if (L === 'nl') return NL;
+  if (L === 'fr') return pricingFr;
+  if (L === 'es') return pricingEs;
+  if (L === 'pt') return pricingPt;
   return EN;
 }

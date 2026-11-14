@@ -4,6 +4,10 @@
 // translate the pages. House rule: the brand is always written "hubsell" in
 // lower case, except inside a line that is entirely upper case.
 
+import { uiFr } from './20261114-1030-ui.fr';
+import { uiEs } from './20261114-1030-ui.es';
+import { uiPt } from './20261114-1030-ui.pt';
+
 export const locales = ['en', 'de', 'nl', 'fr', 'es', 'pt'] as const;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = 'en';
@@ -21,7 +25,7 @@ export const localeNames: Record<Locale, string> = {
   nl: 'Nederlands',
   fr: 'Français',
   es: 'Español',
-  pt: 'Português',
+  pt: 'Português (Brasil)',
 };
 
 // Which non-default locales have a REAL translated page at a given base path
@@ -401,4 +405,4 @@ const nl: Dict = {
   'lang.label': 'Taal',
 };
 
-export const ui: Partial<Record<Locale, Dict>> = { en, de, nl };
+export const ui: Partial<Record<Locale, Dict>> = { en, de, nl, fr: uiFr, es: uiEs, pt: uiPt };
