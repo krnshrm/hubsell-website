@@ -313,8 +313,8 @@ counterparts, in a parallel folder.
   that passes through `et()`, move the de and nl keys in the same change.
 - **The website follows the app** (owner decision 2026-11-13): same form of address and the
   same terms as hubsell-client's message files (`src/i18n/messages/<locale>/`). When in
-  doubt, ask the owner. Pages still written in the old style are rewritten on the
-  `website-languages` plan; until then, new or edited copy uses the rules below.
+  doubt, ask the owner. The German and Dutch copy was rewritten to these rules on
+  2026-11-14. Customer stories are interviews and keep the customer's own words.
 - de: formal "Sie" (as in the app; replaces the third-person rule of 2026-10-13).
   Customer quotes stay as said. Lowercase "hubsell", German number and date formatting.
   nl: informal "je"/"jouw" (as in the app; replaces formal "u"/"uw"), decimal comma,
@@ -340,8 +340,8 @@ counterparts, in a parallel folder.
 - **Term check:** `npm run build` ends with `scripts/20261113-1401-check-app-terms.mjs`
   ("postbuild"), which reads the built pages under `dist/<locale>/` for words to avoid
   (`avoid` in the config), the wrong form of address and European Portuguese. Findings
-  fail the build for the languages in `enforce` (fr, es, pt from the start; de and nl
-  only report until their live copy is rewritten, then add them). Text that is right as
+  fail the build for the languages in `enforce` (all five translated languages since
+  2026-11-14, when the German and Dutch copy had been rewritten to "Sie" and "je"). Text that is right as
   it is (a customer quote, a competitor's "sequence") goes into `allow` with the reason.
   `npm run check:terms -- --pairs` also compares each translated page with its English
   page and lists where the English uses an app term and the translation uses another

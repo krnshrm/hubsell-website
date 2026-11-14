@@ -76,8 +76,8 @@ export const RATES = {
 
 // ---- copy, per locale ----
 // The demo is chrome around sample data, so everything a visitor reads lives
-// here: source tabs, node titles, stat labels, waits. German is third person, with no direct
-// address and a lowercase "hubsell"; Dutch is informal (je) and keeps LinkedIn, CRM and
+// here: source tabs, node titles, stat labels, waits. German is formal (Sie), as in the app,
+// with a lowercase "hubsell"; Dutch is informal (je) and keeps LinkedIn, CRM and
 // credits in English. Stat labels sit three to a card, so they are kept to
 // about ten letters in every language.
 type SourceCopy = { tab: string; label: string; detail: string; crumb: string };

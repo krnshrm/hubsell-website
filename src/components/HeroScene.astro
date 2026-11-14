@@ -9,8 +9,7 @@ import { asLocale } from '../i18n/utils';
 const L = asLocale(Astro.currentLocale);
 const { s } = getHome(L);
 
-// German is third person with a lowercase "hubsell": the sentences after the
-// first drop the subject, which stays clear because the first names hubsell.
+// German is formal (Sie), as in the app, with a lowercase "hubsell".
 // Dutch is informal (je), as in the app.
 const COPY = {
   en: {

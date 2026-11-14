@@ -20,7 +20,7 @@ Trigger sind Ereignisse, die aus öffentlichen Signalen verfolgt werden: Finanzi
 
 ## Häufige Fehler
 
-Ein häufiger Fehler ist, auf einen Trigger bei einem Account zu reagieren, der nicht zum ICP passt, sodass gutes Timing an einer schlechten Passung vergeudet wird. Ein weiterer ist eine langsame Reaktion, da die Relevanz eines Triggers binnen Tagen verblasst. Ein dritter ist, eine schwache Verbindung zwischen Ereignis und Produkt zu erzwingen.
+Ein häufiger Fehler ist, auf einen Trigger bei einem Account zu reagieren, der nicht zum ICP passt, sodass gutes Timing an einer schlechten Passung vergeudet wird. Ein weiterer ist eine langsame Reaktion, da die Relevanz eines Triggers binnen Tagen verblasst. Ein dritter ist, eine schwache Verbindung zwischen dem Ereignis und Ihrem Produkt zu erzwingen.
 
 ## Wie hubsell es angeht
 
