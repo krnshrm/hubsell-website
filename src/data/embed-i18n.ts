@@ -13,6 +13,9 @@
 // delete its line (et() falls back to the English key).
 // ─────────────────────────────────────────────────────────────────────────────
 import { type Locale } from '../i18n/ui';
+import { embedFr } from './20261114-1030-embed.fr';
+import { embedEs } from './20261114-1030-embed.es';
+import { embedPt } from './20261114-1030-embed.pt';
 
 type Dict = Record<string, string>;
 
@@ -752,9 +755,9 @@ const nl: Dict = {
   'No more switching between five tools.': 'Nooit meer wisselen tussen vijf tools.',
 };
 
-const dict: Partial<Record<Locale, Dict>> = { de, nl };
+const dict: Partial<Record<Locale, Dict>> = { de, nl, fr: embedFr, es: embedEs, pt: embedPt };
 
-/** Translate a widget label. Returns the German for `de`, else the English key. */
+/** Translate a widget label. Returns the locale's text, else the English key. */
 export function et(locale: Locale, en: string): string {
   return dict[locale]?.[en] ?? en;
 }

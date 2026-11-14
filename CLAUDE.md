@@ -331,6 +331,15 @@ counterparts, in a parallel folder.
   Brazilian spelling and words (contato, usuário, equipe, tela, arquivo, registro).
   In all three: lowercase "hubsell", sentence case headings, plan names (Start, Grow,
   Scale) and "Flow" stay as they are.
+- **Where fr, es and pt copy lives** (2026-11-14): one file per language and area, named
+  `20261114-1030-<area>.<locale>.ts`: in `src/data/` `home`, `faqs`, `platform`, `solutions`,
+  `pricing-page`, `integrations`, `embed` (widget texts keyed by the English text), and in
+  `src/i18n/` `ui` (navigation, footer, buttons) and `pages` (contact, book a call, FAQs,
+  reviews, use cases, comparisons, customer stories). They started as copies of the English
+  text. The getters (`getHome`, `getFaqs`, `getPlatform`, `getSolutions`, `getPricingPage`,
+  `getIntegrationsPage`, `et`, `useTranslations`, the `pages.ts` accessors) pick them up. A
+  language's page only exists once its route file is in `src/pages/<locale>/` and its path
+  is in `translatedRoutes`. de and nl keep their older files (`home.de.ts`, `EN/DE/NL` blocks).
 - **App terms** (2026-11-13): `docs/20261113-1401-APP-TERMS.md` lists the app's word for
   each product term in all six languages. It is generated from hubsell-client's message
   files by `npm run terms` (which terms: `scripts/20261113-1401-app-terms.config.mjs`);

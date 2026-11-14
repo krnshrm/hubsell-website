@@ -7,12 +7,29 @@ import { platformNl } from './platform.nl';
 import { TESTIMONIALS, type Testimonial } from './testimonials';
 import { TESTIMONIALS_DE } from './testimonials.de';
 import { TESTIMONIALS_NL } from './testimonials.nl';
+import { platformFr } from './20261114-1030-platform.fr';
+import { platformEs } from './20261114-1030-platform.es';
+import { platformPt } from './20261114-1030-platform.pt';
+import { homeFr, quotesFr } from './20261114-1030-home.fr';
+import { homeEs, quotesEs } from './20261114-1030-home.es';
+import { homePt, quotesPt } from './20261114-1030-home.pt';
 import type { Locale } from '../i18n/ui';
+
+const morePlatform: Record<string, PlatformData> = { fr: platformFr, es: platformEs, pt: platformPt };
+// Same idea as testimonials.de.ts: the shared pool with the quote swapped by slug.
+const pool = (home: { slug: string; quote: string }[], standalone: Record<string, string>): Testimonial[] => {
+  const q: Record<string, string> = { ...standalone };
+  for (const t of home) q[t.slug] = t.quote;
+  return TESTIMONIALS.map((t) => (q[t.slug] ? { ...t, quote: q[t.slug] } : t));
+};
+const morePools: Record<string, Testimonial[]> = {
+  fr: pool(homeFr.testimonials, quotesFr), es: pool(homeEs.testimonials, quotesEs), pt: pool(homePt.testimonials, quotesPt),
+};
 
 export function getPlatform(L: Locale): PlatformData {
   if (L === 'de') return platformDe;
   if (L === 'nl') return platformNl;
-  return platform;
+  return morePlatform[L] ?? platform;
 }
 
 export function getPlatformOverview(L: Locale): PlatformOverviewData {
@@ -26,6 +43,6 @@ export function getPlatformDetail(L: Locale, path: string): PlatformDetailData {
 }
 
 export function getPlatformQuote(L: Locale, slug: string): Testimonial | undefined {
-  const pool = L === 'de' ? TESTIMONIALS_DE : L === 'nl' ? TESTIMONIALS_NL : TESTIMONIALS;
-  return pool.find((t) => t.slug === slug);
+  const list = L === 'de' ? TESTIMONIALS_DE : L === 'nl' ? TESTIMONIALS_NL : morePools[L] ?? TESTIMONIALS;
+  return list.find((t) => t.slug === slug);
 }
