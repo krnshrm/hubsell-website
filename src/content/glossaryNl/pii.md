@@ -12,11 +12,11 @@ updated: "juli 2026"
 
 ## Waarom het belangrijk is
 
-De meeste B2B-contactdata is persoonsgegevens, want een naam en zakelijk e-mailadres identificeren een persoon. Dat betekent dat de data waarop uw outreach draait onder privacyregels zoals de AVG valt. Weten wat als persoonsgegevens telt vertelt u welke records een grondslag, zorgvuldige opslag en een manier om te verwijderen nodig hebben.
+De meeste B2B-contactdata is persoonsgegevens, want een naam en zakelijk e-mailadres identificeren een persoon. Dat betekent dat de data waarop je outreach draait onder privacyregels zoals de AVG valt. Weten wat als persoonsgegevens telt vertelt je welke records een grondslag, zorgvuldige opslag en een manier om te verwijderen nodig hebben.
 
 ## Hoe het in de praktijk werkt
 
-Persoonsgegevens omvatten directe identificatoren zoals naam, e-mail en telefoon, en kunnen zich uitstrekken tot gegevens die iemand in combinatie identificeren. Verantwoord omgaan betekent alleen houden wat u nodig hebt, het juist houden, veilig opslaan en de data van een persoon op verzoek kunnen vinden en verwijderen. Zakelijke contactdata is nog steeds persoonsgegevens ook al betreft het iemands professionele rol.
+Persoonsgegevens omvatten directe identificatoren zoals naam, e-mail en telefoon, en kunnen zich uitstrekken tot gegevens die iemand in combinatie identificeren. Verantwoord omgaan betekent alleen houden wat je nodig hebt, het juist houden, veilig opslaan en de data van een persoon op verzoek kunnen vinden en verwijderen. Zakelijke contactdata is nog steeds persoonsgegevens ook al betreft het iemands professionele rol.
 
 ## Veelgemaakte fouten
 
@@ -24,4 +24,4 @@ Een veelgemaakte fout is aannemen dat zakelijke contactdata geen persoonsgegeven
 
 ## Hoe hubsell het aanpakt
 
-hubsell verwerkt contactdata in de EU en valideert die op het moment van gebruik, zodat u actuele records houdt in plaats van verouderde persoonsgegevens op te stapelen, met een beschikbare verwerkersovereenkomst voor de verwerking.
+hubsell verwerkt contactdata in de EU en valideert die op het moment van gebruik, zodat je actuele records houdt in plaats van verouderde persoonsgegevens op te stapelen, met een beschikbare verwerkersovereenkomst voor de verwerking.

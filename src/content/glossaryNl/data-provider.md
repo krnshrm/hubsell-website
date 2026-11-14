@@ -12,7 +12,7 @@ updated: "juli 2026"
 
 ## Waarom het belangrijk is
 
-De leverancier die u kiest bepaalt de nauwkeurigheid, dekking en versheid van de data waarop uw outbound draait. Een leverancier met verouderde of dunne data begrenst hoe goed elke campagne kan zijn, hoe goed de rest van de stack ook is. Begrijpen hoe een leverancier data verzamelt en ververst is het verschil tussen betrouwbare outreach en een stijgend bouncepercentage.
+De leverancier die je kiest bepaalt de nauwkeurigheid, dekking en versheid van de data waarop je outbound draait. Een leverancier met verouderde of dunne data begrenst hoe goed elke campagne kan zijn, hoe goed de rest van de stack ook is. Begrijpen hoe een leverancier data verzamelt en ververst is het verschil tussen betrouwbare outreach en een stijgend bouncepercentage.
 
 ## Hoe het in de praktijk werkt
 
@@ -24,4 +24,4 @@ De grootste fout is kopen op databaseomvang alleen, want een grote database met 
 
 ## Hoe hubsell het aanpakt
 
-hubsell is een dataleverancier die geen statische database verkoopt. hubsell verzamelt contacten live en valideert ze op het moment van gebruik, zodat u betaalt voor nauwkeurigheid op het moment van outreach in plaats van toegang tot een verouderende lijst.
+hubsell is een dataleverancier die geen statische database verkoopt. hubsell verzamelt contacten live en valideert ze op het moment van gebruik, zodat je betaalt voor nauwkeurigheid op het moment van outreach in plaats van toegang tot een verouderende lijst.

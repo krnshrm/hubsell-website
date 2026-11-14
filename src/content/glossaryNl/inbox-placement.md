@@ -1,7 +1,7 @@
 ---
 term: "Inboxplaatsing"
 category: "Deliverability"
-definition: "Inboxplaatsing is het aandeel van uw bezorgde mail dat daadwerkelijk in de primaire inbox landt in plaats van de spam- of promotiesmap."
+definition: "Inboxplaatsing is het aandeel van je bezorgde mail dat daadwerkelijk in de primaire inbox landt in plaats van de spam- of promotiesmap."
 related:
   - email-deliverability
   - sender-reputation
@@ -24,4 +24,4 @@ Een veelgemaakte fout is het bezorgpercentage volgen terwijl de plaatsing wordt 
 
 ## Hoe hubsell het aanpakt
 
-hubsell ondersteunt inboxplaatsing door de invoeren te beschermen die die drijven: gevalideerde contacten, geauthenticeerd versturen en gedoseerd volume, zodat meer van uw mail een map bereikt die mensen daadwerkelijk openen.
+hubsell ondersteunt inboxplaatsing door de invoeren te beschermen die die drijven: gevalideerde contacten, geauthenticeerd versturen en gedoseerd volume, zodat meer van je mail een map bereikt die mensen daadwerkelijk openen.

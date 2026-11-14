@@ -24,4 +24,4 @@ Een veelgemaakte fout is intent-signalen als zekerheid in plaats van waarschijnl
 
 ## Hoe hubsell het aanpakt
 
-hubsell kan het verzamelen prioriteren richting accounts die bij uw profiel passen en tekenen van interesse tonen, zodat outreach aankomt terwijl het account aandacht heeft in plaats van nadat het moment voorbij is.
+hubsell kan het verzamelen prioriteren richting accounts die bij je profiel passen en tekenen van interesse tonen, zodat outreach aankomt terwijl het account aandacht heeft in plaats van nadat het moment voorbij is.

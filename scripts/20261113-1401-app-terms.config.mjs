@@ -9,9 +9,9 @@
 
 export const locales = ['en', 'de', 'nl', 'fr', 'es', 'pt'];
 
-// Languages where a finding fails the build. de and nl join once their live
-// copy is rewritten to the app's form of address; until then they only report.
-export const enforce = ['fr', 'es', 'pt'];
+// Languages where a finding fails the build. de and nl joined on 2026-11-14,
+// when their live copy had been rewritten to the app's form of address.
+export const enforce = ['de', 'nl', 'fr', 'es', 'pt'];
 
 // pair: true  -> the English page and its translation are compared for this term
 //               (`npm run check:terms -- --pairs`).
@@ -135,6 +135,10 @@ export const allow = [
   { locale: 'nl', text: 'ondersteunen u bij uw hele aanpak', why: 'customer quote (Staffbase), stays as said' },
   { locale: 'nl', text: 'Ze kunnen echt met u samenwerken', why: 'customer quote (Staffbase), stays as said' },
   { locale: 'nl', text: 'als u met een klein team echte resultaten wilt halen', why: 'customer quote (Elium), stays as said' },
+  { locale: 'nl', page: '/nl/glossary/', text: 'U', word: 'U', why: 'the letter U in the A to Z index' },
+  // Customer stories are interviews in the customer's own words.
+  { locale: 'nl', page: '/nl/customerstories/', why: 'customer stories are interviews, the customer\'s words stay as said' },
+  { locale: 'de', page: '/de/customerstories/', why: 'customer stories are interviews, the customer\'s words stay as said' },
   // The pricing table lists flow nodes under their product names, which stay
   // English in every language (src/data/pricing-features.ts).
   { locale: 'de', page: '/de/pricing/', word: 'email', why: 'node names in the pricing table stay English' },

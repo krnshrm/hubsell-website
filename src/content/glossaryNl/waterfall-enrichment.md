@@ -20,8 +20,8 @@ Een waterfall voert een record in een vaste volgorde langs leveranciers. Voor el
 
 ## Veelgemaakte fouten
 
-Een veelgemaakte fout is een waterfall draaien zonder het winnende resultaat te valideren, zodat u het eerste antwoord accepteert ook als het fout is. Een andere is een slechte leveranciersvolgorde die op dure bronnen inzet voordat goedkopere hadden geantwoord. Een derde is dekking zo hard najagen dat de nauwkeurigheid daalt.
+Een veelgemaakte fout is een waterfall draaien zonder het winnende resultaat te valideren, zodat je het eerste antwoord accepteert ook als het fout is. Een andere is een slechte leveranciersvolgorde die op dure bronnen inzet voordat goedkopere hadden geantwoord. Een derde is dekking zo hard najagen dat de nauwkeurigheid daalt.
 
 ## Hoe hubsell het aanpakt
 
-hubsell richt zich op het valideren van elk contact op het moment van gebruik, zodat het resultaat dat u krijgt is gecontroleerd wanneer u het nodig hebt in plaats van geaccepteerd als het eerste beschikbare antwoord uit een keten van databases.
+hubsell richt zich op het valideren van elk contact op het moment van gebruik, zodat het resultaat dat je krijgt is gecontroleerd wanneer je het nodig hebt in plaats van geaccepteerd als het eerste beschikbare antwoord uit een keten van databases.

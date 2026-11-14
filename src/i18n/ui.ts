@@ -273,7 +273,7 @@ const en: Dict = {
   'lang.label': 'Language',
 };
 
-// German: third person, no direct address (changed from Sie on 2026-10-12). Legal labels
+// German: formal "Sie", as in the app (owner decision 2026-11-13). Legal labels
 // use the German equivalents that German visitors expect (Impressum, AGB, AVV).
 const de: Dict = {
   'nav.resources': 'Ressourcen',

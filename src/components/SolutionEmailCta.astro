@@ -25,16 +25,16 @@ const MSGS = {
     close: 'Close',
   },
   de: {
-    validEmail: 'Bitte eine gültige geschäftliche E-Mail eingeben.',
+    validEmail: 'Bitte geben Sie eine gültige geschäftliche E-Mail ein.',
     blocked: 'Diese Domain ist gesperrt.',
-    free: 'Bitte die geschäftliche E-Mail-Adresse verwenden.',
+    free: 'Bitte verwenden Sie Ihre geschäftliche E-Mail-Adresse.',
     sending: 'Senden …',
     close: 'Schließen',
   },
   nl: {
     validEmail: 'Voer een geldig e-mailadres in.',
     blocked: 'Dit domein is geblokkeerd.',
-    free: 'Gebruik uw zakelijke e-mailadres.',
+    free: 'Gebruik je zakelijke e-mailadres.',
     sending: 'Versturen…',
     close: 'Sluiten',
   },
@@ -48,7 +48,7 @@ const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(m) };
     <p class="subheading" style="margin:16px auto 0;max-width:56ch">{closing.sub}</p>
 
     <form class="secta-form" novalidate>
-      <label class="sr-only" for="secta-email">Email</label>
+      <label class="sr-only" for="secta-email">{({ de: 'E-Mail', nl: 'E-mail' } as Record<string, string>)[L] ?? 'Email'}</label>
       <input class="input secta-input" id="secta-email" name="email" type="email" autocomplete="email" placeholder={cta.placeholder} />
       <button class="button is-large secta-submit" type="submit">{cta.button}</button>
     </form>

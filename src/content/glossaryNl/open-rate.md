@@ -24,4 +24,4 @@ Een veelgemaakte fout is het openingspercentage als succesmetriek behandelen, te
 
 ## Hoe hubsell het aanpakt
 
-hubsell rapporteert openingen als één signaal naast reacties en uitkomsten, zodat u ze in context leest in plaats van te optimaliseren voor een getal dat geen deals sluit.
+hubsell rapporteert openingen als één signaal naast reacties en uitkomsten, zodat je ze in context leest in plaats van te optimaliseren voor een getal dat geen deals sluit.

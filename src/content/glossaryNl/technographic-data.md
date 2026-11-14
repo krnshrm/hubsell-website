@@ -12,7 +12,7 @@ updated: "juli 2026"
 
 ## Waarom het belangrijk is
 
-Wat een bedrijf draait, geeft vaak aan of het past. Een tool dat integreert met Salesforce is relevanter voor bedrijven die al op Salesforce zitten. Technografie laat u accounts vinden op de software die ze gebruiken, wat het targeten aanscherpt en reps een concrete reden geeft. Het markeert ook concurrenten en aanvullende tools die al aanwezig zijn.
+Wat een bedrijf draait, geeft vaak aan of het past. Een tool dat integreert met Salesforce is relevanter voor bedrijven die al op Salesforce zitten. Technografie laat je accounts vinden op de software die ze gebruiken, wat het targeten aanscherpt en reps een concrete reden geeft. Het markeert ook concurrenten en aanvullende tools die al aanwezig zijn.
 
 ## Hoe het in de praktijk werkt
 
@@ -24,4 +24,4 @@ De grootste fout is technografische detectie als zeker behandelen, want het is a
 
 ## Hoe hubsell het aanpakt
 
-hubsell kan de tools die een account gebruikt meewegen in hoe contacten worden verzameld en geprioriteerd, zodat outreach accounts bereikt waar uw product in hun stack past.
+hubsell kan de tools die een account gebruikt meewegen in hoe contacten worden verzameld en geprioriteerd, zodat outreach accounts bereikt waar je product in hun stack past.

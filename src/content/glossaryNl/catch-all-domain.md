@@ -12,7 +12,7 @@ updated: "juli 2026"
 
 ## Waarom het belangrijk is
 
-Catch-all-domeinen breken de normale e-mailvalidatie. Een standaardcontrole vraagt de mailserver of een adres bestaat, maar een catch-all-server zegt overal ja op, dus de controle kan niet bevestigen dat de mailbox echt is. Verstuurt u toch, dan kan het bericht later bouncen of nergens aankomen, wat stil uw bouncepercentage verhoogt en de deliverability schaadt.
+Catch-all-domeinen breken de normale e-mailvalidatie. Een standaardcontrole vraagt de mailserver of een adres bestaat, maar een catch-all-server zegt overal ja op, dus de controle kan niet bevestigen dat de mailbox echt is. Verstuur je toch, dan kan het bericht later bouncen of nergens aankomen, wat stil je bouncepercentage verhoogt en de deliverability schaadt.
 
 ## Hoe het in de praktijk werkt
 

@@ -1,7 +1,7 @@
 ---
 term: "Data die bij de bron is gevalideerd"
 category: "Data en enrichment"
-definition: "Data die bij de bron is gevalideerd is contactdata die op het moment dat u die nodig hebt op juistheid wordt gecontroleerd, in plaats van te vertrouwen op een eerdere momentopname."
+definition: "Data die bij de bron is gevalideerd is contactdata die op het moment dat je die nodig hebt op juistheid wordt gecontroleerd, in plaats van te vertrouwen op een eerdere momentopname."
 related:
   - b2b-data
   - data-decay
@@ -12,7 +12,7 @@ updated: "juli 2026"
 
 ## Waarom het belangrijk is
 
-Een record is alleen nuttig als het klopt wanneer u het gebruikt, niet toen het werd verzameld. Valideren bij de bron verlaagt bounces, beschermt uw reputatie en zorgt dat u outreach-inspanning inzet voor mensen die daadwerkelijk bereikbaar zijn. Het verschuift de vraag van hoe groot is de lijst naar hoe correct is dit contact op dit moment.
+Een record is alleen nuttig als het klopt wanneer je het gebruikt, niet toen het werd verzameld. Valideren bij de bron verlaagt bounces, beschermt je reputatie en zorgt dat je outreach-inspanning inzet voor mensen die daadwerkelijk bereikbaar zijn. Het verschuift de vraag van hoe groot is de lijst naar hoe correct is dit contact op dit moment.
 
 ## Hoe het in de praktijk werkt
 
@@ -24,4 +24,4 @@ De fout die dit oplost is standaard vertrouwen op opgeslagen data. Teams die de 
 
 ## Hoe hubsell het aanpakt
 
-Bij de bron gevalideerd is de standaardwerkwijze van hubsell. Elk contact wordt gecontroleerd wanneer u het opvraagt, inclusief een catch-all-controle, zodat een credit alleen wordt besteed aan een contact dat vandaag klopt.
+Bij de bron gevalideerd is de standaardwerkwijze van hubsell. Elk contact wordt gecontroleerd wanneer je het opvraagt, inclusief een catch-all-controle, zodat een credit alleen wordt besteed aan een contact dat vandaag klopt.

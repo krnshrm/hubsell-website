@@ -2,12 +2,12 @@
 // The homepage FAQ Dutch lives in home.nl.ts (faqsNl); faqs-i18n.ts merges both
 // into the full localized set for the /faqs page. Keyed by slug. Brand terms
 // (zero-day-sourcing, engagement orchestration, messenger-paradox, ICP, ACV) are
-// kept; answers keep their <p> markup. Formal register "u".
+// kept; answers keep their <p> markup. Formal register "je".
 export const faqsNlExtra: Record<string, { question: string; answer: string }> = {
   'orchestrate-multiple-profiles': {
     question: 'Kan hubsell activiteit over meerdere leidinggevende profielen tegelijk orkestreren?',
     answer:
-      '<p>Met hubsell stuurt u de outreach van uw CEO, uw VP Sales en uw experts vanuit één centrale, eenduidige plek. Zo coördineert u de benadering op gelijke voet over het volledige doelaccount.</p>',
+      '<p>Met hubsell stuurt je de outreach van je CEO, je VP Sales en je experts vanuit één centrale, eenduidige plek. Zo coördineer je de benadering op gelijke voet over het volledige doelaccount.</p>',
   },
   'hubsell-email-infrastructure': {
     question: 'Verstuurt hubsell e-mails via externe servers of via onze eigen mailboxen?',
@@ -17,12 +17,12 @@ export const faqsNlExtra: Record<string, { question: string; answer: string }> =
   'personalize-outreach-at-scale': {
     question: 'Hoe personaliseren we cold outreach op schaal zonder als een AI-robot te klinken?',
     answer:
-      '<p>Kopers herkennen AI-geschreven vleierij meteen, en dat kost u reacties. Een eenvoudig, direct bericht aan een zeer relevante lijst, bijvoorbeeld deelnemers aan een specifiek webinar of mensen die met een specifieke post interageren, verslaat machinaal gepersonaliseerde teksten aan een generieke persona keer op keer. hubsell bouwt de relevantie al in bij de data: live verzamelde contacten, afgestemd op uw ICP, zodat het bericht kort en eerlijk kan blijven.</p>',
+      '<p>Kopers herkennen AI-geschreven vleierij meteen, en dat kost je reacties. Een eenvoudig, direct bericht aan een zeer relevante lijst, bijvoorbeeld deelnemers aan een specifiek webinar of mensen die met een specifieke post interageren, verslaat machinaal gepersonaliseerde teksten aan een generieke persona keer op keer. hubsell bouwt de relevantie al in bij de data: live verzamelde contacten, afgestemd op je ICP, zodat het bericht kort en eerlijk kan blijven.</p>',
   },
   'stop-sales-email-bounces': {
     question: 'Hoe voorkomen we dat onze sales-e-mails bouncen door slechte CRM-data?',
     answer:
-      '<p>De gemiddelde zittingsduur van een B2B-beslisser is ongeveer 2,5 jaar, waardoor statische CRM’s en gekochte lijsten met 25 tot 30% per jaar vervallen. hubsell lost dit op met zero-day sourcing, onze live-datamethode: wij verzamelen en valideren contactgegevens op het exacte moment van uw aanvraag. Dat houdt de nauwkeurigheid hoog en beschermt uw verzendreputatie.</p>',
+      '<p>De gemiddelde zittingsduur van een B2B-beslisser is ongeveer 2,5 jaar, waardoor statische CRM’s en gekochte lijsten met 25 tot 30% per jaar vervallen. hubsell lost dit op met zero-day sourcing, onze live-datamethode: wij verzamelen en valideren contactgegevens op het exacte moment van je aanvraag. Dat houdt de nauwkeurigheid hoog en beschermt je verzendreputatie.</p>',
   },
   'hubsell-high-volume-sales': {
     question: 'Is hubsell geschikt voor transactionele sales met hoog volume en lage ACV?',
@@ -32,12 +32,12 @@ export const faqsNlExtra: Record<string, { question: string; answer: string }> =
   'mass-email-brand-reputation': {
     question: 'Schaadt massale cold e-mailing actief onze merkreputatie en deliverability?',
     answer:
-      '<p>De nieuwste regels van Google en Yahoo betekenen dat massaal ongericht mailen de verzendreputatie van uw domein snel verwoest. hubsell beschermt die met precieze targeting, native API-verzending via Google en Microsoft en het veilig verdelen van outreach over 5 tot 10 interne verzendprofielen. Minder volume per verzender, hogere deliverability, geen beschadigd domein.</p>',
+      '<p>De nieuwste regels van Google en Yahoo betekenen dat massaal ongericht mailen de verzendreputatie van je domein snel verwoest. hubsell beschermt die met precieze targeting, native API-verzending via Google en Microsoft en het veilig verdelen van outreach over 5 tot 10 interne verzendprofielen. Minder volume per verzender, hogere deliverability, geen beschadigd domein.</p>',
   },
   'third-party-intent-data-accuracy': {
     question: 'Zijn B2B-intent-data van derden echt nauwkeurig?',
     answer:
-      '<p>De meeste intent-data leunen op probabilistische algoritmes die op basis van anoniem webverkeer raden wie er koopt. Omdat 95% van de B2B-kopers op elk willekeurig moment niet in de markt is, jaagt uw salesteam op spoken wanneer een generiek algoritme op een niet-kopende markt wordt losgelaten.</p>',
+      '<p>De meeste intent-data leunen op probabilistische algoritmes die op basis van anoniem webverkeer raden wie er koopt. Omdat 95% van de B2B-kopers op elk willekeurig moment niet in de markt is, jaagt je salesteam op spoken wanneer een generiek algoritme op een niet-kopende markt wordt losgelaten.</p>',
   },
   'sdr-vs-executive-linkedin-outreach': {
     question: 'Moeten onze SDR’s of onze leidinggevenden de LinkedIn-outreach doen?',
@@ -47,16 +47,16 @@ export const faqsNlExtra: Record<string, { question: string; answer: string }> =
   'cold-email-reply-rates-dropping': {
     question: 'Waarom dalen onze antwoordratio’s op cold e-mails plotseling zo sterk?',
     answer:
-      '<p>Klassieke „spray and pray”-outreach faalt om twee structurele redenen. Ten eerste betekenen strenge nieuwe spamdrempels (0,3% klachtenratio) van Google en Yahoo dat massale verzending uw domeinreputatie actief schaadt. Ten tweede herkennen kopers geautomatiseerde AI-personalisatie meteen. Het oogt persoonlijk maar voelt hol, en roept een innerlijke weerstand op.</p>',
+      '<p>Klassieke „spray and pray”-outreach faalt om twee structurele redenen. Ten eerste betekenen strenge nieuwe spamdrempels (0,3% klachtenratio) van Google en Yahoo dat massale verzending je domeinreputatie actief schaadt. Ten tweede herkennen kopers geautomatiseerde AI-personalisatie meteen. Het oogt persoonlijk maar voelt hol, en roept een innerlijke weerstand op.</p>',
   },
   'sdr-first-meetings-week-one': {
     question: 'Kan een nieuwe SDR echt in week \u00e9\u00e9n meetings boeken?',
     answer:
-      '<p>Ja, als drie dingen kloppen: het aanbod past bij de markt die u benadert. De targeting klopt, dus de juiste titels bij de juiste organisaties. En de uitvoering loopt niet vast, dus targeting afgestemd en copy goedgekeurd in de eerste dagen. hubsell haalt de gebruikelijke opstartblokkades weg, lijsten bouwen, tools opzetten en data opschonen, zodat de eerste week naar outreach kan gaan in plaats van naar admin.</p>',
+      '<p>Ja, als drie dingen kloppen: het aanbod past bij de markt die je benadert. De targeting klopt, dus de juiste titels bij de juiste organisaties. En de uitvoering loopt niet vast, dus targeting afgestemd en copy goedgekeurd in de eerste dagen. hubsell haalt de gebruikelijke opstartblokkades weg, lijsten bouwen, tools opzetten en data opschonen, zodat de eerste week naar outreach kan gaan in plaats van naar admin.</p>',
   },
   'hubsell-setup-before-first-sdr': {
     question: 'We nemen onze eerste SDR aan. Wanneer moeten we hubsell opzetten?',
     answer:
-      '<p>V\u00f3\u00f3r dag \u00e9\u00e9n, zodat week \u00e9\u00e9n naar verkopen gaat in plaats van naar tooling. De targeting en de eerste flow kunnen klaarstaan wanneer de SDR binnenkomt, en omdat contacten live worden verzameld, veroudert er niets terwijl u werft.</p>',
+      '<p>V\u00f3\u00f3r dag \u00e9\u00e9n, zodat week \u00e9\u00e9n naar verkopen gaat in plaats van naar tooling. De targeting en de eerste flow kunnen klaarstaan wanneer de SDR binnenkomt, en omdat contacten live worden verzameld, veroudert er niets terwijl je werft.</p>',
   },
 };
