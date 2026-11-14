@@ -28,13 +28,13 @@ order: 3
 
 ## Zwei Kanäle, eine Bewegung
 
-Wenn E-Mail und LinkedIn in getrennten Tools liegen, bleibt die Arbeit am Team hängen. Es sendet eine E-Mail in der einen App, wechselt zu LinkedIn für eine Kontaktanfrage und versucht dann, sich zu merken, wer bei welchem Schritt steht. Das Timing verrutscht, Nachrichten überschneiden sich, und die beiden Kanäle arbeiten gegeneinander statt zusammen.
+Wenn E-Mail und LinkedIn in getrennten Tools liegen, bleibt die Arbeit am Team hängen. Es sendet eine E-Mail in der einen App, wechselt zu LinkedIn für eine Vernetzungsanfrage und versucht dann, sich zu merken, wer bei welchem Schritt steht. Das Timing verrutscht, Nachrichten überschneiden sich, und die beiden Kanäle arbeiten gegeneinander statt zusammen.
 
 Käufer sehen keine zwei Kanäle. Sie sehen, dass sich ein Unternehmen meldet, und das Erlebnis sollte sich wie ein einziges Gespräch anfühlen.
 
 ## Ein koordinierter Flow
 
-In hubsell lassen sich E-Mail- und LinkedIn-Schritte per Drag-and-drop in einen einzigen Flow ziehen. Profilbesuche, Kontaktanfragen, Direktnachrichten, InMail und E-Mail laufen alle in einer Taktung.
+In hubsell lassen sich E-Mail- und LinkedIn-Schritte per Drag-and-drop in einen einzigen Flow ziehen. Profilbesuche, Vernetzungsanfragen, Direktnachrichten, InMail und E-Mail laufen alle in einer Taktung.
 
 **Verzweigung, die reagiert.** Bedingungen leiten jeden Kontakt automatisch anhand seines Verhaltens. Anfrage angenommen, aber nicht geantwortet? Dann geht es den einen Weg. Schon verbunden? Dann den anderen. Jeder Ausgang wird behandelt, ohne dass jemand den nächsten Schritt von Hand entscheidet.
 

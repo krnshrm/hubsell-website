@@ -1,7 +1,7 @@
 ---
 term: "Cold e-mail"
 category: "Outbound en e-mail"
-definition: "Een cold e-mail is een ongevraagd bericht aan een prospect met wie u geen eerdere relatie hebt, om een zakelijk gesprek te starten."
+definition: "Een cold e-mail is een ongevraagd bericht aan een prospect met wie je geen eerdere relatie hebt, om een zakelijk gesprek te starten."
 related:
   - outbound-sales
   - email-sequence
@@ -12,7 +12,7 @@ updated: "juli 2026"
 
 ## Waarom het belangrijk is
 
-Cold e-mail is de ruggengraat van de meeste outbound-programma’s omdat het schaalt en meetbaar is. Goed gedaan opent het gesprekken met accounts die bij uw profiel passen en u nooit hadden gevonden. Slecht gedaan bounct het, irriteert het mensen en verbrandt het het verzenddomein. Het verschil zit in datakwaliteit en relevantie.
+Cold e-mail is de ruggengraat van de meeste outbound-programma’s omdat het schaalt en meetbaar is. Goed gedaan opent het gesprekken met accounts die bij je profiel passen en je nooit hadden gevonden. Slecht gedaan bounct het, irriteert het mensen en verbrandt het het verzenddomein. Het verschil zit in datakwaliteit en relevantie.
 
 ## Hoe het in de praktijk werkt
 

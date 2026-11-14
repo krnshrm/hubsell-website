@@ -42,7 +42,7 @@ export const faqsDeExtra: Record<string, { question: string; answer: string }> =
   'sdr-vs-executive-linkedin-outreach': {
     question: 'Sollten unsere SDRs oder unsere Führungskräfte den LinkedIn-Outreach übernehmen?',
     answer:
-      '<p>Wer die Nachricht sendet, verändert das Ergebnis. Sendet ein SDR eine Kontaktanfrage, liegt die Annahmequote typischerweise unter 20%, weil Käufer einen Pitch erwarten. Sendet ein Gründer, eine Führungskraft oder ein Fachexperte exakt dieselbe Anfrage, springt die Annahmequote auf über 50%. hubsell ist dafür gebaut, Outreach von den Profilen auszuführen, die Käufer tatsächlich akzeptieren.</p>',
+      '<p>Wer die Nachricht sendet, verändert das Ergebnis. Sendet ein SDR eine Vernetzungsanfrage, liegt die Annahmequote typischerweise unter 20%, weil Käufer einen Pitch erwarten. Sendet ein Gründer, eine Führungskraft oder ein Fachexperte exakt dieselbe Anfrage, springt die Annahmequote auf über 50%. hubsell ist dafür gebaut, Outreach von den Profilen auszuführen, die Käufer tatsächlich akzeptieren.</p>',
   },
   'cold-email-reply-rates-dropping': {
     question: 'Warum sinken unsere Antwortraten bei Cold E-Mails plötzlich so stark?',

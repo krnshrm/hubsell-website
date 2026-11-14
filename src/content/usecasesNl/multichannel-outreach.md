@@ -30,18 +30,18 @@ order: 3
 
 Wanneer e-mail en LinkedIn in aparte tools zitten, blijft het werk aan het team hangen. Het verstuurt een e-mail in de ene app, wisselt naar LinkedIn voor een connectieverzoek en probeert dan te onthouden wie bij welke stap zit. De timing verschuift, berichten overlappen, en de twee kanalen werken tegen elkaar in plaats van samen.
 
-Kopers zien geen twee kanalen. Ze zien dat uw bedrijf contact opneemt, en die ervaring zou als één gesprek moeten voelen.
+Kopers zien geen twee kanalen. Ze zien dat je bedrijf contact opneemt, en die ervaring zou als één gesprek moeten voelen.
 
 ## Eén gecoördineerde flow
 
-In hubsell sleept u e-mail- en LinkedIn-stappen met drag-and-drop in één flow. Profielbezoeken, connectieverzoeken, directe berichten, InMail en e-mail draaien allemaal in één cadans.
+In hubsell sleept je e-mail- en LinkedIn-stappen met drag-and-drop in één flow. Profielbezoeken, connectieverzoeken, directe berichten, InMail en e-mail draaien allemaal in één cadans.
 
 **Vertakking die reageert.** Voorwaarden sturen elk contact automatisch op basis van gedrag. Verzoek geaccepteerd, maar niet beantwoord? Dan gaat het de ene kant op. Al verbonden? Dan de andere. Elke uitkomst wordt behandeld zonder dat iemand de volgende stap handmatig bepaalt.
 
-**Veilig op LinkedIn.** De snelste manier om een LinkedIn-account geschorst te krijgen, is een piek aan activiteit in korte tijd. hubsell bouwt uw eerstegraadsnetwerk langzaam en gestaag op, binnen de platformlimieten, 365 dagen per jaar, zodat het bereik groeit zonder accounts in gevaar te brengen.
+**Veilig op LinkedIn.** De snelste manier om een LinkedIn-account geschorst te krijgen, is een piek aan activiteit in korte tijd. hubsell bouwt je eerstegraadsnetwerk langzaam en gestaag op, binnen de platformlimieten, 365 dagen per jaar, zodat het bereik groeit zonder accounts in gevaar te brengen.
 
 **Persoonlijk op schaal.** Teams die hubsell gebruiken, houden een hoog aandeel unieke content over hun outreach heen, zodat berichten aanvoelen alsof ze voor de persoon zijn geschreven en niet naar een lijst zijn verstuurd, zelfs bij duizenden contacten.
 
 ## Onderdeel van de hele beweging
 
-Multichannel-flows werken met de live contacten die u via [leadgeneratie](/nl/use-cases/lead-generation) verzamelt, en elk contactmoment wordt vanzelf in uw CRM vastgelegd. Om data, kanalen en synchronisatie in samenspel te zien, bekijk [outbound-sales](/nl/use-cases/outbound-sales). Alle kanalen en instellingen in detail ziet u op het [multichannel-outreachplatform](/nl/platform/multichannel-outreach).
+Multichannel-flows werken met de live contacten die je via [leadgeneratie](/nl/use-cases/lead-generation) verzamelt, en elk contactmoment wordt vanzelf in je CRM vastgelegd. Om data, kanalen en synchronisatie in samenspel te zien, bekijk [outbound-sales](/nl/use-cases/outbound-sales). Alle kanalen en instellingen in detail zie je op het [multichannel-outreachplatform](/nl/platform/multichannel-outreach).

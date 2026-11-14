@@ -12,11 +12,11 @@ updated: "juli 2026"
 
 ## Waarom het belangrijk is
 
-Koopsignalen vertellen u wie u nu versus later moet benaderen. Erop reageren richt de inspanning op prospects die interesse tonen, wat reactie- en conversiepercentages verhoogt vergeleken met een ongesorteerde lijst. Ze maken van prioritering in plaats van een gok iets dat op waargenomen gedrag is gestoeld.
+Koopsignalen vertellen je wie je nu versus later moet benaderen. Erop reageren richt de inspanning op prospects die interesse tonen, wat reactie- en conversiepercentages verhoogt vergeleken met een ongesorteerde lijst. Ze maken van prioritering in plaats van een gok iets dat op waargenomen gedrag is gestoeld.
 
 ## Hoe het in de praktijk werkt
 
-Signalen lopen van first-party-acties, zoals herhaalde bezoeken aan uw prijspagina of een demoaanvraag, tot third-party-intent, zoals uw categorie elders onderzoeken. Teams verzamelen deze, wegen ze en gebruiken ze om te rangschikken welke accounts binnen het profiel eerst worden bewerkt. Sterkere signalen, zoals een directe productvraag, gaan boven zachtere zoals één contentweergave.
+Signalen lopen van first-party-acties, zoals herhaalde bezoeken aan je prijspagina of een demoaanvraag, tot third-party-intent, zoals je categorie elders onderzoeken. Teams verzamelen deze, wegen ze en gebruiken ze om te rangschikken welke accounts binnen het profiel eerst worden bewerkt. Sterkere signalen, zoals een directe productvraag, gaan boven zachtere zoals één contentweergave.
 
 ## Veelgemaakte fouten
 

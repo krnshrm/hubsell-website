@@ -12,7 +12,7 @@ updated: "juli 2026"
 
 ## Waarom het belangrijk is
 
-Win rate toont hoe goed het team echte kansen in klanten omzet. Die voedt direct forecasting, want uw win rate kennen maakt van een stapel pipeline een verwacht getal. Een stijgende win rate betekent dat kwalificatie en verkopen beter worden; een dalende signaleert een probleem in passing, proces of de kwaliteit van wat de pipeline binnenkomt.
+Win rate toont hoe goed het team echte kansen in klanten omzet. Die voedt direct forecasting, want je win rate kennen maakt van een stapel pipeline een verwacht getal. Een stijgende win rate betekent dat kwalificatie en verkopen beter worden; een dalende signaleert een probleem in passing, proces of de kwaliteit van wat de pipeline binnenkomt.
 
 ## Hoe het in de praktijk werkt
 

@@ -132,7 +132,7 @@ Die Infrastruktur von hubsell ist so konstruiert, dass sie für Spamfilter und K
 
 Der Kampagnen-Builder von hubsell nutzt **visuelle Logik-Flowcharts** (knotenbasiert), um die Journeys von Interessenten zu steuern.
 
-- **Aktionsknoten:** Kontaktanfragen, Follow-ups, Endorsements, Profilbesuche, E-Mails.
+- **Aktionsknoten:** Vernetzungsanfragen, Follow-ups, Endorsements, Profilbesuche, E-Mails.
 - **Bedingungsknoten:** „Wenn verbunden“, „Wenn geantwortet“, „Wenn Engagement ausgelöst“.
 - **Kaufsignal-Sensoren:** hubsell nutzt hochwertige Inhalte (Whitepaper, Webinare) als „Sensoren“. Die Interaktion eines Interessenten mit diesen Assets löst eine reaktive Verzweigung aus und bewegt ihn von einem „Nurture“-Pfad auf einen „Activation“-Pfad.
 

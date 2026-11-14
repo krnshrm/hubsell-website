@@ -12,11 +12,11 @@ updated: "juli 2026"
 
 ## Waarom het belangrijk is
 
-Gerechtvaardigd belang is de grondslag waarop de meeste B2B-outbound leunt, omdat elke prospect om toestemming vragen vóór een eerste bericht niet werkbaar is. Juist gebruikt laat het u relevante zakelijke contacten rechtmatig bereiken. Slordig gebruikt wordt het een etiket op data die u niet zou moeten houden, dus begrijpen wat het eigenlijk vereist doet ertoe.
+Gerechtvaardigd belang is de grondslag waarop de meeste B2B-outbound leunt, omdat elke prospect om toestemming vragen vóór een eerste bericht niet werkbaar is. Juist gebruikt laat het je relevante zakelijke contacten rechtmatig bereiken. Slordig gebruikt wordt het een etiket op data die je niet zou moeten houden, dus begrijpen wat het eigenlijk vereist doet ertoe.
 
 ## Hoe het in de praktijk werkt
 
-Leunen op gerechtvaardigd belang betekent doorgaans een afwegingstoets: uw belang om het contact te bereiken tegen hun redelijke verwachtingen en rechten. Een relevante persoon in hun professionele rol bereiken over iets nuttigs voor hun werk zit comfortabeler dan ongerichte massamail. U wordt geacht de redenering vast te leggen, data relevant te houden en bezwaren en afmeldingen prompt te honoreren.
+Leunen op gerechtvaardigd belang betekent doorgaans een afwegingstoets: je belang om het contact te bereiken tegen hun redelijke verwachtingen en rechten. Een relevante persoon in hun professionele rol bereiken over iets nuttigs voor hun werk zit comfortabeler dan ongerichte massamail. Je wordt geacht de redenering vast te leggen, data relevant te houden en bezwaren en afmeldingen prompt te honoreren.
 
 ## Veelgemaakte fouten
 
@@ -24,4 +24,4 @@ Een veelgemaakte fout is gerechtvaardigd belang behandelen als een vrijbrief in 
 
 ## Hoe hubsell het aanpakt
 
-hubsell ondersteunt outreach naar relevante zakelijke contacten en maakt het afhandelen van afmeldingen eenvoudig, zodat een aanpak op gerechtvaardigd belang verdedigbaar blijft. De afwegingstoets voor uw gebruik voert u zelf uit, en dit is geen juridisch advies.
+hubsell ondersteunt outreach naar relevante zakelijke contacten en maakt het afhandelen van afmeldingen eenvoudig, zodat een aanpak op gerechtvaardigd belang verdedigbaar blijft. De afwegingstoets voor je gebruik voer je zelf uit, en dit is geen juridisch advies.

@@ -1,7 +1,7 @@
 ---
 term: "E-mail-deliverability"
 category: "Deliverability"
-definition: "E-mail-deliverability is het vermogen van uw berichten om de inbox van de ontvanger te bereiken in plaats van geblokkeerd of naar spam gestuurd te worden."
+definition: "E-mail-deliverability is het vermogen van je berichten om de inbox van de ontvanger te bereiken in plaats van geblokkeerd of naar spam gestuurd te worden."
 related:
   - sender-reputation
   - catch-all-domain
@@ -12,11 +12,11 @@ updated: "juli 2026"
 
 ## Waarom het belangrijk is
 
-Een e-mail die de inbox niet bereikt kan niet worden gelezen, beantwoord of geconverteerd, hoe goed die ook is. Deliverability bepaalt hoeveel van uw outreach überhaupt wordt gezien. Slechte deliverability verspilt de hele inspanning ervoor, en zodra de reputatie van een domein daalt, is herstel traag. Voor elk team dat in volume verstuurt is deliverability een kerngoed om te beschermen.
+Een e-mail die de inbox niet bereikt kan niet worden gelezen, beantwoord of geconverteerd, hoe goed die ook is. Deliverability bepaalt hoeveel van je outreach überhaupt wordt gezien. Slechte deliverability verspilt de hele inspanning ervoor, en zodra de reputatie van een domein daalt, is herstel traag. Voor elk team dat in volume verstuurt is deliverability een kerngoed om te beschermen.
 
 ## Hoe het in de praktijk werkt
 
-Deliverability hangt af van authenticatie, reputatie en gedrag. Authenticatierecords, SPF, DKIM en DMARC, bewijzen dat de mail echt van u komt. De afzenderreputatie weerspiegelt uw historie van bounces, spamklachten en engagement. Het verzendgedrag, inclusief volume, opbouw en lijstkwaliteit, vertelt providers of ze u vertrouwen. Een domein opwarmen, bouncepercentages laag houden en relevante mail versturen ondersteunen allemaal de inboxplaatsing.
+Deliverability hangt af van authenticatie, reputatie en gedrag. Authenticatierecords, SPF, DKIM en DMARC, bewijzen dat de mail echt van je komt. De afzenderreputatie weerspiegelt je historie van bounces, spamklachten en engagement. Het verzendgedrag, inclusief volume, opbouw en lijstkwaliteit, vertelt providers of ze je vertrouwen. Een domein opwarmen, bouncepercentages laag houden en relevante mail versturen ondersteunen allemaal de inboxplaatsing.
 
 ## Veelgemaakte fouten
 

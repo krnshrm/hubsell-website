@@ -12,7 +12,7 @@ updated: "juli 2026"
 
 ## Waarom het belangrijk is
 
-Data decay is de reden dat een gekochte lijst stopt met werken. Schattingen in de sector leggen B2B-data-decay op ongeveer 2 tot 3% per maand, wat betekent dat een lijst binnen een jaar voor een kwart fout kan zijn. Elk vervallen record is een verspilde verzending, een bounce die uw reputatie schaadt, of een telefoontje naar iemand die het bedrijf heeft verlaten. Decay maakt van een goede lijst een last zonder dat iemand die aanraakt.
+Data decay is de reden dat een gekochte lijst stopt met werken. Schattingen in de sector leggen B2B-data-decay op ongeveer 2 tot 3% per maand, wat betekent dat een lijst binnen een jaar voor een kwart fout kan zijn. Elk vervallen record is een verspilde verzending, een bounce die je reputatie schaadt, of een telefoontje naar iemand die het bedrijf heeft verlaten. Decay maakt van een goede lijst een last zonder dat iemand die aanraakt.
 
 ## Hoe het in de praktijk werkt
 
@@ -24,4 +24,4 @@ De kernfout is een grote statische lijst kopen en die maandenlang bewerken, in d
 
 ## Hoe hubsell het aanpakt
 
-hubsell omzeilt decay door helemaal geen statische lijst aan te houden. Contacten worden verzameld op de dag dat u ze nodig hebt en op dat moment gevalideerd, zodat u altijd werkt met data die de stand van vandaag weergeeft, niet een momentopname uit het verleden.
+hubsell omzeilt decay door helemaal geen statische lijst aan te houden. Contacten worden verzameld op de dag dat je ze nodig hebt en op dat moment gevalideerd, zodat je altijd werkt met data die de stand van vandaag weergeeft, niet een momentopname uit het verleden.

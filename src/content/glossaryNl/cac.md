@@ -12,7 +12,7 @@ updated: "juli 2026"
 
 ## Waarom het belangrijk is
 
-CAC vertelt u wat groei werkelijk kost. Klimt die boven wat een klant over zijn levensduur waard is, dan verliest groei geld. Die volgen houdt uitgaven gedisciplineerd en toont welke kanalen klanten efficiënt brengen en welke alleen budget verbranden. Het is een van de helderste signalen of een go-to-marketmotie werkt.
+CAC vertelt je wat groei werkelijk kost. Klimt die boven wat een klant over zijn levensduur waard is, dan verliest groei geld. Die volgen houdt uitgaven gedisciplineerd en toont welke kanalen klanten efficiënt brengen en welke alleen budget verbranden. Het is een van de helderste signalen of een go-to-marketmotie werkt.
 
 ## Hoe het in de praktijk werkt
 
