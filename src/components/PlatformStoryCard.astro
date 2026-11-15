@@ -7,6 +7,7 @@ import { localizedHref } from '../i18n/utils';
 import type { Locale } from '../i18n/ui';
 import Avatar from './Avatar.astro';
 import { TESTIMONIALS } from '../data/testimonials';
+import { storyCard } from '../data/20261115-1620-story-cards';
 
 interface Props {
   L: Locale;
@@ -17,7 +18,8 @@ const { L, slug, label } = Astro.props;
 const collName = L === 'de' ? 'customerstoriesDe' : L === 'nl' ? 'customerstoriesNl' : 'customerstories';
 const stories = await getCollection(collName as 'customerstories');
 const story = stories.find((s) => s.id === slug);
-const d = story?.data as any;
+const card = storyCard(L, slug);
+const d = card ? { ...(story?.data as any), ...card } : (story?.data as any);
 const results: { metric: string; label: string }[] = (d?.results ?? []).slice(0, 2);
 // The champion's face from the shared R2 avatars; the story's own image is the fallback.
 const photo = TESTIMONIALS.find((t) => t.storySlug === slug)?.photo ?? d?.championImage;
