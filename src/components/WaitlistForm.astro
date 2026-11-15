@@ -17,7 +17,7 @@ const {
   help = 'Use your corporate email. Free providers and competitor domains are blocked.',
 } = Astro.props;
 import { asLocale } from '../i18n/utils';
-const emailLabel = ({ de: 'Geschäftliche E-Mail', nl: 'Zakelijk e-mailadres' } as Record<string, string>)[asLocale(Astro.currentLocale)] ?? 'Work email';
+const emailLabel = ({ de: 'Geschäftliche E-Mail', nl: 'Zakelijk e-mailadres', fr: 'E-mail professionnel' } as Record<string, string>)[asLocale(Astro.currentLocale)] ?? 'Work email';
 ---
 <div class="hs-form" data-form={form}>
   <form novalidate>
