@@ -1,27 +1,27 @@
 ---
 term: "SEO"
-category: "SEO and GEO"
-definition: "SEO, or search engine optimisation, is the practice of improving content and pages so they rank higher in search engine results and attract more visitors."
+category: "SEO y GEO"
+definition: "El SEO (search engine optimisation, u optimización para buscadores) consiste en mejorar el contenido y las páginas para que aparezcan más arriba en los resultados de los buscadores y atraigan más visitas."
 related:
   - geo
   - aeo
   - schema-markup
   - b2b-data
-updated: "July 2026"
+updated: "julio de 2026"
 ---
 
-## Why it matters
+## Por qué importa
 
-Search is still where much of B2B demand starts, and ranking for the terms buyers search brings a steady stream of visitors without paying per click. Strong SEO compounds over time, turning content into a durable source of traffic and leads. For most companies it remains one of the highest-return channels, and it now sits alongside newer answer-engine visibility.
+Gran parte de la demanda B2B sigue empezando en los buscadores, y posicionarse en los términos que buscan los compradores trae visitas de forma constante sin pagar por clic. Un buen SEO se acumula con el tiempo y convierte el contenido en una fuente duradera de tráfico y leads. Para la mayoría de las empresas sigue siendo uno de los canales más rentables, y ahora convive con la visibilidad en los motores de respuesta.
 
-## How it works in practice
+## Cómo funciona en la práctica
 
-SEO combines relevant content that matches what people search, technical health so pages load and can be crawled, and signals like links that build authority. Pages target the terms buyers use, structured data helps engines understand them, and a clear site structure helps both users and crawlers. A glossary is a classic SEO play, capturing the many definitional searches in a market.
+El SEO combina contenido relevante que responde a lo que la gente busca, una buena salud técnica para que las páginas carguen y se puedan rastrear, y señales como los enlaces que construyen autoridad. Las páginas apuntan a los términos que usan los compradores, los datos estructurados ayudan a los buscadores a entenderlas y una estructura clara del sitio ayuda tanto a los usuarios como a los rastreadores. Un glosario es una táctica clásica de SEO para captar las muchas búsquedas de definiciones de un mercado.
 
-## Common mistakes
+## Errores comunes
 
-A common mistake is chasing search volume with content nobody finds useful, which does not hold rankings. Another is neglecting technical basics, so good content never gets crawled properly. A third is expecting instant results, when SEO compounds over months.
+Un error común es perseguir volumen de búsqueda con contenido que no le resulta útil a nadie, que no mantiene las posiciones. Otro es descuidar los aspectos técnicos básicos, de modo que un buen contenido nunca se rastrea bien. Un tercero es esperar resultados inmediatos, cuando el SEO se acumula durante meses.
 
-## How hubsell approaches it
+## Cómo lo aborda hubsell
 
-hubsell builds SEO into the site with clean structure, structured data, and content like this glossary that targets the real searches in its market, so the pages earn durable visibility.
+hubsell integra el SEO en su sitio con una estructura limpia, datos estructurados y contenido como este glosario, que responde a las búsquedas reales de su mercado, para que las páginas ganen una visibilidad duradera.

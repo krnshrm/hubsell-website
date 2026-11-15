@@ -1,27 +1,27 @@
 ---
-term: "Sub-processor"
-category: "Compliance and GDPR"
-definition: "A sub-processor is a third party that a service provider uses to help process personal data on behalf of the provider's customer."
+term: "Subencargado del tratamiento"
+category: "Cumplimiento y RGPD"
+definition: "Un subencargado del tratamiento es un tercero al que recurre un proveedor de servicios para tratar datos personales por cuenta de los clientes de ese proveedor."
 related:
   - data-processing-agreement
   - gdpr
   - pii
   - data-provider
-updated: "July 2026"
+updated: "julio de 2026"
 ---
 
-## Why it matters
+## Por qué importa
 
-Most tools rely on other services behind the scenes, such as hosting or email infrastructure, and each of those may touch your data. Knowing who they are matters because your compliance extends to them. A provider that hides its sub-processors, or uses ones in places you cannot accept, is a risk to the lawful handling of your data.
+La mayoría de las herramientas dependen de otros servicios que no se ven, como el alojamiento o la infraestructura de email, y cada uno de ellos puede acceder a tus datos. Saber quiénes son importa porque tu cumplimiento normativo se extiende a ellos. Un proveedor que oculta a sus subencargados, o que usa algunos en lugares que no puedes aceptar, es un riesgo para el tratamiento lícito de tus datos.
 
-## How it works in practice
+## Cómo funciona en la práctica
 
-Under the GDPR, a processor may only use a sub-processor with the customer's authorisation, and must pass the same data-protection duties down to it by contract. Providers usually publish a list of their sub-processors, what each does, and where it operates, and give notice before adding a new one so customers can review or object.
+Según el RGPD, un encargado del tratamiento solo puede recurrir a un subencargado con la autorización del cliente, y debe trasladarle por contrato las mismas obligaciones de protección de datos. Los proveedores suelen publicar una lista de sus subencargados, con lo que hace cada uno y dónde opera, y avisan antes de añadir uno nuevo para que los clientes puedan revisarlo u oponerse.
 
-## Common mistakes
+## Errores comunes
 
-A common mistake is never checking a provider's sub-processor list, so you do not know who actually holds your data. Another is overlooking where those sub-processors operate, which affects cross-border transfer rules. A third is missing notices of new sub-processors and losing the chance to object.
+Un error común es no revisar nunca la lista de subencargados de un proveedor, de modo que no sabes quién tiene realmente tus datos. Otro es pasar por alto dónde operan esos subencargados, lo que afecta a las normas sobre transferencias internacionales. Un tercero es no ver los avisos de nuevos subencargados y perder la oportunidad de oponerse.
 
-## How hubsell approaches it
+## Cómo lo aborda hubsell
 
-hubsell is transparent about the services behind the platform and keeps data handling within the EU, so the sub-processing behind your outreach is clear rather than hidden.
+hubsell es transparente sobre los servicios en los que se apoya la plataforma y mantiene el tratamiento de los datos dentro de la UE, para que los subencargados que hay detrás de tu prospección estén claros y no ocultos.

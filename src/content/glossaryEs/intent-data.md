@@ -1,27 +1,27 @@
 ---
-term: "Intent data"
-category: "Data and enrichment"
-definition: "Intent data is information that signals a company may be researching a purchase, based on behaviours like content consumption and search activity."
+term: "Datos de intención"
+category: "Datos y enriquecimiento"
+definition: "Los datos de intención son información que indica que una empresa podría estar preparando una compra, a partir de comportamientos como el consumo de contenidos y la actividad de búsqueda."
 related:
   - buying-signal
   - sales-trigger
   - ideal-customer-profile
   - technographic-data
-updated: "July 2026"
+updated: "julio de 2026"
 ---
 
-## Why it matters
+## Por qué importa
 
-Reaching an account while it is actively researching a solution is far more productive than reaching it cold. Intent data points reps towards accounts showing interest now, which lifts reply rates and shortens cycles. It turns targeting from a static list into a prioritised one, where the warmest accounts rise to the top.
+Llegar a una cuenta mientras busca activamente una solución es mucho más productivo que contactarla en frío. Los datos de intención orientan a los comerciales hacia las cuentas que muestran interés ahora, lo que sube las tasas de respuesta y acorta los ciclos de venta. El targeting deja de ser una lista estática y pasa a ser una lista priorizada, en la que las cuentas más calientes suben arriba.
 
-## How it works in practice
+## Cómo funciona en la práctica
 
-Intent data comes from signals such as spikes in research on relevant topics, visits to comparison content, and engagement with industry material. Providers aggregate these into a score or a topic list per account. Teams use it to prioritise which in-profile accounts to contact first, and to time the outreach to the moment interest appears.
+Los datos de intención salen de señales como picos de búsqueda sobre temas relevantes, visitas a contenidos comparativos o la interacción con contenidos del sector. Los proveedores los agregan en una puntuación o en una lista de temas por cuenta. Los equipos los usan para decidir qué cuentas de su perfil contactar primero y para ajustar la prospección al momento en que aparece el interés.
 
-## Common mistakes
+## Errores comunes
 
-A common mistake is treating intent signals as certainty rather than probability, since a spike does not always mean a live deal. Another is acting on intent for accounts that do not fit the ICP, which wastes the signal. A third is being too slow, since intent decays quickly and a late touch misses the window.
+Un error común es tratar las señales de intención como una certeza en lugar de una probabilidad, porque un pico no siempre significa que haya una compra en marcha. Otro es actuar sobre la intención de cuentas que no encajan en el ICP, lo que desperdicia la señal. Un tercero es ser demasiado lento: la intención se enfría rápido y un contacto tardío pierde el momento.
 
-## How hubsell approaches it
+## Cómo lo aborda hubsell
 
-hubsell can prioritise sourcing towards accounts that fit your profile and show signs of interest, so outreach lands while the account is paying attention rather than after the moment has passed.
+hubsell puede orientar la búsqueda de contactos hacia las cuentas que encajan en tu perfil y muestran señales de interés, para que tu prospección llegue mientras la cuenta está atenta y no cuando el momento ya ha pasado.

@@ -1,27 +1,27 @@
 ---
-term: "Schema markup"
-category: "SEO and GEO"
-definition: "Schema markup is structured data added to a page in a standard vocabulary that helps search engines and AI understand what the content means."
+term: "Marcado Schema"
+category: "SEO y GEO"
+definition: "El marcado Schema son datos estructurados que se añaden a una página con un vocabulario estándar y que ayudan a los buscadores y a la IA a entender qué significa el contenido."
 related:
   - seo
   - geo
   - aeo
   - llms-txt
-updated: "July 2026"
+updated: "julio de 2026"
 ---
 
-## Why it matters
+## Por qué importa
 
-Search engines and AI read pages more reliably when the meaning is labelled explicitly. Schema markup does that labelling, telling them this is a definition, this is a review, this is a question and answer. That can produce richer search results and makes content easier for answer engines to use accurately, which supports both SEO and GEO.
+Los buscadores y la IA leen las páginas de forma más fiable cuando el significado está etiquetado de forma explícita. El marcado Schema hace ese etiquetado: les dice que esto es una definición, esto es una reseña, esto es una pregunta con su respuesta. Eso puede dar resultados de búsqueda más completos y facilita que los motores de respuesta usen el contenido con precisión, lo que apoya tanto el SEO como el GEO.
 
-## How it works in practice
+## Cómo funciona en la práctica
 
-Schema markup uses a shared vocabulary, usually written as JSON-LD in the page, to describe the content: an article, an FAQ, a product, a defined term. Search engines use it to build rich results like star ratings or expandable questions, and answer engines use it to parse the content more confidently. Each content type has a matching schema type to apply.
+El marcado Schema usa un vocabulario compartido, normalmente escrito en JSON-LD dentro de la página, para describir el contenido: un artículo, unas preguntas frecuentes, un producto, un término definido. Los buscadores lo usan para crear resultados enriquecidos como valoraciones con estrellas o preguntas desplegables, y los motores de respuesta lo usan para interpretar el contenido con más seguridad. Cada tipo de contenido tiene un tipo de Schema que le corresponde.
 
-## Common mistakes
+## Errores comunes
 
-A common mistake is marking up content that does not match what is actually on the page, which search engines penalize. Another is adding schema but getting the type wrong, so it does not help. A third is skipping it entirely, leaving engines to guess at the meaning.
+Un error común es marcar contenido que no coincide con lo que realmente hay en la página, algo que los buscadores penalizan. Otro es añadir Schema pero con el tipo equivocado, de modo que no sirve de nada. Un tercero es no usarlo en absoluto, lo que deja que los motores adivinen el significado.
 
-## How hubsell approaches it
+## Cómo lo aborda hubsell
 
-hubsell adds structured data across the site, including DefinedTerm markup on these glossary entries, so search and answer engines can read the content accurately.
+hubsell añade datos estructurados en todo el sitio, incluido el marcado DefinedTerm en las entradas de este glosario, para que los buscadores y los motores de respuesta puedan leer el contenido con precisión.

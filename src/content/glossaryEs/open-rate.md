@@ -1,27 +1,27 @@
 ---
-term: "Open rate"
-category: "Outbound and email"
-definition: "Open rate is the share of delivered emails that recipients open, used as an early signal of subject-line strength and deliverability."
+term: "Tasa de apertura"
+category: "Outbound y email"
+definition: "La tasa de apertura es el porcentaje de emails entregados que los destinatarios abren, y sirve como primera señal de la fuerza del asunto y de la entregabilidad."
 related:
   - reply-rate
   - bounce-rate
   - email-deliverability
   - ab-testing
-updated: "July 2026"
+updated: "julio de 2026"
 ---
 
-## Why it matters
+## Por qué importa
 
-Open rate is the first checkpoint in an email's performance. A low open rate suggests the subject line is weak or the mail is landing in spam, both of which cap everything downstream. Watching it helps catch a deliverability problem early, before it drags down replies. It is a leading indicator, not a goal in itself.
+La tasa de apertura es el primer control del rendimiento de un email. Una tasa de apertura baja indica que el asunto es flojo o que el correo acaba en spam, y ambas cosas limitan todo lo que viene después. Vigilarla ayuda a detectar a tiempo un problema de entregabilidad, antes de que hunda las respuestas. Es un indicador adelantado, no un objetivo en sí.
 
-## How it works in practice
+## Cómo funciona en la práctica
 
-Open rate is opens divided by delivered emails, usually tracked with a pixel or link. Because pixel tracking is imperfect, especially where mail clients preload images, the number is an estimate rather than an exact count. It is most useful as a trend and for A/B testing subject lines, where relative differences matter more than the absolute figure.
+La tasa de apertura es el número de aperturas dividido entre los emails entregados, y se mide normalmente con un píxel o un enlace. Como el seguimiento por píxel es imperfecto, sobre todo cuando los clientes de correo precargan las imágenes, la cifra es una estimación y no un recuento exacto. Es más útil como tendencia y para hacer pruebas A/B de asuntos, donde importan más las diferencias relativas que la cifra absoluta.
 
-## Common mistakes
+## Errores comunes
 
-A common mistake is treating open rate as a success metric, when opens do not equal interest or pipeline. Another is trusting it as exact despite privacy features that inflate or suppress it. A third is chasing opens with clickbait subject lines that lift the open rate but hurt replies and trust.
+Un error común es tratar la tasa de apertura como una métrica de éxito, cuando las aperturas no equivalen a interés ni a pipeline. Otro es fiarse de ella como si fuera exacta pese a las funciones de privacidad que la inflan o la reducen. Un tercero es perseguir aperturas con asuntos sensacionalistas que suben la tasa de apertura pero perjudican las respuestas y la confianza.
 
-## How hubsell approaches it
+## Cómo lo aborda hubsell
 
-hubsell reports opens as one signal alongside replies and outcomes, so you read them in context rather than optimising for a number that does not close deals.
+hubsell muestra las aperturas como una señal más junto a las respuestas y los resultados, para que las leas en contexto en lugar de optimizar una cifra que no cierra acuerdos.

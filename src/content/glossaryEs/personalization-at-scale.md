@@ -1,27 +1,27 @@
 ---
-term: "Personalisation at scale"
-category: "Outbound and email"
-definition: "Personalisation at scale is tailoring outreach to each prospect's context while still sending to many people, rather than choosing between relevant or high-volume."
+term: "Personalización a gran escala"
+category: "Outbound y email"
+definition: "La personalización a gran escala consiste en adaptar la prospección al contexto de cada prospecto sin dejar de escribir a muchas personas, en lugar de elegir entre relevancia y volumen."
 related:
   - cold-email
   - email-sequence
   - buying-signal
   - outbound-sales
-updated: "July 2026"
+updated: "julio de 2026"
 ---
 
-## Why it matters
+## Por qué importa
 
-Generic mass email gets ignored, and one-by-one hand-writing does not scale. Personalisation at scale is how teams keep messages relevant to the account and role while still reaching enough people to build pipeline. It is the balance that makes volume outbound work instead of just filling spam folders.
+El email masivo genérico se ignora, y escribir uno a uno a mano no escala. La personalización a gran escala es la forma en que los equipos mantienen los mensajes relevantes para la cuenta y el puesto sin dejar de llegar a suficientes personas para generar pipeline. Es el equilibrio que hace que el outbound de volumen funcione en lugar de llenar carpetas de spam.
 
-## How it works in practice
+## Cómo funciona en la práctica
 
-It works by grouping prospects by shared traits, such as role, industry, or a detected signal, and writing messages that speak to each group, then inserting specific details per contact. Good data is the enabler: accurate role, company, and signal fields let a message reference something true about the recipient without manual research on every one.
+Funciona agrupando a los prospectos por rasgos comunes, como el puesto, el sector o una señal detectada, y escribiendo mensajes dirigidos a cada grupo, para luego insertar detalles concretos de cada contacto. Lo que lo hace posible son los buenos datos: campos correctos de puesto, empresa y señales permiten que un mensaje mencione algo cierto sobre el destinatario sin investigar a mano a cada uno.
 
-## Common mistakes
+## Errores comunes
 
-A common mistake is confusing token insertion with personalisation, so a mail merge with a first name still reads as generic. Another is personalising on a field that is wrong, which is worse than not personalising. A third is spending so long per message that volume collapses.
+Un error común es confundir la inserción de variables con la personalización, de modo que una combinación de correspondencia con el nombre de pila sigue sonando genérica. Otro es personalizar con un campo erróneo, lo que es peor que no personalizar. Un tercero es dedicar tanto tiempo a cada mensaje que el volumen se desploma.
 
-## How hubsell approaches it
+## Cómo lo aborda hubsell
 
-hubsell provides accurate, current fields for each contact, so messages can reference real context about the person and account without hand-researching every record.
+hubsell aporta campos correctos y actuales para cada contacto, así que los mensajes pueden mencionar un contexto real de la persona y de la cuenta sin investigar cada registro a mano.

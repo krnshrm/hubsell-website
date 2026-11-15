@@ -1,27 +1,27 @@
 ---
-term: "Outbound sales"
-category: "Outbound and email"
-definition: "Outbound sales is the practice of starting the conversation with potential buyers who have not contacted you first, usually through email, LinkedIn, and phone."
+term: "Ventas outbound"
+category: "Outbound y email"
+definition: "Las ventas outbound consisten en iniciar la conversación con compradores potenciales que no se han puesto en contacto contigo antes, normalmente por email, LinkedIn y teléfono."
 related:
   - multichannel-outreach
   - email-sequence
   - ideal-customer-profile
   - b2b-data
-updated: "July 2026"
+updated: "julio de 2026"
 ---
 
-## Why it matters
+## Por qué importa
 
-Outbound gives a team control over its pipeline. Instead of waiting for buyers to arrive through inbound channels, you choose the accounts that fit your ICP and reach out directly. That makes pipeline predictable and lets you enter new markets or segments on purpose rather than by chance. Done well, outbound is a repeatable way to create demand.
+El outbound da a un equipo el control de su pipeline. En lugar de esperar a que los compradores lleguen por canales inbound, eliges las cuentas que encajan en tu ICP y las contactas directamente. Así el pipeline es predecible y puedes entrar en nuevos mercados o segmentos a propósito y no por casualidad. Bien hecho, el outbound es una forma repetible de generar demanda.
 
-## How it works in practice
+## Cómo funciona en la práctica
 
-Outbound starts with a target list matched to the ICP, then reaches those contacts through a planned sequence across channels. A rep or a system sends a first message, follows up on a set cadence, and adjusts based on opens, replies, and other signals. Data quality, message relevance, and deliverability all shape the result, which is why outbound and clean data are tightly linked.
+El outbound empieza con una lista objetivo ajustada al ICP y después contacta a esas personas con una secuencia planificada en varios canales. Un comercial o un sistema envía un primer mensaje, hace seguimiento con una cadencia fija y se adapta según las aperturas, las respuestas y otras señales. La calidad de los datos, la relevancia del mensaje y la entregabilidad influyen en el resultado, por eso el outbound y los datos limpios van tan unidos.
 
-## Common mistakes
+## Errores comunes
 
-The biggest mistake is sending high volume on low-quality data, which bounces, burns the domain, and annoys the market. Another is generic messaging that ignores the account's context. A third is treating outbound as one channel, usually email alone, when a coordinated mix of email, LinkedIn, and phone reaches more of the target.
+El mayor error es enviar mucho volumen con datos de baja calidad, lo que provoca rebotes, quema el dominio y molesta al mercado. Otro es un mensaje genérico que ignora el contexto de la cuenta. Un tercero es tratar el outbound como un solo canal, normalmente solo el email, cuando una combinación coordinada de email, LinkedIn y teléfono llega a una mayor parte del objetivo.
 
-## How hubsell approaches it
+## Cómo lo aborda hubsell
 
-hubsell runs the whole outbound motion in one place: live data matched to your ICP, coordinated email and LinkedIn sequences, and automatic CRM sync, so the data and the outreach stay connected instead of living in separate tools.
+hubsell gestiona todo el outbound en un solo lugar: datos en tiempo real ajustados a tu ICP, Flows coordinados de email y LinkedIn y sincronización automática con el CRM, para que los datos y la prospección sigan conectados en lugar de vivir en herramientas separadas.
