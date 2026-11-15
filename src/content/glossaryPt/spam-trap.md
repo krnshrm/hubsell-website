@@ -1,27 +1,27 @@
 ---
 term: "Spam trap"
-category: "Deliverability"
-definition: "A spam trap is an email address used by providers and blocklists to catch senders with poor list practices, since it should never receive legitimate mail."
+category: "Entregabilidade"
+definition: "Uma spam trap (armadilha de spam) é um endereço de e-mail usado por provedores e blocklists para pegar remetentes com más práticas de lista, já que ele nunca deveria receber e-mails legítimos."
 related:
   - blocklist
   - sender-reputation
   - email-verification
   - bounce-rate
-updated: "July 2026"
+updated: "julho de 2026"
 ---
 
-## Why it matters
+## Por que isso importa
 
-Hitting a spam trap is a strong signal that your list is bought, scraped, or poorly maintained, and it can get your domain blocklisted fast. Because traps look like ordinary addresses, you cannot spot them by eye. Avoiding them comes down to good list hygiene, which is why verification and clean sourcing matter so much for protecting deliverability.
+Atingir uma spam trap é um forte sinal de que a sua lista foi comprada, extraída da web ou mal mantida, e isso pode colocar o seu domínio em uma blocklist rapidamente. Como as spam traps parecem endereços comuns, não dá para identificá-las a olho nu. Evitá-las depende de uma boa higiene de listas, e é por isso que a verificação e uma busca de contatos limpa são tão importantes para proteger a entregabilidade.
 
-## How it works in practice
+## Como funciona na prática
 
-There are two main kinds. A pristine trap is an address created only to catch senders, never used to sign up for anything, so any mail to it means the address was scraped or guessed. A recycled trap is an old abandoned address that a provider reactivates as a trap, so hitting it means your list is stale. Both are seeded quietly across the web.
+Existem dois tipos principais. Uma spam trap pura é um endereço criado só para pegar remetentes e nunca usado para se cadastrar em nada, então qualquer e-mail enviado a ela significa que o endereço foi extraído ou adivinhado. Uma spam trap reciclada é um endereço antigo e abandonado que um provedor reativa como armadilha, então atingi-la significa que a sua lista está desatualizada. As duas são espalhadas discretamente pela web.
 
-## Common mistakes
+## Erros comuns
 
-The root mistake is buying or scraping lists, which is how traps enter a database. Another is never cleaning old records, which is how recycled traps catch you. A third is ignoring rising bounce and complaint signals that often accompany a list full of traps.
+O erro de origem é comprar ou extrair listas, que é como as spam traps entram em uma base de dados. Outro é nunca limpar registros antigos, que é como as armadilhas recicladas pegam você. Um terceiro é ignorar o aumento das devoluções e das reclamações, que muitas vezes acompanha uma lista cheia de spam traps.
 
-## How hubsell approaches it
+## Como a hubsell aborda isso
 
-hubsell sources contacts live and verifies them at the point of use rather than working from bought lists, which is the surest way to keep spam traps out of your sending.
+A hubsell busca os contatos em tempo real e os verifica no momento do uso, em vez de trabalhar com listas compradas, que é a forma mais segura de manter as spam traps fora dos seus envios.

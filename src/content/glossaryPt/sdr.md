@@ -1,27 +1,27 @@
 ---
 term: "SDR"
-category: "Sales roles"
-definition: "An SDR, or sales development representative, is a salesperson who focuses on outbound prospecting: finding and qualifying new leads to hand to closers."
+category: "Cargos de vendas"
+definition: "Um SDR (sales development representative, ou representante de desenvolvimento de vendas) é um profissional de vendas focado em prospecção outbound: encontrar e qualificar novos leads para passar a quem fecha os negócios."
 related:
   - bdr
   - account-executive
   - outbound-sales
   - sales-engagement
-updated: "July 2026"
+updated: "julho de 2026"
 ---
 
-## Why it matters
+## Por que isso importa
 
-The SDR is the engine of most outbound teams. By concentrating on prospecting and early qualification, they keep the pipeline fed so that account executives can spend their time closing. A strong SDR function is often what separates a team with predictable pipeline from one that lurches between feast and famine.
+O SDR é o motor da maioria das equipes de outbound. Ao se concentrar na prospecção e na qualificação inicial, ele mantém o pipeline abastecido, para que os executivos de contas possam dedicar o tempo deles a fechar negócios. Uma função de SDR forte costuma ser o que separa uma equipe com pipeline previsível de uma que alterna entre fartura e escassez.
 
-## How it works in practice
+## Como funciona na prática
 
-SDRs work a target list matched to the Ideal Customer Profile, reaching contacts through email, LinkedIn, and calls in a planned sequence. They qualify replies against simple criteria, book meetings for account executives, and hand over the context. Their day is heavy on outreach volume and follow-up, so they lean on clean data and a sales engagement tool to stay organised.
+Os SDRs trabalham uma lista-alvo alinhada ao perfil de cliente ideal (ICP) e abordam os contatos por e-mail, LinkedIn e ligações em uma sequência planejada. Eles qualificam as respostas com critérios simples, marcam reuniões para os executivos de contas e passam o contexto adiante. O dia a dia deles tem muito volume de prospecção e follow-up, por isso dependem de dados limpos e de uma ferramenta de sales engagement para se manterem organizados.
 
-## Common mistakes
+## Erros comuns
 
-A common mistake is measuring SDRs on raw activity alone rather than qualified meetings, which rewards volume over quality. Another is handing them poor data, so effort goes into bouncing emails and wrong numbers. A third is a blurry handoff to account executives that loses the context the SDR gathered.
+Um erro comum é avaliar os SDRs só pelo volume de atividades, e não pelas reuniões qualificadas, o que premia a quantidade em vez da qualidade. Outro é dar a eles dados ruins, de modo que o esforço vai para e-mails devolvidos e números errados. Um terceiro é uma passagem confusa para os executivos de contas, que perde o contexto que o SDR levantou.
 
-## How hubsell approaches it
+## Como a hubsell aborda isso
 
-hubsell gives SDRs verified contacts matched to the ICP and one flow across email and LinkedIn, so their time goes into conversations rather than fixing bad data or switching tools.
+A hubsell dá aos SDRs contatos verificados e alinhados ao ICP e um único Flow para e-mail e LinkedIn, para que o tempo deles vá para as conversas, e não para corrigir dados ruins ou alternar entre ferramentas.

@@ -1,27 +1,27 @@
 ---
 term: "Sales trigger"
-category: "Outbound and email"
-definition: "A sales trigger is an event at a target account, such as a funding round or a new hire, that creates a timely reason to reach out."
+category: "Outbound e e-mail"
+definition: "Um sales trigger (gatilho de vendas) é um acontecimento em uma conta-alvo, como uma rodada de investimento ou uma nova contratação, que dá um motivo oportuno para fazer contato."
 related:
   - buying-signal
   - intent-data
   - outbound-sales
   - personalization-at-scale
-updated: "July 2026"
+updated: "julho de 2026"
 ---
 
-## Why it matters
+## Por que isso importa
 
-Timing changes outcomes. Reaching an account right after a relevant event, like a leadership change or expansion, lands better than an unprompted message, because the event gives the outreach a reason to exist. Triggers turn a cold list into a prioritised one, where the accounts most likely to be receptive rise to the top.
+O momento muda os resultados. Abordar uma conta logo depois de um acontecimento relevante, como uma mudança na liderança ou uma expansão, funciona melhor do que uma mensagem sem motivo, porque o acontecimento dá uma razão de ser à prospecção. Os sales triggers transformam uma lista fria em uma lista priorizada, em que as contas mais receptivas sobem para o topo.
 
-## How it works in practice
+## Como funciona na prática
 
-Triggers are events tracked from public signals: funding announcements, new executive hires, office openings, product launches, or hiring for roles that imply a need. Teams watch for these across their target accounts and act quickly when one fires, opening with a message tied to the event. The trigger both sets the timing and gives the message its hook.
+Os sales triggers são acontecimentos acompanhados a partir de sinais públicos: anúncios de investimento, contratação de novos executivos, abertura de escritórios, lançamentos de produtos ou vagas para cargos que indicam uma necessidade. As equipes monitoram esses sinais nas suas contas-alvo e agem rápido quando um deles aparece, abrindo a conversa com uma mensagem ligada ao acontecimento. O sales trigger define o momento e dá à mensagem o seu gancho.
 
-## Common mistakes
+## Erros comuns
 
-A common mistake is acting on a trigger for an account that does not fit the ICP, so good timing is wasted on a poor fit. Another is a slow response, since the relevance of a trigger fades within days. A third is forcing a weak connection between the event and your product.
+Um erro comum é agir sobre um sales trigger de uma conta que não se encaixa no ICP, desperdiçando o bom momento em uma conta fora do perfil. Outro é responder devagar, já que a relevância de um sales trigger desaparece em poucos dias. Um terceiro é forçar uma ligação fraca entre o acontecimento e o seu produto.
 
-## How hubsell approaches it
+## Como a hubsell aborda isso
 
-hubsell can prioritise sourcing towards accounts where a relevant event has occurred, so reps reach them while the moment is fresh and the reason to talk is clear.
+A hubsell pode priorizar a busca de contatos nas contas em que ocorreu um acontecimento relevante, para que os vendedores as abordem enquanto o momento é recente e o motivo para conversar é claro.

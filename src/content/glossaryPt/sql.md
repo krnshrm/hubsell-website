@@ -1,27 +1,27 @@
 ---
 term: "SQL"
-category: "Metrics"
-definition: "An SQL, or sales qualified lead, is a lead that sales has reviewed and accepted as a real opportunity worth actively pursuing."
+category: "Métricas"
+definition: "Um SQL (sales qualified lead, ou lead qualificado por vendas) é um lead que vendas analisou e aceitou como uma oportunidade real, que vale a pena trabalhar ativamente."
 related:
   - mql
   - lead-scoring
   - pipeline
   - conversion-rate
-updated: "July 2026"
+updated: "julho de 2026"
 ---
 
-## Why it matters
+## Por que isso importa
 
-The SQL is where a lead becomes a genuine opportunity that a rep commits time to. It filters marketing's MQLs down to the ones sales agrees are worth working, which keeps reps focused and keeps the pipeline honest. A clear SQL definition is what stops the pipeline filling with leads that were never really ready.
+O SQL é o ponto em que um lead vira uma oportunidade de verdade, à qual um vendedor dedica tempo. Ele filtra os MQLs do marketing até sobrarem os que vendas concorda que valem a pena, o que mantém os vendedores focados e o pipeline honesto. Uma definição clara de SQL é o que impede o pipeline de se encher de leads que nunca estiveram realmente prontos.
 
-## How it works in practice
+## Como funciona na prática
 
-A lead becomes an SQL when a salesperson reviews it, often an MQL passed from marketing, and confirms it meets the criteria to pursue, such as fit, need, and timing. Frameworks that check budget, authority, need, and timing are common. Once accepted, the SQL enters the pipeline as an opportunity and moves through the stages towards a close.
+Um lead vira SQL quando um vendedor o analisa, muitas vezes um MQL vindo do marketing, e confirma que ele atende aos critérios para seguir em frente, como perfil, necessidade e momento. São comuns os frameworks que verificam orçamento, autoridade, necessidade e momento. Depois de aceito, o SQL entra no pipeline como oportunidade e avança pelas etapas até o fechamento.
 
-## Common mistakes
+## Erros comuns
 
-A common mistake is accepting SQLs loosely, so the pipeline fills with deals that stall. Another is sales rejecting MQLs without feedback, so marketing never learns what a good lead looks like. A third is no agreed criteria, so every rep judges readiness differently.
+Um erro comum é aceitar SQLs sem critério, o que enche o pipeline de negócios que travam. Outro é vendas rejeitar MQLs sem dar retorno, de modo que o marketing nunca aprende como é um bom lead. Um terceiro é não haver critérios combinados, de modo que cada vendedor avalia a prontidão de um jeito.
 
-## How hubsell approaches it
+## Como a hubsell aborda isso
 
-hubsell gives sales accurate context on each contact and account, so qualifying a lead into an SQL is based on current, correct information rather than a stale record.
+A hubsell dá a vendas um contexto preciso sobre cada contato e cada conta, para que a qualificação de um lead como SQL se baseie em informações atuais e corretas, e não em um registro desatualizado.

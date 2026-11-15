@@ -1,27 +1,27 @@
 ---
-term: "Opt-in vs opt-out"
-category: "Compliance and GDPR"
-definition: "Opt-in means a person actively agrees to be contacted before you reach out, while opt-out means you may contact them until they ask you to stop."
+term: "Opt-in vs. opt-out"
+category: "Conformidade e RGPD"
+definition: "Opt-in significa que a pessoa concorda ativamente em ser contatada antes de você abordá-la, enquanto opt-out significa que você pode contatá-la até que ela peça para parar."
 related:
   - gdpr
   - legitimate-interest
   - email-deliverability
   - cold-email
-updated: "July 2026"
+updated: "julho de 2026"
 ---
 
-## Why it matters
+## Por que isso importa
 
-The two models decide when you are allowed to send. Which applies depends on the region, the channel, and whether you rely on consent or legitimate interest. Getting it wrong can make outreach unlawful or trigger complaints that damage deliverability, so it is worth knowing which model your sending sits under.
+Os dois modelos definem quando você pode enviar mensagens. Qual deles se aplica depende da região, do canal e de você se basear no consentimento ou no interesse legítimo. Errar nisso pode tornar a prospecção ilícita ou gerar reclamações que prejudicam a entregabilidade, por isso vale saber em qual modelo os seus envios se enquadram.
 
-## How it works in practice
+## Como funciona na prática
 
-Under an opt-in model, contact is only allowed after the person agrees, common for consumer marketing and some channels. Under an opt-out model, often used for B2B outreach on a legitimate-interest basis, you may contact relevant business people but must make stopping easy and act on it at once. Every send should carry a clear way to opt out, and requests must be respected promptly.
+No modelo de opt-in, o contato só é permitido depois que a pessoa concorda, algo comum no marketing para consumidores e em alguns canais. No modelo de opt-out, muitas vezes usado na prospecção B2B com base no interesse legítimo, você pode contatar profissionais relevantes, mas precisa tornar fácil o descadastro e atendê-lo imediatamente. Todo envio deve trazer uma forma clara de se descadastrar, e os pedidos precisam ser atendidos prontamente.
 
-## Common mistakes
+## Erros comuns
 
-A common mistake is applying a B2B opt-out approach to contexts that legally require opt-in. Another is making opt-out hard to find or slow to take effect. A third is continuing to mail someone who has opted out, which is both a compliance failure and a fast route to complaints.
+Um erro comum é aplicar a abordagem de opt-out do B2B a contextos em que a lei exige opt-in. Outro é deixar a opção de descadastro difícil de encontrar ou lenta para entrar em vigor. Um terceiro é continuar enviando e-mails a quem se descadastrou, o que é ao mesmo tempo uma falha de conformidade e um caminho rápido para reclamações.
 
-## How hubsell approaches it
+## Como a hubsell aborda isso
 
-hubsell makes opt-out handling clear and prompt, so people who ask to stop are removed, which keeps outreach compliant and protects your sender reputation.
+A hubsell torna o tratamento dos descadastros claro e rápido, para que as pessoas que pedem para parar sejam removidas, o que mantém a prospecção em conformidade e protege a reputação do seu remetente.

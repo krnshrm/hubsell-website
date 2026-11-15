@@ -1,27 +1,27 @@
 ---
 term: "Sales engagement"
-category: "Outbound and email"
-definition: "Sales engagement is the layer of tools and workflow that manages outbound touches across channels, tracking every email, call, and message with a prospect."
+category: "Outbound e e-mail"
+definition: "Sales engagement é a camada de ferramentas e de processo que gerencia os contatos de outbound em vários canais, registrando cada e-mail, ligação e mensagem com um prospect."
 related:
   - multichannel-outreach
   - email-sequence
   - cadence
   - crm-sync
-updated: "July 2026"
+updated: "julho de 2026"
 ---
 
-## Why it matters
+## Por que isso importa
 
-As outbound scales, running it from an inbox and a spreadsheet breaks down. A sales engagement layer keeps sequences, tasks, and tracking in one place, so reps know who to contact next and every touch is logged. It is what makes coordinated, measurable outreach possible across a team rather than ad hoc effort per rep.
+Quando o outbound cresce, gerenciá-lo a partir de uma caixa de entrada e de uma planilha deixa de funcionar. Uma camada de sales engagement reúne sequências, tarefas e acompanhamento em um só lugar, para que os vendedores saibam quem contatar em seguida e cada contato fique registrado. É isso que torna possível uma prospecção coordenada e mensurável em toda a equipe, em vez de esforços improvisados de cada vendedor.
 
-## How it works in practice
+## Como funciona na prática
 
-Sales engagement tools run multichannel sequences, queue daily tasks for reps, and record opens, replies, calls, and meetings. They sit between the data source and the CRM, taking a target list in and syncing activity out. The better ones coordinate channels so email and LinkedIn work from one plan, and they surface which sequences and steps perform.
+As ferramentas de sales engagement executam sequências multicanal, organizam as tarefas diárias dos vendedores e registram aberturas, respostas, ligações e reuniões. Elas ficam entre a fonte de dados e o CRM: recebem uma lista-alvo e sincronizam as atividades. As melhores coordenam os canais para que e-mail e LinkedIn sigam um único plano, e mostram quais sequências e etapas têm melhor desempenho.
 
-## Common mistakes
+## Erros comuns
 
-A common mistake is bolting together separate point tools, one for email and one for LinkedIn, so the channels are not coordinated. Another is measuring activity volume instead of outcomes. A third is letting the engagement tool and the CRM drift out of sync, so reporting is wrong.
+Um erro comum é juntar ferramentas pontuais separadas, uma para e-mail e outra para LinkedIn, de modo que os canais não ficam coordenados. Outro é medir o volume de atividades em vez dos resultados. Um terceiro é deixar a ferramenta de engagement e o CRM ficarem dessincronizados, o que deixa os relatórios errados.
 
-## How hubsell approaches it
+## Como a hubsell aborda isso
 
-hubsell combines the data, the multichannel sequences, and the CRM sync in one place, so engagement across email, LinkedIn, and phone runs from a single flow and every touch lands in the CRM automatically.
+A hubsell reúne os dados, a prospecção multicanal e a sincronização com o CRM em um só lugar, para que o engajamento por e-mail, LinkedIn e telefone rode em um único Flow e cada contato chegue automaticamente ao CRM.

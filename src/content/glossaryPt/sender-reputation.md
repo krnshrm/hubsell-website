@@ -1,27 +1,27 @@
 ---
-term: "Sender reputation"
-category: "Deliverability"
-definition: "Sender reputation is the score mailbox providers assign to your sending domain and IP, based on your history, that decides whether your mail reaches the inbox."
+term: "Reputação do remetente"
+category: "Entregabilidade"
+definition: "A reputação do remetente (sender reputation) é a pontuação que os provedores de e-mail atribuem ao seu domínio e IP de envio, com base no seu histórico, e que decide se os seus e-mails chegam à caixa de entrada."
 related:
   - email-deliverability
   - domain-warmup
   - bounce-rate
   - spam-trap
-updated: "July 2026"
+updated: "julho de 2026"
 ---
 
-## Why it matters
+## Por que isso importa
 
-Sender reputation is the single biggest factor in whether outreach lands. Providers use it to decide inbox, spam, or block, so a strong reputation lifts every send and a damaged one drags down even good mail. Because it builds slowly and falls fast, protecting it is one of the highest-leverage things an outbound team does.
+A reputação do remetente é o fator que mais pesa para a prospecção chegar ao destino. Os provedores a usam para decidir entre caixa de entrada, spam ou bloqueio, de modo que uma boa reputação melhora cada envio e uma reputação prejudicada derruba até os bons e-mails. Como ela se constrói devagar e cai rápido, protegê-la é uma das coisas de maior impacto que uma equipe de outbound pode fazer.
 
-## How it works in practice
+## Como funciona na prática
 
-Providers score a sender on signals like bounce rate, spam complaints, how recipients engage, and whether the domain is authenticated. Sending relevant mail to valid addresses that people open and reply to builds the score. Sending to bad lists, triggering complaints, or spiking volume from a cold domain lowers it. Reputation attaches to both the domain and the sending IP.
+Os provedores avaliam um remetente com base em sinais como a taxa de devolução, as reclamações de spam, a forma como os destinatários interagem e se o domínio está autenticado. Enviar e-mails relevantes para endereços válidos, que as pessoas abrem e respondem, aumenta a pontuação. Enviar para listas ruins, gerar reclamações ou aumentar de repente o volume a partir de um domínio novo a reduz. A reputação está ligada tanto ao domínio quanto ao IP de envio.
 
-## Common mistakes
+## Erros comuns
 
-The common mistake is treating reputation as fixed rather than earned every day. Others include blasting a cold domain at high volume, mailing unverified lists that bounce, and ignoring complaint signals until placement has already dropped. Once reputation falls, recovery takes weeks of careful sending, so prevention beats repair.
+O erro comum é tratar a reputação como algo fixo, e não como algo conquistado todos os dias. Outros erros são disparar alto volume a partir de um domínio novo, enviar para listas não verificadas que geram devoluções e ignorar os sinais de reclamação até que a entrega na caixa de entrada já tenha caído. Depois que a reputação cai, a recuperação leva semanas de envios cuidadosos, por isso prevenir é melhor do que remediar.
 
-## How hubsell approaches it
+## Como a hubsell aborda isso
 
-hubsell protects sender reputation by verifying contacts before send, flagging catch-all domains, and spreading volume across sender profiles within safe limits, so the score stays healthy as you scale.
+A hubsell protege a reputação do remetente verificando os contatos antes do envio, sinalizando domínios catch-all e distribuindo o volume entre perfis de remetentes dentro de limites seguros, para que a pontuação continue saudável à medida que você cresce.

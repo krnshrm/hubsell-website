@@ -1,27 +1,27 @@
 ---
-term: "Sub-processor"
-category: "Compliance and GDPR"
-definition: "A sub-processor is a third party that a service provider uses to help process personal data on behalf of the provider's customer."
+term: "Suboperador"
+category: "Conformidade e RGPD"
+definition: "Um suboperador (sub-processor) é um terceiro que um prestador de serviços usa para ajudar a tratar dados pessoais em nome do cliente desse prestador."
 related:
   - data-processing-agreement
   - gdpr
   - pii
   - data-provider
-updated: "July 2026"
+updated: "julho de 2026"
 ---
 
-## Why it matters
+## Por que isso importa
 
-Most tools rely on other services behind the scenes, such as hosting or email infrastructure, and each of those may touch your data. Knowing who they are matters because your compliance extends to them. A provider that hides its sub-processors, or uses ones in places you cannot accept, is a risk to the lawful handling of your data.
+A maioria das ferramentas depende de outros serviços nos bastidores, como hospedagem ou infraestrutura de e-mail, e cada um deles pode ter acesso aos seus dados. Saber quem são é importante, porque a sua conformidade se estende a eles. Um prestador que esconde os seus suboperadores, ou que usa suboperadores em lugares que você não pode aceitar, é um risco para o tratamento lícito dos seus dados.
 
-## How it works in practice
+## Como funciona na prática
 
-Under the GDPR, a processor may only use a sub-processor with the customer's authorisation, and must pass the same data-protection duties down to it by contract. Providers usually publish a list of their sub-processors, what each does, and where it operates, and give notice before adding a new one so customers can review or object.
+Pelo GDPR (RGPD), um operador só pode usar um suboperador com a autorização do cliente e precisa repassar a ele, por contrato, as mesmas obrigações de proteção de dados. Os prestadores costumam publicar uma lista dos seus suboperadores, com o que cada um faz e onde atua, e avisam antes de adicionar um novo, para que os clientes possam analisá-lo ou se opor.
 
-## Common mistakes
+## Erros comuns
 
-A common mistake is never checking a provider's sub-processor list, so you do not know who actually holds your data. Another is overlooking where those sub-processors operate, which affects cross-border transfer rules. A third is missing notices of new sub-processors and losing the chance to object.
+Um erro comum é nunca conferir a lista de suboperadores de um prestador, de modo que você não sabe quem realmente guarda os seus dados. Outro é não prestar atenção em onde esses suboperadores atuam, o que afeta as regras de transferência internacional. Um terceiro é perder os avisos de novos suboperadores e, com isso, a chance de se opor.
 
-## How hubsell approaches it
+## Como a hubsell aborda isso
 
-hubsell is transparent about the services behind the platform and keeps data handling within the EU, so the sub-processing behind your outreach is clear rather than hidden.
+A hubsell é transparente sobre os serviços por trás da plataforma e mantém o tratamento dos dados dentro da UE, para que o tratamento feito por suboperadores por trás da sua prospecção seja claro, e não oculto.

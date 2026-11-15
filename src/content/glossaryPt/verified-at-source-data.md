@@ -1,27 +1,27 @@
 ---
-term: "Verified-at-source data"
-category: "Data and enrichment"
-definition: "Verified-at-source data is contact data that is checked for accuracy at the moment you need it, rather than trusted from an earlier snapshot."
+term: "Dados verificados na origem"
+category: "Dados e enriquecimento"
+definition: "Dados verificados na origem (verified-at-source data) são dados de contato cuja precisão é verificada no momento em que você precisa deles, em vez de confiar em um retrato feito antes."
 related:
   - b2b-data
   - data-decay
   - catch-all-domain
   - email-deliverability
-updated: "July 2026"
+updated: "julho de 2026"
 ---
 
-## Why it matters
+## Por que isso importa
 
-A record is only useful if it is correct when you use it, not when it was collected. Verifying at the source cuts bounces, protects your sender reputation, and means you spend outreach effort on people who can actually be reached. It shifts the question from how big is the list to how correct is this contact right now.
+Um registro só é útil se estiver correto quando você o usa, e não quando foi coletado. Verificar na origem reduz as devoluções, protege a reputação do seu remetente e faz com que o esforço de prospecção vá para pessoas que realmente podem ser alcançadas. A pergunta deixa de ser o tamanho da lista e passa a ser o quanto este contato está correto agora.
 
-## How it works in practice
+## Como funciona na prática
 
-Instead of pulling a record from a stored database and hoping it still holds, verification at source checks the key fields against live signals at the point of use. An email is validated against the mail server, catch-all domains are flagged, and the role is confirmed against a current profile. Only records that pass are spent on outreach.
+Em vez de tirar um registro de uma base de dados armazenada e torcer para que ele ainda valha, a verificação na origem confere os campos principais com sinais em tempo real no momento do uso. O e-mail é validado no servidor de e-mail, os domínios catch-all são sinalizados e o cargo é confirmado em um perfil atual. Só os registros aprovados são usados na prospecção.
 
-## Common mistakes
+## Erros comuns
 
-The mistake this fixes is trusting stored data by default. Teams that skip source verification pay for the gap later in bounces and blocklist hits. Another mistake is verifying only email while ignoring whether the person still holds the role, which sends a perfectly deliverable message to the wrong context.
+O erro que isso corrige é confiar por padrão em dados armazenados. As equipes que pulam a verificação na origem pagam por essa lacuna mais tarde, com devoluções e entradas em blocklists. Outro erro é verificar só o e-mail e ignorar se a pessoa ainda ocupa o cargo, o que faz uma mensagem perfeitamente entregável chegar no contexto errado.
 
-## How hubsell approaches it
+## Como a hubsell aborda isso
 
-Verified at source is how hubsell works by default. Every contact is checked when you request it, including a catch-all check, so a credit is only spent on a contact that is correct today.
+A verificação na origem é a forma padrão de trabalho da hubsell. Cada contato é verificado quando você o solicita, incluindo uma verificação de catch-all, para que um crédito só seja usado em um contato que está correto hoje.

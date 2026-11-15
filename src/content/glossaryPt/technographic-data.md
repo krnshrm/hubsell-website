@@ -1,27 +1,27 @@
 ---
-term: "Technographic data"
-category: "Data and enrichment"
-definition: "Technographic data describes the technology a company uses, such as its CRM, cloud platform, or marketing tools, and helps you target accounts by their tech stack."
+term: "Dados tecnográficos"
+category: "Dados e enriquecimento"
+definition: "Dados tecnográficos (technographic data) descrevem a tecnologia que uma empresa usa, como o CRM, a plataforma de nuvem ou as ferramentas de marketing, e ajudam você a segmentar contas pela pilha de tecnologia."
 related:
   - firmographic-data
   - b2b-data
   - ideal-customer-profile
   - intent-data
-updated: "July 2026"
+updated: "julho de 2026"
 ---
 
-## Why it matters
+## Por que isso importa
 
-What a company runs often signals whether it is a fit. A tool that integrates with Salesforce is more relevant to companies already on Salesforce. Technographics let you find accounts by the software they use, which sharpens targeting and gives reps a concrete reason to reach out. It also flags competitors and complementary tools already in place.
+As ferramentas que uma empresa usa muitas vezes indicam se ela se encaixa no seu perfil. Uma ferramenta que se integra ao Salesforce é mais relevante para empresas que já usam o Salesforce. Os dados tecnográficos permitem encontrar contas pelo software que usam, o que deixa a segmentação mais precisa e dá aos vendedores um motivo concreto para fazer contato. Eles também mostram concorrentes e ferramentas complementares que já estão em uso.
 
-## How it works in practice
+## Como funciona na prática
 
-Technographic data is detected from public signals such as website tags, job postings that name tools, and integration footprints. Fields might include the CRM, the email provider, the analytics stack, and the ecommerce platform. Teams filter target lists on these, for example companies using a specific CRM, or use them to tailor the message to the buyer's existing setup.
+Os dados tecnográficos são identificados a partir de sinais públicos, como tags no site, vagas de emprego que citam ferramentas e rastros de integrações. Os campos podem incluir o CRM, o provedor de e-mail, as ferramentas de análise e a plataforma de e-commerce. As equipes filtram as listas-alvo por esses campos, por exemplo empresas que usam um CRM específico, ou os usam para adaptar a mensagem à configuração que o comprador já tem.
 
-## Common mistakes
+## Erros comuns
 
-The main mistake is trusting technographic detection as certain, since it is inferred, not confirmed, and a detected tool may be a trial or a legacy system. Another is over-personalising on a single detected tool that turns out to be wrong, which undermines credibility. Treat technographics as a strong hint, not a fact.
+O principal erro é tratar a identificação tecnográfica como certa, já que ela é deduzida, e não confirmada, e uma ferramenta identificada pode ser um teste ou um sistema antigo. Outro é personalizar demais com base em uma única ferramenta identificada que acaba se revelando errada, o que prejudica a credibilidade. Trate os dados tecnográficos como um forte indício, não como um fato.
 
-## How hubsell approaches it
+## Como a hubsell aborda isso
 
-hubsell can factor the tools an account uses into how contacts are sourced and prioritised, so outreach reaches accounts where your product fits their stack.
+A hubsell pode levar em conta as ferramentas que uma conta usa na busca e na priorização dos contatos, para que a prospecção chegue às contas em que o seu produto se encaixa na pilha de tecnologia delas.

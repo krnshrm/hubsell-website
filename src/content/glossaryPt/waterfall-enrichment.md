@@ -1,27 +1,27 @@
 ---
 term: "Waterfall enrichment"
-category: "Data and enrichment"
-definition: "Waterfall enrichment queries several data providers in sequence and takes the first good result for each field, to raise match rates beyond any single source."
+category: "Dados e enriquecimento"
+definition: "O waterfall enrichment (enriquecimento em cascata) consulta vários fornecedores de dados, um após o outro, e fica com o primeiro resultado válido para cada campo, para conseguir mais correspondências do que com uma única fonte."
 related:
   - data-enrichment
   - data-provider
   - b2b-data
   - email-verification
-updated: "July 2026"
+updated: "julho de 2026"
 ---
 
-## Why it matters
+## Por que isso importa
 
-No single provider has every record, and coverage varies by region and role. Querying providers one after another fills more fields than any one source can, which lifts match rates and reduces the gaps a rep hits. For teams that need high coverage, the waterfall approach is how they get it without betting on one vendor.
+Nenhum fornecedor tem todos os registros, e a cobertura varia por região e por cargo. Consultar os fornecedores um após o outro preenche mais campos do que qualquer fonte isolada, o que aumenta a taxa de correspondência e reduz as lacunas que os vendedores encontram. Para equipes que precisam de alta cobertura, a cascata é a forma de consegui-la sem apostar em um único fornecedor.
 
-## How it works in practice
+## Como funciona na prática
 
-A waterfall runs a record through providers in a set order. For each missing field it asks the first provider, and if that comes back empty or low-confidence it asks the next, stopping at the first good answer. This repeats per field, so a single contact might get its email from one source and its phone from another. Cost is controlled by ordering cheaper or higher-hit providers first.
+Uma cascata passa um registro pelos fornecedores em uma ordem definida. Para cada campo que falta, ela consulta o primeiro fornecedor e, se a resposta vier vazia ou com baixa confiança, consulta o seguinte, parando na primeira resposta boa. Isso se repete para cada campo, então um mesmo contato pode receber o e-mail de uma fonte e o telefone de outra. O custo é controlado colocando primeiro os fornecedores mais baratos ou com mais acertos.
 
-## Common mistakes
+## Erros comuns
 
-A common mistake is running a waterfall without verifying the winning result, so you accept the first answer even if it is wrong. Another is a poor provider order that spends on expensive sources before cheaper ones would have answered. A third is chasing coverage so hard that accuracy drops.
+Um erro comum é rodar uma cascata sem verificar o resultado escolhido, de modo que você aceita a primeira resposta mesmo que ela esteja errada. Outro é uma ordem ruim de fornecedores, que gasta com fontes caras antes que as mais baratas tenham a chance de responder. Um terceiro é buscar tanta cobertura que a precisão cai.
 
-## How hubsell approaches it
+## Como a hubsell aborda isso
 
-hubsell focuses on verifying each contact at the point of use, so the result you get is checked when you need it rather than accepted as the first available answer from a chain of databases.
+A hubsell se concentra em verificar cada contato no momento do uso, para que o resultado que você recebe seja conferido quando você precisa dele, e não aceito como a primeira resposta disponível de uma cadeia de bases de dados.

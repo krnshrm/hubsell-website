@@ -1,27 +1,27 @@
 ---
-term: "Multichannel outreach"
-category: "Outbound and email"
-definition: "Multichannel outreach is reaching a prospect across more than one channel, such as email, LinkedIn, and phone, as part of one coordinated sequence."
+term: "Prospecção multicanal"
+category: "Outbound e e-mail"
+definition: "A prospecção multicanal (multichannel outreach) consiste em abordar um prospect por mais de um canal, como e-mail, LinkedIn e telefone, dentro de uma única sequência coordenada."
 related:
   - outbound-sales
   - email-sequence
   - cadence
   - email-deliverability
-updated: "July 2026"
+updated: "julho de 2026"
 ---
 
-## Why it matters
+## Por que isso importa
 
-Buyers do not all respond on the same channel, and few respond to a single message. Coordinating email, LinkedIn, and phone raises the chance of reaching a person in the place they actually pay attention. It also spreads sending volume, which protects any one channel, and it makes follow-up feel like a conversation rather than a repeated email.
+Nem todos os compradores respondem pelo mesmo canal, e poucos respondem a uma única mensagem. Coordenar e-mail, LinkedIn e telefone aumenta a chance de encontrar a pessoa onde ela realmente presta atenção. Também distribui o volume de envio, o que protege cada canal, e faz o follow-up parecer uma conversa, e não um e-mail repetido.
 
-## How it works in practice
+## Como funciona na prática
 
-A multichannel sequence lays out a series of touches across channels on a set cadence. For example, a connection request and a profile view on LinkedIn, then an email, then a call task, with the next step depending on what the contact did. The channels run from one plan so the touches reinforce each other instead of colliding, and the timing reacts to opens, replies, and connection acceptances.
+Uma sequência multicanal organiza uma série de contatos em vários canais, em uma cadência definida. Por exemplo: uma solicitação de conexão e uma visita ao perfil no LinkedIn, depois um e-mail, depois uma tarefa de ligação, com a próxima etapa dependendo do que o contato fez. Os canais seguem um único plano, para que os contatos se reforcem em vez de se atropelarem, e o timing reage a aberturas, respostas e conexões aceitas.
 
-## Common mistakes
+## Erros comuns
 
-A frequent mistake is bolting separate tools together, one for email and one for LinkedIn, so the touches are not coordinated and a contact gets hit twice at once. Another is copying the same message onto every channel. A third is ignoring per-channel limits, especially on LinkedIn, which risks the account.
+Um erro frequente é juntar ferramentas separadas, uma para e-mail e outra para LinkedIn, de modo que os contatos não ficam coordenados e a pessoa é abordada duas vezes ao mesmo tempo. Outro é copiar a mesma mensagem em todos os canais. Um terceiro é ignorar os limites de cada canal, principalmente no LinkedIn, o que coloca a conta em risco.
 
-## How hubsell approaches it
+## Como a hubsell aborda isso
 
-hubsell runs email, LinkedIn, and phone as one flow rather than separate tools, with branching that reacts to what each contact does, so the touches stay coordinated and on the right channel.
+A hubsell roda e-mail, LinkedIn e telefone em um único Flow, e não em ferramentas separadas, com ramificações que reagem ao que cada contato faz, para que os contatos fiquem coordenados e no canal certo.

@@ -1,27 +1,27 @@
 ---
 term: "MQL"
-category: "Metrics"
-definition: "An MQL, or marketing qualified lead, is a lead that marketing judges likely enough to buy, based on fit and engagement, to pass to sales."
+category: "Métricas"
+definition: "Um MQL (marketing qualified lead, ou lead qualificado pelo marketing) é um lead que o marketing considera com probabilidade suficiente de compra, com base no perfil e no engajamento, para ser passado a vendas."
 related:
   - sql
   - lead-scoring
   - conversion-rate
   - ideal-customer-profile
-updated: "July 2026"
+updated: "julho de 2026"
 ---
 
-## Why it matters
+## Por que isso importa
 
-The MQL is the handoff point between marketing and sales, and a shared definition of it keeps the two teams aligned. When it is defined well, sales trusts the leads it receives and marketing gets credit for quality. When it is vague, sales ignores the leads and both teams argue over whether marketing is pulling its weight.
+O MQL é o ponto de passagem entre marketing e vendas, e uma definição comum mantém as duas equipes alinhadas. Quando ele é bem definido, vendas confia nos leads que recebe e o marketing é reconhecido pela qualidade. Quando é vago, vendas ignora os leads e as duas equipes discutem se o marketing está fazendo a sua parte.
 
-## How it works in practice
+## Como funciona na prática
 
-A lead becomes an MQL when it passes a threshold that combines fit, how well it matches the Ideal Customer Profile, with engagement, actions like downloads, visits, or form fills. Lead scoring usually sets the bar. Once a lead crosses it, marketing passes it to sales, where it may become a sales qualified lead after further checks.
+Um lead vira MQL quando passa de um limite que combina o perfil, ou seja, o quanto ele corresponde ao perfil de cliente ideal (ICP), com o engajamento, ações como downloads, visitas ou preenchimento de formulários. Normalmente, o lead scoring define esse limite. Depois que o lead o ultrapassa, o marketing o passa para vendas, onde ele pode virar um lead qualificado por vendas após novas verificações.
 
-## Common mistakes
+## Erros comuns
 
-A common mistake is defining MQLs on engagement alone, so poor-fit but active leads flood sales. Another is a threshold set once and never tuned against what actually closed. A third is marketing and sales never agreeing on the definition, which breaks the handoff.
+Um erro comum é definir MQLs só pelo engajamento, o que enche vendas de leads ativos, mas fora do perfil. Outro é um limite definido uma vez e nunca ajustado com base no que realmente fechou. Um terceiro é marketing e vendas nunca chegarem a um acordo sobre a definição, o que quebra a passagem entre os dois.
 
-## How hubsell approaches it
+## Como a hubsell aborda isso
 
-hubsell provides accurate fit data and surfaces real interest signals, so the fit-and-engagement judgment behind an MQL rests on current information rather than guesswork.
+A hubsell fornece dados de perfil precisos e mostra sinais reais de interesse, para que a avaliação de perfil e engajamento por trás de um MQL se baseie em informações atuais, e não em suposições.
