@@ -84,6 +84,26 @@ const CATEGORY_LABELS: Record<Locale, Record<string, string>> = {
     'Metrics': 'Indicateurs',
     'SEO and GEO': 'SEO et GEO',
   },
+  es: {
+    'Data and enrichment': 'Datos y enriquecimiento',
+    'Outbound and email': 'Outbound y email',
+    'Deliverability': 'Entregabilidad',
+    'CRM and RevOps': 'CRM y RevOps',
+    'Compliance and GDPR': 'Cumplimiento y RGPD',
+    'Sales roles': 'Roles de ventas',
+    'Metrics': 'Métricas',
+    'SEO and GEO': 'SEO y GEO',
+  },
+  pt: {
+    'Data and enrichment': 'Dados e enriquecimento',
+    'Outbound and email': 'Outbound e e-mail',
+    'Deliverability': 'Entregabilidade',
+    'CRM and RevOps': 'CRM e RevOps',
+    'Compliance and GDPR': 'Conformidade e RGPD',
+    'Sales roles': 'Cargos de vendas',
+    'Metrics': 'Métricas',
+    'SEO and GEO': 'SEO e GEO',
+  },
 };
 
 // The frontmatter `category` string differs per locale (each file stores its own
@@ -94,6 +114,8 @@ const KEY_BY_LABEL: Record<Locale, Record<string, string>> = {
   de: invert(CATEGORY_LABELS.de),
   nl: invert(CATEGORY_LABELS.nl),
   fr: invert(CATEGORY_LABELS.fr),
+  es: invert(CATEGORY_LABELS.es),
+  pt: invert(CATEGORY_LABELS.pt),
 };
 function invert(m: Record<string, string>) {
   const out: Record<string, string> = {};
@@ -168,6 +190,38 @@ const CHROME: Record<Locale, Chrome> = {
     categoryLabel: (k) => CATEGORY_LABELS.fr[k] ?? k,
     crumbHome: 'Accueil',
     crumbGlossary: 'Glossaire',
+  },
+  es: {
+    eyebrow: 'Glosario',
+    h1: 'El glosario de ventas B2B y datos',
+    intro: 'Definiciones claras y prácticas de los términos del outbound, los datos y la entregabilidad. Escritas para quienes trabajan en ventas, no para los manuales.',
+    searchPlaceholder: 'Buscar términos',
+    all: 'Todos',
+    termsLabel: (n) => `${n} términos`,
+    relatedTitle: 'Términos relacionados',
+    backToGlossary: 'Volver al glosario',
+    ctaTitle: 'Míralo con datos en tiempo real',
+    ctaSub: 'Reserva una demo y te mostraremos hubsell trabajando con datos que son correctos hoy.',
+    ctaButton: 'Reserva una demo',
+    categoryLabel: (k) => CATEGORY_LABELS.es[k] ?? k,
+    crumbHome: 'Inicio',
+    crumbGlossary: 'Glosario',
+  },
+  pt: {
+    eyebrow: 'Glossário',
+    h1: 'O glossário de vendas B2B e dados',
+    intro: 'Definições claras e práticas dos termos de outbound, dados e entregabilidade. Escritas para quem trabalha com vendas, não para os livros.',
+    searchPlaceholder: 'Pesquisar termos',
+    all: 'Todos',
+    termsLabel: (n) => `${n} termos`,
+    relatedTitle: 'Termos relacionados',
+    backToGlossary: 'Voltar ao glossário',
+    ctaTitle: 'Veja com dados em tempo real',
+    ctaSub: 'Agende uma demo e mostraremos a hubsell funcionando com dados corretos hoje.',
+    ctaButton: 'Agende uma demo',
+    categoryLabel: (k) => CATEGORY_LABELS.pt[k] ?? k,
+    crumbHome: 'Início',
+    crumbGlossary: 'Glossário',
   },
 };
 

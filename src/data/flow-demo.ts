@@ -88,7 +88,7 @@ type FlowCopy = {
   n: Record<string, string>;
 };
 
-export const FLOW_COPY: Record<'en' | 'de' | 'nl' | 'fr', FlowCopy> = {
+export const FLOW_COPY: Record<'en' | 'de' | 'nl' | 'fr' | 'es' | 'pt', FlowCopy> = {
   en: {
     numberLocale: 'en-GB', pctSpace: false,
     src: {
@@ -215,6 +215,70 @@ export const FLOW_COPY: Record<'en' | 'de' | 'nl' | 'fr', FlowCopy> = {
       verify: 'Vérifier les données', verifySub: 'Contrôler e-mails et URL LinkedIn', validEmail: 'E-mail valide', validProfile: 'Profil valide',
       enrichGaps: 'Compléter les données', enrichGapsSub: 'Seulement les lignes incomplètes', profiles: 'Profils',
       condProfile: 'Profil LinkedIn présent ?', branchAcc: 'Acceptée', branchNot: 'Non acceptée', hasProfile: 'Avec profil', emailOnly: 'E-mail seul',
+    },
+  },
+  es: {
+    numberLocale: 'es-ES', pctSpace: true,
+    src: {
+      post:     { tab: 'Post de LinkedIn', label: 'Enlace del post de LinkedIn', detail: 'Reacciones, comentarios y republicaciones', crumb: 'Outbound a partir de un post de LinkedIn' },
+      event:    { tab: 'Asistentes a eventos', label: 'Enlace del evento de LinkedIn', detail: '386 personas inscritas', crumb: 'Outbound a partir de un evento de LinkedIn' },
+      hiring:   { tab: 'Empresas que contratan', label: 'Enlace de búsqueda de LinkedIn de personas en empresas que contratan', detail: 'Responsables de ventas en 41 empresas que contratan', crumb: 'Outbound a empresas que contratan' },
+      search:   { tab: 'Búsqueda de personas', label: 'Enlace de búsqueda de personas de LinkedIn', detail: 'Heads of Sales en Alemania y Países Bajos', crumb: 'Outbound a partir de una búsqueda de personas' },
+      salesnav: { tab: 'Sales Navigator', label: 'Enlace de búsqueda de leads de Sales Navigator', detail: 'Responsables de ventas en DACH, de 51 a 500 empleados', crumb: 'Outbound a partir de Sales Navigator' },
+      csv:      { tab: 'Importar CSV', label: 'Archivo CSV', detail: 'sample-leads.csv, 500 filas', crumb: 'Outbound a partir de una importación CSV' },
+    },
+    ui: {
+      flows: 'Flows', sample: 'Datos de ejemplo', source: 'Fuente', roles: 'Roles', rolesSample: 'SDR, Account Executive',
+      file: '500 filas, algunas sin email ni URL de LinkedIn', verified: 'Email verificado', phone: 'Teléfono', credit: '+5 créditos',
+      repeat: 'Repetir con la siguiente fuente', on: 'Activado', off: 'Desactivado', skip: 'Omitir', skipped: 'Omitido',
+    },
+    n: {
+      source: 'Fuente', found: 'Encontrados', rows: 'Filas', importCsv: 'Importar CSV',
+      qualify: 'Cualificar con IA', qualifySub: 'Según tu cliente ideal', checked: 'Revisados', qualified: 'Cualificados', notFit: 'No encajan',
+      enrich: 'Enriquecer', enrichSub: 'Email verificado, teléfono si lo eliges', emails: 'Emails', phones: 'Teléfonos',
+      connect: 'Solicitud de conexión', connectSub: 'Invitación de LinkedIn', sent: 'Enviadas', accepted: 'Aceptadas', notAccepted: 'No aceptadas',
+      cond: 'Condiciones de seguimiento', condSub: '¿Aceptada en 7 días?',
+      wait1: 'Esperar 1 día', wait2: 'Esperar 2 días', wait3: 'Esperar 3 días', wait7: 'Esperar 7 días',
+      dm: 'Mensaje directo', dmSub: 'Mensaje de LinkedIn', replied: 'Respondido',
+      withdraw: 'Retirar la solicitud', withdrawSub: 'Cancelar la invitación pendiente', withdrawn: 'Retiradas',
+      email: 'Enviar email', emailSub: 'Todos los que no han respondido', emailSubAll: 'Todos los que tienen email', opened: 'Abiertos',
+      call: 'Tarea de llamada', callSub: 'Creada en tu CRM', tasks: 'Tareas creadas',
+      sync: 'Sincronización con el CRM', syncSub: 'HubSpot, Salesforce o Pipedrive', synced: 'Sincronizados', replies: 'Respuestas', meetings: 'Reuniones',
+      verify: 'Verificar datos', verifySub: 'Revisar emails y URL de LinkedIn', validEmail: 'Email válido', validProfile: 'Perfil válido',
+      enrichGaps: 'Completar datos', enrichGapsSub: 'Solo las filas incompletas', profiles: 'Perfiles',
+      condProfile: '¿Tiene perfil de LinkedIn?', branchAcc: 'Aceptada', branchNot: 'No aceptada', hasProfile: 'Con perfil', emailOnly: 'Solo email',
+    },
+  },
+  pt: {
+    numberLocale: 'pt-BR', pctSpace: false,
+    src: {
+      post:     { tab: 'Post no LinkedIn', label: 'Link do post no LinkedIn', detail: 'Reações, comentários e compartilhamentos', crumb: 'Outbound a partir de um post no LinkedIn' },
+      event:    { tab: 'Participantes de eventos', label: 'Link do evento no LinkedIn', detail: '386 pessoas inscritas', crumb: 'Outbound a partir de um evento no LinkedIn' },
+      hiring:   { tab: 'Empresas contratando', label: 'Link de pesquisa do LinkedIn de pessoas em empresas contratando', detail: 'Líderes de vendas em 41 empresas contratando', crumb: 'Outbound para empresas contratando' },
+      search:   { tab: 'Pesquisa de pessoas', label: 'Link de pesquisa de pessoas no LinkedIn', detail: 'Heads of Sales na Alemanha e na Holanda', crumb: 'Outbound a partir de uma pesquisa de pessoas' },
+      salesnav: { tab: 'Sales Navigator', label: 'Link de pesquisa de leads do Sales Navigator', detail: 'Líderes de vendas na região DACH, de 51 a 500 funcionários', crumb: 'Outbound a partir do Sales Navigator' },
+      csv:      { tab: 'Importar CSV', label: 'Arquivo CSV', detail: 'sample-leads.csv, 500 linhas', crumb: 'Outbound a partir de uma importação de CSV' },
+    },
+    ui: {
+      flows: 'Flows', sample: 'Dados de exemplo', source: 'Origem', roles: 'Cargos', rolesSample: 'SDR, Account Executive',
+      file: '500 linhas, algumas sem e-mail ou URL do LinkedIn', verified: 'E-mail verificado', phone: 'Telefone', credit: '+5 créditos',
+      repeat: 'Repetir com a próxima origem', on: 'Ativado', off: 'Desativado', skip: 'Pular', skipped: 'Pulado',
+    },
+    n: {
+      source: 'Origem', found: 'Encontrados', rows: 'Linhas', importCsv: 'Importar CSV',
+      qualify: 'Qualificar com IA', qualifySub: 'Com base no seu cliente ideal', checked: 'Verificados', qualified: 'Qualificados', notFit: 'Fora do perfil',
+      enrich: 'Enriquecer', enrichSub: 'E-mail verificado, telefone se escolhido', emails: 'E-mails', phones: 'Telefones',
+      connect: 'Solicitação de conexão', connectSub: 'Convite no LinkedIn', sent: 'Enviadas', accepted: 'Aceitas', notAccepted: 'Não aceitas',
+      cond: 'Condições de follow-up', condSub: 'Aceita em até 7 dias?',
+      wait1: 'Esperar 1 dia', wait2: 'Esperar 2 dias', wait3: 'Esperar 3 dias', wait7: 'Esperar 7 dias',
+      dm: 'Mensagem direta', dmSub: 'Mensagem no LinkedIn', replied: 'Respondido',
+      withdraw: 'Retirar a solicitação', withdrawSub: 'Cancelar o convite pendente', withdrawn: 'Retiradas',
+      email: 'Enviar e-mail', emailSub: 'Todos que não responderam', emailSubAll: 'Todos com e-mail', opened: 'Abertos',
+      call: 'Tarefa de ligação', callSub: 'Criada no seu CRM', tasks: 'Tarefas criadas',
+      sync: 'Sincronização com o CRM', syncSub: 'HubSpot, Salesforce ou Pipedrive', synced: 'Sincronizados', replies: 'Respostas', meetings: 'Reuniões',
+      verify: 'Verificar dados', verifySub: 'Conferir e-mails e URLs do LinkedIn', validEmail: 'E-mail válido', validProfile: 'Perfil válido',
+      enrichGaps: 'Completar dados', enrichGapsSub: 'Só as linhas incompletas', profiles: 'Perfis',
+      condProfile: 'Tem perfil no LinkedIn?', branchAcc: 'Aceita', branchNot: 'Não aceita', hasProfile: 'Com perfil', emailOnly: 'Só e-mail',
     },
   },
 };

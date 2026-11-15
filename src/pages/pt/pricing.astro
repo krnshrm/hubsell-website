@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import PricingPage from '../../components/PricingPage.astro';
+import { breadcrumbSchema } from '../../data/seo';
+import { getPricingPage } from '../../data/pricing-page';
+import { asLocale, localizeUrl } from '../../i18n/utils';
+
+const L = asLocale(Astro.currentLocale);
+const d = getPricingPage(L);
+const crumbs = breadcrumbSchema([
+  { name: d.crumbHome, url: localizeUrl(L, '/') },
+  { name: d.crumbSelf, url: localizeUrl(L, '/pricing') },
+]);
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: d.faq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<BaseLayout title={d.title} description={d.metaDescription}>
+  <JsonLd slot="head" schema={[crumbs, faqSchema]} />
+  <PricingPage L={L} data={d} />
+</BaseLayout>

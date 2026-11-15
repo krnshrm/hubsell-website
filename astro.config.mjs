@@ -14,7 +14,6 @@ import { join, relative, sep } from 'node:path';
 // only when it is a REAL translated page, i.e. its path is listed in
 // translatedRoutes (src/i18n/ui.ts). Untranslated locale URLs are Astro
 // fallback stubs (noindex + redirect to English) and stay out of the sitemap.
-// es/pt have no translatedRoutes yet, so all their URLs stay out.
 const LOCALE_URL = /^https:\/\/www\.hubsell\.com\/(de|nl|fr|es|pt)(\/.*)?$/;
 // Internal prototypes carry noindex. Listing a noindex URL in the sitemap earns
 // a "Submitted URL marked noindex" warning in Search Console, so they are kept
@@ -109,6 +108,6 @@ export default defineConfig({
     },
     // Add a locale here when we START translating it; until then its URLs are not
     // generated (the switcher shows it as "Soon", so nothing links to it). German first.
-    fallback: { de: 'en', nl: 'en', fr: 'en' },
+    fallback: { de: 'en', nl: 'en', fr: 'en', es: 'en', pt: 'en' },
   },
 });

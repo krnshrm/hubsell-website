@@ -145,4 +145,7 @@ export const allow = [
   { locale: 'nl', page: '/nl/pricing/', word: 'email', why: 'node names in the pricing table stay English' },
   { locale: 'fr', page: '/fr/pricing/', word: 'email', why: 'node names in the pricing table stay English' },
   { locale: 'fr', word: 'séquences', text: "outils de séquences d'e-mails", why: 'Outreach and Salesloft as a tool category, not the Flow' },
+  { locale: 'pt', page: '/pt/pricing/', word: 'email', why: 'node names in the pricing table stay English' },
+  { locale: 'es', word: 'secuencias', text: 'herramientas de secuencias de email', why: 'Outreach and Salesloft as a tool category, not the Flow' },
+  { locale: 'pt', word: 'sequências', text: 'ferramentas de sequências de e-mail', why: 'Outreach and Salesloft as a tool category, not the Flow' },
 ];

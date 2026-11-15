@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import ReviewsBody from '../../components/ReviewsBody.astro';
+import { getReviewsPage } from '../../i18n/pages';
+import { SITE_URL, breadcrumbSchema } from '../../data/seo';
+
+const c = getReviewsPage('es');
+const reviewsSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'hubsell',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  url: SITE_URL,
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.8',
+    reviewCount: '35',
+    bestRating: '5',
+    worstRating: '1',
+  },
+};
+const reviewCrumbs = breadcrumbSchema([
+  { name: c.crumbHome, url: '/es/' },
+  { name: c.crumbReviews, url: '/es/hubsell-reviews' },
+]);
+---
+<BaseLayout title={c.metaTitle} description={c.metaDescription}>
+  <JsonLd slot="head" schema={[reviewsSchema, reviewCrumbs]} />
+  <ReviewsBody />
+</BaseLayout>

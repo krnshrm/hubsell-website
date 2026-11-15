@@ -12,11 +12,11 @@ export const locales = ['en', 'de', 'nl', 'fr', 'es', 'pt'] as const;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = 'en';
 
-// Which locales appear in the language switcher (TopBar). fr/es/pt are parked
-// until their translations are done, they stay in `locales` (type + fallback)
-// but are hidden from the UI. Add a locale here when it's ready to be offered.
-// de and nl are live; fr is offered on its core pages (translatedRoutes).
-export const switcherLocales: Locale[] = ['en', 'de', 'nl', 'fr'];
+// Which locales appear in the language switcher (TopBar). Add a locale here when
+// it's ready to be offered; until then it stays in `locales` (type + fallback)
+// but is hidden from the UI.
+// de and nl are live; fr, es and pt are offered on their core pages (translatedRoutes).
+export const switcherLocales: Locale[] = ['en', 'de', 'nl', 'fr', 'es', 'pt'];
 
 // Shown in the language switcher, each name in its own language.
 export const localeNames: Record<Locale, string> = {
@@ -207,7 +207,9 @@ export const translatedRoutes: Partial<Record<Locale, string[]>> = {
   ],
   // French: core pages first (HUB-607); the rest falls back to English.
   fr: ['/', '/contact', '/book-a-call', '/pricing', '/faqs', '/hubsell-reviews'],
-  // es: [], pt: [],
+  // Spanish and Brazilian Portuguese: the same core pages (HUB-607).
+  es: ['/', '/contact', '/book-a-call', '/pricing', '/faqs', '/hubsell-reviews'],
+  pt: ['/', '/contact', '/book-a-call', '/pricing', '/faqs', '/hubsell-reviews'],
 };
 
 type Dict = Record<string, string>;
