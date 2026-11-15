@@ -1,27 +1,27 @@
 ---
-term: "Cost per lead"
-category: "Metrics"
-definition: "Cost per lead is the average spend required to generate one lead, used to compare the efficiency of different channels and campaigns."
+term: "Coste por lead"
+category: "Métricas"
+definition: "El coste por lead (cost per lead) es el gasto medio necesario para generar un lead, y se usa para comparar la eficiencia de distintos canales y campañas."
 related:
   - cac
   - conversion-rate
   - lead-scoring
   - outbound-sales
-updated: "July 2026"
+updated: "julio de 2026"
 ---
 
-## Why it matters
+## Por qué importa
 
-Cost per lead shows how efficiently a channel fills the top of the funnel. It helps compare where leads come from cheapest, which guides budget. On its own it can mislead, since cheap leads that never convert are not really cheap, so it is read alongside lead quality and downstream conversion rather than in isolation.
+El coste por lead muestra con qué eficiencia llena un canal la parte alta del embudo. Ayuda a comparar de dónde salen los leads más baratos, lo que orienta el presupuesto. Por sí solo puede engañar, porque los leads baratos que nunca se convierten no son baratos de verdad, así que se lee junto con la calidad de los leads y la conversión posterior, no de forma aislada.
 
-## How it works in practice
+## Cómo funciona en la práctica
 
-Cost per lead is the spend on a channel or campaign divided by the leads it produced. Teams compare it across channels and over time, then pair it with conversion rate and CAC to see whether cheap leads actually turn into customers. A channel with a higher cost per lead but far better conversion can be the better investment.
+El coste por lead es el gasto en un canal o una campaña dividido entre los leads que ha generado. Los equipos lo comparan entre canales y a lo largo del tiempo, y luego lo combinan con la tasa de conversión y el CAC para ver si los leads baratos acaban convirtiéndose en clientes. Un canal con un coste por lead más alto pero una conversión mucho mejor puede ser la mejor inversión.
 
-## Common mistakes
+## Errores comunes
 
-A common mistake is optimising for the lowest cost per lead regardless of quality, which fills the funnel with leads that never close. Another is comparing channels on cost per lead alone without looking downstream. A third is leaving real costs out, which understates the true figure.
+Un error frecuente es optimizar para el coste por lead más bajo sin mirar la calidad, lo que llena el embudo de leads que nunca cierran. Otro es comparar canales solo por el coste por lead sin mirar lo que pasa después. Un tercero es dejar fuera costes reales, lo que rebaja la cifra real.
 
-## How hubsell approaches it
+## Cómo lo aborda hubsell
 
-hubsell keeps cost per lead honest by sourcing contacts that are correct today, so spend goes towards reachable, in-profile people rather than leads that bounce or never fit.
+hubsell mantiene honesto el coste por lead porque obtiene contactos que son correctos hoy, para que el gasto vaya a personas localizables y dentro de tu perfil, y no a leads que rebotan o que nunca encajan.

@@ -1,27 +1,27 @@
 ---
-term: "Firmographic data"
-category: "Data and enrichment"
-definition: "Firmographic data is the set of attributes that describe a company, such as industry, size, location, and revenue, used to segment and target accounts."
+term: "Datos firmográficos"
+category: "Datos y enriquecimiento"
+definition: "Los datos firmográficos (firmographic data) son el conjunto de atributos que describen una empresa, como el sector, el tamaño, la ubicación y los ingresos, y se usan para segmentar y seleccionar cuentas."
 related:
   - b2b-data
   - technographic-data
   - ideal-customer-profile
   - total-addressable-market
-updated: "July 2026"
+updated: "julio de 2026"
 ---
 
-## Why it matters
+## Por qué importa
 
-Firmographics are how you decide which companies are worth pursuing. They let you filter a large market down to the accounts that match your Ideal Customer Profile, so reps spend time on businesses that fit rather than on whoever happens to be in the list. Without firmographic filtering, targeting is guesswork.
+Los datos firmográficos sirven para decidir qué empresas merece la pena perseguir. Te permiten reducir un mercado amplio a las cuentas que encajan con tu perfil de cliente ideal, para que los comerciales dediquen su tiempo a empresas que encajan y no a cualquiera que esté en la lista. Sin un filtro firmográfico, la segmentación es pura intuición.
 
-## How it works in practice
+## Cómo funciona en la práctica
 
-Firmographic fields include industry or sector, employee count, revenue band, headquarters location, and company type. Teams set these as filters when they build a target list, then match contacts against them. A campaign aimed at mid-size manufacturers in Germany, for example, is a firmographic query: industry manufacturing, size 200 to 1000, country Germany.
+Los campos firmográficos incluyen el sector, el número de empleados, el tramo de facturación, la ubicación de la sede y el tipo de empresa. Los equipos los fijan como filtros al crear una lista objetivo y luego cruzan los contactos con ellos. Una campaña dirigida a fabricantes medianos de Alemania, por ejemplo, es una consulta firmográfica: sector industrial, tamaño de 200 a 1000 empleados, país Alemania.
 
-## Common mistakes
+## Errores comunes
 
-A common mistake is relying on stale firmographics, since company size and ownership change as businesses grow, merge, or get acquired. Another is filtering too tightly on a single field, which shrinks the market below what the pipeline needs. A third is treating self-reported firmographics as fact without any check.
+Un error frecuente es basarse en datos firmográficos desactualizados, porque el tamaño y la propiedad de una empresa cambian a medida que crece, se fusiona o es adquirida. Otro es filtrar de forma demasiado estricta por un solo campo, lo que reduce el mercado por debajo de lo que necesita el pipeline. Un tercero es dar por buenos los datos firmográficos declarados por la propia empresa sin ninguna comprobación.
 
-## How hubsell approaches it
+## Cómo lo aborda hubsell
 
-hubsell matches contacts to your firmographic criteria at the moment you source them, so the account fit is confirmed against current company data rather than a stored snapshot.
+hubsell cruza los contactos con tus criterios firmográficos en el momento en que los obtiene, para que el encaje de la cuenta se confirme con datos actuales de la empresa y no con una foto guardada.

@@ -1,27 +1,27 @@
 ---
-term: "Bounce rate"
-category: "Outbound and email"
-definition: "Bounce rate is the share of sent emails that could not be delivered, and a high rate is an early warning of list quality and deliverability problems."
+term: "Tasa de rebote"
+category: "Outbound y email"
+definition: "La tasa de rebote (bounce rate) es el porcentaje de emails enviados que no se han podido entregar, y una tasa alta es un aviso temprano de problemas de calidad de la lista y de entregabilidad."
 related:
   - email-verification
   - catch-all-domain
   - email-deliverability
   - open-rate
-updated: "July 2026"
+updated: "julio de 2026"
 ---
 
-## Why it matters
+## Por qué importa
 
-Bounces are more than wasted sends. A high bounce rate tells mailbox providers your list is poor, which lowers your sender reputation and pushes even valid mail towards spam. Keeping bounces low is one of the most direct ways to protect deliverability. It is a symptom to watch and a cause to control.
+Los rebotes son más que envíos desperdiciados. Una tasa de rebote alta indica a los proveedores de correo que tu lista es mala, lo que reduce tu reputación como remitente y empuja incluso el correo válido hacia el spam. Mantener los rebotes bajos es una de las formas más directas de proteger la entregabilidad. Es un síntoma que vigilar y una causa que controlar.
 
-## How it works in practice
+## Cómo funciona en la práctica
 
-A bounce is either hard, meaning the address does not exist, or soft, meaning a temporary issue like a full mailbox. Hard bounces are the ones that hurt reputation and come from invalid or decayed addresses. The fix is upstream: verify addresses before sending and remove ones that bounce, so the rate stays low across future sends.
+Un rebote puede ser duro, cuando la dirección no existe, o blando, cuando hay un problema temporal, como un buzón lleno. Los rebotes duros son los que dañan la reputación y proceden de direcciones no válidas u obsoletas. La solución está antes del envío: verifica las direcciones antes de enviar y elimina las que rebotan, para que la tasa se mantenga baja en los envíos siguientes.
 
-## Common mistakes
+## Errores comunes
 
-The root mistake is sending to unverified or bought lists, which is the usual cause of a bounce spike. Another is ignoring a rising bounce rate until deliverability has already dropped. A third is not removing hard-bounced addresses, so the same bad records bounce again.
+El error de base es enviar a listas sin verificar o compradas, que es la causa habitual de un pico de rebotes. Otro es ignorar una tasa de rebote al alza hasta que la entregabilidad ya ha caído. Un tercero es no eliminar las direcciones con rebote duro, de modo que los mismos registros erróneos vuelven a rebotar.
 
-## How hubsell approaches it
+## Cómo lo aborda hubsell
 
-hubsell verifies each contact at the point of use and flags catch-all domains, so invalid addresses are caught before send and the bounce rate stays low.
+hubsell verifica cada contacto en el momento de uso y marca los dominios catch-all, para que las direcciones no válidas se detecten antes del envío y la tasa de rebote se mantenga baja.

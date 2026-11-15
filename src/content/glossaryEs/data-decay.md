@@ -1,27 +1,27 @@
 ---
-term: "Data decay"
-category: "Data and enrichment"
-definition: "Data decay is the steady loss of accuracy in a contact database as people change jobs, companies close, and details go out of date."
+term: "Obsolescencia de datos (data decay)"
+category: "Datos y enriquecimiento"
+definition: "La obsolescencia de datos (data decay) es la pérdida continua de precisión de una base de datos de contactos a medida que las personas cambian de trabajo, las empresas cierran y los datos se quedan anticuados."
 related:
   - b2b-data
   - data-enrichment
   - verified-at-source-data
   - email-deliverability
-updated: "July 2026"
+updated: "julio de 2026"
 ---
 
-## Why it matters
+## Por qué importa
 
-Data decay is the reason a bought list stops working. Industry estimates put B2B data decay at roughly 2 to 3% per month, which means a list can be a quarter wrong within a year. Every decayed record is a wasted send, a bounce that hurts your sender reputation, or a call to someone who left the company. Decay turns a good list into a liability without anyone touching it.
+La obsolescencia de datos es la razón por la que una lista comprada deja de funcionar. Las estimaciones del sector sitúan la obsolescencia de los datos B2B en torno al 2 o 3 % mensual, lo que significa que una lista puede ser errónea en una cuarta parte en un año. Cada registro obsoleto es un envío desperdiciado, un rebote que perjudica tu reputación como remitente o una llamada a alguien que ya dejó la empresa. La obsolescencia convierte una buena lista en un problema sin que nadie la toque.
 
-## How it works in practice
+## Cómo funciona en la práctica
 
-Decay happens because the real world moves and the database does not. A contact gets promoted, switches employers, or leaves the workforce. A company rebrands, merges, or shuts down. An email provider retires a domain. Each of these breaks a field that was correct when it was captured. The longer a record sits unused, the more likely at least one of its fields is now wrong.
+La obsolescencia se produce porque el mundo real cambia y la base de datos no. Un contacto asciende, cambia de empresa o deja de trabajar. Una empresa cambia de marca, se fusiona o cierra. Un proveedor de email da de baja un dominio. Cada uno de estos cambios invalida un campo que era correcto cuando se recogió. Cuanto más tiempo pasa un registro sin usarse, más probable es que al menos uno de sus campos ya sea erróneo.
 
-## Common mistakes
+## Errores comunes
 
-The core mistake is buying a large static list and working it for months, assuming accuracy holds. It does not. Teams also forget that decay hits the fields they rely on most, job title and email, faster than they expect. Relying on a database captured long ago, however big, guarantees a rising bounce rate over time.
+El error de fondo es comprar una gran lista estática y trabajarla durante meses dando por hecho que sigue siendo precisa. No lo es. Los equipos también olvidan que la obsolescencia afecta más rápido de lo que esperan a los campos en los que más confían, el cargo y el email. Depender de una base de datos recogida hace mucho tiempo, por grande que sea, garantiza que la tasa de rebote suba con el tiempo.
 
-## How hubsell approaches it
+## Cómo lo aborda hubsell
 
-hubsell sidesteps decay by not holding a static list at all. Contacts are sourced the day you need them and verified at that moment, so you are always working data that reflects today, not a snapshot from the past.
+hubsell evita la obsolescencia porque no guarda ninguna lista estática. Los contactos se obtienen el día que los necesitas y se verifican en ese momento, así que siempre trabajas con datos que reflejan el presente, no con una foto del pasado.

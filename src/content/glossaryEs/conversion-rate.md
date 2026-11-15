@@ -1,27 +1,27 @@
 ---
-term: "Conversion rate"
-category: "Metrics"
-definition: "Conversion rate is the share of people who take a desired next step, such as replying, booking a meeting, or becoming a customer."
+term: "Tasa de conversión"
+category: "Métricas"
+definition: "La tasa de conversión (conversion rate) es el porcentaje de personas que dan el siguiente paso deseado, como responder, reservar una reunión o convertirse en cliente."
 related:
   - cac
   - win-rate
   - reply-rate
   - lead-scoring
-updated: "July 2026"
+updated: "julio de 2026"
 ---
 
-## Why it matters
+## Por qué importa
 
-Conversion rate measures how well each step of the funnel works. A low rate at one stage points to where prospects drop off, whether that is a weak message, poor targeting, or a clunky handoff. Because small gains compound across stages, improving conversion is often cheaper than pouring more volume into the top of the funnel.
+La tasa de conversión mide lo bien que funciona cada etapa del embudo. Una tasa baja en una etapa señala dónde se pierden los clientes potenciales, ya sea por un mensaje flojo, una segmentación mala o un traspaso torpe. Como las pequeñas mejoras se acumulan de una etapa a otra, mejorar la conversión suele salir más barato que meter más volumen en la parte alta del embudo.
 
-## How it works in practice
+## Cómo funciona en la práctica
 
-Conversion rate is the number who take the step divided by the number who could have. It is measured at each stage: reply to meeting, meeting to opportunity, opportunity to closed. Reading it stage by stage shows where the funnel leaks, and A/B testing then improves the weakest step. Good data quality keeps the denominator honest.
+La tasa de conversión es el número de personas que dan el paso dividido entre el número que podría haberlo dado. Se mide en cada etapa: de respuesta a reunión, de reunión a oportunidad y de oportunidad a cierre. Leerla etapa por etapa muestra por dónde pierde el embudo, y después los tests A/B mejoran el paso más débil. Una buena calidad de datos mantiene honesto el denominador.
 
-## Common mistakes
+## Errores comunes
 
-A common mistake is looking only at the final conversion and missing which stage is actually leaking. Another is comparing rates across very different segments as if they were the same. A third is chasing volume to lift totals while the rate quietly falls, which wastes effort.
+Un error frecuente es mirar solo la conversión final y no ver qué etapa pierde de verdad. Otro es comparar tasas de segmentos muy distintos como si fueran iguales. Un tercero es perseguir el volumen para subir los totales mientras la tasa baja sin que nadie lo note, lo que desperdicia esfuerzo.
 
-## How hubsell approaches it
+## Cómo lo aborda hubsell
 
-hubsell supports conversion by starting outreach from accurate, in-profile contacts, so more of the funnel is made of people who can actually convert rather than bad records.
+hubsell favorece la conversión porque la prospección parte de contactos precisos y dentro de tu perfil, para que una parte mayor del embudo esté formada por personas que de verdad pueden convertirse, y no por registros erróneos.

@@ -1,27 +1,27 @@
 ---
-term: "Inbox placement"
-category: "Deliverability"
-definition: "Inbox placement is the share of your delivered mail that actually lands in the primary inbox rather than the spam or promotions folder."
+term: "Colocación en la bandeja de entrada"
+category: "Entregabilidad"
+definition: "La colocación en la bandeja de entrada (inbox placement) es el porcentaje de tu correo entregado que llega realmente a la bandeja de entrada principal y no a la carpeta de spam o de promociones."
 related:
   - email-deliverability
   - sender-reputation
   - open-rate
   - spam-trap
-updated: "July 2026"
+updated: "julio de 2026"
 ---
 
-## Why it matters
+## Por qué importa
 
-Delivered is not the same as seen. A message can be accepted by the server but filed in spam, where almost no one reads it. Inbox placement measures the outcome that actually matters, reaching a folder the recipient looks at. It is a truer health check than a plain delivery rate, which counts mail that may be sitting unseen in spam.
+Entregado no es lo mismo que visto. Un mensaje puede ser aceptado por el servidor pero archivado en spam, donde casi nadie lo lee. La colocación en la bandeja de entrada mide el resultado que de verdad importa: llegar a una carpeta que el destinatario mira. Es un indicador de salud más fiel que la simple tasa de entrega, que cuenta correo que puede estar en spam sin que nadie lo vea.
 
-## How it works in practice
+## Cómo funciona en la práctica
 
-Inbox placement is measured with seed lists or provider tools that show where mail lands across major providers: primary inbox, promotions, or spam. It is driven by the same factors as deliverability overall, sender reputation, authentication, list quality, and engagement. Improving it means fixing those inputs, not changing the message alone.
+La colocación en la bandeja de entrada se mide con listas semilla (seed lists) o con herramientas de los proveedores que muestran dónde llega el correo en los principales proveedores: bandeja de entrada principal, promociones o spam. Depende de los mismos factores que la entregabilidad en general: reputación del remitente, autenticación, calidad de la lista e interacción. Mejorarla significa corregir esos factores, no solo cambiar el mensaje.
 
-## Common mistakes
+## Errores comunes
 
-A common mistake is watching delivery rate while ignoring placement, so mail counts as delivered while sitting in spam. Another is chasing engagement tricks instead of fixing reputation and list quality. A third is assuming placement is uniform, when it varies by provider and needs checking across each.
+Un error frecuente es vigilar la tasa de entrega e ignorar la colocación, de modo que el correo cuenta como entregado mientras está en spam. Otro es recurrir a trucos para aumentar la interacción en lugar de corregir la reputación y la calidad de la lista. Un tercero es dar por hecho que la colocación es igual en todas partes, cuando varía según el proveedor y hay que comprobarla en cada uno.
 
-## How hubsell approaches it
+## Cómo lo aborda hubsell
 
-hubsell supports inbox placement by protecting the inputs that drive it: verified contacts, authenticated sending, and paced volume, so more of your mail reaches a folder people actually open.
+hubsell favorece la colocación en la bandeja de entrada protegiendo los factores que la determinan: contactos verificados, envíos autenticados y un volumen dosificado, para que más correo tuyo llegue a una carpeta que la gente abre de verdad.

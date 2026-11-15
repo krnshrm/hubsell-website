@@ -1,27 +1,27 @@
 ---
-term: "Email sequence"
-category: "Outbound and email"
-definition: "An email sequence is a planned series of emails sent to a prospect over time, with each message following the last on a set schedule."
+term: "Secuencia de email"
+category: "Outbound y email"
+definition: "Una secuencia de email (email sequence) es una serie planificada de emails que se envían a un cliente potencial a lo largo del tiempo, en la que cada mensaje sigue al anterior según un calendario fijado."
 related:
   - cadence
   - cold-email
   - multichannel-outreach
   - outbound-sales
-updated: "July 2026"
+updated: "julio de 2026"
 ---
 
-## Why it matters
+## Por qué importa
 
-Most replies do not come from the first email. A sequence keeps the conversation going with planned follow-ups, so a prospect who missed or ignored the first message gets another chance to respond. Without a sequence, outreach is a single shot that most people never see. The follow-ups are where much of the pipeline actually comes from.
+La mayoría de las respuestas no llegan con el primer email. Una secuencia mantiene viva la conversación con seguimientos planificados, para que un cliente potencial que no vio o ignoró el primer mensaje tenga otra oportunidad de responder. Sin una secuencia, la prospección es un único intento que la mayoría de la gente nunca ve. Buena parte del pipeline sale precisamente de los seguimientos.
 
-## How it works in practice
+## Cómo funciona en la práctica
 
-A sequence lays out several emails with timing between them, for example an opener, a follow-up two days later, and a final note a week on. Steps can branch on behaviour, so a reply stops the sequence and an open might trigger a different next message. Sequences run from a tool that sends on schedule and tracks opens, replies, and bounces.
+Una secuencia define varios emails con un intervalo entre ellos, por ejemplo un primer mensaje, un seguimiento dos días después y una nota final una semana más tarde. Los pasos pueden ramificarse según el comportamiento, de modo que una respuesta detiene la secuencia y una apertura puede activar un siguiente mensaje distinto. Las secuencias se ejecutan desde una herramienta que envía según el calendario y registra aperturas, respuestas y rebotes.
 
-## Common mistakes
+## Errores comunes
 
-A common mistake is making every step a bare reminder to reply, which adds no reason to respond. Another is too many steps too close together, which reads as pressure. A third is not stopping the sequence when someone replies, so the automation talks over a live conversation.
+Un error frecuente es que cada paso sea un simple recordatorio para que respondan, sin añadir ningún motivo para hacerlo. Otro es poner demasiados pasos demasiado juntos, lo que se percibe como presión. Un tercero es no detener la secuencia cuando alguien responde, de modo que la automatización sigue hablando por encima de una conversación en curso.
 
-## How hubsell approaches it
+## Cómo lo aborda hubsell
 
-hubsell runs sequences across email and LinkedIn as one flow, with steps that react to what each contact does, so follow-ups stay relevant and stop the moment a reply comes in.
+hubsell ejecuta las secuencias de email y LinkedIn como un solo Flow, con pasos que reaccionan a lo que hace cada contacto, para que los seguimientos sigan siendo relevantes y se detengan en cuanto llega una respuesta.

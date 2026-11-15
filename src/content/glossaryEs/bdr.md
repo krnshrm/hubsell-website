@@ -1,27 +1,27 @@
 ---
 term: "BDR"
-category: "Sales roles"
-definition: "A BDR, or business development representative, is a prospecting salesperson, a title often used interchangeably with SDR, sometimes with a focus on outbound or new markets."
+category: "Roles de ventas"
+definition: "Un BDR, o business development representative, es un comercial dedicado a la prospección; el cargo se usa a menudo como sinónimo de SDR, a veces con un enfoque en el outbound o en nuevos mercados."
 related:
   - sdr
   - account-executive
   - outbound-sales
   - lead-scoring
-updated: "July 2026"
+updated: "julio de 2026"
 ---
 
-## Why it matters
+## Por qué importa
 
-The BDR, like the SDR, keeps new opportunities flowing into the pipeline. The distinction between the two titles is not fixed and varies by company. What matters is the function: dedicated people focused on opening conversations with new accounts, so the closers are not also responsible for filling the top of the funnel.
+El BDR, igual que el SDR, mantiene la llegada constante de nuevas oportunidades al pipeline. La diferencia entre los dos cargos no está fijada y varía según la empresa. Lo que importa es la función: personas dedicadas a abrir conversaciones con nuevas cuentas, para que quienes cierran no tengan que encargarse también de llenar la parte alta del embudo.
 
-## How it works in practice
+## Cómo funciona en la práctica
 
-Where companies split the roles, BDRs often lean towards outbound to brand-new accounts or new segments, while SDRs may handle a mix that includes following up on inbound interest. In practice both prospect a target list, run multichannel sequences, qualify interest, and pass qualified opportunities to account executives. The workflow is much the same, and clean data matters to both.
+Donde las empresas separan los roles, los BDR suelen orientarse al outbound hacia cuentas totalmente nuevas o nuevos segmentos, mientras que los SDR pueden llevar una combinación que incluye el seguimiento del interés inbound. En la práctica, ambos prospectan una lista objetivo, ejecutan secuencias multicanal, cualifican el interés y pasan las oportunidades cualificadas a los account executives. El trabajo es muy parecido, y los datos limpios importan a los dos.
 
-## Common mistakes
+## Errores comunes
 
-A common mistake is arguing over the SDR and BDR labels instead of defining the actual responsibilities each role owns. Another is loading BDRs with poor-fit accounts, so prospecting effort is wasted. A third is no clear rule for when an opportunity is ready to hand to a closer.
+Un error frecuente es discutir sobre las etiquetas SDR y BDR en lugar de definir las responsabilidades reales de cada rol. Otro es cargar a los BDR con cuentas que no encajan, de modo que el esfuerzo de prospección se desperdicia. Un tercero es no tener una regla clara sobre cuándo una oportunidad está lista para pasar a quien cierra.
 
-## How hubsell approaches it
+## Cómo lo aborda hubsell
 
-hubsell supports BDR prospecting with live, verified data matched to the ICP and coordinated outreach, so new-account outreach starts from correct contacts rather than a stale list.
+hubsell apoya la prospección de los BDR con datos verificados obtenidos en tiempo real, ajustados al ICP, y con una prospección coordinada, para que el contacto con nuevas cuentas parta de contactos correctos y no de una lista desactualizada.

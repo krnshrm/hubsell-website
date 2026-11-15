@@ -1,27 +1,27 @@
 ---
-term: "Data enrichment"
-category: "Data and enrichment"
-definition: "Data enrichment is the process of adding missing or updated details to a contact or company record so it is complete enough to act on."
+term: "Enriquecimiento de datos"
+category: "Datos y enriquecimiento"
+definition: "El enriquecimiento de datos (data enrichment) es el proceso de añadir datos que faltan o que están desactualizados a un registro de contacto o de empresa, para que esté lo bastante completo como para trabajar con él."
 related:
   - b2b-data
   - firmographic-data
   - data-decay
   - ideal-customer-profile
-updated: "July 2026"
+updated: "julio de 2026"
 ---
 
-## Why it matters
+## Por qué importa
 
-A record with just a name and a company is hard to use. Enrichment fills the gaps, adding the job title, verified email, phone number, company size, and industry, so a rep can decide whether the contact fits the target and how to reach them. Enriched records route better, score better, and convert better because the team acts on a full picture instead of a fragment.
+Un registro con solo un nombre y una empresa es difícil de usar. El enriquecimiento rellena los huecos y añade el cargo, el email verificado, el número de teléfono, el tamaño de la empresa y el sector, para que un comercial pueda decidir si el contacto encaja con el objetivo y cómo llegar a él. Los registros enriquecidos se asignan mejor, puntúan mejor y convierten mejor, porque el equipo actúa con una imagen completa y no con un fragmento.
 
-## How it works in practice
+## Cómo funciona en la práctica
 
-Enrichment matches an existing record against one or more data sources and writes back the fields that are missing or stale. A basic setup uses a single provider. A waterfall setup queries several providers in order and takes the first good answer for each field, which raises match rates. Enrichment can run in bulk on an existing list, or on write, meaning each new record is enriched the moment it enters the CRM.
+El enriquecimiento cruza un registro existente con una o varias fuentes de datos y escribe de vuelta los campos que faltan o están desactualizados. Una configuración básica usa un solo proveedor. Una configuración en cascada (waterfall) consulta varios proveedores por orden y se queda con la primera respuesta válida para cada campo, lo que aumenta la tasa de coincidencia. El enriquecimiento puede ejecutarse en bloque sobre una lista existente o en el momento de la escritura, es decir, cada registro nuevo se enriquece en cuanto entra en el CRM.
 
-## Common mistakes
+## Errores comunes
 
-Enriching stale records without re-verifying them just spreads old errors. Another mistake is over-enriching, pulling in dozens of fields nobody uses, which clutters the CRM and slows reps down. A third is enriching once and never refreshing, which lets the data decay quietly until a campaign underperforms and no one knows why.
+Enriquecer registros desactualizados sin volver a verificarlos solo extiende los errores antiguos. Otro error es enriquecer de más, añadiendo decenas de campos que nadie usa, lo que llena el CRM de ruido y ralentiza a los comerciales. Un tercero es enriquecer una vez y no actualizar nunca, lo que deja que los datos se queden obsoletos poco a poco hasta que una campaña rinde menos y nadie sabe por qué.
 
-## How hubsell approaches it
+## Cómo lo aborda hubsell
 
-Because hubsell sources data live and verifies at the point of use, enrichment and verification happen together rather than as a later clean-up step. The record you get is already complete and checked, so there is less to fix downstream.
+Como hubsell obtiene los datos en tiempo real y los verifica en el momento de uso, el enriquecimiento y la verificación se hacen a la vez y no como una limpieza posterior. El registro que recibes ya está completo y comprobado, así que hay menos que corregir después.

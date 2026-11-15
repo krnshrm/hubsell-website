@@ -1,27 +1,27 @@
 ---
-term: "Ideal Customer Profile (ICP)"
-category: "Data and enrichment"
-definition: "An Ideal Customer Profile is a clear description of the type of company and buyer that gets the most value from your product and is the best fit to sell to."
+term: "Perfil de cliente ideal (ICP)"
+category: "Datos y enriquecimiento"
+definition: "Un perfil de cliente ideal (Ideal Customer Profile) es una descripción clara del tipo de empresa y de comprador que más valor obtiene de tu producto y al que más te conviene vender."
 related:
   - b2b-data
   - firmographic-data
   - total-addressable-market
   - outbound-sales
-updated: "July 2026"
+updated: "julio de 2026"
 ---
 
-## Why it matters
+## Por qué importa
 
-The ICP decides who you spend time on. A sharp ICP keeps reps focused on accounts likely to buy, stay, and expand, which lifts win rates and shortens sales cycles. A vague ICP scatters effort across poor-fit accounts, which burns budget and drags conversion down. Nearly every other data and outreach decision starts from the ICP.
+El ICP decide a quién dedicas tu tiempo. Un ICP bien definido mantiene a los comerciales centrados en cuentas con probabilidad de comprar, quedarse y crecer, lo que mejora la tasa de cierre y acorta los ciclos de venta. Un ICP vago dispersa el esfuerzo en cuentas que no encajan, lo que quema presupuesto y hunde la conversión. Casi todas las demás decisiones sobre datos y prospección parten del ICP.
 
-## How it works in practice
+## Cómo funciona en la práctica
 
-An ICP is built from the traits your best customers share. Company traits include industry, size, location, and technology in use. Buyer traits include role, seniority, and the problem they own. Teams write these as filters, then match their data against them so only in-profile contacts enter a sequence. The ICP is refined over time as you learn which segments actually close and renew.
+Un ICP se construye a partir de los rasgos que comparten tus mejores clientes. Los rasgos de empresa incluyen el sector, el tamaño, la ubicación y la tecnología que usa. Los rasgos del comprador incluyen el puesto, el nivel jerárquico y el problema del que se encarga. Los equipos los convierten en filtros y cruzan sus datos con ellos, para que solo los contactos dentro del perfil entren en una secuencia. El ICP se afina con el tiempo a medida que aprendes qué segmentos cierran y renuevan de verdad.
 
-## Common mistakes
+## Errores comunes
 
-A common mistake is confusing the ICP with a buyer persona; the ICP describes the account fit, the persona describes the person. Another is making the ICP so broad that it selects almost everyone, which defeats the point. A third is setting it once and never revisiting it as the product and market change.
+Un error frecuente es confundir el ICP con un buyer persona: el ICP describe el encaje de la cuenta y el buyer persona describe a la persona. Otro es definir un ICP tan amplio que selecciona a casi todo el mundo, lo que le quita todo el sentido. Un tercero es fijarlo una vez y no revisarlo nunca a medida que cambian el producto y el mercado.
 
-## How hubsell approaches it
+## Cómo lo aborda hubsell
 
-hubsell sources contacts against your ICP at the moment you ask, so the list you work is already filtered to fit. You are not buying a broad database and hoping to narrow it later.
+hubsell obtiene los contactos según tu ICP en el momento en que los pides, así que la lista con la que trabajas ya está filtrada para que encaje. No compras una base de datos amplia con la esperanza de acotarla después.

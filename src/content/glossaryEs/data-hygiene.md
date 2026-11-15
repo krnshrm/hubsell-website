@@ -1,27 +1,27 @@
 ---
-term: "Data hygiene"
-category: "Data and enrichment"
-definition: "Data hygiene is the ongoing practice of keeping a database accurate and consistent by correcting, deduplicating, and removing bad records."
+term: "Higiene de datos"
+category: "Datos y enriquecimiento"
+definition: "La higiene de datos (data hygiene) es la práctica continua de mantener una base de datos precisa y coherente corrigiendo, deduplicando y eliminando los registros erróneos."
 related:
   - data-decay
   - data-enrichment
   - email-verification
   - b2b-data
-updated: "July 2026"
+updated: "julio de 2026"
 ---
 
-## Why it matters
+## Por qué importa
 
-A CRM full of duplicates, typos, and dead records misleads every decision made from it. Good data hygiene keeps reporting trustworthy, stops reps wasting time on bad records, and protects deliverability by removing addresses that would bounce. It is the maintenance that keeps a database useful instead of a growing liability.
+Un CRM lleno de duplicados, erratas y registros muertos induce a error en todas las decisiones que se toman a partir de él. Una buena higiene de datos mantiene la fiabilidad de los informes, evita que los comerciales pierdan tiempo con registros erróneos y protege la entregabilidad al eliminar las direcciones que rebotarían. Es el mantenimiento que hace que una base de datos siga siendo útil en lugar de convertirse en un problema creciente.
 
-## How it works in practice
+## Cómo funciona en la práctica
 
-Data hygiene covers deduplication, standardising formats, filling gaps through enrichment, and removing or flagging records that are invalid or out of date. It runs as a routine, not a one-off: a scheduled clean, validation on new records as they enter, and periodic checks against live sources. Clear field rules keep new data consistent from the start.
+La higiene de datos abarca la deduplicación, la normalización de formatos, el relleno de huecos mediante enriquecimiento y la eliminación o el marcado de registros no válidos o desactualizados. Funciona como una rutina, no como algo puntual: una limpieza programada, la validación de los registros nuevos a medida que entran y comprobaciones periódicas con fuentes en tiempo real. Unas reglas claras para los campos mantienen coherentes los datos nuevos desde el principio.
 
-## Common mistakes
+## Errores comunes
 
-The biggest mistake is treating hygiene as a one-time cleanup rather than an ongoing routine, so the database drifts back into disorder within months. Another is deduplicating without good match rules, which merges records that should stay separate. A third is cleaning the CRM but letting new bad data flow in unchecked.
+El mayor error es tratar la higiene como una limpieza única y no como una rutina continua, de modo que la base de datos vuelve al desorden en pocos meses. Otro es deduplicar sin buenas reglas de coincidencia, lo que fusiona registros que deberían seguir separados. Un tercero es limpiar el CRM pero dejar que entren datos erróneos nuevos sin control.
 
-## How hubsell approaches it
+## Cómo lo aborda hubsell
 
-Because hubsell verifies contacts at the point of use, a lot of hygiene work never becomes necessary: the data entering your workflow is already checked, so there is less to clean later.
+Como hubsell verifica los contactos en el momento de uso, buena parte del trabajo de higiene nunca llega a ser necesaria: los datos que entran en tu proceso ya están comprobados, así que hay menos que limpiar después.
