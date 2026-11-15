@@ -1,27 +1,27 @@
 ---
-term: "Email deliverability"
-category: "Deliverability"
-definition: "Email deliverability is the ability of your messages to reach the recipient's inbox rather than being blocked or sent to spam."
+term: "Délivrabilité des e-mails"
+category: "Délivrabilité"
+definition: "La délivrabilité des e-mails est la capacité de vos messages à atteindre la boîte de réception du destinataire au lieu d'être bloqués ou classés en spam."
 related:
   - sender-reputation
   - catch-all-domain
   - bounce-rate
   - domain-warmup
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-An email that does not reach the inbox cannot be read, replied to, or converted, no matter how good it is. Deliverability decides how much of your outreach is even seen. Poor deliverability wastes the whole effort upstream, and once a domain's reputation drops, recovery is slow. For any team that sends at volume, deliverability is a core asset to protect.
+Un e-mail qui n'atteint pas la boîte de réception ne peut être ni lu, ni répondu, ni converti, aussi bon soit-il. La délivrabilité décide de la part de votre prospection qui est simplement vue. Une mauvaise délivrabilité gâche tout l'effort fourni en amont, et une fois la réputation d'un domaine dégradée, la récupération est lente. Pour toute équipe qui envoie en volume, la délivrabilité est un actif essentiel à protéger.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-Deliverability depends on authentication, reputation, and behaviour. Authentication records, SPF, DKIM, and DMARC, prove the mail is really from you. Sender reputation reflects your history of bounces, spam complaints, and engagement. Sending behaviour, including volume, ramp-up, and list quality, tells providers whether to trust you. Warming a domain, keeping bounce rates low, and sending relevant mail all support inbox placement.
+La délivrabilité dépend de l'authentification, de la réputation et du comportement d'envoi. Les enregistrements d'authentification, SPF, DKIM et DMARC, prouvent que le courrier vient vraiment de vous. La réputation d'expéditeur reflète votre historique de rejets, de plaintes pour spam et d'engagement. Le comportement d'envoi, dont le volume, la montée en charge et la qualité de la liste, indique aux fournisseurs s'ils peuvent vous faire confiance. Préchauffer un domaine, garder un taux de rejet bas et envoyer des e-mails pertinents favorisent tous l'arrivée en boîte de réception.
 
-## Common mistakes
+## Erreurs fréquentes
 
-The classic mistake is sending high volume from a cold domain, which trips spam filters immediately. Others include mailing unverified lists that bounce, ignoring authentication setup, and treating every reply-less send as harmless when spam complaints are quietly building. Buying a big unverified list is often the root cause of a deliverability collapse.
+L'erreur classique est d'envoyer un volume élevé depuis un domaine non préchauffé, ce qui déclenche immédiatement les filtres anti-spam. Parmi les autres : envoyer à des listes non vérifiées qui génèrent des rejets, négliger la configuration de l'authentification et considérer comme anodin chaque envoi resté sans réponse alors que les plaintes pour spam s'accumulent discrètement. L'achat d'une grande liste non vérifiée est souvent la cause profonde d'un effondrement de la délivrabilité.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell protects deliverability by verifying contacts before send, flagging catch-all domains, and spreading outreach across sender profiles within safe limits, so growth in volume does not cost you the domain.
+hubsell protège la délivrabilité en vérifiant les contacts avant l'envoi, en signalant les domaines catch-all et en répartissant la prospection entre plusieurs profils d'expéditeur dans des limites sûres, pour que la hausse du volume ne vous coûte pas votre domaine.

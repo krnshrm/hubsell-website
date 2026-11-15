@@ -1,27 +1,27 @@
 ---
 term: "Attribution"
-category: "CRM and RevOps"
-definition: "Attribution is the practice of assigning credit for a deal to the marketing and sales touches that contributed to it, to see what actually drives revenue."
+category: "CRM et RevOps"
+definition: "L'attribution consiste à créditer une affaire aux points de contact marketing et commerciaux qui y ont contribué, pour voir ce qui génère réellement du chiffre d'affaires."
 related:
   - revops
   - pipeline
   - lead-scoring
   - intent-data
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-Without attribution, a team cannot tell which channels and campaigns produce revenue and which just produce activity. Getting it roughly right guides where budget and effort go, so spend flows to what works. Getting it wrong, or ignoring it, means funding the loudest channel rather than the most effective one.
+Sans attribution, une équipe ne peut pas savoir quels canaux et quelles campagnes produisent du chiffre d'affaires et lesquels produisent seulement de l'activité. Une attribution à peu près juste indique où placer le budget et les efforts, pour que les dépenses aillent à ce qui fonctionne. Une attribution fausse, ou absente, revient à financer le canal le plus visible plutôt que le plus efficace.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-Attribution links closed deals back to the touches along the way, such as an outbound sequence, an event, or a content download. Models differ: first-touch credits the first interaction, last-touch the final one, and multi-touch spreads credit across several. The right model depends on the sales motion, and the data quality behind it decides whether the picture is trustworthy.
+L'attribution relie les affaires signées aux points de contact qui les ont précédées, comme une séquence outbound, un événement ou le téléchargement d'un contenu. Les modèles diffèrent : le premier contact crédite la première interaction, le dernier contact la dernière, et le multi-touch répartit le crédit sur plusieurs. Le bon modèle dépend du cycle de vente, et la qualité des données qui le sous-tendent décide si l'image est fiable.
 
-## Common mistakes
+## Erreurs fréquentes
 
-A common mistake is chasing a single perfect model, when every model is a simplification and directional truth is enough to act on. Another is attribution built on incomplete activity data, so the picture is wrong from the start. A third is crediting only the last touch, which ignores everything that warmed the deal up.
+Une erreur fréquente consiste à chercher un modèle parfait unique, alors que tout modèle est une simplification et qu'une tendance juste suffit pour agir. Une autre est une attribution construite sur des données d'activité incomplètes, si bien que l'image est fausse dès le départ. Une troisième est de ne créditer que le dernier contact, ce qui ignore tout ce qui a fait mûrir l'affaire.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell logs every outreach touch to the CRM automatically, so the activity data behind attribution is complete and the credit reflects what really happened.
+hubsell enregistre automatiquement chaque point de contact de prospection dans le CRM, pour que les données d'activité utilisées pour l'attribution soient complètes et que le crédit reflète ce qui s'est réellement passé.

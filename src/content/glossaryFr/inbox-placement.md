@@ -1,27 +1,27 @@
 ---
-term: "Inbox placement"
-category: "Deliverability"
-definition: "Inbox placement is the share of your delivered mail that actually lands in the primary inbox rather than the spam or promotions folder."
+term: "Placement en boîte de réception"
+category: "Délivrabilité"
+definition: "Le placement en boîte de réception est la part de vos e-mails distribués qui arrivent réellement dans la boîte de réception principale plutôt que dans le dossier spam ou promotions."
 related:
   - email-deliverability
   - sender-reputation
   - open-rate
   - spam-trap
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-Delivered is not the same as seen. A message can be accepted by the server but filed in spam, where almost no one reads it. Inbox placement measures the outcome that actually matters, reaching a folder the recipient looks at. It is a truer health check than a plain delivery rate, which counts mail that may be sitting unseen in spam.
+Distribué ne veut pas dire vu. Un message peut être accepté par le serveur mais classé en spam, où presque personne ne le lit. Le placement en boîte de réception mesure le résultat qui compte vraiment : atteindre un dossier que le destinataire consulte. C'est un indicateur de santé plus fiable qu'un simple taux de distribution, qui compte aussi des e-mails restés invisibles dans les spams.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-Inbox placement is measured with seed lists or provider tools that show where mail lands across major providers: primary inbox, promotions, or spam. It is driven by the same factors as deliverability overall, sender reputation, authentication, list quality, and engagement. Improving it means fixing those inputs, not changing the message alone.
+Le placement en boîte de réception se mesure avec des listes de test (seed lists) ou des outils de fournisseurs qui montrent où arrive le courrier chez les principaux fournisseurs : boîte de réception principale, promotions ou spam. Il dépend des mêmes facteurs que la délivrabilité en général : réputation d'expéditeur, authentification, qualité de la liste et engagement. Pour l'améliorer, il faut corriger ces facteurs, pas seulement modifier le message.
 
-## Common mistakes
+## Erreurs fréquentes
 
-A common mistake is watching delivery rate while ignoring placement, so mail counts as delivered while sitting in spam. Another is chasing engagement tricks instead of fixing reputation and list quality. A third is assuming placement is uniform, when it varies by provider and needs checking across each.
+Une erreur fréquente consiste à suivre le taux de distribution en ignorant le placement, si bien que des e-mails comptent comme distribués alors qu'ils dorment dans les spams. Une autre est de chercher des astuces d'engagement au lieu de corriger la réputation et la qualité de la liste. Une troisième est de supposer que le placement est uniforme, alors qu'il varie selon les fournisseurs et doit être vérifié chez chacun.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell supports inbox placement by protecting the inputs that drive it: verified contacts, authenticated sending, and paced volume, so more of your mail reaches a folder people actually open.
+hubsell favorise le placement en boîte de réception en protégeant les facteurs qui le déterminent : contacts vérifiés, envois authentifiés et volume dosé, pour qu'une plus grande part de vos e-mails atteigne un dossier que les gens ouvrent vraiment.

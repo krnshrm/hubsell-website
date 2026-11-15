@@ -1,27 +1,27 @@
 ---
-term: "CRM sync"
-category: "CRM and RevOps"
-definition: "CRM sync is the automatic flow of contact and activity data between your outreach tools and your CRM, so both stay current without manual entry."
+term: "Synchronisation CRM"
+category: "CRM et RevOps"
+definition: "La synchronisation CRM est le transfert automatique des données de contact et d'activité entre vos outils de prospection et votre CRM, pour que les deux restent à jour sans saisie manuelle."
 related:
   - two-way-sync
   - revops
   - pipeline
   - outbound-sales
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-Reps lose hours to copying activity into the CRM by hand, and what they skip leaves the pipeline wrong. CRM sync removes that manual step, so every send, open, and reply is logged on its own. The result is accurate reporting a leader can trust, and reps who spend their time selling instead of updating records.
+Les commerciaux perdent des heures à recopier leur activité dans le CRM, et ce qu'ils oublient fausse le pipeline. La synchronisation CRM supprime cette étape manuelle : chaque envoi, ouverture et réponse est enregistré automatiquement. Le résultat, ce sont des rapports exacts auxquels un responsable peut se fier, et des commerciaux qui passent leur temps à vendre plutôt qu'à mettre à jour des fiches.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-CRM sync connects the outreach system to the CRM and keeps records aligned. In a one-way setup, activity flows from the outreach tool into the CRM. In a two-way sync, changes in either system update the other, so a status change in the CRM reflects back in outreach. Good sync maps each activity to the right contact, deal, and field, and runs in real time rather than as a nightly batch.
+La synchronisation CRM relie l'outil de prospection au CRM et garde les fiches alignées. Dans une configuration unidirectionnelle, l'activité passe de l'outil de prospection vers le CRM. Dans une synchronisation bidirectionnelle, les modifications dans un système mettent à jour l'autre, si bien qu'un changement de statut dans le CRM se reflète dans la prospection. Une bonne synchronisation rattache chaque activité au bon contact, à la bonne affaire et au bon champ, et fonctionne en temps réel plutôt que par traitement nocturne.
 
-## Common mistakes
+## Erreurs fréquentes
 
-A common mistake is relying on manual entry or nightly exports, which leaves the CRM stale between updates. Another is middleware that needs constant maintenance and breaks quietly. A third is syncing without clean field mapping, so activities land on the wrong records and reporting drifts.
+Une erreur fréquente consiste à s'appuyer sur la saisie manuelle ou sur des exports nocturnes, ce qui laisse le CRM périmé entre deux mises à jour. Une autre est un middleware qui demande une maintenance constante et tombe en panne sans bruit. Une troisième est de synchroniser sans correspondance de champs propre, si bien que les activités atterrissent sur les mauvaises fiches et que les rapports dérivent.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell logs every send, open, and reply to Salesforce, HubSpot, or Pipedrive automatically and in real time, with no middleware to maintain, so the pipeline reflects what actually happened.
+hubsell enregistre automatiquement et en temps réel chaque envoi, ouverture et réponse dans Salesforce, HubSpot ou Pipedrive, sans middleware à maintenir, pour que le pipeline reflète ce qui s'est réellement passé.

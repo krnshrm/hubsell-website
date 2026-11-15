@@ -1,27 +1,27 @@
 ---
 term: "CRM"
-category: "CRM and RevOps"
-definition: "A CRM, or customer relationship management system, is the software a company uses to store and manage its contacts, deals, and interactions with customers."
+category: "CRM et RevOps"
+definition: "Un CRM, ou logiciel de gestion de la relation client, est l'outil qu'une entreprise utilise pour stocker et gérer ses contacts, ses affaires et ses interactions avec les clients."
 related:
   - crm-sync
   - two-way-sync
   - pipeline
   - revops
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-The CRM is the system of record for revenue. It holds every contact, deal, and activity, and it is where forecasting, reporting, and handoffs happen. If the CRM is accurate, the whole team works from one trusted picture. If it is stale or full of gaps, every decision made from it is off, which is why keeping it current matters so much.
+Le CRM est le système de référence du chiffre d'affaires. Il contient chaque contact, chaque affaire et chaque activité, et c'est là que se font les prévisions, les rapports et les passations. Si le CRM est exact, toute l'équipe travaille à partir d'une même image fiable. S'il est périmé ou lacunaire, chaque décision prise à partir de lui est faussée : c'est pourquoi il est si important de le tenir à jour.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-A CRM stores records for contacts and companies, tracks deals through pipeline stages, and logs activity such as emails, calls, and meetings. Teams use it to manage follow-up, forecast revenue, and report on performance. It works best when data flows in automatically from the tools around it, so reps are not left to update it by hand. Common examples are Salesforce, HubSpot, and Pipedrive.
+Un CRM stocke les fiches des contacts et des entreprises, suit les affaires à travers les étapes du pipeline et enregistre l'activité comme les e-mails, les appels et les rendez-vous. Les équipes l'utilisent pour gérer les relances, prévoir le chiffre d'affaires et suivre les performances. Il fonctionne au mieux quand les données y arrivent automatiquement depuis les outils qui l'entourent, pour que les commerciaux n'aient pas à le mettre à jour à la main. Salesforce, HubSpot et Pipedrive en sont des exemples courants.
 
-## Common mistakes
+## Erreurs fréquentes
 
-The biggest mistake is relying on manual entry, which leaves the CRM incomplete because reps skip it under time pressure. Another is poor field discipline, so the same data is recorded inconsistently. A third is bolting on tools that do not sync cleanly, so the CRM and the outreach systems disagree.
+La plus grosse erreur est de s'appuyer sur la saisie manuelle, qui laisse le CRM incomplet parce que les commerciaux la sautent quand le temps manque. Une autre est le manque de rigueur sur les champs, si bien que les mêmes données sont enregistrées de façon incohérente. Une troisième est d'ajouter des outils qui ne se synchronisent pas proprement, si bien que le CRM et les outils de prospection ne disent pas la même chose.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell keeps the CRM current by logging every send, open, and reply to Salesforce, HubSpot, or Pipedrive automatically, so the record reflects what actually happened without manual entry.
+hubsell tient le CRM à jour en enregistrant automatiquement chaque envoi, ouverture et réponse dans Salesforce, HubSpot ou Pipedrive, pour que la fiche reflète ce qui s'est réellement passé, sans saisie manuelle.

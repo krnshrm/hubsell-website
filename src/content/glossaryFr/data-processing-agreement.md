@@ -1,27 +1,27 @@
 ---
-term: "Data processing agreement"
-category: "Compliance and GDPR"
-definition: "A data processing agreement, or DPA, is a contract that sets out how a service provider may handle personal data on behalf of the customer that controls it."
+term: "Accord de traitement des données (DPA)"
+category: "Conformité et RGPD"
+definition: "Un accord de traitement des données, ou DPA, est un contrat qui définit comment un prestataire peut traiter des données personnelles pour le compte du client qui en est responsable."
 related:
   - gdpr
   - sub-processor
   - pii
   - crm
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-When you use a tool that touches your contact data, the GDPR expects a DPA between you and that provider. It defines what the provider may do with the data, how it is protected, and what happens if something goes wrong. Without one, using a data or outreach tool on EU personal data leaves a gap in your compliance.
+Lorsque vous utilisez un outil qui traite vos données de contact, le RGPD exige un DPA entre vous et ce prestataire. Il définit ce que le prestataire peut faire des données, comment elles sont protégées et ce qui se passe en cas de problème. Sans DPA, utiliser un outil de données ou de prospection sur des données personnelles de l'UE laisse une faille dans votre conformité.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-A DPA sets out the scope and purpose of processing, the provider's security duties, rules for using sub-processors, support for data-subject rights, and what happens to the data when the contract ends. The customer acts as the controller deciding why and how data is used, and the provider acts as the processor acting on the customer's instructions. It is signed before the data is handled.
+Un DPA précise le périmètre et la finalité du traitement, les obligations de sécurité du prestataire, les règles d'utilisation des sous-traitants ultérieurs, l'aide apportée pour les droits des personnes concernées et le sort des données à la fin du contrat. Le client est le responsable du traitement, qui décide pourquoi et comment les données sont utilisées, et le prestataire est le sous-traitant, qui agit sur les instructions du client. Il est signé avant que les données soient traitées.
 
-## Common mistakes
+## Erreurs fréquentes
 
-A common mistake is using a provider that touches personal data without a DPA in place. Another is signing one without checking who the sub-processors are or where data is stored. A third is treating the DPA as filed and forgotten rather than something to revisit when the setup changes.
+Une erreur fréquente consiste à utiliser un prestataire qui traite des données personnelles sans DPA en place. Une autre est d'en signer un sans vérifier qui sont les sous-traitants ultérieurs ni où les données sont stockées. Une troisième est de classer le DPA et de l'oublier, au lieu de le revoir quand la configuration change.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell offers a data processing agreement so your use of the platform on EU contact data is covered, with EU data handling behind it.
+hubsell propose un accord de traitement des données pour que votre utilisation de la plateforme sur des données de contact de l'UE soit couverte, avec un traitement des données dans l'UE.

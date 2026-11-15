@@ -1,27 +1,27 @@
 ---
-term: "Data decay"
-category: "Data and enrichment"
-definition: "Data decay is the steady loss of accuracy in a contact database as people change jobs, companies close, and details go out of date."
+term: "Obsolescence des données (data decay)"
+category: "Données et enrichissement"
+definition: "L'obsolescence des données est la perte progressive d'exactitude d'une base de contacts, à mesure que les gens changent de poste, que des entreprises ferment et que des informations deviennent périmées."
 related:
   - b2b-data
   - data-enrichment
   - verified-at-source-data
   - email-deliverability
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-Data decay is the reason a bought list stops working. Industry estimates put B2B data decay at roughly 2 to 3% per month, which means a list can be a quarter wrong within a year. Every decayed record is a wasted send, a bounce that hurts your sender reputation, or a call to someone who left the company. Decay turns a good list into a liability without anyone touching it.
+L'obsolescence des données explique pourquoi une liste achetée cesse de fonctionner. Selon les estimations du secteur, les données B2B se dégradent d'environ 2 à 3 % par mois : une liste peut donc être fausse au quart en un an. Chaque fiche périmée est un envoi perdu, un rejet qui nuit à votre réputation d'expéditeur ou un appel à quelqu'un qui a quitté l'entreprise. L'obsolescence transforme une bonne liste en handicap sans que personne n'y touche.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-Decay happens because the real world moves and the database does not. A contact gets promoted, switches employers, or leaves the workforce. A company rebrands, merges, or shuts down. An email provider retires a domain. Each of these breaks a field that was correct when it was captured. The longer a record sits unused, the more likely at least one of its fields is now wrong.
+Les données vieillissent parce que le monde réel bouge et que la base de données, elle, ne bouge pas. Un contact est promu, change d'employeur ou quitte la vie active. Une entreprise change de nom, fusionne ou ferme. Un fournisseur de messagerie abandonne un domaine. Chacun de ces changements rend faux un champ qui était exact au moment de sa collecte. Plus une fiche reste inutilisée longtemps, plus il est probable qu'au moins un de ses champs soit désormais faux.
 
-## Common mistakes
+## Erreurs fréquentes
 
-The core mistake is buying a large static list and working it for months, assuming accuracy holds. It does not. Teams also forget that decay hits the fields they rely on most, job title and email, faster than they expect. Relying on a database captured long ago, however big, guarantees a rising bounce rate over time.
+L'erreur de fond consiste à acheter une grande liste statique et à l'exploiter pendant des mois en supposant qu'elle reste exacte. Ce n'est pas le cas. Les équipes oublient aussi que l'obsolescence touche plus vite qu'elles ne le pensent les champs dont elles dépendent le plus, la fonction et l'e-mail. S'appuyer sur une base collectée il y a longtemps, aussi grande soit-elle, garantit un taux de rejet en hausse au fil du temps.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell sidesteps decay by not holding a static list at all. Contacts are sourced the day you need them and verified at that moment, so you are always working data that reflects today, not a snapshot from the past.
+hubsell évite l'obsolescence en ne conservant aucune liste statique. Les contacts sont sourcés le jour où vous en avez besoin et vérifiés à ce moment-là : vous travaillez toujours avec des données qui reflètent la situation d'aujourd'hui, pas un instantané du passé.

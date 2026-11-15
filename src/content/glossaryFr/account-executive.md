@@ -1,27 +1,27 @@
 ---
 term: "Account Executive"
-category: "Sales roles"
-definition: "An account executive, or AE, is a salesperson who owns deals from qualified opportunity through to close, running demos, proposals, and negotiation."
+category: "Rôles commerciaux"
+definition: "Un account executive, ou AE, est un commercial qui prend en charge les affaires depuis l'opportunité qualifiée jusqu'à la signature, en menant démos, propositions et négociations."
 related:
   - sdr
   - bdr
   - pipeline
   - sales-pipeline-stages
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-The account executive is where prospecting turns into revenue. They take the qualified opportunities that SDRs and BDRs create and work them to a decision. Because their time is the most expensive part of the sales motion, keeping them focused on live deals rather than prospecting or admin is central to an efficient team.
+C'est chez l'account executive que la prospection se transforme en chiffre d'affaires. Il reprend les opportunités qualifiées créées par les SDR et les BDR et les mène jusqu'à une décision. Comme son temps est la ressource la plus coûteuse du cycle de vente, le garder concentré sur les affaires en cours plutôt que sur la prospection ou l'administratif est essentiel pour une équipe efficace.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-AEs pick up qualified opportunities, run discovery to understand the need, demonstrate the product, handle objections, and negotiate to close. They manage their deals through the pipeline stages and keep the CRM current so the forecast holds. Much of their effectiveness depends on getting well-qualified opportunities and accurate context from the prospecting team.
+Les AE reprennent les opportunités qualifiées, mènent la phase de découverte pour comprendre le besoin, présentent le produit, traitent les objections et négocient jusqu'à la signature. Ils font avancer leurs affaires à travers les étapes du pipeline et tiennent le CRM à jour pour que les prévisions restent fiables. Leur efficacité dépend en grande partie de la qualité des opportunités et du contexte précis transmis par l'équipe de prospection.
 
-## Common mistakes
+## Erreurs fréquentes
 
-A common mistake is having AEs spend hours prospecting or updating records by hand, which pulls them off closing. Another is a weak handoff that leaves them re-qualifying opportunities. A third is a pipeline full of stale deals that hides where their real attention is needed.
+Une erreur fréquente consiste à faire passer aux AE des heures à prospecter ou à mettre à jour des fiches à la main, ce qui les détourne de la signature. Une autre est une passation bâclée qui les oblige à requalifier les opportunités. Une troisième est un pipeline rempli d'affaires dormantes qui masque l'endroit où leur attention est vraiment nécessaire.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell keeps the CRM updated automatically and feeds clean, qualified context from prospecting, so account executives spend their time in deals rather than on data entry.
+hubsell met à jour le CRM automatiquement et transmet un contexte propre et qualifié issu de la prospection, pour que les account executives consacrent leur temps aux affaires plutôt qu'à la saisie de données.

@@ -1,27 +1,27 @@
 ---
 term: "DKIM"
-category: "Deliverability"
-definition: "DKIM, or DomainKeys Identified Mail, is an email authentication method that adds a cryptographic signature proving a message was not altered in transit."
+category: "Délivrabilité"
+definition: "DKIM, ou DomainKeys Identified Mail, est une méthode d'authentification des e-mails qui ajoute une signature cryptographique prouvant qu'un message n'a pas été modifié en cours de route."
 related:
   - spf
   - dmarc
   - email-deliverability
   - sender-reputation
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-DKIM lets a receiving server confirm that a message really came from your domain and was not tampered with along the way. That proof raises trust and supports inbox placement. Together with SPF and DMARC, it is part of the baseline that mailbox providers now expect from any legitimate sender, and skipping it drags down deliverability.
+DKIM permet à un serveur de réception de confirmer qu'un message vient bien de votre domaine et qu'il n'a pas été altéré en chemin. Cette preuve renforce la confiance et favorise l'arrivée en boîte de réception. Avec SPF et DMARC, DKIM fait partie du socle que les fournisseurs de messagerie attendent aujourd'hui de tout expéditeur légitime, et s'en passer fait baisser la délivrabilité.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-DKIM attaches a signature to each message, created with a private key held by the sender. The matching public key sits in your DNS. The receiving server uses that public key to verify the signature, confirming the message is authentic and unchanged. A valid signature supports delivery; a missing or broken one is a negative signal.
+DKIM ajoute à chaque message une signature créée avec une clé privée détenue par l'expéditeur. La clé publique correspondante se trouve dans votre DNS. Le serveur de réception utilise cette clé publique pour vérifier la signature, ce qui confirme que le message est authentique et n'a pas été modifié. Une signature valide favorise la distribution ; une signature absente ou cassée est un signal négatif.
 
-## Common mistakes
+## Erreurs fréquentes
 
-A common mistake is setting up DKIM once and never rotating the keys or fixing them after a provider change, so signatures silently break. Another is enabling it on one sending tool but not another. A third is treating DKIM as optional, when providers increasingly require it for good placement.
+Une erreur fréquente consiste à configurer DKIM une fois sans jamais renouveler les clés ni les corriger après un changement de prestataire, si bien que les signatures cessent de fonctionner sans bruit. Une autre est de l'activer sur un outil d'envoi mais pas sur un autre. Une troisième est de considérer DKIM comme facultatif, alors que les fournisseurs l'exigent de plus en plus pour un bon placement.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell signs outbound with DKIM through authenticated infrastructure and helps you publish the right DNS records, so your messages carry the proof providers look for.
+hubsell signe les envois sortants avec DKIM grâce à une infrastructure authentifiée et vous aide à publier les bons enregistrements DNS, pour que vos messages portent la preuve que les fournisseurs recherchent.

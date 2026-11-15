@@ -1,27 +1,27 @@
 ---
 term: "A/B testing"
-category: "Outbound and email"
-definition: "A/B testing is comparing two versions of a message or step by sending each to a portion of your audience and measuring which performs better."
+category: "Outbound et e-mail"
+definition: "L'A/B testing consiste à comparer deux versions d'un message ou d'une étape en envoyant chacune à une partie de votre audience, puis à mesurer laquelle fonctionne le mieux."
 related:
   - open-rate
   - reply-rate
   - cold-email
   - email-sequence
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-A/B testing replaces opinion with evidence. Instead of guessing which subject line or opener works, you measure it on real recipients and keep the winner. Over time, small tested improvements compound into a meaningfully better programme. It is how outbound gets better on purpose rather than by chance.
+L'A/B testing remplace l'opinion par des preuves. Au lieu de deviner quel objet ou quelle accroche fonctionne, vous le mesurez sur de vrais destinataires et vous gardez la version gagnante. Avec le temps, de petites améliorations testées s'additionnent et donnent un programme nettement meilleur. C'est ainsi que l'outbound progresse de façon délibérée plutôt que par hasard.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-You change one variable, such as the subject line, split the audience so each version reaches a comparable group, and compare a clear metric like reply rate. The sample has to be large enough that the difference is real and not noise. Once a winner is clear, it becomes the new default and the next test begins.
+Vous modifiez une seule variable, par exemple l'objet, vous répartissez l'audience pour que chaque version atteigne un groupe comparable, et vous comparez un indicateur clair comme le taux de réponse. L'échantillon doit être assez grand pour que l'écart soit réel et non du bruit. Dès qu'une version gagnante se dégage, elle devient la nouvelle référence et le test suivant commence.
 
-## Common mistakes
+## Erreurs fréquentes
 
-A common mistake is testing several changes at once, so you cannot tell which one moved the result. Another is calling a winner on too small a sample, where the gap is just noise. A third is optimising open rate alone, which can rise on a misleading subject line while replies fall.
+Une erreur fréquente consiste à tester plusieurs changements à la fois, si bien que vous ne savez pas lequel a fait bouger le résultat. Une autre est de désigner un gagnant sur un échantillon trop petit, où l'écart n'est que du bruit. Une troisième est d'optimiser uniquement le taux d'ouverture, qui peut grimper avec un objet trompeur pendant que les réponses baissent.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell tracks opens, replies, and outcomes per step, so you can compare versions on the metric that matters, replies and meetings, not just opens.
+hubsell suit les ouvertures, les réponses et les résultats à chaque étape, pour que vous puissiez comparer les versions sur l'indicateur qui compte, les réponses et les rendez-vous, et pas seulement les ouvertures.

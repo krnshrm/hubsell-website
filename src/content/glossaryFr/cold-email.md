@@ -1,27 +1,27 @@
 ---
-term: "Cold email"
-category: "Outbound and email"
-definition: "A cold email is an unsolicited message sent to a prospect you have no prior relationship with, to start a business conversation."
+term: "E-mail à froid (cold e-mail)"
+category: "Outbound et e-mail"
+definition: "Un e-mail à froid est un message non sollicité envoyé à un prospect avec qui vous n'avez aucune relation préalable, pour engager une conversation commerciale."
 related:
   - outbound-sales
   - email-sequence
   - email-deliverability
   - personalization-at-scale
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-Cold email is the backbone of most outbound programmes because it scales and it is measurable. Done well, it opens conversations with accounts that fit your profile and would never have found you otherwise. Done badly, it bounces, annoys people, and burns the sending domain. The gap between the two is data quality and relevance.
+L'e-mail à froid est la colonne vertébrale de la plupart des programmes outbound, parce qu'il passe à l'échelle et qu'il se mesure. Bien fait, il ouvre des conversations avec des comptes qui correspondent à votre profil et qui ne vous auraient jamais trouvé autrement. Mal fait, il est rejeté, agace les destinataires et grille le domaine d'envoi. La différence entre les deux tient à la qualité des données et à la pertinence.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-A cold email is short, relevant to the recipient's role and context, and built around one clear ask. It is usually part of a sequence rather than a single send, with follow-ups spaced over days. Deliverability depends on a verified address, a warmed domain, and sensible volume. The message earns a reply by being specific, not by being clever.
+Un e-mail à froid est court, adapté à la fonction et au contexte du destinataire, et construit autour d'une seule demande claire. Il fait généralement partie d'une séquence plutôt que d'un envoi unique, avec des relances espacées sur plusieurs jours. La délivrabilité dépend d'une adresse vérifiée, d'un domaine préchauffé et d'un volume raisonnable. Le message obtient une réponse parce qu'il est précis, pas parce qu'il est astucieux.
 
-## Common mistakes
+## Erreurs fréquentes
 
-The biggest mistake is sending high volume on unverified data, which bounces and wrecks deliverability. Others include a generic message that ignores the account, burying the ask in a wall of text, and following up too aggressively. Cold email fails most often on relevance and list quality, not on wording.
+La plus grosse erreur est d'envoyer un volume élevé sur des données non vérifiées, ce qui génère des rejets et ruine la délivrabilité. Parmi les autres : un message générique qui ignore le compte, une demande noyée dans un pavé de texte et des relances trop insistantes. L'e-mail à froid échoue le plus souvent par manque de pertinence et par la qualité de la liste, pas à cause de la formulation.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell pairs verified contacts with coordinated email and LinkedIn steps, so cold email goes to addresses that are correct today and sits inside a sequence rather than firing as a one-off blast.
+hubsell associe des contacts vérifiés à des étapes e-mail et LinkedIn coordonnées, pour que l'e-mail à froid parte vers des adresses exactes aujourd'hui et s'inscrive dans une séquence plutôt que dans un envoi massif isolé.

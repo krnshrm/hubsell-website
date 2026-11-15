@@ -1,27 +1,27 @@
 ---
-term: "Conversion rate"
-category: "Metrics"
-definition: "Conversion rate is the share of people who take a desired next step, such as replying, booking a meeting, or becoming a customer."
+term: "Taux de conversion"
+category: "Indicateurs"
+definition: "Le taux de conversion est la part des personnes qui franchissent l'étape suivante souhaitée, comme répondre, réserver un rendez-vous ou devenir client."
 related:
   - cac
   - win-rate
   - reply-rate
   - lead-scoring
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-Conversion rate measures how well each step of the funnel works. A low rate at one stage points to where prospects drop off, whether that is a weak message, poor targeting, or a clunky handoff. Because small gains compound across stages, improving conversion is often cheaper than pouring more volume into the top of the funnel.
+Le taux de conversion mesure l'efficacité de chaque étape du funnel. Un taux faible à une étape montre où les prospects décrochent, qu'il s'agisse d'un message faible, d'un mauvais ciblage ou d'une passation laborieuse. Comme les petits gains se cumulent d'une étape à l'autre, améliorer la conversion coûte souvent moins cher que d'injecter plus de volume en haut du funnel.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-Conversion rate is the number who take the step divided by the number who could have. It is measured at each stage: reply to meeting, meeting to opportunity, opportunity to closed. Reading it stage by stage shows where the funnel leaks, and A/B testing then improves the weakest step. Good data quality keeps the denominator honest.
+Le taux de conversion correspond au nombre de personnes qui franchissent l'étape, divisé par le nombre de celles qui auraient pu le faire. Il se mesure à chaque étape : de la réponse au rendez-vous, du rendez-vous à l'opportunité, de l'opportunité à la signature. Le lire étape par étape montre où le funnel fuit, et l'A/B testing permet ensuite d'améliorer l'étape la plus faible. Des données de qualité gardent le dénominateur honnête.
 
-## Common mistakes
+## Erreurs fréquentes
 
-A common mistake is looking only at the final conversion and missing which stage is actually leaking. Another is comparing rates across very different segments as if they were the same. A third is chasing volume to lift totals while the rate quietly falls, which wastes effort.
+Une erreur fréquente consiste à ne regarder que la conversion finale et à ne pas voir quelle étape fuit réellement. Une autre est de comparer les taux de segments très différents comme s'ils étaient identiques. Une troisième est de courir après le volume pour gonfler les totaux pendant que le taux baisse discrètement, ce qui gaspille des efforts.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell supports conversion by starting outreach from accurate, in-profile contacts, so more of the funnel is made of people who can actually convert rather than bad records.
+hubsell favorise la conversion en faisant partir la prospection de contacts exacts et correspondant au profil, pour qu'une plus grande partie du funnel soit composée de personnes capables de convertir plutôt que de mauvaises fiches.

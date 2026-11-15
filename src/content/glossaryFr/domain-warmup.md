@@ -1,27 +1,27 @@
 ---
-term: "Domain warmup"
-category: "Deliverability"
-definition: "Domain warmup is the practice of gradually increasing sending volume from a new domain to build a positive reputation before running full outreach."
+term: "Préchauffage de domaine (warm-up)"
+category: "Délivrabilité"
+definition: "Le préchauffage de domaine consiste à augmenter progressivement le volume d'envoi d'un nouveau domaine pour bâtir une bonne réputation avant de lancer la prospection à plein régime."
 related:
   - sender-reputation
   - email-deliverability
   - bounce-rate
   - cold-email
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-A brand-new sending domain has no track record, so providers are cautious with it. Sending high volume straight away looks like spam and gets filtered or blocked, damaging the domain before it is even established. Warmup earns trust step by step, so that once you scale, your mail lands. Skipping it is one of the fastest ways to burn a domain.
+Un domaine d'envoi tout neuf n'a aucun historique, et les fournisseurs s'en méfient. Envoyer un volume élevé dès le départ ressemble à du spam et se fait filtrer ou bloquer, ce qui abîme le domaine avant même qu'il soit établi. Le préchauffage gagne la confiance étape par étape, pour qu'une fois le volume augmenté, vos e-mails arrivent à destination. S'en passer est l'un des moyens les plus rapides de griller un domaine.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-Warmup starts with a low daily volume to engaged, valid recipients and increases it gradually over a few weeks. Early positive signals, opens and replies with few bounces or complaints, tell providers the sender is legitimate. Consistent, relevant sending during this period builds the reputation that later supports higher volume. Separate sending domains are usually warmed in parallel.
+Le préchauffage commence par un faible volume quotidien envoyé à des destinataires valides et engagés, puis l'augmente progressivement sur quelques semaines. Les premiers signaux positifs, des ouvertures et des réponses avec peu de rejets ou de plaintes, indiquent aux fournisseurs que l'expéditeur est légitime. Des envois réguliers et pertinents pendant cette période construisent la réputation qui permettra ensuite un volume plus élevé. Les domaines d'envoi distincts sont généralement préchauffés en parallèle.
 
-## Common mistakes
+## Erreurs fréquentes
 
-The main mistake is skipping warmup and blasting a new domain at full volume, which trips filters immediately. Another is warming to poor-quality addresses that bounce, which sends the wrong signal. A third is ramping too fast, so the volume outpaces the trust the domain has earned.
+L'erreur principale est de sauter le préchauffage et d'envoyer d'emblée à plein volume depuis un nouveau domaine, ce qui déclenche immédiatement les filtres. Une autre est de préchauffer avec des adresses de mauvaise qualité qui sont rejetées, ce qui envoie le mauvais signal. Une troisième est d'accélérer trop vite, si bien que le volume dépasse la confiance que le domaine a gagnée.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell paces sending and spreads it across sender profiles within safe limits, so new domains build reputation steadily rather than getting burned by an early volume spike.
+hubsell dose les envois et les répartit entre plusieurs profils d'expéditeur dans des limites sûres, pour que les nouveaux domaines construisent leur réputation régulièrement au lieu d'être grillés par un pic de volume précoce.

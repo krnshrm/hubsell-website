@@ -1,27 +1,27 @@
 ---
-term: "Catch-all domain"
-category: "Data and enrichment"
-definition: "A catch-all domain is an email domain set up to accept mail for any address, which makes it hard to tell whether a specific mailbox actually exists."
+term: "Domaine catch-all"
+category: "Données et enrichissement"
+definition: "Un domaine catch-all est un domaine de messagerie configuré pour accepter le courrier adressé à n'importe quelle adresse, ce qui rend difficile de savoir si une boîte mail précise existe vraiment."
 related:
   - email-deliverability
   - verified-at-source-data
   - email-verification
   - bounce-rate
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-Catch-all domains break normal email verification. A standard check asks the mail server whether an address exists, but a catch-all server says yes to everything, so the check cannot confirm the mailbox is real. Send to it anyway and the message may bounce later or land nowhere, which quietly raises your bounce rate and hurts deliverability.
+Les domaines catch-all faussent la vérification d'e-mails classique. Une vérification standard demande au serveur de messagerie si une adresse existe, mais un serveur catch-all répond oui à tout : la vérification ne peut donc pas confirmer que la boîte mail est réelle. Si vous envoyez quand même, le message peut être rejeté plus tard ou n'arriver nulle part, ce qui fait discrètement monter votre taux de rejet et nuit à la délivrabilité.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-On a normal domain, the receiving server rejects mail to an address that does not exist, which lets a verifier confirm the mailbox. A catch-all domain is configured to accept all mail and sort or discard it after the fact, so the server accepts every address at check time. Verifiers can only mark these as risky, not valid, so they need extra handling.
+Sur un domaine normal, le serveur de réception refuse le courrier adressé à une adresse qui n'existe pas, ce qui permet à un outil de vérification de confirmer la boîte mail. Un domaine catch-all est configuré pour accepter tout le courrier puis le trier ou le supprimer ensuite : le serveur accepte donc chaque adresse au moment de la vérification. Les outils de vérification ne peuvent que les classer comme risquées, pas comme valides, et elles demandent un traitement particulier.
 
-## Common mistakes
+## Erreurs fréquentes
 
-The mistake is treating catch-all addresses as verified and sending to them at volume. They pass a naive check but a share of them are not real mailboxes, so they bounce or disappear. Ignoring the catch-all flag is one of the fastest ways to run up a bounce rate on an otherwise clean list.
+L'erreur consiste à traiter les adresses catch-all comme vérifiées et à leur envoyer des e-mails en volume. Elles passent une vérification sommaire, mais une partie d'entre elles ne sont pas de vraies boîtes mail : elles sont rejetées ou disparaissent. Ignorer l'indicateur catch-all est l'un des moyens les plus rapides de faire grimper le taux de rejet d'une liste par ailleurs propre.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell flags catch-all domains during its point-of-use verification, so these risky addresses are identified before a credit is spent, rather than after a bounce.
+hubsell signale les domaines catch-all lors de sa vérification au moment de l'usage, pour que ces adresses risquées soient identifiées avant qu'un crédit soit dépensé, et non après un rejet.

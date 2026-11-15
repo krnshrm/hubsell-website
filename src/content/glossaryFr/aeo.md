@@ -1,27 +1,27 @@
 ---
 term: "AEO"
-category: "SEO and GEO"
-definition: "AEO, or answer engine optimisation, is the practice of structuring content so it is chosen as the direct answer by search features and AI assistants."
+category: "SEO et GEO"
+definition: "L'AEO, ou answer engine optimisation, consiste à structurer un contenu pour qu'il soit retenu comme réponse directe par les fonctions de recherche et les assistants IA."
 related:
   - geo
   - seo
   - schema-markup
   - llms-txt
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-Search increasingly returns a single answer rather than a page of links, whether in a featured snippet or an AI reply. AEO is how you become that answer. Being the cited source builds authority and captures attention even when the user never clicks through, which makes it a growing priority alongside classic SEO.
+La recherche renvoie de plus en plus une réponse unique plutôt qu'une page de liens, que ce soit dans un extrait optimisé ou dans la réponse d'une IA. L'AEO est la manière de devenir cette réponse. Être la source citée renforce votre autorité et capte l'attention même quand l'utilisateur ne clique jamais, ce qui en fait une priorité croissante à côté du SEO classique.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-AEO focuses on answering specific questions clearly and early, in language a machine can lift. That means a direct one-sentence answer, a logical heading structure, question-and-answer formatting, and structured data that marks up the content. It overlaps heavily with GEO; the shared idea is to make the answer obvious and easy to quote rather than buried.
+L'AEO consiste à répondre clairement et dès le début à des questions précises, dans une langue qu'une machine peut reprendre. Cela suppose une réponse directe en une phrase, une structure de titres logique, un format questions-réponses et des données structurées qui balisent le contenu. L'AEO recoupe largement le GEO : l'idée commune est de rendre la réponse évidente et facile à citer plutôt que noyée dans le texte.
 
-## Common mistakes
+## Erreurs fréquentes
 
-A common mistake is burying the answer in a long introduction, so neither a snippet nor an assistant can extract it. Another is vague phrasing that a machine cannot confidently quote. A third is skipping structured data that helps engines identify the answer.
+Une erreur fréquente consiste à enfouir la réponse dans une longue introduction, si bien que ni un extrait ni un assistant ne peut l'extraire. Une autre est une formulation vague qu'une machine ne peut pas citer avec assurance. Une troisième est de négliger les données structurées qui aident les moteurs à identifier la réponse.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell writes for answer engines by leading with a clear definition on each page and marking content up with structured data, so its pages are easy to select as the direct answer.
+hubsell écrit pour les moteurs de réponse en ouvrant chaque page par une définition claire et en balisant le contenu avec des données structurées, pour que ses pages soient faciles à retenir comme réponse directe.

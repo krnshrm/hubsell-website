@@ -1,27 +1,27 @@
 ---
-term: "B2B data"
-category: "Data and enrichment"
-definition: "B2B data is the set of company and contact information that sales and marketing teams use to find, reach, and qualify business buyers."
+term: "Données B2B"
+category: "Données et enrichissement"
+definition: "Les données B2B sont l'ensemble des informations sur les entreprises et les contacts que les équipes commerciales et marketing utilisent pour trouver, joindre et qualifier des acheteurs professionnels."
 related:
   - data-enrichment
   - data-decay
   - verified-at-source-data
   - ideal-customer-profile
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-Every outbound motion runs on B2B data. The names, roles, email addresses, phone numbers, and company details decide who you reach and whether the message lands. If the data is wrong, the best copy and the best timing still miss. Good data is the difference between a campaign that books meetings and one that fills spam folders.
+Toute démarche outbound repose sur des données B2B. Les noms, fonctions, adresses e-mail, numéros de téléphone et informations sur l'entreprise décident de qui vous joignez et de l'impact de votre message. Si les données sont fausses, même le meilleur texte et le meilleur timing passent à côté. De bonnes données font la différence entre une campagne qui décroche des rendez-vous et une campagne qui finit dans les spams.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-B2B data is gathered from public sources, user-submitted records, partner feeds, and live checks against company websites and professional networks. Fields usually split into two groups. Contact data covers the person: name, title, email, phone, and profile. Company data, often called firmographic data, covers the business: industry, size, location, and revenue. Teams pull this data into a CRM or an outreach tool and match it against their Ideal Customer Profile before they reach out.
+Les données B2B proviennent de sources publiques, d'informations saisies par les utilisateurs, de flux de partenaires et de vérifications en direct sur les sites des entreprises et les réseaux professionnels. Les champs se répartissent généralement en deux groupes. Les données de contact décrivent la personne : nom, fonction, e-mail, téléphone et profil. Les données d'entreprise, souvent appelées données firmographiques, décrivent la société : secteur, taille, localisation et chiffre d'affaires. Les équipes importent ces données dans un CRM ou un outil de prospection et les comparent à leur profil client idéal avant de prendre contact.
 
-## Common mistakes
+## Erreurs fréquentes
 
-The most common mistake is treating B2B data as a one-time purchase. People change jobs, companies restructure, and email addresses stop working, so a list that was accurate last quarter is partly wrong today. A second mistake is buying on volume. A large list with low accuracy costs more in wasted sends and damaged sender reputation than a smaller, verified one. A third is skipping verification before the first send.
+L'erreur la plus fréquente consiste à traiter les données B2B comme un achat ponctuel. Les gens changent de poste, les entreprises se réorganisent et les adresses e-mail cessent de fonctionner : une liste exacte le trimestre dernier est en partie fausse aujourd'hui. Une deuxième erreur est d'acheter au volume. Une grande liste peu précise coûte plus cher en envois perdus et en réputation d'expéditeur abîmée qu'une liste plus petite et vérifiée. Une troisième est de sauter la vérification avant le premier envoi.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell does not sell access to a static database. It sources contacts live, on the day you ask, matched to your Ideal Customer Profile, and verifies each one at the point of use. You pay for a contact that is correct today, not for a record that was captured two years ago.
+hubsell ne vend pas l'accès à une base de données statique. Il source les contacts en temps réel, le jour de votre demande, alignés sur votre profil client idéal, et vérifie chacun au moment de l'usage. Vous payez pour un contact exact aujourd'hui, pas pour une fiche collectée il y a deux ans.

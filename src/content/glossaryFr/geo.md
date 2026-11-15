@@ -1,27 +1,27 @@
 ---
 term: "GEO"
-category: "SEO and GEO"
-definition: "GEO, or generative engine optimisation, is the practice of shaping content so it is picked up and cited by AI answer engines like ChatGPT and Perplexity."
+category: "SEO et GEO"
+definition: "Le GEO, ou generative engine optimisation, consiste à concevoir un contenu pour qu'il soit repris et cité par les moteurs de réponse IA comme ChatGPT et Perplexity."
 related:
   - seo
   - aeo
   - schema-markup
   - llms-txt
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-More people now get answers from AI assistants rather than a list of blue links. GEO is how a brand stays visible in that shift, by making its content easy for these systems to read, trust, and cite. For a company that wants to be the source an assistant quotes on its topic, GEO is becoming as important as classic search visibility.
+De plus en plus de gens obtiennent leurs réponses auprès d'assistants IA plutôt que d'une liste de liens bleus. Le GEO permet à une marque de rester visible dans ce changement, en rendant son contenu facile à lire, à juger fiable et à citer pour ces systèmes. Pour une entreprise qui veut être la source qu'un assistant cite sur son sujet, le GEO devient aussi important que la visibilité dans la recherche classique.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-GEO favours clear, factual, well-structured content that answers a question directly, since that is what generative systems lift and cite. Practical steps include a plain one-sentence answer near the top of a page, consistent terminology, structured data that machines can parse, and signals like an llms.txt file that guide AI crawlers. A glossary with clean definitions is a good example of GEO-friendly content.
+Le GEO favorise un contenu clair, factuel et bien structuré qui répond directement à une question, car c'est ce que les systèmes génératifs reprennent et citent. Concrètement : une réponse simple en une phrase en haut de la page, une terminologie cohérente, des données structurées que les machines peuvent analyser et des signaux comme un fichier llms.txt qui guident les robots d'exploration IA. Un glossaire aux définitions nettes est un bon exemple de contenu adapté au GEO.
 
-## Common mistakes
+## Erreurs fréquentes
 
-A common mistake is writing for keyword stuffing rather than a clear answer a model can quote. Another is hiding the actual answer far down the page behind filler. A third is ignoring structure and machine-readable signals, which makes content harder for these systems to use.
+Une erreur fréquente consiste à accumuler les mots-clés au lieu d'écrire une réponse claire qu'un modèle peut citer. Une autre est de cacher la vraie réponse loin dans la page derrière du remplissage. Une troisième est de négliger la structure et les signaux lisibles par les machines, ce qui rend le contenu plus difficile à exploiter pour ces systèmes.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell applies GEO across the site, including this glossary, with clear definitions, structured data, and an llms.txt file, so answer engines can read and cite the content accurately.
+hubsell applique le GEO sur tout le site, y compris ce glossaire, avec des définitions claires, des données structurées et un fichier llms.txt, pour que les moteurs de réponse puissent lire et citer le contenu avec exactitude.
