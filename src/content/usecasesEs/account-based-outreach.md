@@ -1,48 +1,48 @@
 ---
-title: "Account-based outreach that reaches the whole buying committee"
-label: "Account-based outreach"
-eyebrow: "Use case"
-metaTitle: "Account-Based Outreach Software"
-description: "Surround target accounts, not just single leads. Reach every stakeholder in the buying committee across email and LinkedIn, timed to real buying signals."
-subhead: "B2B deals are decided by a committee, not one contact. hubsell lets you reach every stakeholder in a target account across email and LinkedIn from one campaign, timed to the signals that show an account is in market."
+title: "Prospección basada en cuentas que llega a todo el comité de compra"
+label: "Prospección basada en cuentas"
+eyebrow: "Caso de uso"
+metaTitle: "Software de prospección basada en cuentas"
+description: "Rodea las cuentas objetivo, no solo leads sueltos. Llega a cada persona del comité de compra por email y LinkedIn, en el momento que marcan las señales de compra reales."
+subhead: "Las decisiones B2B las toma un comité, no un solo contacto. Con hubsell llegas a cada persona implicada de una cuenta objetivo por email y LinkedIn desde una sola campaña, en el momento que marcan las señales de que esa cuenta está comprando."
 widget: "SocialProspecting"
 widgetBg: "sec--esp"
-widgetCaption: "Reach every stakeholder in the account, not just one lead."
+widgetCaption: "Llega a cada persona de la cuenta, no solo a un lead."
 proofStory: "staffbase"
 quotes:
   - "spryker"
   - "sensolus"
   - "cibt"
 features:
-  - "Buying committee coverage"
-  - "Intent and signal targeting"
-  - "Unified account analytics"
+  - "Cobertura del comité de compra"
+  - "Segmentación por intención y señales"
+  - "Análisis unificado por cuenta"
 roles:
-  - "Marketing teams"
+  - "Equipos de marketing"
   - "RevOps"
-  - "Sales teams"
+  - "Equipos de ventas"
 related:
   - "multichannel-outreach"
   - "lead-generation"
 order: 4
 ---
 
-## A lead is not an account
+## Un lead no es una cuenta
 
-The average B2B purchase now runs through several stakeholders, yet most outbound still targets one contact and hopes they carry the deal internally. They rarely do. The champion goes quiet, a decision-maker you never reached says no, and the deal stalls for reasons you cannot see.
+Hoy, la compra B2B media pasa por varias personas, y aun así la mayor parte del outbound se dirige a un solo contacto con la esperanza de que defienda la compra dentro de su empresa. Pocas veces lo hace. Tu interlocutor deja de responder, alguien con poder de decisión a quien nunca llegaste dice que no y la oportunidad se estanca por motivos que no ves.
 
-Account-based outreach treats the account as the unit, not the lead. The goal is to be a familiar name to the whole buying committee by the time the buying window opens.
+La prospección basada en cuentas trata la cuenta como unidad, no el lead. El objetivo es que todo el comité de compra conozca ya tu nombre cuando se abra el momento de compra.
 
-## How hubsell covers the account
+## Cómo cubre hubsell la cuenta
 
-This is sales-led account-based work: real outreach to real people, not display ads.
+Es trabajo basado en cuentas dirigido por ventas: prospección real a personas reales, no anuncios de display.
 
-**Reach the full committee.** Target every relevant stakeholder in an account by persona, role, and seniority, then thread coordinated messaging across email and LinkedIn so the whole committee hears a consistent story, not six disconnected pitches.
+**Llega a todo el comité.** Dirígete a cada persona relevante de una cuenta por perfil, función y nivel jerárquico, y coordina los mensajes por email y LinkedIn para que todo el comité escuche una historia coherente, no seis propuestas sin relación entre sí.
 
-**Time it to signals.** Layer buying signals on top of your account list: people changing jobs, engaging with your content, following your company, or attending events. You reach accounts when something says they are worth reaching, rather than on a flat schedule.
+**Elige el momento por las señales.** Añade señales de compra a tu lista de cuentas: personas que cambian de empleo, interactúan con tu contenido, siguen a tu empresa o asisten a eventos. Contactas con las cuentas cuando algo indica que vale la pena, no según un calendario fijo.
 
-**See it at the account level.** Engagement rolls up per account, so you can tell which accounts are warming and where the committee is responding, instead of reading one contact at a time.
+**Míralo a nivel de cuenta.** La interacción se agrupa por cuenta, así que ves qué cuentas se están calentando y dónde responde el comité, en lugar de revisar los contactos uno a uno.
 
-## Where it fits
+## Dónde encaja
 
-Account-based outreach uses the same live [lead generation](/use-cases/lead-generation) and [multichannel flows](/use-cases/multichannel-outreach) as the rest of hubsell, pointed at a named list of accounts and their stakeholders. It is the account-based slice of a single outbound platform, not a separate tool to buy and connect.
+La prospección basada en cuentas usa la misma [generación de leads](/es/use-cases/lead-generation) en tiempo real y los mismos [Flows multicanal](/es/use-cases/multichannel-outreach) que el resto de hubsell, aplicados a una lista de cuentas con nombre y a las personas implicadas en cada una. Es la parte basada en cuentas de una única plataforma de outbound, no otra herramienta que comprar y conectar.

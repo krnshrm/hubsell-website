@@ -1,47 +1,47 @@
 ---
-title: "Email and LinkedIn outreach, run as one flow"
-label: "Multichannel outreach"
-eyebrow: "Use case"
-metaTitle: "LinkedIn and email outreach automation"
-description: "Run email and LinkedIn as one coordinated flow, not two separate tools. Branching, safe LinkedIn limits, and personalisation at scale, all in one platform."
-subhead: "Most teams run email in one tool and LinkedIn in another, and the two never line up. hubsell runs them as a single flow, with branching that reacts to what each prospect does, so every touch lands in the right channel at the right time."
+title: "Prospección por email y LinkedIn en un solo Flow"
+label: "Prospección multicanal"
+eyebrow: "Caso de uso"
+metaTitle: "Automatización de prospección por LinkedIn y email"
+description: "Gestiona email y LinkedIn como un solo Flow coordinado, no como dos herramientas separadas. Ramificaciones, límites seguros en LinkedIn y personalización a escala en una sola plataforma."
+subhead: "La mayoría de los equipos usan una herramienta para el email y otra para LinkedIn, y las dos nunca encajan. hubsell las gestiona como un solo Flow, con ramificaciones que reaccionan a lo que hace cada prospecto, para que cada interacción llegue por el canal adecuado en el momento adecuado."
 widget: "MultichannelFlow"
 widgetBg: "sec--esp"
-widgetCaption: "Email and LinkedIn in one branching flow."
+widgetCaption: "Email y LinkedIn en un Flow con ramificaciones."
 proofStory: "verhaert"
 quotes:
   - "alon-even"
   - "meetyoo"
   - "cibt"
 features:
-  - "Email and LinkedIn in one flow"
-  - "Branching on prospect behaviour"
-  - "Personalisation at scale"
+  - "Email y LinkedIn en un Flow"
+  - "Ramificaciones según el comportamiento del prospecto"
+  - "Personalización a escala"
 roles:
-  - "Sales teams"
-  - "Marketing teams"
+  - "Equipos de ventas"
+  - "Equipos de marketing"
 related:
   - "outbound-sales"
   - "account-based-outreach"
 order: 3
 ---
 
-## Two channels, one motion
+## Dos canales, un solo proceso
 
-When email and LinkedIn live in separate tools, the work falls on the rep. They send an email in one app, switch to LinkedIn to send a connection request, then try to remember who is at which step. Timing slips, messages overlap, and the two channels work against each other instead of together.
+Cuando el email y LinkedIn están en herramientas separadas, el trabajo recae en el comercial. Envía un email en una aplicación, cambia a LinkedIn para enviar una solicitud de conexión y luego intenta recordar quién está en qué paso. Los tiempos se descuadran, los mensajes se solapan y los dos canales se estorban en lugar de sumar.
 
-Buyers do not see two channels. They see your company reaching out, and the experience should feel like one conversation.
+Los compradores no ven dos canales. Ven a tu empresa contactando con ellos, y la experiencia debería sentirse como una sola conversación.
 
-## One coordinated flow
+## Un Flow coordinado
 
-In hubsell you drag and drop email and LinkedIn steps into a single flow. Profile visits, connection requests, direct messages, InMail, and email all run on one cadence.
+En hubsell arrastras y sueltas pasos de email y de LinkedIn en un solo Flow. Visitas al perfil, solicitudes de conexión, mensajes directos, InMail y emails funcionan con un mismo ritmo.
 
-**Branching that reacts.** Conditions route each contact automatically based on what they do. Accepted the request but did not reply? They take one path. Already a connection? They take another. Every outcome is handled without a rep deciding the next step by hand.
+**Ramificaciones que reaccionan.** Las condiciones dirigen a cada contacto automáticamente según lo que hace. ¿Aceptó la solicitud pero no respondió? Sigue un camino. ¿Ya es contacto tuyo? Sigue otro. Cada resultado se gestiona sin que un comercial tenga que decidir a mano el siguiente paso.
 
-**Safe on LinkedIn.** The fastest way to get a LinkedIn account restricted is a burst of activity in a short window. hubsell builds your first-degree network slowly and steadily inside platform limits, 365 days a year, so reach grows without putting accounts at risk.
+**Seguro en LinkedIn.** La forma más rápida de que LinkedIn restrinja una cuenta es un pico de actividad en poco tiempo. hubsell construye tu red de primer grado de forma lenta y constante, dentro de los límites de la plataforma, los 365 días del año, así que tu alcance crece sin poner en riesgo las cuentas.
 
-**Personal at scale.** Teams using hubsell hold a high share of unique content across their outreach, so messages read as written for the person rather than blasted to a list, even across thousands of contacts.
+**Personal a escala.** Los equipos que usan hubsell mantienen una alta proporción de contenido único en su prospección, así que los mensajes parecen escritos para la persona y no enviados en masa a una lista, incluso con miles de contactos.
 
-## Part of the whole motion
+## Parte de todo el proceso
 
-Multichannel flows work on the live contacts you source through [lead generation](/use-cases/lead-generation), and every touch logs to your CRM on its own. To see data, channels, and sync working together, see [outbound sales](/use-cases/outbound-sales). For every channel and setting in detail, see the [multichannel outreach platform](/platform/multichannel-outreach).
+Los Flows multicanal trabajan con los contactos en tiempo real que obtienes mediante la [generación de leads](/es/use-cases/lead-generation), y cada interacción se registra sola en tu CRM. Para ver los datos, los canales y la sincronización funcionando juntos, consulta [ventas outbound](/es/use-cases/outbound-sales). Para ver en detalle cada canal y cada ajuste, consulta la [plataforma de prospección multicanal](/es/platform/multichannel-outreach).
