@@ -1,7 +1,7 @@
 ---
 import CtaGroup from './CtaGroup.astro';
 // Shared use-case detail body, rendered by /use-cases/[slug] (English, from the
-// `usecases` collection) and /de/use-cases/[slug] (German, from `usecasesDe`).
+// `usecases` collection) and /<locale>/use-cases/[slug] (`usecasesDe`, `usecasesNl`, ...).
 // Self-localizes UI strings from Astro.currentLocale; the route passes the entry
 // and its sibling items (same collection) for the related lookup. The proof block
 // reuses the German champion quote + metrics from testimonialsDe by slug; the
@@ -16,6 +16,8 @@ import SocialProspecting from './SocialProspecting.astro';
 import { TESTIMONIALS } from '../data/testimonials';
 import { TESTIMONIALS_DE } from '../data/testimonials.de';
 import { TESTIMONIALS_NL } from '../data/testimonials.nl';
+import { getMoreTestimonials } from '../data/platform-i18n';
+import { getHome } from '../data/home-i18n';
 import { testimonialsDe } from '../data/home.de';
 import { testimonialsNl } from '../data/home.nl';
 import { getUseCasesPage } from '../i18n/pages';
@@ -44,14 +46,16 @@ if (d.proofStory) {
 }
 const deProof = L === 'de' && proof ? testimonialsDe.find((t) => t.slug === proof.id) : null;
 const nlProof = L === 'nl' && proof ? testimonialsNl.find((t) => t.slug === proof.id) : null;
-const proofQuote = ((deProof?.quote ?? nlProof?.quote ?? proof?.data.testimonial) ?? '').replace(/^[\s"“”]+|[\s"“”]+$/g, '');
-const proofMetrics = (deProof?.results ?? nlProof?.results ?? proof?.data.results) ?? [];
+// fr, es and pt: the homepage testimonial of the same story (home.<locale>.ts).
+const moreProof = (L === 'fr' || L === 'es' || L === 'pt') && proof ? getHome(L).testimonials.find((t) => t.slug === proof.id) : null;
+const proofQuote = ((deProof?.quote ?? nlProof?.quote ?? moreProof?.quote ?? proof?.data.testimonial) ?? '').replace(/^[\s"“”]+|[\s"“”]+$/g, '');
+const proofMetrics = (deProof?.results ?? nlProof?.results ?? moreProof?.results ?? proof?.data.results) ?? [];
 const proofRole = proof ? [proof.data.championTitle, proof.data.company].filter(Boolean).join(', ') : '';
 const championPhoto = proof ? TESTIMONIALS.find((t) => t.storySlug === proof.id)?.photo : undefined;
 
 // Strip = curated testimonials for this use case, from the locale-matched pool,
 // never repeating the proof champion.
-const pool = L === 'de' ? TESTIMONIALS_DE : L === 'nl' ? TESTIMONIALS_NL : TESTIMONIALS;
+const pool = L === 'de' ? TESTIMONIALS_DE : L === 'nl' ? TESTIMONIALS_NL : getMoreTestimonials(L);
 const stripQuotes = (d.quotes ?? [])
   .map((s: string) => pool.find((t) => t.slug === s))
   .filter(Boolean)

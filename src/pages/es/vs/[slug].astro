@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import ComparisonDetail from '../../../components/ComparisonDetail.astro';
+import { breadcrumbSchema } from '../../../data/seo';
+import { getComparisonsPage } from '../../../i18n/pages';
+import { asLocale, localizeUrl } from '../../../i18n/utils';
+
+export async function getStaticPaths() {
+  const items = await getCollection('comparisonsEs');
+  return items.map((item) => ({ params: { slug: item.id }, props: { item, items } }));
+}
+const { item, items } = Astro.props;
+const d = item.data;
+const L = asLocale(Astro.currentLocale);
+const c = getComparisonsPage(L);
+const competitor = d.title;
+const seoTitle = d.metaTitle || `${c.altName(competitor)}: ${competitor} vs hubsell`;
+const seoDesc = d.metaDescription || d.heroSubhead || '';
+const seoDescFinal = /alternative/i.test(seoDesc) ? seoDesc : `${seoDesc}${c.altPre}${competitor}${c.altPost}`.trim();
+const crumbs = breadcrumbSchema([
+  { name: c.crumbHome, url: localizeUrl(L, '/') },
+  { name: c.crumbComparisons, url: localizeUrl(L, '/comparisons') },
+  { name: `${competitor} vs hubsell`, url: localizeUrl(L, `/vs/${item.id}`) },
+]);
+// Mirrors src/pages/vs/[slug].astro. comparisonsEs has faqs
+// (see src/content.config.ts), so this is a no-op today; once Dutch FAQs are
+// backfilled it starts emitting the schema automatically, matching whatever
+// ComparisonDetail renders as the visible accordion.
+const stripHtml = (s: string) => s.replace(/<[^>]+>/g, '').trim();
+const schemas = d.faqs && d.faqs.length > 0
+  ? [crumbs, {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: d.faqs.map((f: { question: string; answer: string }) => ({
+        '@type': 'Question',
+        name: f.question,
+        acceptedAnswer: { '@type': 'Answer', text: stripHtml(f.answer) },
+      })),
+    }]
+  : crumbs;
+---
+<BaseLayout title={seoTitle} description={seoDescFinal}>
+  <JsonLd slot="head" schema={schemas} />
+  <ComparisonDetail item={item} items={items} />
+</BaseLayout>

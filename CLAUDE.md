@@ -291,13 +291,15 @@ The folder name must exactly match the camelCase collection key in the config.
 |---|---|---|---|
 | Insights (blog), 87+ posts | `insights/` | raw HTML | migrated from Webflow, English only |
 | Knowledge center | `knowledge/` | raw HTML | drafted in Confluence (space HKB), then repo is source of truth |
-| Customer stories | `customerstories/`, `…De/`, `…Nl/` | raw HTML | migrated from Webflow |
-| Comparisons (`/vs/*`) | `comparisons/`, `…De/`, `…Nl/` | named HTML sections | migrated from Webflow |
-| Use-cases | `usecases/`, `…De/`, `…Nl/` | Markdown | authored in-repo |
+| Customer stories | `customerstories/`, `…De/`, `…Nl/`, `…Fr/`, `…Es/`, `…Pt/` | raw HTML | migrated from Webflow |
+| Comparisons (`/vs/*`) | `comparisons/`, `…De/`, `…Nl/`, `…Fr/`, `…Es/`, `…Pt/` | named HTML sections | migrated from Webflow |
+| Use-cases | `usecases/`, `…De/`, `…Nl/`, `…Fr/`, `…Es/`, `…Pt/` | Markdown | authored in-repo |
 | Glossary, 66 terms | `glossary/`, `…De/`, `…Nl/` | Markdown (4 fixed H2 sections) | authored in-repo |
 
 Locale collections use the same schema and the same slugs as their English
 counterparts, in a parallel folder.
+The Fr, Es and Pt folders of customer stories, comparisons and use-cases (HUB-609)
+are still copies of the English text; their routes are not built until translated.
 
 ## Internationalisation
 

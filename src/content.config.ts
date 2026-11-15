@@ -86,6 +86,15 @@ const customerstoriesDe = defineCollection({ loader: glob({ pattern: '**/*.md', 
 // Dutch customer stories: same schema, parallel folder src/content/customerstoriesNl/<slug>.md,
 // same slugs as the English entries.
 const customerstoriesNl = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/customerstoriesNl' }), schema: customerStorySchema });
+// French customer stories: same schema, parallel folder src/content/customerstoriesFr/<slug>.md, same slugs
+// as the English entries. Copies of the English text until translated (HUB-609).
+const customerstoriesFr = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/customerstoriesFr' }), schema: customerStorySchema });
+// Spanish customer stories: same schema, parallel folder src/content/customerstoriesEs/<slug>.md, same slugs
+// as the English entries. Copies of the English text until translated (HUB-609).
+const customerstoriesEs = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/customerstoriesEs' }), schema: customerStorySchema });
+// Brazilian Portuguese customer stories: same schema, parallel folder src/content/customerstoriesPt/<slug>.md, same slugs
+// as the English entries. Copies of the English text until translated (HUB-609).
+const customerstoriesPt = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/customerstoriesPt' }), schema: customerStorySchema });
 
 // Comparisons (/vs pages), migrated from the Webflow "Comparisons" collection.
 // One .md per competitor at src/content/comparisons/<slug>.md. Unlike the blog and
@@ -131,6 +140,15 @@ const comparisonsDe = defineCollection({ loader: glob({ pattern: '**/*.md', base
 // Dutch comparisons: same schema, parallel folder src/content/comparisonsNl/<slug>.md,
 // same slugs as the English entries.
 const comparisonsNl = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/comparisonsNl' }), schema: comparisonSchema });
+// French comparisons: same schema, parallel folder src/content/comparisonsFr/<slug>.md, same slugs
+// as the English entries. Copies of the English text until translated (HUB-609).
+const comparisonsFr = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/comparisonsFr' }), schema: comparisonSchema });
+// Spanish comparisons: same schema, parallel folder src/content/comparisonsEs/<slug>.md, same slugs
+// as the English entries. Copies of the English text until translated (HUB-609).
+const comparisonsEs = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/comparisonsEs' }), schema: comparisonSchema });
+// Brazilian Portuguese comparisons: same schema, parallel folder src/content/comparisonsPt/<slug>.md, same slugs
+// as the English entries. Copies of the English text until translated (HUB-609).
+const comparisonsPt = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/comparisonsPt' }), schema: comparisonSchema });
 
 // Use-cases, authored in Astro (no Webflow source). One .md per use-case at
 // src/content/usecases/<slug>.md: frontmatter for the hero, the featured proof
@@ -164,6 +182,15 @@ const usecasesDe = defineCollection({ loader: glob({ pattern: '**/*.md', base: '
 // Dutch use-cases: same schema, parallel folder src/content/usecasesNl/<slug>.md,
 // same slugs as the English entries.
 const usecasesNl = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/usecasesNl' }), schema: usecaseSchema });
+// French use-cases: same schema, parallel folder src/content/usecasesFr/<slug>.md, same slugs
+// as the English entries. Copies of the English text until translated (HUB-609).
+const usecasesFr = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/usecasesFr' }), schema: usecaseSchema });
+// Spanish use-cases: same schema, parallel folder src/content/usecasesEs/<slug>.md, same slugs
+// as the English entries. Copies of the English text until translated (HUB-609).
+const usecasesEs = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/usecasesEs' }), schema: usecaseSchema });
+// Brazilian Portuguese use-cases: same schema, parallel folder src/content/usecasesPt/<slug>.md, same slugs
+// as the English entries. Copies of the English text until translated (HUB-609).
+const usecasesPt = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/usecasesPt' }), schema: usecaseSchema });
 
 
 // One .md per term at src/content/glossary/<slug>.md (+ glossaryDe / glossaryNl).
@@ -184,4 +211,4 @@ const glossary = defineCollection({ loader: glob({ pattern: '**/*.md', base: './
 const glossaryDe = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/glossaryDe' }), schema: glossarySchema });
 const glossaryNl = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/glossaryNl' }), schema: glossarySchema });
 
-export const collections = { insights, knowledge, customerstories, customerstoriesDe, customerstoriesNl, comparisons, comparisonsDe, comparisonsNl, usecases, usecasesDe, usecasesNl, glossary, glossaryDe, glossaryNl };
+export const collections = { insights, knowledge, customerstories, customerstoriesDe, customerstoriesNl, customerstoriesFr, customerstoriesEs, customerstoriesPt, comparisons, comparisonsDe, comparisonsNl, comparisonsFr, comparisonsEs, comparisonsPt, usecases, usecasesDe, usecasesNl, usecasesFr, usecasesEs, usecasesPt, glossary, glossaryDe, glossaryNl };

@@ -208,14 +208,23 @@ export const translatedRoutes: Partial<Record<Locale, string[]>> = {
   // French: core pages first (HUB-607); the rest falls back to English.
   fr: ['/', '/contact', '/book-a-call', '/pricing', '/faqs', '/hubsell-reviews',
     '/platform', '/platform/live-data', '/platform/multichannel-outreach', '/platform/crm-sync', '/platform/deliverability', '/platform/personalisation', '/platform/enrichment', '/integrations',
-    '/solutions', '/solutions/team/sales-teams', '/solutions/team/agencies', '/solutions/team/revops', '/solutions/team/founders', '/solutions/role/sdr', '/solutions/role/sales-leader', '/solutions/role/marketing', '/solutions/role/sales-operations'],
+    '/solutions', '/solutions/team/sales-teams', '/solutions/team/agencies', '/solutions/team/revops', '/solutions/team/founders', '/solutions/role/sdr', '/solutions/role/sales-leader', '/solutions/role/marketing', '/solutions/role/sales-operations',
+    '/use-cases', '/use-cases/outbound-sales', '/use-cases/lead-generation', '/use-cases/multichannel-outreach', '/use-cases/account-based-outreach',
+    '/comparisons', '/vs/apollo', '/vs/zoominfo', '/vs/cognism', '/vs/lusha', '/vs/seamless',
+    '/customerstories', '/customerstories/safran', '/customerstories/staffbase', '/customerstories/verhaert', '/customerstories/elium', '/customerstories/workspace365', '/customerstories/sensolus'],
   // Spanish and Brazilian Portuguese: the same core pages (HUB-607).
   es: ['/', '/contact', '/book-a-call', '/pricing', '/faqs', '/hubsell-reviews',
     '/platform', '/platform/live-data', '/platform/multichannel-outreach', '/platform/crm-sync', '/platform/deliverability', '/platform/personalisation', '/platform/enrichment', '/integrations',
-    '/solutions', '/solutions/team/sales-teams', '/solutions/team/agencies', '/solutions/team/revops', '/solutions/team/founders', '/solutions/role/sdr', '/solutions/role/sales-leader', '/solutions/role/marketing', '/solutions/role/sales-operations'],
+    '/solutions', '/solutions/team/sales-teams', '/solutions/team/agencies', '/solutions/team/revops', '/solutions/team/founders', '/solutions/role/sdr', '/solutions/role/sales-leader', '/solutions/role/marketing', '/solutions/role/sales-operations',
+    '/use-cases', '/use-cases/outbound-sales', '/use-cases/lead-generation', '/use-cases/multichannel-outreach', '/use-cases/account-based-outreach',
+    '/comparisons', '/vs/apollo', '/vs/zoominfo', '/vs/cognism', '/vs/lusha', '/vs/seamless',
+    '/customerstories', '/customerstories/safran', '/customerstories/staffbase', '/customerstories/verhaert', '/customerstories/elium', '/customerstories/workspace365', '/customerstories/sensolus'],
   pt: ['/', '/contact', '/book-a-call', '/pricing', '/faqs', '/hubsell-reviews',
     '/platform', '/platform/live-data', '/platform/multichannel-outreach', '/platform/crm-sync', '/platform/deliverability', '/platform/personalisation', '/platform/enrichment', '/integrations',
-    '/solutions', '/solutions/team/sales-teams', '/solutions/team/agencies', '/solutions/team/revops', '/solutions/team/founders', '/solutions/role/sdr', '/solutions/role/sales-leader', '/solutions/role/marketing', '/solutions/role/sales-operations'],
+    '/solutions', '/solutions/team/sales-teams', '/solutions/team/agencies', '/solutions/team/revops', '/solutions/team/founders', '/solutions/role/sdr', '/solutions/role/sales-leader', '/solutions/role/marketing', '/solutions/role/sales-operations',
+    '/use-cases', '/use-cases/outbound-sales', '/use-cases/lead-generation', '/use-cases/multichannel-outreach', '/use-cases/account-based-outreach',
+    '/comparisons', '/vs/apollo', '/vs/zoominfo', '/vs/cognism', '/vs/lusha', '/vs/seamless',
+    '/customerstories', '/customerstories/safran', '/customerstories/staffbase', '/customerstories/verhaert', '/customerstories/elium', '/customerstories/workspace365', '/customerstories/sensolus'],
 };
 
 type Dict = Record<string, string>;
