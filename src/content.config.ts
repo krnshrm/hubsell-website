@@ -193,7 +193,7 @@ const usecasesEs = defineCollection({ loader: glob({ pattern: '**/*.md', base: '
 const usecasesPt = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/usecasesPt' }), schema: usecaseSchema });
 
 
-// One .md per term at src/content/glossary/<slug>.md (+ glossaryDe / glossaryNl).
+// One .md per term at src/content/glossary/<slug>.md (+ glossaryDe / Nl / Fr / Es / Pt).
 // The 4 written sections live in the markdown BODY as H2s (Why it matters, How it
 // works in practice, Common mistakes, How hubsell approaches it). Frontmatter holds
 // the identity, the one-sentence definition (the quotable GEO answer under the H1),
@@ -210,5 +210,11 @@ const glossarySchema = z.object({
 const glossary = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/glossary' }), schema: glossarySchema });
 const glossaryDe = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/glossaryDe' }), schema: glossarySchema });
 const glossaryNl = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/glossaryNl' }), schema: glossarySchema });
+// French: copy of the English glossary until translated (HUB-613).
+const glossaryFr = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/glossaryFr' }), schema: glossarySchema });
+// Spanish: copy of the English glossary until translated (HUB-613).
+const glossaryEs = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/glossaryEs' }), schema: glossarySchema });
+// Brazilian Portuguese: copy of the English glossary until translated (HUB-613).
+const glossaryPt = defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/glossaryPt' }), schema: glossarySchema });
 
-export const collections = { insights, knowledge, customerstories, customerstoriesDe, customerstoriesNl, customerstoriesFr, customerstoriesEs, customerstoriesPt, comparisons, comparisonsDe, comparisonsNl, comparisonsFr, comparisonsEs, comparisonsPt, usecases, usecasesDe, usecasesNl, usecasesFr, usecasesEs, usecasesPt, glossary, glossaryDe, glossaryNl };
+export const collections = { insights, knowledge, customerstories, customerstoriesDe, customerstoriesNl, customerstoriesFr, customerstoriesEs, customerstoriesPt, comparisons, comparisonsDe, comparisonsNl, comparisonsFr, comparisonsEs, comparisonsPt, usecases, usecasesDe, usecasesNl, usecasesFr, usecasesEs, usecasesPt, glossary, glossaryDe, glossaryNl, glossaryFr, glossaryEs, glossaryPt };
