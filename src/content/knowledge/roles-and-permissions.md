@@ -19,7 +19,7 @@ faqs:
     a: "Yes. The MCP acts as that person, so it can change exactly what their role allows. When something isn't allowed, Claude is told so and says why."
   - q: "When does a change to a role take effect?"
     a: "Immediately: from the next thing the person does, without logging out."
-draft: true
+draft: false
 ---
 <p>By default, everyone in your team can change their own contacts, lists and flows, and only account admins can change a teammate's. Roles let you change that per action. For example, SDRs may update the status of any contact in the team, while only team leads may launch or pause flows.</p>
 
