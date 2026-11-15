@@ -206,10 +206,13 @@ export const translatedRoutes: Partial<Record<Locale, string[]>> = {
     '/glossary/llms-txt',
   ],
   // French: core pages first (HUB-607); the rest falls back to English.
-  fr: ['/', '/contact', '/book-a-call', '/pricing', '/faqs', '/hubsell-reviews'],
+  fr: ['/', '/contact', '/book-a-call', '/pricing', '/faqs', '/hubsell-reviews',
+    '/platform', '/platform/live-data', '/platform/multichannel-outreach', '/platform/crm-sync', '/platform/deliverability', '/platform/personalisation', '/platform/enrichment', '/integrations'],
   // Spanish and Brazilian Portuguese: the same core pages (HUB-607).
-  es: ['/', '/contact', '/book-a-call', '/pricing', '/faqs', '/hubsell-reviews'],
-  pt: ['/', '/contact', '/book-a-call', '/pricing', '/faqs', '/hubsell-reviews'],
+  es: ['/', '/contact', '/book-a-call', '/pricing', '/faqs', '/hubsell-reviews',
+    '/platform', '/platform/live-data', '/platform/multichannel-outreach', '/platform/crm-sync', '/platform/deliverability', '/platform/personalisation', '/platform/enrichment', '/integrations'],
+  pt: ['/', '/contact', '/book-a-call', '/pricing', '/faqs', '/hubsell-reviews',
+    '/platform', '/platform/live-data', '/platform/multichannel-outreach', '/platform/crm-sync', '/platform/deliverability', '/platform/personalisation', '/platform/enrichment', '/integrations'],
 };
 
 type Dict = Record<string, string>;
