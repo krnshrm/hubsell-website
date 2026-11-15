@@ -15,9 +15,12 @@ import type { Locale } from '../i18n/ui';
 
 interface Props { L: Locale; data: PricingPageData }
 const { L, data: d } = Astro.props;
-const nf = new Intl.NumberFormat(L === 'de' ? 'de-DE' : L === 'nl' ? 'nl-NL' : L === 'fr' ? 'fr-FR' : 'en-GB');
-// French puts the euro sign after the amount (120 €), the other locales before it.
-const eur = (n: number) => `${nf.format(n)}\u00a0€`;
+const nf = new Intl.NumberFormat(L === 'de' ? 'de-DE' : L === 'nl' ? 'nl-NL' : L === 'fr' ? 'fr-FR' : L === 'es' ? 'es-ES' : L === 'pt' ? 'pt-BR' : 'en-GB', L === 'es' ? { useGrouping: 'always' } : {});
+// French and Spanish put the euro sign after the amount (120 €), Brazilian Portuguese
+// before it with a space (€ 120), the other locales directly before it (€120).
+// es-ES skips the thousands point on four-digit numbers by default, hence useGrouping.
+const eur = (n: number) => (L === 'pt' ? `€\u00a0${nf.format(n)}` : `${nf.format(n)}\u00a0€`);
+const custom = L === 'fr' || L === 'es' || L === 'pt';
 ---
 <section id="feature-list" class="sec sec--paper" aria-labelledby="pc-title">
   <div class="wrap">
@@ -33,7 +36,7 @@ const eur = (n: number) => `${nf.format(n)}\u00a0€`;
         </thead>
         <tbody>
           <tr class="pc-cat"><td colspan="4">{d.cat.plan}</td></tr>
-          <tr><th class="pc-feat">{d.planRow}</th><td>{L === 'fr' ? eur(120) : <>&euro;{nf.format(120)}</>}</td><td>{L === 'fr' ? eur(4320) : <>&euro;{nf.format(4320)}</>}</td><td>{d.scalePrice}</td></tr>
+          <tr><th class="pc-feat">{d.planRow}</th><td>{custom ? eur(120) : <>&euro;{nf.format(120)}</>}</td><td>{custom ? eur(4320) : <>&euro;{nf.format(4320)}</>}</td><td>{d.scalePrice}</td></tr>
           <tr><th class="pc-feat">{d.seatsRow}</th><td>{d.seatsStart}</td><td>{d.seatsGrow}</td><td>{d.seatsScale}</td></tr>
           <tr><th class="pc-feat">{d.billingRow}</th><td>{d.monthly}</td><td>{d.annual}</td><td>{d.annual}</td></tr>
 

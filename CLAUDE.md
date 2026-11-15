@@ -302,10 +302,13 @@ counterparts, in a parallel folder.
 ## Internationalisation
 
 - Astro built-in i18n. `locales: ['en','de','nl','fr','es','pt']`, `defaultLocale: 'en'`,
-  `prefixDefaultLocale: false`, `fallbackType: 'redirect'`, `fallback: { de: 'en', nl: 'en' }`.
-- Live locales: **en** (base), **de**, **nl**. `fr`/`es`/`pt` are declared but have no
-  translated routes yet, so none of their URLs are generated.
-- The blog and the legal pages stay English in every locale (served via fallback).
+  `prefixDefaultLocale: false`, `fallbackType: 'redirect'`, every locale falls back to `'en'`.
+- Live locales: **en** (base), **de**, **nl** (about 110 pages each), and since 2026-11-15
+  **fr**, **es**, **pt** with six pages each (home, pricing, contact, book a call, FAQs,
+  reviews). Their other URLs are redirect stubs to English until translated
+  (`plans/website-languages.md` in the skills repo has the order).
+- The blog and the legal pages stay English in every locale for now (served via fallback);
+  both are planned to be translated, legal pages with a line that the English is binding.
 - `src/i18n/ui.ts` holds `translatedRoutes` (drives hreflang, the sitemap filter in
   `astro.config.mjs`, and the language switcher) and the chrome dictionaries.
 - Internal links go through `localizedHref(locale, '/path')`.

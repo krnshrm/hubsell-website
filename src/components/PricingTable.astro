@@ -12,12 +12,15 @@ import { FEATURE_ICONS } from '../data/pricing-feature-icons';
 import { asLocale, localizedHref } from '../i18n/utils';
 const L = asLocale(Astro.currentLocale);
 // Prices are EUR only; larger contracts in other currencies are quoted in the offer.
-const nf = new Intl.NumberFormat(L === 'de' ? 'de-DE' : L === 'nl' ? 'nl-NL' : L === 'fr' ? 'fr-FR' : 'en-GB', { maximumFractionDigits: 2 });
-// French puts the euro sign after the amount (120 €), the other locales before it.
-const eur = (n: number) => (L === 'fr' ? `${nf.format(n)}\u00a0€` : `€${nf.format(n)}`);
+const nf = new Intl.NumberFormat(L === 'de' ? 'de-DE' : L === 'nl' ? 'nl-NL' : L === 'fr' ? 'fr-FR' : L === 'es' ? 'es-ES' : L === 'pt' ? 'pt-BR' : 'en-GB', { maximumFractionDigits: 2, ...(L === 'es' ? { useGrouping: 'always' as const } : {}) });
+// French and Spanish put the euro sign after the amount (120 €), Brazilian Portuguese
+// before it with a space (€ 120), the other locales directly before it (€120).
+// es-ES skips the thousands point on four-digit numbers by default, hence useGrouping above.
+const eurFmt = (s: string) => (L === 'fr' || L === 'es' ? `${s}\u00a0€` : L === 'pt' ? `€\u00a0${s}` : `€${s}`);
+const eur = (n: number) => eurFmt(nf.format(n));
 // Credits moved to a finer scale on 2026-10-20 (x10), so a credit costs fractions of a cent.
-const nf3 = new Intl.NumberFormat(L === 'de' ? 'de-DE' : L === 'nl' ? 'nl-NL' : L === 'fr' ? 'fr-FR' : 'en-GB', { maximumFractionDigits: 3 });
-const eurCredit = (n: number) => (L === 'fr' ? `${nf3.format(n)}\u00a0€` : `€${nf3.format(n)}`);
+const nf3 = new Intl.NumberFormat(L === 'de' ? 'de-DE' : L === 'nl' ? 'nl-NL' : L === 'fr' ? 'fr-FR' : L === 'es' ? 'es-ES' : L === 'pt' ? 'pt-BR' : 'en-GB', { maximumFractionDigits: 3, ...(L === 'es' ? { useGrouping: 'always' as const } : {}) });
+const eurCredit = (n: number) => eurFmt(nf3.format(n));
 // Credits per action that succeeds. A failed step costs nothing; completed steps are charged.
 const CREDITS: [string, number, string?][] = [
   ['Source a contact', 1],

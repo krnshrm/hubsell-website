@@ -1,49 +1,49 @@
-// FAQs that are not on the homepage, by slug: Brazilian Portuguese, "você". Created as a copy of the English text; every string
-// here is to be translated. Same shape as the English source, which stays the
-// reference. Product terms: docs/20261113-1401-APP-TERMS.md.
+// FAQs that are not on the homepage, by slug: Brazilian Portuguese, "você".
+// Same shape as the English source, which stays the reference.
+// Product terms: docs/20261113-1401-APP-TERMS.md.
 export const faqsPtExtra: Record<string, { question: string; answer: string }> = {
   "orchestrate-multiple-profiles": {
-    question: "Can hubsell orchestrate across multiple executive profiles simultaneously?",
-    answer: "<p>hubsell allows you to manage outreach from your CEO, VP of Sales, and Subject Matter Experts from a single, unified command centre, enabling coordinated, peer-to-peer engagement across the entire target account.</p>",
+    question: "A hubsell consegue orquestrar vários perfis de executivos ao mesmo tempo?",
+    answer: "<p>Com a hubsell, você gerencia a prospecção do seu CEO, do seu VP de Vendas e dos seus especialistas a partir de um único painel, com uma abordagem coordenada, de igual para igual, em toda a conta-alvo.</p>",
   },
   "hubsell-email-infrastructure": {
-    question: "Does hubsell send emails from external servers or through our own mailboxes?",
-    answer: "<p>hubsell's infrastructure is \"entirely not present\" in the sent email. We do not use external SMTP servers or spam-triggering redirect links for tracking. Emails are sent via direct API integration (Google/Microsoft), resulting in significantly higher open rates.</p>",
+    question: "A hubsell envia e-mails por servidores externos ou pelas nossas próprias caixas de e-mail?",
+    answer: "<p>A infraestrutura da hubsell \"não aparece em nada\" no e-mail enviado. Não usamos servidores SMTP externos nem links de redirecionamento para rastreamento, que acionam filtros de spam. Os e-mails são enviados por integração direta via API (Google/Microsoft), o que gera taxas de abertura bem mais altas.</p>",
   },
   "personalize-outreach-at-scale": {
-    question: "How can we personalise cold outreach at scale without sounding like an AI robot?",
-    answer: "<p>Buyers spot AI-written flattery instantly, and it costs you replies. A simple, direct message sent to a highly relevant list, say attendees of a specific webinar or people engaging with a specific post, consistently beats machine-personalised copy sent to a generic persona. hubsell builds the relevance in at the data stage: live-sourced contacts matched to your ICP, so the message can stay short and honest.</p>",
+    question: "Como personalizar a prospecção fria em escala sem parecer um robô de IA?",
+    answer: "<p>Os compradores reconhecem na hora um elogio escrito por IA, e isso custa respostas. Uma mensagem simples e direta, enviada para uma lista muito relevante, por exemplo os participantes de um webinar específico ou as pessoas que interagiram com um post específico, sempre supera um texto personalizado por máquina e enviado para uma persona genérica. A hubsell cria essa relevância já na etapa dos dados: contatos buscados em tempo real e alinhados ao seu ICP, para que a mensagem possa ser curta e honesta.</p>",
   },
   "stop-sales-email-bounces": {
-    question: "How do we stop our sales emails from bouncing due to bad CRM data?",
-    answer: "<p>The average tenure of a B2B decision-maker is roughly 2.5 years, meaning static CRMs and purchased lists decay by 25 to 30% annually. hubsell solves this with zero-day sourcing, our live-data method: we source and verify contact data at the exact moment of your request, which keeps accuracy high and protects your sender reputation.</p>",
+    question: "Como evitar que nossos e-mails de vendas sejam devolvidos por causa de dados ruins no CRM?",
+    answer: "<p>Um tomador de decisão B2B fica em média cerca de 2,5 anos no cargo, ou seja, CRMs estáticos e listas compradas perdem de 25 a 30% de validade por ano. A hubsell resolve isso com o zero-day sourcing, o nosso método de dados em tempo real: buscamos e verificamos os dados de contato no exato momento do seu pedido, o que mantém a precisão alta e protege a reputação do seu remetente.</p>",
   },
   "hubsell-high-volume-sales": {
-    question: "Is hubsell suitable for high-volume, low-ACV transactional sales?",
-    answer: "<p>Yes. While hubsell can be used for high-volume outreach, we recommend to use hubsell for highly targeted outreach.</p>",
+    question: "A hubsell serve para vendas transacionais de alto volume e ticket baixo?",
+    answer: "<p>Sim. Embora a hubsell possa ser usada para prospecção em alto volume, recomendamos usá-la para prospecção muito bem segmentada.</p>",
   },
   "mass-email-brand-reputation": {
-    question: "Is mass cold emailing actively damaging our brand reputation and deliverability?",
-    answer: "<p>Google and Yahoo’s latest rules mean high-volume spray and pray tactics will quickly ruin your domain’s sender reputation. hubsell protects it with precise targeting, native API sending through Google and Microsoft, and by spreading outreach safely across 5 to 10 internal sender profiles. Lower volume per sender, higher deliverability, no domain burn.</p>",
+    question: "O envio em massa de e-mails frios está prejudicando a reputação da nossa marca e a entregabilidade?",
+    answer: "<p>Com as regras mais recentes do Google e do Yahoo, táticas de disparo em massa sem critério destroem rapidamente a reputação de remetente do seu domínio. A hubsell a protege com segmentação precisa, envio nativo via API pelo Google e pela Microsoft e distribuindo a prospecção com segurança entre 5 a 10 perfis de remetentes internos. Menos volume por remetente, mais entregabilidade, nenhum domínio queimado.</p>",
   },
   "third-party-intent-data-accuracy": {
-    question: "Is third-party B2B intent data actually accurate?",
-    answer: "<p>Most intent data relies on probabilistic algorithms (guessing who is buying based on anonymous web traffic). Because 95% of B2B buyers are out-of-market at any given time, applying a generic algorithm to a non-buying market results in your sales team chasing ghosts.</p>",
+    question: "Os dados de intenção B2B de terceiros são realmente precisos?",
+    answer: "<p>A maioria dos dados de intenção depende de algoritmos probabilísticos (que tentam adivinhar quem está comprando com base em tráfego anônimo na web). Como 95% dos compradores B2B não estão no mercado em um dado momento, aplicar um algoritmo genérico a um mercado que não está comprando faz a sua equipe de vendas correr atrás de fantasmas.</p>",
   },
   "sdr-vs-executive-linkedin-outreach": {
-    question: "Should our SDRs or our Executives be sending LinkedIn outreach?",
-    answer: "<p>Who sends the message changes the result. When an SDR sends a connection request, acceptance rates typically sit below 20% because buyers anticipate a pitch. When a founder, executive, or subject matter expert sends the exact same request, acceptance rates jump above 50%. hubsell is built to run outreach from the profiles buyers actually accept.</p>",
+    question: "Quem deve fazer a prospecção no LinkedIn: nossos SDRs ou nossos executivos?",
+    answer: "<p>Quem envia a mensagem muda o resultado. Quando um SDR envia uma solicitação de conexão, a taxa de aceite costuma ficar abaixo de 20%, porque o comprador já espera um pitch. Quando um fundador, executivo ou especialista envia exatamente a mesma solicitação, a taxa de aceite passa de 50%. A hubsell foi feita para fazer a prospecção a partir dos perfis que os compradores realmente aceitam.</p>",
   },
   "cold-email-reply-rates-dropping": {
-    question: "Why are our cold email reply rates suddenly dropping so low?",
-    answer: "<p>Traditional \"spray and pray\" outreach is failing for two structural reasons. First, strict new spam thresholds (0.3% complaint rates) from Google and Yahoo mean high-volume email blasts are actively damaging your domain reputation. Second, buyers instantly recognise automated AI personalisation. It looks personal but feels hollow, triggering a mental firewall.</p>",
+    question: "Por que as taxas de resposta dos nossos e-mails frios caíram tanto de repente?",
+    answer: "<p>A prospecção tradicional de disparo em massa está falhando por dois motivos estruturais. Primeiro, os novos limites rígidos de spam do Google e do Yahoo (taxa de reclamação de 0,3%) fazem com que envios em massa prejudiquem ativamente a reputação do seu domínio. Segundo, os compradores reconhecem na hora a personalização automática feita por IA. Parece pessoal, mas soa vazia, e o comprador se fecha.</p>",
   },
   "sdr-first-meetings-week-one": {
-    question: "Can a new SDR really book meetings in week one?",
-    answer: "<p>Yes, when three things hold: the offer fits the market you go after, the targeting is right (the right titles at the right organisations), and execution does not stall (targeting agreed and copy approved in the first days). hubsell removes the usual ramp blockers, list building, tool setup, and data cleaning, so the first week can go to outreach instead of admin.</p>",
+    question: "Um SDR novo consegue mesmo marcar reuniões na primeira semana?",
+    answer: "<p>Sim, quando três condições são atendidas: a oferta combina com o mercado que você busca, a segmentação está certa (os cargos certos nas organizações certas) e a execução não trava (segmentação definida e textos aprovados nos primeiros dias). A hubsell elimina os obstáculos de sempre no início, como montar listas, configurar ferramentas e limpar dados, para que a primeira semana seja dedicada à prospecção e não à parte administrativa.</p>",
   },
   "hubsell-setup-before-first-sdr": {
-    question: "We’re hiring our first SDR. When should we set hubsell up?",
-    answer: "<p>Before day one, so week one is spent selling instead of tooling. Targeting and the first flow can be ready when the SDR walks in, and because contacts are sourced live, nothing goes stale while you hire.</p>",
+    question: "Estamos contratando nosso primeiro SDR. Quando devemos configurar a hubsell?",
+    answer: "<p>Antes do primeiro dia, para que a primeira semana seja dedicada a vender e não a configurar ferramentas. A segmentação e o primeiro Flow podem estar prontos quando o SDR chegar e, como os contatos são buscados em tempo real, nada fica desatualizado enquanto você contrata.</p>",
   },
 };
