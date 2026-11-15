@@ -7,6 +7,9 @@ import { localizedHref } from '../i18n/utils';
 import type { Locale } from '../i18n/ui';
 import Avatar from './Avatar.astro';
 import { TESTIMONIALS } from '../data/testimonials';
+// TODO(HUB-609): stopgap for fr/es/pt cards. customerstoriesFr/Es/Pt are wired
+// below but still hold the English text; remove this import, the file and the
+// `card` merge once the customer stories are translated.
 import { storyCard } from '../data/20261115-1620-story-cards';
 
 interface Props {
@@ -15,7 +18,7 @@ interface Props {
   label: string;
 }
 const { L, slug, label } = Astro.props;
-const collName = L === 'de' ? 'customerstoriesDe' : L === 'nl' ? 'customerstoriesNl' : 'customerstories';
+const collName = ({ de: 'customerstoriesDe', nl: 'customerstoriesNl', fr: 'customerstoriesFr', es: 'customerstoriesEs', pt: 'customerstoriesPt' } as Record<string, string>)[L] ?? 'customerstories';
 const stories = await getCollection(collName as 'customerstories');
 const story = stories.find((s) => s.id === slug);
 const card = storyCard(L, slug);

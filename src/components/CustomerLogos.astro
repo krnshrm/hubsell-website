@@ -17,7 +17,7 @@ const cs = getCustomerStoriesPage(L);
 
 // Story detail for the hover panel. Same per-locale collection pattern as
 // PlatformStoryCard.astro, so the quote and the metric arrive already translated.
-const collName = L === 'de' ? 'customerstoriesDe' : L === 'nl' ? 'customerstoriesNl' : 'customerstories';
+const collName = ({ de: 'customerstoriesDe', nl: 'customerstoriesNl', fr: 'customerstoriesFr', es: 'customerstoriesEs', pt: 'customerstoriesPt' } as Record<string, string>)[L] ?? 'customerstories';
 const storyData = new Map(
   (await getCollection(collName as 'customerstories')).map((e) => [e.id, e.data as any]),
 );
@@ -41,6 +41,8 @@ function panelFor(slug: string) {
   if (!d) return null;
   // fr, es and pt have no translated customer stories yet (HUB-609): take the
   // quote and the top result from the homepage testimonial of the same story.
+  // TODO(HUB-609): customerstoriesFr/Es/Pt are wired above but still hold the
+  // English text. Remove this override once the customer stories are translated.
   const home = L === 'fr' || L === 'es' || L === 'pt' ? getHome(L).testimonials.find((t) => t.slug === slug) : undefined;
   const top = home?.results?.[0] ?? (d.results ?? [])[0];
   const quote = clip(unquote(home?.quote ?? d.testimonial));

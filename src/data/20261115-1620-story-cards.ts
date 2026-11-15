@@ -2,7 +2,9 @@
 // de and nl read their translated customer-story collections; fr, es and pt have
 // no translated stories yet (HUB-609), so the card's title and description come
 // from here and the result labels from the homepage testimonials of the same
-// story (home.<locale>.ts). Remove this file once customerstoriesFr/Es/Pt exist.
+// story (home.<locale>.ts).
+// TODO(HUB-609): customerstoriesFr/Es/Pt now exist but still hold the English
+// text. Remove this file once the customer stories are translated.
 import { homeFr } from './20261114-1030-home.fr';
 import { homeEs } from './20261114-1030-home.es';
 import { homePt } from './20261114-1030-home.pt';
