@@ -157,6 +157,14 @@ export const allow = [
   { locale: 'pt', page: '/pt/vs/', word: 'sequências', why: 'comparison pages describe the competitors\' sequence tools' },
   { locale: 'pt', page: '/pt/comparisons/', word: 'sequência', why: 'comparison pages describe the competitors\' sequence tools' },
   { locale: 'pt', page: '/pt/comparisons/', word: 'sequências', why: 'comparison pages describe the competitors\' sequence tools' },
+  // Glossaries explain the general industry term "email sequence" (as for de/nl).
+  { locale: 'fr', page: '/fr/glossary/', word: 'séquence', why: 'the glossary explains the general term "email sequence"' },
+  { locale: 'fr', page: '/fr/glossary/', word: 'séquences', why: 'the glossary explains the general term "email sequence"' },
+  { locale: 'es', page: '/es/glossary/', word: 'secuencia', why: 'the glossary explains the general term "email sequence"' },
+  { locale: 'es', page: '/es/glossary/', word: 'secuencias', why: 'the glossary explains the general term "email sequence"' },
+  { locale: 'pt', page: '/pt/glossary/', word: 'sequência', why: 'the glossary explains the general term "email sequence"' },
+  { locale: 'pt', page: '/pt/glossary/', word: 'sequências', why: 'the glossary explains the general term "email sequence"' },
+  { locale: 'pt', page: '/pt/glossary/', word: 'email', why: 'English term given in brackets after the Portuguese one, e.g. "(email sequence)"' },
   // Customer stories are interviews in the customer's own words.
   { locale: 'nl', page: '/nl/customerstories/', why: 'customer stories are interviews, the customer\'s words stay as said' },
   { locale: 'de', page: '/de/customerstories/', why: 'customer stories are interviews, the customer\'s words stay as said' },
