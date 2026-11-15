@@ -42,7 +42,7 @@ for (let p = 0; p < pickedCount; p++) {
 }
 
 // Locale-aware number formatting: 100,000 in English, 100.000 in German and Dutch.
-const NUM_LOCALE = L === 'de' ? 'de-DE' : L === 'nl' ? 'nl-NL' : 'en-GB';
+const NUM_LOCALE = L === 'de' ? 'de-DE' : L === 'nl' ? 'nl-NL' : L === 'fr' ? 'fr-FR' : 'en-GB';
 const fmt = (n: number) => n.toLocaleString(NUM_LOCALE);
 
 ---

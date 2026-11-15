@@ -12,11 +12,12 @@ import { FEATURE_ICONS } from '../data/pricing-feature-icons';
 import { asLocale, localizedHref } from '../i18n/utils';
 const L = asLocale(Astro.currentLocale);
 // Prices are EUR only; larger contracts in other currencies are quoted in the offer.
-const nf = new Intl.NumberFormat(L === 'de' ? 'de-DE' : L === 'nl' ? 'nl-NL' : 'en-GB', { maximumFractionDigits: 2 });
-const eur = (n: number) => `€${nf.format(n)}`;
+const nf = new Intl.NumberFormat(L === 'de' ? 'de-DE' : L === 'nl' ? 'nl-NL' : L === 'fr' ? 'fr-FR' : 'en-GB', { maximumFractionDigits: 2 });
+// French puts the euro sign after the amount (120 €), the other locales before it.
+const eur = (n: number) => (L === 'fr' ? `${nf.format(n)}\u00a0€` : `€${nf.format(n)}`);
 // Credits moved to a finer scale on 2026-10-20 (x10), so a credit costs fractions of a cent.
-const nf3 = new Intl.NumberFormat(L === 'de' ? 'de-DE' : L === 'nl' ? 'nl-NL' : 'en-GB', { maximumFractionDigits: 3 });
-const eurCredit = (n: number) => `€${nf3.format(n)}`;
+const nf3 = new Intl.NumberFormat(L === 'de' ? 'de-DE' : L === 'nl' ? 'nl-NL' : L === 'fr' ? 'fr-FR' : 'en-GB', { maximumFractionDigits: 3 });
+const eurCredit = (n: number) => (L === 'fr' ? `${nf3.format(n)}\u00a0€` : `€${nf3.format(n)}`);
 // Credits per action that succeeds. A failed step costs nothing; completed steps are charged.
 const CREDITS: [string, number, string?][] = [
   ['Source a contact', 1],

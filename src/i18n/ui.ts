@@ -15,8 +15,8 @@ export const defaultLocale: Locale = 'en';
 // Which locales appear in the language switcher (TopBar). fr/es/pt are parked
 // until their translations are done, they stay in `locales` (type + fallback)
 // but are hidden from the UI. Add a locale here when it's ready to be offered.
-// de is live; nl shows as a greyed "Soon" until it has translatedRoutes.
-export const switcherLocales: Locale[] = ['en', 'de', 'nl'];
+// de and nl are live; fr is offered on its core pages (translatedRoutes).
+export const switcherLocales: Locale[] = ['en', 'de', 'nl', 'fr'];
 
 // Shown in the language switcher, each name in its own language.
 export const localeNames: Record<Locale, string> = {
@@ -205,7 +205,9 @@ export const translatedRoutes: Partial<Record<Locale, string[]>> = {
     '/glossary/schema-markup',
     '/glossary/llms-txt',
   ],
-  // fr: [], es: [], pt: [],
+  // French: core pages first (HUB-607); the rest falls back to English.
+  fr: ['/', '/contact', '/book-a-call', '/pricing', '/faqs', '/hubsell-reviews'],
+  // es: [], pt: [],
 };
 
 type Dict = Record<string, string>;

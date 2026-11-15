@@ -74,6 +74,16 @@ const CATEGORY_LABELS: Record<Locale, Record<string, string>> = {
     'Metrics': 'Metrieken',
     'SEO and GEO': 'SEO en GEO',
   },
+  fr: {
+    'Data and enrichment': 'Données et enrichissement',
+    'Outbound and email': 'Outbound et e-mail',
+    'Deliverability': 'Délivrabilité',
+    'CRM and RevOps': 'CRM et RevOps',
+    'Compliance and GDPR': 'Conformité et RGPD',
+    'Sales roles': 'Rôles commerciaux',
+    'Metrics': 'Indicateurs',
+    'SEO and GEO': 'SEO et GEO',
+  },
 };
 
 // The frontmatter `category` string differs per locale (each file stores its own
@@ -83,6 +93,7 @@ const KEY_BY_LABEL: Record<Locale, Record<string, string>> = {
   en: invert(CATEGORY_LABELS.en),
   de: invert(CATEGORY_LABELS.de),
   nl: invert(CATEGORY_LABELS.nl),
+  fr: invert(CATEGORY_LABELS.fr),
 };
 function invert(m: Record<string, string>) {
   const out: Record<string, string> = {};
@@ -141,6 +152,22 @@ const CHROME: Record<Locale, Chrome> = {
     categoryLabel: (k) => CATEGORY_LABELS.nl[k] ?? k,
     crumbHome: 'Home',
     crumbGlossary: 'Woordenlijst',
+  },
+  fr: {
+    eyebrow: 'Glossaire',
+    h1: 'Le glossaire de la vente B2B et des données',
+    intro: "Des définitions claires et concrètes des termes de l'outbound, des données et de la délivrabilité. Écrites pour les gens de terrain, pas pour les manuels.",
+    searchPlaceholder: 'Rechercher un terme',
+    all: 'Tous',
+    termsLabel: (n) => `${n} termes`,
+    relatedTitle: 'Termes associés',
+    backToGlossary: 'Retour au glossaire',
+    ctaTitle: 'Voyez-le sur des données en temps réel',
+    ctaSub: "Réservez une démo et nous vous montrerons hubsell sur des données exactes aujourd'hui.",
+    ctaButton: 'Réservez une démo',
+    categoryLabel: (k) => CATEGORY_LABELS.fr[k] ?? k,
+    crumbHome: 'Accueil',
+    crumbGlossary: 'Glossaire',
   },
 };
 

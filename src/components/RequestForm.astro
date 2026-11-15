@@ -74,6 +74,19 @@ const RF = {
       free: 'Gebruik je zakelijke e-mailadres.',
     },
   },
+  fr: {
+    name: 'Nom', workEmail: 'E-mail professionnel', company: 'Entreprise', optional: '(facultatif)',
+    namePh: 'Votre nom', companyPh: "Nom de l'entreprise",
+    js: {
+      enterName: 'Veuillez saisir votre nom.',
+      validEmail: 'Veuillez saisir une adresse e-mail valide.',
+      sending: 'Envoi…',
+      generic: "Une erreur s'est produite. Veuillez réessayer.",
+      network: 'Impossible de joindre le serveur. Veuillez réessayer.',
+      blocked: 'Ce domaine est bloqué.',
+      free: 'Veuillez utiliser votre adresse e-mail professionnelle.',
+    },
+  },
 } as const;
 const t = ((RF as Record<string, typeof RF.en>)[L]) ?? RF.en;
 const i18nAttr = L === 'en' ? {} : { 'data-i18n': JSON.stringify(t.js) };

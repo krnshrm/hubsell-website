@@ -143,4 +143,6 @@ export const allow = [
   // English in every language (src/data/pricing-features.ts).
   { locale: 'de', page: '/de/pricing/', word: 'email', why: 'node names in the pricing table stay English' },
   { locale: 'nl', page: '/nl/pricing/', word: 'email', why: 'node names in the pricing table stay English' },
+  { locale: 'fr', page: '/fr/pricing/', word: 'email', why: 'node names in the pricing table stay English' },
+  { locale: 'fr', word: 'séquences', text: "outils de séquences d'e-mails", why: 'Outreach and Salesloft as a tool category, not the Flow' },
 ];

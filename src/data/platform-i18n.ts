@@ -26,6 +26,12 @@ const morePools: Record<string, Testimonial[]> = {
   fr: pool(homeFr.testimonials, quotesFr), es: pool(homeEs.testimonials, quotesEs), pt: pool(homePt.testimonials, quotesPt),
 };
 
+// The fr/es/pt testimonial pools (English for any other locale). de and nl keep
+// their own testimonials.de.ts / .nl.ts files.
+export function getMoreTestimonials(L: Locale): Testimonial[] {
+  return morePools[L] ?? TESTIMONIALS;
+}
+
 export function getPlatform(L: Locale): PlatformData {
   if (L === 'de') return platformDe;
   if (L === 'nl') return platformNl;
