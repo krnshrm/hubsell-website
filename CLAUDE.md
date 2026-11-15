@@ -309,8 +309,8 @@ are still copies of the English text; their routes are not built until translate
   2026-11-15) **fr**, **es**, **pt**: every page except the blog, the knowledge center and the
   legal pages. A locale URL that is not in `translatedRoutes` is a redirect stub to English.
 - The blog, the knowledge center and the legal pages stay English in every locale for now
-  (served via fallback). Blog translation is postponed with no date (owner, 2026-11-15); legal
-  pages are planned with a line that the English is binding.
+  (served via fallback). Blog translation is postponed with no date (owner, 2026-11-15); the
+  legal pages stay English for good (owner, 2026-11-15).
 - `src/i18n/ui.ts` holds `translatedRoutes` (drives hreflang, the sitemap filter in
   `astro.config.mjs`, and the language switcher) and the chrome dictionaries.
 - Internal links go through `localizedHref(locale, '/path')`.
@@ -367,8 +367,8 @@ are still copies of the English text; their routes are not built until translate
   "Pay as you go", "Sales Intelligence", "LinkedIn") are cut out first; the lists are
   `english` in the config. It is report only (a count per language after every build;
   `npm run check:terms` lists the text); `npm run check:terms -- --strict-english`
-  fails on any. Expected today: the pricing table's English node name "Contact added
-  to the flow" in all five languages (node names stay English by design).
+  fails on any. Expected today: 0 in every language (the pricing table's node names
+  are translated since 2026-11-15, owner decision).
 - **Language tags** (`langTags` and `ogLocales` in `src/i18n/ui.ts`): `<html lang>`,
   hreflang, the sitemap's alternates and JSON-LD `inLanguage` use `en`, `de`, `nl`,
   `fr`, `es` and `pt-BR` (fr and es without a region so speakers outside France and
