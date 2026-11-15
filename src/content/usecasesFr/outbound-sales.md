@@ -1,47 +1,47 @@
 ---
-title: "Outbound sales software on one platform, not six tools"
-label: "Outbound sales"
-eyebrow: "Use case"
-metaTitle: "Outbound Sales Software"
-description: "Run your whole outbound motion in one platform: live-sourced data, email and LinkedIn flows, and automatic CRM sync. No six-tool stack to hold together."
-subhead: "Most outbound runs across six disconnected tools. hubsell is outbound sales software that brings the data, the email and LinkedIn flows, and the CRM sync into one place, so your reps spend the day selling instead of stitching tools together."
+title: "Un logiciel de prospection sortante sur une plateforme, pas six outils"
+label: "Prospection sortante"
+eyebrow: "Cas d'usage"
+metaTitle: "Logiciel de prospection commerciale sortante"
+description: "Menez toute votre prospection sortante sur une plateforme : données sourcées en temps réel, Flows e-mail et LinkedIn, synchro CRM automatique. Plus de pile de six outils."
+subhead: "La plupart des prospections sortantes passent par six outils sans lien entre eux. hubsell est un logiciel de prospection sortante qui réunit les données, les Flows e-mail et LinkedIn et la synchronisation CRM au même endroit : vos commerciaux passent la journée à vendre plutôt qu'à faire tenir des outils ensemble."
 widget: "UnifiedGrid"
 widgetBg: "sec--navy"
-widgetCaption: "Six tools become one platform. One login, one flow, one invoice."
+widgetCaption: "Six outils deviennent une plateforme. Une connexion, un Flow, une facture."
 proofStory: "safran"
 quotes:
   - "matterway"
   - "spryker"
   - "cibt"
 features:
-  - "Live-sourced prospect data"
-  - "Email and LinkedIn in one flow"
-  - "Automatic CRM sync"
+  - "Données de prospects sourcées en temps réel"
+  - "L'e-mail et LinkedIn dans un seul Flow"
+  - "Synchronisation CRM automatique"
 roles:
-  - "Sales teams"
-  - "Founders"
+  - "Équipes commerciales"
+  - "Fondateurs"
 related:
   - "lead-generation"
   - "multichannel-outreach"
 order: 1
 ---
 
-## Six tools, one job
+## Six outils pour un seul travail
 
-The average revenue team runs about six tools to do outbound, and each one solves a slice of the job in isolation. The lead database decays from the day it is compiled. The cold email tool runs separately from LinkedIn. Intent signals sit in a fourth tab and trigger nothing. The CRM gets updated by hand, or not at all.
+L'équipe commerciale moyenne utilise environ six outils pour prospecter, et chacun ne résout qu'une partie du travail, isolément. La base de leads se dégrade dès le jour où elle est constituée. L'outil d'e-mails à froid fonctionne à part de LinkedIn. Les signaux d'intention restent dans un quatrième onglet et ne déclenchent rien. Le CRM est mis à jour à la main, ou pas du tout.
 
-Every handoff between those tools is a place where time and data leak. Reps spend a large part of the day moving lists between apps, re-checking contacts, and copying notes into the CRM. The selling happens in whatever time is left.
+Chaque passage d'un outil à l'autre fait perdre du temps et des données. Les commerciaux passent une grande partie de la journée à déplacer des listes entre applications, à revérifier des contacts et à recopier des notes dans le CRM. La vente se fait dans le temps qui reste.
 
-## How the outbound sales software works
+## Comment fonctionne le logiciel de prospection sortante
 
-Three moves, one platform, no exports in between.
+Trois étapes, une plateforme, aucun export entre les deux.
 
-**Source live.** You define your ideal customer, and hubsell sources contacts live from LinkedIn the day you ask, matched to your criteria and verified at the point of use. You pay for a contact that is correct today, not for a list captured two years ago. This is the [lead generation](/use-cases/lead-generation) layer.
+**Sourcez en temps réel.** Vous définissez votre client idéal, et hubsell source les contacts en temps réel depuis LinkedIn le jour où vous les demandez, alignés sur vos critères et vérifiés au moment de l'usage. Vous payez un contact exact aujourd'hui, pas une liste constituée il y a deux ans. C'est la brique [génération de leads](/fr/use-cases/lead-generation).
 
-**Reach out across channels.** Email and LinkedIn run as a single coordinated flow, with branching that routes each contact based on what they do. That is the [multichannel outreach](/use-cases/multichannel-outreach) layer, built in rather than bolted on.
+**Prospectez sur plusieurs canaux.** L'e-mail et LinkedIn fonctionnent dans un seul Flow coordonné, avec des embranchements qui orientent chaque contact selon ce qu'il fait. C'est la brique [prospection multicanale](/fr/use-cases/multichannel-outreach), intégrée dès le départ et non ajoutée après coup.
 
-**Sync to your CRM.** Every send, open, reply, and connection logs to Salesforce, HubSpot, or Pipedrive on its own. No manual entry, no data rot, no reps working from a stale pipeline.
+**Synchronisez avec votre CRM.** Chaque envoi, ouverture, réponse et connexion s'enregistre de lui-même dans Salesforce, HubSpot ou Pipedrive. Pas de saisie manuelle, pas de données qui se dégradent, pas de commerciaux qui travaillent sur un pipeline périmé.
 
-## What changes for your team
+## Ce qui change pour votre équipe
 
-Reps stop switching tabs and stop cleaning data, so more of the day goes to conversations that move pipeline. The stack gets smaller too: most teams that move to hubsell drop two to three tool subscriptions within the first month, and the one thing hubsell does not replace, your CRM, it keeps in sync instead. To see the whole [outbound sales platform](/) at work, start on the homepage.
+Les commerciaux arrêtent de jongler entre les onglets et de nettoyer des données : une plus grande part de la journée va aux conversations qui font avancer le pipeline. La pile d'outils se réduit aussi : la plupart des équipes qui passent à hubsell abandonnent deux à trois abonnements d'outils dès le premier mois, et le seul outil que hubsell ne remplace pas, votre CRM, il le garde synchronisé. Pour voir toute la [plateforme de prospection sortante](/fr/) à l'œuvre, commencez par la page d'accueil.
