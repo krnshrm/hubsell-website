@@ -1,27 +1,27 @@
 ---
-term: "A/B testing"
-category: "Outbound and email"
-definition: "A/B testing is comparing two versions of a message or step by sending each to a portion of your audience and measuring which performs better."
+term: "Teste A/B"
+category: "Outbound e e-mail"
+definition: "Um teste A/B (A/B testing) consiste em comparar duas versões de uma mensagem ou de uma etapa, enviando cada uma para uma parte do seu público e medindo qual tem o melhor desempenho."
 related:
   - open-rate
   - reply-rate
   - cold-email
   - email-sequence
-updated: "July 2026"
+updated: "julho de 2026"
 ---
 
-## Why it matters
+## Por que isso importa
 
-A/B testing replaces opinion with evidence. Instead of guessing which subject line or opener works, you measure it on real recipients and keep the winner. Over time, small tested improvements compound into a meaningfully better programme. It is how outbound gets better on purpose rather than by chance.
+O teste A/B troca opinião por evidência. Em vez de adivinhar qual assunto ou qual frase de abertura funciona, você mede com destinatários reais e fica com a versão vencedora. Com o tempo, pequenas melhorias testadas se somam e resultam em um programa claramente melhor. É assim que o outbound melhora de propósito, e não por acaso.
 
-## How it works in practice
+## Como funciona na prática
 
-You change one variable, such as the subject line, split the audience so each version reaches a comparable group, and compare a clear metric like reply rate. The sample has to be large enough that the difference is real and not noise. Once a winner is clear, it becomes the new default and the next test begins.
+Você muda uma única variável, por exemplo o assunto, divide o público para que cada versão chegue a um grupo comparável e compara uma métrica clara, como a taxa de resposta. A amostra precisa ser grande o suficiente para que a diferença seja real, e não ruído. Quando há uma vencedora clara, ela passa a ser o novo padrão e começa o próximo teste.
 
-## Common mistakes
+## Erros comuns
 
-A common mistake is testing several changes at once, so you cannot tell which one moved the result. Another is calling a winner on too small a sample, where the gap is just noise. A third is optimising open rate alone, which can rise on a misleading subject line while replies fall.
+Um erro comum é testar várias mudanças ao mesmo tempo, sem conseguir saber qual delas mexeu no resultado. Outro é declarar uma vencedora com uma amostra pequena demais, em que a diferença é só ruído. Um terceiro é otimizar apenas a taxa de abertura, que pode subir com um assunto enganoso enquanto as respostas caem.
 
-## How hubsell approaches it
+## Como a hubsell aborda isso
 
-hubsell tracks opens, replies, and outcomes per step, so you can compare versions on the metric that matters, replies and meetings, not just opens.
+A hubsell registra aberturas, respostas e resultados por etapa, para que você compare versões pela métrica que importa, respostas e reuniões, e não só pelas aberturas.

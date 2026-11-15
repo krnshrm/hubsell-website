@@ -1,27 +1,27 @@
 ---
-term: "Data decay"
-category: "Data and enrichment"
-definition: "Data decay is the steady loss of accuracy in a contact database as people change jobs, companies close, and details go out of date."
+term: "Deterioração de dados (data decay)"
+category: "Dados e enriquecimento"
+definition: "A deterioração de dados (data decay) é a perda contínua de precisão de um banco de dados de contatos à medida que as pessoas mudam de emprego, as empresas fecham e as informações ficam desatualizadas."
 related:
   - b2b-data
   - data-enrichment
   - verified-at-source-data
   - email-deliverability
-updated: "July 2026"
+updated: "julho de 2026"
 ---
 
-## Why it matters
+## Por que isso importa
 
-Data decay is the reason a bought list stops working. Industry estimates put B2B data decay at roughly 2 to 3% per month, which means a list can be a quarter wrong within a year. Every decayed record is a wasted send, a bounce that hurts your sender reputation, or a call to someone who left the company. Decay turns a good list into a liability without anyone touching it.
+A deterioração de dados é o motivo pelo qual uma lista comprada deixa de funcionar. Estimativas do setor colocam a deterioração de dados B2B em cerca de 2 a 3% ao mês, o que significa que um quarto de uma lista pode estar errado em um ano. Cada registro deteriorado é um envio desperdiçado, uma rejeição que prejudica a sua reputação de remetente ou uma ligação para alguém que já saiu da empresa. A deterioração transforma uma boa lista em um problema sem que ninguém toque nela.
 
-## How it works in practice
+## Como funciona na prática
 
-Decay happens because the real world moves and the database does not. A contact gets promoted, switches employers, or leaves the workforce. A company rebrands, merges, or shuts down. An email provider retires a domain. Each of these breaks a field that was correct when it was captured. The longer a record sits unused, the more likely at least one of its fields is now wrong.
+A deterioração acontece porque o mundo real muda e o banco de dados não. Um contato é promovido, troca de empregador ou deixa o mercado de trabalho. Uma empresa muda de marca, passa por uma fusão ou fecha. Um provedor de e-mail desativa um domínio. Cada uma dessas mudanças quebra um campo que estava correto quando foi registrado. Quanto mais tempo um registro fica sem uso, maior a chance de que pelo menos um dos seus campos esteja errado.
 
-## Common mistakes
+## Erros comuns
 
-The core mistake is buying a large static list and working it for months, assuming accuracy holds. It does not. Teams also forget that decay hits the fields they rely on most, job title and email, faster than they expect. Relying on a database captured long ago, however big, guarantees a rising bounce rate over time.
+O erro central é comprar uma grande lista estática e trabalhá-la durante meses, supondo que a precisão se mantém. Ela não se mantém. As equipes também esquecem que a deterioração atinge os campos de que elas mais dependem, cargo e e-mail, mais rápido do que imaginam. Depender de um banco de dados capturado há muito tempo, por maior que seja, garante uma taxa de rejeição crescente com o tempo.
 
-## How hubsell approaches it
+## Como a hubsell aborda isso
 
-hubsell sidesteps decay by not holding a static list at all. Contacts are sourced the day you need them and verified at that moment, so you are always working data that reflects today, not a snapshot from the past.
+A hubsell contorna a deterioração porque não mantém nenhuma lista estática. Os contatos são buscados no dia em que você precisa deles e verificados nesse momento, então você sempre trabalha com dados que refletem o hoje, e não um retrato do passado.

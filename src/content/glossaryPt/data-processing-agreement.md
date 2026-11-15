@@ -1,27 +1,27 @@
 ---
-term: "Data processing agreement"
-category: "Compliance and GDPR"
-definition: "A data processing agreement, or DPA, is a contract that sets out how a service provider may handle personal data on behalf of the customer that controls it."
+term: "Acordo de processamento de dados (DPA)"
+category: "Conformidade e RGPD"
+definition: "Um acordo de processamento de dados, ou DPA (data processing agreement), é um contrato que define como um prestador de serviços pode tratar dados pessoais em nome do cliente que é o controlador desses dados."
 related:
   - gdpr
   - sub-processor
   - pii
   - crm
-updated: "July 2026"
+updated: "julho de 2026"
 ---
 
-## Why it matters
+## Por que isso importa
 
-When you use a tool that touches your contact data, the GDPR expects a DPA between you and that provider. It defines what the provider may do with the data, how it is protected, and what happens if something goes wrong. Without one, using a data or outreach tool on EU personal data leaves a gap in your compliance.
+Quando você usa uma ferramenta que acessa os seus dados de contatos, o GDPR (RGPD) exige um DPA entre você e esse fornecedor. Ele define o que o fornecedor pode fazer com os dados, como eles são protegidos e o que acontece se algo der errado. Sem ele, usar uma ferramenta de dados ou de prospecção com dados pessoais da UE deixa uma lacuna na sua conformidade.
 
-## How it works in practice
+## Como funciona na prática
 
-A DPA sets out the scope and purpose of processing, the provider's security duties, rules for using sub-processors, support for data-subject rights, and what happens to the data when the contract ends. The customer acts as the controller deciding why and how data is used, and the provider acts as the processor acting on the customer's instructions. It is signed before the data is handled.
+Um DPA define o escopo e a finalidade do tratamento, as obrigações de segurança do fornecedor, as regras para usar suboperadores, o apoio ao exercício dos direitos dos titulares e o que acontece com os dados quando o contrato termina. O cliente atua como controlador, que decide por que e como os dados são usados, e o fornecedor atua como operador, que segue as instruções do cliente. Ele é assinado antes de os dados serem tratados.
 
-## Common mistakes
+## Erros comuns
 
-A common mistake is using a provider that touches personal data without a DPA in place. Another is signing one without checking who the sub-processors are or where data is stored. A third is treating the DPA as filed and forgotten rather than something to revisit when the setup changes.
+Um erro comum é usar um fornecedor que acessa dados pessoais sem um DPA assinado. Outro é assinar um sem verificar quem são os suboperadores ou onde os dados ficam armazenados. Um terceiro é arquivar o DPA e esquecê-lo, em vez de revisá-lo quando a configuração muda.
 
-## How hubsell approaches it
+## Como a hubsell aborda isso
 
-hubsell offers a data processing agreement so your use of the platform on EU contact data is covered, with EU data handling behind it.
+A hubsell oferece um acordo de processamento de dados para que o uso da plataforma com dados de contatos da UE esteja coberto, com o tratamento dos dados feito na UE.

@@ -1,27 +1,27 @@
 ---
-term: "Inbox placement"
-category: "Deliverability"
-definition: "Inbox placement is the share of your delivered mail that actually lands in the primary inbox rather than the spam or promotions folder."
+term: "Chegada à caixa de entrada (inbox placement)"
+category: "Entregabilidade"
+definition: "A chegada à caixa de entrada (inbox placement) é a parcela dos seus e-mails entregues que realmente chega à caixa de entrada principal, e não à pasta de spam ou de promoções."
 related:
   - email-deliverability
   - sender-reputation
   - open-rate
   - spam-trap
-updated: "July 2026"
+updated: "julho de 2026"
 ---
 
-## Why it matters
+## Por que isso importa
 
-Delivered is not the same as seen. A message can be accepted by the server but filed in spam, where almost no one reads it. Inbox placement measures the outcome that actually matters, reaching a folder the recipient looks at. It is a truer health check than a plain delivery rate, which counts mail that may be sitting unseen in spam.
+Entregue não é o mesmo que visto. Uma mensagem pode ser aceita pelo servidor e ir parar no spam, onde quase ninguém lê. A chegada à caixa de entrada mede o resultado que realmente importa: alcançar uma pasta que o destinatário olha. É um indicador de saúde mais fiel do que uma simples taxa de entrega, que conta e-mails que podem estar parados no spam sem ninguém ver.
 
-## How it works in practice
+## Como funciona na prática
 
-Inbox placement is measured with seed lists or provider tools that show where mail lands across major providers: primary inbox, promotions, or spam. It is driven by the same factors as deliverability overall, sender reputation, authentication, list quality, and engagement. Improving it means fixing those inputs, not changing the message alone.
+A chegada à caixa de entrada é medida com listas de teste (seed lists) ou ferramentas dos provedores que mostram onde os e-mails chegam nos principais provedores: caixa de entrada principal, promoções ou spam. Ela depende dos mesmos fatores da entregabilidade em geral: reputação de remetente, autenticação, qualidade da lista e engajamento. Melhorá-la significa corrigir esses fatores, e não apenas mudar a mensagem.
 
-## Common mistakes
+## Erros comuns
 
-A common mistake is watching delivery rate while ignoring placement, so mail counts as delivered while sitting in spam. Another is chasing engagement tricks instead of fixing reputation and list quality. A third is assuming placement is uniform, when it varies by provider and needs checking across each.
+Um erro comum é acompanhar a taxa de entrega e ignorar onde os e-mails chegam, de modo que eles contam como entregues enquanto estão no spam. Outro é apostar em truques de engajamento em vez de corrigir a reputação e a qualidade da lista. Um terceiro é supor que a chegada à caixa de entrada é igual em todo lugar, quando ela varia de provedor para provedor e precisa ser verificada em cada um.
 
-## How hubsell approaches it
+## Como a hubsell aborda isso
 
-hubsell supports inbox placement by protecting the inputs that drive it: verified contacts, authenticated sending, and paced volume, so more of your mail reaches a folder people actually open.
+A hubsell favorece a chegada à caixa de entrada protegendo os fatores que a determinam: contatos verificados, envios autenticados e volume em ritmo controlado, para que uma parte maior dos seus e-mails chegue a uma pasta que as pessoas realmente abrem.

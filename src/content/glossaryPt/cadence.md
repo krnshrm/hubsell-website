@@ -1,27 +1,27 @@
 ---
-term: "Cadence"
-category: "Outbound and email"
-definition: "A cadence is the schedule and rhythm of outreach touches across channels, defining how often and through which channels you contact a prospect."
+term: "Cadência"
+category: "Outbound e e-mail"
+definition: "Uma cadência (cadence) é o calendário e o ritmo dos pontos de contato da prospecção nos diferentes canais, definindo com que frequência e por quais canais você contata um prospect."
 related:
   - email-sequence
   - multichannel-outreach
   - outbound-sales
   - cold-email
-updated: "July 2026"
+updated: "julho de 2026"
 ---
 
-## Why it matters
+## Por que isso importa
 
-Cadence decides whether follow-up feels persistent or annoying. The right rhythm keeps you present without crowding the prospect, and spreading touches across channels reaches people where they respond. A weak cadence either gives up too early, leaving replies on the table, or piles on too fast and gets muted.
+A cadência decide se o acompanhamento parece persistente ou incômodo. O ritmo certo mantém você presente sem sufocar o prospect, e distribuir os contatos entre canais alcança as pessoas onde elas respondem. Uma cadência fraca ou desiste cedo demais, deixando respostas pelo caminho, ou insiste rápido demais e acaba ignorada.
 
-## How it works in practice
+## Como funciona na prática
 
-A cadence sets the number of touches, the gap between them, and the channel for each. A typical one mixes email, LinkedIn, and a call task over two to three weeks. The steps are planned as one sequence so the touches support each other, and the timing can react to signals like opens and connection acceptances. The aim is steady presence, not volume.
+Uma cadência define o número de contatos, o intervalo entre eles e o canal de cada um. Uma cadência típica combina e-mail, LinkedIn e uma tarefa de ligação ao longo de duas a três semanas. As etapas são planejadas como uma única sequência, para que os contatos se reforcem, e o ritmo pode reagir a sinais como aberturas e conexões aceitas. O objetivo é uma presença constante, não volume.
 
-## Common mistakes
+## Erros comuns
 
-A common mistake is copying a generic cadence without matching it to the audience and channel limits, especially on LinkedIn. Another is too many touches in too few days. A third is running email and LinkedIn on separate schedules so a prospect gets hit twice at once.
+Um erro comum é copiar uma cadência genérica sem adaptá-la ao público e aos limites de cada canal, principalmente no LinkedIn. Outro é colocar contatos demais em poucos dias. Um terceiro é conduzir o e-mail e o LinkedIn em calendários separados, de modo que o prospect recebe dois contatos ao mesmo tempo.
 
-## How hubsell approaches it
+## Como a hubsell aborda isso
 
-hubsell runs one cadence across email, LinkedIn, and phone rather than separate tools, so the touches are spaced sensibly and coordinated instead of colliding.
+A hubsell conduz uma única cadência por e-mail, LinkedIn e telefone, em vez de usar ferramentas separadas, para que os contatos fiquem bem espaçados e coordenados, sem se sobrepor.

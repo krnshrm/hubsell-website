@@ -1,27 +1,27 @@
 ---
 term: "Cold email"
-category: "Outbound and email"
-definition: "A cold email is an unsolicited message sent to a prospect you have no prior relationship with, to start a business conversation."
+category: "Outbound e e-mail"
+definition: "Um cold email (e-mail frio) é uma mensagem não solicitada enviada a um prospect com quem você não tem nenhuma relação prévia, para iniciar uma conversa de negócios."
 related:
   - outbound-sales
   - email-sequence
   - email-deliverability
   - personalization-at-scale
-updated: "July 2026"
+updated: "julho de 2026"
 ---
 
-## Why it matters
+## Por que isso importa
 
-Cold email is the backbone of most outbound programmes because it scales and it is measurable. Done well, it opens conversations with accounts that fit your profile and would never have found you otherwise. Done badly, it bounces, annoys people, and burns the sending domain. The gap between the two is data quality and relevance.
+O cold email é a base da maioria dos programas de outbound porque escala e pode ser medido. Bem feito, ele abre conversas com contas que se encaixam no seu perfil e que nunca teriam encontrado você de outra forma. Mal feito, ele é rejeitado, incomoda as pessoas e queima o domínio de envio. A diferença entre os dois está na qualidade dos dados e na relevância.
 
-## How it works in practice
+## Como funciona na prática
 
-A cold email is short, relevant to the recipient's role and context, and built around one clear ask. It is usually part of a sequence rather than a single send, with follow-ups spaced over days. Deliverability depends on a verified address, a warmed domain, and sensible volume. The message earns a reply by being specific, not by being clever.
+Um cold email é curto, relevante para o cargo e o contexto do destinatário e construído em torno de um único pedido claro. Normalmente ele faz parte de uma sequência, e não de um envio isolado, com e-mails de acompanhamento espaçados ao longo de dias. A entregabilidade depende de um endereço verificado, de um domínio aquecido e de um volume sensato. A mensagem conquista uma resposta por ser específica, não por ser engenhosa.
 
-## Common mistakes
+## Erros comuns
 
-The biggest mistake is sending high volume on unverified data, which bounces and wrecks deliverability. Others include a generic message that ignores the account, burying the ask in a wall of text, and following up too aggressively. Cold email fails most often on relevance and list quality, not on wording.
+O maior erro é enviar grandes volumes com dados não verificados, o que gera rejeições e destrói a entregabilidade. Outros são uma mensagem genérica que ignora a conta, um pedido escondido em um bloco enorme de texto e um acompanhamento agressivo demais. O cold email falha mais vezes por falta de relevância e pela qualidade da lista do que pelo texto.
 
-## How hubsell approaches it
+## Como a hubsell aborda isso
 
-hubsell pairs verified contacts with coordinated email and LinkedIn steps, so cold email goes to addresses that are correct today and sits inside a sequence rather than firing as a one-off blast.
+A hubsell combina contatos verificados com etapas coordenadas de e-mail e LinkedIn, para que o cold email vá para endereços que estão corretos hoje e faça parte de um Flow, em vez de sair como um disparo isolado.

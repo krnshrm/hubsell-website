@@ -1,27 +1,27 @@
 ---
-term: "Email verification"
-category: "Data and enrichment"
-definition: "Email verification is the process of checking that an email address is valid and able to receive mail before you send to it."
+term: "Verificação de e-mail"
+category: "Dados e enriquecimento"
+definition: "A verificação de e-mail (email verification) é o processo de checar se um endereço de e-mail é válido e pode receber mensagens antes de você enviar algo para ele."
 related:
   - catch-all-domain
   - email-deliverability
   - bounce-rate
   - verified-at-source-data
-updated: "July 2026"
+updated: "julho de 2026"
 ---
 
-## Why it matters
+## Por que isso importa
 
-Sending to invalid addresses causes bounces, and a high bounce rate damages your sender reputation, which then hurts delivery to good addresses too. Verification protects that reputation by filtering out bad addresses first. It is one of the cheapest ways to keep an outbound programme healthy and its cost is far lower than the damage a bounce spike causes.
+Enviar para endereços inválidos gera rejeições, e uma taxa de rejeição alta prejudica a sua reputação de remetente, o que depois atrapalha também a entrega para endereços bons. A verificação protege essa reputação ao filtrar antes os endereços ruins. É uma das formas mais baratas de manter um programa de outbound saudável, e o custo dela é muito menor do que o estrago que um pico de rejeições causa.
 
-## How it works in practice
+## Como funciona na prática
 
-Verification checks an address in stages: the format is valid, the domain exists and accepts mail, and the specific mailbox responds. Catch-all domains, which accept mail for any address, are flagged as risky because the mailbox cannot be confirmed. Verification runs in bulk on a list or in real time as each address is added.
+A verificação checa um endereço em etapas: o formato é válido, o domínio existe e aceita e-mails, e a caixa de e-mail específica responde. Os domínios catch-all, que aceitam mensagens para qualquer endereço, são marcados como arriscados porque a caixa de e-mail não pode ser confirmada. A verificação roda em lote em uma lista ou em tempo real, à medida que cada endereço é adicionado.
 
-## Common mistakes
+## Erros comuns
 
-A frequent mistake is verifying once at import and never again, since addresses go bad over time. Another is sending to catch-all addresses as if they were confirmed. A third is skipping verification on small lists, where a few bounces still nudge the reputation in the wrong direction.
+Um erro frequente é verificar uma vez na importação e nunca mais, já que os endereços se deterioram com o tempo. Outro é enviar para endereços catch-all como se estivessem confirmados. Um terceiro é pular a verificação em listas pequenas, em que algumas rejeições ainda empurram a reputação na direção errada.
 
-## How hubsell approaches it
+## Como a hubsell aborda isso
 
-hubsell verifies each contact at the point of use, including a catch-all check, so a credit is only spent on an address that can actually receive mail today.
+A hubsell verifica cada contato no momento do uso, incluindo uma checagem de catch-all, para que um crédito só seja gasto com um endereço que realmente pode receber e-mails hoje.

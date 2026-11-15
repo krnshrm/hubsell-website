@@ -1,27 +1,27 @@
 ---
-term: "Conversion rate"
-category: "Metrics"
-definition: "Conversion rate is the share of people who take a desired next step, such as replying, booking a meeting, or becoming a customer."
+term: "Taxa de conversão"
+category: "Métricas"
+definition: "A taxa de conversão (conversion rate) é a parcela de pessoas que dão o próximo passo desejado, como responder, marcar uma reunião ou se tornar cliente."
 related:
   - cac
   - win-rate
   - reply-rate
   - lead-scoring
-updated: "July 2026"
+updated: "julho de 2026"
 ---
 
-## Why it matters
+## Por que isso importa
 
-Conversion rate measures how well each step of the funnel works. A low rate at one stage points to where prospects drop off, whether that is a weak message, poor targeting, or a clunky handoff. Because small gains compound across stages, improving conversion is often cheaper than pouring more volume into the top of the funnel.
+A taxa de conversão mede o quanto cada etapa do funil funciona. Uma taxa baixa em uma etapa mostra onde os prospects desistem, seja por uma mensagem fraca, por uma segmentação ruim ou por uma passagem de bastão mal feita. Como pequenos ganhos se somam ao longo das etapas, melhorar a conversão costuma sair mais barato do que despejar mais volume no topo do funil.
 
-## How it works in practice
+## Como funciona na prática
 
-Conversion rate is the number who take the step divided by the number who could have. It is measured at each stage: reply to meeting, meeting to opportunity, opportunity to closed. Reading it stage by stage shows where the funnel leaks, and A/B testing then improves the weakest step. Good data quality keeps the denominator honest.
+A taxa de conversão é o número de pessoas que dão o passo dividido pelo número de pessoas que poderiam ter dado. Ela é medida em cada etapa: de resposta a reunião, de reunião a oportunidade, de oportunidade a venda fechada. Analisá-la etapa por etapa mostra onde o funil vaza, e os testes A/B então melhoram a etapa mais fraca. Dados de boa qualidade mantêm o denominador honesto.
 
-## Common mistakes
+## Erros comuns
 
-A common mistake is looking only at the final conversion and missing which stage is actually leaking. Another is comparing rates across very different segments as if they were the same. A third is chasing volume to lift totals while the rate quietly falls, which wastes effort.
+Um erro comum é olhar só para a conversão final e não perceber qual etapa está realmente vazando. Outro é comparar taxas de segmentos muito diferentes como se fossem iguais. Um terceiro é correr atrás de volume para aumentar os totais enquanto a taxa cai sem ninguém notar, o que desperdiça esforço.
 
-## How hubsell approaches it
+## Como a hubsell aborda isso
 
-hubsell supports conversion by starting outreach from accurate, in-profile contacts, so more of the funnel is made of people who can actually convert rather than bad records.
+A hubsell apoia a conversão ao começar a prospecção com contatos precisos e dentro do perfil, para que uma parte maior do funil seja formada por pessoas que realmente podem converter, e não por registros ruins.

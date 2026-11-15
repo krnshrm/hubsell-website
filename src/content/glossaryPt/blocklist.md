@@ -1,27 +1,27 @@
 ---
-term: "Blocklist"
-category: "Deliverability"
-definition: "A blocklist is a published list of domains or IP addresses known for spam, which mailbox providers check to decide whether to block or filter incoming mail."
+term: "Lista de bloqueio"
+category: "Entregabilidade"
+definition: "Uma lista de bloqueio (blocklist) é uma lista pública de domínios ou endereços IP conhecidos por enviar spam, que os provedores de e-mail consultam para decidir se bloqueiam ou filtram as mensagens recebidas."
 related:
   - sender-reputation
   - spam-trap
   - email-deliverability
   - bounce-rate
-updated: "July 2026"
+updated: "julho de 2026"
 ---
 
-## Why it matters
+## Por que isso importa
 
-Landing on a blocklist can stop your mail from being delivered at all, sometimes across many providers at once. Because providers consult these lists in real time, a listing has an immediate effect on deliverability. Staying off them, and getting removed quickly if listed, is essential for any team that relies on email to reach buyers.
+Entrar em uma lista de bloqueio pode impedir que os seus e-mails sejam entregues, às vezes em vários provedores ao mesmo tempo. Como os provedores consultam essas listas em tempo real, uma inclusão tem efeito imediato na entregabilidade. Ficar fora delas, e sair rápido quando for incluído, é essencial para qualquer equipe que depende do e-mail para alcançar compradores.
 
-## How it works in practice
+## Como funciona na prática
 
-Blocklists, sometimes called blacklists, are maintained by organisations that track spam signals such as hitting spam traps, high complaint rates, and sudden volume spikes. When a domain or IP shows these patterns, it can be added. Receiving servers check incoming mail against these lists and block or filter matches. Delisting usually requires fixing the cause and requesting removal.
+As listas de bloqueio, às vezes chamadas de blacklists, são mantidas por organizações que acompanham sinais de spam, como cair em armadilhas de spam, taxas altas de reclamação e picos repentinos de volume. Quando um domínio ou IP mostra esses padrões, ele pode ser incluído. Os servidores de destino comparam os e-mails recebidos com essas listas e bloqueiam ou filtram as correspondências. Para sair da lista, normalmente é preciso corrigir a causa e pedir a remoção.
 
-## Common mistakes
+## Erros comuns
 
-The main mistake is the behaviour that gets you listed: sending to unverified lists, spiking volume, or triggering complaints. Another is not monitoring, so you only discover a listing after delivery has collapsed. A third is requesting delisting without fixing the underlying cause, which just gets you relisted.
+O principal erro é o comportamento que leva à inclusão: enviar para listas não verificadas, aumentar o volume de repente ou provocar reclamações. Outro é não monitorar, e só descobrir a inclusão depois que a entrega já despencou. Um terceiro é pedir a remoção sem corrigir a causa, o que só leva a uma nova inclusão.
 
-## How hubsell approaches it
+## Como a hubsell aborda isso
 
-hubsell reduces blocklist risk at the source by verifying contacts, flagging catch-all domains, and pacing volume, so the patterns that trigger a listing do not build up in the first place.
+A hubsell reduz o risco de lista de bloqueio na origem: verifica os contatos, sinaliza domínios catch-all e controla o ritmo do volume, para que os padrões que levam a uma inclusão nem cheguem a se formar.

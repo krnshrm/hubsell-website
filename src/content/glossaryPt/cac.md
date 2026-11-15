@@ -1,27 +1,27 @@
 ---
-term: "Customer acquisition cost (CAC)"
-category: "Metrics"
-definition: "Customer acquisition cost is the total sales and marketing spend needed to win one new customer, a core measure of how efficiently a company grows."
+term: "Custo de aquisição de clientes (CAC)"
+category: "Métricas"
+definition: "O custo de aquisição de clientes (customer acquisition cost) é o gasto total em vendas e marketing necessário para conquistar um novo cliente, uma medida central da eficiência com que uma empresa cresce."
 related:
   - conversion-rate
   - win-rate
   - cost-per-lead
   - outbound-sales
-updated: "July 2026"
+updated: "julho de 2026"
 ---
 
-## Why it matters
+## Por que isso importa
 
-CAC tells you what growth actually costs. If it climbs above what a customer is worth over their lifetime, growth loses money. Watching it keeps spend disciplined and shows which channels bring customers efficiently and which just burn budget. It is one of the clearest signals of whether a go-to-market motion is working.
+O CAC mostra quanto o crescimento realmente custa. Se ele passar do valor que um cliente gera ao longo de todo o relacionamento, o crescimento dá prejuízo. Acompanhá-lo mantém os gastos sob controle e mostra quais canais trazem clientes de forma eficiente e quais só queimam orçamento. É um dos sinais mais claros de que uma estratégia de go-to-market está funcionando ou não.
 
-## How it works in practice
+## Como funciona na prática
 
-CAC is the total sales and marketing cost over a period divided by the number of new customers won in that period. The costs include salaries, tools, and ad spend, not just media. Teams compare CAC against customer lifetime value to check the ratio is healthy, and break it down by channel to see where acquisition is cheapest.
+O CAC é o custo total de vendas e marketing em um período dividido pelo número de novos clientes conquistados nesse período. Os custos incluem salários, ferramentas e anúncios, e não só a mídia. As equipes comparam o CAC com o valor do tempo de vida do cliente (lifetime value) para verificar se a relação é saudável, e o dividem por canal para ver onde a aquisição sai mais barata.
 
-## Common mistakes
+## Erros comuns
 
-A common mistake is leaving costs out of the calculation, such as salaries or tooling, which flatters the number. Another is reading CAC without lifetime value, so an apparently high cost looks alarming when the customer is very valuable. A third is judging a new channel on early CAC before it has had time to settle.
+Um erro comum é deixar custos de fora do cálculo, como salários ou ferramentas, o que deixa o número mais bonito do que é. Outro é olhar o CAC sem o lifetime value, de modo que um custo aparentemente alto parece alarmante quando o cliente vale muito. Um terceiro é julgar um canal novo pelo CAC inicial, antes que ele tenha tempo de se estabilizar.
 
-## How hubsell approaches it
+## Como a hubsell aborda isso
 
-hubsell lowers the data and tooling drag on CAC by replacing several tools with one and sourcing contacts that are correct today, so less spend is wasted on bounces and switching between systems.
+A hubsell reduz o peso dos dados e das ferramentas no CAC ao substituir várias ferramentas por uma só e buscar contatos que estão corretos hoje, para que menos dinheiro se perca com rejeições e com a troca entre sistemas.

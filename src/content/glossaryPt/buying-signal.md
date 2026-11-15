@@ -1,27 +1,27 @@
 ---
-term: "Buying signal"
-category: "Outbound and email"
-definition: "A buying signal is an action or event that suggests a prospect is moving towards a purchase, such as visiting pricing pages or researching a category."
+term: "Sinal de compra"
+category: "Outbound e e-mail"
+definition: "Um sinal de compra (buying signal) é uma ação ou um acontecimento que indica que um prospect está se aproximando de uma compra, como visitar páginas de preços ou pesquisar uma categoria."
 related:
   - intent-data
   - sales-trigger
   - ideal-customer-profile
   - outbound-sales
-updated: "July 2026"
+updated: "julho de 2026"
 ---
 
-## Why it matters
+## Por que isso importa
 
-Buying signals tell you who to contact now versus later. Acting on them focuses effort on prospects showing interest, which lifts reply and conversion rates compared with an unsorted list. They turn prioritisation from a guess into something grounded in observed behaviour.
+Os sinais de compra mostram quem contatar agora e quem pode esperar. Agir com base neles concentra o esforço nos prospects que demonstram interesse, o que aumenta as taxas de resposta e de conversão em comparação com uma lista sem ordem. Eles transformam a priorização de um palpite em algo baseado em comportamento observado.
 
-## How it works in practice
+## Como funciona na prática
 
-Signals range from first-party actions, like repeated visits to your pricing page or a demo request, to third-party intent, like researching your category elsewhere. Teams collect these, weight them, and use them to rank which in-profile accounts to work first. Stronger signals, such as a direct product enquiry, outrank softer ones like a single content view.
+Os sinais vão de ações próprias (first-party), como visitas repetidas à sua página de preços ou um pedido de demo, até a intenção de terceiros, como pesquisar a sua categoria em outros lugares. As equipes coletam esses sinais, dão um peso a cada um e os usam para decidir quais contas dentro do perfil trabalhar primeiro. Sinais mais fortes, como uma consulta direta sobre o produto, valem mais do que os mais fracos, como a visualização de um único conteúdo.
 
-## Common mistakes
+## Erros comuns
 
-A common mistake is treating every signal as equal, when a pricing-page visit means more than a blog read. Another is chasing signals from accounts outside the ICP. A third is reacting too late, since a signal loses value fast once the moment passes.
+Um erro comum é tratar todos os sinais como iguais, quando uma visita à página de preços diz mais do que a leitura de um post no blog. Outro é correr atrás de sinais de contas fora do ICP. Um terceiro é reagir tarde demais, já que um sinal perde valor rapidamente quando o momento passa.
 
-## How hubsell approaches it
+## Como a hubsell aborda isso
 
-hubsell helps you act on signals by sourcing and prioritising contacts at in-profile accounts showing interest, so outreach reaches them while the intent is current.
+A hubsell ajuda você a agir sobre os sinais buscando e priorizando contatos em contas dentro do perfil que demonstram interesse, para que a prospecção chegue até eles enquanto a intenção ainda é atual.

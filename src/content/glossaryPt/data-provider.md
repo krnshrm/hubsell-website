@@ -1,27 +1,27 @@
 ---
-term: "Data provider"
-category: "Data and enrichment"
-definition: "A data provider is a company that supplies B2B contact and company data to sales and marketing teams, usually through a database or an API."
+term: "Provedor de dados"
+category: "Dados e enriquecimento"
+definition: "Um provedor de dados (data provider) é uma empresa que fornece dados B2B de contatos e empresas para equipes de vendas e marketing, normalmente por meio de um banco de dados ou de uma API."
 related:
   - b2b-data
   - data-enrichment
   - waterfall-enrichment
   - verified-at-source-data
-updated: "July 2026"
+updated: "julho de 2026"
 ---
 
-## Why it matters
+## Por que isso importa
 
-The provider you choose sets the accuracy, coverage, and freshness of the data your outbound runs on. A provider with stale or thin data caps how well any campaign can perform, no matter how good the rest of the stack is. Understanding how a provider sources and refreshes data is the difference between reliable outreach and a rising bounce rate.
+O provedor que você escolhe define a precisão, a cobertura e a atualidade dos dados em que o seu outbound se apoia. Um provedor com dados desatualizados ou escassos limita o desempenho de qualquer campanha, por melhor que seja o resto das ferramentas. Entender como um provedor obtém e atualiza os dados faz a diferença entre uma prospecção confiável e uma taxa de rejeição crescente.
 
-## How it works in practice
+## Como funciona na prática
 
-Providers gather data from public sources, contributed records, partnerships, and their own checks, then expose it through a database, a list export, or an API. Some sell access to a large static database. Others verify records on request. Buyers usually judge providers on match rate, accuracy, coverage in their target region, and how the data is priced, per record or per seat.
+Os provedores coletam dados de fontes públicas, registros enviados por terceiros, parcerias e verificações próprias, e os disponibilizam por meio de um banco de dados, de uma exportação de lista ou de uma API. Alguns vendem acesso a um grande banco de dados estático. Outros verificam os registros sob demanda. Os compradores costumam avaliar os provedores pela taxa de correspondência, pela precisão, pela cobertura na região-alvo e pela forma de cobrança, por registro ou por licença.
 
-## Common mistakes
+## Erros comuns
 
-The main mistake is buying on database size alone, since a big database with low accuracy costs more in wasted sends than a smaller, verified one. Another is ignoring how often the provider refreshes data. A third is not checking regional coverage, so a provider strong in one market is thin in yours.
+O principal erro é comprar só pelo tamanho do banco de dados, já que um banco grande e pouco preciso custa mais em envios desperdiçados do que um menor e verificado. Outro é ignorar com que frequência o provedor atualiza os dados. Um terceiro é não verificar a cobertura regional, de modo que um provedor forte em um mercado é fraco no seu.
 
-## How hubsell approaches it
+## Como a hubsell aborda isso
 
-hubsell is a data provider that does not sell a static database. It sources contacts live and verifies them at the point of use, so you pay for accuracy at the moment of outreach rather than access to an aging list.
+A hubsell é um provedor de dados que não vende um banco de dados estático. Ela busca os contatos em tempo real e os verifica no momento do uso, então você paga pela precisão no momento da prospecção, e não pelo acesso a uma lista que envelhece.

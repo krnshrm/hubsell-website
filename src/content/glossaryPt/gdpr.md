@@ -1,27 +1,27 @@
 ---
-term: "GDPR"
-category: "Compliance and GDPR"
-definition: "The GDPR is the European Union law that governs how organisations collect, store, and use the personal data of people in the EU."
+term: "RGPD"
+category: "Conformidade e RGPD"
+definition: "O GDPR (RGPD), Regulamento Geral sobre a Proteção de Dados, é a lei da União Europeia que regula como as organizações coletam, armazenam e usam os dados pessoais de pessoas na UE."
 related:
   - legitimate-interest
   - data-processing-agreement
   - pii
   - b2b-data
-updated: "July 2026"
+updated: "julho de 2026"
 ---
 
-## Why it matters
+## Por que isso importa
 
-For any team handling EU contact data, the GDPR sets the rules that keep outreach lawful. It shapes what data you can hold, on what basis you can process it, and what rights the people behind that data have. Getting it wrong risks fines and reputational damage, so understanding the basics is part of running B2B outreach in or into Europe.
+Para qualquer equipe que trata dados de contatos da UE, o RGPD define as regras que mantêm a prospecção dentro da lei. Ele determina quais dados você pode manter, com base em que fundamento pode tratá-los e quais direitos têm as pessoas por trás desses dados. Errar traz o risco de multas e danos à reputação, por isso entender o básico faz parte de fazer prospecção B2B na Europa ou para a Europa.
 
-## How it works in practice
+## Como funciona na prática
 
-The GDPR requires a lawful basis for processing personal data, such as consent or legitimate interest, and gives people rights like access, correction, and erasure. It expects data to be accurate, kept only as long as needed, and handled securely. Organisations that process data on behalf of others sign agreements setting out those duties, and EU data is expected to be protected wherever it is stored.
+O RGPD exige uma base legal para o tratamento de dados pessoais, como o consentimento ou o legítimo interesse, e garante às pessoas direitos como acesso, correção e eliminação. Ele exige que os dados sejam precisos, mantidos apenas pelo tempo necessário e tratados com segurança. As organizações que tratam dados em nome de outras assinam acordos que definem essas obrigações, e os dados da UE devem ser protegidos onde quer que sejam armazenados.
 
-## Common mistakes
+## Erros comuns
 
-A common mistake is assuming the GDPR blocks all B2B outreach, when it allows it under a valid basis with the right safeguards. The opposite mistake is ignoring it and holding data with no lawful basis or no way to honour a deletion request. A third is treating compliance as a one-time task rather than an ongoing practice.
+Um erro comum é achar que o RGPD proíbe toda prospecção B2B, quando ele a permite com uma base válida e as salvaguardas adequadas. O erro oposto é ignorá-lo e manter dados sem base legal ou sem como atender a um pedido de exclusão. Um terceiro é tratar a conformidade como uma tarefa única, e não como uma prática contínua.
 
-## How hubsell approaches it
+## Como a hubsell aborda isso
 
-hubsell is built and hosted in the EU and designed for GDPR-aware B2B outreach, with EU data handling and a data processing agreement available. It is not legal advice, and your own basis for processing is yours to confirm.
+A hubsell é desenvolvida e hospedada na UE e foi pensada para uma prospecção B2B que respeita o RGPD, com tratamento dos dados na UE e um acordo de processamento de dados disponível. Isto não é aconselhamento jurídico, e cabe a você confirmar a sua própria base legal para o tratamento.

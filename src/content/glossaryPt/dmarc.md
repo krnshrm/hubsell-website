@@ -1,27 +1,27 @@
 ---
 term: "DMARC"
-category: "Deliverability"
-definition: "DMARC is an email authentication policy that tells receiving servers what to do when a message fails SPF and DKIM, and reports on who is sending as your domain."
+category: "Entregabilidade"
+definition: "DMARC é uma política de autenticação de e-mail que diz aos servidores de destino o que fazer quando uma mensagem falha no SPF e no DKIM, e informa quem está enviando em nome do seu domínio."
 related:
   - spf
   - dkim
   - email-deliverability
   - sender-reputation
-updated: "July 2026"
+updated: "julho de 2026"
 ---
 
-## Why it matters
+## Por que isso importa
 
-DMARC ties SPF and DKIM together and gives you control and visibility. It tells providers to allow, quarantine, or reject mail that fails the checks, which protects your domain from spoofing and protects recipients from fraud sent in your name. It has also become close to mandatory: major providers now expect a DMARC policy from bulk senders.
+O DMARC une o SPF e o DKIM e dá a você controle e visibilidade. Ele diz aos provedores se devem aceitar, colocar em quarentena ou recusar as mensagens que falham nas verificações, o que protege o seu domínio contra falsificação e protege os destinatários contra fraudes enviadas em seu nome. Ele também se tornou quase obrigatório: os grandes provedores hoje esperam uma política DMARC de quem envia em grande volume.
 
-## How it works in practice
+## Como funciona na prática
 
-DMARC is a DNS record that sets a policy (none, quarantine, or reject) and an address for reports. When a message fails both SPF and DKIM alignment, the receiving server applies your policy. The reports show which servers are sending as your domain, so you can spot abuse and confirm your own tools are aligned before you tighten the policy.
+O DMARC é um registro DNS que define uma política (none, quarantine ou reject) e um endereço para os relatórios. Quando uma mensagem falha no alinhamento tanto do SPF quanto do DKIM, o servidor de destino aplica a sua política. Os relatórios mostram quais servidores estão enviando em nome do seu domínio, para que você identifique abusos e confirme que as suas próprias ferramentas estão alinhadas antes de endurecer a política.
 
-## Common mistakes
+## Erros comuns
 
-A common mistake is jumping straight to a reject policy before confirming all your legitimate senders pass, which blocks your own mail. The opposite mistake is leaving the policy at none forever, so it never actually protects anything. A third is never reading the reports, which are the whole point of the visibility.
+Um erro comum é ir direto para a política reject antes de confirmar que todos os seus remetentes legítimos passam nas verificações, o que bloqueia os seus próprios e-mails. O erro oposto é deixar a política em none para sempre, de modo que ela nunca protege nada de fato. Um terceiro é nunca ler os relatórios, que são justamente a razão da visibilidade.
 
-## How hubsell approaches it
+## Como a hubsell aborda isso
 
-hubsell helps you align your sending with DMARC and move safely from monitoring to enforcement, so your domain is protected without blocking your own outreach.
+A hubsell ajuda você a alinhar os seus envios com o DMARC e a passar com segurança do monitoramento para a aplicação da política, para que o seu domínio fique protegido sem bloquear a sua própria prospecção.
