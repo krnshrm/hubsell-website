@@ -1,47 +1,47 @@
 ---
-title: "B2B lead generation software with data that is correct today"
-label: "Lead generation"
-eyebrow: "Use case"
-metaTitle: "B2B Lead Generation Software"
-description: "Outbound lead generation built on live-sourced, verified-at-source contacts matched to your ICP. No stale database, no wasted outreach on dead contacts."
-subhead: "Static databases decay from the day they are sold. hubsell is B2B lead generation software that sources leads live the moment you ask, matched to your ICP and verified before a single message goes out, so your pipeline starts with contacts that are correct now."
+title: "Software de geração de leads B2B com dados corretos hoje"
+label: "Geração de leads"
+eyebrow: "Caso de uso"
+metaTitle: "Software de geração de leads B2B"
+description: "Geração de leads outbound com contatos buscados em tempo real, verificados na origem e alinhados ao seu ICP. Sem base desatualizada, sem prospecção perdida em contatos mortos."
+subhead: "Bases de dados estáticas se desatualizam desde o dia em que são vendidas. A hubsell é um software de geração de leads B2B que busca leads em tempo real no momento em que você pede, alinhados ao seu ICP e verificados antes que qualquer mensagem seja enviada, para que o seu pipeline comece com contatos corretos agora."
 widget: "ZeroDayTimeline"
 widgetBg: "sec--sand"
-widgetCaption: "A bought database decays from day one. Live sourcing does not."
+widgetCaption: "Uma base comprada se desatualiza desde o primeiro dia. A busca em tempo real, não."
 proofStory: "elium"
 quotes:
   - "aspire"
   - "matterway"
   - "meetyoo"
 features:
-  - "Live-sourced prospect data"
-  - "Intent-driven targeting"
-  - "Email validation, even on catch-all domains"
+  - "Dados de prospects buscados em tempo real"
+  - "Segmentação por intenção"
+  - "Validação de e-mail, inclusive em domínios catch-all"
 roles:
-  - "Marketing teams"
-  - "Sales teams"
+  - "Equipes de marketing"
+  - "Equipes de vendas"
 related:
   - "outbound-sales"
   - "account-based-outreach"
 order: 2
 ---
 
-## The database problem
+## O problema da base de dados
 
-A bought list decays from the day it is compiled. People change jobs, change numbers, and opt out, and you only find out when the email bounces or the call goes nowhere. By the time a static export reaches your reps, a meaningful share of it is already wrong, and every wrong record costs sending reputation and rep time.
+Uma lista comprada se desatualiza desde o dia em que é montada. As pessoas mudam de emprego, trocam de número e se descadastram, e você só descobre quando o e-mail volta ou a ligação não dá em nada. Quando uma exportação estática chega aos seus vendedores, uma parte considerável dela já está errada, e cada registro errado custa reputação de envio e tempo da equipe.
 
-The instinct is to buy a bigger database. The fix is the opposite: source fewer contacts, later, and verify each one at the moment you actually need it.
+O instinto é comprar uma base maior. A solução é o contrário: buscar menos contatos, mais tarde, e verificar cada um no momento em que você realmente precisa dele.
 
-## Lead generation, sourced live
+## Geração de leads com busca em tempo real
 
-hubsell does not sell out of a stale database. The moment you define your ideal customer, it sources contacts live from LinkedIn, matched to your criteria and validated at the point of use.
+A hubsell não vende dados de uma base desatualizada. No momento em que você define o seu cliente ideal, ela busca contatos em tempo real no LinkedIn, alinhados aos seus critérios e validados no momento do uso.
 
-**Matched to your ICP.** Target by persona, role, seniority, and company, plus buying signals like job changes, hiring activity, and engagement with content, so the people entering your pipeline are the ones worth reaching.
+**Alinhados ao seu ICP.** Segmente por persona, cargo, senioridade e empresa, além de sinais de compra como mudanças de emprego, contratações e interação com conteúdo, para que as pessoas que entram no seu pipeline sejam as que valem a pena abordar.
 
-**Verified before you spend.** Emails are confirmed on the fly, including on catch-all domains, so you are not paying to send into dead inboxes or burning your domain on bounces.
+**Verificados antes de você gastar.** Os e-mails são confirmados na hora, inclusive em domínios catch-all, para que você não pague para enviar a caixas de entrada mortas nem queime o seu domínio com devoluções.
 
-**Built for Europe.** hubsell is based in Berlin and runs to strict GDPR standards, which matters when your lead generation has to hold up to data-protection review.
+**Feita para a Europa.** A hubsell fica em Berlim e segue padrões rígidos do GDPR (RGPD), o que importa quando a sua geração de leads precisa passar por uma análise de proteção de dados.
 
-## From leads to pipeline
+## De leads a pipeline
 
-Lead generation is only half the job. The contacts you source go straight into [email and LinkedIn flows](/use-cases/multichannel-outreach) and sync to your CRM, so there is no export step between finding a lead and working it. If you want the full motion in one place, see [outbound sales](/use-cases/outbound-sales).
+A geração de leads é só metade do trabalho. Os contatos que você busca entram direto em [Flows de e-mail e LinkedIn](/pt/use-cases/multichannel-outreach) e são sincronizados com o seu CRM, então não há etapa de exportação entre encontrar um lead e trabalhar com ele. Se você quer todo o processo em um só lugar, veja [vendas outbound](/pt/use-cases/outbound-sales).

@@ -1,47 +1,47 @@
 ---
-title: "Outbound sales software on one platform, not six tools"
-label: "Outbound sales"
-eyebrow: "Use case"
-metaTitle: "Outbound Sales Software"
-description: "Run your whole outbound motion in one platform: live-sourced data, email and LinkedIn flows, and automatic CRM sync. No six-tool stack to hold together."
-subhead: "Most outbound runs across six disconnected tools. hubsell is outbound sales software that brings the data, the email and LinkedIn flows, and the CRM sync into one place, so your reps spend the day selling instead of stitching tools together."
+title: "Software de vendas outbound em uma plataforma, não em seis ferramentas"
+label: "Vendas outbound"
+eyebrow: "Caso de uso"
+metaTitle: "Software de vendas outbound"
+description: "Rode todo o seu outbound em uma plataforma: dados buscados em tempo real, Flows de e-mail e LinkedIn e sincronização automática com o CRM. Sem uma stack de seis ferramentas."
+subhead: "A maior parte do outbound roda em seis ferramentas desconectadas. A hubsell é um software de vendas outbound que reúne os dados, os Flows de e-mail e LinkedIn e a sincronização com o CRM em um só lugar, para que a sua equipe passe o dia vendendo em vez de remendar ferramentas."
 widget: "UnifiedGrid"
 widgetBg: "sec--navy"
-widgetCaption: "Six tools become one platform. One login, one flow, one invoice."
+widgetCaption: "Seis ferramentas viram uma plataforma. Um login, um Flow, uma fatura."
 proofStory: "safran"
 quotes:
   - "matterway"
   - "spryker"
   - "cibt"
 features:
-  - "Live-sourced prospect data"
-  - "Email and LinkedIn in one flow"
-  - "Automatic CRM sync"
+  - "Dados de prospects buscados em tempo real"
+  - "E-mail e LinkedIn em um único Flow"
+  - "Sincronização automática com o CRM"
 roles:
-  - "Sales teams"
-  - "Founders"
+  - "Equipes de vendas"
+  - "Fundadores"
 related:
   - "lead-generation"
   - "multichannel-outreach"
 order: 1
 ---
 
-## Six tools, one job
+## Seis ferramentas, um trabalho
 
-The average revenue team runs about six tools to do outbound, and each one solves a slice of the job in isolation. The lead database decays from the day it is compiled. The cold email tool runs separately from LinkedIn. Intent signals sit in a fourth tab and trigger nothing. The CRM gets updated by hand, or not at all.
+A equipe de receita média usa cerca de seis ferramentas para fazer outbound, e cada uma resolve uma parte do trabalho isoladamente. A base de leads se desatualiza desde o dia em que é montada. A ferramenta de cold e-mail roda separada do LinkedIn. Os sinais de intenção ficam em uma quarta aba e não disparam nada. O CRM é atualizado à mão, ou nem é atualizado.
 
-Every handoff between those tools is a place where time and data leak. Reps spend a large part of the day moving lists between apps, re-checking contacts, and copying notes into the CRM. The selling happens in whatever time is left.
+Cada passagem entre essas ferramentas é um ponto onde tempo e dados se perdem. A equipe gasta boa parte do dia movendo listas entre apps, conferindo contatos de novo e copiando anotações para o CRM. A venda acontece no tempo que sobra.
 
-## How the outbound sales software works
+## Como funciona o software de vendas outbound
 
-Three moves, one platform, no exports in between.
+Três passos, uma plataforma, nenhuma exportação no meio.
 
-**Source live.** You define your ideal customer, and hubsell sources contacts live from LinkedIn the day you ask, matched to your criteria and verified at the point of use. You pay for a contact that is correct today, not for a list captured two years ago. This is the [lead generation](/use-cases/lead-generation) layer.
+**Busque em tempo real.** Você define o seu cliente ideal, e a hubsell busca contatos em tempo real no LinkedIn no dia em que você pede, alinhados aos seus critérios e verificados no momento do uso. Você paga por um contato correto hoje, não por uma lista capturada há dois anos. Esta é a camada de [geração de leads](/pt/use-cases/lead-generation).
 
-**Reach out across channels.** Email and LinkedIn run as a single coordinated flow, with branching that routes each contact based on what they do. That is the [multichannel outreach](/use-cases/multichannel-outreach) layer, built in rather than bolted on.
+**Aborde em vários canais.** E-mail e LinkedIn rodam como um único Flow coordenado, com ramificações que direcionam cada contato conforme o que ele faz. Esta é a camada de [prospecção multicanal](/pt/use-cases/multichannel-outreach), integrada desde o início, não adicionada depois.
 
-**Sync to your CRM.** Every send, open, reply, and connection logs to Salesforce, HubSpot, or Pipedrive on its own. No manual entry, no data rot, no reps working from a stale pipeline.
+**Sincronize com o seu CRM.** Cada envio, abertura, resposta e conexão é registrado no Salesforce, no HubSpot ou no Pipedrive automaticamente. Sem digitação manual, sem dados apodrecendo, sem vendedores trabalhando com um pipeline desatualizado.
 
-## What changes for your team
+## O que muda para a sua equipe
 
-Reps stop switching tabs and stop cleaning data, so more of the day goes to conversations that move pipeline. The stack gets smaller too: most teams that move to hubsell drop two to three tool subscriptions within the first month, and the one thing hubsell does not replace, your CRM, it keeps in sync instead. To see the whole [outbound sales platform](/) at work, start on the homepage.
+A equipe para de trocar de aba e de limpar dados, então uma parte maior do dia vai para conversas que fazem o pipeline avançar. A stack também fica menor: a maioria das equipes que migram para a hubsell cancela duas ou três assinaturas de ferramentas já no primeiro mês, e a única coisa que a hubsell não substitui, o seu CRM, ela mantém sincronizada. Para ver toda a [plataforma de vendas outbound](/pt/) em ação, comece pela página inicial.
