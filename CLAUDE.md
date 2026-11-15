@@ -5,8 +5,8 @@ Guidance for Claude Code when working in this repo.
 ## What this is
 
 `hubsell-website` is the marketing site for hubsell.com, rebuilt from Webflow onto
-Astro (static output) and deployed to Cloudflare Pages. It also serves `/de/` and
-`/nl/` locale versions and a set of content collections (blog, glossary, knowledge
+Astro (static output) and deployed to Cloudflare Pages. It also serves `/de/`, `/nl/`,
+`/fr/`, `/es/` and `/pt/` locale versions and a set of content collections (blog, glossary, knowledge
 center, customer stories, comparisons, use-cases).
 
 ## What hubsell sells, and to whom
@@ -115,8 +115,8 @@ a page is performing:
 - **B2C industries.** The product only works for companies selling to other
   businesses.
 - **Markets we do not sell into.** Customers are concentrated in Europe, the site is
-  localised for de and nl (planned: French from France, Spanish from Spain and Brazilian
-  Portuguese, the same variants as the app), and pricing is EUR-denominated
+  localised for de, nl, fr (France), es (Spain) and pt-BR, the same variants as the app,
+  and pricing is EUR-denominated
   at European B2B SaaS levels.
   **Target markets:** the 27 EU member states, plus the United Kingdom, Switzerland,
   Norway, the United States, Canada and Brazil (Brazil added 2026-11-12). Everything else is out of market: report it
