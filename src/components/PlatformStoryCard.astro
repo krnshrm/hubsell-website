@@ -14,7 +14,7 @@ interface Props {
   label: string;
 }
 const { L, slug, label } = Astro.props;
-const collName = L === 'de' ? 'customerstoriesDe' : L === 'nl' ? 'customerstoriesNl' : 'customerstories';
+const collName = ({ de: 'customerstoriesDe', nl: 'customerstoriesNl', fr: 'customerstoriesFr', es: 'customerstoriesEs', pt: 'customerstoriesPt' } as Record<string, string>)[L] ?? 'customerstories';
 const stories = await getCollection(collName as 'customerstories');
 const story = stories.find((s) => s.id === slug);
 const d = story?.data as any;

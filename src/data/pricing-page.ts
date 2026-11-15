@@ -4,6 +4,9 @@
 // Feature-row labels are pulled from the widget's own translations via et(), so
 // the comparison table is localized without repeating any feature wording here.
 import type { Locale } from '../i18n/ui';
+import { pricingFr } from './20261114-1030-pricing-page.fr';
+import { pricingEs } from './20261114-1030-pricing-page.es';
+import { pricingPt } from './20261114-1030-pricing-page.pt';
 
 export interface PricingFaq { q: string; a: string }
 export interface PricingPageData {
@@ -125,15 +128,15 @@ const EN: PricingPageData = {
 
 const DE: PricingPageData = {
   "title": "Preise | hubsell",
-  "metaDescription": "hubsell Preise: die Platform-Pl\u00e4ne Start, Grow und Scale sowie das Sales-Intelligence-Datenpaket. Jedes Feature im Vergleich, mit Preisen in EUR.",
+  "metaDescription": "hubsell Preise: die Platform-Tarife Start, Grow und Scale sowie das Sales-Intelligence-Datenpaket. Jedes Feature im Vergleich, mit Preisen in EUR.",
   "eyebrow": "Preise",
-  "h1Pre": "Klare Preise f\u00fcr ",
-  "h1Accent": "die gesamte GTM-Motion",
+  "h1Pre": "Klare Preise für ",
+  "h1Accent": "Ihre gesamte GTM-Motion",
   "h1Post": "",
-  "sub": "Ein Platform-Plan f\u00fcr Outreach und CRM-Sync, dazu ein Datenpaket f\u00fcr live gesourcte Kontakte. F\u00fcr jedes Team gibt es den passenden Plan.",
+  "sub": "Ein Platform-Tarif für Outreach und CRM-Sync, dazu ein Datenpaket für live recherchierte Kontakte. Wählen Sie den Tarif, der zu Ihrem Team passt.",
   "demoCta": "Demo buchen",
   "compareEyebrow": "Vergleich",
-  "compareTitle": "Jedes Feature, Plan f\u00fcr Plan",
+  "compareTitle": "Jedes Feature, Tarif für Tarif",
   "platformName": "Platform",
   "platformSub": "GTM-Orchestrierung",
   "dataName": "Datenpaket",
@@ -142,7 +145,7 @@ const DE: PricingPageData = {
   "colGrow": "Grow",
   "colScale": "Scale",
   "colPayg": "Pay as you go",
-  "colSub": "Subscription",
+  "colSub": "Abonnement",
   "scalePrice": "Individuell",
   "cat": {
     "plan": "Tarif",
@@ -150,20 +153,20 @@ const DE: PricingPageData = {
     "outreach": "Outreach",
     "crm": "CRM-Sync",
     "support": "Support und Onboarding",
-    "sourcing": "Data Sourcing",
-    "enrichment": "Enrichment und Targeting"
+    "sourcing": "Datenrecherche",
+    "enrichment": "Anreicherung und Targeting"
   },
   "planRow": "Startpreis",
-  "seatsRow": "Seats",
+  "seatsRow": "Plätze",
   "billingRow": "Abrechnung",
   "priceNote": "Preise in EUR.",
   "monthly": "Monatlich",
-  "annual": "J\u00e4hrlich",
+  "annual": "Jährlich",
   "perCredit": "/Credit",
   "perYear": "/Jahr",
-  "seatsStart": "1 Seat",
-  "seatsGrow": "Ab 3 Seats",
-  "seatsScale": "Ab 10 Seats",
+  "seatsStart": "1 Platz",
+  "seatsGrow": "Ab 3 Plätzen",
+  "seatsScale": "Ab 10 Plätzen",
   "yes": "Enthalten",
   "no": "Nicht enthalten",
   "faqEyebrow": "FAQ",
@@ -171,51 +174,51 @@ const DE: PricingPageData = {
   "faq": [
     {
       "q": "Was kostet hubsell?",
-      "a": "Die Platform startet bei 120 pro Seat und Monat mit Start. Grow kostet 4.320 pro Jahr f\u00fcr 3 Seats. Scale beginnt bei 10 Seats, den Preis gibt es mit dem Angebot. Alle Preise sind in EUR. Das Sales-Intelligence-Datenpaket wird separat berechnet."
+      "a": "Die Platform startet bei 120 pro Platz und Monat mit Start. Grow kostet 4.320 pro Jahr für 3 Plätze. Scale beginnt bei 10 Plätzen, den Preis erhalten Sie mit Ihrem Angebot. Alle Preise sind in EUR. Das Sales-Intelligence-Datenpaket wird separat berechnet."
     },
     {
       "q": "Was ist der Unterschied zwischen Start, Grow und Scale?",
-      "a": "Start ist ein Seat, monatlich abgerechnet, mit den Grundfunktionen. Grow beginnt bei 3 Seats und erg\u00e4nzt CRM-Task-Sync und ein vollst\u00e4ndiges Onboarding. Scale beginnt bei 10 Seats und erg\u00e4nzt Custom Nodes und Custom CRM-Sync."
+      "a": "Start ist ein Platz, monatlich abgerechnet, mit den Grundfunktionen. Grow beginnt bei 3 Plätzen und ergänzt den Sync von CRM-Aufgaben und ein vollständiges Onboarding. Scale beginnt bei 10 Plätzen und ergänzt Custom Nodes und Custom CRM-Sync."
     },
     {
-      "q": "Kann ich monatlich oder j\u00e4hrlich zahlen?",
-      "a": "Start wird monatlich pro Seat abgerechnet. Grow und Scale werden j\u00e4hrlich abgerechnet und beginnen bei 3 Seats."
+      "q": "Kann ich monatlich oder jährlich zahlen?",
+      "a": "Start wird monatlich pro Platz abgerechnet. Grow und Scale werden jährlich abgerechnet; Grow beginnt bei 3 Plätzen, Scale bei 10."
     },
     {
-      "q": "In welchen W\u00e4hrungen kann ich zahlen?",
-      "a": "Die Preise sind in EUR. F\u00fcr gr\u00f6\u00dfere Jahresvertr\u00e4ge k\u00f6nnen wir auch in einer anderen W\u00e4hrung anbieten; das l\u00e4sst sich in der Demo ansprechen."
+      "q": "In welchen Währungen kann ich zahlen?",
+      "a": "Die Preise sind in EUR. Für größere Jahresverträge können wir auch in einer anderen Währung anbieten; sprechen Sie uns in Ihrer Demo darauf an."
     },
     {
       "q": "Was ist das Datenpaket und wie funktionieren Credits?",
-      "a": "Es ist unser Sales-Intelligence-Produkt. Pay as you go kostet 0,125 pro Credit, oder es gibt eine Subscription für 5.000 pro Jahr mit 50.000 Credits. Jede Aktion verbraucht bei Erfolg eine feste Zahl Credits, etwa 1 für einen recherchierten Kontakt und 5 für eine validierte geschäftliche E-Mail. Pay as you go kostet pro Credit rund 25% mehr als die Subscription."
+      "a": "Es ist unser Sales-Intelligence-Produkt. Pay as you go kostet 0,125 pro Credit, oder es gibt ein Abonnement für 5.000 pro Jahr mit 50.000 Credits. Jede Aktion verbraucht bei Erfolg eine feste Zahl Credits, etwa 1 für einen recherchierten Kontakt und 5 für eine validierte geschäftliche E-Mail. Pay as you go kostet pro Credit rund 25% mehr als das Abonnement."
     },
     {
       "q": "Wie viele Credits verbraucht jede Aktion?",
-      "a": "Das Recherchieren eines Kontakts verbraucht 1 Credit, das Finden einer fehlenden LinkedIn-URL 2. Das Generieren und Validieren einer geschäftlichen E-Mail verbraucht 5, Catch-all-Domains eingeschlossen, eine Telefonnummer (Mobil oder Durchwahl) ebenfalls 5. Die Prüfung importierter E-Mails verbraucht 0,5 und zeigt, welche Adressen gültig sind; ungültige Adressen kann hubsell anschließend aktualisieren und korrigieren. Ein fehlgeschlagener Schritt kostet nichts, bereits abgeschlossene Schritte werden berechnet."
+      "a": "Das Recherchieren eines Kontakts verbraucht 1 Credit, das Finden einer fehlenden LinkedIn-URL 2. Das Generieren und Validieren einer geschäftlichen E-Mail verbraucht 5, Catch-all-Domains eingeschlossen, eine Telefonnummer (Mobil oder Durchwahl) ebenfalls 5. Die Prüfung einer E-Mail-Adresse, die Sie importieren, verbraucht 0,5 und zeigt, welche Adressen gültig sind; ungültige Adressen kann hubsell anschließend aktualisieren und korrigieren. Ein fehlgeschlagener Schritt kostet nichts, bereits abgeschlossene Schritte werden berechnet."
     },
     {
       "q": "Warum hat sich die Zahl der Credits geändert?",
-      "a": "Im Oktober 2026 hat hubsell die Credit-Skala verfeinert: Was früher 1 Credit kostete, kostet jetzt 10, und was 0,1 kostete, kostet jetzt 1. Die Preise bleiben gleich. Die Subscription enthält jetzt 50.000 statt 5.000 Credits, und Pay as you go kostet €0,125 statt €1,25 pro Credit."
+      "a": "Im Oktober 2026 hat hubsell die Credit-Skala verfeinert: Was früher 1 Credit kostete, kostet jetzt 10, und was 0,1 kostete, kostet jetzt 1. Die Preise bleiben gleich. Das Abonnement enthält jetzt 50.000 statt 5.000 Credits, und Pay as you go kostet €0,125 statt €1,25 pro Credit."
     },
     {
       "q": "Wie fange ich an?",
-      "a": "In einer Demo richten wir hubsell auf der eigenen Pipeline ein und helfen bei der Wahl des passenden Plans."
+      "a": "Buchen Sie eine Demo: Wir richten hubsell auf Ihrer eigenen Pipeline ein und helfen Ihnen bei der Wahl des passenden Tarifs."
     }
   ],
-  "closingPre": "Nicht sicher, welcher Plan ",
+  "closingPre": "Nicht sicher, welcher Tarif ",
   "closingAccent": "passt",
   "closingPost": "?",
-  "closingSub": "In einer kurzen Demo bilden wir hubsell auf die eigene Pipeline und die Teamgr\u00f6\u00dfe ab.",
+  "closingSub": "In einer kurzen Demo bilden wir hubsell auf Ihre Pipeline und Ihre Teamgröße ab.",
   "closingCta": "Demo buchen",
   "groups": {
     "workflow": "Workflow-Nodes",
     "crmsync": "CRM-Sync",
-    "datasrc": "Data Sourcing und Enrichment",
+    "datasrc": "Datenrecherche und Anreicherung",
     "support": "Support und Onboarding",
-    "comingsoon": "In K\u00fcrze"
+    "comingsoon": "In Kürze"
   },
-  "creditsNote": "Data Sourcing und Enrichment laufen \u00fcber Sales-Intelligence-Credits: \u20ac0,125 pro Credit im Pay as you go oder \u20ac5.000 pro Jahr f\u00fcr 50.000 Credits.",
-  "soonLabel": "Bald verf\u00fcgbar",
+  "creditsNote": "Datenrecherche und Anreicherung laufen über Sales-Intelligence-Credits: €0,125 pro Credit im Pay as you go oder €5.000 pro Jahr für 50.000 Credits.",
+  "soonLabel": "Bald verfügbar",
   "crumbHome": "Startseite",
   "crumbSelf": "Preise"
 };
@@ -225,9 +228,9 @@ const NL: PricingPageData = {
   "metaDescription": "hubsell prijzen: de Platform-abonnementen Start, Grow en Scale, plus het Sales Intelligence-datapakket. Vergelijk elk onderdeel, met prijzen in EUR.",
   "eyebrow": "Prijzen",
   "h1Pre": "Heldere prijzen voor ",
-  "h1Accent": "uw hele GTM-motion",
+  "h1Accent": "je hele GTM-motion",
   "h1Post": "",
-  "sub": "E\u00e9n Platform-abonnement voor outreach en CRM-sync, plus een datapakket voor live gesourcete contacten. Kies het abonnement dat bij uw team past.",
+  "sub": "Eén Platform-abonnement voor outreach en CRM-sync, plus een datapakket voor live verzamelde contacten. Kies het abonnement dat bij je team past.",
   "demoCta": "Demo plannen",
   "compareEyebrow": "Vergelijken",
   "compareTitle": "Elk onderdeel, abonnement voor abonnement",
@@ -239,7 +242,7 @@ const NL: PricingPageData = {
   "colGrow": "Grow",
   "colScale": "Scale",
   "colPayg": "Pay as you go",
-  "colSub": "Subscription",
+  "colSub": "Abonnement",
   "scalePrice": "Op maat",
   "cat": {
     "plan": "Abonnement",
@@ -247,20 +250,20 @@ const NL: PricingPageData = {
     "outreach": "Outreach",
     "crm": "CRM-sync",
     "support": "Support en onboarding",
-    "sourcing": "Data sourcing",
-    "enrichment": "Enrichment en targeting"
+    "sourcing": "Data verzamelen",
+    "enrichment": "Verrijking en targeting"
   },
   "planRow": "Startprijs",
-  "seatsRow": "Gebruikers",
+  "seatsRow": "Licenties",
   "billingRow": "Facturering",
   "priceNote": "Prijzen in EUR.",
   "monthly": "Maandelijks",
   "annual": "Jaarlijks",
   "perCredit": "/credit",
   "perYear": "/jaar",
-  "seatsStart": "1 gebruiker",
-  "seatsGrow": "Vanaf 3 gebruikers",
-  "seatsScale": "Vanaf 10 gebruikers",
+  "seatsStart": "1 licentie",
+  "seatsGrow": "Vanaf 3 licenties",
+  "seatsScale": "Vanaf 10 licenties",
   "yes": "Inbegrepen",
   "no": "Niet inbegrepen",
   "faqEyebrow": "FAQ",
@@ -268,50 +271,50 @@ const NL: PricingPageData = {
   "faq": [
     {
       "q": "Wat kost hubsell?",
-      "a": "Het Platform begint bij 120 per gebruiker per maand met Start. Grow kost 4.320 per jaar voor 3 gebruikers. Scale begint bij 10 gebruikers en de prijs staat in uw offerte. Alle prijzen zijn in EUR. Het Sales Intelligence-datapakket wordt apart gefactureerd."
+      "a": "Het Platform begint bij 120 per licentie per maand met Start. Grow kost 4.320 per jaar voor 3 licenties. Scale begint bij 10 licenties en de prijs staat in je offerte. Alle prijzen zijn in EUR. Het Sales Intelligence-datapakket wordt apart gefactureerd."
     },
     {
       "q": "Wat is het verschil tussen Start, Grow en Scale?",
-      "a": "Start is \u00e9\u00e9n gebruiker, maandelijks gefactureerd, met de basis. Grow begint bij 3 gebruikers en voegt CRM-tasksync en volledige onboarding toe. Scale begint bij 10 gebruikers en voegt custom nodes en custom CRM-sync toe."
+      "a": "Start is één licentie, maandelijks gefactureerd, met de basis. Grow begint bij 3 licenties en voegt de sync van CRM-taken en volledige onboarding toe. Scale begint bij 10 licenties en voegt custom nodes en custom CRM-sync toe."
     },
     {
       "q": "Kan ik maandelijks of jaarlijks betalen?",
-      "a": "Start wordt maandelijks per gebruiker gefactureerd. Grow en Scale worden jaarlijks gefactureerd en beginnen bij 3 gebruikers."
+      "a": "Start wordt maandelijks per licentie gefactureerd. Grow en Scale worden jaarlijks gefactureerd; Grow begint bij 3 licenties, Scale bij 10."
     },
     {
       "q": "In welke valuta kan ik betalen?",
-      "a": "De prijzen zijn in EUR. Voor grotere jaarcontracten kunnen we een offerte in een andere valuta maken; vraag ernaar tijdens uw demo."
+      "a": "De prijzen zijn in EUR. Voor grotere jaarcontracten kunnen we een offerte in een andere valuta maken; vraag ernaar tijdens je demo."
     },
     {
       "q": "Wat is het datapakket en hoe werken credits?",
-      "a": "Het is ons Sales Intelligence-product. Pay as you go kost 0,125 per credit, of u neemt een subscription voor 5.000 per jaar met 50.000 credits. Elke actie verbruikt bij succes een vast aantal credits, bijvoorbeeld 1 voor een verzameld contact en 5 voor een gevalideerd zakelijk e-mailadres. Pay as you go kost per credit ongeveer 25% meer dan de subscription."
+      "a": "Het is ons Sales Intelligence-product. Pay as you go kost 0,125 per credit, of je neemt een abonnement voor 5.000 per jaar met 50.000 credits. Elke actie verbruikt bij succes een vast aantal credits, bijvoorbeeld 1 voor een verzameld contact en 5 voor een gevalideerd zakelijk e-mailadres. Pay as you go kost per credit ongeveer 25% meer dan de subscription."
     },
     {
       "q": "Hoeveel credits verbruikt elke actie?",
-      "a": "Een contact verzamelen verbruikt 1 credit, een ontbrekende LinkedIn-URL vinden 2. Een zakelijk e-mailadres genereren en valideren verbruikt 5, catch-all-domeinen inbegrepen, en een telefoonnummer (mobiel of direct) ook 5. Geïmporteerde e-mailadressen controleren verbruikt 0,5 en laat zien welke adressen geldig zijn; ongeldige adressen kan hubsell daarna bijwerken en corrigeren. Een mislukte stap kost niets, stappen die al zijn afgerond worden gerekend."
+      "a": "Een contact verzamelen verbruikt 1 credit, een ontbrekende LinkedIn-URL vinden 2. Een zakelijk e-mailadres genereren en valideren verbruikt 5, catch-all-domeinen inbegrepen, en een telefoonnummer (mobiel of direct) ook 5. Een e-mailadres controleren dat je importeert verbruikt 0,5 en laat zien welke adressen geldig zijn; ongeldige adressen kan hubsell daarna bijwerken en corrigeren. Een mislukte stap kost niets, stappen die al zijn afgerond worden gerekend."
     },
     {
       "q": "Waarom is het aantal credits veranderd?",
-      "a": "In oktober 2026 heeft hubsell de creditschaal verfijnd: wat vroeger 1 credit kostte, kost nu 10, en wat 0,1 kostte, kost nu 1. De prijzen blijven gelijk. De subscription bevat nu 50.000 in plaats van 5.000 credits, en pay as you go kost €0,125 in plaats van €1,25 per credit."
+      "a": "In oktober 2026 heeft hubsell de creditschaal verfijnd: wat vroeger 1 credit kostte, kost nu 10, en wat 0,1 kostte, kost nu 1. De prijzen blijven gelijk. Het abonnement bevat nu 50.000 in plaats van 5.000 credits, en pay as you go kost €0,125 in plaats van €1,25 per credit."
     },
     {
       "q": "Hoe ga ik van start?",
-      "a": "Plan een demo en we zetten hubsell op uw eigen pipeline en helpen u het passende abonnement te kiezen."
+      "a": "Plan een demo en we zetten hubsell op je eigen pipeline en helpen je het passende abonnement te kiezen."
     }
   ],
   "closingPre": "Niet zeker welk abonnement ",
   "closingAccent": "past",
   "closingPost": "?",
-  "closingSub": "Plan een korte demo en we leggen hubsell over uw pipeline en teamgrootte.",
+  "closingSub": "Plan een korte demo en we leggen hubsell over je pipeline en teamgrootte.",
   "closingCta": "Demo plannen",
   "groups": {
     "workflow": "Workflow-nodes",
     "crmsync": "CRM-sync",
-    "datasrc": "Data sourcing en enrichment",
+    "datasrc": "Data verzamelen en verrijken",
     "support": "Support en onboarding",
     "comingsoon": "Binnenkort"
   },
-  "creditsNote": "Data sourcing en enrichment draaien op Sales Intelligence-credits: \u20ac0,125 per credit met pay as you go, of \u20ac5.000 per jaar voor 50.000 credits.",
+  "creditsNote": "Data verzamelen en verrijken draaien op Sales Intelligence-credits: €0,125 per credit met pay as you go, of €5.000 per jaar voor 50.000 credits.",
   "soonLabel": "Binnenkort",
   "crumbHome": "Home",
   "crumbSelf": "Prijzen"
@@ -320,5 +323,8 @@ const NL: PricingPageData = {
 export function getPricingPage(L: Locale): PricingPageData {
   if (L === 'de') return DE;
   if (L === 'nl') return NL;
+  if (L === 'fr') return pricingFr;
+  if (L === 'es') return pricingEs;
+  if (L === 'pt') return pricingPt;
   return EN;
 }

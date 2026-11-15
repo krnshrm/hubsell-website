@@ -1,7 +1,7 @@
 ---
 term: "Cadans"
 category: "Outbound en e-mail"
-definition: "Een cadans is het schema en ritme van outreach-touches over kanalen heen, en bepaalt hoe vaak en via welke kanalen u een prospect benadert."
+definition: "Een cadans is het schema en ritme van outreach-touches over kanalen heen, en bepaalt hoe vaak en via welke kanalen je een prospect benadert."
 related:
   - email-sequence
   - multichannel-outreach
@@ -12,7 +12,7 @@ updated: "juli 2026"
 
 ## Waarom het belangrijk is
 
-De cadans bepaalt of opvolging volhardend of vervelend aanvoelt. Het juiste ritme houdt u aanwezig zonder de prospect te verdringen, en touches over kanalen spreiden bereikt mensen waar ze reageren. Een zwakke cadans geeft óf te vroeg op en laat reacties liggen, óf legt te snel op en wordt gedempt.
+De cadans bepaalt of opvolging volhardend of vervelend aanvoelt. Het juiste ritme houdt je aanwezig zonder de prospect te verdringen, en touches over kanalen spreiden bereikt mensen waar ze reageren. Een zwakke cadans geeft óf te vroeg op en laat reacties liggen, óf legt te snel op en wordt gedempt.
 
 ## Hoe het in de praktijk werkt
 

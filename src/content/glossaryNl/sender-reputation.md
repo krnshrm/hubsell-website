@@ -1,7 +1,7 @@
 ---
 term: "Afzenderreputatie"
 category: "Deliverability"
-definition: "Afzenderreputatie is de score die mailboxproviders toekennen aan uw verzenddomein en IP, op basis van uw historie, die bepaalt of uw mail de inbox bereikt."
+definition: "Afzenderreputatie is de score die mailboxproviders toekennen aan je verzenddomein en IP, op basis van je historie, die bepaalt of je mail de inbox bereikt."
 related:
   - email-deliverability
   - domain-warmup
@@ -24,4 +24,4 @@ De veelgemaakte fout is reputatie als vast behandelen in plaats van elke dag ver
 
 ## Hoe hubsell het aanpakt
 
-hubsell beschermt afzenderreputatie door contacten vóór verzending te valideren, catch-all-domeinen te markeren en het volume binnen veilige limieten over verzendprofielen te spreiden, zodat de score gezond blijft terwijl u schaalt.
+hubsell beschermt afzenderreputatie door contacten vóór verzending te valideren, catch-all-domeinen te markeren en het volume binnen veilige limieten over verzendprofielen te spreiden, zodat de score gezond blijft terwijl je schaalt.

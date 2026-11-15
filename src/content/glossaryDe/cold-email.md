@@ -1,7 +1,7 @@
 ---
 term: "Cold E-Mail"
 category: "Outbound und E-Mail"
-definition: "Eine Cold E-Mail ist eine unaufgeforderte Nachricht an einen Interessenten ohne vorherige Beziehung, um ein geschäftliches Gespräch zu beginnen."
+definition: "Eine Cold E-Mail ist eine unaufgeforderte Nachricht an einen Interessenten, zu dem Sie keine vorherige Beziehung haben, um ein geschäftliches Gespräch zu beginnen."
 related:
   - outbound-sales
   - email-sequence
@@ -12,7 +12,7 @@ updated: "Juli 2026"
 
 ## Warum es wichtig ist
 
-Cold E-Mail ist das Rückgrat der meisten Outbound-Programme, weil sie skaliert und messbar ist. Gut gemacht öffnet sie Gespräche mit Accounts, die zum Profil passen und von selbst nie auf das Unternehmen gestoßen wären. Schlecht gemacht bounct sie, verärgert Menschen und verbrennt die Sende-Domain. Der Unterschied liegt in Datenqualität und Relevanz.
+Cold E-Mail ist das Rückgrat der meisten Outbound-Programme, weil sie skaliert und messbar ist. Gut gemacht öffnet sie Gespräche mit Accounts, die zu Ihrem Profil passen und von selbst nie auf Sie gestoßen wären. Schlecht gemacht bounct sie, verärgert Menschen und verbrennt die Sende-Domain. Der Unterschied liegt in Datenqualität und Relevanz.
 
 ## Wie es in der Praxis funktioniert
 
@@ -24,4 +24,4 @@ Der größte Fehler ist, hohe Mengen auf unverifizierten Daten zu senden, was bo
 
 ## Wie hubsell es angeht
 
-hubsell verbindet verifizierte Kontakte mit koordinierten E-Mail- und LinkedIn-Schritten, sodass Cold E-Mail an Adressen geht, die heute korrekt sind, und in einer Sequenz sitzt statt als einmaliger Blast.
+hubsell verbindet verifizierte Kontakte mit koordinierten E-Mail- und LinkedIn-Schritten, sodass Cold E-Mail an Adressen geht, die heute korrekt sind, und in einem Flow sitzt statt als einmaliger Blast.

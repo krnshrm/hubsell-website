@@ -9,9 +9,8 @@ import { asLocale } from '../i18n/utils';
 const L = asLocale(Astro.currentLocale);
 const { s } = getHome(L);
 
-// German is third person with a lowercase "hubsell": the sentences after the
-// first drop the subject, which stays clear because the first names hubsell.
-// Dutch is formal (u).
+// German is formal (Sie), as in the app, with a lowercase "hubsell".
+// Dutch is informal (je), as in the app.
 const COPY = {
   en: {
     kw: 'Outbound sales platform',
@@ -22,14 +21,32 @@ const COPY = {
   de: {
     kw: 'Outbound-Vertriebsplattform',
     h1a: ['', 'Mehr Pipeline', ' erzeugen,'], h1b: ['mit ', 'weniger Kontakten', '.'],
-    sub: 'hubsell ist eine Outbound-Vertriebsplattform, die dieselben Termine mit 50-mal weniger Kontakten bucht. Startet mit einem LinkedIn-Beitrag, einem Event, einer Suche oder einer eigenen Liste. Qualifiziert die Kontakte, findet verifizierte Kontaktdaten und steuert LinkedIn, E-Mail und Anrufaufgaben in einem Flow, der alles ins CRM zurückschreibt.',
+    sub: 'hubsell ist eine Outbound-Vertriebsplattform, die dieselben Termine mit 50-mal weniger Kontakten bucht. Starten Sie mit einem LinkedIn-Beitrag, einem Event, einer Suche oder Ihrer eigenen Liste. hubsell qualifiziert die Kontakte, findet verifizierte Kontaktdaten und steuert LinkedIn, E-Mail und Anrufaufgaben in einem Flow, der alles in Ihr CRM zurückschreibt.',
     see: 'Demo unten ansehen',
   },
   nl: {
     kw: 'Outbound salesplatform',
     h1a: ['', 'Meer pipeline', ' genereren,'], h1b: ['met ', 'minder prospects', '.'],
-    sub: 'hubsell is een outbound salesplatform dat dezelfde afspraken boekt met 50 keer minder prospects. Begin met een LinkedIn-post, een event, een zoekopdracht of uw eigen lijst. hubsell kwalificeert ze, vindt geverifieerde contactgegevens en voert LinkedIn, e-mail en beltaken uit in één flow die alles terugschrijft naar uw CRM.',
+    sub: 'hubsell is een outbound salesplatform dat dezelfde afspraken boekt met 50 keer minder prospects. Begin met een LinkedIn-post, een event, een zoekopdracht of je eigen lijst. hubsell kwalificeert ze, vindt geverifieerde contactgegevens en voert LinkedIn, e-mail en beltaken uit in één flow die alles terugschrijft naar je CRM.',
     see: 'Bekijk de demo hieronder',
+  },
+  fr: {
+    kw: 'Plateforme de prospection outbound',
+    h1a: ['Générez ', 'plus de pipeline', ','], h1b: ['en ciblant ', 'moins de prospects', '.'],
+    sub: "hubsell est une plateforme de prospection outbound qui obtient les mêmes rendez-vous en contactant 50 fois moins de personnes. Partez d'un post LinkedIn, d'un événement, d'une recherche ou de votre propre liste. hubsell qualifie ces personnes, trouve des coordonnées vérifiées et pilote LinkedIn, l'e-mail et les tâches d'appel dans un seul Flow qui renvoie tout dans votre CRM.",
+    see: 'Voir la démo ci-dessous',
+  },
+  es: {
+    kw: 'Plataforma de ventas outbound',
+    h1a: ['Genera ', 'más pipeline', ','], h1b: ['con ', 'menos prospectos', '.'],
+    sub: 'hubsell es una plataforma de ventas outbound que consigue las mismas reuniones contactando con 50 veces menos personas. Parte de un post de LinkedIn, un evento, una búsqueda o tu propia lista. hubsell las cualifica, encuentra datos de contacto verificados y gestiona LinkedIn, email y tareas de llamada en un único Flow que lo registra todo en tu CRM.',
+    see: 'Mira la demo más abajo',
+  },
+  pt: {
+    kw: 'Plataforma de vendas outbound',
+    h1a: ['Gere ', 'mais pipeline', ','], h1b: ['com ', 'menos prospects', '.'],
+    sub: 'A hubsell é uma plataforma de vendas outbound que marca as mesmas reuniões abordando 50 vezes menos pessoas. Comece por um post no LinkedIn, um evento, uma pesquisa ou a sua própria lista. A hubsell qualifica essas pessoas, encontra dados de contato verificados e conduz LinkedIn, e-mail e tarefas de ligação em um só Flow que registra tudo no seu CRM.',
+    see: 'Veja a demo abaixo',
   },
 };
 const T = COPY[L as keyof typeof COPY] ?? COPY.en;

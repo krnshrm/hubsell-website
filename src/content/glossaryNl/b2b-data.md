@@ -12,7 +12,7 @@ updated: "juli 2026"
 
 ## Waarom het belangrijk is
 
-Elke outbound-motie draait op B2B-data. De namen, functies, e-mailadressen, telefoonnummers en bedrijfsgegevens bepalen wie u bereikt en of het bericht aankomt. Als de data fout is, missen ook de beste tekst en de beste timing hun doel. Goede data is het verschil tussen een campagne die meetings boekt en een die in de spam belandt.
+Elke outbound-motie draait op B2B-data. De namen, functies, e-mailadressen, telefoonnummers en bedrijfsgegevens bepalen wie je bereikt en of het bericht aankomt. Als de data fout is, missen ook de beste tekst en de beste timing hun doel. Goede data is het verschil tussen een campagne die meetings boekt en een die in de spam belandt.
 
 ## Hoe het in de praktijk werkt
 
@@ -24,4 +24,4 @@ De meest voorkomende fout is B2B-data behandelen als een eenmalige aankoop. Mens
 
 ## Hoe hubsell het aanpakt
 
-hubsell verkoopt geen toegang tot een statische database. hubsell verzamelt contacten live, op de dag dat u erom vraagt, afgestemd op uw ICP, en valideert elk contact op het moment van gebruik. U betaalt voor een contact dat vandaag klopt, niet voor een record dat twee jaar geleden is vastgelegd.
+hubsell verkoopt geen toegang tot een statische database. hubsell verzamelt contacten live, op de dag dat je erom vraagt, afgestemd op je ICP, en valideert elk contact op het moment van gebruik. Je betaalt voor een contact dat vandaag klopt, niet voor een record dat twee jaar geleden is vastgelegd.

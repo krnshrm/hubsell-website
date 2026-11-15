@@ -24,4 +24,4 @@ De grootste fout is hygiëne behandelen als een eenmalige opschoning in plaats v
 
 ## Hoe hubsell het aanpakt
 
-Omdat hubsell contacten op het moment van gebruik valideert, wordt veel hygiënewerk nooit nodig: de data die uw workflow binnenkomt is al gecontroleerd, dus er is verderop minder op te schonen.
+Omdat hubsell contacten op het moment van gebruik valideert, wordt veel hygiënewerk nooit nodig: de data die je workflow binnenkomt is al gecontroleerd, dus er is verderop minder op te schonen.

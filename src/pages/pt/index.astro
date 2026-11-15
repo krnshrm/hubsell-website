@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import { softwareApplicationSchema } from '../../data/seo';
+import { getHome } from '../../data/home-i18n';
+import HeroScene from '../../components/HeroScene.astro';
+import CustomerLogos from '../../components/CustomerLogos.astro';
+import VolumeVsPrecision from '../../components/VolumeVsPrecision.astro';
+import Comparison from '../../components/Comparison.astro';
+import ZeroDaySourcing from '../../components/ZeroDaySourcing.astro';
+import RatingsStrip from '../../components/RatingsStrip.astro';
+import Pricing from '../../components/Pricing.astro';
+// import UseCases from '../../components/UseCases.astro';  // hidden until its pages ship
+// import Features from '../../components/Features.astro';  // hidden until its pages ship
+import Testimonials from '../../components/Testimonials.astro';
+// import PublishTrackBeta from '../../components/PublishTrackBeta.astro';  // hidden until its pages ship
+import Faq from '../../components/Faq.astro';
+import Insights from '../../components/Insights.astro';
+
+// Brazilian Portuguese homepage. Same section rhythm as the English home; each section reads
+// Astro.currentLocale (='pt' from the /pt/ path) and renders its Portuguese copy via
+// src/data/home-i18n.ts (20261114-1030-home.pt.ts). The pricing table and animated
+// product embeds pull their Portuguese labels from 20261114-1030-embed.pt.ts.
+//
+// Title and description name all three channels (e-mail, LinkedIn,
+// ligações) because the page body does too, see the matching note in
+// src/pages/index.astro. The FAQPage schema is built from the same Portuguese
+// `faqs` the Faq component renders on this route, so it always matches what
+// a visitor actually sees.
+const stripHtml = (s: string) => s.replace(/<[^>]+>/g, '').trim();
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: getHome('pt').faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: stripHtml(f.answer) },
+  })),
+};
+---
+<BaseLayout title="Plataforma outbound com dados B2B em tempo real | hubsell" description="Comece por um post no LinkedIn, um evento, uma pesquisa ou uma lista: a hubsell qualifica, verifica os dados de contato e conduz LinkedIn, e-mail e ligações.">
+  <JsonLd slot="head" schema={[softwareApplicationSchema, faqSchema]} />
+  {/* Order follows how a buyer decides: see it working, why fewer prospects
+      works, why the data is fresh, why not the alternatives, who uses it, what
+      it costs, what is left to ask. FragmentedStack and PipelineSteps were
+      taken off the homepage on 2026-10-13 (the comparison and the hero demo
+      cover them) and are kept for other pages. */}
+  {/*  1 */}<HeroScene />
+  {/*  2 */}<CustomerLogos />
+  {/*  3 */}<VolumeVsPrecision />
+  {/*  4 */}<ZeroDaySourcing />
+  {/*  5 */}<Comparison />
+  {/*  6 */}<Testimonials />
+  {/*  7 */}<RatingsStrip />
+  {/*  8 */}<Pricing />
+  {/*  9 */}<Faq />
+  {/* 10 */}<Insights />
+  {/* <UseCases /> hidden until its pages ship */}
+  {/* <Features /> hidden until its pages ship */}
+  {/* <PublishTrackBeta /> hidden until its pages ship */}
+</BaseLayout>

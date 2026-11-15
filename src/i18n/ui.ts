@@ -4,15 +4,19 @@
 // translate the pages. House rule: the brand is always written "hubsell" in
 // lower case, except inside a line that is entirely upper case.
 
+import { uiFr } from './20261114-1030-ui.fr';
+import { uiEs } from './20261114-1030-ui.es';
+import { uiPt } from './20261114-1030-ui.pt';
+
 export const locales = ['en', 'de', 'nl', 'fr', 'es', 'pt'] as const;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = 'en';
 
-// Which locales appear in the language switcher (TopBar). fr/es/pt are parked
-// until their translations are done, they stay in `locales` (type + fallback)
-// but are hidden from the UI. Add a locale here when it's ready to be offered.
-// de is live; nl shows as a greyed "Soon" until it has translatedRoutes.
-export const switcherLocales: Locale[] = ['en', 'de', 'nl'];
+// Which locales appear in the language switcher (TopBar). Add a locale here when
+// it's ready to be offered; until then it stays in `locales` (type + fallback)
+// but is hidden from the UI.
+// de and nl are live; fr, es and pt are offered on their core pages (translatedRoutes).
+export const switcherLocales: Locale[] = ['en', 'de', 'nl', 'fr', 'es', 'pt'];
 
 // Shown in the language switcher, each name in its own language.
 export const localeNames: Record<Locale, string> = {
@@ -21,7 +25,31 @@ export const localeNames: Record<Locale, string> = {
   nl: 'Nederlands',
   fr: 'Français',
   es: 'Español',
-  pt: 'Português',
+  pt: 'Português (Brasil)',
+};
+
+// Language tags for search engines: <html lang>, hreflang and JSON-LD inLanguage.
+// fr and es stay without a region on purpose, so French speakers in Belgium,
+// Switzerland or Canada and Spanish speakers outside Spain still match the page.
+// pt is Brazilian Portuguese (spelling and words differ from Portugal), so it says so.
+export const langTags: Record<Locale, string> = {
+  en: 'en',
+  de: 'de',
+  nl: 'nl',
+  fr: 'fr',
+  es: 'es',
+  pt: 'pt-BR',
+};
+
+// Open Graph wants language_TERRITORY. English is en_GB because the site is
+// written in British English.
+export const ogLocales: Record<Locale, string> = {
+  en: 'en_GB',
+  de: 'de_DE',
+  nl: 'nl_NL',
+  fr: 'fr_FR',
+  es: 'es_ES',
+  pt: 'pt_BR',
 };
 
 // Which non-default locales have a REAL translated page at a given base path
@@ -201,12 +229,35 @@ export const translatedRoutes: Partial<Record<Locale, string[]>> = {
     '/glossary/schema-markup',
     '/glossary/llms-txt',
   ],
-  // fr: [], es: [], pt: [],
+  // French: core pages first (HUB-607); the rest falls back to English.
+  fr: ['/', '/contact', '/book-a-call', '/pricing', '/faqs', '/hubsell-reviews', '/ai-information-page',
+    '/platform', '/platform/live-data', '/platform/multichannel-outreach', '/platform/crm-sync', '/platform/deliverability', '/platform/personalisation', '/platform/enrichment', '/integrations',
+    '/solutions', '/solutions/team/sales-teams', '/solutions/team/agencies', '/solutions/team/revops', '/solutions/team/founders', '/solutions/role/sdr', '/solutions/role/sales-leader', '/solutions/role/marketing', '/solutions/role/sales-operations',
+    '/use-cases', '/use-cases/outbound-sales', '/use-cases/lead-generation', '/use-cases/multichannel-outreach', '/use-cases/account-based-outreach',
+    '/comparisons', '/vs/apollo', '/vs/zoominfo', '/vs/cognism', '/vs/lusha', '/vs/seamless',
+    '/customerstories', '/customerstories/safran', '/customerstories/staffbase', '/customerstories/verhaert', '/customerstories/elium', '/customerstories/workspace365', '/customerstories/sensolus',
+    '/glossary', '/glossary/ab-testing', '/glossary/account-executive', '/glossary/aeo', '/glossary/attribution', '/glossary/b2b-data', '/glossary/bdr', '/glossary/blocklist', '/glossary/bounce-rate', '/glossary/buying-signal', '/glossary/cac', '/glossary/cadence', '/glossary/catch-all-domain', '/glossary/cold-email', '/glossary/conversion-rate', '/glossary/cost-per-lead', '/glossary/crm', '/glossary/crm-sync', '/glossary/data-decay', '/glossary/data-enrichment', '/glossary/data-hygiene', '/glossary/data-processing-agreement', '/glossary/data-provider', '/glossary/dkim', '/glossary/dmarc', '/glossary/domain-warmup', '/glossary/email-deliverability', '/glossary/email-sequence', '/glossary/email-verification', '/glossary/firmographic-data', '/glossary/gdpr', '/glossary/geo', '/glossary/ideal-customer-profile', '/glossary/inbox-placement', '/glossary/intent-data', '/glossary/lead-scoring', '/glossary/legitimate-interest', '/glossary/llms-txt', '/glossary/mql', '/glossary/multichannel-outreach', '/glossary/open-rate', '/glossary/opt-in-vs-opt-out', '/glossary/outbound-sales', '/glossary/personalization-at-scale', '/glossary/pii', '/glossary/pipeline', '/glossary/reply-rate', '/glossary/revops', '/glossary/revops-manager', '/glossary/sales-engagement', '/glossary/sales-operations', '/glossary/sales-pipeline-stages', '/glossary/sales-trigger', '/glossary/schema-markup', '/glossary/sdr', '/glossary/sender-reputation', '/glossary/seo', '/glossary/spam-trap', '/glossary/spf', '/glossary/sql', '/glossary/sub-processor', '/glossary/technographic-data', '/glossary/total-addressable-market', '/glossary/two-way-sync', '/glossary/verified-at-source-data', '/glossary/waterfall-enrichment', '/glossary/win-rate'],
+  // Spanish and Brazilian Portuguese: the same core pages (HUB-607).
+  es: ['/', '/contact', '/book-a-call', '/pricing', '/faqs', '/hubsell-reviews', '/ai-information-page',
+    '/platform', '/platform/live-data', '/platform/multichannel-outreach', '/platform/crm-sync', '/platform/deliverability', '/platform/personalisation', '/platform/enrichment', '/integrations',
+    '/solutions', '/solutions/team/sales-teams', '/solutions/team/agencies', '/solutions/team/revops', '/solutions/team/founders', '/solutions/role/sdr', '/solutions/role/sales-leader', '/solutions/role/marketing', '/solutions/role/sales-operations',
+    '/use-cases', '/use-cases/outbound-sales', '/use-cases/lead-generation', '/use-cases/multichannel-outreach', '/use-cases/account-based-outreach',
+    '/comparisons', '/vs/apollo', '/vs/zoominfo', '/vs/cognism', '/vs/lusha', '/vs/seamless',
+    '/customerstories', '/customerstories/safran', '/customerstories/staffbase', '/customerstories/verhaert', '/customerstories/elium', '/customerstories/workspace365', '/customerstories/sensolus',
+    '/glossary', '/glossary/ab-testing', '/glossary/account-executive', '/glossary/aeo', '/glossary/attribution', '/glossary/b2b-data', '/glossary/bdr', '/glossary/blocklist', '/glossary/bounce-rate', '/glossary/buying-signal', '/glossary/cac', '/glossary/cadence', '/glossary/catch-all-domain', '/glossary/cold-email', '/glossary/conversion-rate', '/glossary/cost-per-lead', '/glossary/crm', '/glossary/crm-sync', '/glossary/data-decay', '/glossary/data-enrichment', '/glossary/data-hygiene', '/glossary/data-processing-agreement', '/glossary/data-provider', '/glossary/dkim', '/glossary/dmarc', '/glossary/domain-warmup', '/glossary/email-deliverability', '/glossary/email-sequence', '/glossary/email-verification', '/glossary/firmographic-data', '/glossary/gdpr', '/glossary/geo', '/glossary/ideal-customer-profile', '/glossary/inbox-placement', '/glossary/intent-data', '/glossary/lead-scoring', '/glossary/legitimate-interest', '/glossary/llms-txt', '/glossary/mql', '/glossary/multichannel-outreach', '/glossary/open-rate', '/glossary/opt-in-vs-opt-out', '/glossary/outbound-sales', '/glossary/personalization-at-scale', '/glossary/pii', '/glossary/pipeline', '/glossary/reply-rate', '/glossary/revops', '/glossary/revops-manager', '/glossary/sales-engagement', '/glossary/sales-operations', '/glossary/sales-pipeline-stages', '/glossary/sales-trigger', '/glossary/schema-markup', '/glossary/sdr', '/glossary/sender-reputation', '/glossary/seo', '/glossary/spam-trap', '/glossary/spf', '/glossary/sql', '/glossary/sub-processor', '/glossary/technographic-data', '/glossary/total-addressable-market', '/glossary/two-way-sync', '/glossary/verified-at-source-data', '/glossary/waterfall-enrichment', '/glossary/win-rate'],
+  pt: ['/', '/contact', '/book-a-call', '/pricing', '/faqs', '/hubsell-reviews', '/ai-information-page',
+    '/platform', '/platform/live-data', '/platform/multichannel-outreach', '/platform/crm-sync', '/platform/deliverability', '/platform/personalisation', '/platform/enrichment', '/integrations',
+    '/solutions', '/solutions/team/sales-teams', '/solutions/team/agencies', '/solutions/team/revops', '/solutions/team/founders', '/solutions/role/sdr', '/solutions/role/sales-leader', '/solutions/role/marketing', '/solutions/role/sales-operations',
+    '/use-cases', '/use-cases/outbound-sales', '/use-cases/lead-generation', '/use-cases/multichannel-outreach', '/use-cases/account-based-outreach',
+    '/comparisons', '/vs/apollo', '/vs/zoominfo', '/vs/cognism', '/vs/lusha', '/vs/seamless',
+    '/customerstories', '/customerstories/safran', '/customerstories/staffbase', '/customerstories/verhaert', '/customerstories/elium', '/customerstories/workspace365', '/customerstories/sensolus',
+    '/glossary', '/glossary/ab-testing', '/glossary/account-executive', '/glossary/aeo', '/glossary/attribution', '/glossary/b2b-data', '/glossary/bdr', '/glossary/blocklist', '/glossary/bounce-rate', '/glossary/buying-signal', '/glossary/cac', '/glossary/cadence', '/glossary/catch-all-domain', '/glossary/cold-email', '/glossary/conversion-rate', '/glossary/cost-per-lead', '/glossary/crm', '/glossary/crm-sync', '/glossary/data-decay', '/glossary/data-enrichment', '/glossary/data-hygiene', '/glossary/data-processing-agreement', '/glossary/data-provider', '/glossary/dkim', '/glossary/dmarc', '/glossary/domain-warmup', '/glossary/email-deliverability', '/glossary/email-sequence', '/glossary/email-verification', '/glossary/firmographic-data', '/glossary/gdpr', '/glossary/geo', '/glossary/ideal-customer-profile', '/glossary/inbox-placement', '/glossary/intent-data', '/glossary/lead-scoring', '/glossary/legitimate-interest', '/glossary/llms-txt', '/glossary/mql', '/glossary/multichannel-outreach', '/glossary/open-rate', '/glossary/opt-in-vs-opt-out', '/glossary/outbound-sales', '/glossary/personalization-at-scale', '/glossary/pii', '/glossary/pipeline', '/glossary/reply-rate', '/glossary/revops', '/glossary/revops-manager', '/glossary/sales-engagement', '/glossary/sales-operations', '/glossary/sales-pipeline-stages', '/glossary/sales-trigger', '/glossary/schema-markup', '/glossary/sdr', '/glossary/sender-reputation', '/glossary/seo', '/glossary/spam-trap', '/glossary/spf', '/glossary/sql', '/glossary/sub-processor', '/glossary/technographic-data', '/glossary/total-addressable-market', '/glossary/two-way-sync', '/glossary/verified-at-source-data', '/glossary/waterfall-enrichment', '/glossary/win-rate'],
 };
 
 type Dict = Record<string, string>;
 
 const en: Dict = {
+  'nav.home': 'Home', // breadcrumb label for the homepage
   'nav.resources': 'Resources',
   'nav.heading.learn': 'Learn',
   'nav.heading.company': 'Company',
@@ -273,9 +324,10 @@ const en: Dict = {
   'lang.label': 'Language',
 };
 
-// German: third person, no direct address (changed from Sie on 2026-10-12). Legal labels
+// German: formal "Sie", as in the app (owner decision 2026-11-13). Legal labels
 // use the German equivalents that German visitors expect (Impressum, AGB, AVV).
 const de: Dict = {
+  'nav.home': 'Startseite',
   'nav.resources': 'Ressourcen',
   'nav.heading.learn': 'Lernen',
   'nav.heading.company': 'Unternehmen',
@@ -294,7 +346,7 @@ const de: Dict = {
   'nav.platform.crmsync': 'CRM-Sync',
   'nav.platform.deliverability': 'Deliverability',
   'nav.platform.personalization': 'Personalisierung',
-  'nav.platform.enrichment': 'Enrichment',
+  'nav.platform.enrichment': 'Anreicherung',
   'nav.platform.integrations': 'Integrationen',
   'nav.solutions': 'Lösungen',
   'nav.platform': 'Plattform',
@@ -315,7 +367,7 @@ const de: Dict = {
   'cta.pricing': 'Preise ansehen',
   'cta.login': 'Anmelden',
   'badge.soon': 'Bald',
-  'footer.tagline': 'Ein Ersatz für den ganzen Outbound-Stack. Live recherchierte Daten, E-Mail-, LinkedIn- und Telefon-Outreach und CRM-Sync auf einer Plattform.',
+  'footer.tagline': 'Ersetzen Sie Ihren Outbound-Stack. Live recherchierte Daten, E-Mail-, LinkedIn- und Telefon-Outreach und CRM-Sync auf einer Plattform.',
   'footer.heading.getstarted': 'Erste Schritte',
   'footer.heading.platform': 'Plattform',
   'footer.heading.roles': 'Rollen',
@@ -339,6 +391,7 @@ const de: Dict = {
 };
 
 const nl: Dict = {
+  'nav.home': 'Home',
   'nav.resources': 'Bronnen',
   'nav.heading.learn': 'Leren',
   'nav.heading.company': 'Bedrijf',
@@ -378,7 +431,7 @@ const nl: Dict = {
   'cta.pricing': 'Bekijk prijzen',
   'cta.login': 'Inloggen',
   'badge.soon': 'Binnenkort',
-  'footer.tagline': 'Vervang uw outbound-stack. Live verzamelde data, e-mail-, LinkedIn- en telefoon-outreach en CRM-synchronisatie op één platform.',
+  'footer.tagline': 'Vervang je outbound-stack. Live verzamelde data, e-mail-, LinkedIn- en telefoon-outreach en CRM-synchronisatie op één platform.',
   'footer.heading.getstarted': 'Aan de slag',
   'footer.heading.platform': 'Platform',
   'footer.heading.roles': 'Rollen',
@@ -401,4 +454,4 @@ const nl: Dict = {
   'lang.label': 'Taal',
 };
 
-export const ui: Partial<Record<Locale, Dict>> = { en, de, nl };
+export const ui: Partial<Record<Locale, Dict>> = { en, de, nl, fr: uiFr, es: uiEs, pt: uiPt };

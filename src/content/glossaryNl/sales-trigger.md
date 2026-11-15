@@ -20,7 +20,7 @@ Triggers zijn gebeurtenissen die uit openbare signalen worden gevolgd: financier
 
 ## Veelgemaakte fouten
 
-Een veelgemaakte fout is reageren op een trigger voor een account dat niet bij het ICP past, zodat goede timing wordt verspild aan een slechte passing. Een andere is een trage reactie, want de relevantie van een trigger vervaagt binnen dagen. Een derde is een zwak verband tussen de gebeurtenis en uw product forceren.
+Een veelgemaakte fout is reageren op een trigger voor een account dat niet bij het ICP past, zodat goede timing wordt verspild aan een slechte passing. Een andere is een trage reactie, want de relevantie van een trigger vervaagt binnen dagen. Een derde is een zwak verband tussen de gebeurtenis en je product forceren.
 
 ## Hoe hubsell het aanpakt
 

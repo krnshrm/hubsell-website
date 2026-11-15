@@ -12,7 +12,7 @@ updated: "juli 2026"
 
 ## Waarom het belangrijk is
 
-Firmografie bepaalt welke bedrijven de moeite waard zijn om na te jagen. Ze filteren een grote markt terug tot de accounts die bij uw ICP passen, zodat reps tijd besteden aan bedrijven die passen in plaats van aan wie er toevallig in de lijst staat. Zonder firmografische filtering is targeten giswerk.
+Firmografie bepaalt welke bedrijven de moeite waard zijn om na te jagen. Ze filteren een grote markt terug tot de accounts die bij je ICP passen, zodat reps tijd besteden aan bedrijven die passen in plaats van aan wie er toevallig in de lijst staat. Zonder firmografische filtering is targeten giswerk.
 
 ## Hoe het in de praktijk werkt
 
@@ -24,4 +24,4 @@ Een veelgemaakte fout is leunen op verouderde firmografie, want bedrijfsomvang e
 
 ## Hoe hubsell het aanpakt
 
-hubsell toetst contacten aan uw firmografische criteria op het moment dat u ze verzamelt, zodat de accountpassing wordt bevestigd tegen actuele bedrijfsdata in plaats van een opgeslagen momentopname.
+hubsell toetst contacten aan je firmografische criteria op het moment dat je ze verzamelt, zodat de accountpassing wordt bevestigd tegen actuele bedrijfsdata in plaats van een opgeslagen momentopname.

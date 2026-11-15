@@ -12,7 +12,7 @@ updated: "juli 2026"
 
 ## Waarom het belangrijk is
 
-Wanneer u een tool gebruikt dat uw contactdata raakt, verwacht de AVG een verwerkersovereenkomst tussen u en die leverancier. Ze definieert wat de leverancier met de data mag doen, hoe die is beschermd en wat er gebeurt als er iets misgaat. Zonder een laat het gebruik van een data- of outreach-tool op EU-persoonsgegevens een gat in uw compliance.
+Wanneer je een tool gebruikt dat je contactdata raakt, verwacht de AVG een verwerkersovereenkomst tussen je en die leverancier. Ze definieert wat de leverancier met de data mag doen, hoe die is beschermd en wat er gebeurt als er iets misgaat. Zonder een laat het gebruik van een data- of outreach-tool op EU-persoonsgegevens een gat in je compliance.
 
 ## Hoe het in de praktijk werkt
 
@@ -24,4 +24,4 @@ Een veelgemaakte fout is een leverancier gebruiken die persoonsgegevens raakt zo
 
 ## Hoe hubsell het aanpakt
 
-hubsell biedt een verwerkersovereenkomst zodat uw gebruik van het platform op EU-contactdata is gedekt, met EU-dataverwerking erachter.
+hubsell biedt een verwerkersovereenkomst zodat je gebruik van het platform op EU-contactdata is gedekt, met EU-dataverwerking erachter.

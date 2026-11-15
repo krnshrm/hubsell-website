@@ -12,7 +12,7 @@ updated: "Juli 2026"
 
 ## Warum es wichtig ist
 
-Die Wahl des Anbieters bestimmt Genauigkeit, Abdeckung und Aktualität der Daten, auf denen der Outbound läuft. Ein Anbieter mit veralteten oder dünnen Daten begrenzt, wie gut jede Kampagne überhaupt sein kann, egal wie gut der Rest des Stacks ist. Zu verstehen, wie ein Anbieter Daten beschafft und aktualisiert, ist der Unterschied zwischen verlässlichem Outreach und einer steigenden Bounce-Rate.
+Der Anbieter, den Sie wählen, bestimmt Genauigkeit, Abdeckung und Aktualität der Daten, auf denen Ihr Outbound läuft. Ein Anbieter mit veralteten oder dünnen Daten begrenzt, wie gut jede Kampagne überhaupt sein kann, egal wie gut der Rest des Stacks ist. Zu verstehen, wie ein Anbieter Daten beschafft und aktualisiert, ist der Unterschied zwischen verlässlichem Outreach und einer steigenden Bounce-Rate.
 
 ## Wie es in der Praxis funktioniert
 
@@ -24,4 +24,4 @@ Der Hauptfehler ist, allein nach Datenbankgröße zu kaufen, da eine große Date
 
 ## Wie hubsell es angeht
 
-hubsell ist ein Datenanbieter, der keine statische Datenbank verkauft. hubsell recherchiert Kontakte live und verifiziert sie am Punkt der Nutzung, sodass für Genauigkeit im Moment des Outreach bezahlt wird statt für Zugang zu einer alternden Liste.
+hubsell ist ein Datenanbieter, der keine statische Datenbank verkauft. hubsell recherchiert Kontakte live und verifiziert sie am Punkt der Nutzung, sodass Sie für Genauigkeit im Moment des Outreach bezahlen statt für Zugang zu einer alternden Liste.

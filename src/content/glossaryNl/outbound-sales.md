@@ -1,7 +1,7 @@
 ---
 term: "Outbound sales"
 category: "Outbound en e-mail"
-definition: "Outbound sales is het starten van het gesprek met potentiële kopers die u niet eerst hebben benaderd, meestal via e-mail, LinkedIn en telefoon."
+definition: "Outbound sales is het starten van het gesprek met potentiële kopers die je niet eerst hebben benaderd, meestal via e-mail, LinkedIn en telefoon."
 related:
   - multichannel-outreach
   - email-sequence
@@ -12,7 +12,7 @@ updated: "juli 2026"
 
 ## Waarom het belangrijk is
 
-Outbound geeft een team controle over zijn pipeline. In plaats van te wachten tot kopers via inbound-kanalen binnenkomen, kiest u de accounts die bij uw ICP passen en neemt u direct contact op. Dat maakt pipeline voorspelbaar en laat u nieuwe markten of segmenten bewust betreden in plaats van bij toeval. Goed gedaan is outbound een herhaalbare manier om vraag te creëren.
+Outbound geeft een team controle over zijn pipeline. In plaats van te wachten tot kopers via inbound-kanalen binnenkomen, kies je de accounts die bij je ICP passen en neemt je direct contact op. Dat maakt pipeline voorspelbaar en laat je nieuwe markten of segmenten bewust betreden in plaats van bij toeval. Goed gedaan is outbound een herhaalbare manier om vraag te creëren.
 
 ## Hoe het in de praktijk werkt
 
@@ -24,4 +24,4 @@ De grootste fout is hoge volumes versturen op data van lage kwaliteit, wat bounc
 
 ## Hoe hubsell het aanpakt
 
-hubsell draait de hele outbound-motie op één plek: live data afgestemd op uw ICP, gecoördineerde e-mail- en LinkedIn-sequenties en automatische CRM-sync, zodat de data en de outreach verbonden blijven in plaats van in aparte tools te zitten.
+hubsell draait de hele outbound-motie op één plek: live data afgestemd op je ICP, gecoördineerde e-mail- en LinkedIn-sequenties en automatische CRM-sync, zodat de data en de outreach verbonden blijven in plaats van in aparte tools te zitten.

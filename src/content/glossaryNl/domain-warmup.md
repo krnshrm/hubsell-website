@@ -1,7 +1,7 @@
 ---
 term: "Domain-warmup"
 category: "Deliverability"
-definition: "Domain-warmup is de praktijk om het verzendvolume vanaf een nieuw domein geleidelijk op te voeren om een positieve reputatie op te bouwen voordat u volledige outreach draait."
+definition: "Domain-warmup is de praktijk om het verzendvolume vanaf een nieuw domein geleidelijk op te voeren om een positieve reputatie op te bouwen voordat je volledige outreach draait."
 related:
   - sender-reputation
   - email-deliverability
@@ -12,7 +12,7 @@ updated: "juli 2026"
 
 ## Waarom het belangrijk is
 
-Een gloednieuw verzenddomein heeft geen staat van dienst, dus providers zijn er voorzichtig mee. Meteen hoog volume versturen lijkt op spam en wordt gefilterd of geblokkeerd, wat het domein beschadigt voordat het zelfs is gevestigd. Warmup verdient vertrouwen stap voor stap, zodat uw mail landt zodra u schaalt. Het overslaan is een van de snelste manieren om een domein te verbranden.
+Een gloednieuw verzenddomein heeft geen staat van dienst, dus providers zijn er voorzichtig mee. Meteen hoog volume versturen lijkt op spam en wordt gefilterd of geblokkeerd, wat het domein beschadigt voordat het zelfs is gevestigd. Warmup verdient vertrouwen stap voor stap, zodat je mail landt zodra je schaalt. Het overslaan is een van de snelste manieren om een domein te verbranden.
 
 ## Hoe het in de praktijk werkt
 

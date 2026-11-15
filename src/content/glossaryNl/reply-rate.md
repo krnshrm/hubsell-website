@@ -12,7 +12,7 @@ updated: "juli 2026"
 
 ## Waarom het belangrijk is
 
-Het reactiepercentage staat dichter bij wat werkelijk telt, een gesprek, dan openingen of klikken. Een gezond reactiepercentage betekent dat de targeting en het bericht landen bij de juiste mensen. Omdat het echte betrokkenheid weerspiegelt, is het de metriek die het waard is te optimaliseren wanneer u outreach test en verfijnt. Het beloont relevantie boven volume.
+Het reactiepercentage staat dichter bij wat werkelijk telt, een gesprek, dan openingen of klikken. Een gezond reactiepercentage betekent dat de targeting en het bericht landen bij de juiste mensen. Omdat het echte betrokkenheid weerspiegelt, is het de metriek die het waard is te optimaliseren wanneer je outreach test en verfijnt. Het beloont relevantie boven volume.
 
 ## Hoe het in de praktijk werkt
 
@@ -24,4 +24,4 @@ Een veelgemaakte fout is automatische reacties als echte tellen, wat het getal f
 
 ## Hoe hubsell het aanpakt
 
-hubsell houdt reacties per stap bij over e-mail en LinkedIn, zodat u kunt zien welke berichten gesprekken starten en verfijnt op de metriek die echte interesse weerspiegelt.
+hubsell houdt reacties per stap bij over e-mail en LinkedIn, zodat je kunt zien welke berichten gesprekken starten en verfijnt op de metriek die echte interesse weerspiegelt.

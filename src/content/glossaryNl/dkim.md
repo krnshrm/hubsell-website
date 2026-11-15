@@ -12,11 +12,11 @@ updated: "juli 2026"
 
 ## Waarom het belangrijk is
 
-DKIM laat een ontvangende server bevestigen dat een bericht echt van uw domein kwam en onderweg niet is gemanipuleerd. Dat bewijs verhoogt vertrouwen en ondersteunt inboxplaatsing. Samen met SPF en DMARC is het onderdeel van de basis die mailboxproviders nu van elke legitieme afzender verwachten, en het weglaten drukt de deliverability.
+DKIM laat een ontvangende server bevestigen dat een bericht echt van je domein kwam en onderweg niet is gemanipuleerd. Dat bewijs verhoogt vertrouwen en ondersteunt inboxplaatsing. Samen met SPF en DMARC is het onderdeel van de basis die mailboxproviders nu van elke legitieme afzender verwachten, en het weglaten drukt de deliverability.
 
 ## Hoe het in de praktijk werkt
 
-DKIM hangt aan elk bericht een handtekening, aangemaakt met een privésleutel die de afzender houdt. De bijbehorende publieke sleutel staat in uw DNS. De ontvangende server gebruikt die publieke sleutel om de handtekening te verifiëren en bevestigt zo dat het bericht authentiek en ongewijzigd is. Een geldige handtekening ondersteunt bezorging; een ontbrekende of kapotte is een negatief signaal.
+DKIM hangt aan elk bericht een handtekening, aangemaakt met een privésleutel die de afzender houdt. De bijbehorende publieke sleutel staat in je DNS. De ontvangende server gebruikt die publieke sleutel om de handtekening te verifiëren en bevestigt zo dat het bericht authentiek en ongewijzigd is. Een geldige handtekening ondersteunt bezorging; een ontbrekende of kapotte is een negatief signaal.
 
 ## Veelgemaakte fouten
 
@@ -24,4 +24,4 @@ Een veelgemaakte fout is DKIM één keer instellen en de sleutels nooit roteren 
 
 ## Hoe hubsell het aanpakt
 
-hubsell ondertekent outbound met DKIM via geauthenticeerde infrastructuur en helpt u de juiste DNS-records te publiceren, zodat uw berichten het bewijs dragen waar providers naar zoeken.
+hubsell ondertekent outbound met DKIM via geauthenticeerde infrastructuur en helpt je de juiste DNS-records te publiceren, zodat je berichten het bewijs dragen waar providers naar zoeken.

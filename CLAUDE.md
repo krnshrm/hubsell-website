@@ -115,9 +115,11 @@ a page is performing:
 - **B2C industries.** The product only works for companies selling to other
   businesses.
 - **Markets we do not sell into.** Customers are concentrated in Europe, the site is
-  localised for de and nl, and pricing is EUR-denominated at European B2B SaaS levels.
+  localised for de and nl (planned: French from France, Spanish from Spain and Brazilian
+  Portuguese, the same variants as the app), and pricing is EUR-denominated
+  at European B2B SaaS levels.
   **Target markets:** the 27 EU member states, plus the United Kingdom, Switzerland,
-  Norway, the United States and Canada. Everything else is out of market: report it
+  Norway, the United States, Canada and Brazil (Brazil added 2026-11-12). Everything else is out of market: report it
   as one total and exclude it when judging a page. The GA4 (`countryId`) and GSC
   (`country`) code lists are in `docs/20261009-1447-SITE-ANALYSIS-PLAYBOOK.md`.
 
@@ -232,9 +234,11 @@ These are not theoretical. Each one distorted a real pull on 2026-09-17.
 ```bash
 npm install
 npm run dev        # http://localhost:4321
-npm run build      # runs "prebuild" (scripts/check-email-rules.mjs) then astro build -> dist/
+npm run build      # "prebuild" (scripts/check-email-rules.mjs), astro build -> dist/, then "postbuild" (term check)
 npm run preview
 npm run check:email   # email-domain rule self-test, standalone
+npm run check:terms   # app terms and form of address in the built pages (runs after every build)
+npm run terms         # regenerate the app term list from ../hubsell-client (origin/main)
 ```
 
 `prebuild` fails the build if the installed `hs-block` version is behind what
@@ -287,33 +291,88 @@ The folder name must exactly match the camelCase collection key in the config.
 |---|---|---|---|
 | Insights (blog), 87+ posts | `insights/` | raw HTML | migrated from Webflow, English only |
 | Knowledge center | `knowledge/` | raw HTML | drafted in Confluence (space HKB), then repo is source of truth |
-| Customer stories | `customerstories/`, `…De/`, `…Nl/` | raw HTML | migrated from Webflow |
-| Comparisons (`/vs/*`) | `comparisons/`, `…De/`, `…Nl/` | named HTML sections | migrated from Webflow |
-| Use-cases | `usecases/`, `…De/`, `…Nl/` | Markdown | authored in-repo |
+| Customer stories | `customerstories/`, `…De/`, `…Nl/`, `…Fr/`, `…Es/`, `…Pt/` | raw HTML | migrated from Webflow |
+| Comparisons (`/vs/*`) | `comparisons/`, `…De/`, `…Nl/`, `…Fr/`, `…Es/`, `…Pt/` | named HTML sections | migrated from Webflow |
+| Use-cases | `usecases/`, `…De/`, `…Nl/`, `…Fr/`, `…Es/`, `…Pt/` | Markdown | authored in-repo |
 | Glossary, 66 terms | `glossary/`, `…De/`, `…Nl/` | Markdown (4 fixed H2 sections) | authored in-repo |
 
 Locale collections use the same schema and the same slugs as their English
 counterparts, in a parallel folder.
+The Fr, Es and Pt folders of customer stories, comparisons and use-cases (HUB-609)
+are still copies of the English text; their routes are not built until translated.
 
 ## Internationalisation
 
 - Astro built-in i18n. `locales: ['en','de','nl','fr','es','pt']`, `defaultLocale: 'en'`,
-  `prefixDefaultLocale: false`, `fallbackType: 'redirect'`, `fallback: { de: 'en', nl: 'en' }`.
-- Live locales: **en** (base), **de**, **nl**. `fr`/`es`/`pt` are declared but have no
-  translated routes yet, so none of their URLs are generated.
-- The blog and the legal pages stay English in every locale (served via fallback).
+  `prefixDefaultLocale: false`, `fallbackType: 'redirect'`, every locale falls back to `'en'`.
+- Live locales: **en** (base) and, with the same 109 pages each, **de**, **nl** and (since
+  2026-11-15) **fr**, **es**, **pt**: every page except the blog, the knowledge center and the
+  legal pages. A locale URL that is not in `translatedRoutes` is a redirect stub to English.
+- The blog, the knowledge center and the legal pages stay English in every locale for now
+  (served via fallback). Blog translation is postponed with no date (owner, 2026-11-15); the
+  legal pages stay English for good (owner, 2026-11-15).
 - `src/i18n/ui.ts` holds `translatedRoutes` (drives hreflang, the sitemap filter in
   `astro.config.mjs`, and the language switcher) and the chrome dictionaries.
 - Internal links go through `localizedHref(locale, '/path')`.
 - `embed-i18n.ts` keys off the exact English string; when you edit an English string
   that passes through `et()`, move the de and nl keys in the same change.
-- de: third person, no direct address (since 2026-10-13; was formal "Sie"). hubsell or
-  the team is the subject, or a "wer ..." clause, passive, or a noun phrase. A
-  subjectless verb ("Startet mit ...") only after a sentence that names hubsell, never
-  in headings or buttons. Customer quotes stay as said. Lowercase "hubsell", German
-  number and date formatting.
-  nl: formal "u"/"uw", decimal comma, specific terms kept in English (see
-  `docs/HANDOFF.md` and `docs/SITEMAP.md` for the full term lists).
+- **The website follows the app** (owner decision 2026-11-13): same form of address and the
+  same terms as hubsell-client's message files (`src/i18n/messages/<locale>/`). When in
+  doubt, ask the owner. The German and Dutch copy was rewritten to these rules on
+  2026-11-14. Customer stories are interviews and keep the customer's own words.
+- de: formal "Sie" (as in the app; replaces the third-person rule of 2026-10-13).
+  Customer quotes stay as said. Lowercase "hubsell", German number and date formatting.
+  nl: informal "je"/"jouw" (as in the app; replaces formal "u"/"uw"), decimal comma,
+  specific terms kept in English (see `docs/HANDOFF.md` and `docs/SITEMAP.md` for the
+  full term lists).
+  fr: French from France, "vous"/"votre". es: Spanish from Spain, "tú". pt: Brazilian
+  Portuguese, "você". Spelling, vocabulary and number/date formats follow those countries.
+- Formats for fr, es and pt (2026-11-13), the same as the app's `Intl` output:
+  fr: `120 €`, `4 320 €` (space as thousands separator, decimal comma), `95 %`,
+  dates as "13 juin 2026", a non-breaking space before `:` `;` `?` `!`, quotes « ».
+  es: `120 €`, `4.320 €` (decimal comma), `95 %`, dates as "13 de junio de 2026",
+  opening `¿` and `¡`.
+  pt: `€ 120`, `€ 4.320` (decimal comma), `95%`, dates as "13 de junho de 2026",
+  Brazilian spelling and words (contato, usuário, equipe, tela, arquivo, registro).
+  In all three: lowercase "hubsell", sentence case headings, plan names (Start, Grow,
+  Scale) and "Flow" stay as they are.
+- **Where fr, es and pt copy lives** (2026-11-14): one file per language and area, named
+  `20261114-1030-<area>.<locale>.ts`: in `src/data/` `home`, `faqs`, `platform`, `solutions`,
+  `pricing-page`, `integrations`, `embed` (widget texts keyed by the English text), and in
+  `src/i18n/` `ui` (navigation, footer, buttons) and `pages` (contact, book a call, FAQs,
+  reviews, use cases, comparisons, customer stories). They started as copies of the English
+  text. The getters (`getHome`, `getFaqs`, `getPlatform`, `getSolutions`, `getPricingPage`,
+  `getIntegrationsPage`, `et`, `useTranslations`, the `pages.ts` accessors) pick them up. A
+  language's page only exists once its route file is in `src/pages/<locale>/` and its path
+  is in `translatedRoutes`. de and nl keep their older files (`home.de.ts`, `EN/DE/NL` blocks).
+- **App terms** (2026-11-13): `docs/20261113-1401-APP-TERMS.md` lists the app's word for
+  each product term in all six languages. It is generated from hubsell-client's message
+  files by `npm run terms` (which terms: `scripts/20261113-1401-app-terms.config.mjs`);
+  run it again when the app's messages change. Use the word in that list. Where the
+  older term lists in `docs/HANDOFF.md` and `docs/SITEMAP.md` say something else, the
+  app's word wins.
+- **Term check:** `npm run build` ends with `scripts/20261113-1401-check-app-terms.mjs`
+  ("postbuild"), which reads the built pages under `dist/<locale>/` for words to avoid
+  (`avoid` in the config), the wrong form of address and European Portuguese. Findings
+  fail the build for the languages in `enforce` (all five translated languages since
+  2026-11-14, when the German and Dutch copy had been rewritten to "Sie" and "je"). Text that is right as
+  it is (a customer quote, a competitor's "sequence") goes into `allow` with the reason.
+  `npm run check:terms -- --pairs` also compares each translated page with its English
+  page and lists where the English uses an app term and the translation uses another
+  word; that list never fails a build.
+- **English text check:** the same script then reports text on translated pages that
+  reads as English: a sentence, title, meta description, alt or aria-label with two or
+  more common English words (the, and, your, you, with, for, our, we, is, are, to, of)
+  and none of the language's own common words. Names that stay English (plan names,
+  "Pay as you go", "Sales Intelligence", "LinkedIn") are cut out first; the lists are
+  `english` in the config. It is report only (a count per language after every build;
+  `npm run check:terms` lists the text); `npm run check:terms -- --strict-english`
+  fails on any. Expected today: 0 in every language (the pricing table's node names
+  are translated since 2026-11-15, owner decision).
+- **Language tags** (`langTags` and `ogLocales` in `src/i18n/ui.ts`): `<html lang>`,
+  hreflang, the sitemap's alternates and JSON-LD `inLanguage` use `en`, `de`, `nl`,
+  `fr`, `es` and `pt-BR` (fr and es without a region so speakers outside France and
+  Spain match too); `og:locale` uses `en_GB`, `de_DE`, `nl_NL`, `fr_FR`, `es_ES`, `pt_BR`.
 
 ## Forms and the server function
 
@@ -544,6 +603,7 @@ Notes:
 |---|---|
 | `docs/HANDOFF.md` | status, backlog, standing rules, locked decisions. The most complete single reference. |
 | `docs/SITEMAP.md` | per-page site map, migration history, full i18n term lists |
+| `docs/20261113-1401-APP-TERMS.md` | the app's word for each product term in six languages (generated, with `docs/20261113-1401-app-terms.json` for the check) |
 | `docs/20260724-1425-CODEBASE-FLOWCHART.md` | Mermaid maps of the build and render flow |
 | `docs/20260724-1520-SEARCH-CONSOLE.md` | GSC state, the 403 incident, indexing reports |
 | `docs/BOT-PROTECTION.md` | honeypot, fill time, Turnstile, Cloudflare bot settings |

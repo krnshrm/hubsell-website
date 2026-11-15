@@ -1,7 +1,7 @@
 ---
 term: "E-mailvalidatie"
 category: "Data en enrichment"
-definition: "E-mailvalidatie is het controleren of een e-mailadres geldig is en mail kan ontvangen voordat u ernaar verstuurt."
+definition: "E-mailvalidatie is het controleren of een e-mailadres geldig is en mail kan ontvangen voordat je ernaar verstuurt."
 related:
   - catch-all-domain
   - email-deliverability
@@ -12,7 +12,7 @@ updated: "juli 2026"
 
 ## Waarom het belangrijk is
 
-Naar ongeldige adressen versturen veroorzaakt bounces, en een hoog bouncepercentage schaadt uw afzenderreputatie, wat vervolgens ook de bezorging aan goede adressen raakt. Validatie beschermt die reputatie door slechte adressen er eerst uit te filteren. Het is een van de goedkoopste manieren om een outbound-programma gezond te houden, en de kosten liggen ver onder de schade van een bouncepiek.
+Naar ongeldige adressen versturen veroorzaakt bounces, en een hoog bouncepercentage schaadt je afzenderreputatie, wat vervolgens ook de bezorging aan goede adressen raakt. Validatie beschermt die reputatie door slechte adressen er eerst uit te filteren. Het is een van de goedkoopste manieren om een outbound-programma gezond te houden, en de kosten liggen ver onder de schade van een bouncepiek.
 
 ## Hoe het in de praktijk werkt
 

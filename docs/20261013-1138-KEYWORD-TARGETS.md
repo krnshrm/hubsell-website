@@ -245,6 +245,27 @@ Check against `/de/` pages and the whole site. On 2026-10-13 the `/de/` pages go
 | J5 | Kontaktdaten | b2b kontaktdaten, b2b adressen kaufen, firmenkontakte datenbank | `/de/platform/enrichment` | 2 |
 | J6 | Neukundengewinnung | neukundengewinnung b2b, akquise tool, kaltakquise software | `/de/` | 0 |
 
+#### K. French, Spanish and Brazilian Portuguese
+
+Live since 2026-11-15, so there is no baseline yet. Each page's main query comes from its own title and H1 (no search volumes checked). Pages sit under `/fr/`, `/es/` and `/pt/` at the same path as in English.
+
+| Page | fr | es | pt |
+|---|---|---|---|
+| `/` | plateforme de prospection outbound, données b2b en temps réel | plataforma de ventas outbound, datos b2b en tiempo real | plataforma de vendas outbound, dados b2b em tempo real |
+| `/pricing` | tarifs hubsell | precios hubsell | preços hubsell |
+| `/platform` | plateforme de sales engagement | plataforma de sales engagement | plataforma de sales engagement |
+| `/platform/live-data` | fournisseur de données b2b, données b2b rgpd | proveedor de datos b2b, datos b2b rgpd | fornecedor de dados b2b, dados b2b rgpd |
+| `/platform/multichannel-outreach` | prospection multicanale | prospección multicanal | prospecção multicanal |
+| `/platform/crm-sync` | synchronisation crm linkedin | sincronizar linkedin con crm | sincronização com o crm |
+| `/platform/deliverability` | délivrabilité e-mail à froid | entregabilidad email en frío | entregabilidade cold e-mail |
+| `/platform/personalisation` | personnalisation par signaux d'achat | personalización con señales de compra | personalização com sinais de compra |
+| `/platform/enrichment` | enrichissement de contacts | enriquecimiento de contactos | enriquecimento de dados de contato |
+| `/solutions` | solutions par équipe commerciale | soluciones para equipos de ventas | soluções para equipes de vendas |
+| `/comparisons` | alternatives à apollo, cognism, lusha, seamless, zoominfo | alternativas a apollo, cognism, lusha, seamless, zoominfo | alternativas ao apollo, cognism, lusha, seamless, zoominfo |
+| `/vs/<competitor>` | alternative à apollo (cognism, lusha, seamless, zoominfo) | alternativa a apollo (…) | alternativa ao apollo (…) |
+
+After launch, check in Search Console with a country filter: France for fr (also Belgium, Switzerland and Canada, since the hreflang is plain `fr`), Spain for es, Brazil for pt (hreflang `pt-BR`). First check about four weeks after launch: impressions per page, the queries that bring them, and whether Google shows the English page instead.
+
 ## Out of scope
 
 - **AI SDR, AI sales agent:** hubsell does not write messages with AI, so ranking for these would bring the wrong expectations. Only report them if they bring real target-market impressions (none on 2026-10-13).

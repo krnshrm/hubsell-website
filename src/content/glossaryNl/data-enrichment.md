@@ -24,4 +24,4 @@ Verouderde records verrijken zonder ze opnieuw te valideren verspreidt alleen ou
 
 ## Hoe hubsell het aanpakt
 
-Omdat hubsell data live verzamelt en op het moment van gebruik valideert, gebeuren enrichment en validatie samen in plaats van als een latere opschoonstap. Het record dat u krijgt is al volledig en gecontroleerd, dus er is verderop minder te herstellen.
+Omdat hubsell data live verzamelt en op het moment van gebruik valideert, gebeuren enrichment en validatie samen in plaats van als een latere opschoonstap. Het record dat je krijgt is al volledig en gecontroleerd, dus er is verderop minder te herstellen.

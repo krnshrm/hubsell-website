@@ -12,7 +12,7 @@ updated: "juli 2026"
 
 ## Waarom het belangrijk is
 
-Bounces zijn meer dan verspilde verzendingen. Een hoog bouncepercentage vertelt mailboxproviders dat uw lijst slecht is, wat uw afzenderreputatie verlaagt en zelfs geldige mail richting spam duwt. Bounces laag houden is een van de meest directe manieren om deliverability te beschermen. Het is een symptoom om te volgen en een oorzaak om te beheersen.
+Bounces zijn meer dan verspilde verzendingen. Een hoog bouncepercentage vertelt mailboxproviders dat je lijst slecht is, wat je afzenderreputatie verlaagt en zelfs geldige mail richting spam duwt. Bounces laag houden is een van de meest directe manieren om deliverability te beschermen. Het is een symptoom om te volgen en een oorzaak om te beheersen.
 
 ## Hoe het in de praktijk werkt
 

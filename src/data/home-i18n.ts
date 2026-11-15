@@ -15,6 +15,9 @@ import {
   pipelineStepsNl, featuresNl, rolesNl, testimonialsNl, insightsNl,
   comparisonNl, faqsNl, stringsNl,
 } from './home.nl';
+import { homeFr } from './20261114-1030-home.fr';
+import { homeEs } from './20261114-1030-home.es';
+import { homePt } from './20261114-1030-home.pt';
 import { defaultLocale, type Locale } from '../i18n/ui';
 
 // Comparison matrix data. Marks ('yes'|'part'|'no') and the /vs hrefs are
@@ -241,7 +244,11 @@ const comparisonEn: ComparisonData = {
   ],
 };
 
+// fr, es and pt each keep the whole homepage set in one file.
+const more: Record<string, typeof homeFr> = { fr: homeFr, es: homeEs, pt: homePt };
+
 export function getHome(localeInput: string | undefined) {
+  if (localeInput && more[localeInput]) return more[localeInput];
   const locale: Locale =
     localeInput === 'de' ? 'de' : localeInput === 'nl' ? 'nl' : defaultLocale;
   if (locale === 'de') {

@@ -12,7 +12,7 @@ updated: "juli 2026"
 
 ## Waarom het belangrijk is
 
-Zoeken geeft steeds vaker één antwoord in plaats van een pagina met links, of dat nu in een featured snippet of een AI-antwoord is. AEO is hoe u dat antwoord wordt. De geciteerde bron zijn bouwt autoriteit en vangt aandacht, zelfs wanneer de gebruiker nooit doorklikt, wat het een groeiende prioriteit maakt naast klassieke SEO.
+Zoeken geeft steeds vaker één antwoord in plaats van een pagina met links, of dat nu in een featured snippet of een AI-antwoord is. AEO is hoe je dat antwoord wordt. De geciteerde bron zijn bouwt autoriteit en vangt aandacht, zelfs wanneer de gebruiker nooit doorklikt, wat het een groeiende prioriteit maakt naast klassieke SEO.
 
 ## Hoe het in de praktijk werkt
 

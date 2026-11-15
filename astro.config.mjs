@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-import { translatedRoutes } from './src/i18n/ui';
+import { translatedRoutes, langTags } from './src/i18n/ui';
 import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { join, relative, sep } from 'node:path';
@@ -14,7 +14,6 @@ import { join, relative, sep } from 'node:path';
 // only when it is a REAL translated page, i.e. its path is listed in
 // translatedRoutes (src/i18n/ui.ts). Untranslated locale URLs are Astro
 // fallback stubs (noindex + redirect to English) and stay out of the sitemap.
-// fr/es/pt have no translatedRoutes yet, so all their URLs stay out.
 const LOCALE_URL = /^https:\/\/www\.hubsell\.com\/(de|nl|fr|es|pt)(\/.*)?$/;
 // Internal prototypes carry noindex. Listing a noindex URL in the sitemap earns
 // a "Submitted URL marked noindex" warning in Search Console, so they are kept
@@ -92,7 +91,14 @@ export default defineConfig({
   // below writes each page as folder/index.html, which is what static hosts
   // expect.
   integrations: [
-    sitemap({ filter: inSitemap }),
+    // i18n adds <xhtml:link rel="alternate" hreflang> for every language version
+    // of a URL, with the same codes as the page's hreflang tags (pt is pt-BR).
+    // The integration builds those links only from URLs that passed `filter`, so
+    // redirect stubs never appear as an alternate.
+    sitemap({
+      filter: inSitemap,
+      i18n: { defaultLocale: 'en', locales: langTags },
+    }),
     trailingSlashLinks(),
   ],
   build: { format: 'directory' },
@@ -109,6 +115,6 @@ export default defineConfig({
     },
     // Add a locale here when we START translating it; until then its URLs are not
     // generated (the switcher shows it as "Soon", so nothing links to it). German first.
-    fallback: { de: 'en', nl: 'en' },
+    fallback: { de: 'en', nl: 'en', fr: 'en', es: 'en', pt: 'en' },
   },
 });

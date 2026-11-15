@@ -1,7 +1,7 @@
 ---
 term: "Technografische Daten"
 category: "Daten und Enrichment"
-definition: "Technografische Daten beschreiben die Technologie, die ein Unternehmen einsetzt, etwa CRM, Cloud-Plattform oder Marketing-Tools, und helfen beim Targeting nach Tech-Stack."
+definition: "Technografische Daten beschreiben die Technologie, die ein Unternehmen einsetzt, etwa CRM, Cloud-Plattform oder Marketing-Tools, und helfen Ihnen beim Targeting nach Tech-Stack."
 related:
   - firmographic-data
   - b2b-data
@@ -12,7 +12,7 @@ updated: "Juli 2026"
 
 ## Warum es wichtig ist
 
-Was ein Unternehmen einsetzt, signalisiert oft, ob es passt. Ein Tool, das sich mit Salesforce integriert, ist für Unternehmen relevanter, die bereits Salesforce nutzen. Mit technografischen Daten lassen sich Accounts nach ihrer Software finden, was das Targeting schärft und Reps einen konkreten Anlass gibt. Sie zeigen zudem bereits vorhandene Wettbewerber und ergänzende Tools.
+Was ein Unternehmen einsetzt, signalisiert oft, ob es passt. Ein Tool, das sich mit Salesforce integriert, ist für Unternehmen relevanter, die bereits Salesforce nutzen. Mit technografischen Daten finden Sie Accounts nach ihrer Software, was das Targeting schärft und Reps einen konkreten Anlass gibt. Sie zeigen zudem bereits vorhandene Wettbewerber und ergänzende Tools.
 
 ## Wie es in der Praxis funktioniert
 
@@ -24,4 +24,4 @@ Der Hauptfehler ist, technografische Erkennung als sicher zu behandeln, da sie a
 
 ## Wie hubsell es angeht
 
-hubsell kann die von einem Account genutzten Tools in die Recherche und Priorisierung von Kontakten einfließen lassen, sodass Outreach Accounts erreicht, in deren Stack das eigene Produkt passt.
+hubsell kann die von einem Account genutzten Tools in die Recherche und Priorisierung von Kontakten einfließen lassen, sodass Outreach Accounts erreicht, in deren Stack Ihr Produkt passt.
