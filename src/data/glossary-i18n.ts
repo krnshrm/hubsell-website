@@ -4,12 +4,19 @@
 // labels below translate them per locale so filter chips and tags read natively.
 import type { Locale } from '../i18n/ui';
 
-export type GlossaryCollection = 'glossary' | 'glossaryDe' | 'glossaryNl';
+export type GlossaryCollection = 'glossary' | 'glossaryDe' | 'glossaryNl' | 'glossaryFr' | 'glossaryEs' | 'glossaryPt';
+
+const COLLECTION_BY_LOCALE: Record<Locale, GlossaryCollection> = {
+  en: 'glossary',
+  de: 'glossaryDe',
+  nl: 'glossaryNl',
+  fr: 'glossaryFr', // English copies until translated (HUB-613)
+  es: 'glossaryEs',
+  pt: 'glossaryPt',
+};
 
 export function glossaryCollection(L: Locale): GlossaryCollection {
-  if (L === 'de') return 'glossaryDe';
-  if (L === 'nl') return 'glossaryNl';
-  return 'glossary';
+  return COLLECTION_BY_LOCALE[L] ?? 'glossary';
 }
 
 // The 8 categories, in display order. Keys match the frontmatter `category` value
@@ -27,6 +34,7 @@ export const GLOSSARY_CATEGORY_ORDER = [
 ] as const;
 
 type Chrome = {
+  indexTitle: string; // <title> of the glossary index page
   eyebrow: string;
   h1: string;
   intro: string;
@@ -128,6 +136,7 @@ export function categoryKey(L: Locale, storedCategory: string): string {
 
 const CHROME: Record<Locale, Chrome> = {
   en: {
+    indexTitle: 'B2B sales and data glossary | hubsell',
     eyebrow: 'Glossary',
     h1: 'The B2B sales and data glossary',
     intro: 'Clear, practical definitions of the terms behind outbound, data, and deliverability. Written for operators, not textbooks.',
@@ -144,6 +153,7 @@ const CHROME: Record<Locale, Chrome> = {
     crumbGlossary: 'Glossary',
   },
   de: {
+    indexTitle: 'Glossar f\u00fcr B2B-Vertrieb und Daten | hubsell',
     eyebrow: 'Glossar',
     h1: 'Das Glossar f\u00fcr B2B-Vertrieb und Daten',
     intro: 'Klare, praxisnahe Definitionen der Begriffe hinter Outbound, Daten und Deliverability. Geschrieben f\u00fcr Praktiker, nicht f\u00fcr Lehrb\u00fccher.',
@@ -160,6 +170,7 @@ const CHROME: Record<Locale, Chrome> = {
     crumbGlossary: 'Glossar',
   },
   nl: {
+    indexTitle: 'Woordenlijst voor B2B-sales en data | hubsell',
     eyebrow: 'Woordenlijst',
     h1: 'De woordenlijst voor B2B-sales en data',
     intro: 'Heldere, praktische definities van de begrippen achter outbound, data en deliverability. Geschreven voor operators, niet voor studieboeken.',
@@ -176,6 +187,7 @@ const CHROME: Record<Locale, Chrome> = {
     crumbGlossary: 'Woordenlijst',
   },
   fr: {
+    indexTitle: 'Glossaire de la vente B2B et des données | hubsell',
     eyebrow: 'Glossaire',
     h1: 'Le glossaire de la vente B2B et des données',
     intro: "Des définitions claires et concrètes des termes de l'outbound, des données et de la délivrabilité. Écrites pour les gens de terrain, pas pour les manuels.",
@@ -192,6 +204,7 @@ const CHROME: Record<Locale, Chrome> = {
     crumbGlossary: 'Glossaire',
   },
   es: {
+    indexTitle: 'Glosario de ventas B2B y datos | hubsell',
     eyebrow: 'Glosario',
     h1: 'El glosario de ventas B2B y datos',
     intro: 'Definiciones claras y prácticas de los términos del outbound, los datos y la entregabilidad. Escritas para quienes trabajan en ventas, no para los manuales.',
@@ -208,6 +221,7 @@ const CHROME: Record<Locale, Chrome> = {
     crumbGlossary: 'Glosario',
   },
   pt: {
+    indexTitle: 'Glossário de vendas B2B e dados | hubsell',
     eyebrow: 'Glossário',
     h1: 'O glossário de vendas B2B e dados',
     intro: 'Definições claras e práticas dos termos de outbound, dados e entregabilidade. Escritas para quem trabalha com vendas, não para os livros.',
