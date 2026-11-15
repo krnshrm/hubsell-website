@@ -121,7 +121,8 @@ a page is performing:
   **Target markets:** the 27 EU member states, plus the United Kingdom, Switzerland,
   Norway, the United States, Canada and Brazil (Brazil added 2026-11-12). Everything else is out of market: report it
   as one total and exclude it when judging a page. The GA4 (`countryId`) and GSC
-  (`country`) code lists are in `docs/20261009-1447-SITE-ANALYSIS-PLAYBOOK.md`.
+  (`country`) code lists are in the site-analysis playbook (workspace skills repo,
+  `.claude/skills/site-analysis/playbook.md`).
 
 When a page has high impressions or sessions but the audience is one of the above,
 the correct recommendation is usually to leave it alone or deprioritise it, not to
@@ -140,9 +141,11 @@ decided against, so it does not get suggested again.]
 
 ## How to analyse this site
 
-Standard analyses run from `docs/20261009-1447-SITE-ANALYSIS-PLAYBOOK.md` through
-the `/site-analysis` skill (`weekly`, `biweekly`, `monthly`, or one analysis number).
-Reports go to `docs/analyses/`, and tasks are tracked in the task ledger there.
+Standard analyses run through the `/site-analysis` skill and its playbook, which live in
+the workspace skills repo (`.claude/skills/site-analysis/`, moved out of this repo on
+2026-11-15): weekly, with a reminder at the start of a chat when it is due. Reports are given
+in the chat, and tasks are Jira tickets in the website-marketing epic HUB-567; nothing is
+written into this repo.
 The rules below apply to ad hoc questions too.
 
 - Always pull real GSC and GA4 data before making a recommendation. Do not estimate.
@@ -610,8 +613,6 @@ Notes:
 | `docs/BLOCKING-DOMAINS.md` | how to block an email domain, the build guard |
 | `docs/KNOWLEDGE-CENTER.md` | knowledge-center build and Confluence/Scribe content pipeline |
 | `docs/hubsell-style-guide.html` | visual style reference (partly superseded by code) |
-| `docs/20261009-1447-SITE-ANALYSIS-PLAYBOOK.md` | standard analysis recipes (health check, search visibility, conversion, lead quality), task format, report template |
-| `docs/analyses/` | analysis reports and the task ledger |
 | `docs/20261015-1229-PLATFORM-REDESIGN.md` | platform pages redesign: section pattern, heading rules, status per page |
 | `docs/20261013-1138-KEYWORD-TARGETS.md` | which page owns which keyword, the on-page placement standard, the internal linking structure (and a checklist that it survived), and the Search Console check with its 2026-10-13 baseline |
 | `docs/20260922-1415-SESSION-HANDOFF.md` | state at the close of the 2026-09-22 session: what is unpushed, what is open, why the fragmented stack is built the way it is |
