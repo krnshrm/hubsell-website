@@ -3,8 +3,12 @@
 // round: sentence case throughout (only the first word and names capitalized),
 // "AI nodes" and "Data nodes" renamed, and `soon: true` on every node the
 // founder marked as coming soon. Ticks show the tier the node lands in.
-// Node and group labels are product terms and stay English in every locale;
-// only the top-level category headers localize (pricing-page.ts `groups`).
+// Labels stay English here and are translated on render (owner decision
+// 2026-11-15): PricingComparison.astro passes each one through et(), so every
+// visible label needs a key in embed-i18n.ts (de, nl) and in
+// 20261114-1030-embed.{fr,es,pt}.ts, worded as the app's flowEditor.json and
+// onboarding.json name the node or feature. Top-level category headers come
+// from pricing-page.ts `groups`.
 // t = [Start, Grow, Scale]. A row with `children` is a group with a static
 // sub-header; all rows render expanded (no collapse).
 //

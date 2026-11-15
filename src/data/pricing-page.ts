@@ -145,7 +145,7 @@ const DE: PricingPageData = {
   "colGrow": "Grow",
   "colScale": "Scale",
   "colPayg": "Pay as you go",
-  "colSub": "Subscription",
+  "colSub": "Abonnement",
   "scalePrice": "Individuell",
   "cat": {
     "plan": "Tarif",
@@ -190,7 +190,7 @@ const DE: PricingPageData = {
     },
     {
       "q": "Was ist das Datenpaket und wie funktionieren Credits?",
-      "a": "Es ist unser Sales-Intelligence-Produkt. Pay as you go kostet 0,125 pro Credit, oder es gibt eine Subscription für 5.000 pro Jahr mit 50.000 Credits. Jede Aktion verbraucht bei Erfolg eine feste Zahl Credits, etwa 1 für einen recherchierten Kontakt und 5 für eine validierte geschäftliche E-Mail. Pay as you go kostet pro Credit rund 25% mehr als die Subscription."
+      "a": "Es ist unser Sales-Intelligence-Produkt. Pay as you go kostet 0,125 pro Credit, oder es gibt ein Abonnement für 5.000 pro Jahr mit 50.000 Credits. Jede Aktion verbraucht bei Erfolg eine feste Zahl Credits, etwa 1 für einen recherchierten Kontakt und 5 für eine validierte geschäftliche E-Mail. Pay as you go kostet pro Credit rund 25% mehr als das Abonnement."
     },
     {
       "q": "Wie viele Credits verbraucht jede Aktion?",
@@ -198,7 +198,7 @@ const DE: PricingPageData = {
     },
     {
       "q": "Warum hat sich die Zahl der Credits geändert?",
-      "a": "Im Oktober 2026 hat hubsell die Credit-Skala verfeinert: Was früher 1 Credit kostete, kostet jetzt 10, und was 0,1 kostete, kostet jetzt 1. Die Preise bleiben gleich. Die Subscription enthält jetzt 50.000 statt 5.000 Credits, und Pay as you go kostet €0,125 statt €1,25 pro Credit."
+      "a": "Im Oktober 2026 hat hubsell die Credit-Skala verfeinert: Was früher 1 Credit kostete, kostet jetzt 10, und was 0,1 kostete, kostet jetzt 1. Die Preise bleiben gleich. Das Abonnement enthält jetzt 50.000 statt 5.000 Credits, und Pay as you go kostet €0,125 statt €1,25 pro Credit."
     },
     {
       "q": "Wie fange ich an?",
@@ -242,7 +242,7 @@ const NL: PricingPageData = {
   "colGrow": "Grow",
   "colScale": "Scale",
   "colPayg": "Pay as you go",
-  "colSub": "Subscription",
+  "colSub": "Abonnement",
   "scalePrice": "Op maat",
   "cat": {
     "plan": "Abonnement",
@@ -287,7 +287,7 @@ const NL: PricingPageData = {
     },
     {
       "q": "Wat is het datapakket en hoe werken credits?",
-      "a": "Het is ons Sales Intelligence-product. Pay as you go kost 0,125 per credit, of je neemt een subscription voor 5.000 per jaar met 50.000 credits. Elke actie verbruikt bij succes een vast aantal credits, bijvoorbeeld 1 voor een verzameld contact en 5 voor een gevalideerd zakelijk e-mailadres. Pay as you go kost per credit ongeveer 25% meer dan de subscription."
+      "a": "Het is ons Sales Intelligence-product. Pay as you go kost 0,125 per credit, of je neemt een abonnement voor 5.000 per jaar met 50.000 credits. Elke actie verbruikt bij succes een vast aantal credits, bijvoorbeeld 1 voor een verzameld contact en 5 voor een gevalideerd zakelijk e-mailadres. Pay as you go kost per credit ongeveer 25% meer dan de subscription."
     },
     {
       "q": "Hoeveel credits verbruikt elke actie?",
@@ -295,7 +295,7 @@ const NL: PricingPageData = {
     },
     {
       "q": "Waarom is het aantal credits veranderd?",
-      "a": "In oktober 2026 heeft hubsell de creditschaal verfijnd: wat vroeger 1 credit kostte, kost nu 10, en wat 0,1 kostte, kost nu 1. De prijzen blijven gelijk. De subscription bevat nu 50.000 in plaats van 5.000 credits, en pay as you go kost €0,125 in plaats van €1,25 per credit."
+      "a": "In oktober 2026 heeft hubsell de creditschaal verfijnd: wat vroeger 1 credit kostte, kost nu 10, en wat 0,1 kostte, kost nu 1. De prijzen blijven gelijk. Het abonnement bevat nu 50.000 in plaats van 5.000 credits, en pay as you go kost €0,125 in plaats van €1,25 per credit."
     },
     {
       "q": "Hoe ga ik van start?",

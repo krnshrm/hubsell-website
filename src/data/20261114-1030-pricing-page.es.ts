@@ -21,7 +21,7 @@ export const pricingEs: PricingPageData = {
   colGrow: "Grow",
   colScale: "Scale",
   colPayg: "Pay as you go",
-  colSub: "Subscription",
+  colSub: "Suscripción",
   scalePrice: "A medida",
   cat: {
     plan: "Plan",
