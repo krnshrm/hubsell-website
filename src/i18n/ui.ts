@@ -207,12 +207,15 @@ export const translatedRoutes: Partial<Record<Locale, string[]>> = {
   ],
   // French: core pages first (HUB-607); the rest falls back to English.
   fr: ['/', '/contact', '/book-a-call', '/pricing', '/faqs', '/hubsell-reviews',
-    '/platform', '/platform/live-data', '/platform/multichannel-outreach', '/platform/crm-sync', '/platform/deliverability', '/platform/personalisation', '/platform/enrichment', '/integrations'],
+    '/platform', '/platform/live-data', '/platform/multichannel-outreach', '/platform/crm-sync', '/platform/deliverability', '/platform/personalisation', '/platform/enrichment', '/integrations',
+    '/solutions', '/solutions/team/sales-teams', '/solutions/team/agencies', '/solutions/team/revops', '/solutions/team/founders', '/solutions/role/sdr', '/solutions/role/sales-leader', '/solutions/role/marketing', '/solutions/role/sales-operations'],
   // Spanish and Brazilian Portuguese: the same core pages (HUB-607).
   es: ['/', '/contact', '/book-a-call', '/pricing', '/faqs', '/hubsell-reviews',
-    '/platform', '/platform/live-data', '/platform/multichannel-outreach', '/platform/crm-sync', '/platform/deliverability', '/platform/personalisation', '/platform/enrichment', '/integrations'],
+    '/platform', '/platform/live-data', '/platform/multichannel-outreach', '/platform/crm-sync', '/platform/deliverability', '/platform/personalisation', '/platform/enrichment', '/integrations',
+    '/solutions', '/solutions/team/sales-teams', '/solutions/team/agencies', '/solutions/team/revops', '/solutions/team/founders', '/solutions/role/sdr', '/solutions/role/sales-leader', '/solutions/role/marketing', '/solutions/role/sales-operations'],
   pt: ['/', '/contact', '/book-a-call', '/pricing', '/faqs', '/hubsell-reviews',
-    '/platform', '/platform/live-data', '/platform/multichannel-outreach', '/platform/crm-sync', '/platform/deliverability', '/platform/personalisation', '/platform/enrichment', '/integrations'],
+    '/platform', '/platform/live-data', '/platform/multichannel-outreach', '/platform/crm-sync', '/platform/deliverability', '/platform/personalisation', '/platform/enrichment', '/integrations',
+    '/solutions', '/solutions/team/sales-teams', '/solutions/team/agencies', '/solutions/team/revops', '/solutions/team/founders', '/solutions/role/sdr', '/solutions/role/sales-leader', '/solutions/role/marketing', '/solutions/role/sales-operations'],
 };
 
 type Dict = Record<string, string>;
