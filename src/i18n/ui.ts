@@ -28,6 +28,30 @@ export const localeNames: Record<Locale, string> = {
   pt: 'Português (Brasil)',
 };
 
+// Language tags for search engines: <html lang>, hreflang and JSON-LD inLanguage.
+// fr and es stay without a region on purpose, so French speakers in Belgium,
+// Switzerland or Canada and Spanish speakers outside Spain still match the page.
+// pt is Brazilian Portuguese (spelling and words differ from Portugal), so it says so.
+export const langTags: Record<Locale, string> = {
+  en: 'en',
+  de: 'de',
+  nl: 'nl',
+  fr: 'fr',
+  es: 'es',
+  pt: 'pt-BR',
+};
+
+// Open Graph wants language_TERRITORY. English is en_GB because the site is
+// written in British English.
+export const ogLocales: Record<Locale, string> = {
+  en: 'en_GB',
+  de: 'de_DE',
+  nl: 'nl_NL',
+  fr: 'fr_FR',
+  es: 'es_ES',
+  pt: 'pt_BR',
+};
+
 // Which non-default locales have a REAL translated page at a given base path
 // (the English-root path, e.g. '/', '/contact'). The switcher offers a locale
 // only where the current page exists in it, and BaseLayout emits hreflang only
@@ -233,6 +257,7 @@ export const translatedRoutes: Partial<Record<Locale, string[]>> = {
 type Dict = Record<string, string>;
 
 const en: Dict = {
+  'nav.home': 'Home', // breadcrumb label for the homepage
   'nav.resources': 'Resources',
   'nav.heading.learn': 'Learn',
   'nav.heading.company': 'Company',
@@ -302,6 +327,7 @@ const en: Dict = {
 // German: formal "Sie", as in the app (owner decision 2026-11-13). Legal labels
 // use the German equivalents that German visitors expect (Impressum, AGB, AVV).
 const de: Dict = {
+  'nav.home': 'Startseite',
   'nav.resources': 'Ressourcen',
   'nav.heading.learn': 'Lernen',
   'nav.heading.company': 'Unternehmen',
@@ -365,6 +391,7 @@ const de: Dict = {
 };
 
 const nl: Dict = {
+  'nav.home': 'Home',
   'nav.resources': 'Bronnen',
   'nav.heading.learn': 'Leren',
   'nav.heading.company': 'Bedrijf',

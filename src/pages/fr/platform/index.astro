@@ -4,13 +4,14 @@ import JsonLd from '../../../components/JsonLd.astro';
 import PlatformOverviewBody from '../../../components/PlatformOverviewBody.astro';
 import { breadcrumbSchema, faqPageSchema } from '../../../data/seo';
 import { getPlatformOverview } from '../../../data/platform-i18n';
-import { asLocale, localizeUrl } from '../../../i18n/utils';
+import { asLocale, localizeUrl, useTranslations } from '../../../i18n/utils';
 
 const L = asLocale(Astro.currentLocale);
+const t = useTranslations(L);
 const d = getPlatformOverview(L);
 const crumbs = breadcrumbSchema([
-  { name: 'Home', url: localizeUrl(L, '/') },
-  { name: 'Platform', url: localizeUrl(L, '/platform') },
+  { name: t('nav.home'), url: localizeUrl(L, '/') },
+  { name: t('nav.platform'), url: localizeUrl(L, '/platform') },
 ]);
 ---
 <BaseLayout title={d.title} description={d.metaDescription}>

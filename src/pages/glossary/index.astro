@@ -13,7 +13,7 @@ const entries0 = await getCollection('glossary', (e) => !e.data.draft);
 const entries = entries0.sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
 const termSet = definedTermSetSchema(entries.map((e) => ({
   name: e.data.term, description: e.data.definition, url: localizeUrl(L, `/glossary/${e.id}`),
-})));
+})), { name: c.indexTitle, locale: L });
 const crumbs = breadcrumbSchema([
   { name: c.crumbHome, url: localizeUrl(L, '/') },
   { name: c.crumbGlossary, url: localizeUrl(L, '/glossary') },

@@ -2,6 +2,7 @@
 // Same shape as the English source, which stays the reference.
 // Product terms: docs/20261113-1401-APP-TERMS.md. The blog stays English, hence "Insights (EN)".
 export const uiPt: Record<string, string> = {
+  "nav.home": "Início",
   "nav.resources": "Recursos",
   "nav.heading.learn": "Aprender",
   "nav.heading.company": "Empresa",
