@@ -1,27 +1,27 @@
 ---
-term: "Reply rate"
-category: "Outbound and email"
-definition: "Reply rate is the share of delivered outreach that gets a response, and it is a truer measure of message quality than opens."
+term: "Taux de réponse"
+category: "Outbound et e-mail"
+definition: "Le taux de réponse est la part des messages de prospection délivrés qui obtiennent une réponse. Il mesure la qualité d'un message plus fidèlement que les ouvertures."
 related:
   - open-rate
   - bounce-rate
   - cold-email
   - ab-testing
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-Reply rate is closer to what actually matters, a conversation, than opens or clicks. A healthy reply rate means the targeting and message are landing with the right people. Because it reflects real engagement, it is the metric worth optimising when you test and refine outreach. It rewards relevance over volume.
+Le taux de réponse est plus proche de ce qui compte vraiment, une conversation, que les ouvertures ou les clics. Un bon taux de réponse signifie que le ciblage et le message touchent les bonnes personnes. Comme il reflète un engagement réel, c'est l'indicateur qui mérite d'être optimisé lorsque vous testez et affinez votre prospection. Il récompense la pertinence plutôt que le volume.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-Reply rate is replies divided by delivered messages, counting genuine responses rather than out-of-office autoreplies. It is read per sequence and per step to see which messages earn conversations. Improving it comes from better targeting, a clearer ask, and relevance to the recipient, not from sending more. It is a core input to A/B testing.
+Le taux de réponse correspond au nombre de réponses divisé par le nombre de messages délivrés, en ne comptant que les vraies réponses et non les messages d'absence automatiques. On le lit par séquence et par étape pour voir quels messages génèrent des conversations. Il s'améliore grâce à un meilleur ciblage, une demande plus claire et la pertinence pour le destinataire, pas en envoyant davantage. C'est une donnée clé de l'A/B testing.
 
-## Common mistakes
+## Erreurs fréquentes
 
-A common mistake is counting automatic replies as real ones, which flatters the number. Another is judging a step on too few sends. A third is pushing volume to lift total replies while the rate falls, which burns the list and the domain for the same result.
+Une erreur fréquente consiste à compter les réponses automatiques comme de vraies réponses, ce qui embellit le chiffre. Une autre est de juger une étape sur trop peu d'envois. Une troisième est d'augmenter le volume pour obtenir plus de réponses au total pendant que le taux baisse, ce qui épuise la liste et le domaine pour le même résultat.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell tracks replies per step across email and LinkedIn, so you can see which messages start conversations and refine on the metric that reflects real interest.
+hubsell suit les réponses par étape, sur l'e-mail comme sur LinkedIn, pour que vous voyiez quels messages lancent des conversations et que vous affiniez sur l'indicateur qui reflète un intérêt réel.

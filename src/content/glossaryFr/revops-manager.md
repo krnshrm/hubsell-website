@@ -1,27 +1,27 @@
 ---
-term: "RevOps manager"
-category: "Sales roles"
-definition: "A RevOps manager owns the systems, data, and processes that connect sales, marketing, and customer success so revenue runs on one shared foundation."
+term: "Responsable RevOps"
+category: "Rôles commerciaux"
+definition: "Le ou la responsable RevOps pilote les systèmes, les données et les processus qui relient les ventes, le marketing et le customer success, pour que le chiffre d'affaires repose sur une base commune."
 related:
   - revops
   - crm
   - attribution
   - pipeline
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-As a company grows, the revenue teams accumulate tools and definitions that do not agree, and the numbers stop matching. The RevOps manager is the person who fixes that, owning the shared systems and definitions so leadership sees one consistent picture. The role is what turns three separate teams into one connected revenue engine.
+À mesure qu'une entreprise grandit, les équipes commerciales accumulent des outils et des définitions qui ne concordent pas, et les chiffres cessent de correspondre. Le poste de responsable RevOps existe pour corriger cela : il prend en charge les systèmes et définitions communs, pour que la direction voie une image unique et cohérente. C'est ce rôle qui transforme trois équipes séparées en une seule machine de revenus connectée.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-A RevOps manager keeps the CRM clean and integrated, defines what a lead and a pipeline stage mean, maintains the reporting everyone trusts, and manages the tools across the revenue teams. Day to day that means integrations, data hygiene, clear handoffs, and end-to-end reporting, so the funnel can be measured as one flow rather than three disconnected ones.
+Un responsable RevOps garde le CRM propre et intégré, définit ce que signifient un lead et une étape du pipeline, maintient un reporting auquel tout le monde fait confiance et gère les outils des équipes commerciales. Au quotidien, cela recouvre les intégrations, la qualité des données, des passages de relais clairs et un reporting sur l'ensemble du parcours, pour que l'entonnoir se mesure comme un seul processus plutôt que comme trois morceaux sans lien.
 
-## Common mistakes
+## Erreurs fréquentes
 
-A common mistake is treating the role as CRM admin rather than ownership of process and alignment. Another is letting each team keep conflicting definitions the manager never reconciles. A third is adding tools without integrating them, which the RevOps manager then has to untangle.
+Une erreur fréquente consiste à réduire le rôle à l'administration du CRM, au lieu d'y voir la responsabilité des processus et de l'alignement. Une autre est de laisser chaque équipe garder des définitions contradictoires que personne ne réconcilie. Une troisième est d'ajouter des outils sans les intégrer, ce que le responsable RevOps doit ensuite démêler.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell helps a RevOps manager keep data and outreach in one place with clean CRM sync, so there is one current source of truth instead of separate tools to reconcile.
+hubsell aide le responsable RevOps à réunir données et prospection au même endroit, avec une synchronisation CRM propre, pour disposer d'une seule source de vérité à jour au lieu d'outils séparés à réconcilier.

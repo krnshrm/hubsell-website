@@ -1,27 +1,27 @@
 ---
-term: "Sender reputation"
-category: "Deliverability"
-definition: "Sender reputation is the score mailbox providers assign to your sending domain and IP, based on your history, that decides whether your mail reaches the inbox."
+term: "Réputation d'expéditeur"
+category: "Délivrabilité"
+definition: "La réputation d'expéditeur est la note que les fournisseurs de messagerie attribuent à votre domaine et à votre IP d'envoi, d'après votre historique, et qui décide si vos e-mails arrivent en boîte de réception."
 related:
   - email-deliverability
   - domain-warmup
   - bounce-rate
   - spam-trap
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-Sender reputation is the single biggest factor in whether outreach lands. Providers use it to decide inbox, spam, or block, so a strong reputation lifts every send and a damaged one drags down even good mail. Because it builds slowly and falls fast, protecting it is one of the highest-leverage things an outbound team does.
+La réputation d'expéditeur est le premier facteur qui détermine si votre prospection arrive à destination. Les fournisseurs s'en servent pour choisir entre boîte de réception, spam ou blocage : une bonne réputation profite à chaque envoi, une réputation abîmée pénalise même les bons e-mails. Comme elle se construit lentement et chute vite, la protéger est l'une des actions les plus rentables pour une équipe outbound.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-Providers score a sender on signals like bounce rate, spam complaints, how recipients engage, and whether the domain is authenticated. Sending relevant mail to valid addresses that people open and reply to builds the score. Sending to bad lists, triggering complaints, or spiking volume from a cold domain lowers it. Reputation attaches to both the domain and the sending IP.
+Les fournisseurs notent un expéditeur à partir de signaux comme le taux de rejet, les plaintes pour spam, l'engagement des destinataires et l'authentification du domaine. Envoyer des e-mails pertinents à des adresses valides, que les gens ouvrent et auxquelles ils répondent, fait monter la note. Écrire à de mauvaises listes, provoquer des plaintes ou faire grimper brusquement le volume depuis un domaine non préchauffé la fait baisser. La réputation est liée à la fois au domaine et à l'IP d'envoi.
 
-## Common mistakes
+## Erreurs fréquentes
 
-The common mistake is treating reputation as fixed rather than earned every day. Others include blasting a cold domain at high volume, mailing unverified lists that bounce, and ignoring complaint signals until placement has already dropped. Once reputation falls, recovery takes weeks of careful sending, so prevention beats repair.
+L'erreur courante est de considérer la réputation comme acquise, alors qu'elle se gagne chaque jour. D'autres erreurs : envoyer de gros volumes depuis un domaine non préchauffé, écrire à des listes non vérifiées qui génèrent des rejets, et ignorer les signaux de plainte jusqu'à ce que le placement en boîte de réception ait déjà chuté. Une fois la réputation dégradée, il faut des semaines d'envois prudents pour la rétablir : mieux vaut prévenir que réparer.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell protects sender reputation by verifying contacts before send, flagging catch-all domains, and spreading volume across sender profiles within safe limits, so the score stays healthy as you scale.
+hubsell protège votre réputation d'expéditeur en vérifiant les contacts avant l'envoi, en signalant les domaines catch-all et en répartissant le volume entre plusieurs profils d'expéditeur dans des limites sûres, pour que la note reste bonne à mesure que vous augmentez vos envois.

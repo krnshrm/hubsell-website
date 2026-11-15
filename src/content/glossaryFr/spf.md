@@ -1,27 +1,27 @@
 ---
 term: "SPF"
-category: "Deliverability"
-definition: "SPF, or Sender Policy Framework, is an email authentication record that lists which servers are allowed to send mail for your domain."
+category: "Délivrabilité"
+definition: "SPF, ou Sender Policy Framework, est un enregistrement d'authentification des e-mails qui liste les serveurs autorisés à envoyer des e-mails pour votre domaine."
 related:
   - dkim
   - dmarc
   - email-deliverability
   - sender-reputation
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-SPF is one of the checks mailbox providers run to decide if a message is really from your domain. Without it, your mail is more likely to be treated as suspicious or spoofed, which hurts deliverability. It is a basic requirement for any team sending outbound at volume, and missing it caps how far the rest of your setup can carry you.
+SPF fait partie des contrôles qu'effectuent les fournisseurs de messagerie pour vérifier qu'un message vient réellement de votre domaine. Sans lui, vos e-mails risquent davantage d'être jugés suspects ou usurpés, ce qui nuit à la délivrabilité. C'est une exigence de base pour toute équipe qui fait de l'outbound à volume, et son absence limite l'efficacité de tout le reste de votre configuration.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-SPF is a DNS record that names the servers and services authorised to send on behalf of your domain. When a receiving server gets a message, it checks whether the sending server appears in that list. A pass supports delivery; a fail is a signal the mail may be forged. SPF works alongside DKIM and DMARC, not on its own.
+SPF est un enregistrement DNS qui nomme les serveurs et services autorisés à envoyer au nom de votre domaine. Quand un serveur de réception reçoit un message, il vérifie si le serveur d'envoi figure dans cette liste. Un résultat positif favorise la remise, un échec signale que l'e-mail est peut-être falsifié. SPF fonctionne avec DKIM et DMARC, pas seul.
 
-## Common mistakes
+## Erreurs fréquentes
 
-A common mistake is listing too many senders or leaving old services in the record, which weakens the check or exceeds lookup limits. Another is assuming SPF alone is enough, when providers increasingly expect DKIM and DMARC too. A third is forgetting to update SPF when you add a new sending tool.
+Une erreur fréquente consiste à lister trop d'expéditeurs ou à laisser d'anciens services dans l'enregistrement, ce qui affaiblit le contrôle ou dépasse la limite de requêtes DNS. Une autre est de croire que SPF suffit, alors que les fournisseurs attendent de plus en plus DKIM et DMARC aussi. Une troisième est d'oublier de mettre à jour SPF quand vous ajoutez un nouvel outil d'envoi.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell sends through authenticated infrastructure and guides you to set SPF, DKIM, and DMARC correctly, so your outreach passes the checks that protect the inbox.
+hubsell envoie via une infrastructure authentifiée et vous guide pour configurer correctement SPF, DKIM et DMARC, pour que votre prospection passe les contrôles qui protègent la boîte de réception.

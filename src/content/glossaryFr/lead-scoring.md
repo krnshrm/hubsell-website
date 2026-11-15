@@ -1,27 +1,27 @@
 ---
 term: "Lead scoring"
-category: "CRM and RevOps"
-definition: "Lead scoring is a method of ranking prospects by how likely they are to buy, using fit and behaviour signals, so teams focus on the best leads first."
+category: "CRM et RevOps"
+definition: "Le lead scoring est une méthode qui classe les prospects selon leur probabilité d'achat, à partir de critères d'adéquation et de comportement, pour que les équipes traitent d'abord les meilleurs leads."
 related:
   - ideal-customer-profile
   - buying-signal
   - intent-data
   - pipeline
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-Not every lead is worth the same effort, and reps only have so many hours. Lead scoring puts the most promising prospects at the top, so time goes to the leads most likely to convert rather than whoever came in last. It also keeps sales and marketing aligned on what a good lead actually is, which smooths the handoff between them.
+Tous les leads ne méritent pas le même effort, et les commerciaux n'ont qu'un nombre limité d'heures. Le lead scoring place les prospects les plus prometteurs en tête, pour que le temps aille aux leads les plus susceptibles de convertir plutôt qu'au dernier arrivé. Il aligne aussi les ventes et le marketing sur ce qu'est vraiment un bon lead, ce qui facilite le passage de relais entre les deux équipes.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-Scoring combines fit, how well a lead matches the Ideal Customer Profile, with behaviour, the actions that signal interest such as visits, replies, or demo requests. Each factor carries a weight, and the totals rank leads or sort them into tiers. The model is tuned over time against which leads actually closed, so the score stays connected to real outcomes.
+Le score combine l'adéquation, c'est-à-dire la correspondance du lead avec le profil client idéal, et le comportement, c'est-à-dire les actions qui signalent un intérêt, comme des visites, des réponses ou des demandes de démo. Chaque critère a un poids, et les totaux classent les leads ou les répartissent en niveaux. Le modèle est ajusté au fil du temps en fonction des leads réellement signés, pour que le score reste lié aux résultats concrets.
 
-## Common mistakes
+## Erreurs fréquentes
 
-A common mistake is scoring on behaviour alone, so an engaged but poor-fit lead ranks too high. Another is setting the weights once and never revisiting them against closed-won data. A third is over-engineering the model into something no one trusts or maintains.
+Une erreur fréquente consiste à ne noter que le comportement, si bien qu'un lead très actif mais peu adapté se retrouve trop haut. Une autre est de fixer les poids une fois pour toutes sans jamais les confronter aux affaires gagnées. Une troisième est de complexifier le modèle au point que personne ne lui fait confiance ni ne l'entretient.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell provides accurate fit data and surfaces interest signals for each contact, so the inputs to a lead score reflect who the account really is and what they are doing now.
+hubsell fournit des données d'adéquation exactes et fait ressortir les signaux d'intérêt de chaque contact, pour que les éléments de votre lead scoring reflètent qui est réellement le compte et ce qu'il fait aujourd'hui.

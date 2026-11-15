@@ -1,27 +1,27 @@
 ---
-term: "Legitimate interest"
-category: "Compliance and GDPR"
-definition: "Legitimate interest is one of the lawful bases under the GDPR that can allow B2B outreach without prior consent, when balanced against the person's rights."
+term: "Intérêt légitime"
+category: "Conformité et RGPD"
+definition: "L'intérêt légitime est l'une des bases légales du RGPD qui peut permettre la prospection B2B sans consentement préalable, après mise en balance avec les droits de la personne."
 related:
   - gdpr
   - opt-in-vs-opt-out
   - b2b-data
   - outbound-sales
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-Legitimate interest is the basis most B2B outbound relies on, since asking every prospect for consent before a first message is not workable. Used properly, it lets you reach relevant business contacts lawfully. Used carelessly, it becomes a label slapped on data you should not be holding, so understanding what it actually requires matters.
+L'intérêt légitime est la base sur laquelle s'appuie la plupart de la prospection outbound B2B, car demander le consentement de chaque prospect avant un premier message n'est pas réaliste. Bien utilisé, il vous permet de joindre légalement des contacts professionnels pertinents. Utilisé à la légère, il devient une étiquette collée sur des données que vous ne devriez pas détenir. Il faut donc comprendre ce qu'il exige réellement.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-Relying on legitimate interest generally means running a balancing test: your interest in reaching the contact weighed against their reasonable expectations and rights. Reaching a relevant person in their professional role about something useful to their work sits more comfortably than untargeted mass mailing. You are expected to document the reasoning, keep data relevant, and honour objections and opt-outs promptly.
+S'appuyer sur l'intérêt légitime implique en général de mener un test de mise en balance : votre intérêt à contacter la personne, pesé face à ses attentes raisonnables et à ses droits. Contacter une personne pertinente, dans son rôle professionnel, au sujet de quelque chose d'utile à son travail se justifie bien plus facilement qu'un envoi de masse non ciblé. Vous devez documenter votre raisonnement, garder des données pertinentes et traiter rapidement les oppositions et les désinscriptions.
 
-## Common mistakes
+## Erreurs fréquentes
 
-A common mistake is treating legitimate interest as a free pass rather than a basis that must be justified and balanced. Another is ignoring opt-outs, which undermines the basis. A third is using it for data that is irrelevant or intrusive, where the balance clearly tips towards the individual.
+Une erreur fréquente consiste à voir l'intérêt légitime comme un laissez-passer plutôt que comme une base qui doit être justifiée et mise en balance. Une autre est d'ignorer les désinscriptions, ce qui fragilise cette base. Une troisième est de l'invoquer pour des données sans rapport ou intrusives, où la balance penche nettement en faveur de la personne.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell supports outreach to relevant business contacts and makes opt-out handling straightforward, so a legitimate-interest approach stays defensible. The balancing test for your use is yours to run, and this is not legal advice.
+hubsell permet de cibler des contacts professionnels pertinents et simplifie la gestion des désinscriptions, pour qu'une démarche fondée sur l'intérêt légitime reste défendable. Le test de mise en balance pour votre usage vous revient, et ceci ne constitue pas un conseil juridique.

@@ -1,27 +1,27 @@
 ---
 term: "RevOps"
-category: "CRM and RevOps"
-definition: "RevOps, or revenue operations, is the function that aligns sales, marketing, and customer success around shared data, processes, and tools to drive revenue."
+category: "CRM et RevOps"
+definition: "Les RevOps, ou revenue operations, désignent la fonction qui aligne les ventes, le marketing et le customer success autour de données, de processus et d'outils communs pour générer du chiffre d'affaires."
 related:
   - crm
   - pipeline
   - attribution
   - lead-scoring
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-When sales, marketing, and success each run their own tools and definitions, data conflicts and handoffs break. RevOps brings them onto shared systems and definitions, so the numbers agree and the process holds end to end. For a growing company, it is how revenue becomes predictable rather than a set of disconnected efforts pulling in different directions.
+Quand les ventes, le marketing et le customer success utilisent chacun leurs propres outils et définitions, les données se contredisent et les passages de relais échouent. Les RevOps les réunissent sur des systèmes et des définitions communs, pour que les chiffres concordent et que le processus tienne du début à la fin. Pour une entreprise en croissance, c'est ce qui rend le chiffre d'affaires prévisible, au lieu d'efforts dispersés qui tirent dans des directions différentes.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-RevOps owns the systems and processes that span the revenue teams: the CRM, the data flowing through it, the definitions of a lead and a stage, and the reporting everyone trusts. In practice that means keeping tools integrated, data clean, and handoffs clear, then measuring the full funnel end to end so leadership sees one consistent picture rather than three.
+Les RevOps prennent en charge les systèmes et processus communs aux équipes de revenus : le CRM, les données qui y circulent, les définitions d'un lead et d'une étape, et le reporting auquel tout le monde fait confiance. Concrètement, il s'agit de garder les outils intégrés, les données propres et les passages de relais clairs, puis de mesurer tout l'entonnoir d'un bout à l'autre, pour que la direction voie une image cohérente plutôt que trois.
 
-## Common mistakes
+## Erreurs fréquentes
 
-A common mistake is treating RevOps as just CRM admin, rather than owning process and alignment across teams. Another is letting each team keep its own conflicting definitions. A third is buying more tools without integrating them, which adds fragmentation instead of removing it.
+Une erreur fréquente consiste à réduire les RevOps à l'administration du CRM, au lieu d'en faire les garants des processus et de l'alignement entre les équipes. Une autre est de laisser chaque équipe garder ses propres définitions contradictoires. Une troisième est d'acheter de nouveaux outils sans les intégrer, ce qui fragmente davantage au lieu de simplifier.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell supports RevOps by keeping data and outreach in one place and syncing cleanly to the CRM, so the revenue teams share one current source of truth instead of reconciling separate tools.
+hubsell soutient les RevOps en réunissant données et prospection au même endroit et en synchronisant proprement avec le CRM, pour que les équipes de revenus partagent une seule source de vérité à jour au lieu de réconcilier des outils séparés.

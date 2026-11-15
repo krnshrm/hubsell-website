@@ -1,27 +1,27 @@
 ---
-term: "Sales pipeline stages"
-category: "CRM and RevOps"
-definition: "Sales pipeline stages are the defined steps a deal moves through, from first contact to closed, each with clear criteria for entering and leaving it."
+term: "Étapes du pipeline commercial"
+category: "CRM et RevOps"
+definition: "Les étapes du pipeline commercial sont les phases définies que traverse une opportunité, du premier contact à la clôture, chacune avec des critères clairs d'entrée et de sortie."
 related:
   - pipeline
   - crm
   - revops
   - outbound-sales
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-Clear stages make a pipeline readable and a forecast reliable. When every rep agrees on what qualified or proposal means, the numbers mean the same thing across the team and leaders can trust the forecast. Vague or inconsistent stages do the opposite, hiding where deals really are and making the forecast a guess.
+Des étapes claires rendent un pipeline lisible et une prévision fiable. Quand tous les commerciaux s'accordent sur ce que signifient « qualifiée » ou « proposition », les chiffres veulent dire la même chose dans toute l'équipe et les responsables peuvent se fier à la prévision. Des étapes floues ou incohérentes produisent l'effet inverse : elles masquent où en sont vraiment les opportunités et transforment la prévision en pari.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-A typical set runs from new or prospecting, to qualified, to proposal or negotiation, to closed won or lost. Each stage has entry and exit criteria, for example a deal only becomes qualified once budget and need are confirmed. Reps move deals as those criteria are met, and the CRM uses the stages to weight and forecast the deal values.
+Une série classique va de nouvelle ou en prospection, à qualifiée, puis à proposition ou négociation, jusqu'à gagnée ou perdue. Chaque étape a des critères d'entrée et de sortie : par exemple, une opportunité ne devient qualifiée qu'une fois le budget et le besoin confirmés. Les commerciaux font avancer les opportunités à mesure que ces critères sont remplis, et le CRM s'appuie sur les étapes pour pondérer les montants et établir la prévision.
 
-## Common mistakes
+## Erreurs fréquentes
 
-A common mistake is stages defined by activity rather than outcome, so a deal advances because a call happened, not because it truly progressed. Another is too many stages, which adds friction without insight. A third is letting each rep interpret the stages differently, which breaks the forecast.
+Une erreur fréquente consiste à définir les étapes par l'activité plutôt que par le résultat, si bien qu'une opportunité avance parce qu'un appel a eu lieu, et non parce qu'elle a réellement progressé. Une autre est d'avoir trop d'étapes, ce qui ajoute des frictions sans apporter de visibilité. Une troisième est de laisser chaque commercial interpréter les étapes à sa façon, ce qui fausse la prévision.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell keeps the activity behind each stage logged automatically in the CRM, so the movement of deals through the stages reflects real touches rather than manual guesswork.
+hubsell enregistre automatiquement dans le CRM l'activité derrière chaque étape, pour que la progression des opportunités d'une étape à l'autre reflète de vrais points de contact plutôt que des estimations manuelles.

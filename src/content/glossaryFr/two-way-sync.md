@@ -1,27 +1,27 @@
 ---
-term: "Two-way sync"
-category: "CRM and RevOps"
-definition: "Two-way sync is a connection where a change in either the CRM or a connected tool updates the other, keeping both systems consistent in real time."
+term: "Synchronisation bidirectionnelle"
+category: "CRM et RevOps"
+definition: "La synchronisation bidirectionnelle est une connexion où une modification dans le CRM ou dans un outil connecté met à jour l'autre, ce qui garde les deux systèmes cohérents en temps réel."
 related:
   - crm-sync
   - crm
   - revops
   - pipeline
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-A one-way feed keeps the CRM updated from the outreach tool but leaves the outreach tool blind to changes made in the CRM. Two-way sync closes that gap, so a status change, a new owner, or an unsubscribe made in one place is reflected in the other. That keeps reps working from the same truth and stops the two systems from drifting apart.
+Un flux à sens unique tient le CRM à jour depuis l'outil de prospection, mais laisse l'outil de prospection aveugle aux modifications faites dans le CRM. La synchronisation bidirectionnelle comble cet écart : un changement de statut, un nouveau propriétaire ou une désinscription enregistrés d'un côté se retrouvent de l'autre. Les commerciaux travaillent ainsi à partir des mêmes informations et les deux systèmes ne divergent pas.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-Two-way sync maps fields between the systems and watches both for changes. When a record updates on either side, the sync pushes the change across so both match. Good two-way sync handles conflicts with clear rules about which side wins, maps each field deliberately, and runs in real time rather than as a nightly batch, so the systems never fall far out of step.
+La synchronisation bidirectionnelle fait correspondre les champs entre les systèmes et surveille les modifications des deux côtés. Quand une fiche est mise à jour d'un côté, la synchronisation reporte le changement de l'autre pour que les deux concordent. Une bonne synchronisation bidirectionnelle gère les conflits avec des règles claires sur le côté qui l'emporte, fait correspondre chaque champ de façon réfléchie et fonctionne en temps réel plutôt que par lot chaque nuit, pour que les systèmes ne se décalent jamais beaucoup.
 
-## Common mistakes
+## Erreurs fréquentes
 
-A common mistake is enabling two-way sync without conflict rules, so the systems overwrite each other unpredictably. Another is mapping fields loosely, so data lands in the wrong place. A third is relying on a nightly batch and calling it two-way, when the delay lets the systems disagree during the day.
+Une erreur fréquente consiste à activer la synchronisation bidirectionnelle sans règles de conflit, si bien que les systèmes s'écrasent mutuellement de façon imprévisible. Une autre est de faire correspondre les champs de façon approximative, si bien que les données atterrissent au mauvais endroit. Une troisième est de s'appuyer sur un traitement par lot nocturne en le qualifiant de bidirectionnel, alors que le délai laisse les systèmes en désaccord pendant la journée.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell’s sync runs one way today, from hubsell into Salesforce, HubSpot, or Pipedrive, in real time. Before it writes, it matches existing records so it does not create duplicates, and it can leave out contacts already in the CRM. Two-way sync is planned.
+Aujourd'hui, la synchronisation de hubsell fonctionne dans un seul sens, de hubsell vers Salesforce, HubSpot ou Pipedrive, en temps réel. Avant d'écrire, elle rapproche les fiches existantes pour ne pas créer de doublons, et elle peut exclure les contacts déjà présents dans le CRM. La synchronisation bidirectionnelle est prévue.

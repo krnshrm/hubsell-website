@@ -1,27 +1,27 @@
 ---
 term: "Sales operations"
-category: "Sales roles"
-definition: "Sales operations is the function that supports a sales team with the tools, data, processes, and analysis it needs to sell efficiently."
+category: "Rôles commerciaux"
+definition: "Les sales operations désignent la fonction qui fournit à une équipe commerciale les outils, les données, les processus et les analyses dont elle a besoin pour vendre efficacement."
 related:
   - revops
   - crm
   - pipeline
   - attribution
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-Sales reps are most productive when someone else handles the systems and process behind them. Sales operations is that support function, removing friction so reps can focus on selling. Without it, reps lose time to admin, the CRM drifts, and leaders cannot trust the numbers. With it, the team runs on a stable, measurable foundation.
+Les commerciaux sont plus productifs lorsque quelqu'un d'autre gère les systèmes et les processus en coulisse. Les sales operations sont cette fonction de soutien, qui supprime les frictions pour que les commerciaux puissent se concentrer sur la vente. Sans elles, les commerciaux perdent du temps en tâches administratives, le CRM se dégrade et les responsables ne peuvent plus se fier aux chiffres. Avec elles, l'équipe s'appuie sur une base stable et mesurable.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-Sales operations owns the CRM setup, the sales process and stage definitions, territory and quota planning, tooling, and the reporting that shows how the team is performing. It sits close to RevOps but focuses specifically on the sales team's efficiency. The work is a mix of keeping data clean, removing process friction, and giving leaders a clear read on performance.
+Les sales operations prennent en charge la configuration du CRM, le processus de vente et la définition des étapes, la planification des territoires et des quotas, les outils et le reporting qui montre la performance de l'équipe. Elles sont proches des RevOps, mais se concentrent spécifiquement sur l'efficacité de l'équipe commerciale. Le travail combine la qualité des données, la suppression des frictions dans les processus et une vision claire de la performance pour les responsables.
 
-## Common mistakes
+## Erreurs fréquentes
 
-A common mistake is treating sales operations as pure reporting rather than owning process and enablement. Another is letting the CRM fill with manual-entry gaps that break the analysis. A third is adding tools that do not connect, which adds work instead of removing it.
+Une erreur fréquente consiste à réduire les sales operations au reporting, au lieu de leur confier les processus et l'accompagnement des équipes. Une autre est de laisser le CRM se remplir de trous dus à la saisie manuelle, qui faussent les analyses. Une troisième est d'ajouter des outils qui ne communiquent pas entre eux, ce qui ajoute du travail au lieu d'en retirer.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell reduces the manual load on sales operations by logging activity to the CRM automatically and keeping data current, so the foundation the team reports on stays accurate.
+hubsell allège la charge manuelle des sales operations en enregistrant automatiquement l'activité dans le CRM et en gardant les données à jour, pour que la base sur laquelle l'équipe s'appuie pour son reporting reste exacte.

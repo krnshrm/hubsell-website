@@ -1,27 +1,27 @@
 ---
 term: "Pipeline"
-category: "CRM and RevOps"
-definition: "Pipeline is the set of active deals a team is working, organised by the stages they move through from first contact to close."
+category: "CRM et RevOps"
+definition: "Le pipeline est l'ensemble des opportunités actives sur lesquelles une équipe travaille, organisées selon les étapes qu'elles traversent du premier contact à la signature."
 related:
   - sales-pipeline-stages
   - crm
   - revops
   - outbound-sales
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-Pipeline is how a team sees what revenue is coming and where it might stall. It turns a pile of deals into a forecast and shows where effort is needed, whether that is more deals entering the top or stuck deals in the middle. A healthy, accurate pipeline is the basis for planning, so keeping it current is a core discipline.
+Le pipeline permet à une équipe de voir le chiffre d'affaires à venir et les endroits où il risque de stagner. Il transforme une pile d'opportunités en prévision et montre où l'effort est nécessaire, qu'il s'agisse de faire entrer plus d'opportunités en haut ou de débloquer celles qui stagnent au milieu. Un pipeline sain et exact est la base de la planification : le tenir à jour est une discipline essentielle.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-Pipeline organises deals into stages, such as new, qualified, proposal, and closed, each with criteria for moving forward. Reps update a deal as it progresses, and the CRM rolls the stages and values into a forecast. Leaders read pipeline for coverage, whether there is enough in progress to hit the target, and for bottlenecks where deals pile up or drop out.
+Le pipeline répartit les opportunités en étapes, par exemple nouvelle, qualifiée, proposition et clôturée, chacune avec des critères de passage. Les commerciaux mettent à jour une opportunité à mesure qu'elle avance, et le CRM agrège les étapes et les montants en prévision. Les responsables lisent le pipeline pour la couverture, c'est-à-dire s'il y a assez d'opportunités en cours pour atteindre l'objectif, et pour les goulets d'étranglement où les opportunités s'accumulent ou se perdent.
 
-## Common mistakes
+## Erreurs fréquentes
 
-A common mistake is a pipeline full of stale deals that should have been closed or dropped, which inflates the forecast. Another is inconsistent stage definitions, so the same deal means different things to different reps. A third is judging pipeline on size alone rather than on quality and movement.
+Une erreur fréquente est un pipeline rempli d'opportunités périmées qui auraient dû être clôturées ou abandonnées, ce qui gonfle la prévision. Une autre est des définitions d'étapes incohérentes, si bien qu'une même opportunité n'a pas le même sens pour tous les commerciaux. Une troisième est de juger le pipeline sur sa seule taille plutôt que sur sa qualité et sa progression.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell feeds pipeline with contacts that are correct today and logs every touch to the CRM automatically, so the deals and activity behind the forecast reflect real, current work.
+hubsell alimente le pipeline avec des contacts exacts aujourd'hui et enregistre automatiquement chaque point de contact dans le CRM, pour que les opportunités et l'activité derrière la prévision reflètent un travail réel et actuel.

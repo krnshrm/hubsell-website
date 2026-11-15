@@ -1,27 +1,27 @@
 ---
-term: "PII"
-category: "Compliance and GDPR"
-definition: "PII, or personally identifiable information, is any data that can identify a specific person, such as a name, work email, or phone number."
+term: "Données personnelles (PII)"
+category: "Conformité et RGPD"
+definition: "Les PII (personally identifiable information), ou données personnelles identifiantes, sont toutes les données qui permettent d'identifier une personne précise, comme un nom, une adresse e-mail professionnelle ou un numéro de téléphone."
 related:
   - gdpr
   - data-processing-agreement
   - b2b-data
   - data-hygiene
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-Most B2B contact data is PII, since a name and work email identify a person. That means the data you run outreach on falls under privacy rules like the GDPR. Knowing what counts as PII tells you which records need a lawful basis, careful storage, and a way to honour deletion, so it is the starting point for handling data responsibly.
+La plupart des données de contact B2B sont des données personnelles, puisqu'un nom et une adresse e-mail professionnelle identifient une personne. Les données sur lesquelles repose votre prospection relèvent donc de règles de protection de la vie privée comme le RGPD. Savoir ce qui constitue une donnée personnelle vous indique quelles fiches exigent une base légale, un stockage soigné et un moyen de répondre aux demandes de suppression. C'est le point de départ d'une gestion responsable des données.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-PII covers direct identifiers like name, email, and phone, and it can extend to details that identify someone in combination. Handling it responsibly means holding only what you need, keeping it accurate, storing it securely, and being able to find and delete a person's data on request. Business contact data is still PII even though it relates to someone's professional role.
+Les données personnelles couvrent les identifiants directs comme le nom, l'adresse e-mail et le téléphone, et peuvent s'étendre à des informations qui, combinées, identifient quelqu'un. Les gérer de façon responsable, c'est ne conserver que le nécessaire, les garder exactes, les stocker de façon sécurisée et pouvoir retrouver et supprimer les données d'une personne sur demande. Les données de contact professionnelles restent des données personnelles, même si elles concernent le rôle professionnel de quelqu'un.
 
-## Common mistakes
+## Erreurs fréquentes
 
-A common mistake is assuming business contact data is not personal data, when a named work email clearly is. Another is holding far more PII than the outreach needs. A third is having no way to locate and remove a person's data when they ask, which the GDPR requires.
+Une erreur fréquente consiste à supposer que les données de contact professionnelles ne sont pas des données personnelles, alors qu'une adresse e-mail professionnelle nominative en est clairement une. Une autre est de conserver bien plus de données personnelles que la prospection ne l'exige. Une troisième est de n'avoir aucun moyen de retrouver et supprimer les données d'une personne quand elle le demande, ce que le RGPD impose.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell handles contact data in the EU and verifies it at the point of use, so you hold current records rather than accumulating stale PII, with a DPA available to cover the processing.
+hubsell traite les données de contact dans l'UE et les vérifie au moment de leur utilisation, pour que vous déteniez des fiches à jour au lieu d'accumuler des données personnelles obsolètes, avec un DPA disponible pour encadrer le traitement.

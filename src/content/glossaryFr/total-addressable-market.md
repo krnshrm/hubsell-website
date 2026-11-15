@@ -1,27 +1,27 @@
 ---
 term: "Total Addressable Market (TAM)"
-category: "Data and enrichment"
-definition: "Total Addressable Market is the full set of companies or buyers that could ever use your product, and it sets the ceiling on how much you could sell."
+category: "Données et enrichissement"
+definition: "Le Total Addressable Market, ou marché total adressable, est l'ensemble des entreprises ou des acheteurs qui pourraient un jour utiliser votre produit. Il fixe le plafond de ce que vous pourriez vendre."
 related:
   - ideal-customer-profile
   - firmographic-data
   - b2b-data
   - outbound-sales
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-TAM tells you how big the opportunity is and where its edges are. A clear TAM keeps go-to-market focused on reachable demand and stops teams chasing accounts outside the market. It also grounds planning: pipeline targets and territory sizes only make sense against a known market size.
+Le TAM vous indique la taille de l'opportunité et où se situent ses limites. Un TAM clair concentre la stratégie de mise sur le marché sur une demande atteignable et évite aux équipes de courir après des comptes hors marché. Il ancre aussi la planification : les objectifs de pipeline et la taille des territoires n'ont de sens que rapportés à une taille de marché connue.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-TAM is defined by the firmographic traits that describe a fit: industry, size, geography, and any hard requirements your product needs. You count the companies that match those traits, then narrow to a serviceable segment you can actually reach and sell to. The count comes from filtering a data source on your ICP criteria.
+Le TAM se définit par les caractéristiques firmographiques d'un client adapté : secteur, taille, zone géographique et toute exigence incontournable de votre produit. Vous comptez les entreprises qui présentent ces caractéristiques, puis vous réduisez à un segment exploitable que vous pouvez réellement atteindre et auquel vous pouvez vendre. Ce décompte s'obtient en filtrant une source de données sur vos critères d'ICP.
 
-## Common mistakes
+## Erreurs fréquentes
 
-A common mistake is inflating TAM by counting companies that will never buy, which sets false expectations. The opposite error is defining it so narrowly that real demand is left out. A third is treating TAM as fixed, when it shifts as your product, pricing, and market change.
+Une erreur fréquente consiste à gonfler le TAM en comptant des entreprises qui n'achèteront jamais, ce qui crée de fausses attentes. L'erreur inverse est de le définir si étroitement qu'une partie de la demande réelle est laissée de côté. Une troisième est de considérer le TAM comme figé, alors qu'il évolue avec votre produit, vos prix et votre marché.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell sources against your ICP criteria on demand, so you work the reachable slice of your market with current contacts rather than estimating from a static database.
+hubsell recherche les contacts à la demande selon vos critères d'ICP, pour que vous travailliez la part atteignable de votre marché avec des contacts à jour plutôt que de faire des estimations à partir d'une base de données figée.

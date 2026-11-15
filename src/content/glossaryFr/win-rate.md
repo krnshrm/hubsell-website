@@ -1,27 +1,27 @@
 ---
 term: "Win rate"
-category: "Metrics"
-definition: "Win rate is the share of opportunities that end in a closed sale, a core measure of how effectively a sales team turns pipeline into revenue."
+category: "Indicateurs"
+definition: "Le win rate, ou taux de réussite, est la part des opportunités qui se concluent par une vente. C'est une mesure clé de la capacité d'une équipe commerciale à transformer le pipeline en chiffre d'affaires."
 related:
   - conversion-rate
   - cac
   - pipeline
   - sales-pipeline-stages
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-Win rate shows how well the team converts real opportunities into customers. It feeds directly into forecasting, since knowing your win rate turns a pile of pipeline into an expected number. A rising win rate means qualification and selling are improving; a falling one signals a problem in fit, process, or the quality of what is entering the pipeline.
+Le win rate montre dans quelle mesure l'équipe transforme de vraies opportunités en clients. Il alimente directement les prévisions, car connaître votre win rate transforme une masse de pipeline en chiffre attendu. Un win rate en hausse signifie que la qualification et la vente s'améliorent, un win rate en baisse signale un problème d'adéquation, de processus ou de qualité de ce qui entre dans le pipeline.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-Win rate is deals won divided by the total that reached a decision, won plus lost, over a period. Teams track it overall and by segment, source, or rep to see what is working. It is closely tied to how strictly opportunities are qualified: a stricter bar for entering the pipeline usually raises win rate because weaker deals never enter.
+Le win rate correspond aux affaires gagnées divisées par le total des affaires arrivées à une décision, gagnées et perdues, sur une période donnée. Les équipes le suivent globalement et par segment, par source ou par commercial pour voir ce qui fonctionne. Il dépend étroitement de la rigueur de la qualification : une barre plus haute pour entrer dans le pipeline augmente généralement le win rate, car les opportunités les plus faibles n'y entrent jamais.
 
-## Common mistakes
+## Erreurs fréquentes
 
-A common mistake is reading win rate without volume, since a high rate on very few deals says little. Another is not separating won from still-open deals, which distorts the figure. A third is ignoring how qualification affects it, so a low win rate is blamed on selling when the real issue is poor-fit deals entering the pipeline.
+Une erreur fréquente consiste à lire le win rate sans tenir compte du volume, car un taux élevé sur très peu d'affaires ne dit pas grand-chose. Une autre est de ne pas séparer les affaires gagnées de celles encore ouvertes, ce qui fausse le chiffre. Une troisième est d'ignorer l'effet de la qualification, si bien qu'un faible win rate est attribué à la vente alors que le vrai problème est l'entrée d'opportunités peu adaptées dans le pipeline.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell supports a healthier win rate by feeding the pipeline with in-profile, verified contacts, so more opportunities start from genuine fit rather than records that were never a match.
+hubsell favorise un meilleur win rate en alimentant le pipeline avec des contacts vérifiés et conformes à votre profil, pour que davantage d'opportunités partent d'une véritable adéquation plutôt que de fiches qui n'ont jamais correspondu.

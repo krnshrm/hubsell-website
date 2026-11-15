@@ -1,27 +1,27 @@
 ---
 term: "llms.txt"
-category: "SEO and GEO"
-definition: "llms.txt is a proposed standard file placed at a site's root that gives AI systems a clean, curated guide to the site's most useful content."
+category: "SEO et GEO"
+definition: "llms.txt est un fichier standard proposé, placé à la racine d'un site, qui donne aux systèmes d'IA un guide clair et sélectionné des contenus les plus utiles du site."
 related:
   - geo
   - aeo
   - schema-markup
   - seo
-updated: "July 2026"
+updated: "juillet 2026"
 ---
 
-## Why it matters
+## Pourquoi c'est important
 
-AI systems do not always parse a full website cleanly, and important pages can be missed or misread. An llms.txt file offers a simple, machine-friendly map of what matters, in one place. For a company that wants answer engines to understand and cite it correctly, it is a low-effort signal that supports GEO.
+Les systèmes d'IA n'analysent pas toujours correctement un site entier, et des pages importantes peuvent être oubliées ou mal comprises. Un fichier llms.txt offre, en un seul endroit, une carte simple et lisible par les machines de ce qui compte. Pour une entreprise qui veut que les moteurs de réponse la comprennent et la citent correctement, c'est un signal peu coûteux qui soutient le GEO.
 
-## How it works in practice
+## Comment cela fonctionne en pratique
 
-llms.txt is a plain text file in a simple format, placed at the root of the domain, that lists the site's key pages and sections with short descriptions and links. It is written for machines rather than people, giving AI crawlers a curated path to the content that matters most. It complements, rather than replaces, a sitemap and structured data.
+llms.txt est un fichier texte au format simple, placé à la racine du domaine, qui liste les pages et sections clés du site avec de courtes descriptions et des liens. Il est écrit pour les machines plutôt que pour les personnes, et donne aux robots d'exploration des IA un chemin sélectionné vers les contenus les plus importants. Il complète le sitemap et les données structurées, sans les remplacer.
 
-## Common mistakes
+## Erreurs fréquentes
 
-A common mistake is treating llms.txt as a guaranteed ranking factor rather than an emerging, voluntary signal. Another is letting it drift out of date as the site changes. A third is listing everything instead of curating the genuinely useful pages.
+Une erreur fréquente consiste à voir llms.txt comme un facteur de classement garanti plutôt que comme un signal émergent et facultatif. Une autre est de le laisser devenir obsolète à mesure que le site évolue. Une troisième est de tout lister au lieu de sélectionner les pages réellement utiles.
 
-## How hubsell approaches it
+## L'approche de hubsell
 
-hubsell publishes an llms.txt file that maps its key pages, including this glossary, so AI systems have a clean guide to the content worth citing.
+hubsell publie un fichier llms.txt qui recense ses pages clés, dont ce glossaire, pour que les systèmes d'IA disposent d'un guide clair vers les contenus qui méritent d'être cités.
