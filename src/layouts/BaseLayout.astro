@@ -4,7 +4,7 @@ import Footer from '../components/Footer.astro';
 import JsonLd from '../components/JsonLd.astro';
 import { GTM_ID } from '../data/site';
 import { OG_IMAGE, organizationSchema, websiteSchema } from '../data/seo';
-import { locales, defaultLocale } from '../i18n/ui';
+import { locales, defaultLocale, langTags, ogLocales } from '../i18n/ui';
 import { asLocale, basePath, hasTranslation, localizeUrl } from '../i18n/utils';
 import '../styles/global.css';
 
@@ -53,7 +53,7 @@ const showHreflang = altLocales.length > 1;
 const altHref = (l: string) => new URL(localizeUrl(l, base), Astro.site).href;
 ---
 <!doctype html>
-<html lang={locale}>
+<html lang={langTags[locale]}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -75,7 +75,7 @@ const altHref = (l: string) => new URL(localizeUrl(l, base), Astro.site).href;
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     {showHreflang && altLocales.map((l) => (
-      <link rel="alternate" hreflang={l} href={altHref(l)} />
+      <link rel="alternate" hreflang={langTags[l]} href={altHref(l)} />
     ))}
     {showHreflang && <link rel="alternate" hreflang="x-default" href={altHref(defaultLocale)} />}
     {noindex && <meta name="robots" content="noindex, nofollow" />}
@@ -84,6 +84,7 @@ const altHref = (l: string) => new URL(localizeUrl(l, base), Astro.site).href;
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={ogLocales[locale]} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:site_name" content="hubsell" />
     <meta name="twitter:card" content="summary_large_image" />

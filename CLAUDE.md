@@ -305,12 +305,12 @@ are still copies of the English text; their routes are not built until translate
 
 - Astro built-in i18n. `locales: ['en','de','nl','fr','es','pt']`, `defaultLocale: 'en'`,
   `prefixDefaultLocale: false`, `fallbackType: 'redirect'`, every locale falls back to `'en'`.
-- Live locales: **en** (base), **de**, **nl** (about 110 pages each), and since 2026-11-15
-  **fr**, **es**, **pt** with six pages each (home, pricing, contact, book a call, FAQs,
-  reviews). Their other URLs are redirect stubs to English until translated
-  (`plans/website-languages.md` in the skills repo has the order).
-- The blog and the legal pages stay English in every locale for now (served via fallback);
-  both are planned to be translated, legal pages with a line that the English is binding.
+- Live locales: **en** (base) and, with the same 109 pages each, **de**, **nl** and (since
+  2026-11-15) **fr**, **es**, **pt**: every page except the blog, the knowledge center and the
+  legal pages. A locale URL that is not in `translatedRoutes` is a redirect stub to English.
+- The blog, the knowledge center and the legal pages stay English in every locale for now
+  (served via fallback). Blog translation is postponed with no date (owner, 2026-11-15); legal
+  pages are planned with a line that the English is binding.
 - `src/i18n/ui.ts` holds `translatedRoutes` (drives hreflang, the sitemap filter in
   `astro.config.mjs`, and the language switcher) and the chrome dictionaries.
 - Internal links go through `localizedHref(locale, '/path')`.
@@ -360,6 +360,19 @@ are still copies of the English text; their routes are not built until translate
   `npm run check:terms -- --pairs` also compares each translated page with its English
   page and lists where the English uses an app term and the translation uses another
   word; that list never fails a build.
+- **English text check:** the same script then reports text on translated pages that
+  reads as English: a sentence, title, meta description, alt or aria-label with two or
+  more common English words (the, and, your, you, with, for, our, we, is, are, to, of)
+  and none of the language's own common words. Names that stay English (plan names,
+  "Pay as you go", "Sales Intelligence", "LinkedIn") are cut out first; the lists are
+  `english` in the config. It is report only (a count per language after every build;
+  `npm run check:terms` lists the text); `npm run check:terms -- --strict-english`
+  fails on any. Expected today: the pricing table's English node name "Contact added
+  to the flow" in all five languages (node names stay English by design).
+- **Language tags** (`langTags` and `ogLocales` in `src/i18n/ui.ts`): `<html lang>`,
+  hreflang, the sitemap's alternates and JSON-LD `inLanguage` use `en`, `de`, `nl`,
+  `fr`, `es` and `pt-BR` (fr and es without a region so speakers outside France and
+  Spain match too); `og:locale` uses `en_GB`, `de_DE`, `nl_NL`, `fr_FR`, `es_ES`, `pt_BR`.
 
 ## Forms and the server function
 

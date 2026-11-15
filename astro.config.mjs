@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-import { translatedRoutes } from './src/i18n/ui';
+import { translatedRoutes, langTags } from './src/i18n/ui';
 import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { join, relative, sep } from 'node:path';
@@ -91,7 +91,14 @@ export default defineConfig({
   // below writes each page as folder/index.html, which is what static hosts
   // expect.
   integrations: [
-    sitemap({ filter: inSitemap }),
+    // i18n adds <xhtml:link rel="alternate" hreflang> for every language version
+    // of a URL, with the same codes as the page's hreflang tags (pt is pt-BR).
+    // The integration builds those links only from URLs that passed `filter`, so
+    // redirect stubs never appear as an alternate.
+    sitemap({
+      filter: inSitemap,
+      i18n: { defaultLocale: 'en', locales: langTags },
+    }),
     trailingSlashLinks(),
   ],
   build: { format: 'directory' },

@@ -4,13 +4,14 @@ import JsonLd from '../../../../components/JsonLd.astro';
 import SolutionDetail from '../../../../components/SolutionDetail.astro';
 import { breadcrumbSchema } from '../../../../data/seo';
 import { getSolutionDetail } from '../../../../data/solutions-i18n';
-import { asLocale, localizeUrl } from '../../../../i18n/utils';
+import { asLocale, localizeUrl, useTranslations } from '../../../../i18n/utils';
 
 const L = asLocale(Astro.currentLocale);
+const t = useTranslations(L);
 const d = getSolutionDetail(L, '/solutions/role/sales-operations');
 const crumbs = breadcrumbSchema([
-  { name: 'Startseite', url: localizeUrl(L, '/') },
-  { name: 'Lösungen', url: localizeUrl(L, '/solutions') },
+  { name: t('nav.home'), url: localizeUrl(L, '/') },
+  { name: t('nav.solutions'), url: localizeUrl(L, '/solutions') },
   { name: d.eyebrow, url: localizeUrl(L, '/solutions/role/sales-operations') },
 ]);
 ---

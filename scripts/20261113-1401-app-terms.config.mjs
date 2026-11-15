@@ -178,3 +178,24 @@ export const allow = [
   { locale: 'es', word: 'secuencias', text: 'herramientas de secuencias de email', why: 'Outreach and Salesloft as a tool category, not the Flow' },
   { locale: 'pt', word: 'sequências', text: 'ferramentas de sequências de e-mail', why: 'Outreach and Salesloft as a tool category, not the Flow' },
 ];
+
+// English left in a translated page (`english` report). A piece of text counts as
+// English when it has at least `minHits` of `words` as whole words and none of the
+// language's own common words. Words that are common in both languages ("is" in
+// Dutch, "die" in German) stay out of the English list or out of the language's
+// list, whichever keeps the test honest. Report only, unless --strict-english.
+export const english = {
+  minHits: 2,
+  words: ['the', 'and', 'your', 'you', 'with', 'for', 'our', 'we', 'is', 'are', 'to', 'of'],
+  // Common words per language. One of them in a piece of text means it is not English.
+  localeWords: {
+    de: ['der', 'die', 'das', 'und', 'sie', 'ihr', 'ihre', 'ihren', 'mit', 'für', 'ist', 'sind', 'zu', 'von', 'ein', 'eine', 'einen', 'den', 'dem', 'nicht', 'auf', 'auch', 'oder', 'wir', 'unsere'],
+    nl: ['de', 'het', 'een', 'en', 'je', 'jouw', 'met', 'voor', 'van', 'zijn', 'wordt', 'niet', 'ook', 'op', 'naar', 'dat', 'ons', 'onze'],
+    fr: ['le', 'la', 'les', 'des', 'du', 'de', 'et', 'vous', 'votre', 'vos', 'avec', 'pour', 'est', 'sont', 'un', 'une', 'en', 'dans', 'sur', 'pas', 'qui', 'que', 'au', 'aux', 'nous', 'notre'],
+    es: ['el', 'la', 'los', 'las', 'de', 'del', 'y', 'tu', 'tus', 'con', 'para', 'es', 'son', 'un', 'una', 'en', 'que', 'por', 'se', 'al', 'más', 'sin', 'te'],
+    pt: ['o', 'os', 'de', 'da', 'dos', 'das', 'e', 'você', 'seu', 'sua', 'com', 'para', 'é', 'são', 'um', 'uma', 'em', 'na', 'que', 'por', 'não', 'mais'],
+  },
+  // Names that stay English in every language (plans, products, tools). They are
+  // taken out of the text before counting, so "Pay as you go" alone is not English.
+  keep: ['Pay as you go', 'Sales Intelligence', 'Sales Engagement', 'hubsell', 'LinkedIn', 'Start', 'Grow', 'Scale', 'Platform'],
+};

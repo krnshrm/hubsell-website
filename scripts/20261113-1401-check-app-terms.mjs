@@ -11,7 +11,13 @@
 //   npm run check:terms -- --locale nl     one language
 //   npm run check:terms -- --all           list every finding (default: 15 per rule)
 //   npm run check:terms -- --strict        fail on any finding, in any language
+//   npm run check:terms -- --strict-english  fail when a translated page has English text
 //   --quiet (used by postbuild)            counts only for the report-only languages
+//
+// The English report lists text on a translated page that reads as English (two
+// or more common English words and none of the language's own). It never fails a
+// build unless --strict-english is given: a missing translation is a gap to fill,
+// not a wrong word.
 //
 // A finding fails the build only for the languages in `enforce`
 // (scripts/20261113-1401-app-terms.config.mjs). The comparison with the English
@@ -20,7 +26,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { resolve, dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { enforce, avoid, style, allow } from './20261113-1401-app-terms.config.mjs';
+import { enforce, avoid, style, allow, english } from './20261113-1401-app-terms.config.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
@@ -111,6 +117,26 @@ function stems(term, locale) {
   return prefix.length >= 4 ? [prefix] : forms;
 }
 
+// English text on a translated page. Names that stay English are cut out first,
+// then the remaining words are counted.
+const keepPattern = new RegExp(`(?<![\\p{L}])(?:${english.keep.map(escape).join('|')})(?![\\p{L}])`, 'giu');
+const englishWords = new Set(english.words);
+function looksEnglish(text, locale) {
+  const words = lower(text.replace(keepPattern, ' ')).match(/\p{L}+/gu) ?? [];
+  const own = new Set(english.localeWords[locale] ?? []);
+  if (words.some((w) => own.has(w))) return null;
+  const hits = [...new Set(words.filter((w) => englishWords.has(w)))];
+  return hits.length >= english.minHits ? hits : null;
+}
+const englishFindings = new Map();
+const addEnglish = (f) => {
+  if (allowed(f)) return;
+  const key = [f.locale, f.text].join('\u0000');
+  const hit = englishFindings.get(key);
+  if (hit) hit.pages.add(f.page);
+  else englishFindings.set(key, { ...f, pages: new Set([f.page]) });
+};
+
 const checked = [];
 for (const locale of locales.filter((l) => l !== 'en' && (!only || l === only))) {
   const dir = join(dist, locale);
@@ -133,6 +159,8 @@ for (const locale of locales.filter((l) => l !== 'en' && (!only || l === only)))
     const page = urlOf(file);
     const segs = segments(html);
     for (const text of segs) {
+      const en = looksEnglish(text, locale);
+      if (en) addEnglish({ locale, rule: 'english', word: 'english', hits: en, text, page });
       for (const r of rules) {
         r.pattern.lastIndex = 0;
         for (const m of text.matchAll(r.pattern)) add({ locale, rule: r.rule, why: r.why, word: m[1], text, page });
@@ -189,10 +217,32 @@ for (const { locale, count } of checked) {
 }
 if (!checked.length) console.log('\n  No translated pages found in dist/.');
 
+const englishList = [...englishFindings.values()];
+console.log(`\n  English text on translated pages (${flag('--strict-english') ? 'fails the build' : 'report only, --strict-english to fail'})`);
+for (const { locale } of checked) {
+  const mine = englishList.filter((f) => f.locale === locale);
+  const pageCount = new Set(mine.flatMap((f) => [...f.pages])).size;
+  console.log(`    ${locale}: ${mine.length} piece(s) of text on ${pageCount} page(s)`);
+  if (flag('--quiet')) continue;
+  for (const f of mine.slice(0, LIMIT)) {
+    const where = [...f.pages];
+    const text = f.text.length > 160 ? f.text.slice(0, 160) + '…' : f.text;
+    console.log(`      ${where[0]}${where.length > 1 ? ` (+${where.length - 1} pages)` : ''}  [${f.hits.join(', ')}]`);
+    console.log(`         ${text}`);
+  }
+  if (mine.length > LIMIT) console.log(`      … ${mine.length - LIMIT} more (add --all)`);
+}
+
 if (failing.length) {
   console.error(`\n  ${failing.length} finding(s) fail the build. Use the app's word (docs/20261113-1401-APP-TERMS.md),`);
   console.error('  or, when the text is right as it is (a customer quote, a competitor\'s "sequence"),');
   console.error('  add it to `allow` in scripts/20261113-1401-app-terms.config.mjs with the reason.\n');
+  process.exit(1);
+}
+if (flag('--strict-english') && englishList.length) {
+  console.error(`\n  ${englishList.length} piece(s) of English text on translated pages (--strict-english).`);
+  console.error('  Translate them, or add a name that stays English to `english.keep` in');
+  console.error('  scripts/20261113-1401-app-terms.config.mjs.\n');
   process.exit(1);
 }
 console.log('');

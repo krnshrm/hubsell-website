@@ -2,6 +2,8 @@
 // Graph images, and titles stay consistent everywhere. Plain language only, no
 // marketing filler, because this text feeds search engines and AI answers.
 
+import { defaultLocale, langTags, type Locale } from '../i18n/ui';
+
 export const SITE_URL = 'https://www.hubsell.com';
 
 // Default social / Open Graph image (1200x630). Lives on R2; upload the PNG to
@@ -107,37 +109,58 @@ export function breadcrumbSchema(items: { name: string; url: string }[]) {
       '@type': 'ListItem',
       position: i + 1,
       name: item.name,
-      item: item.url.startsWith('http') ? item.url : `${SITE_URL}${item.url}`,
+      item: absPage(item.url),
     })),
   };
 }
 
+// Absolute URL with the trailing slash our canonicals use, so structured data
+// never points at a URL that 308-redirects.
+function absPage(url: string): string {
+  const abs = url.startsWith('http') ? url : `${SITE_URL}${url}`;
+  const [path, hash] = abs.split('#');
+  const withSlash = path.endsWith('/') ? path : `${path}/`;
+  return hash ? `${withSlash}#${hash}` : withSlash;
+}
+
+// The glossary index URL in a locale (English at /glossary/, others at /<locale>/glossary/).
+function glossaryUrl(locale: Locale): string {
+  return absPage(locale === defaultLocale ? '/glossary' : `/${locale}/glossary`);
+}
+
 // A single glossary term, for term pages. `inDefinedTermSet` links it back to the
-// glossary index so answer engines see the set membership.
-export function definedTermSchema(opts: { name: string; description: string; url: string; termCode?: string }) {
+// glossary index of the same language so answer engines see the set membership.
+export function definedTermSchema(opts: { name: string; description: string; url: string; locale: Locale; termCode?: string }) {
   return {
     '@context': 'https://schema.org',
     '@type': 'DefinedTerm',
     name: opts.name,
     description: opts.description,
-    url: opts.url.startsWith('http') ? opts.url : `${SITE_URL}${opts.url}`,
-    inDefinedTermSet: `${SITE_URL}/glossary`,
+    url: absPage(opts.url),
+    inLanguage: langTags[opts.locale],
+    inDefinedTermSet: glossaryUrl(opts.locale),
     ...(opts.termCode ? { termCode: opts.termCode } : {}),
   };
 }
 
 // The glossary index as a DefinedTermSet, with every term as a hasDefinedTerm entry.
-export function definedTermSetSchema(terms: { name: string; description: string; url: string }[]) {
+// `name` is the index page's own title in that language (without the brand suffix),
+// so a French glossary is not described to search engines in English.
+export function definedTermSetSchema(
+  terms: { name: string; description: string; url: string }[],
+  opts: { name: string; locale: Locale },
+) {
   return {
     '@context': 'https://schema.org',
     '@type': 'DefinedTermSet',
-    name: 'hubsell B2B sales and data glossary',
-    url: `${SITE_URL}/glossary`,
+    name: opts.name.replace(/\s*\|\s*hubsell$/, ''),
+    url: glossaryUrl(opts.locale),
+    inLanguage: langTags[opts.locale],
     hasDefinedTerm: terms.map((tm) => ({
       '@type': 'DefinedTerm',
       name: tm.name,
       description: tm.description,
-      url: tm.url.startsWith('http') ? tm.url : `${SITE_URL}${tm.url}`,
+      url: absPage(tm.url),
     })),
   };
 }

@@ -2,6 +2,7 @@
 // Same shape as the English source, which stays the reference.
 // Product terms: docs/20261113-1401-APP-TERMS.md. The blog stays English, hence "Insights (EN)".
 export const uiEs: Record<string, string> = {
+  "nav.home": "Inicio",
   "nav.resources": "Recursos",
   "nav.heading.learn": "Aprende",
   "nav.heading.company": "Empresa",

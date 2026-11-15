@@ -16,7 +16,7 @@ const { entry } = Astro.props;
 const L = asLocale(Astro.currentLocale);
 const c = glossaryChrome(L);
 const url = localizeUrl(L, `/glossary/${entry.id}`);
-const term = definedTermSchema({ name: entry.data.term, description: entry.data.definition, url });
+const term = definedTermSchema({ name: entry.data.term, description: entry.data.definition, url, locale: L });
 const crumbs = breadcrumbSchema([
   { name: c.crumbHome, url: localizeUrl(L, '/') },
   { name: c.crumbGlossary, url: localizeUrl(L, '/glossary') },
