@@ -136,6 +136,14 @@ export const allow = [
   { locale: 'nl', text: 'Ze kunnen echt met u samenwerken', why: 'customer quote (Staffbase), stays as said' },
   { locale: 'nl', text: 'als u met een klein team echte resultaten wilt halen', why: 'customer quote (Elium), stays as said' },
   { locale: 'nl', page: '/nl/glossary/', text: 'U', word: 'U', why: 'the letter U in the A to Z index' },
+  // Solutions pages: the "Sequencer" tool chip and the RevOps list of tools hubsell
+  // replaces name the competitors' tool category, not hubsell's Flow.
+  { locale: 'fr', text: 'Outil de séquences', why: 'tool category chip (Sequencer)' },
+  { locale: 'es', text: 'Herramienta de secuencias', why: 'tool category chip (Sequencer)' },
+  { locale: 'fr', text: "d'enrichissement, de séquences, de délivrabilité", why: 'tools hubsell replaces' },
+  { locale: 'es', text: 'enriquecimiento, secuencias, entregabilidad', why: 'tools hubsell replaces' },
+  { locale: 'pt', text: 'enriquecimento, sequências, entregabilidade', why: 'tools hubsell replaces' },
+  { locale: 'pt', text: 'email@suaempresa.com', why: 'example address in the email field' },
   // Customer stories are interviews in the customer's own words.
   { locale: 'nl', page: '/nl/customerstories/', why: 'customer stories are interviews, the customer\'s words stay as said' },
   { locale: 'de', page: '/de/customerstories/', why: 'customer stories are interviews, the customer\'s words stay as said' },
