@@ -21,7 +21,7 @@ faqs:
     a: "Click your profile icon, then MCP, and click Revoke next to the connection. It loses access straight away."
   - q: "Which apps work?"
     a: "Any app that supports MCP: the Claude app, Claude Code, Cursor, and command-line tools such as Codex or Gemini CLI. They all use the same address."
-draft: true
+draft: false
 ---
 <p>MCP (Model Context Protocol) is the standard way for an AI assistant to use other software. Once you connect hubsell, you can ask Claude things like <i>"Which of my contacts in Germany replied positively?"</i> or <i>"How is my UK flow doing this month?"</i>, and it looks up the answer in your hubsell account.</p>
 
