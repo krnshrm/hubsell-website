@@ -1,245 +1,269 @@
 ---
 title: "Create a flow"
-description: "Build your first multichannel flow in hubsell: triggers, branches, LinkedIn and email steps, wait times, sending limits, and launch."
+description: "Build your first Flow in hubsell: the trigger, LinkedIn and email steps, waits, follow-up conditions with branches, sending limits, and launch."
 category: "Getting started"
 order: 5
 series: "First login to first campaign"
 seriesStep: 5
 seriesTotal: 8
 estMinutes: 12
-stepCount: 26
-prerequisites: "Contacts in a hubsell list, and your mailbox and LinkedIn connected."
-walkthroughUrl: "https://scribehow.com/o/_VgKCJwkRbGYfCk3CnY0eA/viewer/How_To_Create_A_Flow_in_hubsell__MJVpxMPvQ0mXwpCrCuquNw"
-updated: 2026-07-23
+stepCount: 17
+appliesTo: "All plans"
+prerequisites: "Your mailbox and LinkedIn connected, and contacts in hubsell to add to the Flow afterwards."
+updated: 2026-11-16
 faqs:
-  - q: "How many LinkedIn connection requests can flows send per day?"
-    a: "25 to 30 per day, combined across all your active flows."
-  - q: "Why are contacts stuck in my flow?"
-    a: "A contact without rules defining how it moves stays where it is. Click the conditional branch in the flow builder and set explicit rules for each track, for example accepted and not accepted."
-  - q: "Can I add contacts without an email address to a flow with email steps?"
-    a: "Filter them out before importing, or put them into a LinkedIn-only sequence. A contact without an email address cannot move through an email step."
+  - q: "How many LinkedIn connection requests does a Flow send per day?"
+    a: "You decide, per Flow and per sender: click Settings in the editor and set Connection request send rate. The same panel has limits for emails, profile views, LinkedIn direct messages and InMails."
+  - q: "Why can't I put Follow-up Conditions straight after the trigger?"
+    a: "Follow-up conditions react to an outreach step, so add one first, for example a connection request. hubsell says Add an outreach node first otherwise."
+  - q: "Some items in the Flow Builder are grey and say Coming Soon."
+    a: "Those aren't available yet. Today the trigger is Contact added to the flow, and the Outreach and Utilities steps without a Coming Soon label can be used."
+  - q: "Can I edit a teammate's Flow?"
+    a: "You can open it, but it shows View only: this flow belongs to a teammate. Clone it to get your own copy you can change."
+  - q: "What happens to contacts without an email address in an email step?"
+    a: "The email step skips them. The Flow's History lists them under Skipped with the reason No email address."
 next:
   label: "Add unwanted emails and domains to the suppression list"
-  href: "/knowledge/suppression-list"
+  href: "/knowledge/suppression-list/"
 draft: false
 ---
-<p>A flow is your automated outreach sequence. It defines which channels reach a contact, in what order, and under what conditions. This article builds a sample flow with a LinkedIn connection request, conditional branches, and follow-up steps by LinkedIn message and email.</p>
+<!-- sources: hubsell-client src/app/flows/(list)/(flows)/page.tsx, src/components/flow/listing/index.tsx, src/components/flow/listing/columns.tsx, src/components/flow/configure-flow/index.tsx, src/components/flow/FlowSidebar.tsx, src/components/flow/FlowUtil.tsx, src/components/flow/nodes/TriggerNode.tsx, src/components/flow/nodes/LinkedInNode.tsx, src/components/flow/nodes/EmailNode.tsx, src/components/flow/nodes/DelayNode.tsx, src/components/flow/nodes/RouterNode.tsx, src/components/flow/nodes/BranchNode.tsx, src/components/flow/node-configs/RouterBranchNodeConfigs.tsx, src/components/flow/node-configs/EmailNodeConfig.tsx, src/components/flow/node-configs/EmailSettings.tsx, src/components/flow/ActionStatusToggle.tsx, src/components/flow/SettingsSidebar.tsx, src/components/flow/settings/configurableObject.tsx, src/i18n/messages/en/flows.json, src/i18n/messages/en/flowEditor.json -->
+<p>A Flow is your automated outreach. It decides which channels reach a contact, in what order and under which conditions. This article builds a sample Flow: a LinkedIn connection request, then a LinkedIn message for people who accept and an email for people who don't.</p>
 
-<div class="kb-callout kb-callout--tip">
-  <p>Flows send <b>25 to 30 LinkedIn connection requests per day</b>, combined across all your active flows. Plan your sequence and daily volumes with that ceiling in mind.</p>
-</div>
-
-<h2 class="kb-sub" id="create">Create the flow</h2>
+<h2 class="kb-sub" id="create">Create the Flow</h2>
 <ol class="kb-steps">
   <li>
-    <p>Click the <span class="kb-kbd">Flows</span> icon in the sidebar.</p>
-    <figure class="kb-figure" data-ph="Screenshot: the Flows icon in the sidebar">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-22/0c11b0b6-2649-490c-bdab-002354db8a64/user_cropped_screenshot_9e026d8be65d4ab1a33fd97f4f3a4fc8_text_export.jpeg" alt="The Flows icon in the sidebar" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Opening Flows</figcaption>
+    <p>In the left sidebar, click <span class="kb-kbd">Flows</span>.</p>
+  </li>
+  <li>
+    <p>Click <span class="kb-kbd">Create New Flow</span>. hubsell creates a Flow with a made-up name and opens it in the editor.</p>
+    <figure class="kb-figure">
+      <div class="kb-ui" role="img" aria-label="The Flows page with a list of Flows and their status. The Create New Flow button is marked.">
+        <div class="kb-ui__bar" aria-hidden="true"><i></i><i></i><i></i><span class="kb-ui__url">app.hubsell.com/flows</span></div>
+        <div class="kb-ui__app" aria-hidden="true">
+          <div class="kb-ui__nav">
+            <span class="kb-ui__logo">hubsell</span>
+            <span class="kb-ui__group">Source &amp; Enrich</span>
+            <span class="kb-ui__item">Lists</span>
+            <span class="kb-ui__item">Searches</span>
+            <span class="kb-ui__item">Contacts</span>
+            <span class="kb-ui__group">Orchestrate &amp; Engage</span>
+            <span class="kb-ui__item is-active">Flows</span>
+            <span class="kb-ui__item">Tasks</span>
+          </div>
+          <div class="kb-ui__main">
+            <div class="kb-ui__toolbar">
+              <span class="kb-ui__btn" style="margin-right:auto">Show/hide Filters</span>
+              <span class="kb-ui__btn is-primary is-marked">Create New Flow</span>
+              <span class="kb-ui__btn">Columns</span>
+            </div>
+            <div class="kb-ui__tablewrap"><table class="kb-ui__table">
+              <tr><th>Name</th><th>Status</th><th>Recipients</th><th>User</th></tr>
+              <tr><td>Kestrel Analytics follow-up</td><td>Active</td><td>184</td><td>Anna Berger</td></tr>
+              <tr><td>Logistics leaders Q4</td><td>Paused</td><td>96</td><td>Anna Berger</td></tr>
+            </table></div>
+          </div>
+        </div>
+      </div>
+      <figcaption>The Flows page</figcaption>
     </figure>
   </li>
   <li>
-    <p>Click <span class="kb-kbd">Create New Flow</span>.</p>
-    <figure class="kb-figure" data-ph="Screenshot: Create New Flow">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-21/4eeb3c2e-1ccf-4850-817c-c946f904eb69/ascreenshot_85cd19098e3b4af29cc490b43e9ae2ee_text_export.jpeg" alt="The Create New Flow button" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Creating a new flow</figcaption>
-    </figure>
+    <p>At the top of the editor, click the pencil next to the Flow's name, type a name you'll recognise and press <span class="kb-kbd">Enter</span>.</p>
+  </li>
+</ol>
+
+<h2 class="kb-sub" id="trigger">Add the trigger</h2>
+<ol class="kb-steps">
+  <li>
+    <p>In the <b>Flow Builder</b> panel on the left, click <span class="kb-kbd">Triggers</span>. If the panel is folded in, click its Triggers icon.</p>
   </li>
   <li>
-    <p>Rename your flow as required.</p>
-    <figure class="kb-figure" data-ph="Screenshot: renaming the flow">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-21/89e73ed5-a815-45c5-b05a-309adfe087ca/ascreenshot_cee294db7a5c41b8b48ab691302909ad_text_export.jpeg" alt="Renaming the flow" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Naming your flow</figcaption>
+    <p>Drag <span class="kb-kbd">Contact added to the flow</span> onto the canvas. hubsell adds the trigger and an <b>End</b> step below it.</p>
+    <figure class="kb-figure">
+      <div class="kb-ui" role="img" aria-label="The Flow editor. Along the top: the Flow's name with a pencil to rename it, and the Save, Contacts, Settings, Statistics, History and Launch buttons. On the left, the Flow Builder panel with Triggers open; Contact added to the flow is marked. On the canvas, the trigger step and the End step.">
+        <div class="kb-ui__bar" aria-hidden="true"><i></i><i></i><i></i><span class="kb-ui__url">app.hubsell.com/flows/64f1c2a9e8b7d3</span></div>
+        <div aria-hidden="true">
+          <div class="kb-ui__toolbar" style="padding:10px 14px;background:var(--hs-card,#fff);border-bottom:1px solid var(--hs-border,#d3d8e5);font-size:13px">
+            <span class="kb-ui__logo" style="padding:0">hubsell</span>
+            <span class="kb-ui__muted">Flows /</span>
+            <b style="margin-right:auto">Brightpath outreach <span class="kb-ui__btn" style="padding:0 6px;font-size:12px">&#9998;</span></b>
+            <span class="kb-ui__btn" style="font-size:12px;padding:4px 10px">Save</span>
+            <span class="kb-ui__btn" style="font-size:12px;padding:4px 10px">Contacts</span>
+            <span class="kb-ui__btn" style="font-size:12px;padding:4px 10px">Settings</span>
+            <span class="kb-ui__btn" style="font-size:12px;padding:4px 10px">Statistics</span>
+            <span class="kb-ui__btn" style="font-size:12px;padding:4px 10px">History</span>
+            <span class="kb-ui__btn is-primary" style="font-size:12px;padding:4px 10px">Launch</span>
+          </div>
+          <div class="kb-ui__row" style="align-items:stretch;gap:0;font-size:13px">
+            <div class="kb-ui__stack" style="flex:1 1 220px;max-width:300px;gap:8px;padding:12px;background:var(--hs-card,#fff);border-right:1px solid var(--hs-border,#d3d8e5)">
+              <div><p class="kb-ui__label">Flow Builder</p><p class="kb-ui__muted kb-ui__small">Drag nodes to the canvas</p></div>
+              <b>Triggers</b>
+              <div class="kb-ui__node is-marked" style="min-width:0"><b>Contact added to the flow</b><span class="kb-ui__muted kb-ui__small">When a contact is manually added to the flow</span></div>
+              <div class="kb-ui__node" style="min-width:0;opacity:.55"><b>Contact matches filters <span class="kb-ui__badge">Coming Soon</span></b><span class="kb-ui__muted kb-ui__small">When a contact matches filters for the first time</span></div>
+              <b>Outreach</b>
+              <b>Utilities</b>
+              <b>Data &amp; CRM</b>
+            </div>
+            <div class="kb-ui__canvas" style="flex:1 1 220px;justify-content:flex-start">
+              <div class="kb-ui__node"><b>Contact added</b><span class="kb-ui__muted kb-ui__small">Trigger when a contact is added to your contact list</span></div>
+              <div class="kb-ui__link"></div>
+              <span class="kb-ui__badge">+</span>
+              <div class="kb-ui__link"></div>
+              <div class="kb-ui__node" style="min-width:0;text-align:center"><b>End</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figcaption>Adding the trigger in the Flow editor</figcaption>
     </figure>
   </li>
 </ol>
 
-<h2 class="kb-sub" id="logic">Build the branching logic</h2>
-<ol class="kb-steps" start="4">
+<h2 class="kb-sub" id="steps">Add the outreach steps</h2>
+<ol class="kb-steps">
   <li>
-    <p>Click <span class="kb-kbd">Triggers</span>. A trigger defines the event that enrols a contact into the flow.</p>
-    <figure class="kb-figure" data-ph="Screenshot: the Triggers menu">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-21/29efb4ec-62c7-49d0-8b56-599b3de4d79d/ascreenshot_7dad7b2602e74c78ad1a9ee66793f89a_text_export.jpeg" alt="The Triggers menu in the flow builder" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Opening Triggers</figcaption>
+    <p>Click <span class="kb-kbd">Outreach</span> and drag <span class="kb-kbd">Connection request</span> onto the plus sign below the trigger. hubsell puts a <b>Wait</b> step in front of it, 1 day by default.</p>
+  </li>
+  <li>
+    <p>Click <span class="kb-kbd">Utilities</span> and drag <span class="kb-kbd">Follow-up Conditions</span> onto the plus sign below the connection request. It splits the Flow into two branches, <b>Branch 1</b> and <b>Branch 2</b>.</p>
+  </li>
+  <li>
+    <p>Click the <b>Follow-up Conditions</b> step. Next to a branch, click the pencil, type a name such as <i>Accepted</i> and save it. Do the same for the other branch. <span class="kb-kbd">Add Branch 3</span> adds another branch, up to five.</p>
+  </li>
+  <li>
+    <p>Click a branch on the canvas and choose its condition under <b>Branch Conditions</b>, for example <b>Connection Accepts</b>: <b>Accepted</b> for one branch and <b>Not Accepted</b> for the other. Give every branch a condition, so each contact has a path.</p>
+  </li>
+  <li>
+    <p>Drag <span class="kb-kbd">Direct message</span> onto the plus sign in the <i>Accepted</i> branch, and <span class="kb-kbd">Email</span> onto the plus sign in the <i>Not accepted</i> branch.</p>
+    <figure class="kb-figure">
+      <div class="kb-ui" role="img" aria-label="A finished Flow on the canvas: the Contact added trigger, a one-day wait, the connection request, then Follow-up Conditions, which is marked, splitting into an Accepted branch with a direct message and a Not accepted branch with an email.">
+        <div class="kb-ui__bar" aria-hidden="true"><i></i><i></i><i></i><span class="kb-ui__url">app.hubsell.com/flows/64f1c2a9e8b7d3</span></div>
+        <div class="kb-ui__canvas" aria-hidden="true">
+          <div class="kb-ui__node"><b>Contact added</b><span class="kb-ui__muted kb-ui__small">Trigger when a contact is added to your contact list</span></div>
+          <div class="kb-ui__link"></div>
+          <span class="kb-ui__badge is-info">Wait - 1 day</span>
+          <div class="kb-ui__link"></div>
+          <div class="kb-ui__node"><div class="kb-ui__row" style="justify-content:space-between;gap:6px"><b>1 Connection request</b><span class="kb-ui__badge is-success">On</span></div><span class="kb-ui__muted kb-ui__small">LinkedIn Connection Request</span></div>
+          <div class="kb-ui__link"></div>
+          <div class="kb-ui__node is-marked"><b>Follow-up Conditions</b><span class="kb-ui__muted kb-ui__small">Follow-up conditions</span><br><span class="kb-ui__small">Branches 2</span></div>
+          <div class="kb-ui__link"></div>
+          <div style="display:flex;gap:8px;justify-content:center;width:100%">
+            <div class="kb-ui__stack" style="flex:1 1 0;max-width:150px;min-width:0;gap:0;align-items:center">
+              <span class="kb-ui__badge is-info">Accepted</span>
+              <div class="kb-ui__link"></div>
+              <span class="kb-ui__badge is-info">Wait - 1 day</span>
+              <div class="kb-ui__link"></div>
+              <div class="kb-ui__node" style="min-width:0;width:100%"><b>2 Direct message</b><span class="kb-ui__badge is-success">On</span></div>
+            </div>
+            <div class="kb-ui__stack" style="flex:1 1 0;max-width:150px;min-width:0;gap:0;align-items:center">
+              <span class="kb-ui__badge is-info">Not accepted</span>
+              <div class="kb-ui__link"></div>
+              <span class="kb-ui__badge is-info">Wait - 1 day</span>
+              <div class="kb-ui__link"></div>
+              <div class="kb-ui__node" style="min-width:0;width:100%"><b>3 Email</b><span class="kb-ui__badge is-success">On</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figcaption>The sample Flow with two branches</figcaption>
     </figure>
   </li>
   <li>
-    <p>Drag <span class="kb-kbd">Contact added to the flow</span> onto the centre of the canvas.</p>
-    <figure class="kb-figure" data-ph="Screenshot: dragging the trigger onto the canvas">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-21/c6226cdb-a1fe-4f45-8d63-a465ae1f6955/ascreenshot_f5226efce8bd41fbbcebb5dffd332d93_text_export.jpeg" alt="Dragging Contact added to the flow onto the canvas" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Placing the trigger</figcaption>
-    </figure>
+    <p>To change a wait, click the <b>Wait</b> step and set <b>Duration</b> and <b>Unit</b> (hours or days). Under <b>Conditions</b>, the <b>No-reply</b> condition applies by default; add a condition there to target other contacts, for example those who replied.</p>
+  </li>
+</ol>
+
+<h2 class="kb-sub" id="content">Write the messages</h2>
+<ol class="kb-steps">
+  <li>
+    <p>Click an outreach step on the canvas. Its settings open on the right, on the <b>Set-up action</b> tab.</p>
   </li>
   <li>
-    <p>Click <span class="kb-kbd">Outreach</span> to open the outreach actions.</p>
-    <figure class="kb-figure" data-ph="Screenshot: the Outreach menu">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-21/835c4c80-5c50-4783-bd50-077b03cfa26c/ascreenshot_da79f516b84640e48c2f6f03df75d25c_text_export.jpeg" alt="The Outreach menu in the flow builder" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Opening Outreach</figcaption>
-    </figure>
+    <p>Write the text. For an email, fill in <b>Email subject</b> and <b>Email body</b>. For a LinkedIn step, fill in the <b>Message body</b>; for a connection request, leave it empty to send it without a note. <span class="kb-kbd">Preview Email</span> or <span class="kb-kbd">Preview Message</span> shows the text for a real contact.</p>
   </li>
   <li>
-    <p>Drag <span class="kb-kbd">Connection request</span> onto the plus sign below the trigger card.</p>
-    <figure class="kb-figure" data-ph="Screenshot: adding a connection request">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-21/5949c9de-55ed-43b2-933f-a011812b2019/ascreenshot_cb1450b46932446aba32b4ee42c93ff9_text_export.jpeg" alt="Dragging Connection request into the flow" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Adding the connection request</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>Click <span class="kb-kbd">Utilities</span> to open the follow-up tools.</p>
-    <figure class="kb-figure" data-ph="Screenshot: the Utilities menu">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-21/e0784600-38f0-4ea6-8a05-514b072d78b4/ascreenshot_5b6ca73fad8a4c12b3de6c44c796638c_text_export.jpeg" alt="The Utilities menu in the flow builder" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Opening Utilities</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>Drag <span class="kb-kbd">Follow-up Conditions</span> onto the plus sign.</p>
-    <figure class="kb-figure" data-ph="Screenshot: adding follow-up conditions">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-21/e723a996-9218-4146-9f7e-75735c290de3/ascreenshot_2062a357d06c4ddaafeb58838ef1ea8f_text_export.jpeg" alt="Dragging Follow-up Conditions into the flow" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Adding follow-up conditions</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>Click the <span class="kb-kbd">Follow-up Conditions</span> card to define the branches coming out of the previous card.</p>
-    <figure class="kb-figure" data-ph="Screenshot: defining branches">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-21/54f90812-7d1a-4de1-8f43-7330e5e23448/ascreenshot_602332c2188d43478086bec5d74e0e04_text_export.jpeg" alt="Defining the branches on the Follow-up Conditions card" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Defining the branches</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>Rename the branches as required.</p>
-    <figure class="kb-figure" data-ph="Screenshot: renaming a branch">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-21/0c66e5b6-09b9-403e-8155-ea34e55a4405/ascreenshot_9cbf67065ab64b9c952c103760807495_text_export.jpeg" alt="Renaming a branch" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Renaming a branch</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>To add another branch, click <span class="kb-kbd">Add New Branch</span> and name it.</p>
-    <figure class="kb-figure" data-ph="Screenshot: adding a new branch">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-21/2413ec48-c1f7-464f-8e80-b84ae02e16fe/ascreenshot_35bb09287bdc47c8a9c0b1242aa32b6e_text_export.jpeg" alt="The Add New Branch button" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Adding a branch</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>Close the menu with the <span class="kb-kbd">x</span>, then click a branch name to set the rules for that branch.</p>
-    <figure class="kb-figure" data-ph="Screenshot: opening a branch's rules">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-21/629fc255-cca5-49af-9c14-4b9f26b4f94e/ascreenshot_e6105c67f2754e69a21fad4980deedf0_text_export.jpeg" alt="Clicking a branch name to set its rules" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Opening the branch rules</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>Click the branch rule, for example <span class="kb-kbd">Connection Accepts</span>, and select the condition that applies from the drop-down. Repeat for each branch, so every path has an explicit rule.</p>
-    <figure class="kb-figure" data-ph="Screenshot: selecting a branch condition">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-21/fedfcf17-ac2a-4a16-a483-3332db4a6e46/ascreenshot_b36f040504b448b6870dcb0d184d5b1a_text_export.jpeg" alt="Selecting a condition from the drop-down" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Setting the branch condition</figcaption>
+    <p>Set <b>Action status</b> to <span class="kb-kbd">On</span>. New steps start at <b>Off</b>. Repeat for every outreach step, then click <span class="kb-kbd">Save</span> at the top.</p>
+    <figure class="kb-figure">
+      <div class="kb-ui" role="img" aria-label="The settings of an email step on the Set-up action tab: Action status with Off, Skip and On, where On is marked, then Version 1 with the email subject and body, and the tracking switches.">
+        <div class="kb-ui__bar" aria-hidden="true"><i></i><i></i><i></i><span class="kb-ui__url">app.hubsell.com/flows/64f1c2a9e8b7d3</span></div>
+        <div class="kb-ui__stage" aria-hidden="true">
+          <div class="kb-ui__card" style="max-width:420px;padding:20px;gap:14px;font-size:13px">
+            <p class="kb-ui__h">Email</p>
+            <div class="kb-ui__tabs"><span class="kb-ui__tab is-active">Set-up action</span><span class="kb-ui__tab">Check run details</span></div>
+            <div class="kb-ui__stack" style="gap:6px">
+              <b>Action status</b>
+              <div class="kb-ui__row" style="gap:4px"><span class="kb-ui__btn">Off</span><span class="kb-ui__btn">Skip</span><span class="kb-ui__btn is-primary is-marked">On</span></div>
+            </div>
+            <div class="kb-ui__tabs"><span class="kb-ui__tab is-active">Version 1</span></div>
+            <p class="kb-ui__field"><b>Email subject - Version 1</b><span class="kb-ui__input">Shipping volumes at Brightpath Software</span></p>
+            <p class="kb-ui__field"><b>Email body - Version 1</b><span class="kb-ui__input" style="min-height:64px">Hi Tom, I noticed Brightpath is hiring for its logistics team...</span></p>
+            <p class="kb-ui__label">Tracking options</p>
+            <div class="kb-ui__row"><span class="kb-ui__switch is-on"></span>Track email opens</div>
+            <div class="kb-ui__row"><span class="kb-ui__switch is-on"></span>Brand link tracking</div>
+          </div>
+        </div>
+      </div>
+      <figcaption>The settings of an email step</figcaption>
     </figure>
   </li>
 </ol>
 
-<h2 class="kb-sub" id="outreach">Add outreach steps to each branch</h2>
-<ol class="kb-steps" start="15">
-  <li>
-    <p>To add a LinkedIn message, drag <span class="kb-kbd">Direct Message</span> onto the plus sign below the relevant branch.</p>
-    <figure class="kb-figure" data-ph="Screenshot: adding a direct message step">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-21/e8ed9a9e-ec5a-44da-80c5-6187b089a86e/ascreenshot_5e86edcebff04406944ae5e1a07fb4f2_text_export.jpeg" alt="Dragging Direct Message into a branch" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Adding a LinkedIn message</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>To add an email step, drag <span class="kb-kbd">Email</span> onto the plus sign.</p>
-    <figure class="kb-figure" data-ph="Screenshot: adding an email step">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-21/39243426-9bc9-4997-9a2d-e2b2339e33f4/ascreenshot_39aecd37b26d4b6d8257de7c653f02c2_text_export.jpeg" alt="Dragging Email into a branch" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Adding an email step</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>Click a <span class="kb-kbd">Wait</span> card to set the delay between actions, and set the duration and unit in the panel.</p>
-    <figure class="kb-figure" data-ph="Screenshot: setting the wait duration">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-21/a62c9766-cc39-454c-a786-f8f38a3a931d/ascreenshot_5cb07db9b24747dbb2d03bab5738c06e_text_export.jpeg" alt="Setting the wait duration and unit" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Setting a wait</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>Keep building each branch with outreach steps, waits and conditions until the sequence is complete.</p>
-    <figure class="kb-figure" data-ph="Screenshot: a branch built out with steps">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-21/0f598aaa-8331-4aea-93a5-0edee74462ba/ascreenshot_02057f0b155b41cfab0d443e32c6f581_text_export.jpeg" alt="A branch built out with outreach steps and conditions" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Building out the branches</figcaption>
-    </figure>
-  </li>
-</ol>
+<div class="kb-callout kb-callout--tip">
+  <p>Further down in a step's settings, <b>Schedule</b> sets the allowed weekdays, <b>Sending windows</b> the times of day the step may run, and the random delay a gap between each action, in minutes.</p>
+</div>
 
-<h2 class="kb-sub" id="content">Write content and set sending rules</h2>
-<ol class="kb-steps" start="19">
+<h2 class="kb-sub" id="launch">Set the limits and launch</h2>
+<ol class="kb-steps">
   <li>
-    <p>Click any node to open the step editor and add your copy.</p>
-    <figure class="kb-figure" data-ph="Screenshot: opening the step editor">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-21/f368fac8-9acf-433d-b99b-1531d5fb7f5e/ascreenshot_d291bb6858a64e718106f4cd6adaab8c_text_export.jpeg" alt="Opening the step editor from a node" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Opening the step editor</figcaption>
+    <p>Click <span class="kb-kbd">Settings</span> at the top. <b>Flow Settings</b> opens.</p>
+  </li>
+  <li>
+    <p>Set <b>Drip Rate</b>, the number of contacts that go from the queue to the first action, and the daily limits per sender, such as <b>Email send rate</b> and <b>Connection request send rate</b>. Choose the <b>Timezone</b> and click <span class="kb-kbd">Save Settings</span>.</p>
+    <figure class="kb-figure">
+      <div class="kb-ui" role="img" aria-label="The Flow Settings panel: Drip Rate, Email send rate and Connection request send rate with their values, the Timezone, and the Save Settings button, which is marked.">
+        <div class="kb-ui__bar" aria-hidden="true"><i></i><i></i><i></i><span class="kb-ui__url">app.hubsell.com/flows/64f1c2a9e8b7d3</span></div>
+        <div class="kb-ui__stage" aria-hidden="true">
+          <div class="kb-ui__card" style="max-width:420px;padding:20px;gap:14px;font-size:13px">
+            <p class="kb-ui__h">Flow Settings</p>
+            <div class="kb-ui__stack" style="gap:4px">
+              <div class="kb-ui__row" style="justify-content:space-between"><b>Drip Rate</b><span>20</span></div>
+              <span class="kb-ui__muted kb-ui__small">Number of contacts going <b>from the queue to the first action</b></span>
+              <span style="display:block;height:4px;border-radius:2px;background:linear-gradient(90deg,var(--hs-primary,#192341) 10%,var(--hs-border,#d3d8e5) 10%)"></span>
+            </div>
+            <div class="kb-ui__stack" style="gap:4px">
+              <div class="kb-ui__row" style="justify-content:space-between"><b>Email send rate</b><span>50</span></div>
+              <span class="kb-ui__muted kb-ui__small">Max number of <b>emails</b> sent per day per sender</span>
+              <span style="display:block;height:4px;border-radius:2px;background:linear-gradient(90deg,var(--hs-primary,#192341) 10%,var(--hs-border,#d3d8e5) 10%)"></span>
+            </div>
+            <div class="kb-ui__stack" style="gap:4px">
+              <div class="kb-ui__row" style="justify-content:space-between"><b>Connection request send rate</b><span>20</span></div>
+              <span class="kb-ui__muted kb-ui__small">Max number of <b>connection requests</b> per day per sender</span>
+              <span style="display:block;height:4px;border-radius:2px;background:linear-gradient(90deg,var(--hs-primary,#192341) 20%,var(--hs-border,#d3d8e5) 20%)"></span>
+            </div>
+            <p class="kb-ui__field"><b>Timezone</b><span class="kb-ui__input is-select">Europe/Berlin</span></p>
+            <span class="kb-ui__btn is-primary is-marked" style="text-align:center">Save Settings</span>
+          </div>
+        </div>
+      </div>
+      <figcaption>Flow Settings with the daily limits</figcaption>
     </figure>
   </li>
   <li>
-    <p>For a LinkedIn step, enter your message in the <b>Message body</b> box. <span class="kb-kbd">Preview Message</span> shows how the rendered content appears to the recipient.</p>
-    <figure class="kb-figure" data-ph="Screenshot: the LinkedIn message body">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-21/24cbdb54-639d-4468-b786-1e267f55fe0f/ascreenshot_ca7cd7e8a428416092d59d8dcb2cb5e7_text_export.jpeg" alt="Entering the LinkedIn message in the Message body box" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Writing the LinkedIn message</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>Use the <b>Schedule</b> panel to define your active sending days, daily delivery windows, and randomized delays between individual prospect actions.</p>
-    <figure class="kb-figure" data-ph="Screenshot: the Schedule panel">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-21/dc878445-0a5e-4944-b9f2-a32d1de2aac2/ascreenshot_bac09324ee924a5ea5c95a89ed6b036e_text_export.jpeg" alt="The Schedule panel with sending days and delivery windows" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Setting the schedule</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>For an email step, select the <span class="kb-kbd">Email</span> node to set the subject line, compose the body, and apply formatting. You can also enable tracking preferences such as <b>Track email opens</b> and <b>Brand link tracking</b>.</p>
-    <figure class="kb-figure" data-ph="Screenshot: the email step editor">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-21/375bdabb-4623-4880-b063-88aa5871baa7/ascreenshot_342ac377060945bcb128b335da6c191d_text_export.jpeg" alt="The email step editor with subject and body" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Writing the email step</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>After configuring the content and rules, set the <span class="kb-kbd">Action status</span> to <b>On</b> to activate the node.</p>
-    <figure class="kb-figure" data-ph="Screenshot: setting the Action status to On">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-23/4c101576-b7f8-4175-ab32-ed9e834643d2/screenshot_38bf6d498a0e4bb491d663db4018c0b7_text_export.jpeg" alt="Setting the Action status to On" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Activating the node</figcaption>
-    </figure>
-  </li>
-</ol>
-
-<h2 class="kb-sub" id="launch">Set sending limits and launch</h2>
-<ol class="kb-steps" start="24">
-  <li>
-    <p>Click <span class="kb-kbd">Settings</span> in the top-right menu to open the Flow Settings.</p>
-    <figure class="kb-figure" data-ph="Screenshot: opening Flow Settings">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-23/f700692a-572e-4fde-a869-f11de69cc627/screenshot_26396052e61b433587983d94e16f799b_text_export.jpeg" alt="Opening the Flow Settings from the top-right menu" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Opening Flow Settings</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>Adjust the sliders to set your <b>Drip Rate</b> and the maximum daily sending limits per channel, such as emails, profile views and connection requests. Click <span class="kb-kbd">Save Settings</span> to apply.</p>
-    <figure class="kb-figure" data-ph="Screenshot: the Drip Rate and channel limit sliders">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-23/5badab8d-3b07-4892-af4f-1d2e85ebf549/screenshot_4a79bcd0804849e280868d66ab68eb15_text_export.jpeg" alt="Adjusting the Drip Rate and daily channel limits" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Setting your limits</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>Once all nodes, content and branch conditions are configured, click <span class="kb-kbd">Launch</span> to activate the flow. Then go to <span class="kb-kbd">Contacts</span>, filter by list or tag, and add contacts to the flow.</p>
-    <figure class="kb-figure" data-ph="Screenshot: launching the flow">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-21/022b1b68-00e8-4714-8a25-29fa954a7ecc/ascreenshot_4b10e69e66014fa885e711f021899a36_text_export.jpeg" alt="Launching the flow" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Launching</figcaption>
-    </figure>
+    <p>Click <span class="kb-kbd">Launch</span> at the top right.</p>
   </li>
 </ol>
 
 <div class="kb-result">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
-  <p><b>Your flow is live.</b> Contacts you add now move through the sequence branch by branch, within the schedule and sending limits you set. You have completed the onboarding series.</p>
+  <p><b>Your Flow is live.</b> hubsell confirms with <i>Flow launched. Sending starts with the next run.</i> and the button changes to <b>Pause</b>. Next, add contacts to it, see <a href="/knowledge/adding-contacts-to-a-flow/">Add contacts to a flow</a>.</p>
 </div>
 
 <div class="kb-callout kb-callout--warn">
   <p class="kb-callout__h">Common mistakes</p>
   <ul>
-    <li><b>Contacts stall or move down the wrong path.</b> A contact without rules defining how it moves stays stuck. Click the conditional branch inside the flow builder and define explicit rules for each track, for example accepted and not accepted.</li>
-    <li><b>Contacts without emails end up in an email-focused flow.</b> Filter them out before importing, or push them into a LinkedIn-only sequence.</li>
+    <li><b>A step never runs.</b> Its Action status is still <b>Off</b>. Click the step and set it to <b>On</b>.</li>
+    <li><b>A branch has no condition.</b> Click the branch and pick one under Branch Conditions, so each contact knows which path to take.</li>
+    <li><b>Contacts without an email address in an email Flow.</b> Email steps skip them. Filter on <b>Has email</b> before you add contacts, or give them a LinkedIn-only Flow.</li>
   </ul>
 </div>
