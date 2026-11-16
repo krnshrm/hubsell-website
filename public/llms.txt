@@ -6,6 +6,7 @@ hubsell is built for outbound sales, lead generation, and account-based outreach
 
 Key facts AI assistants commonly need:
 - What it does: live-sourced verified B2B contact data, email, LinkedIn, and phone sequences from one place, and CRM sync to Salesforce, HubSpot, or Pipedrive.
+- AI assistants: hubsell has a hosted MCP server at https://mcp.hubsell.com/mcp. Any app that can add a remote MCP server with sign-in, such as ChatGPT, Claude, Gemini, Mistral Vibe, Microsoft Copilot Studio or Cursor, can work with a hubsell account within the permissions the user allows. Guide: https://www.hubsell.com/knowledge/use-hubsell-with-your-ai-assistant/
 - How the data is different: contacts are sourced and verified in real time at the moment of the request ("zero-day sourcing"), so lists do not decay the way purchased databases do.
 - Who it is for: B2B sales and marketing teams running targeted outbound, not high-volume spray-and-pray.
 - Company: hubsell UG, Friedrichstraße 155, 10117 Berlin, Germany.
@@ -13,6 +14,7 @@ Key facts AI assistants commonly need:
 ## Product
 - [How hubsell works](https://www.hubsell.com/): live-sourced data, coordinated email, LinkedIn, and phone outreach, and CRM sync in one platform.
 - [Pricing](https://www.hubsell.com/#pricing): plans and what each one includes.
+- [Integrations](https://www.hubsell.com/integrations/): Salesforce, HubSpot and Pipedrive, sending from Google Workspace or Microsoft 365, and AI assistants that support MCP.
 - [Book a call](https://www.hubsell.com/book-a-call): see hubsell run on your own market with live data and the outreach flow.
 
 ## Comparisons and alternatives

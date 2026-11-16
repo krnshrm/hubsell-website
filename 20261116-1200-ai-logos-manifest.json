@@ -1,0 +1,72 @@
+[
+  {
+    "sourceUrl": "",
+    "key": "integrations/chatgpt.svg",
+    "contentType": "image/svg+xml",
+    "prefix": "integrations/",
+    "note": "No direct SVG found: openai.com/brand returns 403 to automated requests. Download the ChatGPT or OpenAI mark from https://openai.com/brand/ by hand and check its terms."
+  },
+  {
+    "sourceUrl": "",
+    "key": "integrations/claude.svg",
+    "contentType": "image/svg+xml",
+    "prefix": "integrations/",
+    "note": "Used for Claude and Claude Code. Anthropic's press kit (https://www.anthropic.com/press-kit) is a ZIP, not a single SVG; take the Claude mark from it by hand."
+  },
+  {
+    "sourceUrl": "",
+    "key": "integrations/gemini.svg",
+    "contentType": "image/svg+xml",
+    "prefix": "integrations/",
+    "note": "No official direct SVG found. Get the Gemini mark from Google's brand resources by hand and check Google's brand terms."
+  },
+  {
+    "sourceUrl": "",
+    "key": "integrations/mistral.svg",
+    "contentType": "image/svg+xml",
+    "prefix": "integrations/",
+    "note": "Mistral's brand page (https://mistral.ai/brand) offers the icon only as PNG (https://cms.globalaegis.net/api/documents/file/Mistral-Icon-Gradient-RGB.png) or in https://cms.globalaegis.net/api/documents/file/Mistral_Logos_2026.zip. Take the SVG from the ZIP, or change key and contentType to PNG."
+  },
+  {
+    "sourceUrl": "",
+    "key": "integrations/perplexity.svg",
+    "contentType": "image/svg+xml",
+    "prefix": "integrations/",
+    "note": "No press-kit page found (perplexity.ai/press returns 404). Get the mark from Perplexity by hand."
+  },
+  {
+    "sourceUrl": "",
+    "key": "integrations/microsoft-copilot-studio.svg",
+    "contentType": "image/svg+xml",
+    "prefix": "integrations/",
+    "note": "Official icon is in Microsoft's Power Platform icon ZIP: https://download.microsoft.com/download/498606aa-6d27-4f13-aa5c-1401078c153b/Power-Platform-icons-scalable.zip (terms: diagrams, training and documentation; check before using on a marketing page)."
+  },
+  {
+    "sourceUrl": "https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/brand/brand-logo-1.svg",
+    "key": "integrations/cursor.svg",
+    "contentType": "image/svg+xml",
+    "prefix": "integrations/",
+    "note": "From https://cursor.com/brand (12 SVG variants, brand-logo-1 to -14). Check that brand-logo-1 is the square icon before uploading; otherwise pick another number."
+  },
+  {
+    "sourceUrl": "",
+    "key": "integrations/codex.svg",
+    "contentType": "image/svg+xml",
+    "prefix": "integrations/",
+    "note": "No direct SVG found (openai.com/brand returns 403 to automated requests). Get the Codex mark by hand, or point Codex at chatgpt.svg in LOGOS."
+  },
+  {
+    "sourceUrl": "",
+    "key": "integrations/visual-studio-code.svg",
+    "contentType": "image/svg+xml",
+    "prefix": "integrations/",
+    "note": "SVG only inside https://code.visualstudio.com/assets/branding/visual-studio-code-icons.zip (use the blue stable icon; Microsoft allows icon use in documentation and links to the product)."
+  },
+  {
+    "sourceUrl": "https://exafunction.github.io/public/brand/windsurf-black-symbol.svg",
+    "key": "integrations/windsurf.svg",
+    "contentType": "image/svg+xml",
+    "prefix": "integrations/",
+    "note": "From https://windsurf.com/brand (black symbol). The product docs now live on docs.devin.ai; check the name and mark are still current before uploading."
+  }
+]

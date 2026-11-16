@@ -1,8 +1,13 @@
 ---
-// The /integrations page: CRM and email integrations. Same section pattern as the
-// platform pages. The hero visual shows hubsell between the mailboxes it sends
-// from and the CRMs it writes to; both arrows point away from hubsell because the
-// CRM sync is one-way today. Logos live on R2 (assets.hubsell.com/integrations).
+// The /integrations page: CRM, email and AI-assistant integrations. Same section
+// pattern as the platform pages. The hero visual shows hubsell between the
+// mailboxes it sends from and the CRMs it writes to; both arrows point away from
+// hubsell because the CRM sync is one-way today. Below it, the AI assistants that
+// talk to hubsell over MCP, with a two-way arrow (they ask, hubsell answers).
+// The AI apps are listed because they accept any remote MCP server, not because
+// hubsell has a partnership with them, hence their own status label.
+// Logos live on R2 (assets.hubsell.com/integrations); a logo that is not uploaded
+// yet falls back to the name's first letter.
 import CtaGroup from './CtaGroup.astro';
 import SectionHead from './SectionHead.astro';
 import PlatformFaqPicks from './PlatformFaqPicks.astro';
@@ -22,11 +27,23 @@ const LOGOS: Record<string, string> = {
   Pipedrive: `${LOGO}/699f00ff076328750d3aefb6_f5bfffe23e979a3af1f4aca586edc14e_pipedrive.svg`,
   'Google Workspace': `${LOGO}/699f00fe9a3fab1de15bd147_G-Suite.svg`,
   'Microsoft 365': `${LOGO}/699f00fe92a407b5ca414ed7_Microsoft365.svg`,
+  ChatGPT: `${LOGO}/chatgpt.svg`,
+  Claude: `${LOGO}/claude.svg`,
+  Gemini: `${LOGO}/gemini.svg`,
+  'Mistral Vibe': `${LOGO}/mistral.svg`,
+  Perplexity: `${LOGO}/perplexity.svg`,
+  'Microsoft Copilot Studio': `${LOGO}/microsoft-copilot-studio.svg`,
+  Cursor: `${LOGO}/cursor.svg`,
+  'Claude Code': `${LOGO}/claude.svg`,
+  Codex: `${LOGO}/codex.svg`,
+  'Visual Studio Code': `${LOGO}/visual-studio-code.svg`,
+  Windsurf: `${LOGO}/windsurf.svg`,
 };
 const HUBSELL = 'https://assets.hubsell.com/logo/hubsell-wordmark-dark.svg';
 const crms = d.items.filter((it) => it.category === 'CRM');
 const mails = d.items.filter((it) => it.category === 'Email');
-const groups = (['CRM', 'Email'] as const).map((cat) => ({ label: d.groups[cat], items: d.items.filter((it) => it.category === cat) }));
+const ais = d.items.filter((it) => it.category === 'AI').slice(0, 4);
+const groups = (['CRM', 'Email', 'AI'] as const).map((cat) => ({ label: d.groups[cat], items: d.items.filter((it) => it.category === cat) }));
 ---
 <section class="sec sec--paper" aria-labelledby="intg-title">
   <div class="wrap">
@@ -38,6 +55,7 @@ const groups = (['CRM', 'Email'] as const).map((cat) => ({ label: d.groups[cat],
         <div style="margin:28px 0 0"><CtaGroup location="hero" /></div>
       </div>
       <div class="ihub" aria-hidden="true">
+       <div class="ihub__row">
         <div class="ihub__col">
           <span class="ihub__cap">{d.hubLabels.mail}</span>
           {mails.map((m) => <span class="ihub__tile"><img src={LOGOS[m.name]} alt="" width="34" height="34" loading="lazy" /><b>{m.name}</b></span>)}
@@ -48,6 +66,14 @@ const groups = (['CRM', 'Email'] as const).map((cat) => ({ label: d.groups[cat],
         <div class="ihub__col">
           <span class="ihub__cap">{d.hubLabels.crm}</span>
           {crms.map((c) => <span class="ihub__tile"><img src={LOGOS[c.name]} alt="" width="34" height="34" loading="lazy" /><b>{c.name}</b></span>)}
+        </div>
+       </div>
+        <svg class="ihub__arrow ihub__arrow--v" viewBox="0 0 16 40"><path d="M8 4 V36"/><path d="M2 10 L8 3 L14 10"/><path d="M2 30 L8 37 L14 30"/></svg>
+        <div class="ihub__ai">
+          <span class="ihub__cap">{d.hubLabels.ai}</span>
+          <div class="ihub__ai-tiles">
+            {ais.map((a) => <span class="ihub__tile"><span class="ihub__logo"><img src={LOGOS[a.name]} alt="" width="34" height="34" onerror="this.parentElement.dataset.missing='1'" /><i>{a.name.charAt(0)}</i></span><b>{a.name}</b></span>)}
+          </div>
         </div>
       </div>
     </div>
@@ -65,7 +91,7 @@ const groups = (['CRM', 'Email'] as const).map((cat) => ({ label: d.groups[cat],
             <div class="card intg-card">
               <div class="intg-top">
                 <span class="intg-logo"><img src={LOGOS[it.name]} alt={`${it.name} logo`} width="32" height="32" loading="lazy" onerror="this.parentElement.dataset.missing='1'" /><b aria-hidden="true">{it.name.charAt(0)}</b></span>
-                <span class="intg-live"><span class="intg-dot"></span>{d.statusLabel}</span>
+                <span class="intg-live"><span class="intg-dot"></span>{it.category === 'AI' ? d.aiStatusLabel : d.statusLabel}</span>
               </div>
               <h4 class="heading_small" style="margin-top:16px">{it.name}</h4>
               <p class="paragraph_small" style="margin-top:10px">{it.blurb}</p>
@@ -101,7 +127,17 @@ const groups = (['CRM', 'Email'] as const).map((cat) => ({ label: d.groups[cat],
   </div>
 </section>
 
-<section class="sec sec--paper" aria-labelledby="intg-steps">
+<section class="sec sec--paper" aria-labelledby="intg-ai">
+  <div class="wrap intg-split">
+    <div><SectionHead id="intg-ai" {...h.ai} /></div>
+    <div>
+      <ul class="intg-points">{d.aiPoints.map((p) => <li>{p}</li>)}</ul>
+      <a class="link" href={localizedHref(L, d.aiLink.href)}>{d.aiLink.label} &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--sand" aria-labelledby="intg-steps">
   <div class="wrap">
     <SectionHead id="intg-steps" {...h.steps} />
     <ol class="intg-steps">
@@ -113,7 +149,7 @@ const groups = (['CRM', 'Email'] as const).map((cat) => ({ label: d.groups[cat],
   </div>
 </section>
 
-<section class="sec sec--sand" aria-labelledby="intg-sec">
+<section class="sec sec--paper" aria-labelledby="intg-sec">
   <div class="wrap" style="max-width:820px">
     <SectionHead id="intg-sec" {...h.security} />
     {d.security.map((p) => <p class="paragraph" style="margin-top:14px">{p}</p>)}
@@ -134,9 +170,10 @@ const groups = (['CRM', 'Email'] as const).map((cat) => ({ label: d.groups[cat],
   .intg-hero{ display:flex; flex-direction:column; gap:clamp(36px,5vw,56px) }
   .intg-hero > *{ min-width:0 }
 
-  .ihub{ display:flex; align-items:center; justify-content:center; gap:clamp(12px,3vw,36px); padding:clamp(24px,4vw,44px) clamp(16px,4vw,48px); width:100%; max-width:960px; border-radius:16px; border:1px solid var(--sec-bd);
+  .ihub{ display:flex; flex-direction:column; align-items:center; gap:clamp(14px,2vw,20px); padding:clamp(24px,4vw,44px) clamp(16px,4vw,48px); width:100%; max-width:960px; border-radius:16px; border:1px solid var(--sec-bd);
     background-color:var(--sec-card); background-image:radial-gradient(var(--sec-bd) 1.25px, transparent 1.25px); background-size:18px 18px;
     box-shadow:0 40px 80px -40px rgba(25,35,65,.35), 0 2px 8px rgba(25,35,65,.06) }
+  .ihub__row{ display:flex; align-items:center; justify-content:center; gap:clamp(12px,3vw,36px); width:100% }
   .ihub__col{ display:flex; flex-direction:column; gap:12px; flex:1 1 0; min-width:0; max-width:260px }
   .ihub__cap{ font:600 11.5px/1.2 var(--font-body); letter-spacing:.06em; text-transform:uppercase; color:var(--sec-tx); opacity:.6; text-align:center }
   .ihub__tile{ display:flex; align-items:center; gap:12px; padding:12px 16px; border-radius:10px; background:#FFFFFF; border:1px solid var(--sec-bd); box-shadow:0 1px 2px rgba(2,6,23,.06) }
@@ -145,9 +182,19 @@ const groups = (['CRM', 'Email'] as const).map((cat) => ({ label: d.groups[cat],
   .ihub__core{ flex:none; display:grid; place-items:center; width:150px; height:80px; border-radius:14px; background:#FFFFFF; border:2px solid var(--hl); box-shadow:0 8px 24px rgba(232,98,80,.18) }
   .ihub__core img{ width:112px; height:auto }
   .ihub__arrow{ flex:none; width:clamp(28px,5vw,60px); height:16px; color:var(--hl) }
+  .ihub__arrow.ihub__arrow--v{ width:16px; height:40px; transform:none }
+  .ihub__ai{ display:flex; flex-direction:column; gap:12px; width:100%; max-width:820px }
+  .ihub__ai-tiles{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px }
+  .ihub__logo{ position:relative; display:grid; place-items:center; width:30px; height:30px; flex:none }
+  .ihub__logo i{ display:none; font:600 15px/1 var(--font-head); font-style:normal; color:#192341 }
+  .ihub__logo[data-missing] img{ display:none }
+  .ihub__logo[data-missing] i{ display:block }
   .ihub__arrow path{ fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round }
   @media (max-width:640px){
-    .ihub{ flex-direction:column }
+    .ihub__row{ flex-direction:column }
+    .ihub__ai-tiles{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px }
+    .ihub__ai .ihub__tile{ padding:10px 12px; gap:10px }
+    .ihub__ai .ihub__tile b{ white-space:normal }
     .ihub__col{ max-width:none }
     .ihub__col{ width:100% }
     .ihub__arrow{ transform:rotate(90deg) }

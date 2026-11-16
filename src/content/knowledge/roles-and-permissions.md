@@ -15,8 +15,8 @@ faqs:
     a: "They move to the Member role straight away. The confirmation tells you how many people that is."
   - q: "Can a role let someone manage the team or billing?"
     a: "No. Inviting people, roles, seats, billing, company settings and changing who owns a flow or list always stay with account admins."
-  - q: "Does a role apply when someone uses hubsell through Claude (MCP)?"
-    a: "Yes. The MCP acts as that person, so it can change exactly what their role allows. When something isn't allowed, Claude is told so and says why."
+  - q: "Does a role apply when someone uses hubsell through an AI assistant (MCP)?"
+    a: "Yes. The assistant acts as that person, whether it is ChatGPT, Claude or another app, so it can change exactly what their role allows. When something isn't allowed, the assistant is told so and says why."
   - q: "When does a change to a role take effect?"
     a: "Immediately: from the next thing the person does, without logging out."
 draft: false

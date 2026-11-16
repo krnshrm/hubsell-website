@@ -46,9 +46,9 @@ export const KNOWLEDGE_CATEGORIES: KnowledgeCategory[] = [
     description: 'Plans, credits, users, and invoices.',
   },
   {
-    slug: 'claude-and-mcp',
-    name: 'Claude and MCP',
-    description: 'Work with your hubsell account from Claude and other AI assistants.',
+    slug: 'ai-assistants',
+    name: 'AI assistants (MCP)',
+    description: 'Work with your hubsell account from ChatGPT, Claude, Gemini or any other AI assistant that supports MCP.',
   },
 ];
 

@@ -1,22 +1,27 @@
-// Copy for the /integrations page: CRM and email integrations. English base plus
-// German and Dutch; getIntegrationsPage(L) picks per locale.
+// Copy for the /integrations page: CRM, email and AI-assistant (MCP) integrations.
+// English base plus German and Dutch; getIntegrationsPage(L) picks per locale.
+// The AI assistants are apps that accept any remote MCP server. hubsell has tested
+// Claude and Claude Code only, so the copy says they connect through the standard
+// and never claims a partnership or a test.
 import type { Locale } from '../i18n/ui';
 import { integrationsFr } from './20261114-1030-integrations.fr';
 import { integrationsEs } from './20261114-1030-integrations.es';
 import { integrationsPt } from './20261114-1030-integrations.pt';
 
 export interface IntegrationHead { eyebrow: string; pre: string; accent: string; post: string }
-export interface IntegrationItem { name: string; category: 'CRM' | 'Email'; blurb: string }
+export type IntegrationCategory = 'CRM' | 'Email' | 'AI';
+export interface IntegrationItem { name: string; category: IntegrationCategory; blurb: string }
 export interface IntegrationsPageData {
   title: string; metaDescription: string;
   eyebrow: string; h1Pre: string; h1Accent: string; h1Post: string; sub: string;
-  hubLabels: { mail: string; crm: string };
-  heads: { list: IntegrationHead; crm: IntegrationHead; mail: IntegrationHead; steps: IntegrationHead; security: IntegrationHead; closing: IntegrationHead; faq: IntegrationHead };
-  statusLabel: string;
-  groups: Record<'CRM' | 'Email', string>;
+  hubLabels: { mail: string; crm: string; ai: string };
+  heads: { list: IntegrationHead; crm: IntegrationHead; mail: IntegrationHead; ai: IntegrationHead; steps: IntegrationHead; security: IntegrationHead; closing: IntegrationHead; faq: IntegrationHead };
+  statusLabel: string; aiStatusLabel: string;
+  groups: Record<IntegrationCategory, string>;
   items: IntegrationItem[];
   crmPoints: string[]; crmLink: { label: string; href: string };
   mailPoints: string[]; mailLink: { label: string; href: string };
+  aiPoints: string[]; aiLink: { label: string; href: string };
   steps: { title: string; body: string }[]; stepsLink: { label: string; href: string };
   security: string[];
   noteTitle: string; noteBody: string; trademark: string;
@@ -26,16 +31,17 @@ export interface IntegrationsPageData {
 }
 
 const EN: IntegrationsPageData = {
-  "title": "Integrations: HubSpot, Salesforce, Pipedrive, Google and Microsoft | hubsell",
-  "metaDescription": "Connect hubsell to HubSpot, Salesforce or Pipedrive and send from your own Google Workspace or Microsoft 365 mailboxes. Native integrations, set up in minutes, no middleware.",
+  "title": "Integrations: CRM, email and AI assistants like ChatGPT | hubsell",
+  "metaDescription": "Connect hubsell to HubSpot, Salesforce or Pipedrive, send from Google Workspace or Microsoft 365, and work with it from ChatGPT, Claude, Gemini or any AI assistant that supports MCP.",
   "eyebrow": "Integrations",
   "h1Pre": "Integrations for ",
-  "h1Accent": "CRM and email",
+  "h1Accent": "CRM, email and AI assistants",
   "h1Post": "",
-  "sub": "hubsell connects to Salesforce, HubSpot and Pipedrive, and sends from your own Google Workspace or Microsoft 365 mailboxes. Native connections, authorised in a few clicks, with no middleware to maintain.",
+  "sub": "hubsell connects to Salesforce, HubSpot and Pipedrive, sends from your own Google Workspace or Microsoft 365 mailboxes, and works with any AI assistant that supports MCP, such as ChatGPT, Claude or Gemini. Authorised in a few clicks, with no middleware to maintain.",
   "hubLabels": {
     "mail": "Sends from your mailbox",
-    "crm": "Syncs to your CRM"
+    "crm": "Syncs to your CRM",
+    "ai": "Ask from your AI assistant"
   },
   "heads": {
     "list": {
@@ -54,6 +60,12 @@ const EN: IntegrationsPageData = {
       "eyebrow": "Email integration",
       "pre": "How sending from ",
       "accent": "your own mailbox works",
+      "post": ""
+    },
+    "ai": {
+      "eyebrow": "AI assistants (MCP)",
+      "pre": "Work with hubsell from ",
+      "accent": "the AI assistant you already use",
       "post": ""
     },
     "steps": {
@@ -82,9 +94,11 @@ const EN: IntegrationsPageData = {
     }
   },
   "statusLabel": "Live",
+  "aiStatusLabel": "Via MCP",
   "groups": {
     "CRM": "CRM",
-    "Email": "Email"
+    "Email": "Email",
+    "AI": "AI assistants"
   },
   "items": [
     {
@@ -111,6 +125,61 @@ const EN: IntegrationsPageData = {
       "name": "Microsoft 365",
       "category": "Email",
       "blurb": "Emails go out from your own Outlook mailboxes through the Microsoft API, with no outside sending server."
+    },
+    {
+      "name": "ChatGPT",
+      "category": "AI",
+      "blurb": "Ask ChatGPT about your contacts, flows and statistics, or have it tag, enrich and start flows, with the permissions you allow."
+    },
+    {
+      "name": "Claude",
+      "category": "AI",
+      "blurb": "Add hubsell as a custom connector in Claude and ask about contacts, flows and results, or tag and enrich contacts, with the permissions you allow."
+    },
+    {
+      "name": "Gemini",
+      "category": "AI",
+      "blurb": "Add hubsell as a custom app in Gemini to look up contacts and flow results, tag or enrich contacts and start flows."
+    },
+    {
+      "name": "Mistral Vibe",
+      "category": "AI",
+      "blurb": "Mistral's assistant, formerly Le Chat: add hubsell as a custom MCP connector to search contacts, read flow statistics, tag, enrich and start flows."
+    },
+    {
+      "name": "Perplexity",
+      "category": "AI",
+      "blurb": "Add hubsell as a custom remote connector in Perplexity and ask about your contacts, flows and statistics, with the permissions you allow."
+    },
+    {
+      "name": "Microsoft Copilot Studio",
+      "category": "AI",
+      "blurb": "Give your Copilot Studio agents access to hubsell, so they can look up contacts and flow results, tag, enrich and start flows, with the permissions each person allows."
+    },
+    {
+      "name": "Cursor",
+      "category": "AI",
+      "blurb": "Add hubsell to Cursor as an MCP server to look up contacts and flow results, tag, enrich and start flows from the editor."
+    },
+    {
+      "name": "Claude Code",
+      "category": "AI",
+      "blurb": "Add hubsell with one terminal command and work with your contacts, flows and statistics from Claude Code, with the permissions you allow."
+    },
+    {
+      "name": "Codex",
+      "category": "AI",
+      "blurb": "Add hubsell with one Codex command to look up contacts and flow results, tag, enrich and start flows, with the permissions you allow."
+    },
+    {
+      "name": "Visual Studio Code",
+      "category": "AI",
+      "blurb": "Add hubsell as an MCP server for GitHub Copilot in Visual Studio Code to look up contacts and flow results, tag, enrich and start flows."
+    },
+    {
+      "name": "Windsurf",
+      "category": "AI",
+      "blurb": "Add hubsell as an MCP server in Windsurf to look up contacts and flow results, tag, enrich and start flows, with the permissions you allow."
     }
   ],
   "crmPoints": [
@@ -131,6 +200,16 @@ const EN: IntegrationsPageData = {
   "mailLink": {
     "label": "More on email deliverability",
     "href": "/platform/deliverability"
+  },
+  "aiPoints": [
+    "hubsell has an MCP server. MCP (Model Context Protocol) is the open standard AI apps use to work with other software, so any assistant that can add an MCP server by its address can connect, whichever company makes it.",
+    "You sign in with your hubsell account and choose what the assistant may do: Read, Write, Spend credits or Send emails. It acts as you, so your role in hubsell still applies.",
+    "Ask about your contacts, flows and statistics in plain language, or have it tag and enrich contacts and start flows. hubsell tells the assistant to ask you before it spends credits or sends anything.",
+    "You use your own AI subscription. hubsell does not see your chats and charges no credits for the AI. Some apps offer custom MCP servers only on certain plans or in certain countries."
+  ],
+  "aiLink": {
+    "label": "Guide: use hubsell with your AI assistant",
+    "href": "/knowledge/use-hubsell-with-your-ai-assistant/"
   },
   "steps": [
     {
@@ -156,7 +235,7 @@ const EN: IntegrationsPageData = {
   ],
   "noteTitle": "More on the way",
   "noteBody": "This is the set we support today. If there is a tool you need, tell us on a short call and we will let you know where it stands.",
-  "trademark": "Salesforce, HubSpot and Pipedrive are trademarks of their owners. Google Workspace is a trademark of Google LLC, Microsoft 365 a trademark of Microsoft Corporation. hubsell is not affiliated with or endorsed by these companies.",
+  "trademark": "Salesforce, HubSpot, Pipedrive, ChatGPT, Codex, Claude, Claude Code, Mistral Vibe, Perplexity, Cursor and Windsurf are trademarks of their owners. Google Workspace and Gemini are trademarks of Google LLC, Microsoft 365, Microsoft Copilot Studio and Visual Studio Code trademarks of Microsoft Corporation. hubsell is not affiliated with or endorsed by these companies.",
   "closingSub": "Tell us what you run on a short call and we will show you how hubsell fits your stack.",
   "faqs": [
     {
@@ -192,6 +271,18 @@ const EN: IntegrationsPageData = {
       "answer": "<p>LinkedIn steps (profile visits, connection requests, messages and InMail) run inside hubsell flows, next to email and call tasks. See <a class=\"link\" href=\"/platform/multichannel-outreach/\">multichannel outreach</a>.</p>"
     },
     {
+      "question": "Which AI assistants work with hubsell?",
+      "answer": "<p>Any app that can add an MCP server by its address and sign in to it. That includes ChatGPT, Claude and Claude Code, Gemini, Mistral Vibe (formerly Le Chat), Perplexity, Microsoft Copilot Studio, Cursor, Visual Studio Code with GitHub Copilot, Codex and Windsurf. Some apps offer this only on certain plans or in certain countries. The steps for each app are in the <a class=\"link\" href=\"/knowledge/use-hubsell-with-your-ai-assistant/\">guide</a>.</p>"
+    },
+    {
+      "question": "Does hubsell see my chats with the assistant?",
+      "answer": "<p>No. Your assistant only sends hubsell the requests it needs answered, such as a contact search, and gets the results back. The conversation stays between you and the app you use.</p>"
+    },
+    {
+      "question": "Does using an AI assistant cost hubsell credits?",
+      "answer": "<p>No. You use your own AI subscription, and hubsell charges no credits for the AI. Only enrichment uses credits, exactly as in the app, and only if you allow Spend credits.</p>"
+    },
+    {
       "question": "Is my data safe when I connect a tool?",
       "answer": "<p>You connect each tool through its own login and permission screen and can remove the access at any time. hubsell hosts data in Frankfurt and works as your processor under a data processing agreement.</p>"
     },
@@ -205,16 +296,17 @@ const EN: IntegrationsPageData = {
 };
 
 const DE: IntegrationsPageData = {
-  "title": "Integrationen: HubSpot, Salesforce, Pipedrive, Google und Microsoft | hubsell",
-  "metaDescription": "Verbinden Sie hubsell mit HubSpot, Salesforce oder Pipedrive und senden Sie aus Ihren eigenen Postfächern bei Google Workspace oder Microsoft 365. Native Integrationen, in Minuten eingerichtet, ohne Middleware.",
+  "title": "Integrationen: CRM, E-Mail und KI-Assistenten wie ChatGPT | hubsell",
+  "metaDescription": "Verbinden Sie hubsell mit HubSpot, Salesforce oder Pipedrive, senden Sie aus Google Workspace oder Microsoft 365 und arbeiten Sie mit hubsell aus ChatGPT, Claude, Gemini oder jedem KI-Assistenten, der MCP unterstützt.",
   "eyebrow": "Integrationen",
   "h1Pre": "Integrationen für ",
-  "h1Accent": "CRM und E-Mail",
+  "h1Accent": "CRM, E-Mail und KI-Assistenten",
   "h1Post": "",
-  "sub": "hubsell verbindet sich mit Salesforce, HubSpot und Pipedrive und sendet aus Ihren eigenen Postfächern bei Google Workspace oder Microsoft 365. Native Verbindungen, mit wenigen Klicks freigegeben, ohne Middleware, die gepflegt werden muss.",
+  "sub": "hubsell verbindet sich mit Salesforce, HubSpot und Pipedrive, sendet aus Ihren eigenen Postfächern bei Google Workspace oder Microsoft 365 und arbeitet mit jedem KI-Assistenten, der MCP unterstützt, etwa ChatGPT, Claude oder Gemini. Mit wenigen Klicks freigegeben, ohne Middleware, die gepflegt werden muss.",
   "hubLabels": {
     "mail": "Sendet aus Ihrem Postfach",
-    "crm": "Synchronisiert in Ihr CRM"
+    "crm": "Synchronisiert in Ihr CRM",
+    "ai": "Fragen über Ihren KI-Assistenten"
   },
   "heads": {
     "list": {
@@ -233,6 +325,12 @@ const DE: IntegrationsPageData = {
       "eyebrow": "E-Mail-Integration",
       "pre": "So funktioniert der Versand ",
       "accent": "aus Ihrem eigenen Postfach",
+      "post": ""
+    },
+    "ai": {
+      "eyebrow": "KI-Assistenten (MCP)",
+      "pre": "Mit hubsell arbeiten, aus ",
+      "accent": "dem KI-Assistenten, den Sie schon nutzen",
       "post": ""
     },
     "steps": {
@@ -261,9 +359,11 @@ const DE: IntegrationsPageData = {
     }
   },
   "statusLabel": "Live",
+  "aiStatusLabel": "Über MCP",
   "groups": {
     "CRM": "CRM",
-    "Email": "E-Mail"
+    "Email": "E-Mail",
+    "AI": "KI-Assistenten"
   },
   "items": [
     {
@@ -290,6 +390,61 @@ const DE: IntegrationsPageData = {
       "name": "Microsoft 365",
       "category": "Email",
       "blurb": "E-Mails gehen aus Ihren eigenen Outlook-Postfächern über die Microsoft-API raus, ohne externen Versandserver."
+    },
+    {
+      "name": "ChatGPT",
+      "category": "AI",
+      "blurb": "Fragen Sie ChatGPT nach Kontakten, Flows und Statistiken oder lassen Sie Kontakte taggen, anreichern und Flows starten, mit den Berechtigungen, die Sie freigeben."
+    },
+    {
+      "name": "Claude",
+      "category": "AI",
+      "blurb": "Fügen Sie hubsell in Claude als eigenen Connector hinzu und fragen Sie nach Kontakten, Flows und Ergebnissen, mit den Berechtigungen, die Sie freigeben."
+    },
+    {
+      "name": "Gemini",
+      "category": "AI",
+      "blurb": "Fügen Sie hubsell in Gemini als eigene App hinzu, um Kontakte und Flow-Ergebnisse abzufragen, Kontakte zu taggen oder anzureichern und Flows zu starten."
+    },
+    {
+      "name": "Mistral Vibe",
+      "category": "AI",
+      "blurb": "Der Assistent von Mistral, früher Le Chat: Fügen Sie hubsell als eigenen MCP-Connector hinzu, um Kontakte zu suchen, Flow-Statistiken zu lesen, zu taggen, anzureichern und Flows zu starten."
+    },
+    {
+      "name": "Perplexity",
+      "category": "AI",
+      "blurb": "Fügen Sie hubsell in Perplexity als eigenen Remote-Connector hinzu und fragen Sie nach Kontakten, Flows und Statistiken, mit den Berechtigungen, die Sie freigeben."
+    },
+    {
+      "name": "Microsoft Copilot Studio",
+      "category": "AI",
+      "blurb": "Geben Sie Ihren Agenten in Copilot Studio Zugriff auf hubsell, damit sie Kontakte und Flow-Ergebnisse abfragen, taggen, anreichern und Flows starten, mit den Berechtigungen, die jede Person freigibt."
+    },
+    {
+      "name": "Cursor",
+      "category": "AI",
+      "blurb": "Fügen Sie hubsell in Cursor als MCP-Server hinzu, um aus dem Editor Kontakte und Flow-Ergebnisse abzufragen, zu taggen, anzureichern und Flows zu starten."
+    },
+    {
+      "name": "Claude Code",
+      "category": "AI",
+      "blurb": "Fügen Sie hubsell mit einem Terminal-Befehl hinzu und arbeiten Sie in Claude Code mit Kontakten, Flows und Statistiken, mit den Berechtigungen, die Sie freigeben."
+    },
+    {
+      "name": "Codex",
+      "category": "AI",
+      "blurb": "Fügen Sie hubsell mit einem Codex-Befehl hinzu, um Kontakte und Flow-Ergebnisse abzufragen, zu taggen, anzureichern und Flows zu starten, mit den Berechtigungen, die Sie freigeben."
+    },
+    {
+      "name": "Visual Studio Code",
+      "category": "AI",
+      "blurb": "Fügen Sie hubsell für GitHub Copilot in Visual Studio Code als MCP-Server hinzu, um Kontakte und Flow-Ergebnisse abzufragen, zu taggen, anzureichern und Flows zu starten."
+    },
+    {
+      "name": "Windsurf",
+      "category": "AI",
+      "blurb": "Fügen Sie hubsell in Windsurf als MCP-Server hinzu, um Kontakte und Flow-Ergebnisse abzufragen, zu taggen, anzureichern und Flows zu starten, mit den Berechtigungen, die Sie freigeben."
     }
   ],
   "crmPoints": [
@@ -310,6 +465,16 @@ const DE: IntegrationsPageData = {
   "mailLink": {
     "label": "Mehr zur E-Mail-Zustellbarkeit",
     "href": "/platform/deliverability"
+  },
+  "aiPoints": [
+    "hubsell hat einen MCP-Server. MCP (Model Context Protocol) ist der offene Standard, über den KI-Apps mit anderer Software arbeiten. Jeder Assistent, in dem Sie einen MCP-Server über seine Adresse hinzufügen können, lässt sich verbinden, egal von welchem Anbieter.",
+    "Sie melden sich mit Ihrem hubsell-Konto an und legen fest, was der Assistent darf: Lesen, Schreiben, Credits verbrauchen oder E-Mails senden. Er handelt in Ihrem Namen, Ihre Rolle in hubsell gilt also weiter.",
+    "Fragen Sie in normaler Sprache nach Kontakten, Flows und Statistiken, oder lassen Sie Kontakte taggen und anreichern und Flows starten. hubsell weist den Assistenten an, Sie zu fragen, bevor er Credits verbraucht oder etwas versendet.",
+    "Sie nutzen Ihr eigenes KI-Abo. hubsell sieht Ihre Chats nicht und berechnet keine Credits für die KI. Manche Apps bieten eigene MCP-Server nur in bestimmten Tarifen oder Ländern an."
+  ],
+  "aiLink": {
+    "label": "Anleitung: hubsell mit Ihrem KI-Assistenten nutzen",
+    "href": "/knowledge/use-hubsell-with-your-ai-assistant/"
   },
   "steps": [
     {
@@ -335,7 +500,7 @@ const DE: IntegrationsPageData = {
   ],
   "noteTitle": "Weitere folgen",
   "noteBody": "Das ist der Stand heute. Wenn Sie ein Tool brauchen, sagen Sie es uns in einem kurzen Gespräch, und wir sagen Ihnen, wo es steht.",
-  "trademark": "Salesforce, HubSpot und Pipedrive sind Marken ihrer jeweiligen Inhaber. Google Workspace ist eine Marke der Google LLC, Microsoft 365 eine Marke der Microsoft Corporation. hubsell ist mit diesen Unternehmen nicht verbunden und wird nicht von ihnen empfohlen.",
+  "trademark": "Salesforce, HubSpot, Pipedrive, ChatGPT, Codex, Claude, Claude Code, Mistral Vibe, Perplexity, Cursor und Windsurf sind Marken ihrer jeweiligen Inhaber. Google Workspace und Gemini sind Marken der Google LLC, Microsoft 365, Microsoft Copilot Studio und Visual Studio Code Marken der Microsoft Corporation. hubsell ist mit diesen Unternehmen nicht verbunden und wird nicht von ihnen empfohlen.",
   "closingSub": "Sagen Sie uns in einem kurzen Gespräch, womit Sie arbeiten, und wir zeigen Ihnen, wie hubsell in Ihren Stack passt.",
   "faqs": [
     {
@@ -371,6 +536,18 @@ const DE: IntegrationsPageData = {
       "answer": "<p>LinkedIn-Schritte (Profilbesuche, Vernetzungsanfragen, Nachrichten und InMail) laufen in hubsell-Flows, neben E-Mails und Anrufaufgaben. Mehr zum <a class=\"link\" href=\"/de/platform/multichannel-outreach/\">Multichannel-Outreach</a>.</p>"
     },
     {
+      "question": "Welche KI-Assistenten funktionieren mit hubsell?",
+      "answer": "<p>Jede App, in der Sie einen MCP-Server über seine Adresse hinzufügen und sich dort anmelden können. Dazu gehören ChatGPT, Claude und Claude Code, Gemini, Mistral Vibe (früher Le Chat), Perplexity, Microsoft Copilot Studio, Cursor, Visual Studio Code mit GitHub Copilot, Codex und Windsurf. Manche Apps bieten das nur in bestimmten Tarifen oder Ländern an. Die Schritte für jede App stehen in der <a class=\"link\" href=\"/knowledge/use-hubsell-with-your-ai-assistant/\">Anleitung</a>.</p>"
+    },
+    {
+      "question": "Sieht hubsell meine Chats mit dem Assistenten?",
+      "answer": "<p>Nein. Ihr Assistent schickt hubsell nur die Anfragen, die er beantwortet braucht, etwa eine Kontaktsuche, und bekommt die Ergebnisse zurück. Das Gespräch bleibt zwischen Ihnen und der App, die Sie nutzen.</p>"
+    },
+    {
+      "question": "Kostet die Arbeit über einen KI-Assistenten hubsell-Credits?",
+      "answer": "<p>Nein. Sie nutzen Ihr eigenes KI-Abo, und hubsell berechnet keine Credits für die KI. Credits kostet nur die Anreicherung, genau wie in der App, und nur, wenn Sie „Credits verbrauchen“ freigeben.</p>"
+    },
+    {
       "question": "Sind die Daten beim Verbinden eines Tools sicher?",
       "answer": "<p>Sie verbinden jedes Tool über dessen eigene Anmelde- und Berechtigungsseite und können den Zugriff jederzeit entziehen. hubsell hostet die Daten in Frankfurt und arbeitet als Ihr Auftragsverarbeiter mit einem Auftragsverarbeitungsvertrag.</p>"
     },
@@ -384,16 +561,17 @@ const DE: IntegrationsPageData = {
 };
 
 const NL: IntegrationsPageData = {
-  "title": "Integraties: HubSpot, Salesforce, Pipedrive, Google en Microsoft | hubsell",
-  "metaDescription": "Koppel hubsell aan HubSpot, Salesforce of Pipedrive en verstuur vanuit je eigen Google Workspace- of Microsoft 365-mailboxen. Native integraties, in minuten ingesteld, zonder middleware.",
+  "title": "Integraties: CRM, e-mail en AI-assistenten zoals ChatGPT | hubsell",
+  "metaDescription": "Koppel hubsell aan HubSpot, Salesforce of Pipedrive, verstuur vanuit Google Workspace of Microsoft 365 en werk met hubsell vanuit ChatGPT, Claude, Gemini of elke AI-assistent die MCP ondersteunt.",
   "eyebrow": "Integraties",
   "h1Pre": "Integraties voor ",
-  "h1Accent": "CRM en e-mail",
+  "h1Accent": "CRM, e-mail en AI-assistenten",
   "h1Post": "",
-  "sub": "hubsell koppelt met Salesforce, HubSpot en Pipedrive en verstuurt vanuit je eigen Google Workspace- of Microsoft 365-mailboxen. Native koppelingen, met een paar klikken toegestaan, zonder middleware om te onderhouden.",
+  "sub": "hubsell koppelt met Salesforce, HubSpot en Pipedrive, verstuurt vanuit je eigen Google Workspace- of Microsoft 365-mailboxen en werkt met elke AI-assistent die MCP ondersteunt, zoals ChatGPT, Claude of Gemini. Met een paar klikken toegestaan, zonder middleware om te onderhouden.",
   "hubLabels": {
     "mail": "Verstuurt vanuit je mailbox",
-    "crm": "Synchroniseert met je CRM"
+    "crm": "Synchroniseert met je CRM",
+    "ai": "Vraag het je AI-assistent"
   },
   "heads": {
     "list": {
@@ -412,6 +590,12 @@ const NL: IntegrationsPageData = {
       "eyebrow": "E-mailintegratie",
       "pre": "Zo werkt versturen ",
       "accent": "vanuit je eigen mailbox",
+      "post": ""
+    },
+    "ai": {
+      "eyebrow": "AI-assistenten (MCP)",
+      "pre": "Werk met hubsell vanuit ",
+      "accent": "de AI-assistent die je al gebruikt",
       "post": ""
     },
     "steps": {
@@ -440,9 +624,11 @@ const NL: IntegrationsPageData = {
     }
   },
   "statusLabel": "Live",
+  "aiStatusLabel": "Via MCP",
   "groups": {
     "CRM": "CRM",
-    "Email": "E-mail"
+    "Email": "E-mail",
+    "AI": "AI-assistenten"
   },
   "items": [
     {
@@ -469,6 +655,61 @@ const NL: IntegrationsPageData = {
       "name": "Microsoft 365",
       "category": "Email",
       "blurb": "E-mails gaan uit vanuit je eigen Outlook-mailboxen via de Microsoft-API, zonder externe verzendserver."
+    },
+    {
+      "name": "ChatGPT",
+      "category": "AI",
+      "blurb": "Vraag ChatGPT naar je contacten, flows en statistieken, of laat contacten taggen, verrijken en flows starten, met de rechten die je toestaat."
+    },
+    {
+      "name": "Claude",
+      "category": "AI",
+      "blurb": "Voeg hubsell in Claude toe als eigen connector en vraag naar contacten, flows en resultaten, met de rechten die je toestaat."
+    },
+    {
+      "name": "Gemini",
+      "category": "AI",
+      "blurb": "Voeg hubsell in Gemini toe als eigen app om contacten en flowresultaten op te vragen, contacten te taggen of te verrijken en flows te starten."
+    },
+    {
+      "name": "Mistral Vibe",
+      "category": "AI",
+      "blurb": "De assistent van Mistral, voorheen Le Chat: voeg hubsell toe als eigen MCP-connector om contacten te zoeken, flowstatistieken te lezen, te taggen, te verrijken en flows te starten."
+    },
+    {
+      "name": "Perplexity",
+      "category": "AI",
+      "blurb": "Voeg hubsell in Perplexity toe als eigen remote connector en vraag naar je contacten, flows en statistieken, met de rechten die je toestaat."
+    },
+    {
+      "name": "Microsoft Copilot Studio",
+      "category": "AI",
+      "blurb": "Geef je agents in Copilot Studio toegang tot hubsell, zodat ze contacten en flowresultaten opvragen, taggen, verrijken en flows starten, met de rechten die ieder toestaat."
+    },
+    {
+      "name": "Cursor",
+      "category": "AI",
+      "blurb": "Voeg hubsell in Cursor toe als MCP-server om vanuit de editor contacten en flowresultaten op te vragen, te taggen, te verrijken en flows te starten."
+    },
+    {
+      "name": "Claude Code",
+      "category": "AI",
+      "blurb": "Voeg hubsell toe met één terminalopdracht en werk in Claude Code met je contacten, flows en statistieken, met de rechten die je toestaat."
+    },
+    {
+      "name": "Codex",
+      "category": "AI",
+      "blurb": "Voeg hubsell toe met één Codex-opdracht om contacten en flowresultaten op te vragen, te taggen, te verrijken en flows te starten, met de rechten die je toestaat."
+    },
+    {
+      "name": "Visual Studio Code",
+      "category": "AI",
+      "blurb": "Voeg hubsell in Visual Studio Code toe als MCP-server voor GitHub Copilot om contacten en flowresultaten op te vragen, te taggen, te verrijken en flows te starten."
+    },
+    {
+      "name": "Windsurf",
+      "category": "AI",
+      "blurb": "Voeg hubsell in Windsurf toe als MCP-server om contacten en flowresultaten op te vragen, te taggen, te verrijken en flows te starten, met de rechten die je toestaat."
     }
   ],
   "crmPoints": [
@@ -489,6 +730,16 @@ const NL: IntegrationsPageData = {
   "mailLink": {
     "label": "Meer over e-maildeliverability",
     "href": "/platform/deliverability"
+  },
+  "aiPoints": [
+    "hubsell heeft een MCP-server. MCP (Model Context Protocol) is de open standaard waarmee AI-apps met andere software werken. Elke assistent waarin je een MCP-server via een adres kunt toevoegen, kan koppelen, van welk bedrijf hij ook is.",
+    "Je logt in met je hubsell-account en kiest wat de assistent mag: Lezen, Schrijven, Credits gebruiken of E-mails versturen. Hij handelt namens jou, dus je rol in hubsell blijft gelden.",
+    "Stel in gewone taal vragen over je contacten, flows en statistieken, of laat contacten taggen en verrijken en flows starten. hubsell vraagt de assistent om het eerst aan jou te vragen voordat hij credits gebruikt of iets verstuurt.",
+    "Je gebruikt je eigen AI-abonnement. hubsell ziet je chats niet en rekent geen credits voor de AI. Sommige apps bieden eigen MCP-servers alleen in bepaalde abonnementen of landen aan."
+  ],
+  "aiLink": {
+    "label": "Handleiding: hubsell gebruiken met je AI-assistent",
+    "href": "/knowledge/use-hubsell-with-your-ai-assistant/"
   },
   "steps": [
     {
@@ -514,7 +765,7 @@ const NL: IntegrationsPageData = {
   ],
   "noteTitle": "Er komen er meer",
   "noteBody": "Dit is wat we vandaag ondersteunen. Mis je een tool, vertel het ons in een kort gesprek en wij laten weten hoe het ervoor staat.",
-  "trademark": "Salesforce, HubSpot en Pipedrive zijn handelsmerken van hun eigenaren. Google Workspace is een handelsmerk van Google LLC, Microsoft 365 een handelsmerk van Microsoft Corporation. hubsell is niet gelieerd aan en wordt niet onderschreven door deze bedrijven.",
+  "trademark": "Salesforce, HubSpot, Pipedrive, ChatGPT, Codex, Claude, Claude Code, Mistral Vibe, Perplexity, Cursor en Windsurf zijn handelsmerken van hun eigenaren. Google Workspace en Gemini zijn handelsmerken van Google LLC, Microsoft 365, Microsoft Copilot Studio en Visual Studio Code handelsmerken van Microsoft Corporation. hubsell is niet gelieerd aan en wordt niet onderschreven door deze bedrijven.",
   "closingSub": "Vertel ons in een kort gesprek wat je gebruikt en wij laten zien hoe hubsell in je stack past.",
   "faqs": [
     {
@@ -548,6 +799,18 @@ const NL: IntegrationsPageData = {
     {
       "question": "Integreert hubsell met LinkedIn?",
       "answer": "<p>LinkedIn-stappen (profielbezoeken, connectieverzoeken, berichten en InMail) lopen in hubsell-flows, naast e-mail en beltaken. Zie <a class=\"link\" href=\"/nl/platform/multichannel-outreach/\">multichannel-outreach</a>.</p>"
+    },
+    {
+      "question": "Welke AI-assistenten werken met hubsell?",
+      "answer": "<p>Elke app waarin je een MCP-server via een adres kunt toevoegen en daarop kunt inloggen. Daaronder vallen ChatGPT, Claude en Claude Code, Gemini, Mistral Vibe (voorheen Le Chat), Perplexity, Microsoft Copilot Studio, Cursor, Visual Studio Code met GitHub Copilot, Codex en Windsurf. Sommige apps bieden dit alleen in bepaalde abonnementen of landen aan. De stappen per app staan in de <a class=\"link\" href=\"/knowledge/use-hubsell-with-your-ai-assistant/\">handleiding</a>.</p>"
+    },
+    {
+      "question": "Ziet hubsell mijn chats met de assistent?",
+      "answer": "<p>Nee. Je assistent stuurt hubsell alleen de verzoeken die hij beantwoord wil hebben, zoals een zoekopdracht naar contacten, en krijgt de resultaten terug. Het gesprek blijft tussen jou en de app die je gebruikt.</p>"
+    },
+    {
+      "question": "Kost werken via een AI-assistent hubsell-credits?",
+      "answer": "<p>Nee. Je gebruikt je eigen AI-abonnement, en hubsell rekent geen credits voor de AI. Alleen verrijking kost credits, net als in de app, en alleen als je Credits gebruiken toestaat.</p>"
     },
     {
       "question": "Is mijn data veilig als ik een tool koppel?",

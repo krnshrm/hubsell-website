@@ -79,3 +79,9 @@
 /flow/     /platform/multichannel-outreach/ 301
 /flows     /platform/multichannel-outreach/ 301
 /flows/    /platform/multichannel-outreach/ 301
+
+# The MCP guide works with any AI assistant, not only Claude (2026-11-16, HUB-480).
+/knowledge/use-hubsell-with-claude     /knowledge/use-hubsell-with-your-ai-assistant/   301
+/knowledge/use-hubsell-with-claude/    /knowledge/use-hubsell-with-your-ai-assistant/   301
+/knowledge/category/claude-and-mcp     /knowledge/category/ai-assistants/              301
+/knowledge/category/claude-and-mcp/    /knowledge/category/ai-assistants/              301
