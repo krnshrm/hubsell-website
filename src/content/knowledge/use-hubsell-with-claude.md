@@ -44,7 +44,34 @@ draft: false
   </li>
   <li>
     <p>Your assistant opens hubsell in your browser. Log in if you aren't already. You then see a page called <b>Connect Claude to hubsell</b> (with the name of your app).</p>
-    <figure class="kb-figure is-missing" data-ph="Screenshot: the Connect to hubsell page with the four permissions"><figcaption>Choosing what the assistant may do</figcaption></figure>
+    <figure class="kb-figure">
+      <div class="kb-ui" role="img" aria-label="The Connect Claude to hubsell page: four permissions, Read and Write ticked, then the Cancel and Allow access buttons.">
+        <div class="kb-ui__bar" aria-hidden="true"><i></i><i></i><i></i><span class="kb-ui__url">app.hubsell.com/oauth/authorize</span></div>
+        <div class="kb-ui__stage" aria-hidden="true">
+          <div class="kb-ui__card">
+            <div class="kb-ui__head">
+              <div class="kb-ui__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.3 20.3a2.4 2.4 0 0 0 3.4 0L12 18l-6-6-2.3 2.3a2.4 2.4 0 0 0 0 3.4Z"/><path d="m2 22 3-3"/><path d="M7.5 13.5 10 11"/><path d="M10.5 16.5 13 14"/><path d="m18 3-4 4h6l-4 4"/></svg></div>
+              <div>
+                <p class="kb-ui__title">Connect Claude to hubsell</p>
+                <p class="kb-ui__muted">Claude wants to work with your hubsell account. Choose what it may do.</p>
+                <p class="kb-ui__muted">Signed in as anna@example.com</p>
+              </div>
+            </div>
+            <div class="kb-ui__perms">
+              <p class="kb-ui__label">Permissions</p>
+              <p class="kb-ui__check"><span class="kb-ui__box is-on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span><b>Read</b><span>View contacts, lists, flows, templates and statistics.</span></span></p>
+              <p class="kb-ui__check"><span class="kb-ui__box is-on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span><b>Write</b><span>Tag contacts, change their status and create lists.</span></span></p>
+              <p class="kb-ui__check"><span class="kb-ui__box"></span><span><b>Spend credits</b><span>Enrich contacts. This uses your hubsell credits.</span></span></p>
+              <p class="kb-ui__check"><span class="kb-ui__box"></span><span><b>Send emails</b><span>Add contacts to flows and start or pause flows. This can email real people.</span></span></p>
+            </div>
+            <p class="kb-ui__muted kb-ui__small">Claude only gets the results of what it asks for here. hubsell never sees your chats with Claude. You can disconnect it at any time in Settings → MCP.</p>
+            <p class="kb-ui__muted kb-ui__small">You'll go back to claude.ai.</p>
+            <div class="kb-ui__actions"><span class="kb-ui__btn">Cancel</span><span class="kb-ui__btn is-primary is-marked">Allow access</span></div>
+          </div>
+        </div>
+      </div>
+      <figcaption>Choosing what the assistant may do. Read and Write are ticked to start with.</figcaption>
+    </figure>
   </li>
   <li>
     <p>Choose the permissions (see below) and click <span class="kb-kbd">Allow access</span>. You go back to your assistant, which is now connected.</p>
