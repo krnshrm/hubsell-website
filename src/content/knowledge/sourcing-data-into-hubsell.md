@@ -166,7 +166,7 @@ draft: false
 </ol>
 
 <h2 class="kb-sub" id="csv">Import contacts from a CSV file</h2>
-<ol class="kb-steps" start="10">
+<ol class="kb-steps" start="10" style="counter-reset:step 9">
   <li>
     <p>In the sidebar, click <span class="kb-kbd">Lists</span>. Click <span class="kb-kbd">Add Data</span>, then <span class="kb-kbd">CSV Import</span>.</p>
   </li>

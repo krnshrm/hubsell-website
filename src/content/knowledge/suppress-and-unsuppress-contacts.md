@@ -87,7 +87,7 @@ draft: false
 </ol>
 
 <h2 class="kb-sub">Remove suppression</h2>
-<ol class="kb-steps" start="6">
+<ol class="kb-steps" start="6" style="counter-reset:step 5">
   <li>
     <p>On the Contacts page, click <span class="kb-kbd">Show/hide filters</span>.</p>
   </li>

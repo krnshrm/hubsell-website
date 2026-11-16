@@ -117,7 +117,7 @@ draft: false
 </ol>
 
 <h2 class="kb-sub">Remove an email or domain</h2>
-<ol class="kb-steps" start="4">
+<ol class="kb-steps" start="4" style="counter-reset:step 3">
   <li>
     <p>To remove one entry, click the <span class="kb-kbd">&#10005;</span> button at the end of its row.</p>
   </li>

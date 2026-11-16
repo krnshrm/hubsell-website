@@ -90,7 +90,7 @@ draft: false
 </ol>
 
 <h2 class="kb-sub">Move them into a new list</h2>
-<ol class="kb-steps" start="6">
+<ol class="kb-steps" start="6" style="counter-reset:step 5">
   <li>
     <p>Tick the box in the table header. A menu opens.</p>
   </li>
