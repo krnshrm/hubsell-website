@@ -1,194 +1,244 @@
 ---
 title: "Source data into hubsell"
-description: "Get contacts into a hubsell list from a LinkedIn or Sales Navigator search, or from a CSV file, then tag and enrich them ready for outreach."
+description: "Bring contacts into a hubsell list from a LinkedIn search, a Sales Navigator search, a LinkedIn post or a CSV file, with the enrichment you need."
 category: "Getting started"
 order: 3
 series: "First login to first campaign"
 seriesStep: 3
 seriesTotal: 8
-estMinutes: 8
-stepCount: 20
+estMinutes: 6
+stepCount: 14
 appliesTo: "All plans"
-prerequisites: "For LinkedIn sourcing, LinkedIn connected through the hubsell plugin. For CSV sourcing, a file with column headers and either a LinkedIn URL or an email address in every row."
-walkthroughUrl: "https://scribehow.com/o/_VgKCJwkRbGYfCk3CnY0eA/viewer/Sourcing_data_into_hubsell__CXbz6BAISl-1cUrP5yxfCw"
-updated: 2026-07-23
+prerequisites: "For LinkedIn: a teammate with LinkedIn connected in hubsell. For CSV: a file with a header row, first and last names, and an email address or LinkedIn URL for each contact."
+updated: 2026-11-16
 faqs:
-  - q: "How long does deduplication take?"
-    a: "Background deduplication on a LinkedIn or Sales Navigator search takes 15 to 20 minutes depending on list size. CSV deduplication takes roughly 20 to 30 minutes per few hundred contacts."
+  - q: "Which LinkedIn links can I paste?"
+    a: "A LinkedIn people search, a Sales Navigator people search, or a LinkedIn post. From a post, hubsell adds the people who commented on it or reacted to it."
+  - q: "Why can't I pick a teammate in the Assign User step?"
+    a: "LinkedIn sourcing runs through that person's LinkedIn account, so only people who show LinkedIn connected can be picked. Connect LinkedIn in their user settings first."
   - q: "What does my CSV file need?"
-    a: "Every column needs a header, and every row needs either a LinkedIn URL or an email address. If any names contain characters such as é, á or ó, save the file as CSV UTF-8."
-  - q: "Why did fewer contacts arrive than there were rows in my file?"
-    a: "This is expected. hubsell removes contacts you already have and skips rows with a broken LinkedIn URL or a missing mandatory field."
+    a: "A header row, and for every contact a first name, a last name, and an email address or a LinkedIn URL. Columns named like a hubsell field, such as First Name or Email, are matched for you."
+  - q: "Can I tag a CSV import?"
+    a: "The CSV import has no tag step. Once the contacts are in, select them on the Contacts page and use Edit tags."
+  - q: "Can I add the contacts to a flow while importing?"
+    a: "No. Import first, then add the contacts to a flow from the Contacts page."
 next:
   label: "Connect your CRM account"
-  href: "/knowledge/connect-your-crm"
+  href: "/knowledge/connect-your-crm/"
 draft: false
 ---
-<p>You can source data into hubsell from a LinkedIn search, a Sales Navigator search, or a CSV import. hubsell removes contacts you already have, so add a tag on every import to keep track of what came in when.</p>
+<!-- sources: hubsell-client src/components/data/lists/index.tsx, src/components/data/lists/columns.tsx, src/components/data/add-data/{index,frame,selectList,selectUser,enterUrl,enrichment,tagging,upload-csv,mapping,review-import}.tsx, src/lib/importMapping.ts, src/app/data/contacts/contact.service.ts (getHubsellFields), src/components/data/searches/columns.tsx, src/i18n/messages/en/{data,nav,common}.json; hubsell-api server/controllers/prospectController.js (post sourcing) -->
+<p>You can bring contacts into hubsell in two ways: from LinkedIn (a people search, a Sales Navigator search or a post), or from a CSV file. Either way the contacts land in a list, and you choose how much hubsell should <a href="/knowledge/data-enrichment/">enrich</a> them.</p>
 
-<h2 class="kb-sub" id="linkedin">Source from a LinkedIn or Sales Navigator search</h2>
+<div class="kb-callout kb-callout--tip">
+  <p>hubsell doesn't add a contact you already have a second time. Tag every LinkedIn import, so you can find that batch again later.</p>
+</div>
+
+<h2 class="kb-sub" id="linkedin">Add contacts from LinkedIn</h2>
 <ol class="kb-steps">
   <li>
-    <p>Go to <span class="kb-kbd">Lists</span>, click <span class="kb-kbd">Add data</span> and select <span class="kb-kbd">LinkedIn</span>.</p>
-    <figure class="kb-figure" data-ph="Screenshot: Add data with LinkedIn selected">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-22/3f3f43e9-4196-43b6-9609-36952ceb33b4/user_cropped_screenshot_9fbae2d666894144bb74168556cc6db2_text_export.jpeg" alt="Adding data from LinkedIn in the Lists screen" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Adding data from LinkedIn</figcaption>
+    <p>In the sidebar, click <span class="kb-kbd">Lists</span>. Click <span class="kb-kbd">Add Data</span>, then <span class="kb-kbd">LinkedIn</span>.</p>
+    <figure class="kb-figure">
+      <div class="kb-ui" role="img" aria-label="The Lists page with the Add Data button marked as 1 and the LinkedIn option in its menu marked as 2.">
+        <div class="kb-ui__bar" aria-hidden="true"><i></i><i></i><i></i><span class="kb-ui__url">app.hubsell.com/data/lists</span></div>
+        <div class="kb-ui__app" aria-hidden="true">
+          <div class="kb-ui__nav">
+            <span class="kb-ui__logo">hubsell</span>
+            <span class="kb-ui__group">Source &amp; Enrich</span>
+            <span class="kb-ui__item is-active">Lists</span>
+            <span class="kb-ui__item">Searches</span>
+            <span class="kb-ui__item">Contacts</span>
+            <span class="kb-ui__group">Orchestrate &amp; Engage</span>
+            <span class="kb-ui__item">Flows</span>
+            <span class="kb-ui__item">Tasks</span>
+          </div>
+          <div class="kb-ui__main">
+            <div class="kb-ui__toolbar">
+              <p class="kb-ui__h">Lists</p>
+              <span class="kb-ui__btn is-primary is-marked">+ Add Data<span class="kb-ui__num">1</span></span>
+              <span class="kb-ui__btn">Create New List</span>
+            </div>
+            <div class="kb-ui__menu" style="align-self:flex-end">
+              <span class="is-marked">LinkedIn<span class="kb-ui__num">2</span></span>
+              <span>CSV Import</span>
+            </div>
+            <div class="kb-ui__tablewrap"><table class="kb-ui__table">
+              <tr><th>Name</th><th>In Progress</th><th>Delivered</th><th>Owner</th></tr>
+              <tr><td>DACH sales leaders</td><td>12</td><td>236</td><td>AB</td></tr>
+              <tr><td>Logistics CFOs</td><td>0</td><td>118</td><td>AB</td></tr>
+            </table></div>
+          </div>
+        </div>
+      </div>
+      <figcaption>Starting a LinkedIn import from the Lists page</figcaption>
     </figure>
   </li>
   <li>
-    <p>To add to an existing list, select the list name. To start a new one, click <span class="kb-kbd">Create new list</span> and type the name.</p>
-    <figure class="kb-figure" data-ph="Screenshot: naming a new list">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-22/ee91e169-e043-462d-96b6-60e7f5ef9de3/user_cropped_screenshot_74bfd3e91f0842d09bef066c72b0a2ce_text_export.jpeg" alt="Naming a new list during the import" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Choosing or naming your list</figcaption>
-    </figure>
-  </li>
-  <li><p>Click <span class="kb-kbd">Next</span>.</p></li>
-  <li>
-    <p>Select the user this data should be assigned to.</p>
-    <figure class="kb-figure" data-ph="Screenshot: assigning the data to a user">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-20/96b09ff6-61c6-4306-a0f8-02f37b6b0819/user_cropped_screenshot_638a8720e6d54867b38e7716badd8095_text_export.jpeg" alt="Selecting the user the data is assigned to" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Assigning the data</figcaption>
-    </figure>
+    <p>Under <b>Select a list or create a new one</b>, pick an existing list, or click <span class="kb-kbd">Create new list</span> and enter a name. Click <span class="kb-kbd">Next</span>.</p>
   </li>
   <li>
-    <p>In LinkedIn or Sales Navigator, run the search that returns your target customers and copy the search URL.</p>
-    <figure class="kb-figure" data-ph="Screenshot: copying the search URL">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-22/56768d47-c567-4a34-9b27-840f13a0f268/user_cropped_screenshot_0a115485f33b431cb47435302b1300e4_text_export.jpeg" alt="Copying the LinkedIn search URL" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Copying your search URL</figcaption>
-    </figure>
+    <p>Under <b>Choose who this data should be assigned to</b>, pick the teammate whose LinkedIn account hubsell should use. Only people marked <b>LinkedIn connected</b> can be picked. Click <span class="kb-kbd">Next</span>.</p>
   </li>
   <li>
-    <p>Paste the URL into the URL box.</p>
-    <figure class="kb-figure" data-ph="Screenshot: pasting the search URL">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-20/afc02779-bdb4-4248-a9c1-d877b573e2d4/user_cropped_screenshot_17752aae2be540b3ad8b3e33fc48908a_text_export.jpeg" alt="Pasting the search URL into the URL box" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Pasting the URL</figcaption>
-    </figure>
+    <p>In LinkedIn or Sales Navigator, run the people search that finds your target customers, and copy the address from your browser's address bar. You can also copy the link of a LinkedIn post.</p>
   </li>
   <li>
-    <p>Select the <a href="/knowledge/data-enrichment">enrichment</a> level you need.</p>
-    <figure class="kb-figure" data-ph="Screenshot: choosing the enrichment level">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-20/b2871f71-18ed-4cc3-8529-af721f1bb13e/user_cropped_screenshot_dd57198de81d49e9880ffa7ac3eeac9e_text_export.jpeg" alt="Selecting the enrichment level for the import" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Choosing the enrichment level</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>Add a tag so you can find this batch later. Choose an existing tag or click <span class="kb-kbd">+</span> to create one.</p>
-    <figure class="kb-figure" data-ph="Screenshot: adding a tag">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-20/aaf8748a-5499-480a-b994-269cd850ee90/user_cropped_screenshot_29b68ed0fa124b43978b91a95d4ee54d_text_export.jpeg" alt="Choosing or adding a tag during the import" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Tagging the batch</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>Decide whether to assign these contacts to a flow now or continue without one. Suppressing contacts first cleans up the list before they enter a flow.</p>
-    <figure class="kb-figure" data-ph="Screenshot: the flow assignment step">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-20/a43a9cd0-5a68-4af3-8896-dc8c44a25b31/user_cropped_screenshot_e8216b8c57f64eab89462458941a2496_text_export.jpeg" alt="Deciding whether to assign contacts to a flow" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Choosing a flow, or not</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>Click <span class="kb-kbd">Submit</span>, then click <span class="kb-kbd">Finish</span>.</p>
-    <figure class="kb-figure" data-ph="Screenshot: submitting the import">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-20/0948b034-084a-47fd-bb10-3e2920589a2f/user_cropped_screenshot_a8a0a767ee8b4bcaa28cc7b69353b7d7_text_export.jpeg" alt="Submitting the import" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Submitting</figcaption>
+    <p>Paste the link into the box and click <span class="kb-kbd">Next</span>.</p>
+    <figure class="kb-figure">
+      <div class="kb-ui" role="img" aria-label="Step 3 of 6 of Add contacts from LinkedIn: a Sales Navigator search link is pasted into the box, which is marked.">
+        <div class="kb-ui__bar" aria-hidden="true"><i></i><i></i><i></i><span class="kb-ui__url">app.hubsell.com/data/add-data/likendIn</span></div>
+        <div class="kb-ui__app" aria-hidden="true">
+          <div class="kb-ui__nav">
+            <span class="kb-ui__logo">hubsell</span>
+            <span class="kb-ui__group">Source &amp; Enrich</span>
+            <span class="kb-ui__item is-active">Lists</span>
+            <span class="kb-ui__item">Searches</span>
+            <span class="kb-ui__item">Contacts</span>
+            <span class="kb-ui__group">Orchestrate &amp; Engage</span>
+            <span class="kb-ui__item">Flows</span>
+            <span class="kb-ui__item">Tasks</span>
+          </div>
+          <div class="kb-ui__main">
+            <div class="kb-ui__toolbar">
+              <div style="margin-right:auto">
+                <p class="kb-ui__h">Add contacts from LinkedIn</p>
+                <p class="kb-ui__muted kb-ui__small">Step 3 of 6: Enter URL</p>
+              </div>
+              <span class="kb-ui__btn">Cancel</span>
+            </div>
+            <div class="kb-ui__tablewrap kb-ui__stack" style="padding:16px">
+              <div class="kb-ui__row">
+                <span class="kb-ui__badge is-success">Select List</span>
+                <span class="kb-ui__badge is-success">Assign User</span>
+                <span class="kb-ui__badge is-info">Enter URL</span>
+                <span class="kb-ui__badge">Enrich Data</span>
+                <span class="kb-ui__badge">Tag Contacts</span>
+                <span class="kb-ui__badge">Review Import</span>
+              </div>
+              <p class="kb-ui__label" style="text-align:center;font-size:16px;font-weight:600">Paste a LinkedIn post or search URL</p>
+              <span class="kb-ui__input is-marked" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">https://www.linkedin.com/sales/search/people?query=...</span>
+              <div class="kb-ui__row" style="justify-content:space-between;border-top:1px solid var(--hs-border,#d3d8e5);padding-top:12px">
+                <span class="kb-ui__btn">Back</span>
+                <span class="kb-ui__btn is-primary">Next</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figcaption>Pasting the search link</figcaption>
     </figure>
   </li>
   <li>
-    <p>Go to <span class="kb-kbd">Searches</span> and find your list name. Wait a few minutes and refresh. A status of <span class="kb-kbd">Active</span> means sourcing has started.</p>
-    <figure class="kb-figure" data-ph="Screenshot: the Searches screen showing Active">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-22/49e112e4-1c67-4006-8bb2-fec31d500034/user_cropped_screenshot_7c469e175b37478bb08bafc7f808c4c1_text_export.jpeg" alt="The Searches screen showing the list status" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Checking the search status</figcaption>
+    <p>Under <b>Select enrichment level</b>, choose <span class="kb-kbd">Add LinkedIn data only</span> or <span class="kb-kbd">Add verified email</span>. Click <span class="kb-kbd">Next</span>.</p>
+  </li>
+  <li>
+    <p>Under <b>Add tags to new and existing data</b>, type a tag name. Pick an existing tag, or click <span class="kb-kbd">Create new tag</span>. Click <span class="kb-kbd">Next</span>.</p>
+  </li>
+  <li>
+    <p>Check the summary under <b>Review and start your import</b> and click <span class="kb-kbd">Start import</span>.</p>
+    <figure class="kb-figure">
+      <div class="kb-ui" role="img" aria-label="Step 6 of 6, Review Import: the list, assigned user, LinkedIn URL, enrichment and tags, with the Start import button marked.">
+        <div class="kb-ui__bar" aria-hidden="true"><i></i><i></i><i></i><span class="kb-ui__url">app.hubsell.com/data/add-data/likendIn</span></div>
+        <div class="kb-ui__stage" aria-hidden="true">
+          <div class="kb-ui__card">
+            <p class="kb-ui__muted kb-ui__small">Step 6 of 6: Review Import</p>
+            <p class="kb-ui__title" style="text-align:center">Review and start your import</p>
+            <div class="kb-ui__tablewrap"><table class="kb-ui__table">
+              <tr><td class="kb-ui__muted">List</td><td style="text-align:right"><b>DACH sales leaders</b></td></tr>
+              <tr><td class="kb-ui__muted">Assigned to</td><td style="text-align:right"><b>Anna Berger</b></td></tr>
+              <tr><td class="kb-ui__muted">LinkedIn URL</td><td style="text-align:right"><b>linkedin.com/sales/search/people?...</b></td></tr>
+              <tr><td class="kb-ui__muted">Enrichment</td><td style="text-align:right"><b>Verified email</b></td></tr>
+              <tr><td class="kb-ui__muted">Tags</td><td style="text-align:right"><span class="kb-ui__badge">nov-dach</span></td></tr>
+            </table></div>
+            <div class="kb-ui__row" style="justify-content:space-between;border-top:1px solid var(--hs-border,#d3d8e5);padding-top:14px">
+              <span class="kb-ui__btn">Back</span>
+              <span class="kb-ui__btn is-primary is-marked">Start import</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figcaption>The last step of the LinkedIn import</figcaption>
     </figure>
   </li>
   <li>
-    <p>To see the contacts, go to <span class="kb-kbd">Lists</span> and click the number in the <span class="kb-kbd">Delivered</span> column.</p>
-    <figure class="kb-figure" data-ph="Screenshot: the Delivered column in Lists">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-22/fe2c5c61-c8b1-4f95-b2f2-412ace935744/screenshot_bc637fe078284446a40878e06330cd6e_text_export.jpeg" alt="The Delivered column in the Lists screen" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Opening the delivered contacts</figcaption>
-    </figure>
+    <p>hubsell takes you back to <b>Lists</b>. To follow the import, click <span class="kb-kbd">Searches</span> in the sidebar. The <b>Status</b> column shows how far it is, for example <i>In progress</i> or <i>Completed</i>.</p>
   </li>
 </ol>
 
-<h2 class="kb-sub" id="csv">Source from a CSV import</h2>
-<ol class="kb-steps" start="13">
+<h2 class="kb-sub" id="csv">Import contacts from a CSV file</h2>
+<ol class="kb-steps" start="10">
   <li>
-    <p>Go to <span class="kb-kbd">Lists</span>, click <span class="kb-kbd">Add data</span> and select <span class="kb-kbd">CSV</span>.</p>
-    <figure class="kb-figure" data-ph="Screenshot: Add data with CSV selected">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-22/7f5ded0d-129d-46d3-8e49-c5cd7e301d93/screenshot_5c4ca7e53cfb4e778133f0f12ead59ad_text_export.jpeg" alt="Adding data from a CSV in the Lists screen" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Adding data from a CSV</figcaption>
+    <p>In the sidebar, click <span class="kb-kbd">Lists</span>. Click <span class="kb-kbd">Add Data</span>, then <span class="kb-kbd">CSV Import</span>.</p>
+  </li>
+  <li>
+    <p>Pick a list, or click <span class="kb-kbd">Create new list</span> and enter a name. Click <span class="kb-kbd">Next</span>.</p>
+  </li>
+  <li>
+    <p>Under <b>Select CSV File</b>, drag your file into the box, or click the box to browse. Click <span class="kb-kbd">Next</span>.</p>
+  </li>
+  <li>
+    <p>Under <b>Map the correct fields</b>, pick a <b>hubsell field</b> for each column you want to keep. Columns named like a hubsell field are already matched. You must map <b>First Name</b>, <b>Last Name</b>, and <b>Email</b> or <b>Contact LinkedIn URL</b>; until then, <span class="kb-kbd">Next</span> stays off. Columns you leave on <i>Select field</i> are not imported.</p>
+    <figure class="kb-figure">
+      <div class="kb-ui" role="img" aria-label="The Map the correct fields step of the CSV import: four columns of the file are mapped to hubsell fields and one is not mapped yet, with its field box marked.">
+        <div class="kb-ui__bar" aria-hidden="true"><i></i><i></i><i></i><span class="kb-ui__url">app.hubsell.com/data/add-data/CSV-import</span></div>
+        <div class="kb-ui__app" aria-hidden="true">
+          <div class="kb-ui__nav">
+            <span class="kb-ui__logo">hubsell</span>
+            <span class="kb-ui__group">Source &amp; Enrich</span>
+            <span class="kb-ui__item is-active">Lists</span>
+            <span class="kb-ui__item">Searches</span>
+            <span class="kb-ui__item">Contacts</span>
+            <span class="kb-ui__group">Orchestrate &amp; Engage</span>
+            <span class="kb-ui__item">Flows</span>
+            <span class="kb-ui__item">Tasks</span>
+          </div>
+          <div class="kb-ui__main">
+            <div class="kb-ui__toolbar">
+              <div style="margin-right:auto">
+                <p class="kb-ui__h">Import contacts from a CSV file</p>
+                <p class="kb-ui__muted kb-ui__small">Step 3 of 5: Mapping</p>
+              </div>
+              <span class="kb-ui__btn">Cancel</span>
+            </div>
+            <p class="kb-ui__label" style="text-align:center;font-size:16px;font-weight:600">Map the correct fields</p>
+            <div class="kb-ui__tablewrap"><table class="kb-ui__table">
+              <tr><th>Column headers</th><th>hubsell field</th><th>Mapped?</th></tr>
+              <tr><td>First Name</td><td><span style="white-space:nowrap" class="kb-ui__input is-select">First Name</span></td><td><span class="kb-ui__badge is-success">&#10003;</span></td></tr>
+              <tr><td>Last Name</td><td><span style="white-space:nowrap" class="kb-ui__input is-select">Last Name</span></td><td><span class="kb-ui__badge is-success">&#10003;</span></td></tr>
+              <tr><td>Email</td><td><span style="white-space:nowrap" class="kb-ui__input is-select">Email</span></td><td><span class="kb-ui__badge is-success">&#10003;</span></td></tr>
+              <tr><td>Company</td><td><span style="white-space:nowrap" class="kb-ui__input is-select">Company Name</span></td><td><span class="kb-ui__badge is-success">&#10003;</span></td></tr>
+              <tr><td>Event</td><td><span style="white-space:nowrap" class="kb-ui__input is-select is-placeholder is-marked">Select field</span></td><td><span class="kb-ui__badge">&#10005;</span></td></tr>
+            </table></div>
+            <div class="kb-ui__row" style="justify-content:space-between">
+              <span class="kb-ui__btn">Back</span>
+              <span class="kb-ui__btn is-primary">Next</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figcaption>Matching your columns to hubsell fields</figcaption>
     </figure>
   </li>
   <li>
-    <p>Select an existing list or create a new one, then click <span class="kb-kbd">Next</span>.</p>
-    <figure class="kb-figure" data-ph="Screenshot: choosing a list for the CSV import">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-20/ce6d906a-266f-4f43-bddb-5e6e1412ba86/user_cropped_screenshot_546125c7007a4d10a61b42481da48604_text_export.jpeg" alt="Choosing a list for the CSV import" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Choosing your list</figcaption>
-    </figure>
+    <p>Under <b>Select enrichment level</b>, choose <span class="kb-kbd">No enrichment</span>, <span class="kb-kbd">Add LinkedIn data only</span> or <span class="kb-kbd">Add verified email</span>. Click <span class="kb-kbd">Next</span>.</p>
   </li>
   <li>
-    <p>Check your file before you upload it. Every column needs a header, and every row needs either a LinkedIn URL or an email address. If any names contain characters such as é, á or ó, save the file as CSV UTF-8.</p>
-    <figure class="kb-figure" data-ph="Screenshot: CSV requirements">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-22/dd54d25e-6566-4114-98d3-26879630425d/user_cropped_screenshot_b20447b6f9d449f18b3d6c5d683b610f_text_export.jpeg" alt="The CSV requirements shown before upload" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>What your CSV needs</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>Upload the file and click <span class="kb-kbd">Next</span>.</p>
-    <figure class="kb-figure" data-ph="Screenshot: uploading the file">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-20/455a0386-a365-4ead-ba82-c695e5364771/user_cropped_screenshot_ad08379f3dca40f493597a196298cb99_text_export.jpeg" alt="Uploading the CSV file" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Uploading your file</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>Map the columns in your file to hubsell fields, then click <span class="kb-kbd">Next</span>. Anything without a matching hubsell field can be mapped to <b>Custom Variables</b>.</p>
-    <figure class="kb-figure" data-ph="Screenshot: mapping columns to hubsell fields">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-22/61165bb7-3376-43ed-9ddd-1e6237136705/user_cropped_screenshot_7d3edb71cc7b4909bc3918dd0d9ddac8_text_export.jpeg" alt="Mapping CSV columns to hubsell fields" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Mapping your columns</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>Choose an enrichment type, or skip enrichment.</p>
-    <figure class="kb-figure" data-ph="Screenshot: choosing an enrichment type">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-20/e0b8e51f-82c0-404d-9ebc-80704feb4bce/user_cropped_screenshot_e46ad4413d704d4ca4804c85bfcaea66_text_export.jpeg" alt="Choosing an enrichment type for the CSV import" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Choosing enrichment</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>Choose whether the contacts should go into an existing flow.</p>
-    <figure class="kb-figure" data-ph="Screenshot: the flow step in the CSV import">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-20/b18263fd-a663-428a-ad42-4428934ad6cc/user_cropped_screenshot_a9295a91e526448c8333d3c6702601c8_text_export.jpeg" alt="Choosing whether the contacts go into a flow" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Choosing a flow</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>Click <span class="kb-kbd">Finish</span>. The imported contacts appear under <span class="kb-kbd">Lists</span>.</p>
-    <figure class="kb-figure" data-ph="Screenshot: finishing the CSV import">
-      <img src="https://colony-recorder.s3.amazonaws.com/files/2026-07-20/f139d01b-6634-4256-a491-95eb073187e1/user_cropped_screenshot_cc048b391192411a9b51e9a0b0db331b_text_export.jpeg" alt="Finishing the CSV import" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Finishing the import</figcaption>
-    </figure>
+    <p>Check the list, file name and number of contacts under <b>Review and start your import</b>, and click <span class="kb-kbd">Start import</span>.</p>
   </li>
 </ol>
 
 <div class="kb-result">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
-  <p><b>Your contacts are in hubsell.</b> Your list appears under Lists with a count in the Delivered column, and the matching entry under Searches moves from Active to Completed.</p>
-</div>
-
-<div class="kb-callout kb-callout--tip">
-  <p class="kb-callout__h">Timings to expect</p>
-  <ul>
-    <li>Background deduplication on a LinkedIn or Sales Navigator search takes <b>15 to 20 minutes</b>, depending on list size.</li>
-    <li>CSV deduplication takes roughly <b>20 to 30 minutes</b> per few hundred contacts.</li>
-  </ul>
+  <p><b>Your contacts are on their way.</b> On the Lists page, <b>In Progress</b> counts contacts that are still being enriched and <b>Delivered</b> counts the ones that are ready. Click a number to see those contacts.</p>
 </div>
 
 <div class="kb-callout kb-callout--warn">
   <p class="kb-callout__h">Troubleshooting</p>
   <ul>
-    <li><b>Fewer contacts arrived than there were rows in the file.</b> This is expected. hubsell removes contacts you already have and skips rows with a broken LinkedIn URL or a missing mandatory field.</li>
-    <li><b>You cannot tell which contacts came from this import.</b> Tag every import. Without a tag, deduplication makes a batch hard to identify afterwards.</li>
-    <li><b>The CSV import failed.</b> Check that every column has a header and that every row has a LinkedIn URL or an email address.</li>
-    <li><b>Names show as garbled characters.</b> Excel can strip the encoding. Save the file as CSV UTF-8 and import again. If the contacts are already in, run LinkedIn enrichment to overwrite the corrupted names with the correct profile data.</li>
-    <li><b>A search is stuck on Paused.</b> The LinkedIn or Sales Navigator session has gone out of sync. Disconnect and reconnect LinkedIn from the hubsell plugin.</li>
-    <li><b>Contacts entered a flow before you had checked them.</b> Suppress contacts during LinkedIn or Sales Navigator sourcing so poor fits are removed before they reach a flow.</li>
+    <li><b>Next stays off on the Enter URL step.</b> hubsell accepts a LinkedIn people search, a Sales Navigator people search or a LinkedIn post. A company page or a profile link doesn't work.</li>
+    <li><b>Next stays off on the Mapping step.</b> Map First Name, Last Name, and Email or Contact LinkedIn URL.</li>
+    <li><b>Fewer contacts arrived than you expected.</b> Contacts you already have are not added again.</li>
+    <li><b>The search shows Reconnect needed or Connection needed.</b> The LinkedIn connection of the assigned teammate has stopped working. Connect LinkedIn again (see <a href="/knowledge/connect-your-mailbox-and-linkedin/">Connect your mailbox and LinkedIn</a>).</li>
+    <li><b>Names show odd characters.</b> Save the file as <i>CSV UTF-8</i> in your spreadsheet app and import it again.</li>
   </ul>
 </div>
