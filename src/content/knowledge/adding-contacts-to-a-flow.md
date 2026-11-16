@@ -1,165 +1,151 @@
 ---
 title: "Add contacts to a flow"
-description: "Filter your contacts, select the ones you want, and add them to a flow so your outreach starts sending."
+description: "Filter your contacts, select the ones you want, pick the sender and add them to a Flow, so your outreach starts."
 category: "Getting started"
 order: 7
 series: "First login to first campaign"
 seriesStep: 7
 seriesTotal: 8
-estMinutes: 6
-stepCount: 15
+estMinutes: 4
+stepCount: 11
 appliesTo: "All plans"
-prerequisites: "Contacts in a hubsell list, and a flow you have already built."
-walkthroughUrl: "https://scribehow.com/o/_VgKCJwkRbGYfCk3CnY0eA/viewer/How_to_add_contacts_to_a_Flow__UTgoRIdcTp-CIo60IHGOzg"
-updated: 2026-09-01
+prerequisites: "Contacts in a hubsell list, and a Flow you have built."
+updated: 2026-11-16
 faqs:
-  - q: "Can I add contacts to a flow that is already running?"
-    a: "Yes. Contacts can be added at any time, and they join the back of the queue."
-  - q: "What does the New status filter do?"
-    a: "It selects contacts who have never been contacted, whether freshly imported or already in your database. This is what stops you re-targeting people you have already reached."
   - q: "Why is the Add to flow button greyed out?"
-    a: "A user has to be picked at the top of the pop-up first. Only then can the flow be selected and the button becomes active."
+    a: "Pick both a sender under Select a user and a Flow in the list. The button works once both are chosen."
+  - q: "What does Force add do?"
+    a: "When some of the selected contacts are already in another Flow, hubsell stops and says Some contacts are in another flow. Force add adds them anyway; Skip cancels."
+  - q: "Why isn't my Flow in the list?"
+    a: "Archived Flows aren't offered. Pick a Flow that is New, Active or Paused."
+  - q: "Can I add a single contact?"
+    a: "Yes. Click the contact to open its details, then click Add (their name) to a flow, or select just that one contact in the list."
+  - q: "Which contacts does a Flow skip?"
+    a: "Contacts who are suppressed or have already replied. Email steps also skip contacts without an email address, and LinkedIn steps contacts without a valid LinkedIn URL. The Flow's History lists them under Skipped."
 next:
   label: "Invite team members"
-  href: "/knowledge/invite-team-members"
+  href: "/knowledge/invite-team-members/"
 draft: false
 ---
-<p>Adding contacts to a flow is what actually starts your outreach. The work is in the filtering: getting the right people selected before you hand them to the flow.</p>
+<!-- sources: hubsell-client src/app/data/contacts/contact.service.ts (getFilterConfigNew), src/components/data/contacts/contact-listing.tsx, src/components/filters/FiltersBody.tsx, src/components/filters/FilterPanel.tsx, src/components/selectionMenu/index.tsx, src/components/data/contacts/contact-actions-bar/index.tsx, src/components/data/contacts/contact-actions-bar/actionsConfig.ts, src/components/data/contacts/contact-actions-bar/add-to-flow.tsx, src/i18n/messages/en/contacts.json, src/i18n/messages/en/data.json, src/i18n/messages/en/common.json, src/i18n/messages/en/flows.json -->
+<p>Adding contacts to a Flow is what starts your outreach. Most of the work is the filtering: getting the right people selected before you hand them to the Flow.</p>
 
 <h2 class="kb-sub">Filter your contacts</h2>
 <ol class="kb-steps">
   <li>
-    <p>Click the <span class="kb-kbd">Contacts</span> icon.</p>
-    <figure class="kb-figure" data-ph="Screenshot: the Contacts icon">
-      <img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-25/1add065c-7ee4-4016-956a-bd55bea88e16/action-64ef274f1ad74b62b394c117c786fb8e_5c1ee19127d84f35a4bfca4a05f555c1_text_export.jpeg" alt="The Contacts icon in the sidebar" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Opening Contacts</figcaption>
-    </figure>
+    <p>In the left sidebar, click <span class="kb-kbd">Contacts</span>.</p>
   </li>
   <li>
-    <p>To filter by list, click <span class="kb-kbd">Lists</span>.</p>
-    <figure class="kb-figure" data-ph="Screenshot: the Lists filter">
-      <img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-25/f164f919-7383-4511-8a98-123a9744a9f8/action-07369322e2214764a8da7faa4b79d59c_f6b956c3a5d04621b9067c5fbe5e3ceb_text_export.jpeg" alt="The Lists filter in the Contacts screen" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Filtering by list</figcaption>
-    </figure>
+    <p>Click <span class="kb-kbd">Show/hide filters</span> above the list.</p>
   </li>
   <li>
-    <p>Select your list name.</p>
-    <figure class="kb-figure" data-ph="Screenshot: selecting the list name">
-      <img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-25/291b68e7-87dd-473c-87f1-a2de444640e6/action-549c8723e67b499aa07ff7febde0fd45_c754055748734179bbe83310930e7e5d_text_export.jpeg" alt="Selecting the list name" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Choosing your list</figcaption>
-    </figure>
+    <p>Under <b>Lists</b>, tick your list.</p>
   </li>
   <li>
-    <p>To leave out contacts already in another flow, click <span class="kb-kbd">Status</span>.</p>
-    <figure class="kb-figure" data-ph="Screenshot: the Status filter">
-      <img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-25/4a5e6849-0f21-484f-a847-77933dfb2f35/action-fffa9b82acc34b6eabaa9bcd248d18e7_5da6395b398a40d6aacbf627c7e1a5ea_text_export.jpeg" alt="The Status filter" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Opening the status filter</figcaption>
-    </figure>
+    <p>Under <b>Status</b>, tick <b>New</b> to leave out contacts you have already reached.</p>
   </li>
   <li>
-    <p>Select <span class="kb-kbd">New</span> to get contacts who have never been contacted.</p>
-    <figure class="kb-figure" data-ph="Screenshot: selecting the New status">
-      <img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-25/b031436d-10a9-4265-be48-38bb60e12d39/action-7699e656e7224305b4157945cdbeff08_251845d17ac14a1083ffcc3c301b6ccd_text_export.jpeg" alt="Selecting the New status" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Filtering to new contacts</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>For an email flow, click <span class="kb-kbd">Enrichment level</span> to make sure every contact has an email address.</p>
-    <figure class="kb-figure" data-ph="Screenshot: the Enrichment level filter">
-      <img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-25/ef06a767-4c2e-4e97-8ae8-13e9868930c3/action-57f37c8955cb4822a4761dee1ff71891_1ede6f46af0248a4be65c14ee5330960_text_export.jpeg" alt="The Enrichment level filter" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Opening the enrichment filter</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>Select <span class="kb-kbd">Has email</span>.</p>
-    <figure class="kb-figure" data-ph="Screenshot: selecting Has email">
-      <img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-25/1f1a6e9d-c594-4421-8e45-e66fd36642b5/action-116d6ebabeb24258b4cd5f45db291b8a_901239031980493ba490c5fd95d5ff6c_text_export.jpeg" alt="Selecting Has email" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Requiring an email address</figcaption>
-    </figure>
+    <p>For a Flow with email steps, tick <b>Has email</b> under <b>Enrichment level</b>.</p>
   </li>
   <li>
     <p>Click <span class="kb-kbd">Apply changes</span>.</p>
-    <figure class="kb-figure" data-ph="Screenshot: Apply changes">
-      <img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-25/cf2ba028-b49b-4079-8b3b-d55b3025caad/action-bf41c1efa3a3434486a26bfa353a8c30_578ccc913352432e998adcd0a6ccd42f_text_export.jpeg" alt="The Apply changes button" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Applying your filters</figcaption>
+    <figure class="kb-figure">
+      <div class="kb-ui" role="img" aria-label="The Contacts page with the filter panel open: Enrichment level with Has email ticked, Lists with one list ticked, Status with New ticked, and the Apply changes button, which is marked.">
+        <div class="kb-ui__bar" aria-hidden="true"><i></i><i></i><i></i><span class="kb-ui__url">app.hubsell.com/data/contacts</span></div>
+        <div class="kb-ui__main" aria-hidden="true" style="font-size:13px">
+          <div class="kb-ui__toolbar">
+            <span class="kb-ui__btn">Saved filters</span>
+            <span class="kb-ui__btn" style="margin-right:auto">Show/hide filters</span>
+            <span class="kb-ui__btn is-primary">Add data</span>
+          </div>
+          <div class="kb-ui__card" style="max-width:340px;padding:16px;gap:10px;font-size:13px">
+            <span class="kb-ui__group" style="padding:0">Enrichment</span>
+            <b>Enrichment level</b>
+            <p class="kb-ui__check"><span class="kb-ui__box"></span><span>Has LinkedIn data</span></p>
+            <p class="kb-ui__check"><span class="kb-ui__box is-on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span style="color:inherit">Has email</span></p>
+            <span class="kb-ui__group" style="padding:0">Data</span>
+            <b>Lists</b>
+            <p class="kb-ui__check"><span class="kb-ui__box is-on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span style="color:inherit">DACH logistics leaders</span></p>
+            <span class="kb-ui__group" style="padding:0">Engagement</span>
+            <b>Status</b>
+            <p class="kb-ui__check"><span class="kb-ui__box is-on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span style="color:inherit">New</span></p>
+            <div class="kb-ui__actions"><span class="kb-ui__btn">Reset</span><span class="kb-ui__btn is-primary is-marked">Apply changes (3)</span></div>
+          </div>
+        </div>
+      </div>
+      <figcaption>Filtering the contacts</figcaption>
     </figure>
   </li>
 </ol>
 
 <h2 class="kb-sub">Select the contacts</h2>
-<ol class="kb-steps" start="9">
+<ol class="kb-steps">
   <li>
-    <p>Click <span class="kb-kbd">Select all</span> to take every filtered contact.</p>
-    <figure class="kb-figure" data-ph="Screenshot: Select all">
-      <img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-25/a2b64363-fd67-471d-af24-e67a00429b2e/action-eea83cbec19844d09210173b93ec75eb_86a77c3020464c7099a425cf0d48c60a_text_export.jpeg" alt="The Select all control" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Selecting all filtered contacts</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>Click <span class="kb-kbd">Apply</span>.</p>
-    <figure class="kb-figure" data-ph="Screenshot: Apply">
-      <img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-25/0d653447-b8fd-48de-9d39-b0f13d2f6aa5/action-7f710f5a33e64e31bbe891f7cee40866_50d4bc6bbefd4e25a521ce322127fead_text_export.jpeg" alt="The Apply button" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Confirming the selection</figcaption>
-    </figure>
+    <p>Tick the checkbox in the header of the list. This selects the contacts on this page. To take every contact that matches your filters, choose <span class="kb-kbd">Select all</span> in that checkbox's menu instead.</p>
   </li>
 </ol>
 
-<h2 class="kb-sub">Assign them to the flow</h2>
-<ol class="kb-steps" start="11">
+<h2 class="kb-sub">Add them to the Flow</h2>
+<ol class="kb-steps">
+  <li>
+    <p>Click <span class="kb-kbd">Add to flow</span> above the list. If it isn't shown there, open <span class="kb-kbd">More actions</span>.</p>
+    <figure class="kb-figure">
+      <div class="kb-ui" role="img" aria-label="The Contacts list with three contacts selected. Above the list, 3 selected and the actions Enrich data, Add to flow and Remove from flow. Add to flow is marked.">
+        <div class="kb-ui__bar" aria-hidden="true"><i></i><i></i><i></i><span class="kb-ui__url">app.hubsell.com/data/contacts</span></div>
+        <div class="kb-ui__main" aria-hidden="true" style="font-size:13px">
+          <div class="kb-ui__toolbar">
+            <span class="kb-ui__btn">&times; 3 selected</span>
+            <span class="kb-ui__btn">Enrich data</span>
+            <span class="kb-ui__btn is-marked">Add to flow</span>
+            <span class="kb-ui__btn">Remove from flow</span>
+          </div>
+          <div class="kb-ui__tablewrap"><table class="kb-ui__table">
+            <tr><th><span class="kb-ui__box is-on" style="margin:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></th><th>Contact</th><th>Title</th><th>Company</th><th>Status</th></tr>
+            <tr class="is-selected"><td><span class="kb-ui__box is-on" style="margin:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td><td>Tom Fischer</td><td>Head of Operations</td><td>Brightpath Software</td><td>New</td></tr>
+            <tr class="is-selected"><td><span class="kb-ui__box is-on" style="margin:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td><td>Lena Vos</td><td>Logistics Manager</td><td>Northwind Logistics</td><td>New</td></tr>
+            <tr class="is-selected"><td><span class="kb-ui__box is-on" style="margin:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td><td>Anna Berger</td><td>COO</td><td>Kestrel Analytics</td><td>New</td></tr>
+          </table></div>
+        </div>
+      </div>
+      <figcaption>The selected contacts and their actions</figcaption>
+    </figure>
+  </li>
+  <li>
+    <p>Click <span class="kb-kbd">Select a user</span> and pick the teammate the outreach goes out from. The Flow uses their mailbox and LinkedIn.</p>
+  </li>
+  <li>
+    <p>Pick the Flow in the list.</p>
+  </li>
   <li>
     <p>Click <span class="kb-kbd">Add to flow</span>.</p>
-    <figure class="kb-figure" data-ph="Screenshot: Add to flow">
-      <img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-25/cd90a8fa-6cc5-42dd-a66e-dd9d5e3d64bc/action-b03ce24b41e24239a0c0c715c55f1767_7362ee814be54f5880884a8541a30ace_text_export.jpeg" alt="The Add to flow button" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Starting the assignment</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>Click <span class="kb-kbd">Select a user</span> to choose the account the outreach sends from.</p>
-    <figure class="kb-figure" data-ph="Screenshot: Select a user">
-      <img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-25/d8be6e40-7e3f-425a-a6ce-1933d98db0f3/action-ba1d80525ce142a88f36b1263290c8ed_16435727df1d4782888f5b7bcff1c788_text_export.jpeg" alt="The Select a user control" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Choosing the sending account</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>Select the user.</p>
-    <figure class="kb-figure" data-ph="Screenshot: selecting the user">
-      <img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-25/6ab3e761-3d97-42d1-8d87-fbda8568e7c3/action-678a3472ef78474d94d71c8e3499e49f_04db5e7da8394c5b8e3c6c8874e086df_text_export.jpeg" alt="Selecting the user" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Picking the user</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>Select the <b>Flow name</b> from the list.</p>
-    <figure class="kb-figure" data-ph="Screenshot: selecting the flow">
-      <img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-25/a1f2180b-3afe-4c29-8f9f-3a43c7ed4370/action-8684a84211d54eee958f226e5d382a62_912f97053e0c4b15873905f6ea2d547e_text_export.jpeg" alt="Selecting the flow name" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Choosing the flow</figcaption>
-    </figure>
-  </li>
-  <li>
-    <p>Click <span class="kb-kbd">Add to flow</span>.</p>
-    <figure class="kb-figure" data-ph="Screenshot: confirming Add to flow">
-      <img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-25/01a9de44-c89d-4001-b631-f0b3bdb05639/action-ae2552011a114af194e6c00310aeb2fc_b053900bf87f4bc191377ecdf7a90c46_text_export.jpeg" alt="Confirming Add to flow" loading="lazy" onerror="this.closest('.kb-figure').classList.add('is-missing')" />
-      <figcaption>Confirming</figcaption>
+    <figure class="kb-figure">
+      <div class="kb-ui" role="img" aria-label="The Add to flow panel: the sender picked under Select a user, marked 1, then a list of Flows with Brightpath outreach picked, marked 2, and the Add to flow button, marked 3.">
+        <div class="kb-ui__bar" aria-hidden="true"><i></i><i></i><i></i><span class="kb-ui__url">app.hubsell.com/data/contacts</span></div>
+        <div class="kb-ui__stage" aria-hidden="true">
+          <div class="kb-ui__menu" style="width:300px;padding:10px;gap:8px">
+            <span class="is-marked" style="color:var(--hs-primary,#192341)">Anna Berger &#9662;<span class="kb-ui__num">1</span></span>
+            <span class="kb-ui__input is-placeholder">Search...</span>
+            <span class="kb-ui__muted">&#9675; Kestrel Analytics follow-up</span>
+            <span class="is-marked"><b>&#9673; Brightpath outreach</b><span class="kb-ui__num">2</span></span>
+            <span class="kb-ui__muted">&#9675; Logistics leaders Q4</span>
+            <div class="kb-ui__actions"><span class="kb-ui__btn is-primary is-marked">Add to flow<span class="kb-ui__num">3</span></span></div>
+          </div>
+        </div>
+      </div>
+      <figcaption>Choosing the sender and the Flow</figcaption>
     </figure>
   </li>
 </ol>
 
 <div class="kb-result">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
-  <p><b>Your contacts are in the flow.</b> You can see them on the <b>Flows</b> page, and they start moving through your sequence within the schedule and limits you set.</p>
-</div>
-
-<div class="kb-callout kb-callout--tip">
-  <p class="kb-callout__h">Good to know</p>
-  <ul>
-    <li>Contacts can be added to a running flow at any time. They join the back of the queue.</li>
-    <li>Contacts are skipped when a flow sends if they are suppressed, or have already replied.</li>
-  </ul>
+  <p><b>Your contacts are on their way into the Flow.</b> hubsell confirms with <i>Your request to add the contacts to the flow has been received.</i> In the Flow editor, <span class="kb-kbd">Contacts</span> shows everyone in the Flow, and the trigger step counts them under Total, Started and Queued. The Drip Rate decides how many move from the queue to the first step.</p>
 </div>
 
 <div class="kb-callout kb-callout--warn">
   <p class="kb-callout__h">Common mistakes</p>
   <ul>
-    <li><b>The Add to flow button is greyed out.</b> A user has to be picked at the top of the pop-up first. Only then can the flow be selected and the button becomes active.</li>
-    <li><b>Contacts do not match the flow's channel.</b> Contacts without an email are skipped in an email flow, and contacts without a LinkedIn profile get permanently stuck at the connection request step. Filter on <b>Has email</b> or <b>LinkedIn URL</b> before selecting, or route them into a sequence for the channel they do have.</li>
+    <li><b>Contacts that don't match the Flow's channels.</b> Email steps skip contacts without an email address, and LinkedIn steps skip contacts without a valid LinkedIn URL. Filter on <b>Has email</b> or <b>Contact LinkedIn URL</b> first, or use a Flow for the channel they do have.</li>
+    <li><b>The wrong sender.</b> The Flow sends from the user you pick under Select a user. Check that their mailbox and LinkedIn are connected.</li>
   </ul>
 </div>
