@@ -45,6 +45,11 @@ export const KNOWLEDGE_CATEGORIES: KnowledgeCategory[] = [
     name: 'Account and billing',
     description: 'Plans, credits, users, and invoices.',
   },
+  {
+    slug: 'claude-and-mcp',
+    name: 'Claude and MCP',
+    description: 'Work with your hubsell account from Claude and other AI assistants.',
+  },
 ];
 
 /** Category record for a frontmatter category name, or undefined if unknown. */
