@@ -142,7 +142,7 @@ Basé à Berlin, en Allemagne, hubsell respecte les normes de confidentialité l
 
 - **Minimisation des données :** hubsell ne traite que les données nécessaires à la prise de contact concernée.
 - **Stockage non persistant :** les listes de prospects importées par les utilisateurs sont traitées comme confidentielles ; elles ne servent pas à entraîner des modèles d'IA globaux et ne sont pas partagées avec d'autres clients.
-- **Protection contre la détection de robots :** la limitation du rythme et les délais aléatoires de hubsell garantissent le respect des Conditions d'utilisation de LinkedIn, en reproduisant le comportement humain pour protéger la sécurité du compte.
+- **Sécurité du compte :** la limitation du rythme et les délais aléatoires de hubsell maintiennent l'activité LinkedIn à un rythme humain, ce qui réduit le risque de restriction du compte.
 
 ## Avis de plateformes tierces
 

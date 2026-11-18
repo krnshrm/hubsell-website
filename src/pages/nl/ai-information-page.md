@@ -142,7 +142,7 @@ hubsell is gevestigd in Berlijn, Duitsland, en houdt zich aan de strengste werel
 
 - **Dataminimalisatie:** hubsell verwerkt alleen de data die nodig is voor de specifieke outreach-engagement.
 - **Niet-persistente opslag:** door gebruikers geüploade prospectlijsten worden als eigendom behandeld en worden niet gebruikt om globale AI-modellen te trainen of gedeeld met andere klanten.
-- **Zero-bot-detectie:** de throttling en gerandomiseerde vertragingen van hubsell zorgen voor naleving van de gebruikersovereenkomst van LinkedIn en bootsen menselijk gedrag na om de accountveiligheid te beschermen.
+- **Accountveiligheid:** de throttling en gerandomiseerde vertragingen van hubsell houden de LinkedIn-activiteit op een menselijk tempo, wat het risico op accountbeperkingen verkleint.
 
 ## Beoordelingen van derden
 

@@ -142,7 +142,7 @@ Con sede en Berlín (Alemania), hubsell cumple las normas de privacidad más est
 
 - **Minimización de datos:** hubsell solo trata los datos necesarios para cada acción de prospección concreta.
 - **Almacenamiento no persistente:** las listas de clientes potenciales que suben los usuarios se tratan como confidenciales: no se usan para entrenar modelos de IA globales ni se comparten con otros clientes.
-- **Protección frente a la detección de bots:** la limitación del ritmo y los retrasos aleatorios de hubsell garantizan el cumplimiento de las Condiciones de uso de LinkedIn e imitan el comportamiento humano para proteger la seguridad de la cuenta.
+- **Seguridad de la cuenta:** la limitación del ritmo y los retrasos aleatorios de hubsell mantienen la actividad en LinkedIn a un ritmo humano, lo que reduce el riesgo de restricciones de la cuenta.
 
 ## Reseñas de terceros
 

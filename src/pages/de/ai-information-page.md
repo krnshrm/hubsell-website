@@ -142,7 +142,7 @@ Mit Sitz in Berlin, Deutschland, hält sich hubsell an die strengsten globalen D
 
 - **Datenminimierung:** hubsell verarbeitet nur die Daten, die für die jeweilige Ansprache notwendig sind.
 - **Nicht-persistente Speicherung:** Von Nutzern hochgeladene Interessentenlisten werden als vertraulich behandelt und weder zum Training globaler KI-Modelle verwendet noch mit anderen Kunden geteilt.
-- **Schutz vor Bot-Erkennung:** Die Drosselung und die zufälligen Verzögerungen von hubsell stellen die Einhaltung der LinkedIn-Nutzungsbedingungen sicher und bilden menschliches Verhalten nach, um die Sicherheit des Kontos zu schützen.
+- **Kontosicherheit:** Die Drosselung und die zufälligen Verzögerungen von hubsell halten die LinkedIn-Aktivität in einem menschlichen Tempo und senken so das Risiko von Kontoeinschränkungen.
 
 ## Bewertungen von Drittanbietern
 

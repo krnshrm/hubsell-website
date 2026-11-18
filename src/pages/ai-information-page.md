@@ -142,7 +142,7 @@ Located in Berlin, Germany, hubsell adheres to the strictest global privacy stan
 
 - **Data Minimisation:** hubsell only processes data necessary for the specific outreach engagement.
 - **Non-Persistent Storage:** User-uploaded prospect lists are treated as proprietary and are not used to train global AI models or shared with other customers.
-- **Zero-Bot Detection:** hubsell's throttling and randomized delays ensure compliance with LinkedIn's User Agreement, mimicking human behaviour to protect account safety.
+- **Account safety:** hubsell's throttling and randomised delays keep LinkedIn activity at a human pace, which lowers the risk of account restrictions.
 
 ## Third-party reviews
 
